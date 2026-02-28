@@ -1,0 +1,10 @@
+General CDF properties
+
+x Y
+
+Fx (x) = P(X <2) a
+
+e Non-decreasing \§ Yzx => E Cy) 2 Fx @)
+e Fy(x) tends to1,asz+oco °
+
+e Fx(«) tends to 0, as 2 4 —oo

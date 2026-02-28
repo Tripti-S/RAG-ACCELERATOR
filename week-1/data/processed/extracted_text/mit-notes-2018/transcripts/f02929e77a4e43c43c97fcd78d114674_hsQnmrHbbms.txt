@@ -1,0 +1,73 @@
+MITOCW | MITRES6_012S18_L24-04_300k
+Let us now abstract from our previous example and provide a general definition of what a discrete time, finite state
+Markov chain is.
+First, central in the description of a Markov process is the concept of a state, which describes the current situation
+of a system we are interested in.
+For example, in the case of the checkout counter example, the number of customers in the queue provided the
+right level of information needed to define a useful state.
+Time is assumed to be discrete, that is, divided in discrete time steps.
+The system starts at time 0 in an initial state, and at each successive time step, the system goes from its current
+state to a next one chosen with some randomness.
+As a result, after n such transitions, the state of the system will be random, and so we can think of it as a random
+variable.
+Let Xn be this random variable.
+That is, Xn represents the state in which the system is after n transitions from an initial state in which it started to
+operate.
+As a shortcut, we may often say that Xn is the state of the system at time n.
+We suppose that there is a finite number of possible states for the system to be in.
+Here, we have drawn a portion of a finite state space with m possible states labeled 1 to m, using i and j as
+generic labels.
+Of course, we could think of systems with an infinite number of states, either discrete or continuous, but this is a
+bit more complicated, and so in this course, we restrict ourselves to a finite state space.
+Note that the initial state could itself be fixed or chosen randomly.
+Assume now that the system started in state three.
+What will happen next?
+The system will evolve according to one of the possible transitions out of state three, for example, one of these
+arcs.
+Note here that we don't have an arc from three to four.
+As a convention, we only include arcs for transitions that can happen.
+Remember the checkout counter example.
+Because of our assumptions that no more than one person can join the queue at any time, we didn't have arcs of
+the type going from one to three or from two to ten.
+Also, because of the customers being served one at a time, departures were limited to one person at a time, and
+so no arcs of the type going from two to zero or from nine to two.
+So the next transition out of three can be thought of a random jump where, from state three, the system will jump
+to either state one, state two, state j, or jump unto itself.
+These will be the only possibilities.
+We want to describe the statistics of these jumps, and we will use conditional probabilities.
+Given that at time zero, the system is in state three, what is the probability that it will be in state j next?
+These will be called transition probabilities.
+For example, the probability of going from three to one will be p31.
+Here, p32, here, p33, and here, p3j.
+Note that these are the only possibilities.
+As a result, you have p31 plus p32 plus p33 plus p3j will be 1.
+Assume that the system continued to evolve, and after various different steps, come back in three at time n.
+Again, what will happen next?
+Well, this property here says that the probability of going from state three to one is again p31, the same as before.
+In other words, here, we will say that the chain is time homogeneous.
+That is, these transition probabilities will be the same irrespective of the time.
+So this is true for all n.
+And the summation that we have written here for the special case is of course general.
+What we have is that the probability of i to j, If you sum all of these probabilities for all possible j's, you will have
+one.
+Now, in order for this probabilistic specification to make sense and be coherent, we need to make a big
+assumption about the evolution of the state of the system.
+This assumption, the so-called Markov property, given in words here and in mathematical statement here, is in
+fact, the defining nature of what a Markov process is.
+In words, what it says is that every time the system finds itself in state three, the transition probability of going to
+state one will always be p31, no matter how the system evolved in the past up to being in state three.
+In other words, no matter what path the system has followed up to the current state, the next state transition
+probability will be the same, independent of that past.
+Mathematically, conditionally on knowing your current state, having more information about the past state
+variables does not change the transition probability to your next state.
+In other words, the probability distribution of the next state, X n+1, depends on the past only through the value of
+the present state, Xn.
+So you can see that as the definition of the transition probability and that property, that equality from here to here,
+being the Markov property.
+For this property to hold in any modeling application, you need to choose your state carefully.
+You want to ensure that the information contained in the description of your state captures all the relevant
+information to make predictions about the future evolution.
+Now, given a system, how to properly define the state variables which will allow us to model its evolution as a
+Markov process is somewhat of an art, and there are no cookbook recipes to do it.
+However, with a little bit of experience and practice, one quickly gets the required intuition to do this properly.
+You will be able to do so in that class.

@@ -1,0 +1,8 @@
+The time the first (or the last) light bulb burns out
+
+e Three lightbulbs time
+— independent lifetimes X, Y, Z; exponential(,) sine
+e Find expected time until all burn out t ine
+°
+x Y 2 ’ ¥ 1 x, 2!
+mar FK,Y,38 a

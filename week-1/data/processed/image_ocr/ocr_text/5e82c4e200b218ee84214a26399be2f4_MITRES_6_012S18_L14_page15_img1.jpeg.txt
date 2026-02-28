@@ -1,0 +1,30 @@
+Discrete ©, discrete X
+
+e values of ©: alternative hypotheses
+
+0.6
+Pex (4 | z)
+
+0.3
+0.1
+
+e MAP rule: @
+
+pe (9) pxje(e | #)
+
+Po|x(9 |r) = px (2)
+
+px (2) = Ype(6") pxjo(« | 6’)
+g/
+
+conditional prob of error:
+P(6AC|X=z)
+
+smallest under the MAP rule
+
+overall probability of error:
+
+P(O#O) = P(OFO| X =2) px(z)
+
+=>-P(O4O|O =8)pe(9)
+6

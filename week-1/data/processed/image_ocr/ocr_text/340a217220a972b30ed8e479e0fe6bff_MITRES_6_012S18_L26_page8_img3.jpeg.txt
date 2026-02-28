@@ -1,0 +1,1 @@
+t; = E[min{n > 0 such that Xn = s}| Xo = i]

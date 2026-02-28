@@ -1,0 +1,16 @@
+Bayes’ rule
+
+e Partition of sample space into Aj, Ao, A3
+
+e Have P(A;), for every i initial “beliefs”
+e Have P(B | Aj), for every i
+
+revised “beliefs,” given that B occurred:
+
+P(A; | B) = P(A;98)
+P(e)
+
+As nB P(A, P(B| A;)
+A A ee SS Eee
+° PCIE) = 5 pray Ap
+

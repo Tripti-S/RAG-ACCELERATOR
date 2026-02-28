@@ -1,0 +1,11 @@
+Independence and variances
+e Always true: var(aX) = a2var(X) var(X + a) = var(X)
+
+e In general: var(X +Y) €¢var(X) + var(Y)
+
+If X, Y are independent: var(X + Y) = var(X) + var(Y)
+
+e Examples:
+— If X=Y: var(X+Y)=
+— If X=-Y: var(X+Y)=
+— If X, Y independent: var(X —3Y) =

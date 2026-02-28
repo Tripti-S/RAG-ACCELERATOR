@@ -1,0 +1,12 @@
+Derivation of the law of total variance
+
+[ var(X) = Elvar(X | Y)] + var(ELX | v) © var(X) = B[X2] — (BLX])2
+
+verte yu = EPt) ¥=y]-(EL* 18272) fot al” y
+var(X | Y¥Y) = E[ x?) 1¥) - (elx)])*
+
+ofan) = E[*) - cL eer)’ ¥]
+Comer E[(6b5)*) - («fer wt)
+
+(efx))*
+

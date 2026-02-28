@@ -1,0 +1,21 @@
+MITOCW | MITRES6_012S18_L11-01_300k
+In this lecture, we will deal with a single topic.
+How to find the distribution, that is, the PMF or PDF of a random variable that is defined as a function of one or
+more other random variables with known distributions.
+Why is this useful?
+Quite often, we construct a model by first defining some basic random variables.
+These random variables usually have simple distributions and often they are independent.
+But we may be interested in the distribution of some more complicated random variables that are defined in terms
+of our basic random variables.
+In this lecture, we will develop systematic methods for the task at hand.
+After going through a warm-up, the case of discrete random variables, we will see that there is a general, very
+systematic 2-step procedure that relies on cumulative distribution functions.
+We will pay special attention to the easier case where we have a linear function of a single random variable.
+We will also see that when the function involved is monotonic, we can bypass CDFs and jump directly to a formula
+that is easy to apply.
+We will also see an example involving a function of two random variables.
+In such examples, the calculations may be more complicated but the basic approach based on CDFs is really the
+same.
+Let me close with a final comment.
+Finding the distribution of the function g of X is indeed possible, but we should only do it when we really need it.
+If all we care about is the expected value of g of X we can just use the expected value rule.

@@ -1,0 +1,14 @@
+A linear function of a normal r.v. is normal
+
+X ~ N(u,07)
+
+|
+
+e-(2—u)?/20?
+Jone
+
+fx(z) =
+
+Y=aX+b, a0
+
+If X ~N(p,07), then aX +b~ N (ap + b, a207)

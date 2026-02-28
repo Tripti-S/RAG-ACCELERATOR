@@ -1,0 +1,19 @@
+LECTURE 14: Introduction to Bayesian inference
+
+e The big picture
+
+motivation, applications
+
+problem types (hypothesis testing, estimation, etc.)
+
+e The general framework
+
+Bayes’ rule —> posterior
+(4 versions)
+
+point estimates (MAP, LMS)
+
+performance measures)
+(prob. of error; mean squared error)
+
+examples

@@ -1,0 +1,8 @@
+A function of multiple r.v.’s: Z = g(X,Y)
+
+e Same methodology: find CDF of Z
+
+e Let Z=Y/X; X,Y independent, uniform on [0,1]
+y y
+
+1 1

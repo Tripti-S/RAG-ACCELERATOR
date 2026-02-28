@@ -1,0 +1,226 @@
+LECTURE 1: Probability models and axioms
+• Sample space
+• Probability laws
+- Axioms
+Properties that follow from the axioms
+• Examples
+- Discrete
+- Continuous
+• Discussion
+- Countable additivity
+- Mathematical subtleties
+• Interpretations of probabilities
+1
+Sample space
+• Two steps :
+- Describe possible outcomes
+- Describe beliefs about likelihood of outcomes
+2
+Sample space
+• List (set) of possible outcomes, Q
+• List must be:
+- Mutually exclusive
+- Collectively exhaustive
+- At the ..r ight" granularity
+3
+Samp spac . disc ete/fin- e example
+• wo rolls of a te rahedral die
+sequential description
+,
+,2
+1 3
+4
+,4
+3
+Y-Second
+roll
+2
+1
+1 2 3 4
+X Ftrstro I 44
+4
+Sarr1 e space· cont-nuo s exa pl
+< <
+• (x, y) such t at O x, y 1
+y
+JI
+1
+1
+X
+5
+Probability axioms
+• Event: a subset of the sample space
+- Probability is assigned to events
+• Axioms:
+> o
+- Nonnegativity: P(A)
+=
+- Normalization: P(n) 1
+(Finite) additivity: (to be strengthened later)
++
+If An B = 0, t hen P(A u B) = P(A) P(B)
+1
+6
+Some simple consequences of the axioms
+Axioms Consequences
+P(A) > 0 P(A) < 1
+=
+P(n) - 1
+P(0) 0
++
+=
+For disjoint events: P(A) P(AC) 1
++
+P(A U B) ==P(A) P(B) = + +
+u Bu
+P(A C) P(A) P(B) P(C)
+and similarly for k disjoint events
++ · · · +
+p ( { s 1,s2, ... , sk}) ---=p ( { s 1}) p ( {s k})
+= + · · · +
+P(s1) P(sk)
+7
+Some simple consequences of the axioms
+Axioms
+>
+P(A) 0
+=
+P(n) 1
+For disjoint events:
++
+=
+P(A U B) P(A) P(B)
+8
+Some simple consequences of the axioms
++ +
+=
+• A, B, C disjoint: P(A U Bu C) P(A) P(B) P(C)
+9
+More consequences of the axioms
+<
+• If AC B, then P(A) P(B)
++
+=
+u n
+• P(A B) P(A) P(B) - P(A B)
++
+u <
+• P(A B) P(A) P(B)
+10
+More consequences of the axioms
++ +
+=
+• P(A u Bu C) P(A) P(Ac n B) P(Ac n Ben c)
+11
+Pro ,ability ca cula -on: discre e/fin-te exam le
+• wo ro Is of a tetra edral die • Le every possib e ,ou · come ave probability 1/16
+= =
+• P(X 1)
+=
+4
+Let Z 1n(X, Y)
+3
+Y-Second
+= =
+roll • P(Z 4)
+2
+1 = =
+• P(Z 2)
+1 2 3 4
+X = F1rstr oll
+12
+·sere e iforrn aw
+n
+- · Assume consists o n equally likely e eme ts
+- Assume A consists of k elemen s
+P(A)-
+--
+pro
+n
+13
+robabi - y calculation· cont·n ous example
+< <
+• (x, y) such t at O x , y 1
+Ya
+=
+Ix < 1/2})
+P({(x,y) y
+1 ...,______ _
+P({(0.5,0.3)}) -
+.~·
+1
+X
+14
+Probability calculation steps
+• Specify the sample space
+• Specify a probability law
+• Identify an event of interest
+• Calculate ...
+15
+Probability calculat-on. discrete but -nfinite sample space
+p
+• Sample space· { , 2, ... }
+1/2
+_!_, 0
+We are given P(n) - n - 1, 2, ...
+2n
+1/4
+0
+1/8
+0 1/16
+0
+  
+1 2 3 4
+• P(outcome is eve ) -
+16
+Countable add-tivity axiom
+• Strengthens the finite additivity axiom
+Cou ta e Additivity Axiom:
+I A1, A A is an ·ntinite e e ce of d·sjoi events,
+2 , 3 ,...
+u · ) -
+then P( A2 U A3 P(A1) P(A2) (A ) · ·
+17
+Counta e Additivity Axiom.
+If A1, A2, A3, ... is an in inite seq e ce of di Join events,
+= (
+u
+then P( 1 U A2 3 U ·) 1) P( 2) ( )
+• Additivity holds on y for uco nta e" sequences of events
+• e unit squa e (similarly, the real line, etc.) is not countab e
+(its elements cannot be arranged in a sequence)
+• "Area' is a legitimate probability law on the unit square,
+as long as we do- not t y to assig probabi ities/areas to uvery strange" sets
+18
+Interpretations of probability theory
+• A narrow view: a branch of math
+=> ''Thm:'' "Frequency" of event A "is" P(A)
+- Axioms theorems
+• Are probabilities frequencies?
+=
+- P(coin toss yields heads) 1/2
+=
+- P(the president of ... will be reelected) 0.7
+• Probabilities are often intepreted as:
+- Description of beliefs
+- Betting preferences
+19
+• A framew ·ork for a alyzing phen -omena w·th uncerta·n outcomes
+- Rules or consistent reasoning
+- Used for predictions and decisions
+Predictions
+Probabili y eory
+Real world
+(Analysis)
+Decisions
+Data
+Models
+Infere ce/Statistics
+20
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+21

@@ -1,0 +1,16 @@
+Point estimates in Bayesian inference
+
+The complete answer is a posterior distribution
+
+PMF Pox ( | a) or PDF fox | x)
+
+estimate: @ = g(z)
+Pex: | 2) feix¢ |) (number)
+| | Lo estimator: © = g(X)
+(random variable)
+e Maximum a posteriori probability (MAP):
+
+Pe|x (9 | x) = maxg pe|x (4 | z)
+fox (* | x) = maxg fox (4 | x)
+
+e Conditional expectation: E[{Q |X =-2] (LMS: Least Mean Squares)

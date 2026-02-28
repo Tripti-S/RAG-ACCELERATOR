@@ -1,0 +1,13 @@
+Probability density functions (PDFs)
+PDF f(r)
+
+px(2)
+
+P(ia< X <b) —
+a 4 zx
+Paa<X<d)= YD px(a) P(a< xX <b)= |” fx(a) de
+zia<xa<b a
+px(x) >0 Yo px(2) =1 fx(2) >0 f fe(o)de = 1
+
+Definition: A random variable is continuous if it can be described by a PDF
+

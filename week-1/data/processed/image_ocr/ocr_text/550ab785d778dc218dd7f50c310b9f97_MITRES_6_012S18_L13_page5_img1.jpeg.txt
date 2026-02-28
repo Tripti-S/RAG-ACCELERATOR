@@ -1,0 +1,14 @@
+Forecast revisions E|E[X | Y]] = E[X]
+
+e Suppose forecasts are made by calculating expected value,
+given any available information
+
+e X: February sales
+
+e Forecast in the beginning of the year:
+
+e End of January: will get new information, value y of Y
+
+Revised forecast:
+
+e Law of iterated expectations:

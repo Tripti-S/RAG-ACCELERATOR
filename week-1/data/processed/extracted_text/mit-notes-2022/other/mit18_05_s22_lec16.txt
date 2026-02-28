@@ -1,0 +1,319 @@
+Choosing Priors
+Probability Intervals
+18.05 Spring 2022
+Image created from data taken from https://amsmeteors.org/2013/
+03/update-for-march-22-2013-northeast-fireball
+1/30
+Announcements/Agenda
+Announcements
+• None
+Agenda
+• Two parameter tables.
+• Choosing priors
+• Probably only one board question today
+• Left meteor slides in at the end for fun. We probably won’t have
+time to cover them.
+2/30
+Two-parameter tables: Malaria
+In the 1950s scientists injected 30 African “volunteers” with malaria.
+𝑆 = carrier of sickle-cell gene
+𝑁 = non-carrier of sickle-cell gene
+𝐷+ = developed malaria
+𝐷− = did not develop malaria
+𝐷+ 𝐷−
+𝑆 2 13 15
+𝑁 14 1 15
+16 14 30
+3/30
+Model
+𝜃 = probability an injected 𝑆 develops malaria.
+𝑆
+𝜃 = probability an injected 𝑁 develops malaria.
+𝑁
+Assume conditional independence between all the experimental
+subjects.
+Likelihood is a function of both 𝜃 and 𝜃 :
+𝑆 𝑁
+𝑃 (data|𝜃 ,𝜃 ) = 𝑐𝜃2(1−𝜃 )13𝜃14(1−𝜃 ).
+𝑆 𝑁 𝑆 𝑆 𝑁 𝑁
+Hypotheses: pairs (𝜃 , 𝜃 ).
+𝑆 𝑁
+To simplify, use a finite number of hypotheses:
+𝜃 and 𝜃 are each one of 0, 0.2, 0.4, 0.6, 0.8, 1.
+𝑆 𝑁
+4/30
+Color-coded two-dimensional tables
+Hypotheses
+𝜃 \𝜃 0 0.2 0.4 0.6 0.8 1
+𝑁 𝑆
+1 (0,1) (.2,1) (.4,1) (.6,1) (.8,1) (1,1)
+0.8 (0,.8) (.2,.8) (.4,.8) (.6,.8) (.8,.8) (1,.8)
+0.6 (0,.6) (.2,.6) (.4,.6) (.6,.6) (.8,.6) (1,.6)
+0.4 (0,.4) (.2,.4) (.4,.4) (.6,.4) (.8,.4) (1,.4)
+0.2 (0,.2) (.2,.2) (.4,.2) (.6,.2) (.8,.2) (1,.2)
+0 (0,0) (.2,0) (.4,0) (.6,0) (.8,0) (1,0)
+Table of hypotheses for (𝜃 , 𝜃 )
+𝑆 𝑁
+Corresponding level of protection due to 𝑆: 𝜃 − 𝜃 .
+𝑁 𝑆
+orange = strong, darker blue = some, light blue = none,
+white = negative.
+5/30
+Color-coded two-dimensional tables
+Likelihoods (scaled to make the table readable)
+𝜃 \𝜃 0 0.2 0.4 0.6 0.8 1
+𝑁 𝑆
+1 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000
+0.8 0.00000 1.93428 0.18381 0.00213 0.00000 0.00000
+0.6 0.00000 0.06893 0.00655 0.00008 0.00000 0.00000
+0.4 0.00000 0.00035 0.00003 0.00000 0.00000 0.00000
+0.2 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000
+0 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000
+Likelihoods scaled by 100000/𝑐
+𝑝(data|𝜃 ,𝜃 ) = 𝑐𝜃2(1−𝜃 )13𝜃14(1−𝜃 ).
+𝑆 𝑁 𝑆 𝑆 𝑁 𝑁
+High likelihood hypotheses inside thick black rectangle.
+6/30
+Color-coded two-dimensional tables
+Flat prior
+𝜃 \𝜃 0 0.2 0.4 0.6 0.8 1 𝑝(𝜃 )
+𝑁 𝑆 𝑁
+1 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+0.8 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+0.6 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+0.4 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+0.2 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+0 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+𝑝(𝜃 ) 1/6 1/6 1/6 1/6 1/6 1/6 1
+𝑆
+Flat prior 𝑝(𝜃 , 𝜃 ): each hypothesis (square) has equal probability
+𝑆 𝑁
+7/30
+Color-coded two-dimensional tables
+Posterior to the flat prior
+𝜃 \𝜃 0 0.2 0.4 0.6 0.8 1 𝑝(𝜃 |data)
+𝑁 𝑆 𝑁
+1 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000
+0.8 0.00000 0.88075 0.08370 0.00097 0.00000 0.00000 0.96542
+0.6 0.00000 0.03139 0.00298 0.00003 0.00000 0.00000 0.03440
+0.4 0.00000 0.00016 0.00002 0.00000 0.00000 0.00000 0.00018
+0.2 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000
+0 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000 0.00000
+𝑝(𝜃 |data) 0.00000 0.91230 0.08670 0.00100 0.00000 0.00000 1.00000
+𝑆
+Normalized posterior to the flat prior: 𝑝(𝜃 , 𝜃 |data)
+𝑆 𝑁
+Strong protection:
+𝑃 (𝜃 − 𝜃 ≥ 0.6 | data) = sum of orange = 0.88075
+𝑁 𝑆
+Some protection:
+𝑃 (𝜃 > 𝜃 | data) = sum orange and darker blue = 0.99995
+𝑁 𝑆
+8/30
+Continuous two-parameter distributions
+(This is preparation for the board problem.)
+Sometimes continuous parameters are more natural.
+Malaria example (from class notes):
+discrete prior table from the class notes.
+Similarly colored version for the continuous parameters (𝜃 , 𝜃 )
+𝑆 𝑁
+over range [0,1] × [0,1].
+𝜃 −𝜃 >0.6
+𝑁 𝑆
+1
+𝜃𝑁\𝜃𝑆 0 0.2 0.4 0.6 0.8 1
+1 (0,1) (.2,1) (.4,1) (.6,1) (.8,1) (1,1)
+0.8 (0,.8) (.2,.8) (.4,.8) (.6,.8) (.8,.8) (1,.8) 0.6 𝜃 𝑆 <𝜃 𝑁
+𝜃
+0.6 (0,.6) (.2,.6) (.4,.6) (.6,.6) (.8,.6) (1,.6) 𝑁 𝜃 𝑁 <𝜃 𝑆
+0.4 (0,.4) (.2,.4) (.4,.4) (.6,.4) (.8,.4) (1,.4)
+0.2 (0,.2) (.2,.2) (.4,.2) (.6,.2) (.8,.2) (1,.2)
+0 (0,0) (.2,0) (.4,0) (.6,0) (.8,0) (1,0) 𝜃 𝑆 1
+The probabilities are given by double integrals over regions.
+9/30
+Board question preamble: Treating severe respiratory
+failure*
+Two treatments for newborns with severe respiratory failure.
+1. CVT: conventional therapy (hyperventilation and drugs)
+2. ECMO: extracorporeal membrane oxygenation (invasive procedure)
+In 1983 in Michigan:
+19/19 ECMO babies survived and 0/3 CVT babies survived.
+Later Harvard ran a randomized study:
+28/29 ECMO babies survived and 6/10 CVT babies survived.
+*Adapted from Statistics: a Bayesian Perspective by Donald Berry
+10/30
+Board question: Updating two parameter priors
+Michigan: 19/19 ECMO babies and 0/3 CVT babies survived.
+Harvard: 28/29 ECMO babies and 6/10 CVT babies survived.
+𝜃 = probability that an ECMO baby survives
+𝐸
+𝜃 = probability that a CVT baby survives.
+𝐶
+Consider the values 0.125, 0.375, 0.625, 0.875 for 𝜃 and 𝜃 .
+𝐸 𝐶
+(a) Make the 4×4 prior table for a flat prior.
+(b) Based on the Michigan results, create a reasonable informed prior
+table for analyzing the Harvard results (unnormalized is fine).
+(c) Make the likelihood table for the Harvard results. (You might use R to
+compute some of the values.)
+(d) Find the posterior table for the informed prior.
+(e) Using the informed posterior, compute the probability that ECMO is
+better than CVT.
+(f) Also compute the posterior probability that 𝜃 − 𝜃 ≥ 0.6.
+𝐸 𝐶
+(The posted solutions will also show 4-6 for the flat prior.)
+11/30
+Probability intervals
+• Example. If 𝑃(𝑎 ≤ 𝜃 ≤ 𝑏) = 0.7 then [𝑎, 𝑏] is a 0.7 probability
+interval for 𝜃. We also call it a 70% probability interval.
+• Example. Between the 0.05 and 0.55 quantiles is a 0.5
+probability interval. Another 50% probability interval goes from
+the 0.25 to the 0.75 quantiles.
+• Symmetric probability intervals. A symmetric 90% probability
+interval goes from the 0.05 to the 0.95 quantile.
+• Q-notation. Writing 𝑞 for the 𝑝 quantile we have 0.5
+𝑝
+probability intervals [𝑞 , 𝑞 ] and [𝑞 , 𝑞 ].
+0.25 0.75 0.05 0.55
+• Uses. To summarize a distribution; to help build a subjective
+prior.
+12/30
+Probability intervals in Bayesian updating
+• We have 𝑝-probability intervals for the prior 𝑓(𝜃).
+• We have 𝑝-probability intervals for the posterior 𝑓(𝜃|𝑥).
+• The latter tend to be smaller than the former. Thanks data!
+• Probability intervals are good, concise statements about our
+current belief/understanding of the parameter of interest.
+• We can use them to help choose a good prior.
+13/30
+Probability intervals for normal distributions
+−3 −2 −1 0 1 2 3
+4.0
+3.0
+2.0
+1.0
+0.0
+1.0−
+N(0, 1)
+orange = 0.50, blue = 0.68, green = 0.9
+Note. The asymmetric intervals are of different lengths.
+14/30
+Probability intervals for beta distributions
+0.0 0.2 0.4 0.6 0.8 1.0
+3
+2
+1
+0
+beta(10, 4)
+orange = 0.50, blue = 0.68, green = 0.9
+15/30
+Concept question: Increasing probability
+To convert an 80% probability interval to a 90% interval should you
+shrink it or stretch it?
+1. Shrink 2. Stretch.
+16/30
+Reading questions
+The following slides contain bar graphs of the responses to the
+reading questions. Each bar represents one student’s estimate of their
+own 50% probability interval (from the 0.25 quantile to the 0.75
+quantile).
+Each graph also shows the ‘correct’ answer gleaned from a search of
+the web.
+Details about these answers are in the slides following the graphs.
+17/30
+Subjective probability 1 (50% probability interval)
+Airline deaths in 100 years
+10 1000000
+167,000
+18/30
+Subjective probability 2 (50% probability interval)
+Number of girls born in world each year
+12 4000000000
+67,600,000
+19/30
+Subjective probability 3 (50% probability interval)
+Number of French speakers world-wide
+13 1000000000
+76,000,000 235,000,000312,000,000
+20/30
+Subjective probability 4 (50% probability interval)
+Number of abortions in the U.S. each year
+15 2000000
+862,300
+21/30
+Reading question answers
+Here is what we found for answers to the questions:
+1. Airline deaths in 100 years: We found a Wikipedia article that claimed
+there were 83,772 fatalities due to aviation accidents between 1970 and
+2020 (https://en.wikipedia.org/w/index.php?title=Aviation_
+accidents_and_incidents&oldid=1079179593).
+In the 50 years before that there were fewer people flying, but it was
+probably more dangerous. Let’s assume they balance out and estimate the
+total number of fatalities in 100 years as 2 × 83, 772 ≈ 167, 000
+2. Number of girls born in the world each year: I had trouble finding a
+totally reliable source, but most sites gave the same number of, currently,
+about 140 million births each year, e.g. https://ourworldindata.org/
+grapher/births-and-deaths-projected-to-2100. If we take what
+seems to be the accepted ratio of 1.07 boys born for every girl then
+140/2.07 = 67.6 million baby girls.
+22/30
+Reading question answers continued
+3. It’s hard to get precise numbers but all the sites I found gave similar
+numbers: For instance, https://en.wikipedia.org/w/index.php?
+title=French_language&oldid=1080625160 says there about 76
+million native speakers, 235 million daily fluent speakers and and
+additional 77-110 million secondary speakers who speak it with varying
+degrees of proficiency.
+4. According to Wikipedia
+(https://en.wikipedia.org/w/index.php?title=Abortion_
+statistics_in_the_United_States&oldid=1080417881), which is
+quoting Guttmacher Institute figures, there were 862,300 abortions in the
+US in 2017. They also quote the CDC figure of 619,591. The difference
+probably reflects the fact that the CDC is using oﬀicial figures reported by
+the states and not all states report each year. Also, they are only reporting
+legal, induced abortions, while Guttmacher is using a more comprehensive
+survey.
+23/30
+Meteor!
+On March 22, 2013, a meteor lit up the skies.
+It passed almost directly over NYC.
+Public domain image courtesy of NASA.
+24/30
+Board question: Meteor! (a) No data.
+Draw a pdf 𝑓(𝜃), 0 ≤ 𝜃 < 2𝜋, for the meteor’s direction.
+Draw a 0.5-probability interval. How long is it?
+Let 𝜃 = 0 mean due east.
+(Stay at the board for the next questions.)
+25/30
+Board question: Meteor! (b) Heat map.
+Heat map of the number of reported sightings
+Image created from data taken from https://amsmeteors.org/
+2013/03/update-for-march-22-2013-northeast-fireball
+Based on this, update your pdf for the meteor’s direction, i.e. draw a
+new graph. Call the new pdf 𝑓(𝜃|𝑥 ).
+1
+Estimate a 0.5-probability interval. How long is it?
+26/30
+Board question: Meteor! (c) Finer heat map.
+Heat map of the number of reported sightings
+Draw a new pdf, 𝑓(𝜃|𝑥 ), for the meteor’s direction.
+2
+Draw a 0.5-probability interval. How long is it?
+27/30
+Discussion: Meteor! Actual direction.
+(Approximate direction computed by amsmeteors.org referenced
+earlier.)
+Discussion: how good is the data of the heat map for determining the
+direction of the meteor?
+28/30
+xkcd commentary
+Image courtesy of xkcd. License: CC BY-NC.
+https://imgs.xkcd.com/comics/heatmap.png
+29/30
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+30/30

@@ -1,0 +1,20 @@
+Comments on conditional PDFs
+
+fxy(a,y)
+
+fy) ¢ fxyy@|y) 20
+
+frye ly) =
+
+e Think of value of Y as fixed at some y
+shape of fxjy(-|y): slice of the joint
+
+i fuy (a, y) da
+
+bs [txw@ lw de = =" = 1
+
+e Multiplication rule:
+fxy ey) = fy): fxy@ ly) OS
+
+= fx(«): fyx@y|2)
+

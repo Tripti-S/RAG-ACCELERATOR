@@ -1,0 +1,13 @@
+Example
+
+You get email according to a Poisson process,
+at a rate of \ = 5 messages per hour.
+
+Mean and variance of mails received during a day = 5. 2 “
+=>
+e P(one new message in the next hour) = P (i 1) = 5 e
+
+[aan = 2 tile
+
+e P(exactly two messages during each of the next three hours) =
+

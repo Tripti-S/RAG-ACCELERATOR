@@ -1,0 +1,10 @@
+archive/
+rag_results/
+data/raw/
+data/processed/
+*.parquet
+*.csv
+*.npy
+*.bin
+prequalify.py
+week2_submission_guidelines.md

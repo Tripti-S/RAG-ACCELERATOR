@@ -1,0 +1,25 @@
+MITOCW | MITRES6_012S18_L06-01_300k
+In the previous lecture we introduced random variables, probability mass functions and expectations.
+In this lecture we continue with the development of various concepts associated with random variables.
+There will be three main parts.
+In the first part we define the variance of a random variable, and calculate it for some of our familiar random
+variables.
+Basically the variance is a quantity that measures the amount of spread, or the dispersion of a probability mass
+functions.
+In some sense, it quantifies the amount of randomness that is present.
+Together with the expected value, the variance summarizes crisply some of the qualitative properties of the
+probability mass function.
+In the second part we discuss conditioning.
+Every probabilistic concept or result has a conditional counterpart.
+And this is true for probability mass functions, expectations and variances.
+We define these conditional counterparts and then develop the total expectation theorem.
+This is a powerful tool that extends our familiar total probability theorem and allows us to divide and conquer when
+we calculate expectations.
+We then take the opportunity to dive deeper into the properties of geometric random variables, and use a trick
+based on the total expectation theorem to calculate their mean.
+In the last part we show how to describe probabilistically the relation between multiple random variables.
+This is done through a so-called joint probability mass function.
+We take the occasion to generalize the expected value rule, and establish a further linearity property of
+expectations.
+We finally illustrate the power of these tools through the calculation of the expected value of a binomial random
+variable.

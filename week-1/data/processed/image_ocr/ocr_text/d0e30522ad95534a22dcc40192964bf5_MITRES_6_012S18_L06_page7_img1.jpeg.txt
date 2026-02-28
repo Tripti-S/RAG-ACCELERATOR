@@ -1,0 +1,19 @@
+Example of conditioning
+
+px (zx)
+
+123 4 *
+
+ELX] =
+
+var(x) =
+
+e Let A= {xX >2}
+
+Px|A(2)
+
+123 4 *
+
+E[X | A] =
+
+var(X | A) =

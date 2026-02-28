@@ -1,0 +1,69 @@
+MITOCW | MITRES6_012S18_L25-03_300k
+Markov processes can be very general.
+They can run in continuous or discrete time, can have a discrete or a continuous state space.
+In this class, we'll restrict ourselves to discrete time discrete state Markov chains.
+These are the simplest cases and are the best to build our intuition.
+So the state space is discrete, here, finite with m states, and time is discrete.
+That is, at any discrete point in time, the process is in one of these m states and let's say here, at any given time
+s.
+And again, time is discrete, so think about the following process.
+You have someone hitting a drum, indicating that a transition occurs.
+And what it means is that the chain that was here will then jump.
+Let's say to another state j at the next time.
+So when the Markov chain jumps it can jump on itself or jump to another state like here or here.
+And then at time s plus 1 someone hit the drum and you jump again, and so on and so forth.
+You can think of a very active frog jumping from lilies to lilies on the pond and following a regular drumbeat.
+So what is left to define are the various probabilities of transitions, such as the transition from i to j, and the
+notation we're going to use is pij, which by definition is that transition probability here.
+So given that you are in state i at time s, what is the probability that you end up in state j at time s plus 1.
+Notice that these transition priorities here, pij, are not function of s.
+So irrespective of what the time s that we're talking about, these transitions priorities are the same.
+So this is what we mean by a time-homogeneous Markov chain.
+In other words, these are valid for s equal 0, 1, 2, and so on and so forth.
+So the defining feature of a Markov chain is the Markov property.
+And the Markov property essentially says that the past is not really important in order to predict the future, as long
+as you know where you are now.
+Another way of saying it is that if you look at the probability of going next in state j given that you are now in state i
+and that I give you, in addition, the entire trajectories.
+So I tell you that it was in i0 at that time, and so on and so forth, all the way up to time s minus 1, where it was in is
+minus 1.
+So it gives you the entire trajectory of the chain up to s, and now I'm asking you, what is the probability that you're
+going to go to s plus 1?
+The Markov property here simply says that that probability here is again, pij.
+So in other words, all this information here is of no use to compute this probability.
+Now, note that these transition probabilities are really probabilities, in the following sense.
+Right?
+So you are in i and then at the next time step, you will definitely jump with probability 1.
+And where you're going to jump will depend, but the summation of all possibilities have to sum up to 1.
+So from j equals 1 to n has to be 1.
+So now that we have introduced the main ingredients, usually we are very interested in knowing what a Markov
+chain is going to do in the long run.
+We are interested in finding the probability that the chain is in a state j after n transitions, given that it is now in
+state i.
+Now because of the time-homogeneous, this is the same thing as that.
+In other words, the current time could be in any time s, we just have to add s here.
+And again, that is nothing else than this property.
+So we are interested in calculating rij of n for any n.
+For n equals 1, this is nothing else than rij of 1 is the same as this transition probabilities that we have defined.
+But for n greater than or equals to 2, what we are seeing is the introduction of a key recursion here.
+And this is how you would be able to calculate these probabilities.
+Now, how did we come up with this recursion?
+Well, it's based on a classical divide and conquer and essentially, the use of the total property theorem.
+Essentially, you have the time step here.
+This is the current time s.
+You are interested in what's going to happen at n plus s and n steps later.
+Here you are in state i.
+You are interested in knowing what is the probability of being in state j at that time.
+And what you simply do is you look at the step n plus s minus 1, just before the last one.
+And then you say, well, let me do a divide and conquer.
+This is k here, and I'm going to look at evaluating that probability.
+And then once I have that, I will simply multiply it by this transition here.
+And what happened is that this here is nothing else than this calculation that we have here.
+And that's the same thing.
+And here, this is the probability of one step transition.
+And, of course, we have conditioned on the fact that we would be in a state k here, but k could be any of these
+states, right?
+And they are m of them, and this is why we saw from k equals 1 to m.
+So essentially this is how this key recursion has been put together, and we have used, of course, the Markov
+property in order to do that.
+Let's do now a little bit of warm up in terms of calculation and apply these concepts.

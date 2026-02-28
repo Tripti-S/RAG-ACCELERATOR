@@ -1,0 +1,16 @@
+Independence, memorylessness, and fresh-start properties
+
+e Fresh-start after a random time N
+
+N = time of 3rd success
+
+N = first time that 3 successes in a row have been observed
+
+N = the time just before the first occurrence of 1,1,1
+
+The process Xy41,XN49,... is:
+— a Bernoulli process
+— independent of N, Xj,...,XN
+
+(as long as N is determined “causally” )
+

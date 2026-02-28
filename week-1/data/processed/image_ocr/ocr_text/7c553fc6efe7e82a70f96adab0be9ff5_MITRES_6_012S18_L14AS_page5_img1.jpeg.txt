@@ -1,0 +1,9 @@
+A sample of application domains
+
+e marketing, advertising persoms
+
+e recommendation systems
+
+— Netflix competition
+Movie
+

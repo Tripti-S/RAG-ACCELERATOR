@@ -1,0 +1,22 @@
+Estimating a mean
+
+e X4,...,Xn: ii.d., mean @, variance o2
+
+Merk ban
+
+n
+
+On = sample mean = Mn = On: estimator (a random variable)
+
+Properties and terminology: a
+5 029%)
+e E[On] =6 (unbiased)
+
+for oll 6 Ey6)- Z om) p, (39)
+e WLLN: Op ih (consistency)
+Sor al 6
+
+e mean squared error (MSE): E[(On — 6)?| =van 6.) “
+
+=<2 .
+am

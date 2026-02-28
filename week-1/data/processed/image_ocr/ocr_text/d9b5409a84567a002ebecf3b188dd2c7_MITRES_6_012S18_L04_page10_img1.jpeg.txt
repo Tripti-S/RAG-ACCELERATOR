@@ -1,0 +1,13 @@
+Partitions
+e n > 1 distinct items; r > 1 persons
+give n; items to person i
+— here nj,...,nr are given nonnegative integers
+— with ny +---+n,=n
+e Ordering n items:
+— Deal n; to each person i, and then order
+
+I
+number of partitions = = (multinomial coefficient)
+
+ni!ng! ---ny!
+

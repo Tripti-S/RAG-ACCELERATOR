@@ -1,0 +1,16 @@
+The mean of the binomial
+
+e X: binomial with parameters n, p a n =
+ELX] = Yo k( (1p)
+— number of successes in n independent trials k=0
+r
+X; = 1 if ith trial is a success;
+° : ’ (indicator variable)
+
+X;=0 otherwise ~_ 1- P
+
+X=Xit--+Xn
+
+E[x} = ELn)} teos + El x. J =™p
+
+P P

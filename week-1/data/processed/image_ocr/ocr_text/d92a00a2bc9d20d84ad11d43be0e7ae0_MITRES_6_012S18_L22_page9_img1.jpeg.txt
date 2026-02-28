@@ -1,0 +1,9 @@
+Memorylessness and the fresh-start property
+
+e Analogous to the properties for the Bernoulli process
+
+— plausible, given the relation between the two processes
+
+— use intuitive reasoning
+
+— can be proved rigorously

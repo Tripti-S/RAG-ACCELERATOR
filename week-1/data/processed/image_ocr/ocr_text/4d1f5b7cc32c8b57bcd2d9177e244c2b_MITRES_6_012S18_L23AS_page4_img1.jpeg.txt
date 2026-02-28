@@ -1,0 +1,31 @@
+Where is an arrival of the merged process coming from?
+
+P(Red | arrival at time t) = 4/0, +d,)
+
+1-45 Ad O(6?)
+
+0) 1 >2
+
+1A == 0) 1— Ar +0)
+do 1
+
+O(62) >2
+
+P(kth arrival is Red) = 41/(A, te )
+
+e Independence for different arrivals
+
+P(4 out of first 10 arrivals are Red) = (2)
+
+4
+
+Red bulb flashes
+(Poisson)
+
+All flashes
+(Poisson)
+
+Green bulb flashes
+(Poisson)
+
+?) (Bs

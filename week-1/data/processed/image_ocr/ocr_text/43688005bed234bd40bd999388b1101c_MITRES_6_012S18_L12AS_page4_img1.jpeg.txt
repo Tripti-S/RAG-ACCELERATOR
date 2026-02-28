@@ -1,0 +1,23 @@
+The distribution of X + Y: the continuous case
+
+[r = Vpx(@) py - >]
+e Z=X+Y; X,Y independent, continuous =
+
+known PDFs i [i = [ fx@fr@=2) ac]
+aty = co ustantonditional on X =@: 2 = 2+ y
+
+\/
+
+x23 2=Y+3
+Fain @13) va lp (2)3) = — (2) =f, (2-3)
+
+Sain (le) = fy (2-2) $y (x) =f, &-b)
+
+te Joint PDF of Z and X:
+
+Se atue) = b Cx) $y (2 =)
+
+From’joint to the marginal: ttt = f fxg (@, 2) da
+
+e Same mechanics as in discrete case (flip, shift, etc.)
+

@@ -1,0 +1,61 @@
+# Mit18 05 S22 Exam1 Rev List
+
+---
+
+In-class Exam 1 Review List
+18.05, Spring 2022
+List of topics
+1. Sets.
+2. Counting.
+3. Sample space, outcome, event, probability function.
+4. Probability: conditional probability, independence, Bayes’ theorem.
+5. Discrete random variables: events, pmf, cdf.
+6. Bernoulli(𝑝), binomial(𝑛, 𝑝), geometric(𝑝), uniform(𝑛)
+7. 𝐸[𝑋], Var(𝑋), 𝜎
+8. Continuous random variables: pdf, cdf.
+9. uniform(𝑎,𝑏), exponential(𝜆), normal(𝜇,𝜎2)
+10. Transforming random variables.
+11. Quantiles.
+12. Central limit theorem, law of large numbers, histograms.
+13. Joint distributions: pmf, pdf, cdf, covariance and correlation.
+0.1 Sets and counting
+• Sets:
+∅, union, intersection, complement Venn diagrams, products
+• Counting:
+inclusion-exclusion, rule of product,
+permutations 𝑃 , combinations 𝐶 = (𝑛 )
+𝑛 𝑘 𝑛 𝑘 𝑘
+0.2 Probability
+• Sample space, outcome, event, probability function. Rule: 𝑃(𝐴∪𝐵) = 𝑃(𝐴)+𝑃(𝐵)−
+𝑃(𝐴 ∩ 𝐵).
+Special case: 𝑃(𝐴𝑐) = 1−𝑃(𝐴)
+(𝐴 and 𝐵 disjoint ⇒ 𝑃(𝐴∪𝐵) = 𝑃(𝐴)+𝑃(𝐵).)
+• Conditional probability, multiplication rule, trees, law of total probability, indepen-
+dence
+• Bayes’ theorem, base rate fallacy
+1
+Exam 1 review list, Spring 2022 2
+0.3 Random variables, expectation and variance
+• Discrete random variables: events, pmf, cdf
+• Bernoulli(𝑝), binomial(𝑛, 𝑝), geometric(𝑝), uniform(𝑛)
+• 𝐸[𝑋], meaning, algebraic properties, 𝐸[ℎ(𝑋)]
+• Var(𝑋), meaning, algebraic properties
+• Continuous random variables: pdf, cdf
+• uniform(𝑎,𝑏), exponential(𝜆), normal(𝜇,𝜎)
+• Transforming random variables
+• Quantiles
+0.4 Central limit theorem
+• Law of large numbers averages and histograms
+• Central limit theorem
+0.5 Joint distributions
+• Joint pmf, pdf, cdf.
+• Marginal pmf, pdf, cdf
+• Independence
+• Covariance and correlation.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

@@ -1,0 +1,12 @@
+A nonmonotonic example: y = x2
+
+Le , —_ ae e The discrete case:
+py(9) = P (x=3) +2 (x= -3)
+«> Wy Kad
+a ryv) = P (Vy) + P, (- Vy)
+
+© The continuous case: 7 7
+
+Fe (y= (Vey) =f (x*sy) =P (lel Vp) = 8 (-Sy ¢ x £09)
+
+= Fy (Np) = Fe (~N¥) WO hag +h (7)

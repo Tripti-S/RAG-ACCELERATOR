@@ -1,0 +1,12 @@
+Functions of multiple random variables
+
+Z=p(X,Y¥)
+
+Expected value rule:
+
+EXO =O Volewexyey) Bl) = | | oew)fx,y ow) day
+
+Linearity of expectations
+E[aX + b] = aE[X] +b
+E[X + Y] = E[X] +E[Y]
+

@@ -1,0 +1,10 @@
+Normal (Gaussian) random variables
+
+e Important in the theory of probability
+
+— Central limit theorem
+
+e Prevalent in applications
+— Convenient analytical properties
+
+— Model of noise consisting of many, small independent noise terms

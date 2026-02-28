@@ -1,0 +1,11 @@
+What exactly does the CLT say? — Theory
+
+Sn = Xpt-+Xn Zz, — Sn Z ~ N(0,1)
+
+e CDF of Z, converges to normal CDF
+e results for convergence of PDFs or PMFs (with more assumptions)
+e results without assuming that the X; are identically distributed
+
+e results under “weak dependence”
+
+e proof: uses “transforms”: E[e&2"] > E[e®2], for all s

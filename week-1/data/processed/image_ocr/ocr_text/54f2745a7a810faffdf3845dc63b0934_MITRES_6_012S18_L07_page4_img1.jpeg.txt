@@ -1,0 +1,9 @@
+Conditional expectation
+
+E[X] = Dxpx(2) E[X | A]=Sozpxya(z) ELK | Y= 9] = Vepyyy (ely)
+
+e Expected value rule
+
+Elg(X)] = >) 9(z) px(2) ~~ Elg(X) | A] = 90 9(x) pxy4(2)
+
+E[g(X) | ¥Y = y] = >09(x) pxyy (2 | y)

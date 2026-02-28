@@ -1,0 +1,8 @@
+Probability calculation: discrete but infinite sample space
+
+e Sample space: {1,2,...}
+
+1
+— We are given P(n) = Sn “a 1,2...
+
+e P(outcome is even) =

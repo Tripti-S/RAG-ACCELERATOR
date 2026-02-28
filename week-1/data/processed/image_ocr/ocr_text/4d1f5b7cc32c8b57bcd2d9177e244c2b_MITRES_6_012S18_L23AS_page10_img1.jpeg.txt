@@ -1,0 +1,29 @@
+Random incidence “paradox” is not special to the Poisson process
+
+S 6 6F 10 10 5
+time
+
+e Example: interrarival times, i.i.d., equally likely to be 5 or 10 minutes
+
+1 '
+expected value of kth interarrival time: 5-*°5 * z=" 10 = 75
+
+2
+
+e you show up ata “random time”
+1
+P(arrive during a 5-minute interarrival interval) = z
+
+oF
+3.3
+
+expected length of interarrival interval during which you arrive = 2. 10
+
+a
+
+R
+
+e Calculation generalizes to “renewal processes:”
+i.i.d. interarrival times, from some general distribution
+
+e “Sampling method” matters

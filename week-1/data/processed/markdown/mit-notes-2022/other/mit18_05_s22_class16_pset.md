@@ -1,0 +1,44 @@
+# Mit18 05 S22 Class16 Pset
+
+---
+
+Class 16 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. Increasing probability
+To convert an 80% probability interval to a 90% interval should you shrink it or stretch it?
+1. Shrink 2. Stretch.
+Board questions
+Problem 1. Treating severe respiratory failure*
+Two treatments for newborns with severe respiratory failure.
+1. CVT: conventional therapy (hyperventilation and drugs)
+2. ECMO: extracorporeal membrane oxygenation (invasive procedure)
+In 1983 in Michigan:
+19/19 ECMO babies survived and 0/3 CVT babies survived.
+Later Harvard ran a randomized study:
+28/29 ECMO babies survived and 6/10 CVT babies survived.
+*Adapted from Statistics: a Bayesian Perspective by Donald Berry
+Name the probabilites of survival:
+𝜃 = probability that an ECMO baby survives
+𝐸
+𝜃 = probability that a CVT baby survives.
+𝐶
+Consider the values 0.125, 0.375, 0.625, 0.875 for 𝜃 and 𝜃 .
+𝐸 𝐶
+(a) Make the 4×4 prior table for a flat prior.
+(b) Based on the Michigan results, create a reasonable informed prior table for analyzing
+the Harvard results (unnormalized is fine).
+(c) Make the likelihood table for the Harvard results. (You might use R to compute some
+of the values.)
+(d) Find the posterior table for the informed prior.
+(e) Using the informed posterior, compute the probability that ECMO is better than CVT.
+(f) Also compute the posterior probability that 𝜃 − 𝜃 ≥ 0.6.
+𝐸 𝐶
+(The posted solutions will also show 4-6 for the flat prior.)
+1
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

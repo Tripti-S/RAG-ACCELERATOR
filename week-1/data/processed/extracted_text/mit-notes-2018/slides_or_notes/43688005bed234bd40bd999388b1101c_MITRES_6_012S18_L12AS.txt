@@ -1,0 +1,365 @@
+LECTURE 12: Sums of independent random variables;
+Covariance and correlation
++
+• The PMF/PDF of X y eX and Y independent)
+the discrete case
+the continuous case
+the mechanics
+the sum of independent normals
+• Covariance and correlation
+definitions
+mathematical properties
+interpretation
+1
++
+The distribution of X Y: the discrete case
+pz (z) = L PX(x)PY(z ­ x)
+• z +
+x
+= X Y; X, Y ind epe nd ent , discrete
+•
+f'"
+~()(II')
+known PMFs
+T • ~.
+.' '1
++.f(i<";O,y~;) +.f(x,I,'1',£)-I-'·· P.,.
+= •.•
+PZ(3)
+y
+•
+(0,3 )
+• (1.2)
+f'(
+:: ~ PI< (x) (~-:;d
+(2, I )
+•
+?C­
+3.0
+•
+2
+Discrete convolution mechanics
+pz(z) = L Px(x)PY(z - x)
+x
+PX py
+2/3
+3/6
+'/3
+' /6
+• To find pz(3 ):
+' /6
+3/6
+' / 6
+Flip (horizontally) the PMF of Y
+' /6
+,
+Put it underneath the PMF of X
+- 2 - 1
+3/6
+' / 6
+Right-shift the flipped PMF by 3
+' /6
+Cross-mu ltipl y and add
+Repeat for other va lues of
+Z
+3
++
+The distribution of X Y: the continuous case
+pz ( z) = L PX(x)PY(z - x)
+x
+• z +
+=
+X Y; X, Y ind e pend ent , continuous
+• fz(z) = J:fx (:;:)fy( z - x) dx
+known PDFs
+y
+'1'+3
+\ /Conditional on X = x: :7 =::x.+ x~? =~ =
+t - <--
+,:- t)' Co "570.",
+~ ;>
+y
+rYH
+fy (e-3)
+f~I1((~ -5'(-1-> ))/2-i'~) (~)
+13) '" = =
+r:x:)-=f".(x-b)
+fzllJ2-I~)= fy(~-z-) f~+~
+Joint PDF of Z and X:
+7'(
+)x
+h (~) (&oo-?:)
+2-(?:)'?-);;:'
+Loo
+From 'joint to the marginal: fz(z) = fx,z(x , z) dx
+• Same mechanics as in discrete case (flip, shift, etc.)
+4
+The sum of independent normal r.v.'s fz(z) = L : fxCx)hCz - x) dx
+Z=X + Y
+fx x ) =
+1 e - (x -
+u
+x)2/ 2a:
+C ~ -
+Vhax
+J:
+Jz(z) = fxCx)fy(z - x) dx
+OO 2 .... " 2
+J 1 (x-I'x) 1 (z-X-I'Y)
+exp - exp - 2a~ dx
+J2;a 2a; } J2;a {
+y }
+- 00 {
+x
+N
+1 (z - I'x - I' y)' iJ:2~fY.1.
+(a lg ebra)
+The sum of finitely many independent normals is normal
+5
+Covariance
+Definition for general case:
+• Zero-mean , discrete X and Y
+i
+E [~X E[X]~. E [Y]~l
+cov(X, Y) = - Y -
+if independent: E[XY] =
+J
+=G[x] f [If
+0
+<:. L'v>d 0 ~E[(7\-G[xJ)l t;[Y-G[yl]
+y
+y
+'*
+. • independent cov(X, Y) = 0
+..
+•
+(converse is not true)
+. .
+..
+... "... .. .
+".
+. .. .
+. . . - . .. . .
+.. .. .
+. •
+•
+. .. .
+. . x . x y
+. . .. · .
+..
+· ..
+.. ..
+·
+'.
+· .. . (0, I)
+. . ..
+.. ..
+'70 < 0
+E[XY] E[XY]
+(-1 ,0) ( I ,0)
+(0 .. - 1)
+6
+Covariance properties
+-;;
+E [(~ -~ ). !(::
+cov(X, Y) = E (':])]
+=E[CX- [[;r])~J
+cov(X,X)
+£[xfJ -(£0J)%. =E[xr] -
+E[xt;[yJ]
+VQr(x) ::
+o
+rGD=
+'f] J]
+- E [G[K] [x] Fry
++
+cov(aX b, Y) = .,; £[>rl(] -
+G['<j £[yJ
+(Q55".... e 0 ... eG\""s)
+'fJ
+yJ
+'fj [x -
+a.f[XY]
+= 1:[(0,)( +h) = ~h +- [;
+(x,,()
+~ v
+Q. Co
+J
+[x
+f
++
+('(+
+~ ) 2:-)
+cov(X, Y =
+~r;[xYJ-t-[['X2]" CO.,(K/-r)-!­ cov(X, Y) = E (XY] - E (X]E(Y]
+~ov()(,~)
+7
+The variance of a sum of random variables
+f Y
+;>(,1
+E
++ (x, x: f [)( +
+=
+va r(X 1 X2) -I- 'L ­ I
+((X,
+-f[X,J) + (1(2 - f [~t.]),
+=E
+-
+])'! (~2. - f[X1.1Y"
+(ir, - [ I x +
+: . [ r
++J- (x,-£[x,])(X2. - f [ r 1 1 )
++ i ,
+( x
+~ \/~I'(X,)+V~r(Xl) Cov ,)X2-)
+•
+8
+The variance of a sum of random variables
++ + +
+var(X1 X2) = Var(X1) Var(X2) 2cov(X1 , X2)
+6[(I(,l- ..• +tr~ )2.1
++ ... +
+var(X X n ) =
+1
+0 :2
+e "" x. 1. •
+=f Z
+('Q.\5CA ... t.o<EIQ"'S)
+A; ?(~
+T
+•
+(, '::.. I
+;·=L) ...
+~ /-t....
+i- j
+i.
+1-.2,
+Cov(x;/~.)
+I
+, -:f
+n
++ ... + L + L
+var(X1 X n ) = var(Xi) COV(Xi , X j )
+i= 1 {(i,j ) : i,ejl
+9
+The Correlation coefficient
+p(X, Y) _ E (X - E [X]) . (Y - E [Y])
+• Dimensionless version of covariance:
+"x
+"Y
+cov(X, Y)
+-
+< <
+- 1 P 1
+• Measure of the degree of "association" between X and Y
+'*
+v (X)
+= 0\ '!.
+• Independent p 0, " uncorrelated" = 1
+( X X) =
+. p ,
+' l ­
+(converse is not true)
+17"
+'*
+• Ipi
+= 1 (X - E[X]) = c(Y - E[Y]) (linearly related)
+=
+(X, ~ It"
++ 0\. . CO v 'r' ) (c>.)
++
+• cov(aX b, Y) = a· cov(X, Y) p(aX b, Y) =
+I F
+101 0", (><,'f)
+(Tv •
+10
+Proof of key properties of the correlation coefficient
+p(X, Y) = E (X - E [X]) . (Y - E[Y])
+< <
+- 1 P 1
+ax ay
+• A ssum e, for simpl icity, zero means and unit varian ces, so tha t p(X, Y) = E[XY)
+1- J
+J. Ft
+E [Ki P £[111 E ['12.J
+E [(X _ py)2] = t
+/-
+o!:: = -2f~+ft.",. f~
+I
+1_(".t;>_O - :;pl.S/
+r
+= ='(
+f '( = -
+X X X
+Ipi ~
+If = 1 , th en 0 r
+11
+Interpreting the correlation coefficient
+_ cov(X, Y)
+p(X, Y)
+aXay
+• Association does not imply causation or influence
+X: math aptitude
+Y: musical ability
+• Correlation often reflects underlying, common, hidden factor
+I I
+Assume , Z, V, Ware independent f
+(X, Y) =- -J.2: -Vi
+~
+z-'
+X= Z +V
+-
+-
+Assume, for simplicity, that Z, V, W have zero means, unit variances
+0>
+="
+Vo.r(x)=vo.l'(?)tVClr(v)::.1 = vi,
+0"''2:,::.V2.
+J
+J
+J
+w>J 2 f6
+(X)y) =-1;[(6 + v)(Z = I; [6 [v~] + F W t £[vw
+COli of I {;'
+o
+o
++- 0
+=
+J..
+12
+Correlations matter...
+• A real-estate investment company invests $10M in each of 10 states.
+At each state i , the return on its investment is a random variable X i .
+with mean 1 and standard deviation 1.3 (in millions).
+10
+L L
+=
+var(X + ... + X ) var(X + cov(X X j )
+1 lO i ) i ,
+E[>(J-+ .....
+X,.]:.IO
+i= 1 (i.j ): i", j }
+• If the X i are uncorrelated. then:
+I '-1./
+2. X =
+O,O'(X1+"'+ lO)
+O·
+( ) 6.)
+var(X1 + ... +XlO) = ) I.~ ::::
+p
+Xi);: 0
+&;;::
+• If for i i= j , p(Xi, X ) = ~ 9: Co V (X',') O'X( ~"I.~ 1'/.'3,
+j
+=
+" ' ) r 2. 1.5'2­
+V~r(X, 4­
++l)O.I.52=15''7
+f"J' ::10'\"0,)
+13
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

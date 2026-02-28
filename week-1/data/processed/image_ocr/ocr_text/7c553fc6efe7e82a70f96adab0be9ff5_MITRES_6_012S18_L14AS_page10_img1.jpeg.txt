@@ -1,0 +1,23 @@
+Model building versus inferring unobserved variables
+
+S mae di yan = x
+Qa
+
+Predictions
+
+Probability theory
+Decisions (Analysis)
+
+Real world
+
+X=aS+W
+
+Models
+e Model building:
+— know “signal” S, observe X
+
+— infera
+
+e Variable estimation:
+— know a, observe X
+— infer S

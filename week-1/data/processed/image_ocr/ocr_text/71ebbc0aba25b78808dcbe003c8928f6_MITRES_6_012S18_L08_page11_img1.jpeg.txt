@@ -1,0 +1,13 @@
+Cumulative distribution function (CDF)
+
+CDF definition: Fy(x) = P(X < «)
+
+e Discrete random variables:
+
+Fx (x) = P(X < 2) = Dpx(k)
+k<o
+
+1/2
+px(k) /
+
+Fx (2)

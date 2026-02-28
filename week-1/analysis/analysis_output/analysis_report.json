@@ -1,0 +1,14 @@
+{
+    "total_documents": 964,
+    "total_tokens": 1724795,
+    "average_document_length": 1789.2064315352698,
+    "shortest_document": 32,
+    "longest_document": 62950,
+    "ocr_documents": 1438,
+    "probability_distribution": {
+        "conversational": 0.00832639467110741,
+        "extracted_text": 0.2006661115736886,
+        "markdown": 0.19233971690258117,
+        "ocr_text": 0.5986677768526228
+    }
+}

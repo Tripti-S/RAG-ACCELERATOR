@@ -1,0 +1,17 @@
+Total probability and expectation theorems
+
+@ Aj,...,An: partition of Q
+
+e px(z) = P(A1) pxya, (2) +--+» + P(An) pxya, (2)
+
+px(x) = >i py(y) pxyy (zy)
+y
+
+© E[X] = P(A1) E[X | Ay] +--+ P(An) ELX | An
+
+E[X] = >o py(y) ELX | Y = y]
+7]
+
+e Fine print:
+Also valid when Y is a discrete r.v. that ranges over an infinite set,
+as long as E[|X|] < co

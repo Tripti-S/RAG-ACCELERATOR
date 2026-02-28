@@ -1,0 +1,13 @@
+MITOCW | MITRES6_012S18_L08-01_300k
+In this lecture, we start our discussion of continuous random variables.
+We will focus on the case of a single continuous random variable, and we'll describe its distribution using a so-
+called probability density function, an object that will replace the PMFs from the discrete case.
+We will then proceed to define the expectation and the variance of a continuous random variable, and we'll see
+that their basic properties remain unchanged.
+There will be one new concept-- the cumulative distribution function, which will allow us to describe, in a unified
+manner, both discrete and continuous random variables, even so-called mixed random variables that have both a
+discrete and a continuous component.
+In the course of this lecture, we will also introduce some of the most common continuous random variables--
+uniform, exponential, and normal.
+We will pay special attention to the normal distribution and the ways that we can calculate the associated
+probabilities.

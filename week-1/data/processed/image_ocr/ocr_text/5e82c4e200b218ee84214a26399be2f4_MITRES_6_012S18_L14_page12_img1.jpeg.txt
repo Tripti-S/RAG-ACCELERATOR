@@ -1,0 +1,21 @@
+The Bayesian inference framework
+
+e Unknown © e Where does the prior come from?
+— treated as a random variable — symmetry
+— prior distribution pe or fo — known range
+
+— earlier studies
+
+e Observation X
+— subjective or arbitrary
+— observation model pyio Or fxjo
+
+e Use appropriate version of the Bayes rule
+
+Prior pe
+
+Observation Poster | Poixt: | X = 2)
+Process Calculation
+
+Conditional
+Px\|e

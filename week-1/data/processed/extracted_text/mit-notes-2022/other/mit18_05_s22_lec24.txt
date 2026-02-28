@@ -1,0 +1,188 @@
+Bootstrapping
+18.05 Spring 2022
+0 5 10 15
+02.0
+01.0
+00.0
+1/15
+Announcements
+Announcements
+• R Quiz tomorrow
+• Pset 11 (not to be turned in) on confidence intervals is on MITx
+week 14.
+• Will post R Studio 10 (not to be turned in) on the bootstrap.
+Agenda
+• Bootstrap terminology
+• Bootstrap principle
+• Empirical bootstrap (also called nonparametric bootstrap)
+• Parametric bootstrap
+2/15
+Empirical distribution of data
+This is the actual distribution of the data –not the underlying
+distribution from which it was drawn.
+Example 1. Data: 1, 2, 2, 3, 8, 8, 8. (Assume independently drawn)
+𝑥∗ 1 2 3 8
+𝑝∗(𝑥∗) 1/7 2/7 1/7 3/7
+Example 2.
+0 5 10 15
+02.0
+01.0
+00.0
+The true and empirical distribution are approximately equal.
+3/15
+Resampling
+• Sample (size 6): 1 2 1 5 1 12
+• Resample (size 𝑚): Randomly choose 𝑚 numbers with
+replacement from the original sample.
+• Resample probabilities = empirical distribution:
+𝑃(1) = 1/2, 𝑃(2) = 1/6 etc.
+• E.g. resample (size 10): 5 1 1 1 12 1 2 1 1 5
+• A bootstrap (re)sample is always the same size as the original
+sample:
+• Bootstrap sample (size 6): 5 1 1 1 12 1
+4/15
+Bootstrap principle for the mean
+Setup
+• Distribution 𝐹 with mean 𝜇.
+• Data 𝑥 , 𝑥 , … , 𝑥 ∼ 𝐹 , with mean 𝑥
+1 2 𝑛
+• 𝐹∗ = empirical distribution (resampling distribution) of the data.
+• 𝑥∗,𝑥∗,…,𝑥∗ resample same size with mean 𝑥∗ .
+1 2 𝑛
+Bootstrap Principle: (really holds for any statistic)
+1. 𝐹∗ ≈ 𝐹
+2. 𝑥∗ ≈ 𝑥 ≈ 𝜇
+3. The variation of 𝑥 is approximated by the variation of 𝑥∗
+Key: We can resample as many times as we want to get an accurate
+estimate of the variation of 𝑥∗
+5/15
+Empirical percentile bootstrap confidence intervals
+Use the data to estimate the variation of estimates based on the data!
+• Data: 𝑥 , … , 𝑥 drawn from a distribution 𝐹 .
+1 𝑛
+• Estimate a feature 𝜃 of 𝐹 by a statistic 𝜃.
+̂
+• Generate many bootstrap samples 𝑥∗, … , 𝑥∗.
+1 𝑛
+• Compute the statistic 𝜃∗ for each bootstrap sample.
+• The 1 − 𝛼 percentile bootstrap confidence interval is
+[𝜃∗ , 𝜃∗ ],
+𝛼/2 1−𝛼/2
+where 𝜃∗ is the 𝛼/2 quantile for 𝜃∗ .
+𝛼/2
+Principle Distibution of 𝜃∗ ≈ distribution of 𝜃. ̂
+6/15
+Empirical basic bootstrap confidence intervals
+Won’t do this in class.
+Use the data to estimate the variation of estimates based on the data!
+• Data: 𝑥 , … , 𝑥 drawn from a distribution 𝐹 .
+1 𝑛
+• Estimate a feature 𝜃 of 𝐹 by a statistic 𝜃.
+̂
+• Generate many bootstrap samples 𝑥∗, … , 𝑥∗.
+1 𝑛
+• Compute the statistic 𝜃∗ for each bootstrap sample.
+• Compute the bootstrap difference
+𝛿∗ = 𝜃∗ − 𝜃. ̂
+• The 1 − 𝛼 basic bootstrap confidence interval is
+[𝜃 ̂ −𝛿∗ , 𝜃 ̂ −𝛿∗ ],
+𝛼/2 1−𝛼/2
+where 𝛿∗ is the 𝛼/2 critical value for 𝛿∗ .
+𝛼/2
+Principle 𝛿∗ = 𝜃∗ −𝜃 ̂ ≈ 𝜃 ̂ −𝜃 = 𝛿
+7/15
+Which bootstrap is best?
+The percentile bootstrap is a little simpler and, empirically, in many
+settings it it appears to be slightly better than the basic bootstrap.
+But, there are more sophisticated bootstrap methods that are
+generally better than both.
+The principles are the same, but some tweaks improve performance.
+8/15
+Concept question: which stat is easiest
+Consider finding bootstrap confidence intervals for
+I. the mean II. the median III. 47th percentile.
+Which is easiest to find?
+(a) I (b) II (c) III (d) I and II
+(e) II and III (f) I and III (g) I and II and III
+9/15
+Board question: empirical bootstrap
+Data: 3 8 1 8 3 3
+Bootstrap samples (each column is one bootstrap trial):
+8 8 1 8 3 8 3 1
+1 3 3 1 3 8 3 3
+3 1 1 8 1 3 3 8
+8 1 3 1 3 3 8 8
+3 3 1 8 8 3 8 3
+3 8 8 3 8 3 1 1
+(a) Compute a bootstrap 80% percentile confidence interval for the
+mean.
+(b) Compute a bootstrap 80% percentile confidence interval for the
+median.
+10/15
+Percentile empirical bootstrapping in R
+x = c(30,37,36,43,42,43,43,46,41,42) # original sample
+n = length(x) # sample size
+xbar = mean(x) # sample mean
+n_boot = 5000 # number of bootstrap samples to use
+# Generate nboot empirical samples of size n and organize
+in a matrix
+tmp_data = sample(x, n*n_boot, replace=TRUE)
+bootstrap_sample = matrix(tmp_data, nrow=n, ncol=n_boot)
+# Compute bootstrap means xbar*
+xbar_star = colMeans(bootstrap_sample)
+# Find the 0.1 and 0.9 quantiles and make the bootstrap 80%
+confidence interval
+ci = quantile(xbar_star, c(0.1, 0.9))
+11/15
+Parametric bootstrapping
+Use the estimated parameter to estimate the variation of estimates of
+the parameter!
+• Data: 𝑥 , … , 𝑥 drawn from a parametric distribution 𝐹 (𝜃).
+1 𝑛
+• Estimate 𝜃 by a statistic 𝜃.
+̂
+• Generate many bootstrap samples from 𝐹 (𝜃)
+̂
+.
+• Compute the statistic 𝜃∗ for each bootstrap sample.
+• Compute the bootstrap difference
+𝛿∗ = 𝜃∗ − 𝜃. ̂
+• Use the critical values of 𝛿∗ to approximate those of
+̂
+𝛿 = 𝜃−𝜃.
+• Set a confidence interval [𝜃 ̂ −𝛿∗ , 𝜃 ̂ −𝛿∗ ]
+𝛼/2 1−𝛼/2
+12/15
+Parametric sampling in R
+# Data from binomial(15, 𝜃) for an unknown 𝜃
+x = c(3, 5, 7, 9, 11, 13)
+binom_size = 15 # known size of binomial
+n = length(x) # sample size
+theta_hat = mean(x)/binom_size # MLE for 𝜃
+n_boot = 5000 # number of bootstrap samples to use
+# nboot parametric samples of size n; organize in a matrix
+tmp_data = rbinom(n*n_boot, binom_size, theta_hat)
+bootstrap_sample = matrix(tmp_data, nrow=n, ncol=n_boot)
+# Compute bootstrap means theta_hat* and differences delta*
+theta_hat_star = colMeans(bootstrap_sample)/binom_size
+delta_star = theta_hat_star - theta_hat
+# Find quantiles and make the bootstrap confidence interval
+d = quantile(delta_star, c(0.1, 0.9))
+ci = theta_hat - c(d[2], d[1])
+13/15
+Board question
+Data is taken from a Binomial(8, 𝜃) distribution. After 6 trials, the
+results are
+6 5 5 5 7 4
+(a) Estimate 𝜃.
+(b) Write out the R code to generate data of 100 parametric
+bootstrap samples and compute an 80% confidence interval for 𝜃.
+(Try this without looking at your notes.)
+14/15
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+15/15

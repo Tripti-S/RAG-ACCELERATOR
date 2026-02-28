@@ -1,0 +1,950 @@
+teaching - What's the difference between probability and statistics? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+What's the difference between probability and statistics?
+Ask Question
+Asked
+15 years, 7 months ago
+Modified
+1 year ago
+Viewed
+115k times
+156
+$\begingroup$
+What's the difference between probability and statistics, and why are they studied together?
+probability
+teaching
+mathematical-statistics
+Share
+Cite
+Improve this question
+Follow
+edited
+Mar 20, 2011 at 16:07
+community wiki
+6 revs, 4 users 67%
+hslc
+$\endgroup$
+Add a comment
+|
+22 Answers
+22
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+165
+$\begingroup$
+The short answer to this I've heard from
+Persi Diaconis
+is the following:
+The problems considered by
+probability
+and
+statistics
+are inverse to each other.  In probability theory we consider some underlying process which has some randomness or uncertainty modeled by random variables, and we figure out what happens.  In statistics we observe something that has happened, and try to figure out what underlying process would explain those observations.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 10, 2021 at 10:04
+answered
+Jul 26, 2010 at 20:47
+Mark Meckes
+3,226
+3
+3 gold badges
+24
+24 silver badges
+18
+18 bronze badges
+$\endgroup$
+7
+4
+$\begingroup$
+So statistics observes what happens in the physical world, theorizes about the underlying process, and then having found the process, uses it in the sense of probability to predict what will happen next?
+$\endgroup$
+hslc
+–
+hslc
+2010-07-26 21:34:19 +00:00
+Commented
+Jul 26, 2010 at 21:34
+24
+$\begingroup$
+Induction vs Deduction?
+$\endgroup$
+Paolo
+–
+Paolo
+2010-07-27 09:14:39 +00:00
+Commented
+Jul 27, 2010 at 9:14
+8
+$\begingroup$
+Like Paolo said, probability theory is mainly concerned with the deductive part, statistics with the inductive part of modeling processes with uncertainty. Perhaps it's interesting to mention that if one thinks that the plausible inductive reasoning should be consistent, then actually the result is bayesian statistics, and more interesting this can be derived from probability theory. So bayesian statistics is basically applied probability theory so to speak.
+$\endgroup$
+Thies Heidecke
+–
+Thies Heidecke
+2011-05-27 02:08:41 +00:00
+Commented
+May 27, 2011 at 2:08
+2
+$\begingroup$
+And in Data Science, we don't try to figure out anything. We just look for spurious correlations and ring the cash register.
+$\endgroup$
+Mark L. Stone
+–
+Mark L. Stone
+2016-08-19 18:51:44 +00:00
+Commented
+Aug 19, 2016 at 18:51
+2
+$\begingroup$
+@Paolo Statistical Inference is considered "Inductive Statistics"
+$\endgroup$
+kervin
+–
+kervin
+2016-11-22 18:17:19 +00:00
+Commented
+Nov 22, 2016 at 18:17
+|
+Show
+2
+more comments
+100
+$\begingroup$
+I like the example of a jar of red and green jelly beans.
+A probabilist starts by knowing the proportion of each and asks the probability of drawing a red jelly bean.  A statistician infers the proportion of red jelly beans by sampling from the jar.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 26, 2010 at 22:48
+John D. Cook
+4,118
+2
+2 gold badges
+28
+28 silver badges
+30
+30 bronze badges
+$\endgroup$
+3
+$\begingroup$
+But isn't that just formulation? A probabilist might ask "given I've drawn three red beans, what is the probability that the proportion is fifty fifty?"
+$\endgroup$
+Thomas Ahle
+–
+Thomas Ahle
+2016-10-28 15:06:14 +00:00
+Commented
+Oct 28, 2016 at 15:06
+5
+$\begingroup$
+@ThomasAhle: That's not a well-defined probability question unless you assume some underlying probabilistic model for the original distribution of colors.
+$\endgroup$
+Mark Meckes
+–
+Mark Meckes
+2016-11-02 13:55:44 +00:00
+Commented
+Nov 2, 2016 at 13:55
+$\begingroup$
+So from the Bayesian point of view, there is no difference.
+$\endgroup$
+a06e
+–
+a06e
+2023-03-06 00:15:47 +00:00
+Commented
+Mar 6, 2023 at 0:15
+Add a comment
+|
+80
+$\begingroup$
+It's misleading to simply say that statistics is simply the inverse of probability.  Yes, statistical questions
+are
+questions of inverse probability, but they are
+ill-posed inverse problems
+, and this makes a big difference in terms of how they are addressed.
+Probability is a branch of pure mathematics--probability questions can be posed and solved using axiomatic reasoning, and therefore there is one correct answer to any probability question.
+Statistical questions can be
+converted
+to probability questions by the use of
+probability models
+.  Once we make certain assumptions about the mechanism generating the data, we can answer statistical questions using probability theory.  HOWEVER, the proper formulation and checking of these probability models is just as important, or even more important, than the subsequent analysis of the problem using these models.
+One could say that statistics comprises of two parts.  The first part is the question of how to formulate and evaluate probabilistic models for the problem; this endeavor lies within the domain of "philosophy of science".  The second part is the question of obtaining answers after a certain model has been assumed.  This part of statistics is indeed a matter of applied probability theory, and in practice, contains a fair deal of numerical analysis as well.
+See:
+http://bactra.org/reviews/error/
+Share
+Cite
+Improve this answer
+Follow
+edited
+Mar 25, 2016 at 4:33
+Ben Cann
+3
+5
+5 bronze badges
+answered
+Mar 20, 2011 at 16:02
+charles.y.zheng
+8,126
+2
+2 gold badges
+33
+33 silver badges
+35
+35 bronze badges
+$\endgroup$
+1
+7
+$\begingroup$
+I love you for this answer
+$\endgroup$
+trying
+–
+trying
+2018-06-10 11:10:16 +00:00
+Commented
+Jun 10, 2018 at 11:10
+Add a comment
+|
+22
+$\begingroup$
+I like this from Steve Skienna's
+Calculated Bets
+(see the link for complete discussion):
+In summary, probability theory enables us to find the consequences of a given ideal world, while statistical theory enables us to to measure the extent to which our world is ideal.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 27, 2010 at 10:26
+ars
+13.1k
+1
+1 gold badge
+47
+47 silver badges
+56
+56 bronze badges
+$\endgroup$
+1
+$\begingroup$
+The text is also available on the web:
+www3.cs.stonybrook.edu/~skiena/jaialai/excerpts/node12.html
+$\endgroup$
+thyu
+–
+thyu
+2020-11-13 18:23:46 +00:00
+Commented
+Nov 13, 2020 at 18:23
+Add a comment
+|
+16
+$\begingroup$
+Table 3.1 of
+Intuitive Biostatistics
+answers this question with the diagram shown below. Note that all the arrows point to the right for probability, and point to the left for statistics.
+PROBABILITY
+General ---> Specific
+Population ---> Sample
+Model ---> Data
+STATISTICS
+General <--- Specific
+Population <--- Sample
+Model <--- Data
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 26, 2010 at 20:34
+Harvey Motulsky
+22k
+11
+11 gold badges
+61
+61 silver badges
+124
+124 bronze badges
+$\endgroup$
+3
+1
+$\begingroup$
+So statistics is synonymous with data analysis?
+$\endgroup$
+hslc
+–
+hslc
+2010-07-26 21:25:04 +00:00
+Commented
+Jul 26, 2010 at 21:25
+4
+$\begingroup$
+I don't see any distinction.
+$\endgroup$
+Harvey Motulsky
+–
+Harvey Motulsky
+2010-07-26 21:39:17 +00:00
+Commented
+Jul 26, 2010 at 21:39
+3
+$\begingroup$
+Some data analysis does not rely on frequentist statistics.
+$\endgroup$
+Fr.
+–
+Fr.
+2011-03-21 22:41:42 +00:00
+Commented
+Mar 21, 2011 at 22:41
+Add a comment
+|
+12
+$\begingroup$
+Probability is a pure science (math), statistics is about data. They are connected since probability forms some kind of fundament for statistics, providing basic ideas.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 26, 2010 at 20:18
+user88
+$\endgroup$
+2
+3
+$\begingroup$
+So probability is pure mathematics and statistics is applied mathematics?
+$\endgroup$
+hslc
+–
+hslc
+2010-07-26 21:24:35 +00:00
+Commented
+Jul 26, 2010 at 21:24
+4
+$\begingroup$
+Statistics may be applied and may be not; still the concept of data is always present.
+$\endgroup$
+user88
+–
+user88
+2010-07-26 21:42:34 +00:00
+Commented
+Jul 26, 2010 at 21:42
+Add a comment
+|
+12
+$\begingroup$
+Probability answers questions about what
+will
+happen, statistics answers questions about what
+did
+happen.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 16, 2010 at 0:54
+Justin Bozonier
+1,269
+2
+2 gold badges
+12
+12 silver badges
+24
+24 bronze badges
+$\endgroup$
+1
+5
+$\begingroup$
+By this definition, though, a prediction interval is probability rather than statistics.
+$\endgroup$
+Glen_b
+–
+Glen_b
+2015-08-17 10:13:42 +00:00
+Commented
+Aug 17, 2015 at 10:13
+Add a comment
+|
+10
+$\begingroup$
+Probability is about quantifying uncertainty whereas statistics is explaining the variation in some measure of interest (e.g., why do income levels vary?) that we observe in the real world.
+We explain the variation by using some observable factors (e.g., gender, education level, age etc for the income example). However, since we cannot possibly take into account all possible factors that affect income, we leave any unexplained variation to random errors (which is where quantifying uncertainty comes in).
+Since, we attribute "Variation = Effect of Observable Factors + Effect of Random Errors" we need the tools provided by probability to account for the effect of random errors on the variation that we observe.
+Some examples follow:
+Quantifying Uncertainty
+Example 1: You roll a 6-sided die. What is the probability of obtaining a 1?
+Example 2: What is the probability that the annual income of an adult person selected at random from the United States is less than $40,000?
+Explaining Variation
+Example 1: We observe that the annual income of a person varies. What factors explain the variation in a person's income?
+Clearly, we cannot account for all factors. Thus, we attribute a person's income to some observable factors (e.g, education level, gender, age etc) and leave any remaining variation to uncertainty (or in the language of statistics: to random errors).
+Example 2: We observe that some consumers choose Tide most of the time they buy a detergent whereas some other consumers choose detergent brand xyz. What explains the variation in choice? We attribute the variation in choices to some observable factors such as price, brand name etc and leave any unexplained variation to random errors (or uncertainty).
+Share
+Cite
+Improve this answer
+Follow
+edited
+Mar 6, 2018 at 22:33
+Alexis
+31.7k
+10
+10 gold badges
+110
+110 silver badges
+182
+182 bronze badges
+answered
+Jul 26, 2010 at 20:45
+user28
+$\endgroup$
+2
+1
+$\begingroup$
+What if the random errors become greater than the observable factors over time?
+$\endgroup$
+hslc
+–
+hslc
+2010-07-27 12:59:24 +00:00
+Commented
+Jul 27, 2010 at 12:59
+$\begingroup$
+In that case you re-work your model as it is no longer consistent with reality.
+$\endgroup$
+user28
+–
+user28
+2010-07-28 01:06:13 +00:00
+Commented
+Jul 28, 2010 at 1:06
+Add a comment
+|
+9
+$\begingroup$
+Similar to what Mark said, Statistics was historically called
+Inverse Probability
+, since statistics tries to infer the causes of an event given the observations, while probability tends to be the other way around.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 29, 2010 at 1:35
+raegtin
+10.2k
+15
+15 gold badges
+56
+56 silver badges
+58
+58 bronze badges
+$\endgroup$
+Add a comment
+|
+8
+$\begingroup$
+Probability is the embrace of uncertainty, while statistics is an empirical, ravenous pursuit of the truth (damned liars excluded, of course).
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 14, 2010 at 21:56
+user1108
+$\endgroup$
+1
+$\begingroup$
+Here I am thinking of all of frequentist/bayesian probability and all of descriptive/exploratory/inferential statistics.
+$\endgroup$
+user1108
+–
+user1108
+2010-09-14 21:57:29 +00:00
+Commented
+Sep 14, 2010 at 21:57
+Add a comment
+|
+6
+$\begingroup$
+The
+probability
+of an event is its long-run relative frequency. So it's basically telling you the
+chance
+of, for example, getting a 'head' on the next flip of a coin, or getting a '3' on the next roll of a die.
+A
+statistic
+is any numerical measure computed from a sample of the population. For example, the sample mean. We use this as a statistic which estimates the population mean, which is a parameter. So basically it's giving you some kind of
+summary
+of a sample.
+You can only get a statistic from a
+sample, otherwise if you compute a
+numerical measure on a population, it
+is called a population parameter.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 26, 2010 at 21:05
+answered
+Jul 26, 2010 at 21:00
+Tony Breyal
+4,437
+1
+1 gold badge
+21
+21 silver badges
+13
+13 bronze badges
+$\endgroup$
+1
+$\begingroup$
+That is only the frequentist model of probability theory. There are others which greatly differ from that.
+$\endgroup$
+E. Douglas Jensen
+–
+E. Douglas Jensen
+2023-06-24 00:41:11 +00:00
+Commented
+Jun 24, 2023 at 0:41
+Add a comment
+|
+6
+$\begingroup$
+Probability studies, well, how probable events are. You intuitively know what probability is.
+Statistics is the study of data: showing it (using tools such as charts), summarizing it (using means and standard deviations etc.), reaching conclusions about the world from which that data was drawn (fitting lines to data etc.), and -- this is key -- quantifying how sure we can be about our conclusions.
+In order to quantify how sure we can be about our conclusions we need to use Probability. Let's say you have last year's data about rainfall in the region where you live and where I live. Last year it rained an average of 1/4 inch per week where you live, and 3/8 inch where I live. So we can say that rainfall in my region is on average 50% greater than where you live, right? Not so fast, Sparky. It could be a coincidence: maybe it just happened to rain a lot last year where I live. We can use Probability to estimate how confident we can be in our conclusion that my home is 50% soggier than yours.
+So basically you can say that Probability is the mathematical foundation for the Theory of Statistics.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 20, 2010 at 13:59
+Carlos Accioly
+5,103
+4
+4 gold badges
+30
+30 silver badges
+29
+29 bronze badges
+$\endgroup$
+Add a comment
+|
+5
+$\begingroup$
+In probability theory, we are given random variables X1, X2, ... in some way, and then we study their properties, i.e. calculate probability P{ X1 \in B1 }, study the convergence of X1, X2, ... etc.
+In mathematical statistics, we are given n realizations of some random variable X, and set of distributions D; the problem is to find amongst distributions from D one which is most likely to generate the data we observed.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 27, 2010 at 12:36
+zoran
+$\endgroup$
+1
+$\begingroup$
+So we can only find patterns that we were looking for in the first place?
+$\endgroup$
+hslc
+–
+hslc
+2010-07-27 12:49:35 +00:00
+Commented
+Jul 27, 2010 at 12:49
+Add a comment
+|
+5
+$\begingroup$
+In probability, the distribution is known and knowable in advance - you start with a known probability distribution function (or similar), and sample from it.
+In statistics, the distribution is unknown in advance. It may even be unknowable. Assumptions are hypothesised about the probability distribution behind observed data, in order to be able to apply probability theory to that data in order to know whether a null hypothesis about that data can be rejected or not.
+There is a philosophical discussion about whether there is such a thing as probability in the real world, or whether it is an ideal figment of our mathematical imaginations, and all our observations can only be statistical.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Mar 20, 2011 at 9:27
+410 gone
+1,061
+9
+9 silver badges
+23
+23 bronze badges
+$\endgroup$
+Add a comment
+|
+4
+$\begingroup$
+Statistics is the pursuit of truth in the face of uncertainty. Probability is the tool that allows us to quantify uncertainty.
+(I have provided another, longer, answer that assumed that what was being asked was something along the lines of "how would you explain it to your grandmother?")
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 22, 2010 at 14:31
+Carlos Accioly
+5,103
+4
+4 gold badges
+30
+30 silver badges
+29
+29 bronze badges
+$\endgroup$
+1
+$\begingroup$
+Probability is A (not THE) tool ... And there are multiple different models of probability theory (beyond Bayesian).
+$\endgroup$
+E. Douglas Jensen
+–
+E. Douglas Jensen
+2023-06-24 00:43:30 +00:00
+Commented
+Jun 24, 2023 at 0:43
+Add a comment
+|
+4
+$\begingroup$
+Probability
+: Given known parameters, find the probability of observing a particular set of data.
+Statistics
+: Given a particular set of observed data, make an inference about what the parameters might be.
+Statistics is "more subjective" and "more art than science" (relative to probability).
+$$$$
+$$\underline{\text{Example}}$$
+We have a coin that can be flipped. Let $p$ be the proportion of coin-flips that are heads.
+Probability
+: Suppose $p=\frac{1}{2}$. Then what's the probability of getting $HHH$ (three heads in a row)?
+Most probabilists would give the same, simple answer: "The probability is $\frac{1}{8}$."
+Statistics
+: Suppose we get $HHH$. Then what's $p$?
+Different statisticians will give different, often long-winded answers.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jun 26, 2016 at 6:17
+user46481
+$\endgroup$
+Add a comment
+|
+3
+$\begingroup$
+Answer #1: Statistics is parametrized Probability.
+Any book on measure-theoretic Probability will tell you about the Probability triplet: $(\Omega, \mathcal F, P)$.  But if you're doing Statistics, you have to add $\theta$ to the above: $(\Omega, \mathcal F, P_\theta)$, i.e. for different values of $\theta$, you get different probability measures (different distributions).
+Answer #2: Probability is about going forward; Statistics is about going backward.
+Probability is about the process of generating (simulating) data given a value of $\theta$.  Statistics is about the process of taking data to draw conclusions about $\theta$.
+Disclaimer: the above are mathematical answers.  In reality, much of Statistics is also about designing/discovering appropriate models, questioning existing models, designing experiments, dealing with imperfect data, etc.  "All models are wrong."
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 12, 2013 at 17:26
+gusl
+101
+2
+2 bronze badges
+$\endgroup$
+1
+4
+$\begingroup$
+Analogously, if asked "what is chemistry?" we could reply that it's a set of differential equations.  A description of the mathematical theory can give us a small idea of what a subject is about, but it is not the subject itself.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-02-12 17:29:50 +00:00
+Commented
+Feb 12, 2013 at 17:29
+Add a comment
+|
+3
+$\begingroup$
+The difference between probabilities and statistics is that in probabilities there is no mistake. We are sure for the probability because we know exactly how many sides has a coin, or how many blue caramels are in the vase. But in statistics we examine a piece of a population of whatever we examine, and from this, we try to see the truth, but always there is an a% of wrong conclusions. The only thing in statistics that is true, is this a% mistake, that in fact is a probability.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 19, 2016 at 18:39
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+answered
+Aug 19, 2016 at 17:12
+TheodoreM
+31
+1
+1 bronze badge
+$\endgroup$
+Add a comment
+|
+2
+$\begingroup$
+Savage's text Foundations of Statistics has been cited over 12000 times on Google Scholar.[3] It tells the following.
+It is unanimously agreed that statistics depends somehow on probability. But, as to what probability is and how it is connected with statistics, there has seldom been such complete disagreement and breakdown of communication since the Tower of Babel. Doubtless, much of the disagreement is merely terminological and would disappear under sufficiently sharp analysis.
+https://en.wikipedia.org/wiki/Foundations_of_statistics
+So the point that Probability Theory is a Foundation of Statistics is hardly disputed.  Everything else is fair game.
+But in trying to be more helpful, practical with an answer...
+However, probability theory contains much that is mostly of mathematical interest and not directly relevant to statistics. Moreover, many topics in statistics are independent of probability theory
+https://en.wikipedia.org/wiki/Probability_and_statistics
+The above is not exhaustive or authorative by any means, but I believe it's useful.
+Commonly it has helped me to see things such as...
+Descrete Mathematics
+>>
+Probability Theory
+>>
+Statistics
+With each being heavily used, on average, in the foundations of the next.  That is there are large intersections in how we study the next's foundations.
+PS. There's inductive and deductive Statistics, so that's not where the difference lies.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jun 11, 2020 at 14:32
+Community
+Bot
+1
+answered
+Nov 22, 2016 at 19:11
+kervin
+121
+3
+3 bronze badges
+$\endgroup$
+Add a comment
+|
+0
+$\begingroup$
+The term "statistics" is beautifully explained by J. C. Maxwell in the article
+Molecules
+(in
+Nature
+8, 1873, pp. 437–441). Let me quote the relevant passage:
+When the working members of Section F get hold of a Report of the Census, or any other document containing the numerical data of Economic and Social Science, they begin by distributing the whole population into groups, according to age, income-tax, education, religious belief, or criminal convictions. The number of individuals is far too great to allow of their tracing the history of each separately, so that, in order to reduce their labour within human limits, they concentrate their attention on small number of artificial groups. The varying number of individuals in each group, and not the varying state of each individual, is the primary datum from which they work.
+This, of course, is not the only method of studying human nature. We may observe the conduct of individual men and compare it with that conduct which their previous character and their present circumstances, according to the best existing theory, would lead us to expect. Those who practise this method endeavour to improve their knowledge of the elements of human nature, in much the same way as an astronomer corrects the elements of a planet by comparing its actual position with that deduced from the received elements. The study of human nature by parents and schoolmasters, by historians and statesmen, is therefore to be distinguished from that carried on by registrars and tabulators, and by those statesmen who put their faith in figures. The one may be called the historical, and the other the statistical method.
+The equations of dynamics completely express the laws of the historical method as applied to matter, but the application of these equations implies a perfect knowledge of all the data. But the smallest portion of matter which we can subject to experiment consists of millions of molecules, not one of which ever becomes individually sensible to us. We cannot, therefore, ascertain the actual motion of any one of these molecules, so that we are obliged to abandon the strict historical method, and to adopt the statistical method of dealing with large groups of molecules.
+He gives this explanation of the statistical method in several other works. For example, "In
+the statistical method of investigation, we do not follow the system during its motion, but we fix our attention on a particular phase, and ascertain whether the system is in that phase or not, and also when it enters the phase and when it leaves it" (Trans. Cambridge Philos. Soc. 12, 1879, pp. 547–570).
+There's another beautiful passage by Maxwell about "probability" (from a letter to Campbell, 1850, reprinted in
+The Life of James Clerk Maxwell
+, p. 143):
+the actual science of Logic is conversant at present only with things either certain, impossible, or
+entirely
+doubtful, none of which (fortunately) we have to reason on. Therefore the true Logic for this world is the Calculus of Probabilities, which takes account of the magnitude of the probability (which is, or which ought to be in a reasonable man's mind).
+So we can say:
+– In
+statistics
+we are "concentrating our attention on small number of artificial groups" or quantities; we're making a sort of cataloguing or census.
+– In
+probability
+we are calculating our uncertainty about some events or quantities.
+The two are distinct, and we can be doing the one without the other.
+For example, if we make a complete census of the entire population of a nation and count the exact number of people belonging to particular groups such as age, gender, and so on, we are doing statistics. There's no uncertainty – probability – involved, because the numbers we find are exact and known.
+On the other hand, imagine someone passing in front of us on the street, and we wonder about their age. In this case we're uncertain and we use probability, but there is no statistics involved, since we aren't making some sort of census or catalogue.
+But the two can also occur together. If we can't make a complete census of a population, we have to
+guess
+how many people are in specific age-gender groups. Hence we're using probability while doing statistics. Vice versa, we can consider exact statistical data about people's ages, and from such data try to make a better guess about the person passing in front of us. Hence we're using statistics while deciding upon a probability.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 16, 2019 at 22:14
+pglpm
+1,366
+1
+1 gold badge
+9
+9 silver badges
+20
+20 bronze badges
+$\endgroup$
+2
+1
+$\begingroup$
+Thank you for your contribution.  Although interesting, it does not comport with what statisticians believe statistics to be nor with what they actually do, as shown at
+stats.stackexchange.com/questions/140547/…
+.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2019-02-16 22:22:00 +00:00
+Commented
+Feb 16, 2019 at 22:22
+1
+$\begingroup$
+It's a moot point. I know professional statisticians who disagree with the ASA definition (which is terribly vague) and agree with Maxwell.
+$\endgroup$
+pglpm
+–
+pglpm
+2019-02-17 00:00:15 +00:00
+Commented
+Feb 17, 2019 at 0:00
+Add a comment
+|
+0
+$\begingroup$
+I feel saying statistics and probability are inverse of each other makes it look like they are strong opposites. And I think they are not because they are two correlated concepts. Here is my take:
+Probability is a framework for predicting outcomes. Outcomes based on what? Some kind of data - assumed data (fair coin), experiential data (coins from company X have almost always 0.6 probability of heads), real data (tossing coins 1000 times and finding that probability of heads is 0.2)
+Statistics is a science that is more general - the science of collecting data, the ways to analyze and the ways to conclude with inferences to come up with facts about the data AND then use the fact to predict outcomes.
+Example:
+A salesman making calls.
+Salesman assumes that the company he joined - people here close 30% of the calls -> His probability becomes 30%.
+Simple probability based on assumed data
+Salesman starts collecting data of his sales: the time he did, the background of customers, the price of the content, etc. He analyzes each factor and gets numbers such as 60% of closed sales are for lower prices of content.
+This is statistics for learning what is actually happening in real world data
+Salesman uses the inferences to change the price of the content he is selling and finds out he now has a probability of closing calls at 50%.
+This is statistics and probability working together
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 12, 2025 at 4:24
+community wiki
+Prasanjit Rath
+$\endgroup$
+Add a comment
+|
+-1
+$\begingroup$
+Many people and mathematicians say that 'STATISTICS is the inverse of PROBABILITY',but its not particularly right. The way of approaching or method of solving these 2 are completely different but they are
+INTERCONNECTED
+.
+i will like to refer to my friend John D Cook.....
+"I like the example of a jar of red and green jelly beans.
+A probabilist starts by knowing the proportion of each and lets say finds the  probability of drawing a red jelly bean. A statistician infers the proportion of red jelly beans by sampling from the jar."
+Now the proportion of the red jelly bean obtained by sampling from the jar is used by the probabilist to find the probability of drawing a red bean from the jar
+Consider this example---->>>
+In an examination 30% of students failed in physics, 25% failed in maths, 12% failed both in physics and maths. A student is selected at random find the probability that the student has failed in Physics,if it is known that he failed in maths.
+The above sum is a problem of probability,but if we look carefully we will find that the sum is provided with some statistical data
+30% student failed in physics,
+25%   "        "    "    maths
+'
+'
+'
+These are basically frequencies if the percentages are calculated.
+thus we are being provided with a statistical data which in turn helps us to
+find the probability
+SO PROBABILITY AND STATISTICS ARE VERY MUCH INTERCONNECTED OR RATHER WE CAN
+SAY THAT PROBABILITY IS DEPENDENT A LOT ON STATISTICS
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 1, 2017 at 17:20
+Hirak Mondal
+1
+$\endgroup$
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+teaching
+mathematical-statistics
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+690
+What is the difference between "likelihood" and "probability"?
+28
+How to describe statistics in one sentence?
+22
+Can you say that statistics and probability is like induction and deduction?
+4
+Odds at least 1 person is born in January?
+3
+How much do probabilists need to know about statistics?
+Related
+34
+What's the difference between a probability and a proportion?
+8
+What is the relation between statistics theory and decision theory?
+36
+Differences between a statistical model and a probability model?
+28
+What's the difference between mathematical statistics and statistics?
+182
+What's the difference between variance and standard deviation?
+48
+Differences between Bhattacharyya distance and KL divergence
+2
+How important are interpretations of probability to the practice of statistics?
+2
+What's the difference between $P[A \cap B]$ and $P[A | B]$ in this question?
+1
+What's the difference between exogenous and endogenous identifiers?
+Hot Network Questions
+Question 14 from section 3.6 of Topology And Groupoids
+Are US passport holders required to keep passports on their person, when in Canada?
+What are the visual tells of wands?
+Why would an extraterrestrial ecosystem without predators have evolved?
+Why the races have to restart if someone leaves the starting position before starter pistol signal?
+How is the expectation of spin related to the eigenvector of the spin operator?
+PTIJ: Serving With Oy
+Is there a way that some devices can share in local network but not going online?
+What do philosophers consider to be natural?
+The Animation Story
+Who's the first adult woman protagonist to involuntarily go to another universe / reality / world?
+Interpreting Adjective + Noun Phrases Where the Adjective Doesn’t Directly Describe the Noun
+Identify this IC's manufacturer logo with stylised 'm'
+Guess the PIN. You only got one shot!
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+PTIJ: Is it holy or heresy to tell someone to "have a good one"?
+How to use -dialect sqlite -sql so empty array values aren't dropped from properties?
+Episode of an anime about a witch or magic girl in high school named Kurumi, who starts crying and herself turns into a baby
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+apt remove does not fail upon removing a package that is a dependency of another
+How do I encourage more interaction with Fate's mechanics?
+Recurrence functional inequality
+Some books recommendation by which I can know about what's happening in current mathematics research in Pure mathematics?
+Korean action film involving a garage elevator and men in suits with knives
+more hot questions
+Question feed

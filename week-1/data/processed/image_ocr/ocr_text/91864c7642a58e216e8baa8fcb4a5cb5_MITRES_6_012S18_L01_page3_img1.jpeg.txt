@@ -1,0 +1,11 @@
+Sample space
+
+e List (set) of possible outcomes, 2
+
+e List must be:
+
+— Mutually exclusive
+
+— Collectively exhaustive
+
+— At the “right” granularity

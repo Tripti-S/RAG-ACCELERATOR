@@ -1,0 +1,15 @@
+Bayes’ rule and inference
+
+— Thomas Bayes, presbyterian minister (c. 1701-1761)
+— “Bayes' theorem,” published posthumously
+— systematic approach for incorporating new evidence
+e Bayesian inference
+— initial beliefs P(A;) on possible causes of an observed event B
+
+— model of the world under each A;: P(B | Aj)
+A, model B
+P(B | Ai)
+— draw conclusions about causes
+
+inference
+P(A; | B).

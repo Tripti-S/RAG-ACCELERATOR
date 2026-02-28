@@ -1,0 +1,9 @@
+A nonmonotonic example: Y = X?
+
+e The discrete case:
+
+py (9) =
+
+py(y) =
+
+e The continuous case:

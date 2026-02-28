@@ -1,0 +1,307 @@
+Central Limit Theorem
+18.05 Spring 2022
+0.5
+0.4
+0.3
+0.2
+0.1
+0
+-4 -2 0 2 4
+1/19
+Agenda
+• Central limit theorem (CLT) (ubiquitous and important)
+• Start class 7: joint distributions
+2/19
+Standard deviation of an average
+(Board question from yesterday)
+𝑋 , 𝑋 , …, 𝑋 independent, identically distributed (i.i.d.) random
+1 2 𝑛
+variables.
+All with mean 𝜇 and standard deviation 𝜎.
+𝑋 +…+𝑋
+Average = 𝑋 = 1 𝑛
+𝑛
+𝜎
+𝐸[𝑋] = 𝜇 and standard deviation of 𝑋 = 𝜎 = √ .
+𝑋 𝑛
+Reason: This is a calculation using the algebraic properties of mean
+and variance.
+Key conclusion: The average is a better estimate of 𝜇 than any
+single measurement.
+3/19
+Standardization
+Random variable 𝑋 with mean 𝜇, standard deviation 𝜎.
+𝑋 −𝜇
+Standardization: 𝑍 = .
+𝜎
+• 𝑍 has mean 0 and standard deviation 1.
+• 𝑍 is dimensionless.
+• Standardizing any normal random variable produces the standard
+normal.
+• I.e. if 𝑋 ≈ normal then standardized 𝑍 ≈ standard normal.
+4/19
+Table question: Standardization
+Suppose 𝑋 is a random variable with mean 𝜇 and standard deviation
+𝜎. Let 𝑍 be the standardization of 𝑋.
+(a) Give the formula for 𝑍 in terms of 𝑋, 𝜇 and 𝜎.
+(b) Use the algebraic properties of mean and variance to show 𝑍 has
+mean 0 and standard deviation 1.
+5/19
+Central Limit Theorem
+Setting: 𝑋 , 𝑋 , …i.i.d. with mean 𝜇 and standard dev. 𝜎.
+1 2
+For each 𝑛:
+𝑆 = 𝑋 +𝑋 +…+𝑋 sum
+𝑛 1 2 𝑛
+1 𝑆
+𝑋 = (𝑋 +𝑋 +…+𝑋 ) = 𝑛 average
+𝑛 𝑛 1 2 𝑛 𝑛
+Know:
+√
+𝐸[𝑆 ] = 𝑛𝜇, Var(𝑆 ) = 𝑛𝜎2, 𝜎 = 𝑛 𝜎
+𝑛 𝑛 𝑆
+𝑛
+𝜎2 𝜎
+𝐸[𝑋 ] = 𝜇, Var(𝑋 ) = , 𝜎 = √ .
+𝑛 𝑛 𝑛 𝑋 𝑛 𝑛
+𝑆 − 𝑛𝜇 𝑋 − 𝜇
+Standardized sum and average: 𝑍 = 𝑛 √ = 𝑛 √
+𝑛 𝜎 𝑛 𝜎/ 𝑛
+Central Limit Theorem: For large 𝑛:
+𝜎2
+𝑋 ≈ N (𝜇, ) 𝑆 ≈ N (𝑛𝜇, 𝑛𝜎2) 𝑍 ≈ N(0, 1)
+𝑛 𝑛 𝑛 𝑛
+6/19
+Central Limit Theorem
+𝑋 , 𝑋 , …i.i.d. with mean 𝜇 and standard dev. 𝜎.
+1 2
+Central Limit Theorem: For large 𝑛:
+𝜎2
+𝑋 ≈ N (𝜇, ) 𝑆 ≈ N (𝑛𝜇, 𝑛𝜎2) 𝑍 ≈ N(0, 1)
+𝑛 𝑛 𝑛 𝑛
+In words:
+• 𝑋 is approximately normal: same mean as 𝑋 but a smaller
+𝑛 𝑖
+variance.
+• 𝑆 is approximately normal.
+𝑛
+• Standardized 𝑋 and 𝑆 are approximately standard normal.
+𝑛 𝑛
+7/19
+CLT: Pictures 1
+The standardized average of 𝑛 i.i.d. Bernoulli(0.5) random variables
+with 𝑛 = 1,2,12,64. (See class 6 reading for a description of how
+these are made.)
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Bernoulli: n = 1
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Bernoulli: n = 2
+x
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Bernoulli: n = 12
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Bernoulli: n = 64
+x
+8/19
+CLT: Pictures 2
+Standardized average of 𝑛 i.i.d. uniform random variables with
+𝑛 = 1,2,4,12.
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Uniform: n = 1
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Uniform: n = 2
+x
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Uniform: n = 4
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Uniform: n = 12
+x
+9/19
+CLT: Pictures 3
+The standardized average of 𝑛 i.i.d. exponential random variables
+with 𝑛 = 1,2,8,64.
+−3 −2 −1 0 1 2 3
+8.0
+4.0
+0.0
+Exponential: n = 1
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Exponential: n = 2
+x
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Exponential: n = 8
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Exponential: n = 64
+x
+10/19
+CLT: Pictures 4
+The (non-standardized) average of 𝑛 Bernoulli(0.5) random variables,
+with 𝑛 = 4,12,64. (Spikier.)
+−1.0 0.0 0.5 1.0 1.5 2.0
+8.0
+4.0
+0.0
+Bernoulli: n = 2
+0.0 0.5 1.0
+x
+0.2
+0.1
+0.0
+Bernoulli: n = 12
+x
+0.0 0.5 1.0
+6
+4
+2
+0
+Bernoulli: n = 64
+x
+11/19
+(b) 𝑃(𝑋 > 𝜇+2𝜎) is approximately
+(i) 0.025 (ii) 0.16 (iii) 0.68 (iv) 0.84 (v) 0.95
+Concept Question: Normal Distributions
+𝑋 has normal distribution, standard deviation 𝜎.
+within 1⋅𝜎 ≈68%
+Normal PDF within 2⋅𝜎 ≈95%
+within 3⋅𝜎 ≈99%
+68%
+95%
+99%
+𝑧
+𝜇−3𝜎 𝜇−2𝜎 𝜇−𝜎 𝜇 𝜇+𝜎 𝜇+2𝜎 𝜇+3𝜎
+(a) 𝑃(−𝜎 < 𝑋 −𝜇 < 𝜎) is approximately
+(i) 0.025 (ii) 0.16 (iii) 0.68 (iv) 0.84 (v) 0.95
+12/19
+Concept Question: Normal Distributions
+𝑋 has normal distribution, standard deviation 𝜎.
+within 1⋅𝜎 ≈68%
+Normal PDF within 2⋅𝜎 ≈95%
+within 3⋅𝜎 ≈99%
+68%
+95%
+99%
+𝑧
+𝜇−3𝜎 𝜇−2𝜎 𝜇−𝜎 𝜇 𝜇+𝜎 𝜇+2𝜎 𝜇+3𝜎
+(a) 𝑃(−𝜎 < 𝑋 −𝜇 < 𝜎) is approximately
+(i) 0.025 (ii) 0.16 (iii) 0.68 (iv) 0.84 (v) 0.95
+(b) 𝑃(𝑋 > 𝜇+2𝜎) is approximately
+(i) 0.025 (ii) 0.16 (iii) 0.68 (iv) 0.84 (v) 0.95
+12/19
+Board Question: CLT
+(a) Carefully write the statement of the central limit theorem.
+(b) To head the newly formed US Dept. of Statistics, suppose that
+50% of the population supports the team of Alessandre, Gabriel,
+Sarah and So Hee, 25% support Jen and 25% support Jerry.
+A poll asks 400 random people who they support. What is the
+probability that at least 55% of those polled prefer the team?
+(c) What is the probability that less than 20% of those polled prefer
+Jen?
+13/19
+Table Question: Sampling from the standard normal
+distribution
+How would you approximate a single random sample from a standard
+normal distribution using 9 rolls of a ten-sided die?
+Note: 𝜇 = 5.5 and 𝜎2 = 8.25 for a single roll of a 10-sided die.
+Hint: CLT is about averages.
+14/19
+Histogram of 9 roll simulation
+Histogram of standardized 9 roll simulation
+ytisneD
+−6 −4 −2 0 2 4 6
+4.0
+3.0
+2.0
+1.0
+0.0
+Standard normal is shown in orange.
+𝑋 = average of nine rolls: 𝜇 = 5.5, 𝜎 = √8.25/9.
+𝑋 −𝜇
+Standarized statistic: 𝑍 = ≈ 𝑁(0,1).
+𝜎
+15/19
+Continuity correction
+Approximating a discrete distribution with a continuous is ambiguous.
+PMF for binom(10, 0.5)
+ytisneD
+0 1 2 3 4 5 6 7 8 9
+2.0
+1.0
+0.0
+Here 𝑋 ∼ binom(10, 0.5). 𝜇 = 5, 𝜎 = √10/4.
+𝑋 𝑋
+The CLT for 𝑌 ∼ N(𝜇 , 𝜎2 ), 𝑋 ≈ 𝑌 .
+𝑋 𝑋
+We know 𝑃(𝑋 ≤ 4) = 𝑃(𝑋 ≤ 4.5) = 𝑃(𝑋 ≤ 4.9999). Should we
+approximate this with 𝐹 (4), 𝐹 (4.5), 𝐹 (4.9999)?
+𝑌 𝑌 𝑌
+Rule of thumb: Use 𝐹 (4) – convenient, often easy to compute.
+𝑌
+Continuity correction: Use 𝐹 (4.5) – more accurate.
+𝑌
+16/19
+Comparing rule of thumb and continuity correction
+FDC
+Binomial CDF and CLT rule of thumb: n=10, p=0.5
+0 1 2 3 4 5 6 7 8 9 10
+FDC
+8.0
+4.0
+0.0
+Binomial CDF and corrected CLT: n=10, p=0.5
+0 1 2 3 4 5 6 7 8 9 10
+8.0
+4.0
+0.0
+17/19
+Bonus problem
+Not for class. Solution will be posted with solutions for today.
+An accountant rounds to the nearest dollar. We’ll assume the error in
+rounding is uniform on [-0.5, 0.5]. Estimate the probability that the
+total error in 300 entries is more than $5.
+18/19
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+19/19

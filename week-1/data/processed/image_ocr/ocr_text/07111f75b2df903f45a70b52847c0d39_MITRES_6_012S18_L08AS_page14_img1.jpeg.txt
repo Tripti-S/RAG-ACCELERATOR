@@ -1,0 +1,13 @@
+Standard normal (Gaussian) random variables
+
+. _ —x?/2
+e Standard normal N(0,1): fx (x) Jaa" P
+2/2. cabcubuse
+020 2
+-#/2 Ven
+~ , 2 ( dx = an
+2 -@
+
+e ELX]= O
+
+e var(X)=1 integrate by pares

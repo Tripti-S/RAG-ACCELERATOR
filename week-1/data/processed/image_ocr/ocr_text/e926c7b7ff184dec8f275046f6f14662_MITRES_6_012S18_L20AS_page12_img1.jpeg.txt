@@ -1,0 +1,20 @@
+Comments on ML
+e maximize px(x; 0)
+
+e maximization is usually done numerically
+
+if have n i.i.d. data drawn from model px(z;6), then, under mild assumptions:
+
+— consistent: On > @
+
+On -8
+a(On)
+e analytical and simulation methods for calculating ¢ + o(@n)
+
+— asumptotically normal:
+
+— N(0,1) (CDF convergence)
+
+— hence confidence intervals P(Sn —1.96G6<60< On + 1.96 a) = 0.95
+
+— asymptotically “efficient” (‘best )

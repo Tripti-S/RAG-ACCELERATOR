@@ -1,0 +1,21 @@
+Independence, memorylessness, and fresh-start properties
+
+e Fresh-start after a random time N 4 VA és
+
+Ole is ie o fy
+N = time of 3rd success } i causall,
+
+N = first time that 3 successes in a row have been observed oleterminedt
+| ‘Pp ojey for utd
+
+N = the time just before the fist occurrence of 1,1,1 V not
+
+causally
+d eferulucel
+
+The process Xy11,Xy4o,--- is:
+
+— a Bernoulli process (as long as N is determined “causally” )
+
+— independent of N,Xj,...,Xn
+

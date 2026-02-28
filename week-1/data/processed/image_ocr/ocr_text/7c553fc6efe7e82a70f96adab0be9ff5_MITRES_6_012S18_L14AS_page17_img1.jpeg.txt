@@ -1,0 +1,21 @@
+Continuous ©, continuous X fo(9) fxje(e | 4)
+jox@| 2) = — 7
+
+. a fx(2)
+e linear normal models
+
+fx) = | fo) Fxjo(w | 6") a0!
+
+estimation of a noisy signal
+
+x=0+W
+
+© and W: independent normals
+
+multi-dimensional versions (many normal parameters, many observations)
+
+e estimating the parameter of a uniform « 6= g(X) MAL
+, L™S
+X: uniform[0, ©] e interested in:
+©: uniform [0,1] é E[(O —0)?|x= 2]
+E[(6 - ©)?|

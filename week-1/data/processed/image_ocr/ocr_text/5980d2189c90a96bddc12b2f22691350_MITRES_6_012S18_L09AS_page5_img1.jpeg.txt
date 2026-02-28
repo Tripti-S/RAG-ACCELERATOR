@@ -1,0 +1,22 @@
+Example
+
+fx(@)
+
+a
++
+a
+
+nN
+IA
+>
+IA
+a
+
+Bt) pl b
+Z 2
+
+Gets
+4
+
+3
+E[X2 | A] = 4

@@ -1,0 +1,19 @@
+LECTURE 12: Sums of independent random variables;
+
+Covariance and correlation
+
+e The PMF/PDF of X + Y (X and Y independent)
+
+the discrete case
+
+the continuous case
+
+the mechanics
+
+the sum of independent normals
+
+e Covariance and correlation
+— definitions
+— mathematical properties
+
+— interpretation

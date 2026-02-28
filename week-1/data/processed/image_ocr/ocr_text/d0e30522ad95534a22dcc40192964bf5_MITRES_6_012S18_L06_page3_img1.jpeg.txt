@@ -1,0 +1,10 @@
+Properties of the variance
+
+_ 2
+e Notation: » = E[X] var(aX + b) = a“var(X)
+
+e Letty =X+5
+
+e Let Y =aX
+
+A useful formula: = var(X) = E[X?] — (E[x])°

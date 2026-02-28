@@ -1,0 +1,47 @@
+Class 10 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. Is it a statistic?
+You believe that the lifetimes of a certain type of lightbulb follow an exponential distribution
+with parameter 𝜆. To test this hypothesis you measure the lifetime of 5 bulbs and get data
+𝑥 , … 𝑥 .
+1 5
+Which of the following are statistics?
+(a) The sample average 𝑥 = 𝑥 1 +𝑥 2 +𝑥 3 +𝑥 4 +𝑥 5 .
+5
+(b) The expected value of a sample, namely 1/𝜆.
+(c) The difference between 𝑥 and 1/𝜆.
+Board questions
+Problem 1. Coins
+(a) A box contains 3 coins. They land heads with, respectively, probability 𝑝 = 1/3, 1/2, 2/3.
+A coin is taken from the box. The mystery coin is tossed 80 times, resulting in 49 heads
+and 31 tails.
+What is the likelihood of this data for each type of coin? Which coin gives the maximum
+likelihood?
+(b) Now suppose you found a bent coin. It has an unknown probability 𝑝 of landing heads.
+To estimate 𝑝 you toss it 80 times getting 49 heads. Find the likelihood and log likelihood
+functions given this data. What is the maximum likelihood estimate for 𝑝?
+Problem 2. Continuous likelihood
+For continuous likelihood: use the pdf instead of the pmf
+Box of light bulbs.
+Lifetime of each bulb ∼ exp(𝜆), with unknown parameter 𝜆.
+For multiple independent data points, the likelihood is the product of the individual likeli-
+hoods.
+(a) We test 5 light bulbs and find they have lifetimes of 2, 3, 1, 3, 4 years respectively. We
+assume the tests are independent.
+(i) Find the likelihood and log likelihood functions (as functions of 𝜆.)
+(ii) What is the maximum likelihood estimate (MLE) for 𝜆?
+Reminder: An exponential distribution has pdf 𝑓(𝑥|𝜆) = 𝜆e−𝜆𝑥
+(b) Suppose we test 5 bulbs and find they have lifetimes 𝑥 , 𝑥 , 𝑥 , 𝑥 , 𝑥 years respectively.
+1 2 3 4 5
+Redo Part (a) using these lifetimes.
+1
+18.05 class 10 problems, Spring 2022 2
+Extra
+Cilantro problem In the Cilantro experiment, assume 55 out of 100 people said Cilantro
+tastes like soap. Find the maximum likelihood estimate for 𝑝, the true proportion of people
+who feel that way.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

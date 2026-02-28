@@ -1,0 +1,16 @@
+LMS estimation of © based on X
+
+e unknown ©; prior pe(A) Pix (6 |2)
+— interested in a point estimate 8
+
+e observation X; model pxjo(x| 4)
+
+— observe that X =a
+
+[minimize mean squared error (MSE), E [(o = 6)?|: 6=E[S] ]
+
+[minimize conditional mean squared error, E [(o = 6)? |x= Z|, é= E[O| X =z] |
+
+e LMS estimate: 6 = E[O|X =<]
+
+estimator: © = E[O| X]

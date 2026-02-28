@@ -1,0 +1,24 @@
+The simplest LLMS example with multiple observations
+
+xX, =04W, © ~ 20, oa W; ~ 0, of
+Xn =O+Wn ©,Wj,...,Wn uncorrelated
+e Suppose ©,Wj,...,Wn are independent normal
+
+Ma
+8
+
+n
+xX,
+=. +S
+A, i=0 a a = ed
+oLms = E[O|X = 2] = Oims = Bl9|X] =~
+iD Satis
+i=0 7% yu 2
+
+e Suppose general (not normal) distributions,
+but same means, variances, as in normal example
+
+all covariances also the same
+
+— solution must be the same
+

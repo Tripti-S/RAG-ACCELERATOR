@@ -1,0 +1,60 @@
+# Mit18 05 S22 Class04 Pset
+
+---
+
+Class 4 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1.
+Suppose 𝑋 a random variable with the CDF shown.
+values of 𝑋: 1 3 5 7
+cdf 𝐹 (𝑎): 0.5 0.75 0.9 1
+What is 𝑃(𝑋 ≤ 3)?
+(a) 0.15 (b) 0.25 (c) 0.5 (d) 0.75
+What is 𝑃(𝑋 = 3)? Same distribution as above
+(a) 0.15 (b) 0.25 (c) 0.5 (d) 0.75
+Board questions
+Problem 1. Computing expectation
+Suppose 𝑋 is a random variable with the following pmf.
+𝑋: 1 2 3
+pmf: 1/4 1/2 1/4
+Find 𝐸[𝑋] and 𝐸[1/𝑋].
+Problem 2. Interpreting expectation
+(a) Would you accept a gamble that offers a 10% chance to win $95 and a 90% chance of
+losing $5?
+(b) Would you pay $5 to participate in a lottery that offers a 10% percent chance to win
+$100 and a 90% chance to win nothing?
+Hint: find the expected value of your winnings in each case.
+Problem 3. Musical chairs or linearity of expectation
+Suppose that there are 𝑛 people at your table and everyone got up, ran around the room,
+and sat back down randomly (i.e., all seating arrangements are equally likely).
+What is the expected value of the number of people sitting in their original seat?
+Problem 4. Bernoulli
+(a) Suppose 𝑋 ∼ Bernoulli(𝑝). Find 𝐸[𝑋].
+(This is important! Remember it!)
+(b) Suppose 𝑌 = 𝑋 +𝑋 +…+𝑋 , where each 𝑋 ∼ Bernoulli(0.25). Find 𝐸[𝑌 ].
+1 2 12 𝑖
+Problem 5. Don’t let one failure stop you
+Let 𝑋 = # of successes before the second failure of a sequence of independent Bernoulli(𝑝)
+trials. Find the pmf of 𝑋.
+Hint: this requires a small amount of counting.
+1
+18.05 class 4 problems, Spring 2022 2
+In class examples and discussion
+Gambler’s fallacy. [roulette]
+Fallacy: If black comes up several times in a row then the next spin is more likely to be
+red.
+Truth: P(red) remains the same. The roulette wheel spins are independent.
+Hot hand
+Theory: NBA players get ‘hot’.
+Data: The data show that player who has made 5 shots in a row is no more likely than
+usual to make the next shot.
+Extra problems
+Extra 1. Suppose 𝑋 ∼ Binomial(𝑛, 𝑝), i.e. the number of successes in 𝑛, independent
+Bernoulli(𝑝) trials. Explain why 𝑋 is the sum of 𝑛 Bernoulli(𝑝) random variables.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

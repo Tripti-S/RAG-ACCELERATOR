@@ -1,0 +1,12 @@
+LECTURE 3: Independence
+
+e Independence of two events
+
+e Conditional independence
+
+e Independence of a collection of events
+e Pairwise independence
+
+e Reliability
+
+e The king's sibling puzzle

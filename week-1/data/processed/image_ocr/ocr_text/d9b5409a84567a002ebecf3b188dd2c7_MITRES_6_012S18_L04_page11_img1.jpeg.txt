@@ -1,0 +1,19 @@
+Example: 52-card deck, dealt (fairly) to four players.
+Find P(each player gets an ace)
+e Outcomes are:
+
+— number of outcomes:
+
+e Constructing an outcome with one ace for each person:
+
+— distribute the aces
+
+— distribute the remaining 48 cards
+
+;
+4.3-2. =
+e Answer: 12!12!12!12!
+
+52!
+13!13!13!13!
+

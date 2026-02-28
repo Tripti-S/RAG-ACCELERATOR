@@ -1,0 +1,12 @@
+LECTURE 10: Conditioning on a random variable; Independence; Bayes’ rule
+
+e Conditioning X on Y
+— Total probability theorem
+— Total expectation theorem
+
+e Independence
+— independent normals
+
+e A comprehensive example
+
+e Four variants of the Bayes rule

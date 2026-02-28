@@ -1,0 +1,11 @@
+The idea of conditioning Use new information to revise a model
+
+Assume 12 equally likely outcomes If told B occurred:
+
+Ha
+
+P(A) B)=2.! P(B|B)= |
+~ 6 ee |
+
+3
+

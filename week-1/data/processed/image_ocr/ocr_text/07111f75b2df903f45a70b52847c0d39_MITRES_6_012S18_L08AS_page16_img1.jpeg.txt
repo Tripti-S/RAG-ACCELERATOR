@@ -1,0 +1,16 @@
+Linear functions of a normal random variable
+e LetY=qX+b X~ N(p, 0?)
+Efy]}= @H tr b
+
+Var(Y) = at o*
+
+e Fact (will prove later in this course):
+
+iy ~ Man +b,a2o?)
+
+e Special case: a=0?
+
+rs =b
+v(b,0)
+
+ol''sere te

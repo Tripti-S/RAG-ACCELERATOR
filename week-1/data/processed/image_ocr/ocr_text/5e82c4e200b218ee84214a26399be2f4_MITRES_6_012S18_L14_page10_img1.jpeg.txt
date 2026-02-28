@@ -1,0 +1,20 @@
+Model building versus inferring unobserved variables
+
+Predictions
+
+Probability theory
+(Analysis)
+
+Real world
+
+xX =aS+W
+
+Models
+e Model building:
+
+— know “signal” S, observe X
+— infer a
+
+e Variable estimation:
+— know a, observe X
+— infer S

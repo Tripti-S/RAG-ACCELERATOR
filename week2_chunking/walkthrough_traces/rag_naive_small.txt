@@ -1,0 +1,81 @@
+🚀 Week 2: Generate RAG Results
+==================================================
+🎯 Strategy: naive_small
+🤖 Model: gemini-2.5-flash (default)
+📂 Output directory: /Users/shivanivirdi/RAGWorkShop/rag-workshop-classroom/week2_chunking/rag_results
+📋 Loading questions from: /Users/shivanivirdi/RAGWorkShop/rag-workshop-classroom/artifacts/human_eval_questions.json
+✅ Loaded 8 evaluation questions
+
+======================================================================
+🚀 WEEK 2: GENERATING RAG RESULTS
+======================================================================
+📊 Strategy: Naive Small (200w/25)
+❓ Questions: 8
+📁 Output: /Users/shivanivirdi/RAGWorkShop/rag-workshop-classroom/week2_chunking/rag_results
+
+======================================================================
+📊 GENERATING RESULTS: Naive Small (200w/25)
+======================================================================
+🔧 Creating RAG pipeline for collection: week2_naive_small
+✅ Connected to Qdrant - 952 documents
+   Warming up text embedder...
+✅ RAG pipeline created for: week2_naive_small
+🤖 Model: gemini-2.5-flash
+🤖 Using Model: gemini-2.5-flash
+🧠 Using Embeddings: BAAI/bge-large-en-v1.5
+
+🤖 Querying with 8 questions...
+
+[1/8] Question 0: What is the Model Context Protocol (MCP) and what problem do...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (1442 chars)
+   ⏱️  Query time: 5.40s
+
+[2/8] Question 1: What are the three MCP primitives (resources, tools, prompts...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (2120 chars)
+   ⏱️  Query time: 8.38s
+
+[3/8] Question 2: How do I create my first MCP server using FastMCP?...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (1104 chars)
+   ⏱️  Query time: 7.14s
+
+[4/8] Question 3: How do I define a tool with input schema in my FastMCP serve...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (1622 chars)
+   ⏱️  Query time: 7.68s
+
+[5/8] Question 4: How do I build a custom MCP client that connects to MCP serv...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (5309 chars)
+   ⏱️  Query time: 17.71s
+
+[6/8] Question 5: What transport options does MCP support (stdio and HTTP) and...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (2969 chars)
+   ⏱️  Query time: 10.58s
+
+[7/8] Question 6: What are security best practices for MCP servers?...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (6683 chars)
+   ⏱️  Query time: 16.68s
+
+[8/8] Question 7: How do I test and debug my MCP server?...
+   📚 Retrieved 10 contexts
+   ✅ Generated response (6032 chars)
+   ⏱️  Query time: 18.11s
+
+✅ Completed Naive Small (200w/25)
+⏱️  Total time: 95.72s
+📊 Avg time per question: 11.96s
+
+💾 Saved: rag_results_naive_small_20260123_134643.json
+📁 Full path: /Users/shivanivirdi/RAGWorkShop/rag-workshop-classroom/week2_chunking/rag_results/rag_results_naive_small_20260123_134643.json
+
+🎯 Next Steps:
+1. Review JSON file in rag_results/
+2. Run evaluation: python experiments/05_evaluate_results.py
+3. View results: streamlit run experiments/06_view_results.py
+
+🎉 RAG results generated successfully!

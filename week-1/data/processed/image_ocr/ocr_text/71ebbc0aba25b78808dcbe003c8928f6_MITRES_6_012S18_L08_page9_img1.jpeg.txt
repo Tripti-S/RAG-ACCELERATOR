@@ -1,0 +1,14 @@
+Exponential random variable; parameter \>0
+
+fx(2) = ae x ; 5 px(k)
+, x
+(1 —p)*-1p
+fx(x)
+x small A
+
+123456789 +¢
+
+E[X] =
+E[X2] =
+
+var(X) =

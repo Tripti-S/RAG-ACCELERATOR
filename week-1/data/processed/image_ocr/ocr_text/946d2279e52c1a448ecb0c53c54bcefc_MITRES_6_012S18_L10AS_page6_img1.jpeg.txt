@@ -1,0 +1,20 @@
+Stick-breaking example
+
+0 r x @ fx(2)
+
+e Break a stick of length @ twice
+— first break at X: uniform in [0, 2]
+— second break at Y: uniform in [0, X] t 7c
+|
+
+®|-
+
+fxy(2, y= fx(@)fyjx@ | 2)=
+
+Cx fx xy 20,5
+= ayes
+y osysexs@ z
+‘a
+e 2
+
+od y

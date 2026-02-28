@@ -1,0 +1,1254 @@
+Lecture 1: Introduction
+Statistical Foundations of Machine Learning
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Feb 4, 2026
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 1/21
+1 Homeworks: 15
+2 Midsem: 35
+3 Endsems: 50
+Course Evaluation
+Course logistics
+Instructors: Nikhil Karamchandani (nikhilk@ee.iitb.ac.in) and
+D. Manjunath (dmanju@ee.iitb.ac.in)
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 2/21
+1 Homeworks: 15
+2 Midsem: 35
+3 Endsems: 50
+Course logistics
+Instructors: Nikhil Karamchandani (nikhilk@ee.iitb.ac.in) and
+D. Manjunath (dmanju@ee.iitb.ac.in)
+Course Evaluation
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 2/21
+2 Midsem: 35
+3 Endsems: 50
+Course logistics
+Instructors: Nikhil Karamchandani (nikhilk@ee.iitb.ac.in) and
+D. Manjunath (dmanju@ee.iitb.ac.in)
+Course Evaluation
+tstriptisingh8@gmail.com
+P2D1YUXGRW 1 Homeworks: 15
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 2/21
+3 Endsems: 50
+Course logistics
+Instructors: Nikhil Karamchandani (nikhilk@ee.iitb.ac.in) and
+D. Manjunath (dmanju@ee.iitb.ac.in)
+Course Evaluation
+tstriptisingh8@gmail.com
+P2D1YUXGRW 1 Homeworks: 15
+2 Midsem: 35
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 2/21
+Course logistics
+Instructors: Nikhil Karamchandani (nikhilk@ee.iitb.ac.in) and
+D. Manjunath (dmanju@ee.iitb.ac.in)
+Course Evaluation
+tstriptisingh8@gmail.com
+P2D1YUXGRW 1 Homeworks: 15
+2 Midsem: 35
+3 Endsems: 50
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 2/21
+Data Science: Probability and Statistics
+Intersection: Data Science lies at the meeting point of Statistics,
+tstriptisingPh8r@ogmbaail.bcoimlity, and Computation.
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 3/21
+Statistics (Backward engine):
+P(Model | Data)
+Inferring truth from past
+observations.
+Probability (Forward engine):
+P(Data | Model)
+Predicting future outcomes from
+assumptions.
+Data Science: Probability and Statistics
+Intersection: Data Science lies at the meeting point of Statistics,
+Probability, and Computation.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+IllustrationadaptedfromGeeksforGeeks:
+https://www.geeksforgeeks.org/maths/probability-and-
+statistics/
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 4/21
+Probability (Forward engine):
+P(Data | Model)
+Predicting future outcomes from
+assumptions.
+Data Science: Probability and Statistics
+Intersection: Data Science lies at the meeting point of Statistics,
+Probability, and Computation.
+Statistics (Backward engine):
+P(Model | Data)
+tstriptisingh8@gmail.com
+P2D1YUIXnGfReWrring truth from past
+observations.
+IllustrationadaptedfromGeeksforGeeks:
+https://www.geeksforgeeks.org/maths/probability-and-
+statistics/
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 4/21
+Data Science: Probability and Statistics
+Intersection: Data Science lies at the meeting point of Statistics,
+Probability, and Computation.
+Statistics (Backward engine):
+P(Model | Data)
+tstriptisingh8@gmail.com
+P2D1YUIXnGfReWrring truth from past
+observations.
+Probability (Forward engine):
+IllustrationadaptedfromGeeksforGeeks:
+P(Data | Model)
+https://www.geeksforgeeks.org/maths/probability-and-
+statistics/
+Predicting future outcomes from
+assumptions.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 4/21
+Case 1: The ”New-to-Credit” (NTC) Problem
+Problem: A fintech app needs to set Rs 10,000 daily credit limit for a user
+with no credit history.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 5/21
+Case 1: The ”New-to-Credit” (NTC) Problem
+Problem: A fintech app needs to set Rs 10,000 daily credit limit for a user
+with no credit history.
+tDstripatistinagh:8@1gm0aild.coamys of UPI transaction logs to estimate daily liquidity.
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 5/21
+Case 1: The ”New-to-Credit” (NTC) Problem
+Problem: A fintech app needs to set Rs 10,000 daily credit limit for a user
+with no credit history.
+Data: 10 days of UPI transaction logs to estimate daily liquidity.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Raw Data :
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 5/21
+Case 1: The ”New-to-Credit” (NTC) Problem
+Problem: A fintech app needs to set Rs 10,000 daily credit limit for a user
+with no credit history.
+Data: 10 days of UPI transaction logs to estimate daily liquidity.
+Raw Data :
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Day 1 2 3 4 5 6 7 8 9 10
+Spend 400 350 500 420 8,500 380 410 440 390 460
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 5/21
+Case 1: The ”New-to-Credit” (NTC) Problem
+Problem: A fintech app needs to set Rs 10,000 daily credit limit for a user
+with no credit history.
+Data: 10 days of UPI transaction logs to estimate daily liquidity.
+Raw Data :
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Day 1 2 3 4 5 6 7 8 9 10
+Spend 400 350 500 420 8,500 380 410 440 390 460
+Observation: Most days are stable; Day 5 is a massive outlier.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 5/21
+Median (x˜): Sorted middle value.
+Sorted: [350,380,390,400,410,420,440,460,500,8500]
+410+420
+x˜= = 415
+2
+Insight: The Mean is inflated by the outlier. The Median better
+represents the ”true signal” of daily spend.
+Descriptive Stats: Mean vs. Median
+Arithmetic Mean (x¯):
+(cid:80)
+x 12250
+i
+x¯= = = 1225
+10 10
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 6/21
+Insight: The Mean is inflated by the outlier. The Median better
+represents the ”true signal” of daily spend.
+Descriptive Stats: Mean vs. Median
+Arithmetic Mean (x¯):
+(cid:80)
+x 12250
+i
+x¯= = = 1225
+10 10
+Median (x˜): Sorted middle value.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Sorted: [350,380,390,400,410,420,440,460,500,8500]
+410+420
+x˜= = 415
+2
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 6/21
+Descriptive Stats: Mean vs. Median
+Arithmetic Mean (x¯):
+(cid:80)
+x 12250
+i
+x¯= = = 1225
+10 10
+Median (x˜): Sorted middle value.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Sorted: [350,380,390,400,410,420,440,460,500,8500]
+410+420
+x˜= = 415
+2
+Insight: The Mean is inflated by the outlier. The Median better
+represents the ”true signal” of daily spend.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 6/21
+Sensitivity of the Mean
+Question: If 10% of data is ”noise,” how much does the mean lie?
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 7/21
+Sensitivity of the Mean
+Question: If 10% of data is ”noise,” how much does the mean lie?
+Model: 90% chance of Rs 500; 10% chance of Rs 50,000.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 7/21
+Sensitivity of the Mean
+Question: If 10% of data is ”noise,” how much does the mean lie?
+Model: 90% chance of Rs 500; 10% chance of Rs 50,000.
+tstriptisingh8@gmail.com
+PE2Dx1pYUeXGcRtWed Mean:
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 7/21
+Sensitivity of the Mean
+Question: If 10% of data is ”noise,” how much does the mean lie?
+Model: 90% chance of Rs 500; 10% chance of Rs 50,000.
+Expected Mean:
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+E[X] = (0.90×500)+(0.10×50,000)
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 7/21
+Sensitivity of the Mean
+Question: If 10% of data is ”noise,” how much does the mean lie?
+Model: 90% chance of Rs 500; 10% chance of Rs 50,000.
+Expected Mean:
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+E[X] = (0.90×500)+(0.10×50,000)
+E[X] = 450+5,000 = 5450
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 7/21
+Sensitivity of the Mean
+Question: If 10% of data is ”noise,” how much does the mean lie?
+Model: 90% chance of Rs 500; 10% chance of Rs 50,000.
+Expected Mean:
+tstriptisingh8@gmail.com E[X] = (0.90×500)+(0.10×50,000)
+P2D1YUXGRW
+E[X] = 450+5,000 = 5450
+Verdict: The Mean is physically pulled by the magnitude of rare events. It
+fails to represent the majority of days.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 7/21
+Robustness of the Median
+Logic: To pull the Median to 50,000, we need ≥ 6 outliers in 10 days.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 8/21
+Robustness of the Median
+Logic: To pull the Median to 50,000, we need ≥ 6 outliers in 10 days.
+Binomial Math (n = 10,p = 0.1):
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 8/21
+Robustness of the Median
+Logic: To pull the Median to 50,000, we need ≥ 6 outliers in 10 days.
+Binomial Math (n = 10,p = 0.1):
+10 (cid:18) (cid:19)
+(cid:88) 10
+t P s 2 tr D ip 1 ti Y si U n X gh G 8 R @ W gmail.com P(X ≥ 6) = (0.1)k(0.9)10−k
+k
+k=6
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 8/21
+Robustness of the Median
+Logic: To pull the Median to 50,000, we need ≥ 6 outliers in 10 days.
+Binomial Math (n = 10,p = 0.1):
+10 (cid:18) (cid:19)
+(cid:88) 10
+tstriptisingh8@gmail.com P(X ≥ 6) = (0.1)k(0.9)10−k
+P2D1YUXGRW k
+k=6
+Calculation:
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 8/21
+Robustness of the Median
+Logic: To pull the Median to 50,000, we need ≥ 6 outliers in 10 days.
+Binomial Math (n = 10,p = 0.1):
+10 (cid:18) (cid:19)
+(cid:88) 10
+tstriptisingh8@gmail.com P(X ≥ 6) = (0.1)k(0.9)10−k
+P2D1YUXGRW k
+k=6
+Calculation: P(X = 6) ≈ 0.000137; P(X = 7) ≈ 0.000009...
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 8/21
+Robustness of the Median
+Logic: To pull the Median to 50,000, we need ≥ 6 outliers in 10 days.
+Binomial Math (n = 10,p = 0.1):
+10 (cid:18) (cid:19)
+(cid:88) 10
+P(X ≥ 6) = (0.1)k(0.9)10−k
+tstriptisingh8@gmail.com k
+P2D1YUXGRW
+k=6
+Calculation: P(X = 6) ≈ 0.000137; P(X = 7) ≈ 0.000009...
+Total Prob: ≈ 0.01%
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 8/21
+Robustness of the Median
+Logic: To pull the Median to 50,000, we need ≥ 6 outliers in 10 days.
+Binomial Math (n = 10,p = 0.1):
+10 (cid:18) (cid:19)
+(cid:88) 10
+P(X ≥ 6) = (0.1)k(0.9)10−k
+k
+tstriptisingh8@gmail.com k=6
+P2D1YUXGRW
+Calculation: P(X = 6) ≈ 0.000137; P(X = 7) ≈ 0.000009...
+Total Prob: ≈ 0.01%
+Verdict: Median follows frequency, not magnitude. Better choice as the
+behavioral baseline for this user.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 8/21
+Assumption: Daily spend X follows an Exponential Distribution:
+f(x) = λe−λx
+ln(2)
+Explicit Estimation: Relationship: Median =
+λ
+Using our empirical Median value (x˜= 415):
+0.693
+λ = ≈ 0.00167
+415
+Modeling Future Risk: Parameter Estimation
+Next Step: Having fixed a robust baseline (Median = 415), we now
+model the risk of extreme spend days.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 9/21
+ln(2)
+Explicit Estimation: Relationship: Median =
+λ
+Using our empirical Median value (x˜= 415):
+0.693
+λ = ≈ 0.00167
+415
+Modeling Future Risk: Parameter Estimation
+Next Step: Having fixed a robust baseline (Median = 415), we now
+model the risk of extreme spend days.
+Assumption: Daily spend X follows an Exponential Distribution:
+f(x) = λe−λx
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 9/21
+Using our empirical Median value (x˜= 415):
+0.693
+λ = ≈ 0.00167
+415
+Modeling Future Risk: Parameter Estimation
+Next Step: Having fixed a robust baseline (Median = 415), we now
+model the risk of extreme spend days.
+Assumption: Daily spend X follows an Exponential Distribution:
+f(x) = λe−λx
+tstriptisingh8@gmail.com
+P2D1YUXGRW ln(2)
+Explicit Estimation: Relationship: Median =
+λ
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 9/21
+Modeling Future Risk: Parameter Estimation
+Next Step: Having fixed a robust baseline (Median = 415), we now
+model the risk of extreme spend days.
+Assumption: Daily spend X follows an Exponential Distribution:
+f(x) = λe−λx
+tstriptisingh8@gmail.com
+P2D1YUXGRW ln(2)
+Explicit Estimation: Relationship: Median =
+λ
+Using our empirical Median value (x˜= 415):
+0.693
+λ = ≈ 0.00167
+415
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 9/21
+Probability of ”Stress”
+Test: Approve loan if there is a < 5% chance of a spend spike > Rs 2000.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 10/21
+Probability of ”Stress”
+Test: Approve loan if there is a < 5% chance of a spend spike > Rs 2000.
+The Math:
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 10/21
+Probability of ”Stress”
+Test: Approve loan if there is a < 5% chance of a spend spike > Rs 2000.
+The Math:
+(cid:90) ∞ (cid:104) (cid:105)∞
+t P s 2 tr D ip 1 ti Y si U n X gh G 8 R @ W gmail.com P(X > 2000) = λe−λxdx = −e−λx
+2000 2000
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 10/21
+Probability of ”Stress”
+Test: Approve loan if there is a < 5% chance of a spend spike > Rs 2000.
+The Math:
+(cid:90) ∞ (cid:104) (cid:105)∞
+P(X > 2000) = λe−λxdx = −e−λx
+tstriptisingh8@gmail.com
+P2D1YUXGRW 2000 2000
+P(X > 2000) = e−0.00167×2000 = e−3.34 ≈ 0.035
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 10/21
+Probability of ”Stress”
+Test: Approve loan if there is a < 5% chance of a spend spike > Rs 2000.
+The Math:
+(cid:90) ∞ (cid:104) (cid:105)∞
+P(X > 2000) = λe−λxdx = −e−λx
+tstriptisingh8@gmail.com 2000 2000
+P2D1YUXGRW
+P(X > 2000) = e−0.00167×2000 = e−3.34 ≈ 0.035
+Decision: Risk (3.5%) is below our 5% threshold. Loan Approved.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 10/21
+Experiment: Does Gold button (G ) outperform Grey button (G )?
+B A
+Data (n = 1000 per group):
+Group A (G ): 300 clicks =⇒ pˆ = 0.30
+A A
+Group B (G ): 340 clicks =⇒ pˆ = 0.34
+B B
+Question: Are the observed differences in pˆ and pˆ real, or due to
+A B
+random sampling noise?
+Case 2: A/B Testing
+Problem: Marketing wants to increase conversion rate (pˆ).
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 11/21
+Data (n = 1000 per group):
+Group A (G ): 300 clicks =⇒ pˆ = 0.30
+A A
+Group B (G ): 340 clicks =⇒ pˆ = 0.34
+B B
+Question: Are the observed differences in pˆ and pˆ real, or due to
+A B
+random sampling noise?
+Case 2: A/B Testing
+Problem: Marketing wants to increase conversion rate (pˆ).
+Experiment: Does Gold button (G ) outperform Grey button (G )?
+B A
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 11/21
+Group A (G ): 300 clicks =⇒ pˆ = 0.30
+A A
+Group B (G ): 340 clicks =⇒ pˆ = 0.34
+B B
+Question: Are the observed differences in pˆ and pˆ real, or due to
+A B
+random sampling noise?
+Case 2: A/B Testing
+Problem: Marketing wants to increase conversion rate (pˆ).
+Experiment: Does Gold button (G ) outperform Grey button (G )?
+B A
+Data (n = 1000 per group):
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 11/21
+Group B (G ): 340 clicks =⇒ pˆ = 0.34
+B B
+Question: Are the observed differences in pˆ and pˆ real, or due to
+A B
+random sampling noise?
+Case 2: A/B Testing
+Problem: Marketing wants to increase conversion rate (pˆ).
+Experiment: Does Gold button (G ) outperform Grey button (G )?
+B A
+Data (n = 1000 per group):
+tstriptisingGh8r@ogmuapil.coAm (G ): 300 clicks =⇒ pˆ = 0.30
+P2D1YUXGRW A A
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 11/21
+Question: Are the observed differences in pˆ and pˆ real, or due to
+A B
+random sampling noise?
+Case 2: A/B Testing
+Problem: Marketing wants to increase conversion rate (pˆ).
+Experiment: Does Gold button (G ) outperform Grey button (G )?
+B A
+Data (n = 1000 per group):
+tstriptisingGh8r@ogmuapil.coAm (G ): 300 clicks =⇒ pˆ = 0.30
+P2D1YUXGRW A A
+Group B (G ): 340 clicks =⇒ pˆ = 0.34
+B B
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 11/21
+Case 2: A/B Testing
+Problem: Marketing wants to increase conversion rate (pˆ).
+Experiment: Does Gold button (G ) outperform Grey button (G )?
+B A
+Data (n = 1000 per group):
+tstriptisingGh8r@ogmuapil.coAm (G ): 300 clicks =⇒ pˆ = 0.30
+P2D1YUXGRW A A
+Group B (G ): 340 clicks =⇒ pˆ = 0.34
+B B
+Question: Are the observed differences in pˆ and pˆ real, or due to
+A B
+random sampling noise?
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 11/21
+The empirical conversion rate is a random variable:
+n
+1 (cid:88)
+pˆ= X
+i
+n
+i=1
+Mean and variance:
+p(1−p)
+E[pˆ] = p, Var(pˆ) =
+n
+By the Central Limit Theorem (for large n):
+(cid:18) (cid:19)
+p(1−p)
+pˆ ≈ N p,
+n
+Probabilistic Model and CLT
+For each user i, define
+(cid:40)
+1 if user clicks
+X = ⇒ X ∼ Bernoulli(p)
+i i
+0 otherwise
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 12/21
+Mean and variance:
+p(1−p)
+E[pˆ] = p, Var(pˆ) =
+n
+By the Central Limit Theorem (for large n):
+(cid:18) (cid:19)
+p(1−p)
+pˆ ≈ N p,
+n
+Probabilistic Model and CLT
+For each user i, define
+(cid:40)
+1 if user clicks
+X = ⇒ X ∼ Bernoulli(p)
+i i
+0 otherwise
+The empirical conversion rate is a random variable:
+n
+1 (cid:88)
+pˆ= X
+i
+tstriptisingh8@gmail.com n
+P2D1YUXGRW i=1
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 12/21
+By the Central Limit Theorem (for large n):
+(cid:18) (cid:19)
+p(1−p)
+pˆ ≈ N p,
+n
+Probabilistic Model and CLT
+For each user i, define
+(cid:40)
+1 if user clicks
+X = ⇒ X ∼ Bernoulli(p)
+i i
+0 otherwise
+The empirical conversion rate is a random variable:
+n
+1 (cid:88)
+pˆ= X
+i
+tstriptisingh8@gmail.com n
+P2D1YUXGRW i=1
+Mean and variance:
+p(1−p)
+E[pˆ] = p, Var(pˆ) =
+n
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 12/21
+Probabilistic Model and CLT
+For each user i, define
+(cid:40)
+1 if user clicks
+X = ⇒ X ∼ Bernoulli(p)
+i i
+0 otherwise
+The empirical conversion rate is a random variable:
+n
+1 (cid:88)
+pˆ= X
+i
+tstriptisingh8@gmail.com n
+P2D1YUXGRW i=1
+Mean and variance:
+p(1−p)
+E[pˆ] = p, Var(pˆ) =
+n
+By the Central Limit Theorem (for large n):
+(cid:18) (cid:19)
+p(1−p)
+pˆ ≈ N p,
+n
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 12/21
+Standardize the deviation:
+pˆ−p
+Z = ≈ N(0,1)
+(cid:112)
+p(1−p)/n
+Question: how large can random fluctuations be?
+For a standard normal variable:
+Pr(|Z| ≤ 1.96) ≈ 0.95
+Interpretation:
+(cid:114)
+p(1−p)
+pˆ typically lies within ±1.96 of p
+n
+From Gaussian Fluctuations to Confidence
+From the previous slide:
+(cid:18) (cid:19)
+p(1−p)
+pˆ≈ N p,
+n
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 13/21
+Question: how large can random fluctuations be?
+For a standard normal variable:
+Pr(|Z| ≤ 1.96) ≈ 0.95
+Interpretation:
+(cid:114)
+p(1−p)
+pˆ typically lies within ±1.96 of p
+n
+From Gaussian Fluctuations to Confidence
+From the previous slide:
+(cid:18) (cid:19)
+p(1−p)
+pˆ≈ N p,
+n
+Standardize the deviation:
+pˆ−p
+Z = ≈ N(0,1)
+(cid:112)
+p(1−p)/n
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 13/21
+For a standard normal variable:
+Pr(|Z| ≤ 1.96) ≈ 0.95
+Interpretation:
+(cid:114)
+p(1−p)
+pˆ typically lies within ±1.96 of p
+n
+From Gaussian Fluctuations to Confidence
+From the previous slide:
+(cid:18) (cid:19)
+p(1−p)
+pˆ≈ N p,
+n
+Standardize the deviation:
+pˆ−p
+Z = ≈ N(0,1)
+(cid:112)
+p(1−p)/n
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Question: how large can random fluctuations be?
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 13/21
+Interpretation:
+(cid:114)
+p(1−p)
+pˆ typically lies within ±1.96 of p
+n
+From Gaussian Fluctuations to Confidence
+From the previous slide:
+(cid:18) (cid:19)
+p(1−p)
+pˆ≈ N p,
+n
+Standardize the deviation:
+pˆ−p
+Z = ≈ N(0,1)
+(cid:112)
+p(1−p)/n
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Question: how large can random fluctuations be?
+For a standard normal variable:
+Pr(|Z| ≤ 1.96) ≈ 0.95
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 13/21
+From Gaussian Fluctuations to Confidence
+From the previous slide:
+(cid:18) (cid:19)
+p(1−p)
+pˆ≈ N p,
+n
+Standardize the deviation:
+pˆ−p
+Z = ≈ N(0,1)
+(cid:112)
+p(1−p)/n
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Question: how large can random fluctuations be?
+For a standard normal variable:
+Pr(|Z| ≤ 1.96) ≈ 0.95
+Interpretation:
+(cid:114)
+p(1−p)
+pˆ typically lies within ±1.96 of p
+n
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 13/21
+Calculating Reliability (Confidence Intervals)
+(cid:16) (cid:17)
+p(1−p)
+From CLT: pˆ≈ N p, , so randomness in clicks translates into
+n
+uncertainty in pˆ.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 14/21
+Calculating Reliability (Confidence Intervals)
+(cid:16) (cid:17)
+p(1−p)
+From CLT: pˆ≈ N p, , so randomness in clicks translates into
+n
+uncertainty in pˆ.
+Standard Error (SE):
+tstriptisingh8@gmail.com (cid:114)
+P2D1YUXGRW pˆ(1−pˆ)
+SE =
+n
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 14/21
+Calculating Reliability (Confidence Intervals)
+(cid:16) (cid:17)
+p(1−p)
+From CLT: pˆ≈ N p, , so randomness in clicks translates into
+n
+uncertainty in pˆ.
+Standard Error (SE):
+(cid:114)
+pˆ(1−pˆ)
+SE =
+tstriptisingh8@gmail.com n
+P2D1YUXGRW
+(cid:114) (cid:114)
+0.30·0.70 0.34·0.66
+SE = ≈ 0.0145, SE = ≈ 0.0150
+A B
+1000 1000
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 14/21
+Calculating Reliability (Confidence Intervals)
+(cid:16) (cid:17)
+p(1−p)
+From CLT: pˆ≈ N p, , so randomness in clicks translates into
+n
+uncertainty in pˆ.
+Standard Error (SE):
+(cid:114)
+pˆ(1−pˆ)
+SE =
+n
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+(cid:114) (cid:114)
+0.30·0.70 0.34·0.66
+SE = ≈ 0.0145, SE = ≈ 0.0150
+A B
+1000 1000
+95% Confidence Intervals: Using Z ≈ 2, we take pˆ±2SE.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 14/21
+Calculating Reliability (Confidence Intervals)
+(cid:16) (cid:17)
+p(1−p)
+From CLT: pˆ≈ N p, , so randomness in clicks translates into
+n
+uncertainty in pˆ.
+Standard Error (SE):
+(cid:114)
+pˆ(1−pˆ)
+SE =
+n
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+(cid:114) (cid:114)
+0.30·0.70 0.34·0.66
+SE = ≈ 0.0145, SE = ≈ 0.0150
+A B
+1000 1000
+95% Confidence Intervals: Using Z ≈ 2, we take pˆ±2SE.
+CI = 0.30±0.029 = [27.1%,32.9%]
+A
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 14/21
+Calculating Reliability (Confidence Intervals)
+(cid:16) (cid:17)
+p(1−p)
+From CLT: pˆ≈ N p, , so randomness in clicks translates into
+n
+uncertainty in pˆ.
+Standard Error (SE):
+(cid:114)
+pˆ(1−pˆ)
+SE =
+n
+t P s 2 tr D ip 1 ti Y si U n X gh G 8 R @ W gmail.co(cid:114)m 0.30·0.70 (cid:114) 0.34·0.66
+SE = ≈ 0.0145, SE = ≈ 0.0150
+A B
+1000 1000
+95% Confidence Intervals: Using Z ≈ 2, we take pˆ±2SE.
+CI = 0.30±0.029 = [27.1%,32.9%]
+A
+CI = 0.34±0.030 = [31.0%,37.0%]
+B
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 14/21
+Calculating Reliability (Confidence Intervals)
+(cid:16) (cid:17)
+p(1−p)
+From CLT: pˆ≈ N p, , so randomness in clicks translates into
+n
+uncertainty in pˆ.
+Standard Error (SE):
+(cid:114)
+pˆ(1−pˆ)
+SE =
+n
+(cid:114) (cid:114)
+0.30·0.70 0.34·0.66
+tstriptisingh8@gmail.com
+P2D1YUXSGERW = ≈ 0.0145, SE = ≈ 0.0150
+A B
+1000 1000
+95% Confidence Intervals: Using Z ≈ 2, we take pˆ±2SE.
+CI = 0.30±0.029 = [27.1%,32.9%]
+A
+CI = 0.34±0.030 = [31.0%,37.0%]
+B
+Conflict: Intervals overlap. The observed lift may be due to randomness.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 14/21
+Closing the Loop: The Power of n
+p(1−p)
+Key insight from CLT: Var(pˆ) = . Increasing n reduces
+n
+randomness in pˆ.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 15/21
+Closing the Loop: The Power of n
+p(1−p)
+Key insight from CLT: Var(pˆ) = . Increasing n reduces
+n
+randomness in pˆ.
+tstriptisingh8@gmail.com
+PS2Dc1eYUnXaGRrWio: Increase sample size to 5,000 users per group.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 15/21
+Closing the Loop: The Power of n
+p(1−p)
+Key insight from CLT: Var(pˆ) = . Increasing n reduces
+n
+randomness in pˆ.
+Scenario: Increase sample size to 5,000 users per group.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+(cid:114)
+0.34·0.66
+SE = ≈ 0.0067 ⇒ CI = [32.7%,35.3%]
+B B
+5000
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 15/21
+Closing the Loop: The Power of n
+p(1−p)
+Key insight from CLT: Var(pˆ) = . Increasing n reduces
+n
+randomness in pˆ.
+Scenario: Increase sample size to 5,000 users per group.
+(cid:114)
+tstriptisingh8@gmail.com 0.34·0.66
+P2D1YUXGRW
+SE = ≈ 0.0067 ⇒ CI = [32.7%,35.3%]
+B B
+5000
+(cid:114)
+0.30·0.70
+SE = ≈ 0.0065 ⇒ CI = [28.7%,31.3%]
+A A
+5000
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 15/21
+Closing the Loop: The Power of n
+p(1−p)
+Key insight from CLT: Var(pˆ) = . Increasing n reduces
+n
+randomness in pˆ.
+Scenario: Increase sample size to 5,000 users per group.
+(cid:114)
+0.34·0.66
+tstriptisingh8@gSmaEil.com= ≈ 0.0067 ⇒ CI = [32.7%,35.3%]
+P2D1YUXGRW B 5000 B
+(cid:114)
+0.30·0.70
+SE = ≈ 0.0065 ⇒ CI = [28.7%,31.3%]
+A A
+5000
+Decision: No overlap remains. The observed 4% lift is unlikely to be
+noise. Deploy Gold.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 15/21
+Case 3: Finding Leading Indicators
+Business Question: Which user behavior is more informative about
+future spend?
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 16/21
+Case 3: Finding Leading Indicators
+Business Question: Which user behavior is more informative about
+future spend?
+Candidates:
+tstriptisingh8@gmail.com
+P2D1YUXIGnR-WApp Session Time (X)
+Screen Brightness (Z)
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 16/21
+Case 3: Finding Leading Indicators
+Business Question: Which user behavior is more informative about
+future spend?
+Candidates:
+tstriptisingIhn8@-Agmpailp.comSession Time (X)
+P2D1YUXGRW
+Screen Brightness (Z)
+Target Variable: Daily Spend (Y)
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 16/21
+Case 3: Finding Leading Indicators
+Business Question: Which user behavior is more informative about
+future spend?
+Candidates:
+In-App Session Time (X)
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Screen Brightness (Z)
+Target Variable: Daily Spend (Y)
+Statistical Tool: Pearson’s Correlation Coefficient
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 16/21
+Case 3: Finding Leading Indicators
+Business Question: Which user behavior is more informative about
+future spend?
+Candidates:
+In-App Session Time (X)
+Screen Brightness (Z)
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Target Variable: Daily Spend (Y)
+Statistical Tool: Pearson’s Correlation Coefficient
+(cid:80)
+(x −x¯)(y −y¯)
+i i
+r =
+(cid:112)(cid:80) (x −x¯)2(cid:80) (y −y¯)2
+i i
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 16/21
+Case 3: Finding Leading Indicators
+Business Question: Which user behavior is more informative about
+future spend?
+Candidates:
+In-App Session Time (X)
+Screen Brightness (Z)
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Target Variable: Daily Spend (Y)
+Statistical Tool: Pearson’s Correlation Coefficient
+(cid:80)
+(x −x¯)(y −y¯)
+i i
+r =
+(cid:112)(cid:80) (x −x¯)2(cid:80) (y −y¯)2
+i i
+Goal: Distinguish meaningful signal from random noise.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 16/21
+Comparative Correlation Table
+Step 1: Center each variable by subtracting its mean.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 17/21
+Comparative Correlation Table
+Step 1: Center each variable by subtracting its mean.
+Step 2: Multiply centered values to measure co-movement.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 17/21
+Comparative Correlation Table
+Step 1: Center each variable by subtracting its mean.
+Step 2: Multiply centered values to measure co-movement.
+User X Y Z (x −x¯) (y −y¯) Prod(XY) (z −z¯) Prod(ZY)
+A 15 600 50 -11 -550 6,050 0 0
+tstriptisingh8@gmail.com
+P2D1YBUXGRW21 800 85 -5 -350 1,750 35 -12,250
+C 25 1100 10 -1 -50 50 -40 2,000
+D 31 1250 45 5 100 500 -5 -500
+E 38 2000 60 12 850 10,200 10 8,500
+Sum 18,550 -2,250
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 17/21
+Comparative Correlation Table
+Step 1: Center each variable by subtracting its mean.
+Step 2: Multiply centered values to measure co-movement.
+User X Y Z (x −x¯) (y −y¯) Prod(XY) (z −z¯) Prod(ZY)
+A 15 600 50 -11 -550 6,050 0 0
+tstriptisBingh8@gm2a1il.com800 85 -5 -350 1,750 35 -12,250
+P2D1YUXGRW
+C 25 1100 10 -1 -50 50 -40 2,000
+D 31 1250 45 5 100 500 -5 -500
+E 38 2000 60 12 850 10,200 10 8,500
+Sum 18,550 -2,250
+Next: Normalize these sums to obtain correlation coefficients.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 17/21
+Interpreting Signal vs. Noise
+Correlation with Session Time (X):
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 18/21
+Interpreting Signal vs. Noise
+Correlation with Session Time (X):
+18,550
+r = √ ≈ 0.71
+tstriptisingh8@gmail.com XY 300×1,125,000
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 18/21
+Interpreting Signal vs. Noise
+Correlation with Session Time (X):
+18,550
+r = √ ≈ 0.71
+XY
+300×1,125,000
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Interpretation: Strong positive association — higher engagement aligns
+with higher spend.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 18/21
+Interpreting Signal vs. Noise
+Correlation with Session Time (X):
+18,550
+r = √ ≈ 0.71
+XY
+300×1,125,000
+tstriptisingh8@gmail.com
+PI2nDt1eYUrXpGrReWtation: Strong positive association — higher engagement aligns
+with higher spend.
+Correlation with Screen Brightness (Z):
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 18/21
+Interpreting Signal vs. Noise
+Correlation with Session Time (X):
+18,550
+r = √ ≈ 0.71
+XY
+300×1,125,000
+Interpretation: Strong positive association — higher engagement aligns
+twstriipttishinghh8i@gghmaeilr.cosmpend.
+P2D1YUXGRW
+Correlation with Screen Brightness (Z):
+−2,250
+r = √ ≈ −0.03
+ZY
+3250×1,125,000
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 18/21
+Interpreting Signal vs. Noise
+Correlation with Session Time (X):
+18,550
+r = √ ≈ 0.71
+XY
+300×1,125,000
+Interpretation: Strong positive association — higher engagement aligns
+with higher spend.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Correlation with Screen Brightness (Z):
+−2,250
+r = √ ≈ −0.03
+ZY
+3250×1,125,000
+Interpretation: No meaningful relationship — consistent with noise.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 18/21
+Interpreting Signal vs. Noise
+Correlation with Session Time (X):
+18,550
+r = √ ≈ 0.71
+XY
+300×1,125,000
+Interpretation: Strong positive association — higher engagement aligns
+with higher spend.
+tstriptisingh8@gmail.com
+PC2Do1YrUrXeGlRaWtion with Screen Brightness (Z):
+−2,250
+r = √ ≈ −0.03
+ZY
+3250×1,125,000
+Interpretation: No meaningful relationship — consistent with noise.
+Conclusion: Session Time is a useful leading indicator; Screen Brightness
+is not.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 18/21
+Conclusion: Statistics and Probability in Data Science
+Core Theme: Data science is about making decisions under uncertainty.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 19/21
+Conclusion: Statistics and Probability in Data Science
+Core Theme: Data science is about making decisions under uncertainty.
+Statistics helps us:
+Summarize noisy observations
+tstriptisingh8@gmail.com
+P2D1YUXIGdReWntify robust patterns in data
+Separate signal from randomness
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 19/21
+Conclusion: Statistics and Probability in Data Science
+Core Theme: Data science is about making decisions under uncertainty.
+Statistics helps us:
+Summarize noisy observations
+Identify robust patterns in data
+Separate signal from randomness
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Probability allows us to:
+Model uncertainty explicitly
+Quantify risk and variability
+Reason about future outcomes
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 19/21
+Conclusion: Statistics and Probability in Data Science
+Core Theme: Data science is about making decisions under uncertainty.
+Statistics helps us:
+Summarize noisy observations
+Identify robust patterns in data
+Separate signal from randomness
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Probability allows us to:
+Model uncertainty explicitly
+Quantify risk and variability
+Reason about future outcomes
+Big Picture: Statistical thinking converts data into informed, defensible
+decisions.
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 19/21
+Conclusion: Statistics and Probability in Data Science
+Core Theme: Data science is about making decisions under uncertainty.
+Statistics helps us:
+Summarize noisy observations
+Identify robust patterns in data
+Separate signal from randomness
+t PPs 2 tr D irp 1 toi Y si U nbX gh Ga8 R @bW gimliatil.ycomallows us to:
+Model uncertainty explicitly
+Quantify risk and variability
+Reason about future outcomes
+Big Picture: Statistical thinking converts data into informed, defensible
+decisions.
+We will study these notions formally in this course!!
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 19/21
+Tentative lecture plan - first half
+Lec1: Introduction
+Lec 2: Probability axioms, conditional probability and independence,
+Lec 3: Counting and sampling
+Lec 4: Random Variables, CDF, Joint CDF, Independence
+Lec 5: Discrete RVs (PMF), Joint / Conditional PMF
+Lec 6: Continuous RVs (PDF), Joint / Conditional PDF
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+Lec 7: Expectation
+Lec 8: Variance, Covariance and Correlation
+Lec 9: Moment generating functions
+Lec 10: Tail Inequalities and applications
+Lec 11: Law of Large Numbers and Central Limit Theorem
+Lec 12: Conditional expectation and MMSE
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 20/21
+References
+Books:
+A first course in probability, S. Ross
+Probability, Random Variables and Stochastic Processes, Papoulis and Pillai
+Probability with Engineering Applications, Bruce Hajek, available at
+https://courses.grainger.illinois.edu/ece313/fa2020/probabilityAug21.pdf
+tstriptisingPh8r@ogbmaaibl.ciolmity and Random Processes, Grimett and Stirzaker
+P2D1YUXGRW
+One Thousand Exercises in Probability by Grimmett and Stirzaker.
+Online resources:
+https://ocw.mit.edu/resources/res-6-012-introduction-to-probability-spring-
+2018/index.htm
+https://nptel.ac.in/syllabus/108106083/ (Probability foundations, Krishna
+Jagannathan, IITM)
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or pSutbaltisishtiincga lthFeo cuonndteantitosn ins poafrtM oar cfuhlil nise liLaebaler nfoinr glegal action. Feb4,2026 21/21

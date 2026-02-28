@@ -1,0 +1,18 @@
+The Chebyshev inequality
+
+e Random variable X, with finite mean yu and variance o2
+
+e ‘If the variance is small, then X is unlikely to be too far from the mean”
+
+nN
+
+Chebyshev inequality: P(X —pl|> c) S =
+€
+
+E[X
+Markov inequality: If X > 0 and a> 0, then P(X >a) < EL]
+a
+
+£ (Ix-plee)=P ( (xy)? 2) ‘ EL(ry0] oo?
+
+2 c2

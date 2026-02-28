@@ -1,0 +1,14 @@
+De Moivre—Laplace CLT to the binomial
+
+P(Sn=19) = P (18.9 ¢ S.. £19.59)
+
+“(a Be em ¢ 518) — | 18 al 21 22 -
+= 2 (0.17 lu £0. ) e Exact answer:
+2 (0,5) - 2 (0.17) el G)° = 0.1251
+19% \2
+
+= 066915 -O.56F#F5=00)24
+
+e When the 1/2 correction is used, the CLT can also approximate the binomial PMF
+
+(not just the binomial CDF)

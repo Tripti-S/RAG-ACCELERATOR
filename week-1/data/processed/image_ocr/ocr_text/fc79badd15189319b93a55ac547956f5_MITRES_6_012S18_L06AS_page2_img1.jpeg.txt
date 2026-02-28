@@ -1,0 +1,18 @@
+Variance — a measure of the spread of a PMF
+
+e Random variable X, with mean » = E[X]
+
+| | It fi
+e Distance from the mean: X — yu
+
+e Average distance from the mean?
+
+E[x-p]>élx}-p =p -p=0
+
+E Definition of variance: var(X) = E[(X — »)?] 26
+
+e Calculation, using the expected value rule, E[g(X)] = La(=)px(2)
+
+ga=(ey —var(xy = E[ 9(x)} = 2 (x- p)* py)
+Standard deviation: ox = yvar(X),
+

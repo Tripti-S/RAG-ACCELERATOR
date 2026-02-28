@@ -1,0 +1,12 @@
+Conditional independence
+
+e Conditional independence, given C,
+is defined as independence under the probability law P(- | C)
+
+Assume A and B are independent
+
+Q
+
+F(ANB|c )=L(AledL (Ble)
+e If we are told that C' occurred,
+are A and B independent? Mo

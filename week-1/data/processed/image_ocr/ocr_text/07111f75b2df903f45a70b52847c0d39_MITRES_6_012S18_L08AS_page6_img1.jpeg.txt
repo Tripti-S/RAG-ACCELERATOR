@@ -1,0 +1,15 @@
+Properties of expectations
+
+e If X >0, then E[X] >0
+
+e Ifa<X <b, thena<E[X] <b
+
+e Expected value rule:
+
+Blo(X)] =F a@)x(#) [eve = [@ tx) de
+
+Efxt)- [22S @de
+a)
+
+e Linearity [ E[aX + 6] = aB[X] +b |
+

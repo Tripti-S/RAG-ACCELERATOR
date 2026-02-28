@@ -1,0 +1,284 @@
+Bayesian Updating: Continuous Priors
+18.05 Spring 2022
+7
+6
+5
+4
+3
+2
+1
+0 0.1 0.3 0.5 0.7 0.9 1.0
+1/23
+Announcements/Agenda
+Announcements
+• Pset due next week (4/4) will be a little longer than usual.
+Agenda
+• CSI blood types from before break
+• Bayesian updating with a continuous range of hypotheses
+• Keeping the notation straight
+• Using integrals instead of sums
+2/23
+Continuous range of hypotheses
+Example. Have a process that can succeed or fail, with unknown
+probability of success 𝜃. We can hypothesize that 𝜃 takes any value
+in [0, 1].
+Formally, label the hypothesis ℋ , e.g. ℋ , ℋ . More casually,
+𝜃 0.5 0.6
+label the hypothesis 𝜃.
+Model: ‘bent coin’ with probability 𝜃 of heads.
+Example. Waiting for an event to happen. The waiting time
+𝑋 ∼ exp(𝜆) with unknown 𝜆. We can hypothesize that 𝜆 takes any
+value greater than 0.
+Example. Have normal random variable with unknown 𝜇 and 𝜎. Can
+hypothesize that (𝜇, 𝜎) is anywhere in (−∞, ∞) × [0, ∞).
+3/23
+Example of Bayesian updating so far
+• Three types of coins with probabilities 0.25, 0.5, 0.75 of heads.
+• Assume the numbers of each type are in the ratio 1 to 2 to 1.
+• Assume we pick a coin at random, toss it twice and get 𝑇 𝑇 .
+Compute the posterior probability the coin has probability 0.25 of
+heads.
+(Solution is posted with today’s solutions.)
+4/23
+Notation with lots of hypotheses I.
+• Now there are 5 types of coins with probabilities 0.1, 0.3, 0.5,
+0.7, 0.9 of heads.
+• Assume the numbers of each type are in the ratio 1:2:3:2:1 (so
+fairer coins are more common).
+• Again we pick a coin at random, toss it twice and get 𝑇 𝑇 .
+Construct the Bayesian update table for the posterior probabilities of
+each type of coin.
+hypotheses prior likelihood Bayes numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (data|ℋ) 𝑃 (data|ℋ)𝑃 (ℋ) 𝑃 (ℋ|data)
+𝜃 1/9 (0.9)2 0.090 0.297
+0.1
+𝜃 2/9 (0.7)2 0.109 0.359
+0.3
+𝜃 3/9 (0.5)2 0.083 0.275
+0.5
+𝜃 2/9 (0.3)2 0.020 0.066
+0.7
+𝜃 1/9 (0.1)2 0.001 0.004
+0.9
+Total 1 𝑃 (data) = 0.303 1
+5/23
+Notation with lots of hypotheses II.
+What about 9 coins with probabilities 0.1, 0.2, 0.3, …, 0.9?
+Assume fairer coins are more common with the number of coins of
+probability 𝜃 of heads proportional to 𝜃(1 − 𝜃)
+Again the data is 𝑇 𝑇 .
+We can do this!
+6/23
+Table with 9 hypotheses
+hypotheses prior likelihood Bayes numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (data|ℋ) 𝑃 (data|ℋ)𝑃 (ℋ) 𝑃 (ℋ|data)
+𝜃 𝑘(0.1 ⋅ 0.9) (0.9)2 0.0442 0.1483
+0.1
+𝜃 𝑘(0.2 ⋅ 0.8) (0.8)2 0.0621 0.2083
+0.2
+𝜃 𝑘(0.3 ⋅ 0.7) (0.7)2 0.0624 0.2093
+0.3
+𝜃 𝑘(0.4 ⋅ 0.6) (0.6)2 0.0524 0.1757
+0.4
+𝜃 𝑘(0.5 ⋅ 0.5) (0.5)2 0.0379 0.1271
+0.5
+𝜃 𝑘(0.6 ⋅ 0.4) (0.4)2 0.0233 0.0781
+0.6
+𝜃 𝑘(0.7 ⋅ 0.3) (0.3)2 0.0115 0.0384
+0.7
+𝜃 𝑘(0.8 ⋅ 0.2) (0.2)2 0.0039 0.0130
+0.8
+𝜃 𝑘(0.9 ⋅ 0.1) (0.1)2 0.0005 0.0018
+0.9
+Total 1 𝑃 (data) = 0.298 1
+𝑘 = 0.606 was computed so that the total prior probability is 1.
+7/23
+Notation with lots of hypotheses III.
+What about 99 coins with probabilities 0.01, 0.02, 0.03, …, 0.99?
+Assume fairer coins are more common with the number of coins of
+probability 𝜃 of heads proportional to 𝜃(1 − 𝜃)
+Again the data is 𝑇 𝑇 .
+Maybe we can do this …
+8/23
+Table with 99 coins
+Hypo 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 T 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 𝜃 t 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0o 0 0 0 0 0 0 0 0 0 ℋh . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .t . . . . . . . . . 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 e a 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 s l isℋ k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k k 𝑃 k k k k k k k k k ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 p ( ( ( ( ( ( ( ( ( ℋ 0 0 0 0 0 0 0 0 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . r 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 i . . . . . . . . . )o 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 (r ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) 𝑘 1 ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( 𝑃 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 = - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ( 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0ℋ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 2 3 4 5 6 7 8 9 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 0) ) ) ) ) ) ) ) ) ) 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 4 ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) likelih𝑃o(o ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( d ( ( ( ( ( ( ( ( ( 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 1 1 1 1 1 1 1 1 1 a − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − t𝑃a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ( . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . |d 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 ha ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ty 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 ap.|)hyp.) 𝑃B 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 ( 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 𝑘 ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( da 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ( ( ( ( ( ( ( ( ( ay 0 0 0 0 0 0 0 0 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . te 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 . . . . . . . . . as 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 0 ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) n| ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( . 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3 uh 0 − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − − my 0 p 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 e. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . r) 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 1 2 3 4 5 6 7 8 9 a𝑃 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 ) ) ) ) ) ) ) ) ) t 2 2 2 2 2 2 2 2 2 (o ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ℋ2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 r) 𝑃(data 6 4 2 1 5 1 0 0 0 0 0 0 0 0 0 9 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 | . . . . . . . . . . . . . . . 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 . . 3 0 3 2 2 5 0 0 0 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 0 0 0 0 0 0 0 0 0 h 4 9 P 0 0 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 6 7 2 3 6 . . . . 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 y 2 8 . . o 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 5 9 8 8 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 2 0 ps 1 2 1 1 1 3 5 7 8 9 9 9 8 8 7 6 6 5 5 5 4 4 4 3 3 2 2 2 2 1 1 1 1 8 4 3 0 8 2 9 8 6 5 4 3 3 2 1 1 2 1 2 3 4 6 7 7 8 8 9 0 0 0 0 1 1 1 1 1 0 0 0 9 9 9 8 8 8 7 7 6 6 5 5 4 3 3 3 2 1 1 0 0 7 3 1 0 3 3 .t 5 0 4 2 9 7 4 0 5 9 5 0 5 1 2 8 3 9 5 1 8 4 1 4 1 8 6 3 1 6 4 2 1 6 7 9 0 7 6 1 ) 5 1 8 7 7 8 0 3 3 9 0 2 4 5 5 3 1 8 4 9 8 1 4 7 8 0 0 0 0 0 9 5 3 8 5 2 8 5 1 7 2 8 3 9 4 9 9 5 0 5 5 0 5 0 6 7 8 1 e 7 3 𝑃 5 7 4 0 4 6 7 7 7 6 4 6 9 3 3 0 8 7 7 8 1 5 1 6 6 7 0 4 0 6 6 8 1 3 7 6 5 3 1 r 6 5 8 3 2 2 4 6 2 4 1 6 6 6 8 5 2 1 2 6 5 9 8 1 8 0 7 9 7 1 0 8 7 5 5 2 7 0 1 0 8 4 9 2 5 7 9 0 0 0 0 0 1 2 8 8 7 8 𝑒 𝑒 1 6 8 0 0 5 6 9 5 8 2 5 5 4 8 5 3 2 4 8 6 7 1 3 1 4 1 4 1 1 3 0 1 𝑒 𝑒 𝑒 𝑒 𝑒 𝑒 i( 6 6 2 8 0 3 1 9 7 4 2 2 1 6 2 8 3 2 6 9 2 8 3 1 3 4 4 7 5 0 5 3 0 3 2 6 7 6 5 7 2 3 2 9 6 6 6 0 1 2 3 7 4 5 1 0 4 0 oℋ − − 1 2 9 2 9 3 9 0 1 6 1 3 6 0 1 2 3 9 6 9 3 1 8 8 6 1 6 1 5 3 4 2 3 − − − − − − 0 9 4 4 4 4 7 5 0 4 7 8 0 5 4 0 9 5 8 6 5 1 4 0 7 0 3 2 1 4 3 4 9 6 9 9 5 5 9 4 8 8 1 2 7 2 7 6 9 0 4 0 0 4 2 6 0 0 r 9 3 1 2 2 9 5 6 7 6 9 0 4 3 2 6 4 6 7 9 6 9 4 1 1 9 8 4 9 6 8 1 4 0 0 7 3 2 5 6 1 8 7 0 8 8 4 3 5 3 4 2 9 6 2 1 9 7 2 6 7 6 2 7 3 5 7 9 5 1 6 5 7 8 9 4 5 8 5 7 2 6 8 9 7 4 2 8 3 3 3 ) 0 0 0 0 0 0 1 6 1 8 9 9 8 9 1 4 4 2 2 3 9 3 1 1 3 5 5 7 2 1 8 5 2 3 3 / 5 7 4 9 7 6 7 7 7 5 1 5 5 5 5 6 6 𝑃(data) 9/23
+There’s a better way: use symbolic notation!
+• Let 𝜃 be the probability of heads: 𝜃 = 0.01, 0.02, …, 0.99.
+• Use 𝜃 to also stand for the hypothesis that the coin is of a type
+with probability of heads = 𝜃.
+• We are given a formula for the prior: 𝑝(𝜃) = 𝑘𝜃(1 − 𝜃)
+0.99
+𝑘 computed so ∑ 𝑝(𝜃) = 1. Using R: 𝑘 = 0.06.
+𝜃=0.01
+• The likelihood 𝑃 (data|𝜃) = 𝑃(𝑇𝑇|𝜃) = (1−𝜃)2.
+0.99
+Total probability = 𝑝(data) = ∑ 𝑝(data|𝜃)𝑝(𝜃) = 0.30
+𝜃=0.01
+Our 99 row table becomes:
+hyp. prior likelihood Bayes numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (data|ℋ) 𝑃 (data|ℋ)𝑃 (ℋ) 𝑃 (ℋ|data)
+𝜃 𝑘𝜃(1 − 𝜃) (1 − 𝜃)2 𝑘𝜃(1 − 𝜃)3 0.200 ⋅ 𝜃(1 − 𝜃)3
+Total 1 𝑃 (data) = 0.300 1
+10/23
+Notation: big and little letters
+1. (Big letters) Event 𝐴, probability function 𝑃 (𝐴).
+2. (Little letters) Value 𝑥, pmf 𝑝(𝑥) or pdf 𝑓(𝑥) or 𝜙(𝑥).
+‘𝑋 = 𝑥’ is an event: 𝑃 (𝑋 = 𝑥) = 𝑝(𝑥).
+Bayesian updating
+3. (Big letters) For hypotheses ℋ and data 𝒟:
+𝑃 (ℋ), 𝑃 (𝒟), 𝑃 (ℋ|𝒟), 𝑃 (𝒟|ℋ).
+4. (Small letters) Hypothesis values 𝜃 and data values 𝑥:
+𝑝(𝜃) 𝑝(𝑥) 𝑝(𝜃|𝑥) 𝑝(𝑥|𝜃)
+𝑓(𝜃)𝑑𝜃 𝜙(𝑥)𝑑𝑥 𝑓(𝜃|𝑥)𝑑𝜃 𝜙(𝑥|𝜃)𝑑𝑥
+Example. See the coin example in the reading
+11/23
+Review of pdf and probability
+𝑋 random variable with pdf 𝑓(𝑥).
+𝑓(𝑥) is a density with units: probability/units of 𝑥.
+𝑓(𝑥) 𝑓(𝑥)
+probability𝑓(𝑥)𝑑𝑥
+𝑃(𝑐≤𝑋≤𝑑)
+𝑐 𝑑 𝑥 𝑑 𝑥 𝑥 𝑥
+𝑑
+𝑃(𝑐 ≤ 𝑋 ≤ 𝑑) = ∫ 𝑓(𝑥)𝑑𝑥.
+𝑐
+Probability 𝑋 is in an infinitesimal range 𝑑𝑥 around 𝑥 is
+𝑓(𝑥) 𝑑𝑥
+12/23
+Example of continuous hypotheses
+Example. Suppose that we have a coin with probability of heads 𝜃,
+where 𝜃 is unknown. We can hypothesize that 𝜃 takes any value in
+[0, 1].
+• Since 𝜃 is continuous we need a prior pdf 𝑓(𝜃), e.g.
+𝑓(𝜃) = 𝑘𝜃(1 − 𝜃).
+• Use 𝑓(𝜃) 𝑑𝜃 to work with probabilities instead of densities.
+For example, the prior probability that 𝜃 is in an infinitesimal
+range 𝑑𝜃 around 0.5 is 𝑓(0.5) 𝑑𝜃.
+• To avoid cumbersome language we will simply say
+‘The hypothesis 𝜃 has prior probability 𝑓(𝜃) 𝑑𝜃.’
+13/23
+Law of total probability for continuous distributions
+Discrete set of hypotheses ℋ , ℋ , … ℋ ; data 𝒟:
+1 2 𝑛
+𝑛
+𝑃 (𝒟) = ∑ 𝑃 (𝒟|ℋ )𝑃 (ℋ ).
+𝑖 𝑖
+𝑖=1
+In little letters: Hypothesis 𝜃 , 𝜃 , … , 𝜃 ; data 𝑥
+1 2 𝑛
+𝑛
+𝑝(𝑥) = ∑ 𝑝(𝑥|𝜃 )𝑝(𝜃 ).
+𝑖 𝑖
+𝑖=1
+Continuous range of hypothesis 𝜃 on [𝑎, 𝑏]; discrete data 𝑥:
+𝑏
+𝑝(𝑥) = ∫ 𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃
+𝑎
+Always: “sum” of Bayes numerator column.
+Also called the prior predictive probability of the outcome 𝑥.
+14/23
+Table question: total probability
+(a) A coin has unknown probability of heads 𝜃 with prior pdf
+𝑓(𝜃) = 3𝜃2. Find the probability of throwing tails on the first toss.
+(b) Describe an experiment with success and failure that this models.
+Include the reason for the prior in your description.
+15/23
+Concept question: discrete or continuous?
+Suppose 𝑋 ∼ Bernoulli(𝜃) where the value of 𝜃 is unknown. If we use
+Bayesian methods to make probabilistic statements about 𝜃 then
+which one of the following is true?
+1. The random variable is discrete, the space of hypotheses is
+discrete.
+2. The random variable is discrete, the space of hypotheses is
+continuous.
+3. The random variable is continuous, the space of hypotheses is
+discrete.
+4. The random variable is continuous, the space of hypotheses is
+continuous.
+16/23
+Bayes’ theorem for continuous distributions
+• 𝜃: continuous parameter with pdf 𝑓(𝜃) and range [𝑎, 𝑏];
+• 𝑥: random discrete data;
+• likelihood: 𝑝(𝑥|𝜃).
+Bayes’ Theorem.
+𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃 𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃
+𝑓(𝜃|𝑥)𝑑𝜃 = = .
+𝑝(𝑥) 𝑏
+∫ 𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃
+𝑎
+Not everyone uses 𝑑𝜃 (but they should):
+𝑝(𝑥|𝜃)𝑓(𝜃) 𝑝(𝑥|𝜃)𝑓(𝜃)
+𝑓(𝜃|𝑥) = = .
+𝑝(𝑥) 𝑏
+∫ 𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃
+𝑎
+17/23
+Bayesian update tables: continuous priors
+𝑋 ∼ Bernoulli(𝜃). Unknown 𝜃
+Continuous hypotheses 𝜃 in [0,1].
+Data 𝑥.
+Prior pdf 𝑓(𝜃) (prior prob 𝑓(𝜃) 𝑑𝜃).
+Likelihood 𝑝(𝑥|𝜃).
+hypothesis range prior likelihood Bayes posterior
+numerator
+𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃
+𝜃 [0,1] 𝑓(𝜃)𝑑𝜃 𝑝(𝑥|𝜃) 𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃
+𝑝(𝑥)
+1
+Total [0,1] 1 𝑝(𝑥)=∫ 𝑝(𝑥|𝜃)𝑓(𝜃)𝑑𝜃 1
+0 ;
+Note 𝑝(𝑥) = the prior predictive probability of 𝑥.
+18/23
+Board question 1
+‘Bent’ coin: unknown probability 𝜃 of heads.
+Prior: 𝑓(𝜃) = 2𝜃 on [0, 1].
+Data: toss and get heads.
+(a) Find the posterior pdf to this new data.
+(b) Suppose you toss again and get tails. Update your posterior from
+problem 1 using this data.
+(c) On one set of axes graph the prior and the posteriors from parts
+(a) and (b).
+19/23
+Board Question 2
+Same scenario: bent coin ∼ Bernoulli(𝜃).
+Flat prior: 𝑓(𝜃) = 1 on [0, 1]
+Data: toss 27 times and get 15 heads and 12 tails.
+Use this data to find the posterior pdf.
+Write an integral formula for the normalizing factor (total probability
+of the data), but do not compute it. Call its value 𝑇 and give the
+posterior pdf in terms of 𝑇 .
+20/23
+Solution graphs
+Here are graphs of the prior and posterior for the previous question.
+0.0 0.2 0.4 0.6 0.8 1.0
+4
+3
+2
+1
+0
+Prior and posterior
+Posterior
+Prior
+q
+21/23
+Beta distribution
+𝐵𝑒𝑡𝑎(𝑎, 𝑏) has density
+(𝑎 + 𝑏 − 1)!
+𝑓(𝜃) = 𝜃𝑎−1(1 − 𝜃)𝑏−1
+(𝑎 − 1)!(𝑏 − 1)!
+https://mathlets.org/mathlets/beta-distribution/
+Observation: The coeﬀicient is a normalizing factor so if
+𝑓(𝜃) = 𝑐𝜃𝑎−1(1 − 𝜃)𝑏−1
+is a pdf, then
+(𝑎 + 𝑏 − 1)!
+𝑐 =
+(𝑎 − 1)!(𝑏 − 1)!
+and 𝑓(𝜃) is the pdf of a Beta(𝑎, 𝑏) distribution.
+22/23
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+23/23

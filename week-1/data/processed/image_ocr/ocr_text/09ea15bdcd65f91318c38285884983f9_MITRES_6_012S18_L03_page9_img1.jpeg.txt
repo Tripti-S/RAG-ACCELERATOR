@@ -1,0 +1,7 @@
+Reliability
+p;: probability that unit zis “up”
+
+independent units
+
+— ps | + 2} —}ps |} — probability that system is “up”?
+

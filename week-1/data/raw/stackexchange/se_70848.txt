@@ -1,0 +1,417 @@
+regression - What does a "closed-form solution" mean? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+What does a "closed-form solution" mean?
+Ask Question
+Asked
+12 years, 5 months ago
+Modified
+6 years, 4 months ago
+Viewed
+182k times
+138
+$\begingroup$
+I have come across the term "closed-form solution" quite often. What does a closed-form solution mean? How does one determine if a close-form solution exists for a given problem? Searching online, I found some information, but nothing in the context of developing a statistical or probabilistic model / solution.
+I understand regression very well, so if any one can explain the concept with reference to regression or model-fitting, it will be easy to consume. :)
+regression
+machine-learning
+probability
+terminology
+stochastic-processes
+Share
+Cite
+Improve this question
+Follow
+edited
+Jan 15, 2017 at 23:38
+Franck Dernoncourt
+48.9k
+35
+35 gold badges
+183
+183 silver badges
+304
+304 bronze badges
+asked
+Sep 23, 2013 at 23:31
+arjsgh21
+2,703
+6
+6 gold badges
+19
+19 silver badges
+8
+8 bronze badges
+$\endgroup$
+0
+Add a comment
+|
+4 Answers
+4
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+66
+$\begingroup$
+"An equation is said to be a closed-form solution if it solves a given
+problem in terms of functions and mathematical operations from a given
+generally accepted set. For example, an infinite sum would generally
+not be considered closed-form. However, the choice of what to call
+closed-form and what not is rather arbitrary since a new "closed-form"
+function could simply be defined in terms of the infinite sum."
+--Wolfram Alpha
+and
+"In mathematics, an expression is said to be a closed-form expression
+if it can be expressed analytically in terms of a finite number of
+certain "well-known" functions. Typically, these well-known functions
+are defined to be elementary functions—constants, one variable x,
+elementary operations of arithmetic (+ − × ÷), nth roots, exponent and
+logarithm (which thus also include trigonometric functions and inverse
+trigonometric functions). Often problems are said to be tractable if
+they can be solved in terms of a closed-form expression." -- Wikipedia
+An example of a closed form solution in linear regression would be the least square equation
+$$\hat\beta=(X^TX)^{-1}X^Ty$$
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 23, 2013 at 23:45
+user25658
+$\endgroup$
+5
+$\begingroup$
+Considering that all regression scenarios can be cast as a problem of solving a system of equations, when would there not be a closed-form solution? An ill-posed or sparse problem will require an approximate solution, so is that the case where a closed-form solution does not exist? How about when one uses conjugate gradient descent with regularization?
+$\endgroup$
+arjsgh21
+–
+arjsgh21
+2013-09-25 18:44:11 +00:00
+Commented
+Sep 25, 2013 at 18:44
+$\begingroup$
+I found this discussion helpful - "Solving for regression parameters in closed-form vs gradient descent"
+link
+$\endgroup$
+arjsgh21
+–
+arjsgh21
+2013-09-25 18:53:18 +00:00
+Commented
+Sep 25, 2013 at 18:53
+$\begingroup$
+@arjsgh21 do you still need further clarification on what it means to be a closed form solution?  Because your new question seems to be about when are there closed form solutions (or not) in regression problems which is an entirely new topic and should be asked as a new question, in my opinion.
+$\endgroup$
+user25658
+–
+user25658
+2013-09-25 18:57:34 +00:00
+Commented
+Sep 25, 2013 at 18:57
+$\begingroup$
+Thanks BabakP. I think I get it now, with reference to regression and also otherwise.
+$\endgroup$
+arjsgh21
+–
+arjsgh21
+2013-09-25 19:06:27 +00:00
+Commented
+Sep 25, 2013 at 19:06
+$\begingroup$
+p.s.
+here
+can see  closed-form solution for Ridge (l2-regularized linear regression)
+$\endgroup$
+JeeyCi
+–
+JeeyCi
+2024-03-31 12:28:54 +00:00
+Commented
+Mar 31, 2024 at 12:28
+Add a comment
+|
+31
+$\begingroup$
+I think that
+this
+website provides a simple intuition, an excerpt of which is:
+A closed-form solution (or closed form expression) is any formula that
+can be evaluated in a finite number of standard operations. ... A
+numerical solution is any approximation that can be evaluated in a
+finite number of standard operations. Closed form solutions and
+numerical solutions are similar in that they both can be evaluated
+with a finite number of standard operations. They differ in that a
+closed-form solution is exact whereas a numerical solution is only
+approximate.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 28, 2019 at 15:01
+COOLSerdash
+32.2k
+10
+10 gold badges
+107
+107 silver badges
+163
+163 bronze badges
+answered
+Nov 24, 2014 at 11:16
+Luca Bertinetto
+421
+4
+4 silver badges
+5
+5 bronze badges
+$\endgroup$
+3
+3
+$\begingroup$
+While only providing a link, this is definitely the most helpful answer.
+$\endgroup$
+Mike Williamson
+–
+Mike Williamson
+2016-12-18 22:18:41 +00:00
+Commented
+Dec 18, 2016 at 22:18
+5
+$\begingroup$
+Wayne's inclusion of a quote from the link quite definitely improved the answer.
+$\endgroup$
+Glen_b
+–
+Glen_b
+2017-07-07 02:24:16 +00:00
+Commented
+Jul 7, 2017 at 2:24
+$\begingroup$
+wiki
+adds more clarity "Unlike the broader analytic expressions, the
+closed-form expressions
+do not include infinite series or continued fractions; neither includes integrals or limits."
+$\endgroup$
+JeeyCi
+–
+JeeyCi
+2024-04-07 08:09:47 +00:00
+Commented
+Apr 7, 2024 at 8:09
+Add a comment
+|
+29
+$\begingroup$
+Most estimation procedures involve finding parameters that minimize (or maximize) some objective function. For example, with OLS, we minimize the sum of squared residuals. With Maximum Likelihood Estimation, we maximize the log-likelihood function. The difference is trivial: minimization can be converted to maximization by using the negative of the objective function.
+Sometimes this problem can be solved algebraically, producing a closed-form solution. With OLS, you solve the system of first order conditions and get the familiar formula (though you still probably need a computer to evaluate the answer). In other cases, this is not mathematically possible and you need to search for parameter values using a computer. In this case, the computer and the algorithm play a bigger role. Nonlinear Least Squares is one example. You don't get an explicit formula; all you get is a recipe that you need to computer to implement. The recipe might be start with an initial guess of what the parameters might be and how they might vary. You then try various combinations of parameters and see which one gives you the lowest/highest objective function value. This is the brute force approach and takes a long time. For example, with 5 parameters with 10 possible values each you need to try $10^5$ combinations, and that merely puts you in the neighborhood of the right answer if you're lucky. This approach is called grid search.
+Or you might start with a guess, and refine that guess in some direction until the improvements in the objective function is less than some value. These are usually called gradient methods (though there are others that do not use the gradient to pick in which direction to go in, like genetic algorithms and simulated annealing). Some problems like this guarantee that you find the right answer quickly (quadratic objective functions). Others give no such guarantee. You might worry that you've gotten stuck at a local, rather than a global, optimum, so you try a range of initial guesses. You might find that wildly different parameters give you the same value of the objective function, so you don't know which set to pick.
+Here's a nice way to get the intuition. Suppose you had a simple exponential regression model where the only regressor is the intercept:
+\begin{equation}
+E[y]=\exp\{\alpha\}
+\end{equation}
+The objective function is
+\begin{equation}
+Q_N(\alpha)=-\frac{1}{2N} \sum_i^N \left( y_i - \exp\{\alpha\} \right)^2
+\end{equation}
+With this simple problem, both approaches are feasible. The closed-form solution that you get by taking the derivative is $\alpha^* = \ln \bar y$. You can also verify that anything else gives you a higher value of the objective function by plugging in $\ln (\bar y + k) $ instead. If you had some regressors, the analytical solution goes out the window.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 24, 2013 at 2:19
+answered
+Sep 24, 2013 at 0:07
+dimitriy
+39.4k
+7
+7 gold badges
+87
+87 silver badges
+172
+172 bronze badges
+$\endgroup$
+8
+$\begingroup$
+Did you implicitly equate "analytical" with "closed-form" in the last sentence?
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-09-24 03:35:04 +00:00
+Commented
+Sep 24, 2013 at 3:35
+3
+$\begingroup$
+I thought then synonymous:
+mathworld.wolfram.com/Analytic.html
+$\endgroup$
+dimitriy
+–
+dimitriy
+2013-09-24 04:31:05 +00:00
+Commented
+Sep 24, 2013 at 4:31
+1
+$\begingroup$
+Did you see the disambiguation comments at the end of that MathWorld page? The issue is that in the present context "analytic" can reasonably be understood in several distinct ways. Also, "analytical" and "analytic" do not mean exactly the same thing (just like "historic" and "historical" have different meanings).
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-09-24 13:11:02 +00:00
+Commented
+Sep 24, 2013 at 13:11
+4
+$\begingroup$
+In many mathematical contexts "analytic" is a precise term of art applied to any function locally expressible as a power series with positive radius of convergence, whereas "analytical" much more broadly is related to decomposability into basic parts. As BabakP's quotations indicate, "closed form" acquires meaning only within some context of generally accepted procedures for combining values (usually assumed to consist of elementary but not transcendental functions).
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-09-24 17:57:16 +00:00
+Commented
+Sep 24, 2013 at 17:57
+1
+$\begingroup$
+@unicorn That would be the case, I think.
+$\endgroup$
+dimitriy
+–
+dimitriy
+2020-08-18 03:23:18 +00:00
+Commented
+Aug 18, 2020 at 3:23
+|
+Show
+3
+more comments
+-3
+$\begingroup$
+Looking for lay terms or the painful verbiage that rigorously defines the meaning? I'll presume lay terms as the other can be found everywhere. Let's say you wanted the closed form solution of the square root of 8. The closed form solution is 2 * (2)^1/2 or two times the square root of two. This is in contrast to the non-closed form solution 2.8284. (see wikipedia square root of 2 to see than at 69 decimal places it is accurate to within 1/10,000) One is absolutely defined in mathematical terms whereas the other is not. A closed form solution provides an exact answer and one that is not closed form is an approximation, but you can get a non closed form solution as close as to a closed form solution as you want. Sounds counter intuitive, but if you need it more accurate, then just grind out a little bit more computations.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 24, 2013 at 3:29
+Cheesepipe
+1
+$\endgroup$
+3
+6
+$\begingroup$
+This is an unusual use of the term "closed form." Could you provide a reference?
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-09-24 03:34:05 +00:00
+Commented
+Sep 24, 2013 at 3:34
+1
+$\begingroup$
+Not sure that I can sufficiently provide the level of supporting documentation to win a debate on this without more work than I'm willing to put forth, but here goes. Look on Wikipedia for Closed Form Expression. In the last two sections it describes how closed form solutions are not necessarily required because numerical computation can usually be successfully used to arrive at a solution and the following section that describes how some mathematical programs attempt to generate closed form solutions from numeric values. Closed form solutions are precise (out of space)
+$\endgroup$
+Cheesepipe
+–
+Cheesepipe
+2013-09-24 03:46:26 +00:00
+Commented
+Sep 24, 2013 at 3:46
+9
+$\begingroup$
+Wikipedia is fine as a reference. In this case it appears you may have conflated "closed form expression" with "closed form number." They don't mean the same things.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-09-24 03:48:37 +00:00
+Commented
+Sep 24, 2013 at 3:48
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+regression
+machine-learning
+probability
+terminology
+stochastic-processes
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+0
+Closed-form integrals and Bayes' rule?
+107
+Solving for regression parameters in closed-form vs gradient descent
+-5
+Is Gaussian process functional regression a Bayesian method (over again)?
+0
+How to maximize likelihood function
+0
+Is sigma or finite sum allowed in a closed-form or analytic expression?
+1
+How to compute Bayesian estimate of a mean using data?
+Related
+1
+I am having trouble understanding (and implementing) logistic regression for classifying into three classes
+6
+Variance Inflation Factor less than 1 in ridge regression?
+59
+Why do we need multivariate regression (as opposed to a bunch of univariate regressions)?
+2
+Why and what induces degeneracy in the solution space in logistic regression models with respect to the energy landscape of the logistic loss?
+46
+Why is the exponential family so important in statistics?
+1
+Why does Poisson regression not have a closed form solution?
+Hot Network Questions
+What are the meanings of the columns in the output of lsinitrd?
+Does the Airbus really lack control feel?
+Can we run out of PNR codes?
+How is the expectation of spin related to the eigenvector of the spin operator?
+Writing your own Wikipedia biography?
+Arrow not pointing in the correct direction/incorrectly rendered
+When are Closure nodes necessary in Geometry Nodes compared to Node Groups?
+Select clients where they have one feature type but not another - ArcGIS Pro
+Should we use have or has in this case?
+Create and verify a large single file in parallel-mode
+Identify tv episode, everyone's got a brain chip - except one man who ultimately must destroy it
+Why does 74x138 have 3 EN and why does it have to be 1 EN active high and 2 active low?
+A Holiday to Remember... #05: Whatever Floats Your Boat
+How to wash produce to remove pathogens (including fecal-contamination)
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+What does "correlated data" mean?
+Supporting via direct payments vs. via subsidies
+Is "naturalism of the gaps" a fallacy acknowledged by philosophers, just like "God of the gaps" usually is?
+What's the best explanation that E# is not the same as F?
+Question 14 from section 3.6 of Topology And Groupoids
+Sicilian Defense Yates Variation straight up hangs a piece
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+Some books recommendation by which I can know about what's happening in current mathematics research in Pure mathematics?
+more hot questions
+Question feed

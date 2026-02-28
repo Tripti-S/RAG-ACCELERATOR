@@ -1,0 +1,13 @@
+CI for the estimation of the mean
+
+_ Xite+Xn
+Tm
+
+©, = sample mean = M,,
+
+normal tables: ©(1.96) = 0.975 = 1 — 0.025
+
+On — 4|
+P| — — <1. wz 0. T
+(as 96) ~0.95 (CLT)
+

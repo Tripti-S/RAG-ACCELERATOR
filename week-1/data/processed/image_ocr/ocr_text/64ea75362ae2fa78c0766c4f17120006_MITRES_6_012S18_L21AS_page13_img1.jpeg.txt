@@ -1,0 +1,19 @@
+Poisson approximation to binomial ma—> 00
+
+pro pst
+
+e Interesting regime: large n , small p, moderate \ = np
+
+!
+e Number of arrivals Sinn slots: ps(k) = ee pra p) al k=0Q,...
+(n—k)!k!
+
+cna, Mees - iis (n-t)e os (m- kt). a (2 A aye
+ps(k) +7 e- _ ie’
+aot wey nates a eA
+=m oom “* xl
+
+—plelsee 128” »
+
+- i n— A
+e Fact: nim = A/n) =e

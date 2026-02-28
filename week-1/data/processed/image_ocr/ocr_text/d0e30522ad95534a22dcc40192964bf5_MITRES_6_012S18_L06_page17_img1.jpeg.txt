@@ -1,0 +1,9 @@
+Linearity of expectations
+
+E[aX + b] = aE[X] +b
+
+E[X + Y] = E[X] + E[Y]
+
+B[X1 + +--+ Xn] = E[X1] +
+
+E[2X + 3Y —Z] =

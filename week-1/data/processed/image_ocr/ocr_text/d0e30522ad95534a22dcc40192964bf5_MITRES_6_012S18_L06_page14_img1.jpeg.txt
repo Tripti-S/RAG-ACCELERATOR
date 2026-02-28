@@ -1,0 +1,17 @@
+Multiple random variables and joint PMFs
+
+X ! px _ _
+Yip P(X=Y)=
+
+Joint PMF: px y(2,y) = P(X =2 and Y=y)
+
+, 120 | 220 Joao | X Lpxy(e, y)=1
+5
+i
+het
+1 2 3 4
+
+px (x) = >> px y(a,y)
+y
+
+py(y) = >> px y(2,y)

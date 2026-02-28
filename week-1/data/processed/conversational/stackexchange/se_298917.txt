@@ -1,0 +1,996 @@
+If 900 out of 1000 people say a car is blue, what is the probability that it is blue? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+If 900 out of 1000 people say a car is blue, what is the probability that it is blue?
+Ask Question
+Asked
+8 years, 6 months ago
+Modified
+7 years, 3 months ago
+Viewed
+52k times
+116
+$\begingroup$
+This initially arose in connection some work we are doing to a model to classify natural text, but I've simplified it... Perhaps too much.
+You have a blue car (by some objective scientific measure - it is blue).
+You show it to 1000 people.
+900 say it is blue. 100 do not.
+You give this information to someone who cannot see the car. All they know is that 900 people said it was blue, and 100 did not. You know nothing more about these people (the 1000).
+Based on this, you ask the person, "What is the probability that the car is blue?"
+This has caused a huge divergence of opinion amongst those I have asked! What is the right answer, if there is one?
+probability
+Share
+Cite
+Improve this question
+Follow
+edited
+Aug 21, 2017 at 23:32
+Malady
+105
+4
+4 bronze badges
+asked
+Aug 20, 2017 at 19:57
+Pat Molloy
+1,125
+2
+2 gold badges
+8
+8 silver badges
+6
+6 bronze badges
+$\endgroup$
+45
+165
+$\begingroup$
+I wonder what the answers would be if you changed
+car
+to
+dress
+.
+$\endgroup$
+user1717828
+–
+user1717828
+2017-08-21 00:26:14 +00:00
+Commented
+Aug 21, 2017 at 0:26
+13
+$\begingroup$
+So what is the question to people? "Is the car blue?" or "What color is the car?"
+$\endgroup$
+kon psych
+–
+kon psych
+2017-08-21 03:39:48 +00:00
+Commented
+Aug 21, 2017 at 3:39
+13
+$\begingroup$
+What does it mean for the car to be blue? If some people say the car is not blue, then it is likely that it is a colour that some people call blue and others call by a different name. This does not mean they disagree on the colour it means they disagree on the name of the colour.
+$\endgroup$
+Ben
+–
+Ben
+2017-08-21 09:15:05 +00:00
+Commented
+Aug 21, 2017 at 9:15
+7
+$\begingroup$
+I think the question would be improved a lot if you gave the different divergent opinions you encountered. As it stands now, answers can just explore the whole field, from probability theory to color theory or even biology (color blindness) wildly, and I don't see how that would really help you.
+$\endgroup$
+AnoE
+–
+AnoE
+2017-08-21 11:19:56 +00:00
+Commented
+Aug 21, 2017 at 11:19
+32
+$\begingroup$
+There's something missing in the problem description. 100 people denying that the car is blue when it's certainly blue is a lot of people, you can't simply discard them as random errors.
+$\endgroup$
+Aksakal
+–
+Aksakal
+2017-08-21 15:22:11 +00:00
+Commented
+Aug 21, 2017 at 15:22
+|
+Show
+40
+more comments
+16 Answers
+16
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+120
+$\begingroup$
+TL;DR: Unless you assume people are unreasonably bad at judging car color, or that blue cars are unreasonably rare, the large number of people in your example means the probability that the car is blue is basically 100%.
+Matthew Drury already gave the right answer but I'd just like to add to that with some numerical examples, because you chose your numbers such that you actually get pretty similar answers for a wide range of different parameter settings. For example, let's assume, as you said in one of your comments, that the probability that people judge the color of a car correctly is 0.9. That is:
+$$p(\text{say it's blue}|\text{car is blue})=0.9=1-p(\text{say it isn't blue}|\text{car is blue})$$
+and also
+$$p(\text{say it isn't blue}|\text{car isn't blue})=0.9=1-p(\text{say it is blue}|\text{car isn't blue})$$
+Having defined that, the remaining thing we have to decide is: what is the prior probability that the car is blue? Let's pick a very low probability just to see what happens, and say that $p(\text{car is blue})=0.001$, i.e. only 0.1% of all cars are blue. Then the posterior probability that the car is blue can be calculated as:
+\begin{align*}
+&p(\text{car is blue}|\text{answers})\\
+&=\frac{p(\text{answers}|\text{car is blue})\,p(\text{car is blue})}{p(\text{answers}|\text{car is blue})\,p(\text{car is blue})+p(\text{answers}|\text{car isn't blue})\,p(\text{car isn't blue})}\\
+&=\frac{0.9^{900}\times 0.1^{100}\times0.001}{0.9^{900}\times 0.1^{100}\times0.001+0.1^{900}\times0.9^{100}\times0.999}
+\end{align*}
+If you look at the denominator, it's pretty clear that the second term in that sum will be negligible, since the relative size of the terms in the sum is dominated by the ratio of $0.9^{900}$ to $0.1^{900}$, which is on the order of $10^{58}$. And indeed, if you do this calculation on a computer (taking care to avoid numerical underflow issues) you get an answer that is equal to 1 (within machine precision).
+The reason the prior probabilities don't really matter much here is because you have so much evidence for one possibility (the car is blue) versus another. This can be quantified by the
+likelihood ratio
+, which we can calculate as:
+$$
+\frac{p(\text{answers}|\text{car is blue})}{p(\text{answers}|\text{car isn't blue})}=\frac{0.9^{900}\times 0.1^{100}}{0.1^{900}\times 0.9^{100}}\approx 10^{763}
+$$
+So before even considering the prior probabilities, the evidence suggests that one option is already astronomically more likely than the other, and for the prior to make any difference, blue cars would have to be unreasonably, stupidly rare (so rare that we would expect to find 0 blue cars on earth).
+So what if we change how accurate people are in their descriptions of car color? Of course, we could push this to the extreme and say they get it right only 50% of the time, which is no better than flipping a coin. In this case, the posterior probability that the car is blue is simply equal to the prior probability, because the people's answers told us nothing. But surely people do at least a little better than that, and even if we say that people are accurate only 51% of the time, the likelihood ratio still works out such that it is roughly $10^{13}$ times more likely for the car to be blue.
+This is all a result of the rather large numbers you chose in your example. If it had been 9/10 people saying the car was blue, it would have been a very different story, even though the same ratio of people were in one camp vs. the other. Because statistical evidence doesn't depend on this ratio, but rather on the numerical difference between the opposing factions. In fact, in the likelihood ratio (which quantifies the evidence), the 100 people who say the car isn't blue exactly cancel 100 of the 900 people who say it is blue, so it's the same as if you had 800 people all agreeing it was blue. And that's obviously pretty clear evidence.
+(Edit:
+As Silverfish pointed out
+, the assumptions I made here actually implied that whenever a person describes a non-blue car incorrectly, they will default to saying it's blue. This isn't realistic of course, because they could really say any color, and will say blue only some of the time. This makes no difference to the conclusions though, since the less likely people are to mistake a non-blue car for a blue one, the stronger the evidence that it is blue when they say it is. So if anything, the numbers given above are actually only a lower bound on the pro-blue evidence.)
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 26, 2017 at 18:40
+Mico
+143
+5
+5 bronze badges
+answered
+Aug 20, 2017 at 22:14
+Ruben van Bergen
+7,981
+1
+1 gold badge
+26
+26 silver badges
+42
+42 bronze badges
+$\endgroup$
+21
+12
+$\begingroup$
++1. In fact, given OP's data, the MLE estimate of how often people are accurate is 900/1000=90%.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-08-20 22:30:21 +00:00
+Commented
+Aug 20, 2017 at 22:30
+5
+$\begingroup$
+Getting a car colour correct 50% of the time is not the same as flipping a coin. After all, there are way more than just two available colours. Also, maybe some say "navy" or "azure" instead of "blue"? Actually, mayn people will wrongly say "blue" when the correct answer would be "some fancy and fashionable patented colour that almost looks like blue"
+$\endgroup$
+Hagen von Eitzen
+–
+Hagen von Eitzen
+2017-08-20 22:31:18 +00:00
+Commented
+Aug 20, 2017 at 22:31
+10
+$\begingroup$
+I know these are just illustrative figures, but if "the probability that people judge the color of a car correctly is 0.9" then, unless there is something special about the colour blue, I don't think it is reasonable to claim p(say it's blue|car isn't blue)=0.1. If we think that 90% of the time, people identify the correct colour, then p(say red|car is red)=p(say white|car is white)=p(say green|car is green)=0.9 and so on for all possible car colours. But why should p(say blue|car is red)=p(say blue|car is white)=p(say blue|car is green)=0.1? This would imply e.g. p(say white|car is red)=0.
+$\endgroup$
+Silverfish
+–
+Silverfish
+2017-08-20 22:33:26 +00:00
+Commented
+Aug 20, 2017 at 22:33
+2
+$\begingroup$
+@PatMolloy: Not necessarily. It depends on whether the probabilities are symmetrical: is it equally likely that someone mistakes a blue for a non-blue car, as it is that someone mistakes a non-blue for a blue car? If so, then a 500/500 verdict gives exactly as much information as a coin toss. But if people are less likely to say a non-blue car is blue, than they are to say that a blue car is not blue, then the 500 blue-sayers are harder to explain away than the 500 not blue-sayers, under the not-blue hypothesis. So in that case the balance of evidence would tilt towards blue.
+$\endgroup$
+Ruben van Bergen
+–
+Ruben van Bergen
+2017-08-21 09:30:50 +00:00
+Commented
+Aug 21, 2017 at 9:30
+3
+$\begingroup$
+Colour perception's a tricky thing.. if nine out of ten people say a
+dress
+is white and gold, what's the probability it's blue and black?
+$\endgroup$
+Glen_b
+–
+Glen_b
+2017-08-23 04:22:22 +00:00
+Commented
+Aug 23, 2017 at 4:22
+|
+Show
+16
+more comments
+74
+$\begingroup$
+The correct answer depends on information not specified in the problem, you will have to make some more assumptions to derive a single, definitive answer:
+The prior probability the car is blue, i.e. your belief that the car is blue given you have not yet asked anyone.
+The probability someone tells you the car is blue when it actually
+is
+blue, and the probability they tell you the car is blue when it actually
+is not
+blue.
+The probability that the car actually is blue when someone says it is, and the probability that the car is not blue, when someone says it is blue.
+With these pieces of information, we can break the whole thing down with Bayes's formula to derive a posterior probability that the car is blue.  I'll focus on the case where we only ask one person, but the same reasoning can be applied to the case where you ask $1000$ people.
+$$\begin{align*}
+P_{post} (\text{car is blue}) &= P(\text{car is blue} \mid \text{say is blue}) P(\text{say is blue}) \\
+& \ \ \ \ + P(\text{car is blue} \mid \text{say is not blue}) P(\text{say is not blue})
+\end{align*}$$
+We need to continue to further break down $P(\text{say is blue})$, this is where the prior comes in:
+$$\begin{align*}
+P(\text{say is blue}) = \ &P(\text{say is blue} \mid \text{car is blue}) P_{prior}(\text{car is blue}) \\
+&+ P(\text{say is blue} \mid \text{car is not blue}) P_{prior}(\text{car is not blue})
+\end{align*}$$
+So two applications of Bayes's rule get's you there.  You'll need to determine the unspecified parameters based on either information you have about the specific situation, or by making some reasonable assumptions.
+There are some other combinations of what assumptions you can make, based on:
+$$ P(\text{say is blue} \mid \text{car is blue}) P(\text{car is blue}) = P(\text{car is blue} \mid \text{say is blue}) P(\text{say is blue}) $$
+At the outset, you don't know any of these things.  So you must make some reasonable assumptions about three of them, and then the fourth is determined from there.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 22, 2017 at 12:14
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+answered
+Aug 20, 2017 at 20:29
+Matthew Drury
+36.8k
+5
+5 gold badges
+119
+119 silver badges
+147
+147 bronze badges
+$\endgroup$
+13
+5
+$\begingroup$
+That's often the case.  Then you have two options, express your total lack of knowledge by assuming blue and not blue are equally likely.  Do a quick survey of the field, something like this can help:
+en.wikipedia.org/wiki/Car_colour_popularity
+$\endgroup$
+Matthew Drury
+–
+Matthew Drury
+2017-08-20 21:06:46 +00:00
+Commented
+Aug 20, 2017 at 21:06
+18
+$\begingroup$
+@Matthew the problem with "blue and not blue is equally likely" is that it's not consistent; if we apply the same reasoning to each of the possible car colors, we end up with the claim that they all simultaneously have 50% chance (impossible with more than two colors by the laws of probability) and less than 50% chance (when you look at blue in the "not white" and "not red", which also leads to contradictions since the probability of any color cannot take multiple values)
+$\endgroup$
+Glen_b
+–
+Glen_b
+2017-08-20 21:40:28 +00:00
+Commented
+Aug 20, 2017 at 21:40
+2
+$\begingroup$
+There is more unspecified information than this because the people's answer need not be independent (in fact, we
+hope
+that they are strongly correlated with the objective colour, hence far from independent). What if the answers are "overly" dependent? Say, we simply ask ten random pedestrians, but have each of them reply 100 times?
+$\endgroup$
+Hagen von Eitzen
+–
+Hagen von Eitzen
+2017-08-20 22:25:08 +00:00
+Commented
+Aug 20, 2017 at 22:25
+2
+$\begingroup$
+@HagenvonEitzen and MatthewDrury. In fact, what you also need to assume is not independence but
+conditional independence
+. In other words $P(\text {Joe and Mary say blue} | \text {car is blue}) = P(\text {Joe says blue} | \text {car is blue}) \cdot P(\text {Mary says blue} | \text {car is blue})$.
+$\endgroup$
+Luca Citi
+–
+Luca Citi
+2017-08-20 23:43:55 +00:00
+Commented
+Aug 20, 2017 at 23:43
+16
+$\begingroup$
+@Glen_b: There are only two colours in the world, blue and not-blue. Admittedly both come in a variety of shades, especially not-blue.
+$\endgroup$
+psmears
+–
+psmears
+2017-08-21 10:41:21 +00:00
+Commented
+Aug 21, 2017 at 10:41
+|
+Show
+8
+more comments
+13
+$\begingroup$
+There's an important assumption that your 1000 opinions don't share a systematic bias. Which is a reasonable assumption here, but could be important in other cases.
+Examples might be:
+they all share a similar colorblindness (genetics in a population for example),
+they all saw the car at night under orange sodium street lighting,
+they all share a common culture in which blue is taboo or magically associated (which biases whether or not they describe any object as blue or use a cultural euphemism or whatever instead),
+they have all been told (or share a common belief) that if they do/don't answer some specific way, something good/bad will happen to them.....
+It isn't likely in this case but its a significant implied assumption in other cases. It doesn't have to be that extreme either - transpose your question to some other domain and this will be a real factor.
+Examples for each where your answer may be affected by a shared bias:
+ask if a tall thin glass holds more than an actually-identical short fat glass, but your 1000 respondents are very young children (shared misperception).
+ask 1000 people if walking under a ladder is dangerous (common cultural belief)
+ask 1000 married people if they love their partner/have had an affair, in circumstances where they believe their partner will know of their answer. The context might be a TV show, or partner present when asked etc (common belief about consequences)
+It wouldn't be hard to imagine some structurally identical questions where the 900:100 response was a measure of beliefs and honesty, or something else, and doesn't point to the correct answer. Not likely in this case but in other cases - yes.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 23, 2017 at 13:42
+answered
+Aug 22, 2017 at 6:07
+Stilez
+289
+1
+1 silver badge
+4
+4 bronze badges
+$\endgroup$
+Add a comment
+|
+11
+$\begingroup$
+One reason you're getting different answers from different people is that the question can be interpreted in different ways, and it isn't clear what you mean by "probability" here. One way to make sense of the question is to assign priors and reason using Bayes' rule as in Matthew's answer.
+Before asking for probabilities, you have to decide what's modeled as random and what's not. It's not universally accepted that unknown but fixed quantities should be assigned priors. Here's a similar experiment to yours that highlights the problem with the question:
+Assume $X_i$, $i = 1, \dots, 1000$ are i.i.d. Bernoulli random variables with success probability (mean) $p = 0.5$. For interpretability, let's think of the $X_i$ as coin flips. Suppose you observe (the sufficient statistic) $\sum_{i = 1}^{1000}X_i = 900$. What is the probability that the coin is fair?
+From a frequentist perspective the question is either nonsensical or the answer is "one". If you're Bayesian maybe you want to assign a prior distribution to $p$, in which case the question makes sense. The fundamental difference between my example and the question is that $p$ is unknown in the question, and the question disguises the fact that the
+actual
+randomness is whether a (presumably randomly sampled) person answers that the car is blue or not. The car's color is not randomly assigned and thus it's uninteresting to speak of the probability of it being blue from a frequentist perspective.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 21, 2017 at 13:37
+answered
+Aug 20, 2017 at 21:28
+KOE
+4,671
+1
+1 gold badge
+21
+21 silver badges
+41
+41 bronze badges
+$\endgroup$
+6
+1
+$\begingroup$
+So, if you remove the assumption that the car is blue, and the rest is the same, 900 people say is blue and 100 say is not, in that case the probability would be 0.9?
+$\endgroup$
+user
+–
+user
+2017-08-20 22:53:03 +00:00
+Commented
+Aug 20, 2017 at 22:53
+$\begingroup$
+No, it's much much closer to 1. It is very, very unlikely that 900 out of 1000 people will get the color wrong.
+$\endgroup$
+gnasher729
+–
+gnasher729
+2017-08-20 23:08:28 +00:00
+Commented
+Aug 20, 2017 at 23:08
+1
+$\begingroup$
+the probability is either one or zero, depending on whether the car is actually blue or not.
+this does not correspond to an understanding of "probability" as I am familiar with it. It sounds a bit like "X can happen or can not happen, so the probability must be 50%". Can you make it a bit more clear what you mean by that sentence?
+$\endgroup$
+AnoE
+–
+AnoE
+2017-08-21 11:13:01 +00:00
+Commented
+Aug 21, 2017 at 11:13
+2
+$\begingroup$
+@AnoE the distinction is analogous to that between parameters and random variables. It is given in the setting of the question that the car is for a fact blue, it's color is not the result of a random experiment. It's essentially a frequentist v. Bayesian interpretation. If you flip a coin 1000 times and observe 900 heads, then what is the probability that the coin is fair? It's either one or zero if you're a frequentist (or nonsensical); we don't assign probabilities to parameters.
+$\endgroup$
+KOE
+–
+KOE
+2017-08-21 12:22:26 +00:00
+Commented
+Aug 21, 2017 at 12:22
+$\begingroup$
+@user No, I've updated the answer to make my point clearer.
+$\endgroup$
+KOE
+–
+KOE
+2017-08-21 12:43:36 +00:00
+Commented
+Aug 21, 2017 at 12:43
+|
+Show
+1
+more comment
+7
+$\begingroup$
+Simple practical answer:
+The probability can easily range from 0% to 100% depending on your assumptions
+Though I really like the existing answers, in practice it basically boils down to these two simple scenarios:
+Scenario 1: People are assumed to be
+very
+good at recognizing blue when it is blue ... 0%
+In this case, there are so many people stating that the car is not blue, that it is very unlikely that the car is actually blue. Hence, the probability approaches 0%.
+Scenario 2: People are assumed to be
+very
+good at recognizing not-blue when it is not-blue ... 100%
+In this case, there are so many people stating that the car is blue, that it is very likely that it is indeed blue. Hence the probability approaches 100%.
+Of course coming at this from a mathematical angle you would start by something generic like 'let us assume that the relevant probabilities are ...', which is quite meaningless as such things are typically not known for any random circumstance. Hence I advocate looking at the extremes to grasp the idea that both percentages can easily be justified with simple and realistic assumptions, and that there is therefore no single meaningful answer.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jun 11, 2020 at 14:32
+Community
+Bot
+1
+answered
+Aug 21, 2017 at 16:04
+Dennis Jaheruddin
+446
+3
+3 silver badges
+20
+20 bronze badges
+$\endgroup$
+3
+2
+$\begingroup$
+If "people are assumed to be very good at recognizing blue", why would they estimate it is blue when it isn't in scenario 1? You might want to express your scenarios in terms of false positivies and false negatives.
+$\endgroup$
+hyde
+–
+hyde
+2017-08-22 06:31:01 +00:00
+Commented
+Aug 22, 2017 at 6:31
+$\begingroup$
+@hyde Reworded the scenarios to remove ambiguity
+$\endgroup$
+Dennis Jaheruddin
+–
+Dennis Jaheruddin
+2017-08-22 07:29:26 +00:00
+Commented
+Aug 22, 2017 at 7:29
+$\begingroup$
+False positive paradox
+$\endgroup$
+Barmar
+–
+Barmar
+2017-08-25 22:50:22 +00:00
+Commented
+Aug 25, 2017 at 22:50
+Add a comment
+|
+5
+$\begingroup$
+You need to develop some framework of estimation.  Some questions you might ask are
+How many colors are there?  Are we talking two colors?  Or all the colors of the rainbow?
+How distinct are the colors?  Are we talking blue and orange?  Or blue, cyan, and turquoise?
+What does it mean to be blue?  Are cyan and/or turquoise blue?  Or just blue itself?
+How good are these people at estimating color?  Are they all graphic designers?  Or are they color blind?
+From a purely statistical standpoint, we can make some guesses as to the last one.  First, we know that at least 10% of the people are choosing an incorrect response.  If there are only two colors (from the first question), then we might say that there is
+Probability says blue and is blue = 90% say is blue * 90% correct = 81%
+Probability says blue and is not = 90% * 10% incorrect = 9%
+Probability says not but is blue = 10% * 90% incorrect = 9%
+Probability says not and is not = 10% * 10% = 1%
+As a quick check, if we add those together, we get 100%.  You can see a more mathematical notation of this at the
+@MatthewDrury answer
+.
+How do we get the 90% in the third?  It's how many people said blue but were wrong if it's not.  Because there are only two colors, these are symmetric.  If there were more than two colors, then the chance of the wrong choice being blue when they said something else would be lower.
+Anyway, this method of estimation gives us 90% blue.  This includes an 81% chance of people saying blue when it is and a 9% chance of people saying that it isn't when it is.  This is probably the closest we can come to answering the original question, and it requires us to rely on the data to estimate two different things.  And to assume that the chance of blue being chosen is the same as the chance of blue being correct.
+If there are more than two colors, then the logic is going to change a bit.  The first two lines stay the same, but we lose the symmetry in the last two lines.  In that case, we need more input.  We might conceivably estimate the chance of correctly saying blue as 81% again, but we have no idea what the chances are that the color is blue when someone says that it is not.
+We could also improve upon even the two color estimate.  Given a statistically significant number of cars of each color, we could have a statistically significant number of people view and categorize them.  Then we could count how often people are right when they make each color choice and how often they are right for each color choice.  Then we could estimate more accurately given people's actual choices.
+You might ask how 90% could be wrong.  Consider what happens if there are three colors:  azure, blue, and sapphire.  Someone might reasonably consider all three of these to be blue.  But we want more.  We want the exact shade.  But who remembers the names of the other shades?  Many might guess blue because it is the only matching shade they know.  And still be wrong when it turns out to be azure.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 20, 2017 at 23:15
+Brythan
+311
+1
+1 silver badge
+3
+3 bronze badges
+$\endgroup$
+1
+$\begingroup$
+As mentioned in one of the earlier comments, surely the only two relevant colors are 'blue' and 'not blue' hence the part about multiple colors should not be needed.
+$\endgroup$
+Dennis Jaheruddin
+–
+Dennis Jaheruddin
+2017-08-21 16:08:19 +00:00
+Commented
+Aug 21, 2017 at 16:08
+Add a comment
+|
+4
+$\begingroup$
+An
+exact, mathematical, true/false probability cannot be computed
+with the information you provide.
+However, in real life such information is never available with certainty. Therefore, using our intuition (and where all my money would go if we were betting),
+the car is definitely blue.
+(some believe this is not statistics anymore, but well, black/white views of science are not very helpful)
+The reasoning is simple. Assume the car is not blue. Then 90% of the people (!) were wrong. They could only be wrong because of a list of issues including:
+color blindness
+pathological lying
+being under the influence of substances like alcohol, LCD, etc
+not understanding the question
+other form of mental disorder
+a combination of the above
+Since the above is clearly not likely to affect 90% of an average random population (e.g. colour blindness affects around 8% of males and 0.6% of females, that is 43 people out of 1000), it is necessarily the case that the car is blue. (That is were all my money would go anyway).
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 23, 2017 at 6:36
+answered
+Aug 21, 2017 at 16:39
+luchonacho
+2,870
+6
+6 gold badges
+28
+28 silver badges
+48
+48 bronze badges
+$\endgroup$
+7
+$\begingroup$
+This seems intuitively right to me. I think the criticism of the original question is that does not give enough information and that certain assumptions have to be made .. well, isn't that almost always the case in the real world???
+$\endgroup$
+Pat Molloy
+–
+Pat Molloy
+2017-08-21 16:55:34 +00:00
+Commented
+Aug 21, 2017 at 16:55
+$\begingroup$
+@PatMolloy It does not give enough information to provide an exact right/wrong sophisticated mathematical answer (which is certainly what many questions aim to get from this site). However, given the reduced information that you gave, when it comes to betting money, this is the answer (100%) people will chose.
+$\endgroup$
+luchonacho
+–
+luchonacho
+2017-08-21 17:00:45 +00:00
+Commented
+Aug 21, 2017 at 17:00
+1
+$\begingroup$
+I think you have failed to cover some of the most plausible alternatives--which are ones that ought to cause you to modify your conclusion.  These include (a) people are unable to recognize blue; (b) there is no common understanding of "blue" between the questioner and the respondents; (c) the "scientific" meaning of "blue" differs from what people commonly understand as "blue." Importantly, because you cannot quantify
+any
+of these alternatives, nor most of those you list, how can you possibly justify quantifying the probability of the answer? That's not statistics!
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-08-21 17:31:28 +00:00
+Commented
+Aug 21, 2017 at 17:31
+$\begingroup$
+"Since the above is clearly not likely to affect 90% of an average random population"  Don't be so sure about that.  Remember we generally talk in terms of averages when discussing humans.  So sure, only a few percent have color blindness (in comparison to the average), but there may be a distinct few who have superior vision, e.g. tetrachromats.
+$\endgroup$
+NPSF3000
+–
+NPSF3000
+2017-08-21 19:51:43 +00:00
+Commented
+Aug 21, 2017 at 19:51
+2
+$\begingroup$
+I'm always under the influence of LCD
+$\endgroup$
+Alex
+–
+Alex
+2017-08-22 18:48:25 +00:00
+Commented
+Aug 22, 2017 at 18:48
+|
+Show
+2
+more comments
+3
+$\begingroup$
+What is the definition of "blue"?
+Different cultures and languages have different notions of blue. IIRC, some cultures include green within their notion of blue!
+Like any natural language word, you can only assume there is some cultural convention on when (and when not) to call things "blue".
+Overall,
+color in language is surprisingly subjective
+(link from the comments below, thanks @Count Ibilis)
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 31, 2017 at 16:13
+answered
+Aug 21, 2017 at 5:21
+Has QUIT--Anony-Mousse
+43.4k
+8
+8 gold badges
+71
+71 silver badges
+115
+115 bronze badges
+$\endgroup$
+8
+8
+$\begingroup$
+In the context of the question, I believe this particular aspect is pretty irrelevant - I assume the OP chose the word "blue" as a very generic term and not something like "azure", "torqouise" etc. where people might be unsure. Also, cars usually tend to use a very limited palette of possible/usual colors. At last, the question is not "why did 100 people say non-blue", but "what probability that the car actually is blue".
+$\endgroup$
+AnoE
+–
+AnoE
+2017-08-21 11:15:06 +00:00
+Commented
+Aug 21, 2017 at 11:15
+2
+$\begingroup$
+vimeo.com/120808489
+$\endgroup$
+Count Iblis
+–
+Count Iblis
+2017-08-23 22:19:41 +00:00
+Commented
+Aug 23, 2017 at 22:19
+$\begingroup$
+A precise definition would be "radiates light predominantly having a wavelength of 475nm plusminus ~10-20nm in present environmental conditions". This is generally accepted as blue.
+$\endgroup$
+rackandboneman
+–
+rackandboneman
+2017-08-25 20:51:18 +00:00
+Commented
+Aug 25, 2017 at 20:51
+$\begingroup$
+Yes, but how many people carry along a tool to measure the predominant wavelength? You also forgot to exclude non-visible wavelengths.
+$\endgroup$
+Has QUIT--Anony-Mousse
+–
+Has QUIT--Anony-Mousse
+2017-08-25 23:14:19 +00:00
+Commented
+Aug 25, 2017 at 23:14
+1
+$\begingroup$
+Question seems to be about using a group of people of unknown calibration statistically as a wavelength meter :)
+$\endgroup$
+rackandboneman
+–
+rackandboneman
+2017-08-26 15:42:56 +00:00
+Commented
+Aug 26, 2017 at 15:42
+|
+Show
+3
+more comments
+2
+$\begingroup$
+I would not eat feces based on the fact that billion of flies can't be wrong. There might dozens of other reasons why 900 people out of 1000 might have been cheated to think the car is blue. After all, that's the base of magical tricks, luring people into thinking something removed from reality.
+If 900 people out of 1000 see a magician stabbing his/her assistant, they will promptly answer the assistant was stabbed, for how improbable an homicide happened on the stage.
+A blue light on a reflective car paint, anyone?
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 22, 2017 at 11:50
+user174494
+21
+1
+1 bronze badge
+$\endgroup$
+Add a comment
+|
+2
+$\begingroup$
+The questionee knows too little about how the poll was carried out in order to answer the question accurately. As far as he's concerned, the poll can suffer from several problems:
+The people taking the poll could have been biased:
+The car
+looked blue because of an optical illusion
+.
+The color of the car was for some reason difficult to observe, and the people had for some reason been shown a lot of blue cars before this one, making most of them believe this car was probably blue, too.
+You had paid them to say that the car is blue.
+You had someone hypnotize all of them into believing that the car is blue.
+They had made a pact to lie and sabotage the poll.
+There may have been correlations among the people taking the poll because of how they were selected or because they affected each other:
+You accidentally carried out the poll at a mass meeting for people with the same kind of color blindness.
+You carried out the poll at kindergartens; the girls were not interested in the car and most of the boys had blue as their favorite color, making them imagine that the car was blue.
+The first person who was shown the car was drunk and thought it looked blue, shouted "IT IS BLUE", influencing everyone else into thinking that the car was blue.
+So while the probability that the car is blue if the poll was completely correctly carried out is extremely high (as explained in Ruben van Bergen's answer), the reliability of the poll may have been compromised which makes the chance that the car is not blue not insignificant. How big the questionee estimates this chance to be ultimately depends on his estimations of how likely it is that circumstances have screwed with the poll and of how good you are at carrying out polls (and how mischievous he thinks you are).
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 24, 2017 at 22:03
+answered
+Aug 24, 2017 at 21:42
+HelloGoodbye
+754
+6
+6 silver badges
+12
+12 bronze badges
+$\endgroup$
+Add a comment
+|
+1
+$\begingroup$
+The likelihood could, depending on more refined preconditions, be several different values, but 99.995% is the one that makes the most sense to me.
+We know, by definition, that the car is blue (that's 100%), but it is not well-specified what this actually means (that would bet somewhat philosophical). I will assume something is blue in a sense of can-indeed-be-seen-as-blue.
+We also know that 90% of test subjects reported it as blue.
+We do
+not
+know what was asked or how the evaluation was done, and what lighting conditions the car was in. Being asked to name the color, some subjects might e.g. have said "greenish-blue" due to lighting conditions, and the assessor might not have counted that as "blue". The same people might have replied "yes" if the question had been "Is this blue?". I will assume that you did not intend to maliciously deceive your test subjects.
+We know that the incidence of tritanopy is about 0,005% which means that if the car
+could actually be seen as blue
+, then 99.995% of the test subjects
+indeed did see
+the color as blue. That, however, means that 9.995% of the test subjects did not report blue when they clearly saw blue. They were lying about what they saw. This is close to what your life experience tells you as well: people are not always being honest (but, unless there's a motive, they usually are).
+Thus, the non-observing person can assume with overwhelming certitude that the car is blue. That would be 100%
+Except... except if the non-observing person herself suffers from tritanopy, in which case she would not see the car as blue even though everybody else (or rather, 90% of them) says so. Here it gets philosophical again: If everybody else heard a tree fall, but I didn't, did it fall?
+I daresay that the most reasonable, practical answer would be: If the non-observing person happens to be trianope (0.005% chance), then
+verifying
+whether the predicted color and the real color as-seen are the same would yield false. Thus, the likelihood is 99.995% rather than 100%.
+Further, as a bonus, since we found out that 9.995% of the test subjects are liars, and it is known that
+all Cretans are liars
+, we can conclude that we are not in Crete!
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 21, 2017 at 15:49
+Damon
+111
+1
+1 bronze badge
+$\endgroup$
+Add a comment
+|
+1
+$\begingroup$
+You have a blue car (by some objective scientific measure - it is
+blue).
+...
+"What is the probability that the car is blue?"
+It is 100% blue.
+All they know is that 900 people said it was blue, and 100 did not. You know nothing more about these people (the 1000).
+Using these numbers (without
+any
+context) is utterly nonsense. It all boils down to
+personal
+interpretation of the question. We should not go down this path and use Wittgenstein's:
+"Wovon man nicht sprechen kann, darüber muss man schweigen."
+Imagine the following question for comparison:
+All they know is that 0 people said it was blue, and 0 did not.
+You know nothing more about these people (the 0).
+This is basically the same (information less) problem, but it is much more clear that what we think of the color of the car is mostly (if not completely) circumstantial.
+In the long run, when we get multiple associated questions, then we are able to start guessing answers to such incomplete questions. This is the same for the tit-for-tat algorithm that doesn't work for a single case,
+but it does work in the long run
+. In the same sense Wittgenstein came back from his earlier work with his
+Principal Investigations
+. We are able to answer these questions, but we need more information/trials/questions. It is a process.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 29, 2018 at 17:02
+answered
+Oct 29, 2018 at 16:48
+Sextus Empiricus
+95.8k
+6
+6 gold badges
+129
+129 silver badges
+347
+347 bronze badges
+$\endgroup$
+Add a comment
+|
+0
+$\begingroup$
+If we assume the car is blue, then 100 out of 1,000 saying it's not blue implies an extreme sample bias of some kind. Perhaps you were sampling only colour-blind people. If we assume the car is not blue, then the sample bias is even worse. So all we can conclude from the data given is that the sample is very biased, and since we don't know how it was biased, we can't conclude anything about the colour of the car.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 21, 2017 at 8:58
+Mike Scott
+101
+2
+2 bronze badges
+$\endgroup$
+1
+$\begingroup$
+Umm, surely the fact that 900 people said it was blue is good for something? Can't we conclude it is more likely to be blue than not??  Remember the respondent only knows the numbers 900 and 100. So can they really say anything about bias?
+$\endgroup$
+Pat Molloy
+–
+Pat Molloy
+2017-08-21 16:52:19 +00:00
+Commented
+Aug 21, 2017 at 16:52
+Add a comment
+|
+0
+$\begingroup$
+There have been some answers. I'm by no means a mathematics guru, but well, here is mine.
+There can only be 4 possibilities:
+case 1) Persons says car is blue and is correct
+case 2) Person says car is blue and is incorrect
+case 3) Person says car is not blue and is correct
+case 4) Person says car is not blue and is incorrect
+From the question, you know that the sum of case 1 and case 4 is 900 people (90%), and the sum of case 2 and case 3 is 100 people (10%). However here is the catch: what you don't know is the the distribution within these 2 case pairs. Maybe the sum of case 1 and 4 completely is made up of case 1 (which means car is blue), or perhaps the whole sum is made up of case 4 (which means car is not blue). Same goes for sum of case 2+3. So... What you need is to come up with some way to predict the distribution within case sums. With no other indication in the question (nowhere does it say people are 80% certain to know their colors or anything like that)  there is no way you can come up with a certain, definite answer.
+Having said this... I do suspect the expected answer is something along the lines of:
+P(Blue) = (case 1 + case 4) * 900 / 1000 = (1/4  + 1/4) * 900 / 1000 = 45 %
+P(non-Blue) = (case 2 + case  3) * 100 / 1000 = (1/4 + 1/4) * 100 / 1000 = 5%
+where remaining 50% is simply unknown, call it the error margin.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 22, 2017 at 11:02
+Tuncay Göncüoğlu
+109
+1
+1 bronze badge
+$\endgroup$
+Add a comment
+|
+0
+$\begingroup$
+Let $X,Y_1,Y_2,\ldots,Y_{1000} \in \{0,1\}$ denote the true color, and the responses, respectively. "Blue" is coded as a $1$, and vice versa. Assume that $p(x)$ is Bernoulli with parameter $p_x$. Assume that each $Y_i|X=1$ is Bernoull with parameter $p_1$, and assume $Y_i|X=0$ is Bernoulli with parameter $p_0$. Also, pick a prior for the parameters $\theta = (p_x,p_0,p_1)$.
+You're looking for $p(\theta,x|y_{1:1000}) \propto p(\theta)p(x|\theta)\prod_{i=1}^{1000}p(y_i|x)$. Formulating it like this highlights the fact that (at least if you're a Bayesian) you need to choose priors for these three parameters. The Bayesian viewpoint is nice because you could take advantage of what you know about how often cars are blue, and what you know about peoples' tendencies to agree with reality.
+Also you can generalize this model. For example what if the car changes colors, or if you're looking at a sequence of cars (then you have a sequence $\{x_i\}$), or if people are equipped differently to evaluate car colors ($\{y_i|x\}$ are not identically distributed), or if people are basing their decisions on what other people are saying, etc.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 25, 2017 at 1:08
+Taylor
+22.4k
+2
+2 gold badges
+54
+54 silver badges
+91
+91 bronze badges
+$\endgroup$
+Add a comment
+|
+-3
+$\begingroup$
+The person that cannot see the car does not know it is scientifically proven to be blue.  The probability to he/she that the car is blue is 50/50 (it is blue, or it isn't).  Polling other people may influence this person's opinion but it does not change the probability that an unseen car is either blue, or not.
+All of the above math determines the probability that your sample set can determine if it is blue.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 21, 2017 at 22:44
+cornbread
+1
+$\endgroup$
+1
+$\begingroup$
+I am not sure it is true that the probability that it is blue is 50/50. In fact, it is way less than 50, since it could be red, white, yellow, etc. The probability that a car picked at random is blue is way less than 50%.
+$\endgroup$
+user
+–
+user
+2017-08-22 01:40:20 +00:00
+Commented
+Aug 22, 2017 at 1:40
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Related
+2
+computing transition probabilites given only aggregate counts
+0
+Is there a way to estimate the distribution from only a small number of outliers?
+2
+Understanding the Binomial distribution better
+1
+How to combine probabilities of belonging to a category coming from different features?
+1
+non-normalized probabilities question
+0
+What is the highest possible ratio to be almost certain that someone is randomly selecting answers on a test?
+0
+Confusion between using ratio, bayes theory, or others
+5
+Estimating the average building size
+4
+In the Monty Hall problem, does it matter that the host knows which door the car is behind? If so, why?
+Hot Network Questions
+"イカのナントカ"... what kind of expression is this?
+How do different prepositions affect meaning when adding an adjective to "Je suis venu en voiture"?
+What's the best explanation that E# is not the same as F?
+PTIJ: Need help picking a topic for a halacha shiur
+Where do we stop vetting people in the presidential line of succession for eligibility to be president?
+What are the consequences of mass murder?
+Who's the first adult woman protagonist to involuntarily go to another universe / reality / world?
+Should we use have or has in this case?
+Is it legal for the military to send a soldier on a mission that will lead almost surely to their death?
+What to do when there are multiple descriptions or definitions of the same mathematical object?
+Can the beat frequency of two slightly different tones cause a room to resonate?
+How to wash produce to remove pathogens (including fecal-contamination)
+Why can we add up the internal energy of a moving gas and its kinetic energy due to flow velocity?
+Python cast byte array to C void pointer
+When are Closure nodes necessary in Geometry Nodes compared to Node Groups?
+Guess the PIN. You only got one shot!
+Recurrence functional inequality
+Can commit messages include volatile information?
+Korean action film involving a garage elevator and men in suits with knives
+Supporting via direct payments vs. via subsidies
+How do I encourage more interaction with Fate's mechanics?
+How is the expectation of spin related to the eigenvector of the spin operator?
+`reinterpret_cast` between unrelated structs with the same layout
+Are US passport holders required to keep passports on their person, when in Canada?
+more hot questions
+Question feed

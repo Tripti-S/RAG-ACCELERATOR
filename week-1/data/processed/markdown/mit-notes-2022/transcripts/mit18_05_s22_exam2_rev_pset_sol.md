@@ -1,0 +1,283 @@
+# Mit18 05 S22 Exam2 Rev Pset Sol
+
+---
+
+18.05 Exam 2 in-class review solutions
+Spring 2022
+Problem 1. The following data is from a random sample:
+1, 1, 1, 2, 3, 5, 5, 8, 12, 13, 14, 14, 14, 14, 18, 100.
+Find the first, second and third quartiles.
+Solution: The first quartile is the value where 25% of the data is below it. We have 16
+data points so this is between the 4th and 5th points, i.e. between 2 and 3. It is reasonable
+to take the midpoint and say 2.5.
+The second quartile is between 8 and 12, we say 10.
+The third quartile is 14.
+Problem 2. MLE examples. For each of the following, there is an unknown parameter
+and some data. Give the likelihood function and find the MLE.
+(a) We have a coin with probability of heads 𝜃. We toss it 10 times and get 3 heads.
+Solution: Likelihood = 𝑃 (𝑥 = 3|𝜃). Log likelihood = ln(𝑃(𝑥 = 3 |𝜃)) = ln (10) + 3 ln(𝜃) +
+3
+7 ln(1 − 𝜃).
+3 7 3
+Take the derivative and set to 0: − = 0 ⇒ 𝜃̂ = .
+𝜃 1−𝜃 10
+(b) Wait time follows exp(𝜆). In 5 independent trials wait 3, 5, 4, 5, 2
+Solution: Exponential density is 𝑓(𝑥|𝜆) = 𝜆e−𝜆𝑥. So, since the sum of the data is 19,
+Likelihood = 𝑓(data|𝜆) = 𝜆5e−19𝜆.
+Log likelihood = 5 ln(𝜆) − 19𝜆.
+5 5
+Take the derivative and set to 0: −19 = 0 ⇒ 𝜆̂ = .
+𝜆 19
+(c) We have 4, 6, 8, 12 and 20-sided dice. One is chosen at random and rolled twice giving
+resulting in a 9 and a 5.
+Solution: We give the likelihood in a table. The hypothesis is 𝑡ℎ𝑒𝑡𝑎, the number of sides
+on the chosen die.
+Hypothesis 𝜃 Likelihood 𝑃 (data | 𝜃)
+4-sided 0
+6-sided 0
+8-sided 0
+12-sided 1/144
+20-sided 1/400
+Read directly from the table: MLE = 12-sided die.
+Problem 3. MLE examples
+For each of the following, there is an unknown parameter and some data. Give the likelhood
+function and find the MLE.
+1
+18.05 Exam 2 in-class review solutions Spring 2022 2
+(a) In this problem there are two unknown parameters 𝜇 and 𝜎.
+Independent samples 𝑥 , … , 𝑥 are drawn from a N(𝜇, 𝜎2) distribution.
+1 𝑛
+Solution: For the exam do not focus on the calculation here. You should understand the
+idea that we need to set the partial derivatives with respect to 𝜇 and 𝜎 to 0 and solve for
+the critical point (𝜇,̂
+𝜎2̂
+).
+The density is 𝑓(𝑥|𝜇,𝜎) = √ 1 e − (𝑥 2 − 𝜎 𝜇 2 )2
+2𝜋 𝜎
+The likelihood is
+𝑛
+𝐿(𝜇, 𝜎) = ( √ 1 ) e− ∑(𝑥 2 𝑖 𝜎 − 2 𝜇 )2 .
+2𝜋 𝜎
+√ ∑(𝑥 − 𝜇)2
+So, log likelihood is 𝑙(𝜇, 𝜎) = −𝑛 ln( 2𝜋) − 𝑛 ln(𝜎) − 𝑖 .
+2𝜎2
+Taking partial derivatives and setting them to 0:
+𝜕𝑙 2∑(𝑥 −𝜇)
+= 𝑖 = 0
+𝜕𝜇 2𝜎2
+𝜕𝑙 𝑛 ∑(𝑥 − 𝜇)2
+= − + 𝑖 = 0.
+𝜕𝜎 𝜎 𝜎3
+Soving these equations, we get 𝜇̂ = 𝑥, 𝜎2̂ = ∑(𝑥 𝑖 −𝜇̂ )2 .
+𝑛
+(b) One sample 𝑥 = 6 drawn from a uniform(0, 𝜃) distribution.
+Solution: The likelihood is
+0 if 𝜃 < 6
+𝐿(𝜃) = {
+1 if 𝜃 ≥ 6
+𝜃
+Because of the term 1/𝜃 in the likelihood, the likelihood is at a maximum when 𝜃 is as small
+as possible. Solution: : 𝜃̂= 6.
+(c) One sample 𝑥 drawn from a uniform(0, 𝜃) distribution.
+Solution: This is identical to part (b), except the exact value of 𝑥 is not given.
+Answer: 𝜃̂= 𝑥.
+Problem 4. Discrete prior-discrete likelihood.
+Jon has 1 four-sided, 2 six-sided, 2 eight-sided, 2 twelve sided, and 1 twenty-sided dice. He
+picks one at random and rolls a 7.
+(a) For each type of die, find the posterior probability Jon chose that type.
+Solution: Make a table. (The last column is included for part (d).)
+Hypothesis Prior Likelihood Bayes numerator posterior likelihood
+𝜃 𝑃 (𝜃) 𝜙(𝑥 = 7 | 𝜃) 𝑓(𝜃 | 𝑥 = 7) 𝑃 (𝑥 = 8 | 𝜃)
+1 1 2
+4-sided 1/8 0 0 0 0
+6-sided 1/4 0 0 0 0
+8-sided 1/4 1/8 1/32 1/32𝑇 ≈ 0.536 1/8
+12-sided 1/4 1/12 1/48 1/48𝑇 ≈ 0.357 1/12
+20-sided 1/8 1/20 1/160 1/160𝑇 ≈ 0.107 1/20
+Total 1 𝑇 = 1 + 1 + 1 1
+32 48 160
+18.05 Exam 2 in-class review solutions Spring 2022 3
+The posterior probabilities are given in the 5th column of the table. The total probability
+𝑇 = 7 is also the answer to part (c).
+120
+(b) What are the posterior odds Jon chose the 20-sided die?
+𝑃 (20-sided | 𝑥 = 7) 1/160𝑇
+Solution: Odds(20-sided | 𝑥 = 7)= 1 = = 0.12.
+1 𝑃 (not 20-sided | 𝑥 = 7) 1/32𝑇 + 1/48𝑇
+1
+(c) Compute the prior predictive probability of rolling a 7 on the first roll.
+Solution: 𝑃(𝑥 = 7) = 𝑇 = 7/120.
+1
+(d) Compute the posterior predictive probability of rolling an 8 on the second roll.
+Solution: See the last two columns in the table. 𝑃(𝑥 = 8 | 𝑥 = 7) = 1 ⋅ 1 + 1 ⋅ 1 +
+2 1 32𝑇 8 48𝑇 12
+1 ⋅ 1 = 49 .
+160𝑇 20 480
+Problem 5. Suppose 𝑥 ∼ binomial(30, 𝜃), 𝑥 = 12. If we have a prior 𝑓(𝜃) ∼ Beta(1, 1)
+find the posterior for 𝜃.
+Solution: To be able to talk about this, let’s call 𝑥 the number of successes. So the data is
+12 successes and 18 failures. We know how a Beta prior updates with a binomial likelihood:
+Prior 𝑓(𝜃) ∼ Beta(1, 1) gives posterior 𝑓(𝜃 | 𝑥 = 12) ∼ Beta(13, 19).
+Alternate method. We can also do this with a table. Notice that we don’t bother
+to specify the normalizing constants since the posterior has the form of a Beta(13,19)
+distribution.
+Hypothesis Prior Likelihood Bayes numerator posterior
+𝜃 𝑓(𝜃) 𝑑𝜃 𝜙(𝑥 = 12|𝜃) 𝑓(𝜃 | 𝑥 = 6)
+𝜃 𝑐 𝜃0(1 − 𝜃)0 𝑑𝜃 𝑐 𝜃12(1 − 𝜃)18 𝑐 𝜃12(1 − 𝜃)18 𝑑𝜃 𝑐 𝜃12(1 − 𝜃)18 𝑑𝜃
+1 2 3 4
+Total 1 𝑇 = ∫ 1 𝑐 𝜃12(1 − 𝜃)1 𝑑𝜃 1
+0 3
+Problem 6. Suppose 𝑥 ∼ geometric(𝜃), 𝑥 = 6. If we have a prior 𝑓(𝜃) ∼ Beta(4, 2) find
+the posterior for 𝜃.
+Solution: Our definition of the geometric distribution means that 𝑥 = 6 represents 6
+successes in a row and then 1 failure. The updating has the same rule as in the previous
+problem:
+Prior: 𝑓(𝜃) ∼ Beta(4, 2) gives posterior 𝑓(𝜃 | 𝑥 = 6) ∼ Beta(10, 3).
+(We could also do this problem using an update table.)
+Problem 7. In the population IQ is normally distributed: 𝜃 ∼ N(100, 152). An IQ test
+finds a person’s ‘true’ IQ + random error ∼ 𝑁(0,102). Someone takes the test and scores
+120.
+Find the posterior pdf for this person’s IQ.
+Solution: Prior, 𝑓(𝜃) ∼ N(100, 152), 𝑥 ∼ N(𝜃, 102).
+So we have, 𝜇 = 100, 𝜎2 = 152 , 𝜎2 = 102, 𝑛 = 1, 𝑥 = 𝑥 = 120.
+prior prior
+Applying the normal-normal update formulas: 𝑎 = 1 , 𝑏 = 1 . This gives
+152 102
+𝜇 = 100/152+120/102 = 113.8, 𝜎2 = 1 = 69.2
+post 1/152+1/102 post 1/152+1/102
+18.05 Exam 2 in-class review solutions Spring 2022 4
+Problem 8. 𝑧 and one-sample 𝑡-test. For both problems use significance level 𝛼 = 0.05.
+Assume the data 2, 4, 4, 10 are independent draws from a 𝑁(𝜇, 𝜎2) distribution.
+Take 𝐻 : 𝜇 = 0; 𝐻 : 𝜇 ≠ 0.
+0 𝐴
+(a) Assume 𝜎2 = 16 is known and test 𝐻 against 𝐻 .
+0 𝐴
+Solution: We have 𝑥 = 5, 𝑠2 = 9+1+1+25 = 12
+3
+We’ll use 𝑧 for the test statistic (we could also use 𝑥).
+𝑥−𝜇 5
+𝑧 = √ 0 = = 2.5.
+𝜎/ 𝑛 2
+The null distribution for 𝑧 is N(0, 1). This is a two-sided test so the rejection region is
+(𝑧 ≤ 𝑧 or 𝑧 ≥ 𝑧 ) = (−∞, −1.96] ∪ [1.96, ∞)
+0.975 0.025
+Since our 𝑧-statistic in the rejection region we reject 𝐻 in favor of 𝐻 .
+0 𝐴
+Repeating the test using a 𝑝-value:
+𝑝 = 𝑃(|𝑧| ≥ 2.5 |𝐻 ) = 2 ∗ pnorm(−2.5, 0, 1) ≈ 0.012
+0
+Since 𝑝 < 𝛼 we reject 𝐻 in favor of 𝐻 .
+0 𝐴
+(b) Now assume 𝜎2 is unknown and test 𝐻 against 𝐻 .
+0 𝐴
+Solution: We have 𝑥̄= 5, 𝑠2 = 9+1+1+25 = 12
+3
+We’ll use 𝑡 = 𝑥̄− √ 𝜇 for the test statistic. The null distribution for 𝑡 is 𝑡 . For the data we
+√ 𝑠/ 𝑛 3
+have 𝑡 = 5/ 3. This is a two-sided test so the 𝑝-value is
+√
+𝑝 = 𝑃 (|𝑡| ≥ 5/ 3|𝐻 ) = 2 ∗ pt(−5/sqrt(3), 3) ≈ 0.06318
+0
+Since 𝑝 > 𝛼 we do not reject 𝐻 .
+0
+Problem 9.
+Two-sample 𝑡-test Suppose that we have data from 1408 women admitted to a maternity
+hospital for (i) medical reasons or through (ii) unbooked emergency admission. The duration
+of pregnancy is measured in complete weeks from the beginning of the last menstrual period.
+(i) Medical: 775 observations with 𝑥̄ = 39.08 and 𝑠2 = 7.77.
+(ii) Emergency: 633 observations with 𝑥̄ = 39.60 and 𝑠2 = 4.95.
+(a) Set up and run a two-sample 𝑡-test to investigate whether the duration differs for the
+two groups.
+Solution: The pooled variance for this data is
+774(7.77) + 632(4.95) 1 1
+𝑠2 = ( + ) = 0.0187
+𝑝 1406 775 633
+The 𝑡 statistic for the null distribution is
+𝑥 ̄ − 𝑦̄
+= −3.8064
+𝑠
+𝑝
+18.05 Exam 2 in-class review solutions Spring 2022 5
+Rather than compute the two-sided 𝑝-value using 2*pt(-3.8064,1406) we simply note that
+with 1406 degrees of freedom the 𝑡 distribution is essentially standard normal and 3.8064 is
+almost 4 standard deviations. So
+𝑃 (|𝑡| ≥ 3.8064) = 𝑃 (|𝑧| ≥ 3.8064)
+which is very small, much smaller than 𝛼 = 0.05 or 𝛼 = 0.01. Therefore we reject the null
+hypothesis in favor of the alternative that there is a difference in the mean durations.
+(b) What assumptions did you make?
+Solution: We assumed the data was normal and that the two groups had equal variances.
+Given the big difference in the sample variances this assumption might not be warranted.
+Note: there are significance tests to see if the data is normal and to see if the two groups
+have the same variance.
+Problem 10. Three treatments for a disease are compared in a clinical trial, yielding the
+following data:
+Treatment 1 Treatment 2 Treatment 3
+Cured 50 30 12
+Not cured 100 80 18
+Use a chi-square test to compare the cure rates for the three treatments
+Solution: The null hypothesis 𝐻 is: all three treatments have the same cure rate.
+0
+Under 𝐻 the MLE for the cure rate is: (total cured)/(total treated) = 92/290 = 0.317.
+0
+Given 𝐻 we get the following table of observed and expected counts. We include the fixed
+0
+values in the margins
+Treatment 1 Treatment 2 Treatment 3
+Cured 50, 47.6 30, 34.9 12, 9.5 92
+Not cured 100, 102.4 80, 75.1 18, 20.5 198
+150 110 30
+(𝑂 − 𝐸 )2
+Pearson’s chi-square statistic: 𝑋2 = ∑ 𝑖 𝑖 = 2.13.
+𝐸
+𝑖
+Likelihood ratio statistic: 𝐺 = 2∑𝑂 ln(𝑂 /𝐸 ) = 2.12.
+𝑖 𝑖 𝑖
+To compute the expected counts, we need all the marginal counts. If we made up data that
+had these same marginal counts we could put values in 2 of the cells freely and then all
+the others are determined. Thus, degrees of freedom = 2. Using R we compute the 𝑝-value
+using the 𝜒2 distribution with 2 degrees of freedom.
+p = 1 - pchisq(2.12, 2) = 0.346
+(We used the 𝐺 statistic, but we would get essentially the same answer using 𝑋2.)
+For the exam you would have to use the 𝜒2 table to estimate the 𝑝-value. In the 𝑑𝑓 = 2
+row of the table 2.12 is between the critical values for 𝑝 = 0.3 and 𝑝 = 0.5.
+The problem did not specifiy a significance level, but a 𝑝-value of 0.35 does not support
+rejecting 𝐻 at any common level. We do not conclude that the treatments have differing
+0
+eﬀicacy.
+18.05 Exam 2 in-class review solutions Spring 2022 6
+Problem 11. ANOVA. The table shows recovery time in days for three medical treatments.
+𝑇 𝑇 𝑇
+1 2 3
+6 8 13
+8 12 9
+4 9 11
+5 11 8
+3 6 7
+4 8 12
+Note: For 𝛼 = 0.05, the critical value of 𝐹 is 3.68.
+2,15
+(a) Set up and run an F-test for 𝐻 vs. 𝐻 .
+0 𝐴
+Solution: It’s not stated but we have to assume independence and normality.
+𝑛 = 3 groups, 𝑚 = 6 data points in each group.
+𝐹 -stat: 𝑓 ∼ 𝐹 = 𝐹 .
+𝑛−1,𝑛(𝑚−1) 2,15
+Group means: (Treatments 1-3): 𝑦 = 5, 𝑦 = 9, 𝑦 = 10.
+1 2 3
+Grand mean: 𝑦 = 8.
+Group variances: 𝑠2 = 16/5, 𝑠2 = 24/5, 𝑠2 = 28/5.
+1 2 3
+𝑀𝑆 = 6 (14) = 42, 𝑀𝑆 = 68 , 𝑓 = 𝑀𝑆 𝐵 = 42 = 9.264.
+𝐵 2 𝑊 15 𝑀𝑆 68/15
+𝑊
+(b) Based on the test, what might you conclude about the treatments?
+Solution: Since 9.264 > 3.68, at a significance level of 0.05 we reject the null hypothesis
+that all the means are equal. That is, we conclude that the recovery time is not the same
+for all 3 treatments.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

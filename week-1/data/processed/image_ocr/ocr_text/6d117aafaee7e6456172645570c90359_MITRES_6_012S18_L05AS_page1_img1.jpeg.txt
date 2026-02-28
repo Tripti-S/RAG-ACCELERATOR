@@ -1,0 +1,14 @@
+LECTURE 5: Discrete random variables:
+probability mass functions and expectations
+
+e Random variables: the idea and the definition
+— Discrete: take values in finite or countable set
+e Probability mass function (PMF)
+e Random variable examples
+— Bernoulli
+— Uniform
+— Binomial
+— Geometric
+e Expectation (mean) and its properties
+— The expected value rule
+— Linearity

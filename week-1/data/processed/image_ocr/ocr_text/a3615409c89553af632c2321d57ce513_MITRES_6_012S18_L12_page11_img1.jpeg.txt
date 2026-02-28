@@ -1,0 +1,7 @@
+Proof of key properties of the correlation coefficient
+
+e Assume, for simplicity, zero means and unit variances, so that p(X, Y) = E[XY]
+
+B|(x — py)? =
+
+If |p| = 1, then

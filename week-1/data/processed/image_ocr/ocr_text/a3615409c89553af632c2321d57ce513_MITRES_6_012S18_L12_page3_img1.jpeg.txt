@@ -1,0 +1,32 @@
+Discrete convolution mechanics
+
+pz(z) = >) px(x) py(z— 2)
+
+Py
+2/6
+
+1/6 e To find pz(3):
+
+| |
+1/3
+
+1 4
+3/6
+
+ve | OT — Flip (horizontally) the PMF of Y
+
+=iQ -1 1
+
+3/6
+
+| 2/6
+1/6
+af 2 4
+
+— Put it underneath the PMF of X
+
+— Right-shift the flipped PMF by 3
+
+— Cross-multiply and add
+
+— Repeat for other values of z

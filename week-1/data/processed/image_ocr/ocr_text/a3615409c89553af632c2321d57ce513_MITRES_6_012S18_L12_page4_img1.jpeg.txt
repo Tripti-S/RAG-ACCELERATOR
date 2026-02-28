@@ -1,0 +1,16 @@
+The distribution of x Y: the continuous case
++ pz(z) = px(a) py(z—- 2)
+st 3
+
+e Z=X+Y; X,Y independent, continuous —
+known PDFs fale) = | fx(@)fy(2- 2) de
+
+Conditional on X = 2:
+
+Joint PDF of Z and Xx:
+
+CO
+From joint to the marginal: fz(z) =/ fx,z(@, z) dx
+—oo
+
+e Same mechanics as in discrete case (flip, shift, etc.)

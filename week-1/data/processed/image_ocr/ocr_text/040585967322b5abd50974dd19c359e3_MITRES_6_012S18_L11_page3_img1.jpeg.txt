@@ -1,0 +1,8 @@
+A linear function of a discrete r.v.
+
+pz(z)
+
+px (2)
+
+y ¥=ax¥ +b: py(v) =x (4—)
+

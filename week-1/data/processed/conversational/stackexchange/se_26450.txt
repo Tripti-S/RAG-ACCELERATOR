@@ -1,0 +1,1857 @@
+probability - Why does a 95% Confidence Interval (CI) not imply a 95% chance of containing the mean? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Why does a 95% Confidence Interval (CI) not imply a 95% chance of containing the mean?
+Ask Question
+Asked
+13 years, 10 months ago
+Modified
+18 days ago
+Viewed
+119k times
+315
+$\begingroup$
+It seems that through various related questions here, there is consensus that the "95%" part of what we call a "95% confidence interval" refers to the fact that if we were to exactly replicate our sampling and CI-computation procedures  many times, 95% of thusly computed CIs would contain the population mean. It also seems to be the consensus that this definition does
+not
+permit one to conclude from a single 95%CI that there is a 95% chance that the mean falls somewhere within the CI. However, I don't understand how the former doesn't imply the latter insofar as, having imagined many CIs 95% of which contain the population mean, shouldn't our uncertainty (with regards to whether our actually-computed CI contains the population mean or not) force us to use the base-rate of the imagined cases (95%) as our estimate of the probability that our actual case contains the CI?
+I've seen posts argue along the lines of "the actually-computed CI either contains the population mean or it doesn't, so its probability is either 1 or 0", but this seems to imply a strange definition of probability that is dependent on unknown states (i.e. a friend flips fair coin, hides the result, and I am disallowed from saying there is a 50% chance that it's heads).
+Surely I'm wrong, but I don't see where my logic has gone awry...
+probability
+confidence-interval
+sampling
+mean
+population
+Share
+Cite
+Improve this question
+Follow
+edited
+Aug 22, 2016 at 2:13
+Monomeeth
+105
+9
+9 bronze badges
+asked
+Apr 14, 2012 at 10:19
+Mike Lawrence
+14.1k
+9
+9 gold badges
+48
+48 silver badges
+74
+74 bronze badges
+$\endgroup$
+12
+5
+$\begingroup$
+By "chance", do you mean "probability" in the technical frequentist sense, or in the Bayesian sense of subjective plausibility? In the frequentist sense, only events of random experiments have a probability. Looking at three given (fixed) numbers (true mean, calculated CI bounds) to determine their order (true mean contained in CI?) is not a random experiment. This is also why the probability-part of "the actually-computed CI either contains the population mean or it doesn't, so its probability is either 1 or 0" is wrong as well. A frequentist probability model just doesn't apply in that case.
+$\endgroup$
+caracal
+–
+caracal
+2012-04-14 12:38:14 +00:00
+Commented
+Apr 14, 2012 at 12:38
+20
+$\begingroup$
+It depends on how you treat the theoretical mean. If it is random variable then you can say about probability that it falls into some interval. If it is constant, you cannot. That is the most simple explanation, which closed this issue for me personally.
+$\endgroup$
+mpiktas
+–
+mpiktas
+2012-04-14 17:59:41 +00:00
+Commented
+Apr 14, 2012 at 17:59
+3
+$\begingroup$
+Incidentally, I came across this talk, from Thaddeus Tarpey:
+All models are right… most are useless
+. He discussed the question of the probability that a 95 % confidence interval contains $\mu$ (p. 81 ff.)?
+$\endgroup$
+chl
+–
+chl
+2012-04-14 21:25:33 +00:00
+Commented
+Apr 14, 2012 at 21:25
+5
+$\begingroup$
+@Nesp: I do not think there is any issue with the statement "It's probability is either zero or one" in reference to the (posterior) probability that a CI contains a (fixed) parameter. (This does not even
+really
+rely on any frequentist interpretation of probability!). It also does not rely on "unknown states". Such a statement refers precisely to the situation in which one is handed a CI based on a particular sample. It is a simple mathematical exercise to show that any such probability is trivial, i.e., takes values in $\{0,1\}$.
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-15 16:37:28 +00:00
+Commented
+Apr 15, 2012 at 16:37
+4
+$\begingroup$
+@MikeLawrence three years on, are you happy with the definition of a 95% confidence interval as this: "if we repeatedly sampled from the population and calculated a 95% confidence interval after each sample, 95% of our confidence interval would contain the mean". Like you in 2012, I'm struggling to see how this doesn't imply that a 95% confidence interval has a 95% probability of containing the mean. I would be interested to see how your understanding of a confidence interval has progressed in since you asked this question.
+$\endgroup$
+luciano
+–
+luciano
+2015-06-29 17:06:27 +00:00
+Commented
+Jun 29, 2015 at 17:06
+|
+Show
+7
+more comments
+16 Answers
+16
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+148
+$\begingroup$
+Part of the issue is that the frequentist definition of a probability doesn't allow a nontrivial probability to be applied to the outcome of a particular experiment, but only to some fictitious population of experiments from which this particular experiment can be considered a sample.  The definition of a CI is confusing as it is a statement about this (usually) fictitious population of experiments, rather than about the particular data collected in the instance at hand. So part of the issue is one of the definition of a probability: The idea of the true value lying within a particular interval with probability 95% is inconsistent with a frequentist framework.
+Another aspect of the issue is that the calculation of the frequentist confidence doesn't use all of the information contained in the particular sample relevant to bounding the true value of the statistic.  My question
+"Are there any examples where Bayesian credible intervals are obviously inferior to frequentist confidence intervals"
+discusses a paper by Edwin Jaynes which has some really good examples that really highlight the difference between confidence intervals and credible intervals.  One that is particularly relevant to this discussion is Example 5, which discusses the difference between a credible and a confidence interval for estimating the parameter of a truncated exponential distribution (for a problem in industrial quality control).  In the example he gives, there is enough information in the sample to be
+certain
+that the true value of the parameter lies nowhere in a properly constructed 90% confidence interval!
+This may seem shocking to some, but the reason for this result is that confidence intervals and credible intervals are answers to two different questions, from two different interpretations of probability.
+The confidence interval is the answer to the request: "Give me an interval that will bracket the true value of the parameter in
+$100p$
+% of the instances of an experiment that is repeated a large number of times."  The credible interval is an answer to the request: "Give me an interval that brackets the true value with probability
+$p$
+given the particular sample I've actually observed.
+" To be able to answer the latter request, we must first adopt either (a) a new concept of the data generating process or (b) a different concept of the definition of probability itself.
+The main reason that any particular 95% confidence interval does not imply a 95% chance of containing the mean is because the confidence interval is an answer to a different question, so it is only the right answer when the answer to the two questions happens to have the same numerical solution.
+In short, credible and confidence intervals answer different questions from different perspectives; both are useful, but you need to choose the right interval for the question you actually want to ask.  If you want an interval that admits an interpretation of a 95% (posterior) probability of containing the true value, then choose a credible interval (and, with it, the attendant conceptualization of probability), not a confidence interval.  The thing you ought not to do is to adopt a different definition of probability in the interpretation than that used in the analysis.
+Thanks to @cardinal for his refinements!
+Here is a concrete example, from David MacKay's excellent book
+"Information Theory, Inference and Learning Algorithms"
+(page 464):
+Let the parameter of interest be
+$\theta$
+and the data
+$D$
+, a pair of points
+$x_1$
+and
+$x_2$
+drawn independently from the following distribution:
+$p(x|\theta) = \left\{\begin{array}{cl} 1/2 & x = \theta,\\1/2 & x = \theta + 1, \\ 0 & \mathrm{otherwise}\end{array}\right.$
+If
+$\theta$
+is
+$39$
+, then we would expect to see the datasets
+$(39,39)$
+,
+$(39,40)$
+,
+$(40,39)$
+and
+$(40,40)$
+all with equal probability
+$1/4$
+.  Consider the confidence interval
+$[\theta_\mathrm{min}(D),\theta_\mathrm{max}(D)] = [\mathrm{min}(x_1,x_2), \mathrm{max}(x_1,x_2)]$
+.
+Clearly this is a valid 75% confidence interval because if you re-sampled the data,
+$D = (x_1,x_2)$
+, many times then the confidence interval constructed in this way would contain the true value 75% of the time.
+Now consider the data
+$D = (29,29)$
+.  In this case the frequentist 75% confidence interval would be
+$[29, 29]$
+.  However, assuming the model of the generating process is correct,
+$\theta$
+could be 28 or 29 in this case, and we have no reason to suppose that 29 is more likely than 28, so the posterior probability is
+$p(\theta=28|D) = p(\theta=29|D) = 1/2$
+.  So in this case the frequentist confidence interval is clearly not a 75% credible interval as there is only a 50% probability that it contains the true value of
+$\theta$
+,
+given what we can infer about
+$\theta$
+from this particular sample
+.
+Yes, this is a contrived example, but if confidence intervals and credible intervals were not different, then they would still be identical in contrived examples.
+Note the key difference is that the confidence interval is a statement about what would happen if you repeated the experiment many times, the credible interval is a statement about what can be inferred from this particular sample.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jan 31 at 18:42
+Nick Cox
+62.9k
+8
+8 gold badges
+149
+149 silver badges
+238
+238 bronze badges
+answered
+Apr 14, 2012 at 17:22
+Dikran Marsupial
+59.1k
+9
+9 gold badges
+155
+155 silver badges
+241
+241 bronze badges
+$\endgroup$
+49
+10
+$\begingroup$
+The confidence interval is the answer to the question "give me an interval that will bracket the true value of the statistic with probability p if the experiment is repeated a large number of times". The credible interval is an answer to the question "give me an interval that brackets the true value with probability p".
+First of all, the statement regarding a frequentist interpretation of probability leaves something to be desired. Perhaps, the issue lies in the use of the word
+probability
+in that sentence. Second, I find the credible interval "definition" to be a little too simplistic...
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-14 17:38:38 +00:00
+Commented
+Apr 14, 2012 at 17:38
+9
+$\begingroup$
+...and slightly misleading considering the characterization you give to a CI. In a related vein, the closing sentence has the same issue:
+If you want an interval that contains the true value 95% of the time, then choose a credible interval, not a confidence interval.
+The colloquial use of "contains the true value 95% of the time" is a bit imprecise and leaves the wrong impression. Indeed, I can make a convincing argument (I believe) that such wording is
+much
+closer to being the definition of a CI.
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-14 17:42:03 +00:00
+Commented
+Apr 14, 2012 at 17:42
+14
+$\begingroup$
+Request
+: It would be helpful for the downvoter to this answer to express their opinion/reasons in the comments. While this question is a bit more likely than most to lead to extended discussion, it is still useful to provide constructive feedback to answerers; that is one of the easiest ways to help improve the overall content of the site. Cheers.
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-14 19:06:33 +00:00
+Commented
+Apr 14, 2012 at 19:06
+10
+$\begingroup$
+Dikran, yes, I agree. That was part of what I was trying to draw out a little bit more in the edits. A radical frequentist (which I am certainly
+not
+) might state it provocatively as: "A CI is conservative in that I
+design
+the interval
+beforehand
+such that no matter what particular data I happen to observe, the parameter will be captured in the interval 95% of the time. A credible interval arises from saying 'Oops, someone just threw some data in my lap. What's the probability the interval I construct from that data contains the true parameter?'" That is a bit unfair in the latter case...
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-14 20:20:05 +00:00
+Commented
+Apr 14, 2012 at 20:20
+4
+$\begingroup$
+So, I just looked at that Example 5 in the Jaynes paper for the first time. My
+immediate
+reaction upon seeing the definition of $\theta^\star$ was:
+That's not based on the sufficient statistic!
+I was relieved to at least see that this wasn't the totality of Jaynes argument, but it's a pretty weak example in this instance. It's similar to another one I saw in a related question here where a poster makes a quite flawed argument by constructing an infinite CI and then argues (essentially) that it's a silly thing to do. In both cases, it's a strawman at the least and disingenuous at worst.
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-14 20:52:26 +00:00
+Commented
+Apr 14, 2012 at 20:52
+|
+Show
+44
+more comments
+34
+$\begingroup$
+In frequentist statistics probabilities are about events in the long run. They just don't apply to a single event after it's done. And the running of an experiment and calculation of the CI is just such an event.
+You wanted to compare it to the probability of a hidden coin being heads but you can't. You can relate it to something very close. If your game had a rule where you must state after the flip "heads" then the probability you'll be correct in the long run is 50% and that is analogous.
+When you run your experiment and collect your data then you've got something similar to the actual flip of the coin. The process of the experiment is like the process of the coin flipping in that it generates $\mu$ or it doesn't just like the coin is heads or it's not.  Once you flip the coin, whether you see it or not, there is no probability that it's heads, it's either heads or it's not. Now suppose you call heads. That's what calculating the CI is. Because you can't ever reveal the coin (your analogy to an experiment would vanish). Either you're right or you're wrong, that's it. Does it's current state have any relation to the probability of it coming up heads on the next flip, or that I could have predicted what it is?  No.  The process by which the head is produced has a 0.5 probability of producing them but it does not mean that a head that already exists has a 0.5 probability of being.  Once you calculate your CI there is no probability that it captures $\mu$, it either does or it doesn't—you've already flipped the coin.
+OK, I think I've tortured that enough. The critical point is really that your analogy is misguided. You can never reveal the coin; you can only call heads or tails based on assumptions about coins (experiments). You might want to make a bet afterwards on your heads or tails being correct but you can't ever collect on it. Also, it's a critical component of the CI procedure that you're stating the value of import is in the interval. If you don't then you don't have a CI (or at least not one at the stated %).
+Probably the thing that makes the CI confusing is it's name. It's a range of values that either do or don't contain $\mu$.  We think they contain $\mu$ but the probability of that isn't the same as the process that went into developing it. The 95% part of the 95% CI name is just about the process. You
+can
+calculate a range that you believe afterwards contains $\mu$ at some probability level but that's a different calculation and not a CI.
+It's better to think of the name 95% CI as a designation of a
+kind
+of measurement of a range of values that you think plausibly contain $\mu$ and separate the 95% from that plausibility.  We could call it the Jennifer CI while the 99% CI is the Wendy CI.  That might actually be better.  Then, afterwards we can say that we believe $\mu$ is likely to be in the range of values and no one would get stuck saying that there is a Wendy probability that we've captured $\mu$. If you'd like a different designation I think you should probably feel free to get rid of the "confidence" part of CI as well (but it is an interval).
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 7, 2016 at 20:45
+answered
+Apr 14, 2012 at 14:43
+John
+25k
+9
+9 gold badges
+60
+60 silver badges
+98
+98 bronze badges
+$\endgroup$
+17
+$\begingroup$
+To be fair enough this reply seems ok, but I'll love to see a formal (mathematical) description of it. With formal, I mean converting it to events.  I'll explain my point: I remember being very confused with $p$ values at the start. Somewhere I read that "what $p$ values actually calculate are the probability of the data given that the null hypothesis, $H_0$, is true". When I related this with Bayes theorem, all made so much sense that now I can explain it to everyone (i.e. that one calculates $p(D|H_0)$). However, I'm (ironically) not that confident...
+$\endgroup$
+Néstor
+–
+Néstor
+2012-04-14 17:04:09 +00:00
+Commented
+Apr 14, 2012 at 17:04
+$\begingroup$
+...(continued) with confidence intervals: is there a way to express what you said in terms of knowledge? In freq. stats. one usually calculates a point estimate, $\hat{\mu}$, with some method (e.g., MLE). Is there a way to write $P(L_1(\hat{\mu})<\mu<L_2(\hat{mu})|D)$ (e.g. with a bayesian central posterior interval, with $\mu$ the "true mean") as a function of $P(L_1'<\bar{X}-\mu<L_2')=\alpha$ (i.e. what the $\alpha$% of confidence intervals really is), as when you can express $p(H_0|D)$ as a function of $p(D|H_0)$? Intuitively I always have thought that it can be done, but never done it.
+$\endgroup$
+Néstor
+–
+Néstor
+2012-04-14 17:13:45 +00:00
+Commented
+Apr 14, 2012 at 17:13
+1
+$\begingroup$
+"
+If you don't calculate your confidence interval you've got something similar to the hidden coin and it has a 95% probability of containing mu just like the coin has a 50% probability of being heads.
+" -- I think you got the analogy wrong here. "Calculating the CI" doesn't correspond to revealing the coin, it corresponds to calling "Heads" or "Tails", at which point you
+still
+have a 50-50 chance of being right. Revealing the coin corresponds to *seeing the population value of $\mu$, at which point you can answer the question of whether it's in the "called" interval. The OP's puzzle remains.
+$\endgroup$
+Glen_b
+–
+Glen_b
+2013-08-30 08:02:12 +00:00
+Commented
+Aug 30, 2013 at 8:02
+1
+$\begingroup$
+@vonjd, I don't see what doesn't make sense about it. It's quite obviously the case that your opponent has a flush or doesn't. If the former, the probability is (trivially) 1, & if the latter 0. Consequently, you cannot sensibly say the probability is .198. That makes perfect sense.
+Prior
+do dealing the hand, it is reasonable to talk about the probability of being dealt a flush. Likewise, prior to drawing a card, it is reasonable to talk about the probability of getting the suit you need.
+After
+you have the card, it is simply whatever suit it is.
+$\endgroup$
+gung - Reinstate Monica
+–
+gung - Reinstate Monica
+2016-09-07 21:00:25 +00:00
+Commented
+Sep 7, 2016 at 21:00
+1
+$\begingroup$
+But you state "Once you flip the coin, whether you see it or not, there is no probability that it's heads, it's either heads or it's not."  That is not helpful for understanding the CI situation, nor is it correct.  The probability is 1/2 for a fair coin until you learn the true value, whether the flip has happened or not.  After that, P(H|H) = P(T|T) = 1.  It comes down to assigning a value, or not, to a conditional state.
+$\endgroup$
+ratsalad
+–
+ratsalad
+2018-04-03 12:20:19 +00:00
+Commented
+Apr 3, 2018 at 12:20
+|
+Show
+12
+more comments
+26
+$\begingroup$
+Formal, explicit ideas about arguments, inference and logic originated, within the Western tradition, with Aristotle.  Aristotle wrote about these topics in several different works (including one called the
+Topics
+;-) ).  However, the most basic single principle is
+The Law of Non-contradiction
+, which can be found in various places, including
+Metaphysics
+book IV, chapters 3 & 4.  A typical formulation is: " ...it is impossible for anything at the same time to be and not to be [in the same sense]" (1006 a 1).  Its importance is stated slightly earlier, " ...this is naturally the starting-point even for all the other axioms" (1005 b 30).  Forgive me for waxing philosophical, but this question by its nature has philosophical content that cannot simply be pushed aside for convenience.
+Consider this thought-experiment:  Alex flips a coin, catches it and turns it over onto his forearm with his hand covering the side facing up.  Bob was standing in just the right position; he briefly saw the coin in Alex's hand, and thus can deduce which side is facing up now.  However, Carlos did not see the coin--he wasn't in the right spot.  At this point, Alex asks them what the probability is that the coin shows heads.  Carlos suggests that the probability is .5, as that is the long-run frequency of heads.  Bob disagrees, he confidently asserts that the probability is nothing else but
+exactly 0
+.
+Now, who is right?  It is possible, of course, that Bob mis-saw and is incorrect (let us assume that he did not mis-see).  Nonetheless, you cannot hold that both are right and hold to the law of non-contradiction.  (I suppose that if you don't believe in the law of non-contradiction, you could think they're both right, or some other such formulation.)  Now imagine a similar case, but without Bob present, could Carlos' suggestion be more right (eh?) without Bob around, since no one saw the coin?  The application of the law of non-contradiction is not quite as clear in this case, but I think it is obvious that the parts of the situation that seem to be important are held constant from the former to the latter.  There have been many attempts to define probability, and in the future there may still yet be many more, but a definition of probability as a function of who happens to be standing around and where they happen to be positioned has little appeal.  At any rate (guessing by your use of the phrase "
+confidence
+interval"), we are working within the Frequentist approach, and therein whether anyone knows the true state of the coin is irrelevant.  It is not a random variable--it is a realized value and either it shows heads, or it shows tails.
+As @John notes, the state of a coin may not at first seem similar to the question of whether a confidence interval covers the true mean.  However, instead of a coin, we can understand this abstractly as a realized value drawn from a Bernoulli distribution with parameter $p$.  In the coin situation, $p=.5$, whereas for a 95% CI, $p=.95$.  What's important to realize in making the connection is that the important part of the metaphor isn't the $p$ that governs the situation, but rather that the
+flipped
+coin or the
+calculated
+CI is a
+realized value
+, not a random variable.
+It is important for me to note at this point that all of this is the case within a Frequentist conception of probability.  The Bayesian perspective does not violate the law of non-contradiction, it simply starts from different metaphysical assumptions about the nature of reality (more specifically about probability).  Others on CV are much better versed in the Bayesian perspective than I am, and perhaps they may explain why the assumptions behind your question do not apply within the Bayesian approach, and that in fact, there
+may well be
+a 95% probability of the mean lying within a 95%
+credible
+interval, under certain conditions including (among others) that the prior used was accurate (see the comment by @DikranMarsupial below).  However, I think all would agree, that once you state you are working within the Frequentist approach, it cannot be the case that the probability of the true mean lying within any particular 95% CI is .95.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 9, 2013 at 10:12
+Scortchi
+♦
+33.2k
+9
+9 gold badges
+106
+106 silver badges
+301
+301 bronze badges
+answered
+Apr 14, 2012 at 18:06
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+$\endgroup$
+3
+8
+$\begingroup$
+Under the Bayesian approach it isn't true that there is actually a 95% probability that the true value lies in a 95% credible interval.  It would be more correct to say that given a particular prior distribution for the value of the statistic (representing our initial state of knowledge) then having observed the data we have a posterior distribution representing out updated state of knowledge, which gives us an interval where we are 95% sure that the true value lies.  This will only be accurate if our prior is accurate (and other assumptions such as the form of the likelihood).
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2012-04-14 19:56:25 +00:00
+Commented
+Apr 14, 2012 at 19:56
+$\begingroup$
+@DikranMarsupial, thanks for the note. That's a bit of a mouthful. I edited my answer to make it more consistent with your suggestion, but did not copy it
+in toto
+. Let me know if further edits are appropriate.
+$\endgroup$
+gung - Reinstate Monica
+–
+gung - Reinstate Monica
+2012-04-14 20:20:02 +00:00
+Commented
+Apr 14, 2012 at 20:20
+1
+$\begingroup$
+Essentially the Bayesian approach is best interpreted as a statement of your state of knowledge regarding the parameter of interest (see cardinal, I am learning ;o), but doesn't guarantee that that state of knowledge is correct unless all of the assumptions are correct.  I enjoyed the philosphical discussion, I shall have to remember the law of non-contradiction for the next time is discuss fuzzy logic ;o)
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2012-04-14 20:48:48 +00:00
+Commented
+Apr 14, 2012 at 20:48
+Add a comment
+|
+22
+$\begingroup$
+Why does a 95% CI not imply a 95% chance of containing the mean?
+There are many issues to be clarified in this question and in the majority of the given responses. I shall confine myself only to two of them.
+a.
+What is a population mean? Does exist a true population mean?
+The concept of population mean is model-dependent. As all models are wrong, but some are useful, this population mean is a fiction that is defined just to provide useful interpretations. The fiction begins with a probability model.
+The probability model is defined by the triplet
+$$(\mathcal{X}, \mathcal{F}, P),$$
+where $\mathcal{X}$ is the sample space (a non-empty set), $\mathcal{F}$ is a family of subsets of $\mathcal{X}$ and $P$ is a well-defined probability measure defined over $\mathcal{F}$ (it governs the data behavior). Without loss of generality, consider only the discrete case. The population mean is defined by
+$$
+\mu = \sum_{x \in \mathcal{X}} xP(X=x),
+$$ that is, it represents the central tendency under $P$ and it can also be interpreted as the center of mass of all points in $\mathcal{X}$, where the weight of each  $x \in \mathcal{X}$ is given by $P(X=x)$.
+In the probability theory, the measure $P$ is considered known, therefore the population mean is accessible through the above simple operation. However, in practice, the probability $P$ is hardly known. Without a probability $P$, one cannot describe the probabilistic behavior of the data. As we cannot set a precise probability $P$ to explain the data behavior, we set a family $\mathcal{M}$ containing probability measures that possibly govern (or explain) the data behavior. Then, the classical statistical model emerges
+$$(\mathcal{X}, \mathcal{F}, \mathcal{M}).$$
+The above model is said to be a parametric model if there exists $\Theta \subseteq \mathbb{R}^p$ with $p< \infty$ such that $\mathcal{M} \equiv \{P_\theta: \ \theta \in \Theta\}$. Let us consider just the parametric model in this post.
+Notice that, for each probability measure  $P_\theta \in \mathcal{M}$, there is a respective mean definition
+$$\mu_\theta = \sum_{x \in \mathcal{X}} x P_\theta(X=x).$$
+That is, there is a family of population means $\{\mu_\theta: \ \theta \in \Theta\}$ that depends tightly on the definition of $\mathcal{M}$. The family $\mathcal{M}$ is defined by limited humans and therefore it may not contain the true probability measure that governs the data behavior. Actually, the chosen family will hardly contain the true measure, moreover this true measure may not even exist. As the concept of a population mean depends on the probability measures in $\mathcal{M}$, the population mean is model-dependent.
+The Bayesian approach considers a prior probability over the subsets of $\mathcal{M}$ (or, equivalently, $\Theta$), but in this post I will concentrated only on the classical version.
+b.
+What is the definition and the purpose of a confidence interval?
+As aforementioned, the population mean is model-dependent and provides useful interpretations. However, we have a family of population means, because the statistical model is defined by a family of probability measures (each probability measure generates a population mean). Therefore, based on an experiment, inferential procedures should be employed in order to estimate a small set (interval) containing good candidates of population means. One well-known procedure is the ($1-\alpha$) confidence region, which is defined by a set $C_\alpha$ such that, for all $\theta \in \Theta$,
+$$
+P_\theta(C_\alpha(X) \ni \mu_\theta) \geq 1-\alpha \ \ \  \mbox{and} \ \ \ \inf_{\theta\in \Theta} P_\theta(C_\alpha(X) \ni \mu_\theta) = 1-\alpha,
+$$ where $P_\theta(C_\alpha(X) = \varnothing) = 0$ (see Schervish, 1995). This is a very general definition and encompasses virtually any type of confidence intervals. Here, $P_\theta(C_\alpha(X) \ni \mu_\theta)$ is the probability that $C_\alpha(X)$ contains $\mu_\theta$ under the measure $P_\theta$. This probability should be always greater than (or equal to) $1-\alpha$, the equality occurs at the worst case.
+Remark:
+The readers should notice that it is not necessary to make assumptions on the state of reality, the confidence region is defined for a well-defined statistical model without making reference to any "true" mean. Even if the "true" probability measure does not exist or it is not in $\mathcal{M}$, the confidence region definition will work, since the assumptions are about statistical modelling rather than the states of reality.
+On the one hand,
+before
+observing the data, $C_\alpha(X)$ is a random set (or random interval) and the probability that "$C_\alpha(X)$ contains the mean $\mu_\theta$" is, at least, $(1-\alpha)$ for all $\theta \in \Theta$. This is a very desirable feature for the frequentist paradigm.
+On the other hand,
+after
+observing the data $x$, $C_\alpha(x)$ is just a fixed set and the probability that  "$C_\alpha(x)$ contains the mean $\mu_\theta$" should be in {0,1} for all $\theta \in \Theta$.
+That is,
+after
+observing the data $x$, we cannot employ the probabilistic reasoning anymore. As far as I know, there is no theory to treat confidence sets for an observed sample (I am working on it and I am getting some nice results). For a while, the frequentist must believe that the observed set (or interval) $C_\alpha(x)$ is one of the $(1-\alpha)100\%$ sets that contains $\mu_\theta$ for all $\theta\in \Theta$.
+PS: I invite any comments, reviews, critiques, or even objections to my post. Let's discuss it in depth. As I am not a native English speaker, my post surely contains typos and grammar mistakes.
+Reference:
+Schervish, M. (1995), Theory of Statistics, Second ed, Springer.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 23, 2014 at 15:24
+answered
+Jan 2, 2014 at 0:46
+Alexandre Patriota
+616
+6
+6 silver badges
+10
+10 bronze badges
+$\endgroup$
+3
+$\begingroup$
+Does anyone want to discuss it?
+$\endgroup$
+Alexandre Patriota
+–
+Alexandre Patriota
+2014-01-02 12:36:56 +00:00
+Commented
+Jan 2, 2014 at 12:36
+6
+$\begingroup$
+Discussions can occur in chat, but are inappropriate on our main site.  Please see our
+help center
+for more information about how this works.  In the meantime, I am puzzled by the formatting of your post: almost all of it is formatted as a quotation.  Have you extracted this material from some published source or is it your own, newly written for this answer?  If it's the latter, then please remove the quotations!
+$\endgroup$
+whuber
+–
+whuber
+♦
+2014-01-02 15:27:07 +00:00
+Commented
+Jan 2, 2014 at 15:27
+4
+$\begingroup$
+(+1). Thank you for an impressively clear synopsis.  Welcome to our site!
+$\endgroup$
+whuber
+–
+whuber
+♦
+2014-01-02 15:34:36 +00:00
+Commented
+Jan 2, 2014 at 15:34
+Add a comment
+|
+14
+$\begingroup$
+I'm surprised that no one has brought up Berger's example of an essentially useless 75% confidence interval described in the second chapter of "The Likelihood Principle". The details can be found in the original text (which is
+available for free on Project Euclid
+): what is essential about the example is that it describes, unambiguously, a situation in which you know
+with absolute certainty
+the value of an ostensibly unknown parameter after observing data, but you would assert that you have only
+75% confidence
+that your interval contains the true value. Working through the details of that example was what enabled me to understand the entire logic of constructing confidence intervals.
+Edit
+: The Project Euclid link appears to be broken as of 2022-01-21. The monograph can be found e.g.
+here
+or
+here
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 16, 2022 at 11:38
+Martin
+244
+2
+2 silver badges
+11
+11 bronze badges
+answered
+Apr 14, 2012 at 22:17
+johnmyleswhite
+141
+2
+2 bronze badges
+$\endgroup$
+7
+10
+$\begingroup$
+In a frequentist setting, one would
+not
+"assert that you have only 75% confidence that your interval contains the true value" in reference to a CI, in the first place. Herein, lies the crux of the issue. :)
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-14 22:38:35 +00:00
+Commented
+Apr 14, 2012 at 22:38
+2
+$\begingroup$
+can you provide a direct link/page reference to that example? I searched the chapter but I could not identify the correct example.
+$\endgroup$
+Ronald
+–
+Ronald
+2012-04-15 00:12:10 +00:00
+Commented
+Apr 15, 2012 at 0:12
+$\begingroup$
+@Ronald: It's the first one on the first page of Chapter 2. A direct link would be a welcome addition.
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-15 00:15:02 +00:00
+Commented
+Apr 15, 2012 at 0:15
+2
+$\begingroup$
+Link as requested.
+Ah yes. Within this example, it seems clear: if we do an experiment, there is a 75% chance that the resulting Confidence Interval
+will
+contain the mean.   Once we've done the experiment and we know how it played out, that probability may be different, depending on the distribution of the resulting sample.
+$\endgroup$
+Ronald
+–
+Ronald
+2012-04-15 00:28:18 +00:00
+Commented
+Apr 15, 2012 at 0:28
+$\begingroup$
+@cardinal What, then,
+would
+one assert "in a frequentist setting"? (disclaimer: have just heard about the term "frequentist" vs "Bayesian" 5min ago for the first time...)
+$\endgroup$
+nutty about natty
+–
+nutty about natty
+2021-02-15 12:40:33 +00:00
+Commented
+Feb 15, 2021 at 12:40
+|
+Show
+2
+more comments
+10
+$\begingroup$
+I don't know whether this should be asked as a new question but it is addressing the very same question asked above by proposing a thought experiment.
+Firstly, I'm going to assume that if I select a playing card at random from a standard deck, the probability that I've selected a club (without looking at it) is 13 / 52 = 25%.
+And secondly, it's been stated many times that a 95% confidence interval should be interpreted in terms of repeating an experiment multiple times and the calculated interval will contain the true mean 95% of the time – I think this was demonstated reasonably convincingly by James Waters simulation. Most people seem to accept this interpretation of a 95% CI.
+Now, for the thought experiment. Let's assume that we have a normally distributed variable in a large population - maybe heights of adult males or females. I have a willing and tireless assistant whom I task with performing multiple sampling processes of a given sample size from the population and calculating the sample mean and 95% confidence interval for each sample. My assistant is very keen and manages to measure all possible samples from the population. Then, for each sample, my assistant either records the resulting confidence interval as green (if the CI contains the true mean) or red (if the CI doesn't contain the true mean). Unfortunately, my assistant will not show me the results of his experiments. I need to get some information about the heights of adults in the population but I only have time, resources and patience to do the experiment once. I make a single random sample (of the same sample size used by my assistant) and calculate the confidence interval (using the same equation).
+I have no way of seeing my assistant's results. So, what is the probability that the random sample I have selected will yield a green CI (i.e. the interval contains the true mean)?
+In my mind, this is the same as the deck of cards situation outlined previously and can be interpreted that is a 95% probability that the calculated interval  contains the true mean (i.e. is green). And yet, the concensus seems to be that a 95% confidence interval can NOT be interpreted as there being a 95% probability that the interval contains the true mean. Why (and where) does my reasoning in the above thought experiment fall apart?
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jun 3, 2017 at 1:49
+user1718097
+437
+4
+4 silver badges
+6
+6 bronze badges
+$\endgroup$
+3
+$\begingroup$
++1 This is a remarkably clear account of the conceptual progression from a normal population to a binary sampling situation.  Thank you for sharing it with us, and welcome to our site!
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-06-03 15:11:26 +00:00
+Commented
+Jun 3, 2017 at 15:11
+1
+$\begingroup$
+Please post this as a question.
+$\endgroup$
+John
+–
+John
+2017-08-11 03:44:52 +00:00
+Commented
+Aug 11, 2017 at 3:44
+$\begingroup$
+Thanks for the comment, John. Have now posted as a separate question (
+stats.stackexchange.com/questions/301478/…
+).
+$\endgroup$
+user1718097
+–
+user1718097
+2017-09-05 12:47:23 +00:00
+Commented
+Sep 5, 2017 at 12:47
+Add a comment
+|
+7
+$\begingroup$
+The misinterpretation of confidence intervals is related to what Blitzstein and Hwang (in their probability textbook) call "sympathetic magic".
+Sympathetic magic is an anthropology term for a practice by tribal folk, who believed that manipulating the
+representation
+of something would affect the actual thing. E.g. they would stick pins in the voodoo doll of a disliked person, and claim that this would hurt the actual person. Though this seems laughable, even educated people fall for it: psychologist
+Paul Rozin and others
+have demonstrated that Ivy League students are susceptible to sympathetic magic. Confidence intervals are somewhat like this: here, we misinterpret the
+realization
+of something to be indicative of the true thing. More specifically this is the "Fallacy of Reification", but I feel like voodoo dolls is a clearer analogy.
+Ask yourself: what
+exactly
+is a confidence interval of confidence level
+$100(1-\alpha)\%$
+? Is it a pair of numbers that we calculate from a realization of the sample? e.g. for a realization
+$(x_1=0.89, x_2=-0.17, ..., x_n=1.23,)$
+, is a confidence interval the pair
+$(\hat{\theta}_{L}=0.53, \hat{\theta}_{H}=0.57)$
+? The answer is
+no
+; although we do informally say "the 95% confidence interval is (0.53, 0.57)", this is better called a
+realization
+of a confidence interval or confidence interval
+estimate
+; it is not itself a confidence interval.
+To be specific:
+A confidence interval is a
+pair of random variables
+$(\hat{\theta}_{L}, \hat{\theta}_{H})$
+which is output from some
+procedure
+$h_{\alpha}(\cdot)$
+that acts on the sample
+$X_1, ..., X_n$
+, i.e.
+$(\hat{\theta}_{L}, \hat{\theta}_{H}) = h_{\alpha}(X_1, ..., X_n)$
+.
+Compare this to the definition of an
+estimator
+:
+An estimator is a random variable
+$\hat{\theta}_{n}$
+which is computed from an estimation procedure
+$h(\cdot)$
+that acts on the sample
+$X_1, ..., X_n$
+, i.e.
+$\hat{\theta}_{n} = h(X_1, ..., X_n)$
+.
+If we have a realization of the sample
+$(x_1=0.89, x_2=-0.17, ..., x_n=1.23,)$
+, it would be incorrect to call
+$0.55$
+the estimator; the estimator is a random variable, whereas
+$0.55$
+is a number. It would be better to call
+$0.55$
+a
+realization of the estimator
+(as @GrahamBornholt notes,
+estimate
+is more appropriate, but I will use "realization" to make the difference clear).
+The above point is really important; there are actually three quantities we are dealing with:
+The confidence interval estimation procedure
+$h_{\alpha}(\cdot)$
+, which is a function that computes something from the sample
+$X_1, ..., X_n$
+.
+The confidence interval
+$(\hat{\theta}_{L}, \hat{\theta}_{H})$
+, which is a pair of random variables.
+The realization of a confidence interval, which is a pair of real values like
+$(0.53, 0.57)$
+.
+When learning statistics, we don't care about the CI realization, because it is specific to both our problem, and the realization of the sample. However, we care a lot about the confidence interval estimation procedure i.e.
+$h_{\alpha}(\cdot)$
+. The only requirement of
+$h_{\alpha}(\cdot)$
+to be called a valid CI procedure i.e. which produces a "
+$100(1-\alpha)\%$
+confidence interval" from a sample, is the following:
+If you realize an infinite number of samples
+$(x_1^{(1)}, ..., x_n^{(1)}), (x_1^{(2)}, ..., x_n^{(2)}), ...$
+and compute the realized CI for each, i.e.
+$(\hat{\theta}_{L}^{(1)}, \hat{\theta}_{H}^{(1)}), { } (\hat{\theta}_{L}^{(2)}, \hat{\theta}_{H}^{(2)}), ...$
+, then
+at least
+$100(1-\alpha)\%$
+of these realized CIs will contain the true population parameter
+$\theta$
+.
+That's it. That's the criterion for calling something a CI estimation procedure. Any function which does this, is by definition a CI procedure, and produces CIs. This includes degenerate functions e.g. one which always outputs
+$(-\infty, \infty)$
+as the CI; it contains the true
+$\theta$
+100% of the time, and
+$100(1-\alpha)\% \le 100\%$
+, so its valid CI procedure.
+So, there's no "one true CI procedure"; there are many valid functions
+$h_{\alpha}(\cdot)$
+for an estimator, and some are better than others. Obviously
+$(-\infty, \infty)$
+was a useless CI, but it illustrates one desirable property of CIs estimation procedures: we want a procedure
+$h_{\alpha}(\cdot)$
+which outputs a
+$100(1-\alpha)\%$
+CI which is as "tight" as possible, i.e. where
+$|\hat{\theta}_{H} - \hat{\theta}_{L}|$
+is as small as possible, over all possible samples.
+Given all this setup, let's revisit the original question:
+why doesn't a 95% confidence interval imply that there is a 95% probability that the true
+$\theta$
+is in the confidence interval?
+The confusion here lies in what we are calling a "confidence interval". Obviously, it is nonsensical to say that
+$\theta$
+lies in the estimation procedure (a function), so we'll consider the other two possibilities:
+Are we talking about a realized confidence interval, e.g.
+$(0.53, 0.57)$
+?
+Are we talking about the formal definition of a confidence interval i.e. the pair of random variables
+$(\hat{\theta}_{L}, \hat{\theta}_{H})$
+?
+If we are talking about the pair of r.v.s, then the statement is correct. But if we are abusing the phase "confidence interval" to refer to a particular realization, then the statement is wrong.
+The explanation proceeds as follows:
+Recall, our random experiment is
+drawing a sample
+$X_1, ..., X_n$
+. Every time we run this experiment, we get a realized sample of
+$n$
+numbers. Since our sampling procedure is assumed to have a randomization step, there is uncertainty in what we will draw, and hence
+$X_1, ..., X_n$
+are random variables. The sample space
+$\Omega$
+is the set of all possible samples.  The sample is the only random part of this whole setup.
+The basic assumption in frequentist statistics is that our population is fixed. Thus,
+$\theta$
+is a constant, e.g. the mean of our population. It's an
+unknown
+variable, but not a
+random
+variable, because its value is not calculated from the random sample. Also, it stays the same no matter how many samples we draw. Think of it as a number written in thousand-foot-tall letters on some distant planet; it never erodes, but you will never know it.
+Consider the event
+$(\hat{\theta}_{L} \le \theta \le \hat{\theta}_{H})$
+i.e.
+$\theta \in h_{\textrm{alpha}}(X_1, ..., X_n)$
+. This is an
+event
+defined using
+random variables
+, similar to simpler events like
+$(Y<5)$
+. It has a probability, namely
+$p(\hat{\theta}_{L} \le \theta \le \hat{\theta}_{H})$
+. By definition of the CI procedure, this probability will be at least
+$100(1-\alpha)\%$
+. So long as we are talking about random variables, we are good.
+Consider the realization of a CI, (0.53, 0.57). What's the probability that
+$0.53 \le \theta \le 0.57$
+? The answer is that it's not a probability at all, it's a true-or-false statement about real numbers, similar to statements like "
+$3 \le 5$
+" (true) or "
+$6 \le 5$
+" (false). Remember: by assumption, our population is fixed, so
+$\theta$
+is a number, not a random variable
+. There's no uncertainty associated with the statement
+$0.53 \le \theta \le 0.57$
+, it's just a fact about numbers. You can't even make a Bernoulli out of it, because that Bernoulli would be degenerate, with p=0 (false) or p=1 (true).
+If the final point leaves something to be desired, because you want
+$\theta$
+to be a varying quantity, you are in luck; that's exactly what Bayesian statistical intervals attempt to address.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 2, 2024 at 10:59
+answered
+Jul 12, 2024 at 5:31
+Abhishek Divekar
+814
+1
+1 gold badge
+10
+10 silver badges
+19
+19 bronze badges
+$\endgroup$
+19
+1
+$\begingroup$
+@whuber thanks for the feedback, I have removed the aside. I do see that it answers a different question.
+$\endgroup$
+Abhishek Divekar
+–
+Abhishek Divekar
+2024-07-12 14:52:42 +00:00
+Commented
+Jul 12, 2024 at 14:52
+1
+$\begingroup$
+Similarly, in formulas if
+X
+is an rv then
+x
+is used to denote a particular sample. So in the CI context, $\hat{\theta}_{L} $ is a notation abuse, it would be clearer to write $\hat{\theta}_{L}(X)$ or $\hat{\theta}_{L}(x)$ to diffentiate between the procedure and its outcome.
+$\endgroup$
+Graham Bornholt
+–
+Graham Bornholt
+2024-07-12 18:47:17 +00:00
+Commented
+Jul 12, 2024 at 18:47
+1
+$\begingroup$
+And since the answer is in that similar vein, I am leaving a +1 (who downvoted it anyway, hello?).
+$\endgroup$
+User1865345
+–
+User1865345
+2024-07-13 03:52:05 +00:00
+Commented
+Jul 13, 2024 at 3:52
+1
+$\begingroup$
+@GrahamBornholt the fact that I accidentally misinterpreted you makes my point here :)
+$\endgroup$
+Abhishek Divekar
+–
+Abhishek Divekar
+2024-07-13 07:26:16 +00:00
+Commented
+Jul 13, 2024 at 7:26
+1
+$\begingroup$
+Great answer! MacKay's book <
+inference.org.uk/mackay/itila/book.html
+> in §37.3 gives several simple examples illustrating these points.
+$\endgroup$
+pglpm
+–
+pglpm
+2024-09-23 20:54:20 +00:00
+Commented
+Sep 23, 2024 at 20:54
+|
+Show
+14
+more comments
+6
+$\begingroup$
+For practical purposes, you're no more wrong to bet that your 95% CI included the true mean at 95:5 odds, than you are to bet on your friend's coin flip at 50:50 odds.
+If your friend already flipped the coin, and you think there's a 50%
+probability
+of it being heads, then you're just using a different definition of the word probability.  As others have said, for frequentists you can't assign a probability to an event having occurred, but rather you can describe the probability of an event occurring in the future using a given process.
+From another blog:
+The frequentist will say: "A particular event cannot have a probability. The coin shows either head or tails, and unless you show it, I simply can't say what is the fact. Only if you would repeat the toss many, many times, any if you vary the initial conditions of the tosses strongly enough, I'd expect that the relative frequency of heads in all thes many tosses will approach 0.5".
+http://www.researchgate.net/post/What_is_the_difference_between_frequentist_and_bayesian_probability
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 1, 2015 at 15:50
+answered
+Nov 30, 2015 at 23:14
+nigelhenry
+220
+2
+2 silver badges
+4
+4 bronze badges
+$\endgroup$
+3
+2
+$\begingroup$
+That blog sounds like a straw man argument.  It appears to confound a philosophy of probability with some kind of (nonexistent) inherent limitation in the capacity to create probability models.  I do not recognize any form of classical statistical procedures or methodology in that characterization.  Nevertheless, I think your final conclusion is a good one--but the language it uses, by not making it clear that the bet concerns the
+CI
+and not the mean, risks creating a form of confusion that this question is intended to address.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2015-11-30 23:52:15 +00:00
+Commented
+Nov 30, 2015 at 23:52
+1
+$\begingroup$
+One way I see often used is to emphasize that the CI is the result of a procedure. What I like about your final statement is that it can readily be recast in such a form, as in "You're no more wrong to bet at 95:5 odds that your 95% confidence interval has covered the true mean, than you are to bet on your friend's coin flip at 50:50 odds."
+$\endgroup$
+whuber
+–
+whuber
+♦
+2015-12-01 14:53:35 +00:00
+Commented
+Dec 1, 2015 at 14:53
+$\begingroup$
+OK, changed it.
+$\endgroup$
+nigelhenry
+–
+nigelhenry
+2015-12-01 15:45:51 +00:00
+Commented
+Dec 1, 2015 at 15:45
+Add a comment
+|
+5
+$\begingroup$
+It all depends on whether you are looking at the probability
+conditional or unconditional on the data
+.  Suppose you have an unknown parameter
+$\theta \in \Theta$
+and you make a confidence interval for this parameter using sample data
+$\mathbf{x}$
+.  Let
+$\text{CI}_\theta(\mathbf{X},1-\alpha)$
+denote the (random) confidence interval at confidence level
+$1-\alpha$
+and with (random) data
+$\mathbf{X}$
+.  An exact confidence interval satisfies the following conditional probability condition:
+$$\mathbb{P}(\theta \in \text{CI}_\theta(\mathbf{X},1-\alpha) | \theta) = 1-\alpha
+\quad \quad \quad \quad \quad
+\text{for all } \theta \in \Theta.$$
+If we are willing to ascribe a probability distribution to
+$\theta$
+(e.g., as in Bayesian analysis) this also implies the marginal probability that:
+$$\mathbb{P}(\theta \in \text{CI}_\theta(\mathbf{X},1-\alpha)) = 1-\alpha.$$
+However, it is
+not generally true
+that:
+$$\mathbb{P}(\theta \in \text{CI}_\theta(\mathbf{X},1-\alpha) | \mathbf{X} = \mathbf{x}) = 1-\alpha.$$
+As you can see from the above, if we are looking at the probability
+unconditional on the data
+(and either conditional or unconditional on the parameter) then we
+can
+say that the probability of the unknown quantity falling into the confidence interval is equal to the confidence level.  However, if we are looking at the probability
+conditional on the data
+we
+cannot
+say that the probability of the unknown quantity falling into the confidence interval is equal to the confidence level.
+Typically, we frame this by saying that the confidence interval
+procedure/method
+(considered prior to substitution of the data) will cover the true parameter with probability equal to the confidence level, but once we have an actual confidence interval (i.e., after substituting the observed data and conditioning our probability statements on the data) this probability statement no longer holds.  This is the reason we refer to having 95% "confidence" rather than 95% probability for the parameter being in the interval.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jan 22, 2022 at 8:04
+answered
+Jan 22, 2022 at 6:16
+Ben
+143k
+7
+7 gold badges
+291
+291 silver badges
+656
+656 bronze badges
+$\endgroup$
+2
+1
+$\begingroup$
+I don’t get it. What is the value of saying this next calculation has a 95% chance of containing the pop mean right before calculating it, but then completely rescinding that statement immediately after said  calculation takes place. It seems so counterintuitive, what information is being gained here?
+$\endgroup$
+astralwolf
+–
+astralwolf
+2023-03-21 11:07:37 +00:00
+Commented
+Mar 21, 2023 at 11:07
+$\begingroup$
+@astralwolf: The conditional probability based on observing $\mathbf{x}$ would require a Bayesian posterior calculation, so it is possible to look at things this way in Bayesian statistics (though thte results hinge on prior assumptions).  Within classical statistics they want to avoid making prior assumptions about $\theta$ and instead use procedures that tend to do well over all $\theta \in \Theta$.  Consequently, within the classical paradigm the assessment of estimators, etc., is based on looking at their behaviour as random variables when the model parameters are fixed.
+$\endgroup$
+Ben
+–
+Ben
+2023-03-21 21:12:11 +00:00
+Commented
+Mar 21, 2023 at 21:12
+Add a comment
+|
+5
+$\begingroup$
+In this answer to a different question,
+Are there any examples where Bayesian credible intervals are obviously inferior to frequentist confidence intervals
+, I explained a difference between confidence intervals and credible intervals. Both intervals can be constructed such that they will contain a certain fraction of the times the true parameter. However there is a difference in the conditional dependence on the observation and the conditional dependence on the true parameter values.
+An
+$\alpha \%$
+-confidence interval will contain the parameter a fraction
+$\alpha \%$
+of the time, independent from the true parameter. But the confidence interval will not contain the parameter a fraction
+$\alpha \%$
+of the time, independent from the observation value.
+This contrasts with
+An
+$\alpha \%$
+-credible interval will contain the parameter a fraction
+$\alpha \%$
+of the time, independent from the observation value. But the credible interval will not contain the parameter a fraction
+$\alpha \%$
+of the time, independent from the true parameter.
+See also the image accompanying that answer:
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 16, 2022 at 10:17
+answered
+Aug 10, 2017 at 11:53
+Sextus Empiricus
+95.8k
+6
+6 gold badges
+129
+129 silver badges
+347
+347 bronze badges
+$\endgroup$
+3
+$\begingroup$
+Does your Example 2 not contradict the statement in Example 3:
+An $\alpha$%-confidence interval will contain the parameter a fraction $\alpha$% of the time, independent from the true parameter
+? Also, are different font sizes for Example 3 vs. Examples 1 and 2 intentional?
+$\endgroup$
+Richard Hardy
+–
+Richard Hardy
+2022-05-21 13:05:13 +00:00
+Commented
+May 21, 2022 at 13:05
+$\begingroup$
+@RichardHardy, conditional on the true value you will have that the confidence interval contains the parameter $\alpha\%$ of the time. The example 2 is different in the parameter $\alpha$ being a variable and conditioning on the observation (
+"Then in extreme cases, low or high, outcome of results..."
+). This makes that conditional on the observation the confidence interval does
+not
+contain the parameter $\alpha\%$ of the time.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2022-05-21 14:46:46 +00:00
+Commented
+May 21, 2022 at 14:46
+$\begingroup$
+So if you would have some selection process where people make a test and need to be with 95% confidence among the top 2%, then among the people that succeed with this test you probably have less than 95% that are truly top 2%. Given that you got selected your do not have 95% probability to be truly in the top 2%. But, given that you are on the 2% boundary you have 95% probability to succeed in the selection.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2022-05-21 14:53:39 +00:00
+Commented
+May 21, 2022 at 14:53
+Add a comment
+|
+4
+$\begingroup$
+While there has been extensive discussion in the numerous great answers, I want to add a more simple perspective. (although it has been alluded in other answers - but not explicitly.) For some parameter $\theta$, and given a sample $(X_1,X_2,\cdots,X_n)$, a $100p\%$ confidence interval is a probability statement of the form
+$$P\left(g(X_1,X_2,\cdots,X_n)<\theta<f(X_1,X_2,\cdots,X_n)\right)=p$$
+If we consider $\theta$ to be a constant, then the above statement is about the random variables $g(X_1,X_2,\cdots,X_n)$ and $f(X_1,X_2,\cdots,X_n)$, or more accurately, it is about the random interval $\left(g(X_1,X_2,\cdots,X_n),f(X_1,X_2,\cdots,X_n)\right)$.
+So instead of giving any information about the probability of the parameter being contained in the interval, it is giving information about the probability of the interval containing the parameter - as the interval is made from random variables.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 27, 2014 at 14:00
+Comp_Warrior
+2,193
+2
+2 gold badges
+24
+24 silver badges
+37
+37 bronze badges
+$\endgroup$
+Add a comment
+|
+3
+$\begingroup$
+Say that the CI you calculated from the particular set of data you have is one of the 5% of possible CIs that does not contain the mean. How close is it to being the 95% credible interval that you would like to imagine it to be? (That is, how close is it to containing the mean with 95% probability?) You have no assurance that it's close at all. In fact, your CI may not overlap with even a single one of the 95% of 95% CIs which do actually contain the mean. Not to mention that it doesn't contain the mean itself, which also suggests it's not a 95% credible interval.
+Maybe you want to ignore this and optimistically assume that your CI is one of the 95% that does contain the mean. OK, what do we know about your CI, given that it's in the 95%? That it contains the mean, but perhaps only way out at the extreme, excluding everything else on the other side of the mean. Not likely to contain 95% of the distribution.
+Either way, there's no guarantee, perhaps not even a reasonable hope that your 95% CI is a 95% credible interval.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 15, 2012 at 3:27
+answered
+Apr 15, 2012 at 1:56
+Wayne
+22.2k
+4
+4 gold badges
+64
+64 silver badges
+113
+113 bronze badges
+$\endgroup$
+8
+$\begingroup$
+I'm curious about the first paragraph. Perhaps I am misreading it, but the argument seems a little at odds with the fact that there are multiple examples in which CIs and credible intervals
+coincide
+for all possible sets of observations. What have I missed?
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-15 02:10:13 +00:00
+Commented
+Apr 15, 2012 at 2:10
+$\begingroup$
+@cardinal: I may be wrong. I was talking the general case, but my guess would be that in the case where CI and credible interval are the same, there are other restrictions such as normality that keep the CI's from being too far afield.
+$\endgroup$
+Wayne
+–
+Wayne
+2012-04-15 02:28:09 +00:00
+Commented
+Apr 15, 2012 at 2:28
+$\begingroup$
+My focus was drawn most strongly to the last sentence in the paragraph; the example of coincident intervals was meant to highlight a point. You might consider whether or not you truly believe that sentence or not. :)
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-15 02:33:07 +00:00
+Commented
+Apr 15, 2012 at 2:33
+$\begingroup$
+Do you mean that a 95% CI does not imply that 5% do
+not
+include the mean? I should say "by definition, is need not even contain the mean itself"? Or am I missing even more?
+$\endgroup$
+Wayne
+–
+Wayne
+2012-04-15 02:40:53 +00:00
+Commented
+Apr 15, 2012 at 2:40
+$\begingroup$
+Wayne, how does the fact that a particular interval not contain the mean preclude it from being a valid credible interval? Am I misreading this remark?
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-15 03:10:00 +00:00
+Commented
+Apr 15, 2012 at 3:10
+|
+Show
+3
+more comments
+3
+$\begingroup$
+First, let's give a definition of the confidence interval, or, in spaces of dimension greater than one, the confidence region. The definition is a concise version of that given by Jerzy Neyman in his 1937 paper to the Royal Society.
+Let the parameter be
+$\mathfrak{p}$
+and the statistic be
+$\mathfrak{s}$
+. Each possible parameter value
+$p$
+is associated with an acceptance region
+$\mathcal{A}(p,\alpha)$
+for which
+$\mathrm{prob}(\mathfrak{s} \in \mathcal{A}(p,\alpha) | \mathfrak{p} = p, \mathcal{I}) = \alpha$
+, with
+$\alpha$
+being the confidence coefficient, or confidence level (typically 0.95), and
+$\mathcal{I}$
+being the background information which we have to define our probabilities. The confidence region for
+$\mathfrak{p}$
+, given
+$\mathfrak{s} = s$
+, is then
+$\mathcal{C}(s,\alpha) = \{p | s \in \mathcal{A}(p,\alpha)\}$
+.
+In other words, the parameter values which form the confidence region are just those whose corresponding
+$\alpha$
+-probability region of the sample space contains the statistic.
+Now consider that for any possible parameter value
+$p$
+:
+\begin{align}
+\int{[p \in \mathcal{C}(s,\alpha)]\:\mathrm{prob}(\mathfrak{s} = s | \mathfrak{p} = p, \mathcal{I})}\:ds &= \int{[s \in \mathcal{A}(p,\alpha)]\:\mathrm{prob}(\mathfrak{s} = s | \mathfrak{p} = p, \mathcal{I})}\:ds \\
+&= \alpha
+\end{align}
+where the square brackets are Iverson brackets. This is the key result for a confidence interval or region. It says that the expectation of
+$[p \in \mathcal{C}(s,\alpha)]$
+, under the sampling distribution conditional on
+$p$
+, is
+$\alpha$
+. This result is guaranteed by the construction of the acceptance regions, and moreover it applies to
+$\mathfrak{p}$
+, because
+$\mathfrak{p}$
+is a possible parameter value. However, it is not a probability statement about
+$\mathfrak{p}$
+, because expectations are not probabilities!
+The probability for which that expectation is commonly mistaken is the probability, conditional on
+$\mathfrak{s} = s$
+, that the parameter lies in the confidence region:
+$$
+\mathrm{prob}(\mathfrak{p} \in \mathcal{C}(s,\alpha) | \mathfrak{s} = s, \mathcal{I}) = \frac{\int_{\mathcal{C}(s,\alpha)} \mathrm{prob}(\mathfrak{s} = s | \mathfrak{p} = p, \mathcal{I}) \:\mathrm{prob}(\mathfrak{p} = p | \mathcal{I}) \: dp}{\int \mathrm{prob}(\mathfrak{s} = s | \mathfrak{p} = p, \mathcal{I}) \:\mathrm{prob}(\mathfrak{p} = p | \mathcal{I}) \: dp}
+$$
+This probability reduces to
+$\alpha$
+only for certain combinations of information
+$\mathcal{I}$
+and acceptance regions
+$\mathcal{A}(p,\alpha)$
+. For example, if the prior is uniform and the sampling distribution is symmetric in
+$s$
+and
+$p$
+(e.g. a Gaussian with
+$p$
+as the mean), then:
+\begin{align}
+\mathrm{prob}(\mathfrak{p} \in \mathcal{C}(s,\alpha) | \mathfrak{s} = s, \mathcal{I}) &= \frac{\int_{\mathcal{C}(s,\alpha)} \mathrm{prob}(\mathfrak{s} = p | \mathfrak{p} = s, \mathcal{I}) \: dp}{\int \mathrm{prob}(\mathfrak{s} = p | \mathfrak{p} = s, \mathcal{I}) \: dp} \\
+&= \mathrm{prob}(\mathfrak{s} \in \mathcal{C}(s,\alpha) | \mathfrak{p} = s, \mathcal{I}) \\
+&= \mathrm{prob}(s \in \mathcal{A}(\mathfrak{s},\alpha) | \mathfrak{p} = s, \mathcal{I})
+\end{align}
+If in addition the acceptance regions are such that
+$s \in \mathcal{A} (\mathfrak{s},\alpha) \iff \mathfrak{s} \in \mathcal{A}(s,\alpha)$
+, then:
+\begin{align}
+\mathrm{prob}(\mathfrak{p} \in \mathcal{C}(s,\alpha) | \mathfrak{s} = s, \mathcal{I}) &= \mathrm{prob}(\mathfrak{s} \in \mathcal{A}(s,\alpha) | \mathfrak{p} = s, \mathcal{I}) \\
+&= \alpha
+\end{align}
+The textbook example of estimating a population mean with a standard confidence interval constructed about a normal statistic is a special case of the preceding assumptions. Therefore the standard 95% confidence interval
+does
+contain the mean with probability 0.95; but this correspondence does not generally hold.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 14, 2019 at 1:41
+answered
+Feb 13, 2019 at 20:19
+CarbonFlambe
+453
+2
+2 silver badges
+7
+7 bronze badges
+$\endgroup$
+Add a comment
+|
+0
+$\begingroup$
+What one should not say when using frequentist inference is, "There is 95% probability that the unknown fixed true theta is within the computed confidence interval." To the frequentist probability describes the emergent pattern over many (observable!) samples and is not a statement about a single event. However, understanding the long-run emergent pattern gives us confidence in what to expect in a single event. The key is to replace "probability" with "confidence," i.e. "I am 95% confident that the unknown fixed true theta is within the computed confidence interval."
+This is analogous to knowing the bias of a coin is 0.95 in favor of heads (95% of the time the coin lands heads) and the confidence this knowledge of the long-run proportion imbues regarding the outcome of a single flip.  If asked how confident you are that the coin will land heads (or has already landed heads), you would say you are 95% confident based on its long-run performance.
+To the frequentist, the limiting proportion is the probability and our confidence is a result of knowing this limiting proportion.  To the Bayesian, the long-run emergent pattern over many samples is not a probability. The belief of the experimenter is the probability.  The Bayesian is also willing to make (belief) probability statements about an unobservable population parameter without any connection to sampling. Such statements are not verifiable statements about the actual parameter, the hypothesis, nor the experiment. These are statements about the experimenter.  The frequentist is not willing to make such statements.
+Here
+is a related thread showing the interpretation of frequentist confidence and Bayesian belief in the context of a COVID screening test.
+Here
+is a related thread comparing frequentist and Bayesian inference for a binomial proportion near 0 or 1.  To the frequentist, the Bayesian posterior can be viewed as a crude approximate p-value function showing p-values and confidence intervals of all levels.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 22, 2021 at 18:01
+answered
+Dec 22, 2021 at 14:11
+Geoffrey Johnson
+3,078
+9
+9 silver badges
+12
+12 bronze badges
+$\endgroup$
+20
+$\begingroup$
+How is "confidence" different from a subjectivist Bayesian belief that the unknown theta is in the confidence interval?  A long run frequency is a perfectly reasonable basis for a subjectivist Bayesian belief/probability, but there is no mathematical link within a frequentist framework between the 95% frequentist long-run frequency defining the confidence interval and the 95% "confidence" about theta being within the confidence interval.
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2021-12-22 15:39:26 +00:00
+Commented
+Dec 22, 2021 at 15:39
+$\begingroup$
+I have updated my answer to address your question.  In short, both the frequentist and the Bayesian can have confidence in a confidence interval.
+$\endgroup$
+Geoffrey Johnson
+–
+Geoffrey Johnson
+2021-12-22 17:56:35 +00:00
+Commented
+Dec 22, 2021 at 17:56
+$\begingroup$
+The point I am making is that the jump from "probability" to "confidence" is largely a word game AFAICS.  "confidence" is just a synonym for "probability" used to get around the fact that a frequentist cannot give a direct answer to the question as posed.  Essentially we are making an implicit jump from a frequentist framework to a subjectivist Bayesian one and disguising it with a change of terminology.  BTW you haven't answered my question of how "confidence" differs from a Bayesian belief/probability AFAICS.
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2021-12-22 18:06:47 +00:00
+Commented
+Dec 22, 2021 at 18:06
+$\begingroup$
+Exactly how is "confidence" defined in numerical terms?
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2021-12-22 18:17:58 +00:00
+Commented
+Dec 22, 2021 at 18:17
+$\begingroup$
+@Dikran Marsupial I disagree with your point. The genius of Neyman was to use the word “confidence” to explicitly acknowledge a different meaning than would obtain were the word “probability” used in place of it. Suppose I compute a 95% confidence interval for parameter theta. I claim 95% confidence that the computed interval contains theta in the sense that the computed interval is the outcome of a process that produces correct confidence intervals 95% of the time.
+$\endgroup$
+Graham Bornholt
+–
+Graham Bornholt
+2021-12-29 06:47:22 +00:00
+Commented
+Dec 29, 2021 at 6:47
+|
+Show
+15
+more comments
+0
+$\begingroup$
+In his answer, Dikran Marsupial provides the following example as evidence that no confidence interval is admissible as a set of plausible parameter values consistent with the observed data:
+Let the parameter of interest be
+$\theta$
+and the data
+$D$
+, a pair of
+points
+$x_1$
+and
+$x_2$
+drawn independently from the following
+distribution:
+$p(x|\theta) = \left\{\begin{array}{cl} 1/2 & x = \theta,\\1/2 & x =
+> \theta + 1, \\ 0 & \mathrm{otherwise}\end{array}\right.$
+If
+$\theta$
+is
+$39$
+, then we would expect to see the datasets
+$(39,39)$
+,
+$(39,40)$
+,
+$(40,39)$
+and
+$(40,40)$
+all with equal
+probability
+$1/4$
+.
+We are then asked to consider the confidence interval
+$[\theta_\mathrm{min}(D),\theta_\mathrm{max}(D)] =
+[\mathrm{min}(x_1,x_2), \mathrm{max}(x_1,x_2)]$
+and informed this will correctly cover the unknown fixed true
+$\theta$
+$75\%$
+of the time in repeated sampling.  We are also informed that for an observed data set,
+$D=\{29,29\}$
+, the posterior
+belief
+probabilities for
+$\theta=28$
+and
+$\theta=29$
+are
+$p(\theta=28|D) = p(\theta=29|D) = 1/2$
+(without reference to a prior) while the
+$75\%$
+confidence interval is
+$\theta\in(29)$
+.  Dikran Marsupial claims that since the confidence level of the confidence interval is a statement about repeated experiments it does not allow one to infer the unknown fixed true
+$\theta$
+based on a particular sample.  He further claims that only Bayesian belief is capable of such inference based on a sample.
+It is best to view a confidence interval as the inversion of a hypothesis test, especially when dealing with a discrete parameter space.  For this example we can use the entire data set as the test statistic when calculating the p-value.
+For
+$H_0: 27\ge\theta\ge 30$
+, the probability of the observed result,
+$D=\{29,29\}$
+, or something more extreme is
+$0$
+, so we can rule out these hypotheses without error.  We can therefore construct the
+$100\%$
+confidence interval
+$\theta \in(28,29)$
+.  This is a direct contradiction to Dikran's claim that a confidence interval does not allow one to infer the unknown fixed true
+$\theta$
+based on a particular sample.  This interval was constructed without any prior belief.
+The remaining hypotheses available for constructing a narrower confidence interval are
+$H: \theta=28$
+and
+$H:\theta=29$
+.  Under
+$H_0: \theta=28$
+, the upper-tailed probability of the observed result,
+$D=\{29,29\}$
+, or something more extreme is
+$0.25$
+.  One conclusion is to "rule out"
+$H_0: \theta=28$
+at the
+$0.25$
+level in favor of
+$H_1:\theta=29$
+, producing the
+$75\%$
+confidence interval
+$\theta \in (29)$
+.
+Likewise, under
+$H_0: \theta=29$
+the lower-tailed probability of the observed result,
+$D=\{29,29\}$
+, or something more extreme is
+$0.25$
+.  Another conclusion is to "rule out"
+$H_0: \theta=29$
+at the
+$0.25$
+level in favor of
+$H_1:\theta=28$
+, producing the
+$75\%$
+confidence interval
+$\theta \in (28)$
+.
+The confidence level of these intervals is not a measure of the experimenter's belief, it is a restatement of the p-value and a measure of the interval's performance over repeated experiments.  This does not preclude the confidence interval as a method for performing inference on a parameter based on a particular sample.
+Dikran's posterior belief probabilities and credible intervals can instead be viewed as crude approximate p-values and confidence intervals.  The
+$100\%$
+credible interval is
+$(28,29)$
+, the posterior probability "ruling out"
+$H_0: \theta=28$
+is
+$0.5$
+, and the posterior probability "ruling out"
+$H_0: \theta=29$
+is
+$0.5$
+.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Dec 23, 2021 at 22:18
+Geoffrey Johnson
+3,078
+9
+9 silver badges
+12
+12 bronze badges
+$\endgroup$
+11
+$\begingroup$
+In his answer Dikran also states, "...the frequentist definition of a probability... [applies]... only to some fictitious population of experiments from which this particular experiment can be considered a sample."  This statement calls into question the likelihood itself which is at the core of Bayesian inference.  If Dikran is adamant about his statement, then he must also dismiss Bayesian inference as well.
+$\endgroup$
+Geoffrey Johnson
+–
+Geoffrey Johnson
+2021-12-23 22:31:23 +00:00
+Commented
+Dec 23, 2021 at 22:31
+$\begingroup$
+"no confidence interval is admissible as a set of plausible parameter values consistent with the observed data:"  No, that was not what I said.  The example was demonstrating that the probability of the true value being in an X% confidence interval is not X%.  It was Jaynes example, not McKay's where we can be sure that the true value is not in a valid confidence interval.
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2021-12-23 22:38:04 +00:00
+Commented
+Dec 23, 2021 at 22:38
+$\begingroup$
+"(without reference to a prior) " no, I stated the reasoning for that prior  "and we have no reason to suppose that 29 is more likely than 28".
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2021-12-23 22:40:45 +00:00
+Commented
+Dec 23, 2021 at 22:40
+1
+$\begingroup$
+" Dikran Marsupial claims that since the confidence level of the confidence interval is a statement about repeated experiments it does not allow one to infer the unknown fixed true θ based on a particular sample. "  No, I made no such claim.  I'm sorry, but if you are going to be insulting (
+stats.stackexchange.com/questions/2272/…
+) and then repeatedly misrepresent what I have written, I think the chance of reaching agreement here is fairly slim.
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2021-12-23 22:42:41 +00:00
+Commented
+Dec 23, 2021 at 22:42
+1
+$\begingroup$
+"We can therefore construct the 100% confidence interval θ∈(28,29). This is a direct contradiction to Dikran's claim..." my answer started "...the frequentist definition of a probability doesn't allow a nontrivial probability to be applied to the outcome of a particular experiment...".  A 100% confidence interval is an example of assigning a trivial probability (i.e. 0 or 1) to a particular outcome, so that does not contradict what I said.
+$\endgroup$
+Dikran Marsupial
+–
+Dikran Marsupial
+2021-12-23 23:10:27 +00:00
+Commented
+Dec 23, 2021 at 23:10
+|
+Show
+6
+more comments
+-2
+$\begingroup$
+There are some interesting answers here, but I thought I'd add a little hands-on demonstration using R.  We recently used this code in a stats course to highlight how confidence intervals work.  Here's what the code does:
+1 - It samples from a known distribution (n=1000)
+2 - It calculates the 95% CI for the mean of each sample
+3 - It asks whether or not each sample's CI includes the true mean.
+4 - It reports in the console the fraction of CIs that included the true mean.
+I just ran the script a bunch of times and it's actually not too uncommon to find that less than 94% of the CIs contained the true mean.  At least to me, this helps dispel the idea that a confidence interval has a 95% probability of containing the true parameter.
+#   In the following code, we simulate the process of
+#   sampling from a distribution and calculating
+#   a confidence interval for the mean of that
+#   distribution.  How often do the confidence
+#   intervals actually include the mean? Let's see!
+#
+#   You can change the number of replicates in the
+#   first line to change the number of times the
+#   loop is run (and the number of confidence intervals
+#   that you simulate).
+#
+#   The results from each simulation are saved to a
+#   data frame.  In the data frame, each row represents
+#   the results from one simulation or replicate of the
+#   loop.  There are three columns in the data frame,
+#   one which lists the lower confidence limits, one with
+#   the higher confidence limits, and a third column, which
+#   I called "Valid" which is either TRUE or FALSE
+#   depending on whether or not that simulated confidence
+#   interval includes the true mean of the distribution.
+#
+#   To see the results of the simulation, run the whole
+#   code at once, from "start" to "finish" and look in the
+#   console to find the answer to the question.
+#   "start"
+replicates <- 1000
+conf.int.low <- rep(NA, replicates)
+conf.int.high <- rep(NA, replicates)
+conf.int.check <- rep(NA, replicates)
+for (i in 1:replicates) {
+n <- 10
+mu <- 70
+variance <- 25
+sigma <- sqrt(variance)
+sample <- rnorm(n, mu, sigma)
+se.mean <- sigma/sqrt(n)
+sample.avg <- mean(sample)
+prob <- 0.95
+alpha <- 1-prob
+q.alpha <- qnorm(1-alpha/2)
+low.95 <- sample.avg - q.alpha*se.mean
+high.95 <- sample.avg + q.alpha*se.mean
+conf.int.low[i] <- low.95
+conf.int.high[i] <- high.95
+conf.int.check[i] <- low.95 < mu & mu < high.95
+}
+# Collect the intervals in a data frame
+ci.dataframe <- data.frame(
+LowerCI=conf.int.low,
+UpperCI=conf.int.high,
+Valid=conf.int.check
+)
+# Take a peak at the top of the data frame
+head(ci.dataframe)
+# What fraction of the intervals included the true mean?
+ci.fraction <- length(which(conf.int.check, useNames=TRUE))/replicates
+ci.fraction
+#   "finish"
+Hope this helps!
+Share
+Cite
+Improve this answer
+Follow
+answered
+Apr 15, 2012 at 2:52
+James Waters
+293
+3
+3 silver badges
+6
+6 bronze badges
+$\endgroup$
+13
+2
+$\begingroup$
+Apologies for the criticism, but I have had to (temporarily) downvote this answer. I believe it is misunderstanding the meaning of a confidence interval and I sincerely hope this was not the argument used in your class. The simulations reduce to a (quite elaborate) binomial sampling experiment.
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-15 03:05:21 +00:00
+Commented
+Apr 15, 2012 at 3:05
+6
+$\begingroup$
+@cardinal Well...he's just using the long-run interpretation of frequentist statistics. Sample from the population many times, calculate the C.I. that many times and you find that the true mean is contained in the C.I. 95% of the time (for $1-\alpha=0.95$). At least that was pretty clear to me.
+$\endgroup$
+Néstor
+–
+Néstor
+2012-04-15 03:28:39 +00:00
+Commented
+Apr 15, 2012 at 3:28
+4
+$\begingroup$
+"Less than 94%" in a sample of 1000 CIs is surely not significant evidence against the idea that 95% of CIs contain the mean. In fact, I would expect 95% of CIs to indeed contain the mean, in this case.
+$\endgroup$
+Ronald
+–
+Ronald
+2012-04-15 10:53:14 +00:00
+Commented
+Apr 15, 2012 at 10:53
+3
+$\begingroup$
+@Ronald: Yes, this was exactly my point with the comments, but you have said it
+much
+more simply and concisely. Thanks. As stated in one of the comments, one will see 940 successes or less about
+8.7%
+of the time and that is true of
+any
+exactly 95% CI that one constructs over the course of 1000 experiments. :)
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-15 11:37:05 +00:00
+Commented
+Apr 15, 2012 at 11:37
+2
+$\begingroup$
+@JamesWaters: Thanks for taking the time to respond. The code is fine, but I don't see how it "demonstrates instances in which it is incorrect". Can you explain that intent? I still suspect there may be a fundamental misunderstanding here. You seem to understand what I CI is and how to correctly interpret it, but the simulation experiment doesn't respond to the question you seem to be claiming it responds to. I think this answer has potential, so I'd like to see it end up with a nice edit to clarify the point you're trying to get across. Cheers. :)
+$\endgroup$
+cardinal
+–
+cardinal
+2012-04-17 18:09:24 +00:00
+Commented
+Apr 17, 2012 at 18:09
+|
+Show
+8
+more comments
+Your Answer
+Draft saved
+Draft discarded
+Sign up or
+log in
+Sign up using Google
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+By clicking “Post Your Answer”, you agree to our
+terms of service
+and acknowledge you have read our
+privacy policy
+.
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+confidence-interval
+sampling
+mean
+population
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+3
+Why aren't these sentences about confidence intervals equivalent?
+2
+Misconceptions about the Meaning of Confidence Intervals
+2
+Working on Confidence Interval and its meaning
+5
+Does it make sense to speak of probability of a hidden outcome? (context: confidence intervals)
+2
+What is the fundamental confidence interval fallacy?
+2
+Why can't we say that the probability of the true parameter being within a 90% confidence interval is 90%?
+1
+Confidence interval interpretation
+1
+Is being "a 95% confidence interval" a property of an estimatOR, not a property of an estimatE?
+2
+Difference between 95% of confidence intervals containing mean vs 95% probability of one interval containing the mean?
+-1
+Confidence Intervals meaning
+See more linked questions
+Related
+16
+From a Bayesian probability perspective, why doesn't a 95% confidence interval contain the true parameter with 95% probability?
+16
+Interpreting a 95% confidence interval
+1
+Precise definition of the confidence interval - sources?
+1
+Confidence interval for the population mean
+Hot Network Questions
+What becomes of seized tankers and their oil cargo?
+Hadith prohibits wearing wig when there's a defect
+Question 14 from section 3.6 of Topology And Groupoids
+What are the consequences of mass murder?
+Does a corpse keep its damage immunities?
+Can I recover this money?
+Why the races have to restart if someone leaves the starting position before starter pistol signal?
+Sicilian Defense Yates Variation straight up hangs a piece
+The Animation Story
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+Can the beat frequency of two slightly different tones cause a room to resonate?
+Dragon Adventure cards interaction with Acolyte of Bahamut
+Should we use have or has in this case?
+How to use -dialect sqlite -sql so empty array values aren't dropped from properties?
+Why is the asymptotic variance of true errors and residuals the same
+What model of minicomputers appears in “Magnum cop” (1978)?
+Guess the PIN. You only got one shot!
+Trying to figure out a function in set theory formally
+Lightweight e-mail client for unsupported Windows versions
+What are the meanings of the columns in the output of lsinitrd?
+PTIJ: Is it holy or heresy to tell someone to "have a good one"?
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+PTIJ: What is the significance of the term Shoe-Shine Purim?
+Is "Spider-Man is a good movie" an unfalsifiable statement?
+more hot questions
+Question feed

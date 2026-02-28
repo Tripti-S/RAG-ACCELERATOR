@@ -1,0 +1,18 @@
+Conditioning a geometric random variable
+
+e X: number of independent coin tosses until first head; P(H) = p
+
+k-1
+k)=(1- H tl Dy cee
+px(k) = ( py 'P Memorylessness:
+px(k) ae a
+Number of remaining coin tosses,
+conditioned on Tails in the first toss,
+| | | is Geometric, with parameter p
+1 J : a 4
+
+[conditioned on X >1, X —1 is geometric with parameter >|
+
+x 4
+a, Pages
+X>| nth

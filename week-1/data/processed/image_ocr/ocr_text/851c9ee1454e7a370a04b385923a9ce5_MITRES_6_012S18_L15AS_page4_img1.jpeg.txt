@@ -1,0 +1,18 @@
+Estimating a normal parameter
+in the presence of additive normal noise
+
+6 ane
+fojx(@| 2) = fo (9) fxjo(@ | 6)
+
+fx (x)
+X=04W ©,W:N(0,1), independent fx(2) = [ fo®Ixjo@ | 0) do
+
+ee 2 x
+Omap = ©_ms = B[O| X] = >
+e Even with general means and variances:
+
+— posterior is normal
+
+LMS and MAP estimators coincide
+
+— these estimators are “linear,” of the form © =aXx +b

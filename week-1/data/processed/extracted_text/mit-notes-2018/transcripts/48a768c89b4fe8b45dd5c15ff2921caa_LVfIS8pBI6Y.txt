@@ -1,0 +1,40 @@
+MITOCW | MITRES6_012S18_L13-04_300k
+Here is a simple application of the law of iterated expectations.
+We revisit the stick-breaking example, which we have seen sometime in the past.
+So in this example, we start with a stick that has a certain length and which we break at a point that's chosen
+uniformly at random throughout the length of the stick.
+And we call the point at which we cut the stick capital Y.
+So the random variable Y has a uniform distribution on the interval from 0 to l, and is described by this particular
+PDF.
+Then we take the piece of the stick that's left and we break it at a point that's chosen uniformly over the length of
+the stick that's left.
+So the stick that was left has a length Y, and the place at which we cut it, X, is chosen uniformly over that interval.
+So in particular, X-- or rather the conditional distribution of X given Y-- is uniform on that interval.
+So in this example, what is the expected value of X if I tell you the value of Y?
+Well, given the value of Y, the random variable X is uniform on that range.
+So the expected value is going to be at the midpoint that is equal to y over 2.
+This is an equality between numbers.
+For any particular number, little y, we have this equality.
+Now let us convert this concrete equality between numbers to a more abstract equality between random variables.
+This object is a random variable that takes this value whenever capital Y is little y.
+So this is an object that takes the value little y over 2 whenever the random variable capital Y happens to be little
+y.
+But that's the same as the random variable capital Y over 2.
+This is a random variable that takes this value whenever capital Y happens to be the same as little y.
+So the conditional expectation-- the abstract conditional expectation is a random variable because its value is
+determined by the random variable capital Y, and it is this particular function of the random variable capital Y.
+And now we can proceed and calculate the expected value of X using the law of iterated expectations.
+The law of iterated expectations takes this form.
+We have already calculated what this random variable is.
+It is the random variable that's equal to Y over 2.
+So this is the same as 1/2 the expected value of Y. And since Y is uniform in the range from 0 to l, the expected
+value of Y is equal to l over 2, which gives us an answer of l over 4.
+This is the same as the answer that we got in the past where we actually found it using the total expectation
+theorem.
+The calculations were exactly the same as what went on here except that here we carry out the calculation in a
+more abstract form.
+And what is important to appreciate from this example is the distinction between these two lines.
+This is an equality between numbers, which is true for any specific little y.
+Whereas this is an equality between random variables.
+This quantity is random and this quantity is also random, meaning that their values are not known until the
+experiment is carried out and the specific value of capital Y is realized.

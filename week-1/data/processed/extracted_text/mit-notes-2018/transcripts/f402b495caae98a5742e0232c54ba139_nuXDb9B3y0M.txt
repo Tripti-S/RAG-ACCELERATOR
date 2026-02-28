@@ -1,0 +1,52 @@
+MITOCW | MITRES6_012S18_L20-03_300k
+Let us now discuss a little bit the simplest estimation problem that there is, the problem of estimating the mean of
+a certain probability distribution, and we will take this occasion to introduce some additional terminology and
+discuss some desirable properties of estimators.
+So the context is as follows.
+We have n random variables that are independent, and they're identically distributed.
+They are drawn from some distribution that has a certain mean theta and some variance.
+We assume that we do not know the value of the mean, and we want to estimate it.
+The most natural way of estimating the mean is to form the sample mean, that is, we take the n observations and
+take their average.
+Notice, that this quantity, the sample mean or, in this case, it is the estimator that we're using, is a random
+variable because its value is determined by the values of the random variables X1 up to Xn.
+Let us discuss some properties of this estimator.
+The first property is that the expected value of this estimator is equal to the true mean.
+This is because the expected value of each one of the Xs is theta, and therefore, the expected value of this ratio is
+theta as well.
+Now, this is a relation that's true for all possible values of theta.
+Let us appreciate the content of this statement.
+Let us think what this expectation actually is.
+More generally, suppose that we're dealing with some estimator, which is some function of the data.
+Then, the expected value of this estimator is using the expected value rule, and assuming that we're dealing with
+a discrete random variable X, the expected value of theta hat is determined as follows.
+And so we see that the expected value for estimator depends, or is affected, by what the true value of theta is.
+So this is a quantity that generally depends on theta.
+And what we want in order to have a so-called unbiased estimator is that no matter what theta is, this expectation
+evaluates to the true unknown value equal to theta.
+In general, having this property, having an unbiased estimator, is a desirable one.
+We do not want our estimates to be systematically high or systematically low, no matter what the true value of
+theta is.
+A second property of the sample mean estimator is the following.
+By the weak law of large numbers, we know that the sample mean converges to the true mean in the sense of
+convergence in probability.
+Once more, this is a property that's true, no matter what the underlying unknown value little theta is.
+When this is true, this convergence is true, for all values of little theta, then we say that our estimator is consistent
+or that we have consistency.
+Having a consistent estimator is definitely a very desirable property.
+We would like, when we obtain more and more data, that our estimator will give us the correct value.
+Finally, we would like to say something about the size of the estimation error.
+This is measured-- one way of measuring it, but which is the most common, it's measured in terms of the mean
+squared error.
+So theta is the unknown value.
+This is our estimator.
+This is the error.
+We square the error, and we take the average.
+What we've got here for this specific example of the sample mean estimator is the following.
+Since it is unbiased, we have a random variable minus the mean of that random variable, so this is just the
+variance of the estimator.
+And for the sample mean, we know that its variance is sigma squared over n.
+So this gives us some very specific knowledge about how the mean squared error behaves as we change n.
+In this particular example, the mean squared error did not depend on theta.
+It's the same no matter what the true theta is.
+But in other situations and with other estimators, you might actually obtain here a function of theta.

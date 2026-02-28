@@ -1,0 +1,15 @@
+PMF calculation
+
+e Two rolls of a tetrahedral die e Let every possible outcome have probability 1/16
+
+4 Z=X+Y Find pz(z)
+Y=Second 3 e repeat for all z:
+aah . — collect all possible outcomes for which Z is equal to z
+
+— add their probabilities
+
+1 2 3 4
+X = First roll
+pz(z)
+
+T2345 67 8 9 >

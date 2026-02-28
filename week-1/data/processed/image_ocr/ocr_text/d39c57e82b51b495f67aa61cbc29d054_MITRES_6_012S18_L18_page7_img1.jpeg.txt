@@ -1,0 +1,23 @@
+Interpreting the WLLN Mn = (X41 +-+- + Xn)/n
+
+Xyt-+Xn |
+TL
+
+WLLN: For «> 0, P(|Mn —p|>«)= P(|
+
+e One experiment
+
+— many measurements X; = w+ W;
+
+— W;: measurement noise; E[W;]=0; independent W;
+
+— sample mean /,, is unlikely to be far off from true mean 1
+e Many independent repetitions of the same experiment
+
+— event A, with p= P(A)
+
+— X;: indicator of event A
+
+— the sample mean M,, is the empirical frequency of event A
+
+— empirical frequency is unlikely to be far of from true probability p

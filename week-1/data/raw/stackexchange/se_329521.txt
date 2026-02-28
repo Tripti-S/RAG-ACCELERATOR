@@ -1,0 +1,850 @@
+probability - If I have a 58% chance of winning a point, what's the chance of me winning a ping pong game to 21, win by 2? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+If I have a 58% chance of winning a point, what's the chance of me winning a ping pong game to 21, win by 2?
+Ask Question
+Asked
+8 years ago
+Modified
+7 years, 11 months ago
+Viewed
+20k times
+92
+$\begingroup$
+I have a bet with a co-worker that out of 50 ping pong games (first to win 21 points, win by 2), I will win all 50. So far we've played 15 games and on average I win 58% of the points, plus I've won all the games so far. So we're wondering if I have a 58% chance of winning a point and he has a 42% chance of winning a point, what's the percent chance that I would win the game? Is there a formula that we can plug in difference % chances?
+We've googled all over and even asked the data scientists at our company but couldn't find a straight answer.
+Edit:
+Wow, I am blown away by the thoroughness of responses. Thank you all so much!!!
+In case people are curious, I have an update to how my bet is going: I've now won 18 out of 50 games, so I need to win 32 more games. I've won 58.7% of all points and my opponent has therefore won 41.3% of points. The standard deviation for my opponent is 3.52, his average score is 14.83, and his median score is 15.50. Below is a screenshot of the score of each game so far. I can keep updating as the bet goes on, if people are interested.
+Edit #2
+: Unfortunately we've only been able to play a few more games, below are the results. I'm just going to keep replacing the picture so I don't have a bunch of screenshots of the score.
+Final Update
+: I finally lost to my co-worker on game #28. He beat me 21-13. Thanks for all of your help!
+probability
+games
+Share
+Cite
+Improve this question
+Follow
+edited
+Mar 21, 2018 at 15:01
+asked
+Feb 19, 2018 at 21:08
+richard
+891
+1
+1 gold badge
+7
+7 silver badges
+5
+5 bronze badges
+$\endgroup$
+16
+11
+$\begingroup$
+There
+is
+a formula: for $p=0.58,$ it's in the form $p^{21}/(1-2p+2p^2)$ times a degree-20 polynomial: 21 terms in all (with large coefficients, the largest exceeding $1.6\times 10^{16}$).  If all the points are independent, you have only a $0.432\%$ chance of winning the next 35 games.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2018-02-19 22:38:50 +00:00
+Commented
+Feb 19, 2018 at 22:38
+8
+$\begingroup$
+I doubt that all points (and games) are independent of each other (for a variety of reasons).  The non-independence could have a big impact on the answer.
+$\endgroup$
+Mark L. Stone
+–
+Mark L. Stone
+2018-02-20 00:48:10 +00:00
+Commented
+Feb 20, 2018 at 0:48
+8
+$\begingroup$
+Assuming it's the same game I played, I remember that the one serving has an advantage; so ignoring everything about "hot hand" it could be that you win 68% when serving and 48% when not - that will skew all probabilities; even if it evens out to 58% We thus don't have enough information..
+$\endgroup$
+Hans Olsson
+–
+Hans Olsson
+2018-02-20 09:22:26 +00:00
+Commented
+Feb 20, 2018 at 9:22
+6
+$\begingroup$
+Just a comment - 21 points? Table tennis switched to an 11 point format, best of 7 games, 2 serves per player at a time, back in 2001.
+$\endgroup$
+rcgldr
+–
+rcgldr
+2018-02-23 00:42:01 +00:00
+Commented
+Feb 23, 2018 at 0:42
+6
+$\begingroup$
+I will continue posting updates on this bet every ~5 games or so. Unfortunately we only get to play a few games per week since we only play after work.
+$\endgroup$
+richard
+–
+richard
+2018-02-23 17:23:18 +00:00
+Commented
+Feb 23, 2018 at 17:23
+|
+Show
+11
+more comments
+6 Answers
+6
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+124
+$\begingroup$
+The analysis is complicated by the prospect that the game goes into "overtime" in order to win by a margin of at least two points.
+(Otherwise it would be as simple as the solution shown at
+https://stats.stackexchange.com/a/327015/919
+.)  I will show how to visualize the problem and use that to break it down into readily-computed contributions to the answer.  The result, although a bit messy, is manageable.  A simulation bears out its correctness.
+Let $p$ be your probability of winning a point.
+Assume all points are independent.  The chance that you win a game can be broken down into (nonoverlapping) events according to how many points your opponent has at the end assuming you don't go into overtime ($0,1,\ldots, 19$) or you go into overtime.  In the latter case it is (or will become) obvious that at some stage the score was 20-20.
+There is a nice visualization.
+Let scores during the game be plotted as points $(x,y)$ where $x$ is your score and $y$ is your opponent's score.  As the game unfolds, the scores move along the integer lattice in the first quadrant beginning at $(0,0)$, creating a
+game path
+.  It ends the first time one of you has scored at least $21$ and has a margin of at least $2$.  Such winning points form two sets of points, the "absorbing boundary" of this process, whereat the game path must terminate.
+This figure shows part of the absorbing boundary (it extends infinitely up and to the right) along with the path of a game that went into overtime (with a loss for you, alas).
+Let's count.
+The number of ways the game can end with $y$ points for your opponent is the number of distinct paths in the integer lattice of $(x,y)$ scores beginning at the initial score $(0,0)$ and ending at the penultimate score $(20,y)$.  Such paths are determined by which of the $20+y$ points in the game you won.  They correspond therefore to the subsets of size $20$ of the numbers $1,2,\ldots, 20+y$, and there are $\binom{20+y}{20}$ of them.  Since in each such path you won $21$ points (with independent probabilities $p$ each time, counting the final point) and your opponent won $y$ points (with independent probabilities $1-p$ each time), the paths associated with $y$ account for a total chance of
+$$f(y) = \binom{20+y}{20}p^{21}(1-p)^y.$$
+Similarly, there are $\binom{20+20}{20}$ ways to arrive at $(20,20)$ representing the 20-20 tie.  In this situation you don't have a definite win.  We may compute the chance of your win by adopting a common convention: forget how many points have been scored so far and start tracking the point differential.  The game is at a differential of $0$ and will end when it first reaches $+2$ or $-2$, necessarily passing through $\pm 1$ along the way.  Let $g(i)$ be the chance you win when the differential is $i\in\{-1,0,1\}$.
+Since your chance of winning in any situation is $p$, we have
+$$\eqalign{
+g(0) &= p g(1) + (1-p)g(-1), \\
+g(1) &= p + (1-p)g(0),\\
+g(-1) &= pg(0).
+}$$
+The unique solution to this system of linear equations for the vector $(g(-1),g(0),g(1))$ implies
+$$g(0) = \frac{p^2}{1-2p+2p^2}.$$
+This, therefore, is your chance of winning once $(20,20)$ is reached (which occurs with a chance of $\binom{20+20}{20}p^{20}(1-p)^{20}$).
+Consequently your chance of winning
+is the sum of all these disjoint possibilities, equal to
+$$\eqalign{
+&\sum_{y=0}^{19}f(y) + g(0)p^{20}(1-p)^{20} \binom{20+20}{20} \\
+= &\sum_{y=0}^{19}\binom{20+y}{20}p^{21}(1-p)^y + \frac{p^2}{1-2p+2p^2}p^{20}(1-p)^{20} \binom{20+20}{20}\\
+= &\frac{p^{21}}{1-2p+2p^2}\left(\sum_{y=0}^{19}\binom{20+y}{20}(1-2p+2p^2)(1-p)^y + \binom{20+20}{20}p(1-p)^{20} \right).
+}$$
+The stuff inside the parentheses on the right is a polynomial in $p$.  (It looks like its degree is $21$, but the leading terms all cancel: its degree is $20$.)
+When $p=0.58$, the chance of a win is close to $0.855913992.$
+You should have no trouble generalizing this analysis to games that terminate with any numbers of points.  When the required margin is greater than $2$ the result gets more complicated but is just as straightforward.
+Incidentally
+, with these chances of winning, you had a $(0.8559\ldots)^{15}\approx 9.7\%$ chance of winning the first $15$ games.  That's not inconsistent with what you report, which might encourage us to continue supposing the outcomes of each point are independent.  We would thereby project that you have a chance of
+$$(0.8559\ldots)^{35}\approx 0.432\%$$
+of winning all the remaining $35$ games, assuming they proceed according to all these assumptions.  It doesn't sound like a good bet to make unless the payoff is large!
+I like to check work like this with a quick simulation.
+Here is
+R
+code to generate tens of thousands of games in a second.  It assumes the game will be over within 126 points (extremely few games need to continue that long, so this assumption has no material effect on the results).
+n <- 21      # Points your opponent needs to win
+m <- 21      # Points you need to win
+margin <- 2  # Minimum winning margin
+p <- .58     # Your chance of winning a point
+n.sim <- 1e4 # Iterations in the simulation
+sim <- replicate(n.sim, {
+x <- sample(1:0, 3*(m+n), prob=c(p, 1-p), replace=TRUE)
+points.1 <- cumsum(x)
+points.0 <- cumsum(1-x)
+win.1 <- points.1 >= m & points.0 <= points.1-margin
+win.0 <- points.0 >= n & points.1 <= points.0-margin
+which.max(c(win.1, TRUE)) < which.max(c(win.0, TRUE))
+})
+mean(sim)
+When I ran this, you won in 8,570 cases out of the 10,000 iterations.  A Z-score (with approximately a Normal distribution) can be computed to test such results:
+Z <- (mean(sim) - 0.85591399165186659) / (sd(sim)/sqrt(n.sim))
+message(round(Z, 3)) # Should be between -3 and 3, roughly.
+The value of $0.31$ in this simulation is perfectly consistent with the foregoing theoretical computation.
+Appendix 1
+In light of the update to the question, which lists the outcomes of the first 18 games, here are reconstructions of game paths consistent with these data.  You can see that two or three of the games were perilously close to losses.  (Any path ending on a light gray square is a loss for you.)
+Potential uses of this figure include observing:
+The paths concentrate around a slope given by the ratio 267:380 of total scores, equal approximately to 58.7%.
+The scatter of the paths around that slope shows the variation expected when points are independent.
+If points are made in streaks, then individual paths would tend to have long vertical and horizontal stretches.
+In a longer set of similar games, expect to see paths that tend to stay within the colored range,
+but also expect a few to extend beyond it.
+The prospect of a game or two whose path lies generally above this spread indicates the possibility that your opponent will eventually win a game, probably sooner rather than later.
+Appendix 2
+The code to create the figure was requested.  Here it is (cleaned up to produce a slightly nicer graphic).
+library(data.table)
+library(ggplot2)
+n <- 21      # Points your opponent needs to win
+m <- 21      # Points you need to win
+margin <- 2  # Minimum winning margin
+p <- 0.58     # Your chance of winning a point
+#
+# Quick and dirty generation of a game that goes into overtime.
+#
+done <- FALSE
+iter <- 0
+iter.max <- 2000
+while(!done & iter < iter.max) {
+Y <- sample(1:0, 3*(m+n), prob=c(p, 1-p), replace=TRUE)
+Y <- data.table(You=c(0,cumsum(Y)), Opponent=c(0,cumsum(1-Y)))
+Y[, Complete := (You >= m & You-Opponent >= margin) |
+(Opponent >= n & Opponent-You >= margin)]
+Y <- Y[1:which.max(Complete)]
+done <- nrow(Y[You==m-1 & Opponent==n-1 & !Complete]) > 0
+iter <- iter+1
+}
+if (iter >= iter.max) warning("Unable to find a solution. Using last.")
+i.max <- max(n+margin, m+margin, max(c(Y$You, Y$Opponent))) + 1
+#
+# Represent the relevant part of the lattice.
+#
+X <- as.data.table(expand.grid(You=0:i.max,
+Opponent=0:i.max))
+X[, Win := (You == m & You-Opponent >= margin) |
+(You > m & You-Opponent == margin)]
+X[, Loss := (Opponent == n & You-Opponent <= -margin) |
+(Opponent > n & You-Opponent == -margin)]
+#
+# Represent the absorbing boundary.
+#
+A <- data.table(x=c(m, m, i.max, 0, n-margin, i.max-margin),
+y=c(0, m-margin, i.max-margin, n, n, i.max),
+Winner=rep(c("You", "Opponent"), each=3))
+#
+# Plotting.
+#
+ggplot(X[Win==TRUE | Loss==TRUE], aes(You, Opponent)) +
+geom_path(aes(x, y, color=Winner, group=Winner), inherit.aes=FALSE,
+data=A, size=1.5) +
+geom_point(data=X, color="#c0c0c0") +
+geom_point(aes(fill=Win), size=3, shape=22, show.legend=FALSE) +
+geom_path(data=Y, size=1) +
+coord_equal(xlim=c(-1/2, i.max-1/2), ylim=c(-1/2, i.max-1/2),
+ratio=1, expand=FALSE) +
+ggtitle("Example Game Path",
+paste0("You need ", m, " points to win; opponent needs ", n,
+"; and the margin is ", margin, "."))
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 21, 2018 at 18:24
+answered
+Feb 20, 2018 at 2:11
+whuber
+♦
+345k
+67
+67 gold badges
+832
+832 silver badges
+1.4k
+1.4k bronze badges
+$\endgroup$
+13
+$\begingroup$
+How are the $f(y)$ disjoint? Don't your repeat configurations? For example, when $y=0$ the binomial coefficient is $1$. When $y=1$ then $\binom{21}{20} = 21$. But one of the latter configurations is exactly the one found for $y=0$ (i.e. 21 points won for our player, 0 for opponent). Should we not subtract probabilities of intersections? This is what blocked me in the first place.
+$\endgroup$
+Easymode44
+–
+Easymode44
+2018-02-20 09:09:15 +00:00
+Commented
+Feb 20, 2018 at 9:09
+1
+$\begingroup$
+@whuber: Great, would be also the "nice visualization" part of the
+r code
+implementation disclosure? Many thanks.
+$\endgroup$
+Maximilian
+–
+Maximilian
+2018-02-20 20:31:49 +00:00
+Commented
+Feb 20, 2018 at 20:31
+7
+$\begingroup$
+@Stefan My value was computed using exact rational arithmetic (in
+Mathematica
+) and rounded at the end.  I suspect yours might have been computed using only double precision floating point, and therefore assume your last few digits are incorrect.  As a rational number the value is $$\frac{24949298160611146419680580467045837441748491517750191635779953104861}{29149305191822350025177001953125000000000000000000000000000000000000}.$$
+$\endgroup$
+whuber
+–
+whuber
+♦
+2018-02-21 15:59:46 +00:00
+Commented
+Feb 21, 2018 at 15:59
+4
+$\begingroup$
+@Maximilian I posted code for the visualization.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2018-02-21 16:00:25 +00:00
+Commented
+Feb 21, 2018 at 16:00
+3
+$\begingroup$
+I think a simpler way to handle overtime would be to take points in pairs once 20-20 is reached.  The only things that matter are either the first player wining both (probability 0.58²) or the second winning both (0.42²).  If anything else happens, ignore it and keep playing until one fo the above occurs.  The first player's win probability after 20-20 is thus 0.58²/(0.58²+0.42²) and the second player's is 0.42²/(0.58²+0.42²).
+$\endgroup$
+supercat
+–
+supercat
+2018-02-23 21:27:26 +00:00
+Commented
+Feb 23, 2018 at 21:27
+|
+Show
+8
+more comments
+26
+$\begingroup$
+Using the binomial distribution and assuming every point is independent:
+The probability the $58\%$ player gets to $21$ in the first $40$ points (taking account of the fact the last point must be won) is $\sum_{n=21}^{40} {n-1 \choose 20} 0.58^{21}0.42^{n-21}$ $=\sum_{k=21}^{40} {40 \choose k} 0.58^{k}0.42^{40-k}$ $\approx 0.80695$
+The probability $58\%$ player gets $20$ from $40$ points played is the binomial ${40 \choose 20} 0.58^{20}0.42^{20} \approx 0.074635$.  Conditioned on that, the probability the $58\%$ player then wins with the two point margin is $\frac{0.58^2}{0.58^2+0.42^2}\approx 0.656006$
+So the overall probability the $58\%$ player wins is about $0.80695+0.074635\times 0.656006$ $\approx  0.8559$
+The probability of the $58\%$ player winning the first $15$ games is then about $0.85559^{15} \approx 0.0969$ which is fairly unlikely.  The probability of the $58\%$ player winning the final $35$ games is about $0.85559^{35} \approx 0.0043$ which is very unlikely.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 20, 2018 at 14:26
+Henry
+45.8k
+1
+1 gold badge
+85
+85 silver badges
+163
+163 bronze badges
+$\endgroup$
+3
+2
+$\begingroup$
+The part
+"the probability the $58\%$ player then wins with the two point margin is $0.58^2/(0.58^2+0.42^2)\approx 0.656006$"
+could use some explanation, as it is probably the most difficult part in this problem.
+$\endgroup$
+JiK
+–
+JiK
+2018-02-23 08:31:39 +00:00
+Commented
+Feb 23, 2018 at 8:31
+1
+$\begingroup$
+@JiK:  Once at $20-20$ or later equality, the probability of a decisive couple of points is $0.58^2+0.42^2$ and so the probability that the better player gets two ahead rather than the worse player doing so is $\frac{0.58^2}{0.58^2+0.42^2}$ - otherwise they return to the same position
+$\endgroup$
+Henry
+–
+Henry
+2018-02-23 11:00:54 +00:00
+Commented
+Feb 23, 2018 at 11:00
+3
+$\begingroup$
+A much more concise answer than the top answer, but I guess since it didn't have pictures and was posted 12 hours later, it gets 80 less votes?  =|
+$\endgroup$
+Attackfarm
+–
+Attackfarm
+2018-02-25 16:57:27 +00:00
+Commented
+Feb 25, 2018 at 16:57
+Add a comment
+|
+18
+$\begingroup$
+I went with a computational answer. Here is an R function that simulates a ping-pong game where the winner has to win by 2. The only argument is the probability that you win a point. It will return the final score of that game:
+## data simulation function ----------------------------------------------------
+sim_game <- function(pt_chance) {
+them <- 0
+you <- 0
+while (sum((them < 21 & you < 21), abs(them - you) < 2) > 0) {
+if (rbinom(1, 1, pt_chance) == 1) {
+you <- you + 1
+them <- them + 0
+} else {
+you <- you + 0
+them <- them + 1
+}
+}
+return(list(them = them, you = you))
+}
+Let's first make sure it works by simulating 10,000 games where you have a 50% chance of winning each point. We should observe that your win percentage is about 50%:
+## testing 10,000 games --------------------------------------------------------
+set.seed(1839)
+results <- lapply(1:10000, function(x) sim_game(.5))
+results <- as.data.frame(do.call(rbind, results))
+results$you_win <- unlist(results$you) > unlist(results$them)
+mean(results$you_win)
+This returns .4955, about what we would expect. So let's plug in your 58%:
+## simulate 10,000 games -------------------------------------------------------
+set.seed(1839)
+results <- lapply(1:10000, function(x) sim_game(.58))
+results <- as.data.frame(do.call(rbind, results))
+results$you_win <- unlist(results$you) > unlist(results$them)
+mean(results$you_win)
+This returns .8606. So you have about an 86.06% chance of winning
+one
+game.
+We can now simulate across 35 game batches and see how many times you would win
+all
+35:
+## how often do you win all 35? ------------------------------------------------
+set.seed(1839)
+won_all_35 <- c()
+for (i in 1:10000) {
+results <- lapply(1:35, function(x) sim_game(.58))
+results <- as.data.frame(do.call(rbind, results))
+results$you_win <- unlist(results$you) > unlist(results$them)
+won_all_35[i] <- mean(results$you_win) == 1
+}
+mean(won_all_35)
+This returns .0037, which means you have about a 0.37% chance of winning the next 35 games. This assumes that all games and all points are independent of one another. You could program that explicitly into the function above, if you wanted to.
+Note: I'm doing this on the fly. I'm sure there is a more computationally efficient way of programming this.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 20, 2018 at 0:08
+answered
+Feb 19, 2018 at 23:31
+Mark White
+11.7k
+4
+4 gold badges
+38
+38 silver badges
+83
+83 bronze badges
+$\endgroup$
+1
+1
+$\begingroup$
+Try
+pbetterwins <- pbinom(19,40,0.42) + dbinom(20,40,0.42) * 0.58^2/(0.58^2+0.42^2); pbetterwins; pbetterwins^35
+for a calculation using the binomial distribution.  Close enough to your simulation
+$\endgroup$
+Henry
+–
+Henry
+2018-02-25 18:24:38 +00:00
+Commented
+Feb 25, 2018 at 18:24
+Add a comment
+|
+16
+$\begingroup$
+Should we assume that the 58% chance of winning is fixed and that points are independent?
+I believe that Whuber's answer is a good one
+, and beautifully written and explained,
+when the consideration is that every point is independent from the next one
+. However I believe that, in practice it is only an interesting starting point (theoretic/idealized). I imagine that in reality the points are not independent from each other, and this might make it more or less likely that your co-worker opponent gets to a win at least once out of 50.
+At first I imagined that the dependence of the points would be a random process
+, ie not controlled by the players (e.g. when one is winning or loosing playing differently), and this should create a greater dispersion of the results benefiting the lesser player to get this one point out of fifty.
+A second thought however might suggest the opposite
+: The fact that you already "achieved" something with a 9.7% of chance may give some (but only slight) benefit, from a Bayesian point of view, to ideas about favouring mechanisms that get you to win more than 85% probability to win a game (or at least make it less likely that your opponent has a much higher probability than 15% as argued in the previous two paragraphs). For instance, it could be that you score better when your position is less good (it is not strange for people scoring much more different on match points, in favor or against, than on regular points). You can improve estimates of the 85% by taking these dynamics into account and possibly you have more than 85% probability to win a game.
+Anyway,
+it might be very wrong to use this simple points statistic
+to provide an answer. Yes you can do it, but it won't be right since the premises (independency of points) are
+not necessarily correct and highly influence the answer
+. The 42/58 statistic is
+more information
+but we do not know very well how to use it (the correctness of the model) and using the information might provide answers with high precision that it actually does not have.
+Example
+Example: an equally reasonable model with a completely different result
+So the hypothetical question (assuming independent points and known, theoretical, probabilities for these points) is in itself interesting and can be answered, But just to be annoying and skeptical/cynical; an answer to the hypothetical case does not relate that much to your underlying/original problem, and might be why the statisticians/data-scientists at your company are reluctant to provide a straight answer.
+Just to give an
+alternative
+example (not neccesarily better) that provides a confusing (counter-) statement
+'Q: what is the probability to win all of the total of 50 games if I already won 15?'
+If we do not start to think that 'the point scores 42/58 are relevant or give us better predictions' then we would start to make predictions of your probability to win the game and predictions to win another 35 games solely based on your previously won 15 games:
+with a Bayesian technique for your probability to win a game this would mean: $p(\text{win another 35 | after already 15}) = \frac{\int_0^1 f(p) p^{50}}{\int_0^1 f(p) p^{15}}$ which is roughly 31% for a uniform prior f(x) = 1, although that might be a bit too optimistic. But still if you consider a beta distribution with $\beta=\alpha$ between 1 and 5 then you get to:
+which means that I would not be so pessimistic as the straightforward 0.432% prediction
+The  fact that you already won 15 games should elevate the probability that you win the next 35 games.
+Note based on the new data
+Based on your data for the 18 games I tried fitting a beta-binomial model. Varying $\alpha=\mu\nu$ and $\beta=(1-\mu)\nu$ and calculating the probabilities to get to a score i,21 (via i,20) or a score 20,20 and then sum their logs to a log-likelihood score.
+It shows that a very high $\nu$ parameter (little dispersion in the underlying beta distribution) has a higher likelihood and thus there is probably little over-dispersion. That means that the data does not suggest that it is better to use a variable parameter for your probability of winning a point, instead of your fixed 58% chance of winning. This new data is providing extra support for Whuber's analysis, which assumes scores based on a binomial distribution. But of course, this still assumes that the model is static and also that you and your co-worker behave according to a random model (in which every game and point are independent).
+Maximum likelihood estimation for parameters of beta distribution in place of fixed 58% winning chance:
+Q:  how do I read the "LogLikelihood for parameters mu and nu" graph?
+A:
+1)
+Maximum likelihood estimate (MLE) is a way to fit a model. Likelihood means the probability of the data given the parameters of the model and then we look for the model that maximizes this. There is a lot of philosophy and mathematics behind it.
+2)
+The plot is a lazy computational method to get to the optimum MLE. I just compute all possible values on a grid and see what the valeu is. If you need to be faster you can either use a computational iterative method/algorithm that seeks the optimum, or possibly there might be a direct analytical solution.
+3)
+The parameters $\mu$ and $\nu$ relate to the beta distribution
+https://en.wikipedia.org/wiki/Beta_distribution
+which is used as a model for the p=0.58 (to make it not fixed but instead vary from time to time). This modeled 'beta-p'  is than combined with a binomial model to get to predictions of probabilities to reach certain scores. It is almost the same as the beta-binomial distribution. You can see that the optimum is around $\mu \simeq 0.6$ which is not surprising. The $\nu$ value is high (meaning low dispersion). I had imagined/expected at least some over-dispersion.
+code/computation for graph 1
+posterior <- sapply(seq(1,5,0.1), function(x) {
+integrate(function(p) dbeta(p,x,x)*p^50,0,1)[1]$value/
+integrate(function(p) dbeta(p,x,x)*p^15,0,1)[1]$value
+}
+)
+prior <- sapply(seq(1,5,0.1), function(x) {
+integrate(function(p) dbeta(p,x,x)*p^35,0,1)[1]$value
+}
+)
+layout(t(c(1,2)))
+plot(  seq(1,5,0.1), posterior,
+ylim = c(0,0.32),
+xlab = expression(paste(alpha, " and ", beta ," values for prior beta-distribution")),
+ylab = "P(win another 35| after already 15)"
+)
+title("posterior probability assuming beta-distribution")
+plot(  seq(1,5,0.1), prior,
+ylim = c(0,0.32),
+xlab = expression(paste(alpha, " and ", beta ," values for prior beta-distribution")),
+ylab = "P(win 35)"
+)
+title("prior probability assuming beta-distribution")
+code/computation for graph 2
+library("shape")
+# probability that you win and opponent has kl points
+Pwl <- function(a,b,kl,kw=21) {
+kt <- kl+kw-1
+Pwl <- choose(kt,kw-1) * beta(kw+a,kl+b)/beta(a,b)
+Pwl
+}
+# probability to end in the 20-20 score
+Pww <- function(a,b,kl=20,kw=20) {
+kt <- kl+kw
+Pww <- choose(kt,kw) * beta(kw+a,kl+b)/beta(a,b)
+Pww
+}
+# probability that you lin with kw points
+Plw <- function(a,b,kl=21,kw) {
+kt <- kl+kw-1
+Plw <- choose(kt,kw) * beta(kw+a,kl+b)/beta(a,b)
+Plw
+}
+# calculation of log likelihood for data consisting of 17 opponent scores and 1 tie-position
+# parametezation change from mu (mean) and nu to a and b
+loglike <- function(mu,nu) {
+a <- mu*nu
+b <- (1-mu)*nu
+scores <- c(18, 17, 11, 13, 15, 15, 16, 9, 17, 17, 13, 8, 17, 11, 17, 13, 19)
+ps <- sapply(scores, function(x) log(Pwl(a,b,x)))
+loglike <- sum(ps,log(Pww(a,b)))
+loglike
+}
+#vectors and matrices for plotting contour
+mu <- c(1:199)/200
+nu <- 2^(c(0:400)/40)
+z <- matrix(rep(0,length(nu)*length(mu)),length(mu))
+for (i in 1:length(mu)) {
+for(j in 1:length(nu)) {
+z[i,j] <- loglike(mu[i],nu[j])
+}
+}
+#plotting
+levs <- c(-900,-800,-700,-600,-500,-400,-300,-200,-100,-90,-80,-70,-60,-55,-52.5,-50,-47.5)
+# contour plot
+filled.contour(mu,log(nu),z,
+xlab="mu",ylab="log(nu)",
+#levels=c(-500,-400,-300,-200,-100,-10:-1),
+color.palette=function(n) {hsv(c(seq(0.15,0.7,length.out=n),0),
+c(seq(0.7,0.2,length.out=n),0),
+c(seq(1,0.7,length.out=n),0.9))},
+levels=levs,
+plot.axes= c({
+contour(mu,log(nu),z,add=1, levels=levs)
+title("loglikelihood for parameters mu and nu")
+axis(1)
+axis(2)
+},""),
+xlim=range(mu)+c(-0.05,0.05),
+ylim=range(log(nu))+c(-0.05,0.05)
+)
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 23, 2018 at 8:15
+answered
+Feb 21, 2018 at 13:10
+Sextus Empiricus
+95.8k
+6
+6 gold badges
+129
+129 silver badges
+347
+347 bronze badges
+$\endgroup$
+9
+3
+$\begingroup$
++1 I appreciate the new perspective.  But I would challenge the assertion that dependence among points makes it more likely the opponent will win in the next 35 games. In fact, it could go either way. A plausible mechanism for the opposite conclusion is that you are far stronger than the 58-42 edge in points would suggest, and that when called on, you can always rally to win any game even if far behind. The real problem in not assuming independence concerns how to model the non-independence.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2018-02-21 15:38:10 +00:00
+Commented
+Feb 21, 2018 at 15:38
+$\begingroup$
+@whuber, you are right. I also argue for either ways. 1) My first thoughts went into one direction the dependency would be random, e.g. people have
+uncontrolled
+ups and downs good moments and bad moments, and this I imagine will create a larger dispersion of the results pushing up the probability of the lesser player. 2) However, then I was thinking of Bayesian principles and how the 15 won games may influence the analysis (at least the question in the post is a different situation from the question in the title), and there could be possible mechanisms that benefit the stronger player.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2018-02-21 15:45:18 +00:00
+Commented
+Feb 21, 2018 at 15:45
+1
+$\begingroup$
+In the second half of my post I give just one example which argues that the probability to win should be larger than 86%. But while all this mathematics sounds very precise, in reality we are not really that sure since our models are bad (with lot's of additional, accuracy decreasing, subjective information) given this little amount of information.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2018-02-21 15:52:03 +00:00
+Commented
+Feb 21, 2018 at 15:52
+2
+$\begingroup$
+@whuber I have edited my answer. That was a good comment, and I hope it is more clear now in the answer.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2018-02-21 15:59:49 +00:00
+Commented
+Feb 21, 2018 at 15:59
+1
+$\begingroup$
+2)
+The plot is a lazy computational method to get to the optimum MLE. I just compute all possible values on a grid and see what the valeu is. If you need to be faster you can either use a computational iterative method/algorithm that seeks the optimum, or possibly there might be a direct analytical solution.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2018-02-22 17:10:10 +00:00
+Commented
+Feb 22, 2018 at 17:10
+|
+Show
+4
+more comments
+13
+$\begingroup$
+Much effort could be spent on a perfect model.  But sometimes a bad model is better.  And nothing says bad model like the central limit theorem -- everything is a normal curve.
+We'll ignore "overtime".  We'll model the sum of individual points as a normal curve.  We'll model playing 38 rounds and whomever has the most points win, instead of first to 20.  This is quite similar game wise!
+And, blindly, I'll claim we get close to the right answer.
+Let $X$ be the distribution of a point.  $X$ has value 1 when you get a point, and 0 when you don't.
+So $E(X)$ =~ $0.58$ and $Var(X)$ = $E(X)*(1-E(X))$ =~ $0.24$.
+If $X_i$ are independent points, then $\sum_{i=1}^{38}{X_i}$ is the points you get after playing 38 rounds.
+$E(\sum_{i=1}^{38}{X_i})$ = $38*E(X)$ =~ $22.04$
+$Var(\sum_{i=1}^{38}{X_i})$ = 38*Var($X$) =~ $9.12$
+and $SD(\sum_{i=1}^{38}{X_i})$ = $\sqrt{38*Var(X))}$ =~ $3.02$
+In our crude model, we lose if $\sum_{i=1}^{38}{X_i} < 19$ and win if $\sum_{i=1}^{38}{X_i} > 19$.
+$\frac{22.04-19}{3.02}$ is $1.01$ standard deviations away from the mean, which works out to a $15.62\%$ chance of failure after consulting a
+z score chart
+.
+If we compare to the more rigorous answers, this is about $1\%$ off the correct value.
+You'd generally be better off examining the reliability of the $58\%$ victory chance rather than a more rigorous model that assumes $58\%$ chance and models it perfectly.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Mar 5, 2018 at 22:21
+answered
+Feb 23, 2018 at 19:01
+Yakk
+930
+6
+6 silver badges
+10
+10 bronze badges
+$\endgroup$
+2
+1
+$\begingroup$
+@Yakk, where the heck did the 38 come from?? Also I'm pretty sure var(38*x) = 38^2 * var(X), not 38*var(X). How does your "very nice back of the envelope calculation" hold up after you correct that error?
+$\endgroup$
+use_norm_approx
+–
+use_norm_approx
+2018-02-26 02:12:07 +00:00
+Commented
+Feb 26, 2018 at 2:12
+$\begingroup$
+@use_ I am using a sloppy 38*X as "sum of 38 independent Xs", not "one X times 38".  38 comes from "whomever gets more than 19 wins first wins the game".  I could have used 39 games and first one > 19.5 instead; result would be similar.
+$\endgroup$
+Yakk
+–
+Yakk
+2018-02-26 12:13:02 +00:00
+Commented
+Feb 26, 2018 at 12:13
+Add a comment
+|
+3
+$\begingroup$
+Based on simulation, it looks like the probability of winning any given game is about 85.5%.
+The probability of winning by exactly 2 (which is how I read the title, but doesn't seem to be what you're asking) is about 10.1%.
+Run the code below.
+set.seed(328409)
+sim.game <- function(p)
+{
+x1 = 0
+x2 = 0
+while( (max(c(x1,x2)) < 21) | abs(x1-x2)<2  )
+{
+if(runif(1) < p) x1 = x1 + 1 else x2 = x2 + 1
+}
+return( c(x1,x2) )
+}
+S <- matrix(0, 1e5, 2)
+for(k in 1:1e5) S[k,] <- sim.game(0.58)
+mean( (S[,1]-S[,2]) == 2 ) #chance of winning by 2
+mean(S[,1]>S[,2]) #chance of winning
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 21, 2018 at 16:24
+within_person
+85
+8
+8 bronze badges
+$\endgroup$
+1
+1
+$\begingroup$
+This gets very close to Whuber's analytical solution:
+dbinom(20,40,0.58)*0.58^2/(1-2*0.58+2*0.58^2)+dbinom(20,39,0.58)*0.58
+giving 10.04 %
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2018-02-21 17:28:18 +00:00
+Commented
+Feb 21, 2018 at 17:28
+Add a comment
+|
+Your Answer
+Draft saved
+Draft discarded
+Sign up or
+log in
+Sign up using Google
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+By clicking “Post Your Answer”, you agree to our
+terms of service
+and acknowledge you have read our
+privacy policy
+.
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+games
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+1
+Tricky probability questions re Tenis match
+0
+Probability Winning Game
+19
+Probability of winning a competition K games best of series of N games
+8
+Competing negative binomials
+7
+Coin flips game between X and Y. Who will secure more 'Heads'?
+4
+Any tips to differentiate zero and non-zero values on a map with a continuous color scale?
+3
+Calculating Probability and Expected Rounds in a Point-Based Game with Conditional Scoring
+1
+Winning at tennis
+1
+How do I calculate the probability of winning with any result?
+1
+Match forecasting for games with multiple win conditions
+See more linked questions
+Related
+13
+If a tennis match was a single large set, how many games would give the same accuracy?
+14
+How can I predict the odds that a dodgeball team is going to win based on the winning history of its players?
+4
+How to properly develop a machine learning model for a poker game?
+2
+Calculate advantage of Serves in Table Tennis
+1
+Useful measure to quantify how competitive a sports match is
+Hot Network Questions
+Can we run out of PNR codes?
+Would the Catholic Church excommunicate parents who are otherwise faithful, over only their being credo baptists?
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+Did George Boole invent boolean algebra to explain the Trinity?
+Question 14 from section 3.6 of Topology And Groupoids
+Why is the asymptotic variance of true errors and residuals the same
+Are US passport holders required to keep passports on their person, when in Canada?
+PTIJ: Need help picking a topic for a halacha shiur
+Trying to figure out a function in set theory formally
+Is it legal for the military to send a soldier on a mission that will lead almost surely to their death?
+What is the best way for a 19th century equivalent society transport high amounts of fat on expeditions into large cave systems
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+Wake on LAN stopped working after upgrading packages
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+Python cast byte array to C void pointer
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+Can the beat frequency of two slightly different tones cause a room to resonate?
+Is "naturalism of the gaps" a fallacy acknowledged by philosophers, just like "God of the gaps" usually is?
+What becomes of seized tankers and their oil cargo?
+Select clients where they have one feature type but not another - ArcGIS Pro
+How to use -dialect sqlite -sql so empty array values aren't dropped from properties?
+Sicilian Defense Yates Variation straight up hangs a piece
+What circumstances could make kidnapping and murder of Nancy Guthrie a federal crime?
+Is "Spider-Man is a good movie" an unfalsifiable statement?
+more hot questions
+Question feed

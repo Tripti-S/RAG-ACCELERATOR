@@ -1,0 +1,16 @@
+Variance of the binomial
+
+e X: binomial with parameters n, p
+
+— number of successes in n independent trials
+
+X;=1 if ith trial is a success;
+
+. (indicator variable) ou dep endent
+X;=0 otherwise
+
+X=Xit--+Xn
+
+var(x)}s var(X,) + «e+ rVvan( Au)
+
+2m evar(X,) =fep =p) |

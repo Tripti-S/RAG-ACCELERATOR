@@ -1,0 +1,356 @@
+18.05 Problem Set 3, Spring 2022 Solutions
+Problem 1. (25: 10,5,10 pts.) Independence
+Three events 𝐴, 𝐵, and 𝐶 are pairwise independent if each pair is independent. They are
+mutually independent if they are pairwise independent and if, in addition,
+𝑃(𝐴∩𝐵 ∩𝐶) = 𝑃(𝐴)𝑃(𝐵)𝑃(𝐶). (1)
+(a) Suppose we roll two 6-sided die. Consider the events:
+𝐴 = ‘odd on die 1’ 𝐵 = ‘odd on die 2’ 𝐶 = ‘odd sum’
+Are 𝐴, 𝐵, and 𝐶 pairwise independent? Are they mutually independent?
+Solution: We have 𝑃(𝐴) = 𝑃(𝐵) = 𝑃(𝐶) = 1/2. Writing the outcome of die 1 first, we
+can easily list all outcomes in the following intersections.
+𝐴 ∩ 𝐵 = {(1, 1), (1, 3), (1, 5), (3, 1), (3, 3), (3, 5), (5, 1), (5, 3), (5, 5)}
+𝐴 ∩ 𝐶 = {(1, 2), (1, 4), (1, 6), (3, 2), (3, 4), (3, 6), (5, 2), (5, 4), (5, 6)}
+𝐵 ∩ 𝐶 = {(2, 1), (4, 1), (6, 1), (2, 3), (4, 3), (6, 3), (2, 5), (4, 5), (6, 5)}
+By counting we see
+1
+𝑃 (𝐴 ∩ 𝐵) = = 𝑃 (𝐴)𝑃 (𝐵).
+4
+Likewise,
+1 1
+𝑃(𝐴∩𝐶) = = 𝑃(𝐴)𝑃(𝐶) and 𝑃(𝐵∩𝐶) = = 𝑃(𝐵)𝑃(𝐶).
+4 4
+So, we see that 𝐴, 𝐵, and 𝐶 are pairwise independent.
+However, 𝐴∩𝐵∩𝐶 = ∅, since if we roll an odd on die 1 and an odd on die 2, then the sum
+of the two will be even. So, in this case,
+𝑃(𝐴∩𝐵 ∩𝐶) = 0 ≠ 𝑃(𝐴)𝑃(𝐵)𝑃(𝐶),
+and we conclude that 𝐴, 𝐵 and 𝐶 are not mutually independent.
+(b) Consider the Venn diagram below. 𝐴, 𝐵 and 𝐶 are the overlapping circles and the
+probabilities of each region are as marked. Does equation (1) hold. Are the events 𝐴, 𝐵, 𝐶
+mutually independent?
+𝐴 𝐵
+0.05
+0.225 0.225
+0.125
+0.1 0.1
+0.175
+𝐶
+1
+18.05 Problem Set 3, Spring 2022 Solutions 2
+Solution: We start by totaling the probabilities in the regions shown to get the following
+probabilities.
+𝑃 (𝐴) = 0.225 + 0.05 + 0.1 + 0.125 = 0.5, 𝑃 (𝐵) = 0.225 + 0.05 + 0.1 + 0.125 = 0.5
+𝑃(𝐶) = 0.175+0.1+0.1+0.125 = 0.5, 𝑃(𝐴∩𝐵) = 0.05+0.125 = 0.175
+𝑃(𝐴∩𝐶) = 0.1+0.125 = 0.225, 𝑃(𝐵∩𝐶) = 0.1+0.125 = 0.225
+𝑃(𝐴∩𝐵 ∩𝐶) = 0.125
+We see that 𝑃(𝐴)𝑃(𝐵)𝑃(𝐶) = 0.5⋅0.5⋅0.5 = 0.125 = 𝑃(𝐴∩𝐵∩𝐶). So, yes, equation (1)
+holds.
+But, 𝑃 (𝐴)𝑃 (𝐵) = 0.5⋅0.5 = 0.25 ≠ 𝑃 (𝐴∩𝐵). Since, mutual independence requires pairwise
+independence as well as the multiplication formula for all three events, we see that the three
+events are not independent. (Likewise 𝑃(𝐴)𝑃(𝐶) ≠ 𝑃(𝐴∩𝐶) and 𝑃(𝐵)𝑃(𝐶) ≠ 𝑃(𝐵∩𝐶).)
+(c) Consider a litter of 𝑛 puppies. What value(s) of 𝑛 makes the events ‘the litter has
+puppies of both sexes’ and ‘there is at most one female’ independent.
+Solution: Let 𝐴 be the event “the litter has puppies of both sexes” and 𝐵 be the event
+“there is at most one female.” In order for 𝐴 to ever be true, we first assume that 𝑛 > 1.
+Now, if we let 𝑋 be the number of female puppies then we have
+𝑃(𝐴) = 𝑃(1 ≤ 𝑋 ≤ 𝑛−1), 𝑃(𝐵) = 𝑃(𝑋 ≤ 1), 𝑃(𝐴∩𝐵) = 𝑃(𝑋 = 1)
+1 𝑛 1 𝑛
+Since 𝑋 ∼ binomial(𝑛, 1/2) we have: 𝑃(𝑋 = 0) = and 𝑃(𝑋 = 1) = ( ) = . So,
+2𝑛 1 2𝑛 2𝑛
+2
+𝑃(𝐴) = 1−𝑃(𝑋 = 0)−𝑃(𝑋 = 𝑛) = 1−
+2𝑛
+𝑛 + 1
+𝑃(𝐵) = 𝑃(𝑋 = 0)+𝑃(𝑋 = 1) =
+2𝑛
+𝑛
+𝑃(𝐴∩𝐵) = 𝑃(𝑋 = 1) = .
+2𝑛
+Since we are told that 𝐴 and 𝐵 are independent, we must have 𝑃 (𝐴)𝑃 (𝐵) = 𝑃 (𝐴 ∩ 𝐵).
+This implies
+𝑛+1 2 𝑛
+( )(1− ) =
+2𝑛 2𝑛 2𝑛
+Some algebra yields
+2 𝑛+1
+(𝑛+1)(1− ) = 𝑛 ⇔ 𝑛+1− = 𝑛 ⇔ 2𝑛−1 = 𝑛+1
+2𝑛 2𝑛−1
+Plugging small values of 𝑛 into the above equation, we find that the two events are inde-
+pendent when 𝑛 = 3.
+If 𝑛 = 1 then 𝑃(𝐴) = 0, so 𝐴 and 𝐵 are (vacuously) independent, i.e. 𝑛 = 1 is technically
+also a solution.
+Problem 2. (25: 5,5,10,5 pts.) What does the data say?
+Suppose there is an experimental medical treatment for a cancer that, if untreated, is nearly
+always fatal within 12-15 months. The doctors enroll 5000 patients in a study in which
+18.05 Problem Set 3, Spring 2022 Solutions 3
+each patient is given the treatment and followed for 5 years. Let 𝑋 be the length of time
+a random patient given the treatment survives. (If a patient is still alive at the end of the
+study, then 𝑋 = 5 for this patient.)
+As the statistician it is your job to analyze the data.
+To load the data into R you should do the following:
+1. Download the data mit18_05_s22_ps3prob2-data.r. You can find this on our course
+website on the page with R code.
+2. Put this file in your 18.05 R directory.
+3. In R studio make sure the working directory is set to your 18.05 R directory.
+4. Run the commands:
+> source('mit18_05_s22_ps3prob2-data.r')
+> x = get_prob2_data()
+The variable x should now hold an array of the 5000 data points.
+(a) Use R to compute the mean, variance and standard deviation of the data.
+(b) Use the hist command to get R to plot a frequency histogram of the data. Set the
+histogram so each bin has width 0.1 years. Print the histogram and turn it in with the pset.
+The hist() command was introduced in Studio 3. There is also a short tutorial on using
+R to plot histograms on our class R page.
+(c) Using your answers in (a) and (b), write a short paragraph summarizing the data in a
+useful way.
+(d) Based on the (c), what are your conclusions about the effectiveness of the treatment?
+What recommendations would you make for avenues of further research?
+Solution: Here is the R code for both (a) and (b).
+# 2a: Compute statistics
+source('mit18_05_s22_ps3prob2-data.r')
+years = get_prob2_data()
+m2a = mean(years)
+v2a = var(years)
+sd2a = sqrt(var(years))
+cat('2(a) mean =', m2a, ', var = ', v2a, ', std. dev =', sd2a, '\n' )
+# 2(b): Make histogram. (Export image from R Studio to save)
+hist(years, freq=T, breaks=seq(0, 5, 0.1), main= "Years of Survival", col="yellow")
+(a) The results are:
+Mean ≈ 2.554528, variance ≈ 4.3018, std. dev ≈ 2.074.
+Note: we used the R function var() to compute the variance. This uses the following
+formula for the variance of 𝑛 points of data:
+∑ 5000 (𝑥 − 𝜇)2
+𝑗=1 𝑗
+.
+4999
+We will learn the reason for dividing by 4999 = 5000−1 instead of 5000 when we do the
+18.05 Problem Set 3, Spring 2022 Solutions 4
+statistics portion of the class. In this case, there is very little difference between dividing
+by 5000 or 4999.
+(b) Here is the histogram produced by the abouve code
+Years of Survival
+years
+ycneuqerF
+0 1 2 3 4 5
+0001
+006
+002
+0
+(c) Looking at the distribution we see it is bimodal with a spike at 5 years. About half
+the patients die in the first year but about half live more than 2.5 years with over 20% still
+alive after 5 years. The spike is because everyone who survives to 5 years is lumped into
+that category. The average of 2.5 years is not that meaningful because there seem to be
+two categories of patients. This is reflected in the large standard deviation.
+(d) The fact that the disease is almost always fatal in 12-15 months gives us an implicit
+control group. So, the treatment appears to be effective for about half the patients. More
+research would be needed to understand what characteristics of the disease or patients
+predict the treatment will be effective.
+Problem 3. (30: 10,10,10 pts.) Dice
+Let 𝑋 be the result of rolling a fair 4-sided die. Let 𝑌 be the result of rolling a fair 6-sided
+die. Let 𝑍 be the average of 𝑋 and 𝑌 .
+(a) Find the standard deviation of 𝑋, of 𝑌 , and of 𝑍.
+Solution: We compute Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 etc. from the tables.
+𝑋 1 2 3 4 𝑌 1 2 3 4 5 6
+𝑝(𝑥) 1/4 1/4 1/4 1/4 𝑝(𝑦) 1/6 1/6 1/6 1/6 1/6 1/6
+𝑋2 1 4 9 16 𝑌 2 1 4 9 16 25 36
+So, 𝐸[𝑋] = 1(1+2+3+4) = 5, 𝐸[𝑋2] = 1(1+4+9+16) = 15. Thus,
+4 2 4 2
+Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 = 5/4.
+Similarly, 𝐸[𝑌 ] = 7, 𝐸[𝑌 2] = 91 . So, Var(𝑌) = 35.
+2 6 12
+Since 𝑋 and 𝑌 are independent,
+𝑋+𝑌 1 25
+Var(𝑍) = Var ( ) = (Var(𝑋) + Var(𝑌)) = .
+2 4 24
+Taking the square root of the variances we get:
+√
+𝜎 = 5/2 ≈ 1.118 𝜎 = √35/12 ≈ 1.708 𝜎 = √25/24 ≈ 1.021
+𝑋 𝑌 𝑍
+18.05 Problem Set 3, Spring 2022 Solutions 5
+(b) Carefully graph the pmf and cdf of 𝑍.
+Solution: To compute the pmf of 𝑍 we need all the ways 𝑋 and 𝑌 can be averaged.
+𝑍 = 1 ⟷ (𝑋,𝑌) = {(1,1)}
+𝑍 = 3/2 ⟷ (𝑋,𝑌) = {(1,2), (2,1)}
+𝑍 = 2 ⟷ (𝑋,𝑌) = {(1,3), (2,2), (3,1)}
+𝑍 = 5/2 ⟷ (𝑋, 𝑌 ) = {(1, 4), (2, 3), (3, 2), (4, 1)}
+𝑍 = 3 ⟷ (𝑋,𝑌) = {(1,5), (2,4), (3,3), (4,2)}
+𝑍 = 7/2 ⟷ (𝑋, 𝑌 ) = {(1, 6), (2, 5), (3, 4), (4, 3)}
+𝑍 = 4 ⟷ (𝑋,𝑌) = {(2,6), (3,5), (4,4)}
+𝑍 = 9/2 ⟷ (𝑋,𝑌) = {(3,6), (4,5)}
+𝑍 = 5 ⟷ (𝑋,𝑌) = {(4,6)}
+Since each (𝑋,𝑌 ) pair has probability 1/24, the pmf and cdf of 𝑍 are
+𝑍 1 3/2 2 5/2 3 7/2 4 9/2 5
+𝑝(𝑧) 1/24 2/24 3/24 4/24 4/24 4/24 3/24 2/24 1/24
+𝐹 (𝑧) 1/24 3/24 6/24 10/24 14/24 18/24 21/24 23/24 24/24
+𝑍
+We graph the pmf of 𝑍 as point plot and then as a density histogram. The cdf is a staircase
+graph.
+1 2 3 4 5
+61.0
+21.0
+80.0
+40.0
+z
+ytilibaborp
+1
+0.8
+0.6
+0.4
+0.2
+0
+0 2 4 6 8 10 12
+)z
+=<
+Z(P
+z
+(c) Here is a gambling game: You win 2𝑋 dollars if 𝑋 > 𝑌 and lose 1 dollar otherwise. After
+playing this game 60 times, what is your expected total gain (positive) or loss (negative)?
+Solution: We see that the only pairs of (𝑋, 𝑌 ) which satisfy 𝑋 > 𝑌 are {(2, 1), (3, 1), (3, 2), (4, 1), (4, 2), (4, 3)} .
+So 𝑃(𝑋 > 𝑌) = 6 . Let 𝑊 be the amount won in one gaime. Again, since each (𝑋,𝑌 ) pair
+24
+has probability 1/24, 𝑊 has the probability table
+𝑊 4 6 8 -1
+𝑝(𝑤) 1/24 2/24 3/24 18/24
+1 2 3 18 22 11
+So 𝐸[𝑊] = 4⋅ +6 ⋅ +8 ⋅ −1 ⋅ = =
+24 24 24 24 24 12
+Now if you played the game 60 times, and received winnings 𝑊 , … , 𝑊 , (with 𝐸[𝑊 ] = 11),
+1 60 𝑖 12
+your expected total gain is
+11
+𝐸[𝑊 + ⋯ + 𝑊 ] = 𝐸[𝑊 ] + ⋯ + 𝐸[𝑊 ] = 60 ⋅ = 55.
+1 60 1 60 12
+18.05 Problem Set 3, Spring 2022 Solutions 6
+Problem 4. (20: 5,5,5,5 pts.) Two scoops
+Boxes of Raisin Bran cereal are 30cm tall. Due to settling, boxes have a higher density of
+raisins at the bottom (ℎ = 0) than at the top (ℎ = 30). Suppose the density (in raisins per
+cm of height) is given by 𝑓(ℎ) = 40−ℎ.
+(a) How many raisins are in a box?
+Solution: The number of raisins is
+30 30
+∫ 𝑓(ℎ)𝑑ℎ = ∫ (40 − ℎ)𝑑ℎ = 750
+0 0
+(b) Let 𝐻 be the height of a random raisin. Find and graph the pdf 𝑔(ℎ) of 𝐻.
+Solution: The probability density is just the actual density divided by the total number
+of raisins. 𝑔(ℎ) = 1 (40 − ℎ).
+750
+(c) Find and graph the cdf 𝐺(ℎ) of 𝐻.
+ℎ 40ℎ ℎ2
+Solution: For 0 ≤ ℎ ≤ 30 we have 𝐺(ℎ) = ∫ 𝑔(𝑥) 𝑑𝑥 = − .
+750 1500
+0
+PDF
+h
+g
+0 5 10 15 20 25 30
+60.0
+40.0
+20.0
+00.0
+CDF: G(h) vs h
+h
+G
+0 5 10 15 20 25 30
+0.1
+8.0
+6.0
+4.0
+2.0
+0.0
+The R code for these plots is posted in mit18_05_s22_ps3_sol.r
+(d) What is the probability that a random raisin is in the bottom third of the box?
+Solution: Since the height is 30 we need to find 𝑃 (𝐻 ≤ 10).
+10 1 10 7 400 100 7
+𝑃 (𝐻 ≤ 10) = ∫ 𝑔(ℎ)𝑑ℎ = ∫ (40 − ℎ)𝑑ℎ = . Or, 𝑃(𝐻 ≤ 10) = 𝐺(10) = − = .
+750 15 750 1500 15
+0 0
+Problem 5. (20: 5,5,10 pts.) Gallery of continuous random variables.
+The pnorm() function on R gives the cdf of the normal distribution, e,g, if 𝑋 ∼ N(𝜇, 𝜎2)
+then pnorm(𝑥, 𝜇, 𝜎) = 𝑃 (𝑋 ≤ 𝑥) = 𝐹 (𝑥).
+𝑋
+(a) Suppose 𝑍 is a standard normal random variable. Use R to compute
+(i) 𝑃(𝑍 ≤ 0), (ii) 𝑃 (𝑍 > 1.5) (iii) 𝑃(|𝑍| < 1.5).
+Solution: (i) You don’t need R for this: 𝑃(𝑍 ≤ 0) = 0.5.
+18.05 Problem Set 3, Spring 2022 Solutions 7
+(ii) 𝑃(𝑍 > 1.5) = 1 - pnorm(1.5) = 0.0668072.
+(iii) 𝑃(|𝑍| ≤ 1.5) = pnorm(1.5) - pnorm(-1.5) = 0.8663856.
+(b) Let 𝑋 ∼ N(𝜇, 𝜎2) where 𝜇 = 2 and 𝜎 = 3. Use R to compute
+(i) 𝑃(𝑋 ≤ 𝜇), (ii) 𝑃 (𝑋 − 𝜇 > 1.5𝜎) (iii) 𝑃 (|𝑋 − 𝜇| < 1.5𝜎).
+Solution: The trick you were supposed to notice is that these answers are identical to the
+ones in part (a). This is because 𝑍 = (𝑋 − 𝜇)/𝜎 is standard normal. In the R code below
+mu = 2, sigma = 3
+(i) 𝑃(𝑋 ≤ 𝜇) = pnorm(mu, mu, sigma) = 0.5.
+(ii) 𝑃(𝑋−𝜇 > 1.5∗𝜎) = 𝑃(𝑋 > 𝜇+1.5∗𝜎) = 1 - pnorm(mu + 1.5*sigma, mu, sigma)
+= 0.0668072.
+(iii) 𝑃(|𝑋−𝜇| < 1.5∗𝜎) = 𝑃(𝑋 < 𝜇+1.5∗𝜎)−𝑃(𝑋 < 𝜇−1.5𝜎) = pnorm(mu + 1.5*sigma,
+mu, sigma) - pnorm(mu - 1.5*sigma, mu, sigma) = 0.8663856.
+(c) Let 𝑌 ∼ exp(𝜆). Compute the cdf of 𝑌 by integrating the pdf. What is the probability
+𝑌 ≤ 1/𝜆? (You need to do an integration, but you can check your work numerically using
+the pexp() function in R.)
+Solution: The pdf is 𝑓 (𝑦) = 𝜆e−𝜆𝑦. The range of 𝑌 starts at 0. We compute the cdf by
+𝑌
+integration
+𝑎
+𝐹 (𝑎) = 𝑃(𝑌 ≤ 𝑎) = ∫ 𝜆e−𝜆𝑦 𝑑𝑦 = 1 − e−𝜆𝑎.
+𝑌
+0
+We use this to compute the probability asked for:
+𝑃 (𝑌 ≤ 1/𝜆) = 𝐹 (1/𝜆) = 1 − e−1 ≈ 0.6321206.
+𝑌
+Problem 6. (20: 5,5,5,5 pts.) Birth day
+The length of human gestation is well-approximated by a normal distribution with mean
+𝜇 = 280 days and standard deviation 𝜎 = 8.5 days.
+(a) Graph the corresponding pdf and cdf. You should do this using the dnorm, pnorm and
+plot commands in R. Print the results and turn them in with the pset.
+Solution: Suppose 𝑌 ∼ 𝑁(280,8.5). The pdf, 𝑓(𝑦) and cdf 𝐹 (𝑦) are plotted below.
+PDF: f(x) vs. x
+x
+f
+250 260 270 280 290 300
+40.0
+20.0
+00.0
+CDF: F(x) vs x
+x
+F
+250 260 270 280 290 300
+0.1
+8.0
+6.0
+4.0
+2.0
+0.0
+(b) Suppose your final exam is scheduled for May 18 and your pregnant professor has a due
+date of May 25. Find the probability she will give birth on or before the day of the final.
+18.05 Problem Set 3, Spring 2022 Solutions 8
+Solution: There is some ambiguity here depending on the exact time of day of the due
+date. In order to get whole numbers, we’ll assume the due date is at the same hour on the
+25th as the final is on the 18th. So the final is exactly 7 days before the due date. (We’ll
+accept any number between 6 and 8.)
+Let 𝑋 be the number of days before or after May 25 that the baby is born. We want the
+probability 𝑋 ≤ −7 We know 𝑋 ∼ 𝑁(0,8.5).
+𝑃(𝑋 ≤ −7) = pnorm(-7, 0, 8.5) = 0.205
+(Or we could have computed 𝑃(𝑋 ≤ −7) = 𝑃(𝑍 ≤ − 7 ) = pnorm(-7/8.5, 0, 1) ≈
+8.5
+0.205., where 𝑍 is standard normal.)
+(c) Find the probability she will give birth in May sometime after the exam. (Assume this
+means from the start of May 19 to the end of May 31.)
+Solution: We want the probability that the baby is born between May 19 (𝑋 = −6) and
+May 31 (𝑋 = 6). We compute
+6 6
+𝑃(−6 ≤ 𝑋 ≤ 6) = 𝑃 (− ≤ 𝑍 ≤ ) ≈ 0.520
+8.5 8.5
+Again there is some ambiguity about the range. We’ll accept any reasonable choice.
+(d) The professor decides to move up the exam date so there will be a 95% probability that
+she will give birth afterward. What date should she pick?
+Solution: We want to find 𝑥 such that 𝑃 (𝑋 ≥ 𝑥) = 0.95. That is, we want
+𝑥
+𝑃 (𝑍 ≥ ) = 0.95.
+8.5
+This says that 𝑥/8.5 must be the 0.05 quantile for 𝑍.
+Using R: x = 8.5*qnorm(0.05), we find 𝑥 ≈ −14 (May 11).
+Note: we could have skipped standardizing and computed this with qnorm(0.05, 0, 8.5)
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

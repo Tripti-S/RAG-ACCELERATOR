@@ -1,0 +1,10 @@
+Probability density functions (PDFs)
+PDF fy(z)
+
+P(a< X <b) —_
+a 4 x
+
+b
+P(a< X <a+6) & fx(a)-6 P(a<X<b)= | fx()de
+
+fx(x) >0

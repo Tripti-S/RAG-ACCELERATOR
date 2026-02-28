@@ -1,0 +1,150 @@
+# Mit18 05 S22 Class26 Pset Sol
+
+---
+
+Class 26 in-class problems, 18.05, Spring 2022
+Board questions
+Problem 1. Make it fit
+We are given bivariate data: (1, 3), (2, 1), (4, 4).
+(a) Do (simple) linear regression to find the best fitting line.
+(i) Give the model for simple linear regression.
+(ii) Write down the formula for the total squared error.
+(iii) Use calculus to find the parameters that minimize the total squared error.
+(b) Do linear regression to find the best fitting parabola. (Really just set this up and get as
+far as needing to solve equations to find the coeﬀicients.)
+(c) Find the best fitting exponential 𝑦 = e𝑎𝑥+𝑏. (As before, set up the equations but don’t
+solve them.)
+Hint: take ln(𝑦) and do simple linear regression.
+(d) For data (𝑥 , 𝑦 ), … , (𝑥 , 𝑦 ). Set up the linear regression to find the best fitting cubic.
+1 1 𝑛 𝑛
+Don’t try to take derivatives or actually find the formulas for the coeﬀicients.
+(a) Solution: Model 𝑦 = 𝑎𝑥 + 𝑏 + 𝑒 , where 𝑎, 𝑏 are constants and 𝑒 is random error.
+𝑖 𝑖 𝑖 𝑖
+We then have the prediction 𝑦̂ = 𝑎𝑥 + 𝑏.
+𝑖 𝑖
+Total squared error = 𝑇 = ∑(𝑦 − 𝑦̂ )2
+𝑖 𝑖
+= ∑(𝑦 − 𝑎𝑥 − 𝑏)2
+𝑖 𝑖
+= (3−𝑎−𝑏)2 +(1−2𝑎−𝑏)2 +(4−4𝑎−𝑏)2
+Take the partial derivatives and set to 0:
+𝜕𝑇
+= −2(3−𝑎−𝑏)−4(1−2𝑎−𝑏)−8(4−4𝑎−𝑏) = 0
+𝜕𝑎
+𝜕𝑇
+= −2(3−𝑎−𝑏)−2(1−2𝑎−𝑏)−2(4−4𝑎−𝑏) = 0
+𝜕𝑏
+A little arithmetic gives the system of simultaneous linear equations and solution:
+21𝑎 +7𝑏 = 21
+7𝑎 +3𝑏 = 8
+Solving, we find 𝑎 = 1/2, 𝑏 = 3/2.
+1 3
+So, the least squares best fitting line is 𝑦 = 𝑥+ .
+2 2
+(b) Solution: Model 𝑦 = 𝑎𝑥2+ 𝑏𝑥 + 𝑐 + 𝑒 , where 𝑎, 𝑏, 𝑐 are constants and 𝑒 is random
+𝑖 𝑖 𝑖 𝑖 𝑖
+error. So, our prediction is 𝑦̂ = 𝑎𝑥2+ 𝑏𝑥 + 𝑐.
+𝑖 𝑖 𝑖
+Total squared error:
+𝑇 = ∑(𝑦 − 𝑦̂ )2
+𝑖 𝑖
+= ∑(𝑦 − 𝑎𝑥2− 𝑏𝑥 − 𝑐)2
+𝑖 𝑖 𝑖
+= (3−𝑎−𝑏 −𝑐)2 +(1−4𝑎−2𝑏 −𝑐)2 +(4−16𝑎−4𝑏−𝑐)2
+1
+18.05 class 26 problems, Spring 2022 2
+We didn’t really expect people to carry this all the way out by hand. If you did you would
+have found that taking the partial derivatives and setting them equal to 0 gives
+𝜕𝑇
+= −2(3−𝑎−𝑏 −𝑐)−8(1−4𝑎−2𝑏 −𝑐)−32(4−16𝑎−4𝑏 −𝑐) = 0
+𝜕𝑎
+𝜕𝑇
+= −2(3−𝑎−𝑏 −𝑐)−4(1−4𝑎−2𝑏 −𝑐)−8(4−16𝑎−4𝑏−𝑐) = 0
+𝜕𝑏
+𝜕𝑇
+= −2(3−𝑎−𝑏 −𝑐)−2(2−4𝑎−2𝑏 −𝑐)−2(4−16𝑎−4𝑏−𝑐) = 0
+𝜕𝑐
+We didn’t really expect people to go beyond this. If you did: cleaning up the equations
+gives
+273𝑎 +73𝑏 +21𝑐 = 71
+73𝑎 +21𝑏 +7𝑐 = 21
+21𝑎 +7𝑏 +3𝑐 = 8
+Solving gives, 𝑎 = 1.1667, 𝑏 = −5.5, 𝑐 = 7.3333.
+The least squares best fitting parabola is 𝑦 = 1.1667𝑥2 − 5.5𝑥 + 7.3333.
+(c) Model ln(𝑦 ) = 𝑎𝑥 + 𝑏 + 𝑒 , where 𝑎, 𝑏 are constants and 𝑒 is random error. So, our
+𝑖 𝑖 𝑖 𝑖
+prediction is 𝑦̂ = e𝑎𝑥 𝑖 +𝑏 .
+𝑖
+Total squared error:
+𝑇 = ∑(ln(𝑦 ) − ln(𝑦̂ ))2
+𝑖 𝑖
+= ∑(ln(𝑦 ) − 𝑎𝑥 − 𝑏)2
+𝑖 𝑖
+= (ln(3)−𝑎−𝑏)2 +(ln(1)−2𝑎−𝑏)2 +(ln(4) − 4𝑎 − 𝑏)2
+Now we can find 𝑎 and 𝑏 as before. (Using R: 𝑎 = 0.18, 𝑏 = 0.41)
+(d) Model 𝑦 = 𝑎𝑥 𝑖3 + 𝑏𝑥2+ 𝑐𝑥 + 𝑑 + 𝑒 , where 𝑎, 𝑏, 𝑐, 𝑑 are constants and 𝑒 is random
+𝑖 𝑖 𝑖 𝑖 𝑖 𝑖
+error. So, our prediction is 𝑦̂ = 𝑎𝑥3+ 𝑏𝑥2+ 𝑐𝑥 + 𝑑.
+𝑖 𝑖 𝑖 𝑖
+Total squared error:
+𝑇 = ∑(𝑦 − 𝑦̂ )2
+𝑖 𝑖
+= ∑(𝑦 − 𝑎𝑥3− 𝑏𝑥2− 𝑐𝑥 − 𝑑)2
+𝑖 𝑖 𝑖 𝑖
+Now we could set the partial derivatives to 0 and solve for 𝑎, 𝑏, 𝑐, 𝑑.
+Problem 2. Using the formulas plus some theory
+Bivariate data: (1, 3), (2, 1), (4, 4)
+(a) Calculate the sample means for 𝑥 and 𝑦.
+(b) Use the formulas to find a best-fit line in the 𝑥𝑦-plane.
+𝑠
+𝑎̂= 𝑥𝑦 𝑏̂ = 𝑦− 𝑎𝑥̂
+𝑠
+𝑥𝑥
+1 1
+𝑠 = ∑(𝑥 − 𝑥)(𝑦 − 𝑦) 𝑠 = ∑(𝑥 − 𝑥)2.
+𝑥𝑦 𝑛 − 1 𝑖 𝑖 𝑥𝑥 𝑛 − 1 𝑖
+18.05 class 26 problems, Spring 2022 3
+(c) Show the point (𝑥, 𝑦) is always on the fitted line.
+(d) (For fun later!) Under the assumption 𝐸 ∼ N(0, 𝜎2) show that the least squares method
+𝑖
+is equivalent to finding the MLE for the parameters (𝑎, 𝑏).
+Hint: 𝑓(𝑦 |𝑥 ,𝑎,𝑏) ∼ N(𝑎𝑥 + 𝑏, 𝜎2).
+𝑖 𝑖 𝑖
+(a) Solution: 𝑥̄ = 7/3, 𝑦̄ = 8/3.
+(b) 𝑠 = 7/3, 𝑠 = 7/6. So,
+𝑥𝑥 𝑥𝑦
+𝑠
+𝑎̂= 𝑥𝑦 = 1/2, 𝑏̂ = 𝑦̄ −𝑎𝑥̂ ̄= 3/2.
+𝑠
+𝑥𝑥
+(The same answer as in the previous problem.)
+(c) Solution: The formula 𝑏̂ = 𝑦 ̄− 𝑎𝑥̂ ̄ can be changed to 𝑦̄ = 𝑎𝑥̂ ̄+ 𝑏̂. That is, the point
+(𝑥,̄ 𝑦)̄ is on the line 𝑦 = 𝑎𝑥̂ + 𝑏̂
+(d) Solution: Our model is 𝑦 = 𝑎𝑥 + 𝑏 + 𝐸 , where the 𝐸 are independent. Since
+𝑖 𝑖 𝑖 𝑖
+𝐸 ∼ N(0, 𝜎2) this becomes
+𝑖
+𝑦 ∼ N(𝑎𝑥 + 𝑏, 𝜎2)
+𝑖 𝑖
+Therefore the likelihood of 𝑦 given 𝑥 , 𝑎 and 𝑏 is
+𝑖 𝑖
+𝑓(𝑦 𝑖 | 𝑥 𝑖 ,𝑎,𝑏) = √ 1 e− (𝑦𝑖− 2 𝑎 𝜎 𝑥 2 𝑖−𝑏)2
+2𝜋𝜎
+Since the data 𝑦 are independent the likelihood function is just the product of the expression
+𝑖
+above, i.e. we have to sum exponents
+likelihood = 𝑓(𝑦 1 ,…,𝑦 𝑛 |𝑥 1 ,…,𝑥 𝑛 ,𝑎,𝑏) = e − ∑𝑛 𝑖=1(𝑦 2 𝑖 𝜎 − 2 𝑎𝑥𝑖−𝑏)2
+Since the exponent is negative, the maximum likelihood will happen when the exponent is
+as close to 0 as possible. That is, when the sum
+𝑛
+∑(𝑦 − 𝑎𝑥 − 𝑏)2
+𝑖 𝑖
+𝑖=1
+is as small as possible. This is exactly what we were asked to show.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

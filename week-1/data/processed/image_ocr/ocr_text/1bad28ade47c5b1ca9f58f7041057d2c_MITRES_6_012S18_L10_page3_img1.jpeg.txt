@@ -1,0 +1,19 @@
+Comments on conditional PDFs
+
+fxy(z,y)
+
+~ fy(y) e fxjy(ely) 20
+
+fxyy(@|y)=
+
+e Think of value of Y as fixed at some y
+shape of fxiy¢ ly): slice of the joint
+
+oa f © fxsv (ay) de
+7 [fx @ |v) de = =2 ST 1
+
+e Multiplication rule:
+fxy(a,y) = fyy): fxjy(e1y)
+
+= fx(2)- fy;x(y| 2)
+

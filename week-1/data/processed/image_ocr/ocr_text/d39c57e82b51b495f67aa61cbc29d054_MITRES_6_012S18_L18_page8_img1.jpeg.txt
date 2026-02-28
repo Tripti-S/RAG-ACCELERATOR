@@ -1,0 +1,12 @@
+The pollster’s problem
+
+e p: fraction of population that will vote “yes” in a referendum
+
+ith (randomly selected) person polled: X;= ‘0 yes,
+, if no.
+
+Mn = (X14 +++ + Xn)/n: fraction of “yes” in our sample
+
+Would like “small error,” e.g.:  |Mn-—p| < 0.01 e Try n= 10,000
+
+P(|M1o,000 — p| > 0.01) <

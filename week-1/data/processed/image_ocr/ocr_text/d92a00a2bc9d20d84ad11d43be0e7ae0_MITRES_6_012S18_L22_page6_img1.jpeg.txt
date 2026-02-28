@@ -1,0 +1,12 @@
+Example
+
+You get email according to a Poisson process, E[N;] = Ar
+at a rate of X= 5 messages per hour.
+
+var(N;) = Ar
+
+Mean and variance of mails received during a day =
+
+P(one new message in the next hour) =
+
+e P(exactly two messages during each of the next three hours) =

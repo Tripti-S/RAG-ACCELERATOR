@@ -1,0 +1,88 @@
+# C7Dc83047C64E39Ee757Fb2980B7Cb64 X-Krlprdroi
+
+---
+
+MITOCW | MITRES6_012S18_L11-09_300k
+In all of the examples that we have seen so far, we have calculated the distribution of a random variable, Y, which
+is defined as a function of another random variable, X.
+What about the case where we define a random variable, Z, as a function of multiple random variables?
+For example, here is the function of two random variables.
+How can we find a distribution of Z?
+The general methodology is exactly the same.
+We somehow calculate the CDF of the random variable Z and then differentiate to find its PDF.
+Let us illustrate this methodology with a simple example.
+So suppose that X and Y are independent random variables and each one of them is uniform on the unit interval.
+So their joint distribution is going to be a uniform PDF on the unit square.
+We're interested in the random variable, which is defined as the ratio of Y divided by X.
+So we will now calculate the CDF of Z and then differentiate.
+It is useful to work in terms of a diagram.
+This is essentially our sample space, the unit square.
+The PDF of X is 1 on the unit interval.
+The PDF of Y is 1 on the unit interval.
+Because of independence, the joint PDF is the product of their individual PDFs.
+So the joint PDF is equal to 1 throughout this unit square.
+So now let us write an expression for the CDF of Z, which, by definition, is the probability that the random variable
+Z, which in our case is Y divided by X, is less than or equal than a certain number, little z.
+What is the probability of this event?
+Let us consider a few different cases.
+Suppose that z is negative.
+What is the probability that this ratio is negative?
+Well, since X and Y are non-negative numbers, there's no way that the ratio is going to be negative.
+So if little z is a negative number, the probability of this event is going to be equal to 0.
+This is the easier case.
+Now suppose that z is a positive number.
+Let us draw a line that has a slope of little z.
+y/z being less than or equal to little z is the same as saying that y is less than or equal to little z times x.
+This is the line on which y is equal to z times x.
+So below that line, y is going to be less than or equal to z times x.
+So the event of interest is actually this triangle here.
+And the probability of this event, since we're dealing with a uniform distribution on the unit square, is just the area
+of this triangle.
+Now, since this line rises at slope z, this point here, this intercept is at z.
+And so the sides of the triangle are 1 and z.
+And so this formula here gives us the value of the CDF for the case where little z is positive.
+And the same formula would also be true if z also were equal to 0, in which case, we get 0 probability.
+But is this correct for all positive z's?
+Well, not really.
+This calculation was based on this picture.
+And in this picture, this line intercepted this side of the unit square.
+And for that to happen, this slope must be less than or equal to 1.
+So this formula is only correct in the case where we have a slope of less than or equal to 1.
+And now we need to deal with the remaining case in which little z is strictly larger than 1.
+In this case, we get a somewhat different picture.
+If we draw a line with slope, again, little z, because little z is bigger than 1, it's going to intercept this side of the
+rectangle.
+Now, the event that Y/X is less than or equal to little z is, again, the event that the pair, X, Y, lies below this line
+that has a slope of z.
+So all we need is to find the area of this region.
+One way of finding the area of this region is to take the area of the entire unit square, which is equal to 1, and
+subtract the area of this triangle.
+What is the area of this triangle?
+Well, since this line has a slope of z, in order for it to rise to a value of 1, x must be equal to 1 over little z.
+Therefore, this side of the triangle is 1/z.
+And therefore, the area of the triangle is 1/2 times 1/z, which is this expression here.
+And so we have found the value of the CDF for all possible choices of little z.
+We can draw the CDF.
+And the picture is as follows.
+For z negative, the CDF is equal to 0.
+For z between 0 and 1, the CDF rises linearly at a slope of 1/2.
+And so when z is equal to 1, the CDF has risen to a value of 1/2.
+And then as z goes to infinity, this term disappears and the CDF will converge to 1.
+So it converges to 1 monotonically but in a non-linear fashion.
+So we get a picture of this type.
+The next step, the final step, is to differentiate the CDF and obtain the PDF.
+In this region, the CDF is constant, so its derivative is going to be equal to 0.
+In this region, the CDF is linear, so its derivative is equal to this factor of 1/2.
+So the CDF is equal to 1/2 for z's between 0 and 1.
+And finally, in this region, this is the formula for the CDF.
+When we take the derivative, we get the expression 1 over 2z squared, which is a function that decreases as z
+goes to infinity.
+So it has a shape like this one.
+So we have completed the solution to this problem.
+We found the CDF, and we found the corresponding PDF.
+This methodology works more generally for more complicated functions of X and Y and for more complicated
+distributions for X and Y. Of course, when the functions or the distributions are more complicated, the calculus
+involved and the geometry may require a lot more work.
+But conceptually, the methodology is exactly the same.
+
+---

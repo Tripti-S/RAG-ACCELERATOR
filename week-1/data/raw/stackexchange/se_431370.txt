@@ -1,0 +1,467 @@
+probability - Is there a name for the phenomenon of false positives counterintuitively outstripping true positives - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Is there a name for the phenomenon of false positives counterintuitively outstripping true positives
+Ask Question
+Asked
+6 years, 4 months ago
+Modified
+6 years, 2 months ago
+Viewed
+14k times
+80
+$\begingroup$
+It seems very counter intuitive to many people that a given diagnostic test with very high accuracy (say 99%) can generate massively more false positives than true positives in some situations, namely where the population of true positives is very small compared to whole population.
+I see people making this mistake often e.g. when arguing for wider public health screenings, or wider anti-crime surveillance measures etc but I am at a loss for how to succinctly describe the mistake people are making.
+Does this phenomenon / statistical fallacy have a name? Failing that has anyone got a good, terse, jargon free intuition/example that would help me explain it to a lay person.
+Apologies if this is the wrong forum to ask this. If so please direct me to a more appropriate one.
+probability
+terminology
+intuition
+Share
+Cite
+Improve this question
+Follow
+edited
+Nov 28, 2019 at 1:44
+kjetil b halvorsen
+♦
+86k
+32
+32 gold badges
+217
+217 silver badges
+699
+699 bronze badges
+asked
+Oct 14, 2019 at 11:29
+Roger Heathcote
+903
+1
+1 gold badge
+6
+6 silver badges
+6
+6 bronze badges
+$\endgroup$
+9
+1
+$\begingroup$
+as a quick comment, one would say that the scenario has poor "positive predictive value" which might be another avenue to consider exploring in thinking how to explain.
+$\endgroup$
+James Stanley
+–
+James Stanley
+2019-10-15 04:15:12 +00:00
+Commented
+Oct 15, 2019 at 4:15
+6
+$\begingroup$
+The current answer gives you the term, but you also asked for an example that could help to explain this to a layman: Consider a disease that affects 1 in 1000 people. When doing a test with an accuracy of 99% on 1000 people, then 10 people are classified incorrectly. So 1 person might be a true positive, but still, there may be 9 false positives. In general, 'accuracy' (as a measure) only makes sense for
+balanced
+distributions. Otherwise, 'informedness' may be a better measure. See
+en.wikipedia.org/wiki/Confusion_matrix#Table_of_confusion
+for more examples.
+$\endgroup$
+Marco13
+–
+Marco13
+2019-10-16 12:25:00 +00:00
+Commented
+Oct 16, 2019 at 12:25
+1
+$\begingroup$
+@pygosceles Yes. Many, if not most, people have the intuition that a test that's 99% accurate implies a false positive rate of 1% regardless of the number of  true positives in the population and the population size. It is counter-intuitive to many people that a highly accurate test can give you way more false positives than true positives in some circumstances.
+$\endgroup$
+Roger Heathcote
+–
+Roger Heathcote
+2019-10-17 11:02:47 +00:00
+Commented
+Oct 17, 2019 at 11:02
+1
+$\begingroup$
+See also:
+Prosecutor’s fallacy
+, which is a consequence of this.
+$\endgroup$
+Konrad Rudolph
+–
+Konrad Rudolph
+2019-10-30 11:28:10 +00:00
+Commented
+Oct 30, 2019 at 11:28
+3
+$\begingroup$
+Use a test for vampires as an analogy. If you had a test that correctly determines if someone is a vampire or not that's 99% accurate,
+every
+positive is a false positive. This analogy doubles as a pretty accurate test for people who believe in vampires.
+$\endgroup$
+kevbonham
+–
+kevbonham
+2019-10-31 20:12:39 +00:00
+Commented
+Oct 31, 2019 at 20:12
+|
+Show
+4
+more comments
+8 Answers
+8
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+104
+$\begingroup$
+Yes there is. Generally it is termed
+base rate fallacy
+or more specific
+false positive paradox
+. There is even a wikipedia article about it:
+see here
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 14, 2019 at 14:29
+Mr Pi
+1,407
+1
+1 gold badge
+9
+9 silver badges
+15
+15 bronze badges
+$\endgroup$
+Add a comment
+|
+17
+$\begingroup$
+Unfortunately I have no name for this fallacy. When I need to explain this I have found it usefull to refer to diseases that are commonly known amongst laypersons but are ridiculously rare.
+I live in Germany and whilst everyone has read about the plague in their history books, everyone knows that as a German doctor I will never diagnose a true plague case nor take care of a shark bite.
+When you tell people, that there is a test for shark bites that is positive in one of a hundred healthy people everyone will agree, that that test does not make sense, no matter how well its positive predictive value is.
+Depending on where in the world you are and who your audience is, possible examples may be the plague, mad cow disease (BSE), progeria, being struck by lightning. There are many known risks, that people are well aware of their risk being far less then 1 %.
+Edit/Addition:
+So far this has attracted 3 downvotes and no comments. Defending myself against the most likely objection: The original poster wrote
+Failing that has anyone got a good, terse, jargon free intuition/example that would help me explain it to a lay person
+And I think that I did exactly that. Mr Pi posted his better answer later than I posted my lay person explanation and I upvoted his as soon as I saw it.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 17, 2019 at 12:33
+answered
+Oct 14, 2019 at 13:38
+Bernhard
+8,665
+19
+19 silver badges
+40
+40 bronze badges
+$\endgroup$
+Add a comment
+|
+10
+$\begingroup$
+The base rate fallacy has to do with specialization to different populations, which does not capture a broader misconception that high accuracy implies both low false positive and low false negative rates.
+In addressing the conundrum of high accuracy with a high false positive rate, I find it impossible to go beyond very superficial, hand-wavy and inaccurate explanations without introducing people to the concepts of precision and recall.
+In laymen's terms, one can simply write out two values of interest instead of the over-simplified "accuracy" rate:
+Of those people who have condition X, what proportion does the test indicate have condition X? This is the recall rate. Incorrect determinations are false negatives--people who should have been diagnosed as having the condition but were not.
+Of those people whom the test said have condition X, what proportion actually have condition X? This is the precision rate. Incorrect determinations here are false positives--people we said have the condition but do not.
+A diagnostic test is only useful if it imparts new information. You can show them that for the diagnosis of any rare condition (say, <1% of cases), it is trivially easy to construct a test that is highly accurate (>99% accuracy!), while telling us nothing we didn't already know about who does or does not actually have it: simply tell everyone they don't have it. An infinite number of tests have the same accuracy but trade precision for recall and vice-versa. One can get 100% precision or 100% accuracy by doing nothing, but only a discriminating test will maximize both. Actually computing and showing them the precision and recall rates can inform them and help them to think intelligently about the tradeoffs and the need for a more discerning test. Combining tests that offer different information can lead to a more accurate diagnosis even when the result of one test or the other is unacceptably inaccurate by itself.
+This is key: Does the test give us new information, or not?
+Then there is also the dimension of risk aversion: How many false positives is it worth incurring to find one true positive? That is, how many people are you willing to mislead into thinking they have something they might not have in order to find one who does have it? This will depend on the danger of misdiagnosis, which usually differs for false positives and false negatives.
+Edit:
+Further beneficial would be a confirming test or tests that are more and more precise, perhaps held out until later because they are more expensive. Diagnoses with a bias towards false positives can thus be used in concert to construct a sieve that is a cost-effective discriminator, eliminating most true negatives early on. However, this too comes at a cost of increased danger for true positives: You want cancer patients to get treatment as soon as possible, and having them jump through three or five hoops each requiring two weeks to a month of advance scheduling before they can even get access to treatment can worsen their prognosis by an order of magnitude. Therefore it is helpful to take other less expensive tests into consideration jointly when doing triage for follow-up to prioritize those patients have the greatest
+likelihood
+of having the condition, and perform multiple tests simultaneously where possible.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 15, 2019 at 20:48
+answered
+Oct 15, 2019 at 19:31
+pygosceles
+211
+1
+1 silver badge
+5
+5 bronze badges
+$\endgroup$
+2
+$\begingroup$
+I thought the base-rate fallacy was about ignoring the base rate, the denominator. If the test has high accuracy, the base rate must already be taken into account, so I don't see how this would be a base rate fallacy which essentially omits mention of the denominator (the base rate).
+$\endgroup$
+Mitch
+–
+Mitch
+2019-11-01 14:00:48 +00:00
+Commented
+Nov 1, 2019 at 14:00
+$\begingroup$
+@Mitch I can see what you are saying. In the special case that the new population under test is one of the subgroups of the original population, and if the metric of interest is the false positive rate, then the base rate fallacy and the problem the OP described are nearly equivalent. However, most of the definitions of the base rate fallacy I have seen approach the issue as a lack of generalization across two potentially entirely different populations. I believe the OP's question has more to do with misunderstandings about false positive vs. true positive rates within the same population.
+$\endgroup$
+pygosceles
+–
+pygosceles
+2019-11-01 17:44:01 +00:00
+Commented
+Nov 1, 2019 at 17:44
+Add a comment
+|
+7
+$\begingroup$
+Just draw yourself a simple decision tree, and it becomes obvious.  See attached. I can also send an ultra simple spreadsheet that illustrates the impact precisely.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 30, 2019 at 5:45
+scott
+79
+1
+1 bronze badge
+$\endgroup$
+4
+1
+$\begingroup$
+The question is about the
+name
+of the principle.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2019-10-30 07:13:11 +00:00
+Commented
+Oct 30, 2019 at 7:13
+4
+$\begingroup$
++1 (the question asks about jargon-free examples to explain to lay people, and I think using these kinds of natural-frequency diagrams is a useful aid)
+$\endgroup$
+James Stanley
+–
+James Stanley
+2019-10-30 19:54:22 +00:00
+Commented
+Oct 30, 2019 at 19:54
+$\begingroup$
+@SextusEmpiricus I agree that it could be helpful to have a very compact and well-articulated expression of the issue, but it can be hard to put a short name to something that is nuanced and that many people are not yet aware of. Suggestions are welcome.
+$\endgroup$
+pygosceles
+–
+pygosceles
+2019-11-01 17:34:39 +00:00
+Commented
+Nov 1, 2019 at 17:34
+$\begingroup$
+@pygosceles it isn't an answer to the question.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2019-11-01 18:10:55 +00:00
+Commented
+Nov 1, 2019 at 18:10
+Add a comment
+|
+5
+$\begingroup$
+Late to the game, but here are some things others haven't mentioned.
+1) Firstly there is a statistic called Kappa or Cohen's Kappa which measures how much a method improves over random guessing. For a test with two outcomes, random guessing is just guessing the majority class.   For example if a disease is carried by 1% of the population, a test that says 'you do not have the disease' to everyone is 99% accurate.  Useless, but 99% accurate.  Kappa measures how much a test improves over random guessing. See wikipedia for the formula, but roughly speaking it measures what percentage of the improvement over random guessing your method captures.  So in my example a test that was 99.5% accurate would have a kappa of .5 that being 50% of the best case 1% improvement.
+2) All this is also related to Bayes/Bayes theorem.  Suppose a condition is rare- occurs in .01% of the population and that the test for the condition is 99% accurate (and always catches the condition).  Bayes says your prior chance of having the disease is .01%.  However the probability of having the disease, given a positive test is only (.0001/.01) = 1%.  The formula is P(Cond|test=Y) = P(Cond)/P(test=Y).  This is Bayes theorem.
+3) Finally this sort of seeming paradox amounts, imho, to the fact that probability is not intuitive.  Things like this have different names.  But examples of this phenomena under different guises have been called, among other things, 'The prosecutor paradox' and 'The Monty Hall' problem.  I think i am already at tldnr, so look them up in Wikipedia if not already bored.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 5, 2019 at 1:40
+Carl
+13.6k
+7
+7 gold badges
+57
+57 silver badges
+122
+122 bronze badges
+answered
+Oct 31, 2019 at 19:37
+meh
+2,190
+16
+16 silver badges
+18
+18 bronze badges
+$\endgroup$
+1
+$\begingroup$
+Having the term for Kappa seems helpful, as it normalizes for the base rate and so expresses discriminative power. I always struggled with Greek letters and people's names being assigned to a solution or concept until I could first appreciate the problem. Bayes theorem is indeed a key to understanding the whole thing. I'd explain the concept to newcomers first and then tell them the discoverer's name once they appreciate what he did.
+$\endgroup$
+pygosceles
+–
+pygosceles
+2019-11-01 17:56:18 +00:00
+Commented
+Nov 1, 2019 at 17:56
+Add a comment
+|
+2
+$\begingroup$
+As is true of many questions and answers, it depends...
+In the case of cancer screening (mammogram, colonoscopy, etc.) and many other screening tests for a disease or condition, this is almost always the case. For a screening test to have some value, it must be "sensitive" enough to detect the relatively rare cases (say 1% or sometimes much less) of the condition being screened. The true positive fraction (TPF) is almost always less than the false positive fraction (FPF).
+That is why there is always a retest (applying the same test again) or follow up tests (likely more expensive but higher "specificity"), to then eliminate the false positives.
+So in a sense the name you are asking for is "screening test"!
+The term "accuracy" has a very particular technical meaning, which is not necessarily the common meaning, or commonly thought of situation. Most "common sense" is related to a 50% 50% chance, you have cancer or you don't.
+From the wiki page:
+https://en.wikipedia.org/wiki/Receiver_operating_characteristic
+Another way of putting it is that a test is accurate if it gets most cases correct. Which is the common definition. But if the condition is rare, and the test is "sensitive" it can (and in fact should and must) still give false positives.
+1% prevalence, 1000 tests, 10 true positives, 20 false positives
+accuracy = (10 + (1000 - 10 - 20))/1000 = 98%
+Yet another technical way of saying this is that screening tests tend to operate at the high sensitivity (high false positive) side of the so called receiver operating characteristic (ROC). One wants to catch all the true positives, at the expense of false positives, which will be retested and largely eliminated.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 30, 2019 at 15:47
+Curt
+21
+3
+3 bronze badges
+$\endgroup$
+2
+1
+$\begingroup$
+Related to jmf7's post on positive predictive value, screening tests are designed to have high "negative predictive value" or say for sure that the patient does not have the disease/condition.  The unfortunate but unavoidable cases that are false positives then advance to the next stage of follow up testing. There is often unavoidable anxiety even when the statistics and probabilities are well explained and understood.
+$\endgroup$
+Curt
+–
+Curt
+2019-10-30 16:02:19 +00:00
+Commented
+Oct 30, 2019 at 16:02
+$\begingroup$
+I really like that you introduced the notion of "specificity" - I am surprised that no answer goes in depth comparing selectivity and specificity as scientific concepts related to this.
+$\endgroup$
+Darren
+–
+Darren
+2019-10-30 20:12:35 +00:00
+Commented
+Oct 30, 2019 at 20:12
+Add a comment
+|
+0
+$\begingroup$
+Look at this shiny app tool
+https://kennis-research.shinyapps.io/Bayes-App/
+that explains the relationship between sensitivity, specificity and prevalence. In essence, the ability of the test to discover true positives is a function of both the effectiveness of the test (sensitivity and specificity) and the prevalence of the condition being tested for.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Nov 1, 2019 at 14:29
+LDBerriz
+635
+5
+5 silver badges
+9
+9 bronze badges
+$\endgroup$
+Add a comment
+|
+-2
+$\begingroup$
+Use The KISS method to explain it to everyone... Keep It Simple Stupid K.I.S.S. .
+In accounting a simple audit starts with a 1% sample of total transactions for a specific expenditure(s) or income(s) vs actual bank deposits & withdrawals. If they don't  match or "add" up. You increase the sample size up to 5%. The more errors you find the higher the percentage of you sample grows looking for errors or fraud. Up to 100 %.
+An even simpler example for statisticians is the law of large numbers. The larger number of individual samples the more accurate the outcome.
+The opposite affect is what I call the law of miniscule numbers. Meaning the sample is too small to reflect true accuracy.
+Hope this helps !
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 30, 2019 at 19:13
+Clyde Wilbur
+1
+$\endgroup$
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+terminology
+intuition
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Related
+6
+Is there a name for 10% best individual grades?
+9
+Is there a good reason for the name "Missing at Random"?
+12
+Is there a better name than "average of the integral"?
+2
+Is there a name for the $n=50$ quantiles?
+1
+Why is the term “recall” used to represent the ratio of “true positives” to “actual positives”?
+3
+Is there a name for the “one-sided–normalised covariance”?
+3
+Is there a standard name for a certain parameter for the beta distribution?
+40
+Is there a name for the opposite of the gambler's fallacy?
+8
+Is there a name for the likelihood of the most likely outcome?
+Hot Network Questions
+Identify this IC's manufacturer logo with stylised 'm'
+Python cast byte array to C void pointer
+Recurrence functional inequality
+Is there such thing as "Fundamental Theorem of Markov Processes"?
+Can commit messages include volatile information?
+Why two NaNs with the same binary are still not equal to each other but two infs are?
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+Open-web truss sagging
+What becomes of seized tankers and their oil cargo?
+How do I encourage more interaction with Fate's mechanics?
+Guess the PIN. You only got one shot!
+Modeling a curved boombox body with clean topology for speaker holes
+When are Closure nodes necessary in Geometry Nodes compared to Node Groups?
+Does a corpse keep its damage immunities?
+Trying to figure out a function in set theory formally
+Are US passport holders required to keep passports on their person, when in Canada?
+What are the visual tells of wands?
+What to do when there are multiple descriptions or definitions of the same mathematical object?
+Wrap a leafy plant onto a dodecahedron
+What are the consequences of mass murder?
+What model of minicomputers appears in “Magnum cop” (1978)?
+Why is there a strange removal of mortar right behind my water heater?
+Why would an extraterrestrial ecosystem without predators have evolved?
+Korean action film involving a garage elevator and men in suits with knives
+more hot questions
+Question feed

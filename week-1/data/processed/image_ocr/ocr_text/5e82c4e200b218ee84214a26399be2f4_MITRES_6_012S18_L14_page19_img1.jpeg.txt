@@ -1,0 +1,17 @@
+Inferring the unknown bias of a coin: point estimates
+
+e Standard example:
+
+— coin with bias ©; _ prior fo(-)
+— fix n; K =number of heads
+
+e Assume fo(-) is uniform in [0, 1] E[O | K=k] =
+
+1
+fox 1k) = a5 (1 —9)"-*
+
+e MAP estimate:
+
+OuaP =
+
+Omap =

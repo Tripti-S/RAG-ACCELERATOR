@@ -1,0 +1,13 @@
+Stochastic processes
+
+e First view: sequence of random variables xX, Xo,
+
+Interested in: E[X;] var(X;) px,(z)
+
+PX4,..,Xn(£1>+++ En)
+e Second view — sample space:
+Q=
+
+e Example (for Bernoulli process):
+
+P(X; = 1 for all i) =

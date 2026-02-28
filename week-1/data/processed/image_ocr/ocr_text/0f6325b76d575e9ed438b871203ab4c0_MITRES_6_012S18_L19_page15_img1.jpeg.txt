@@ -1,0 +1,13 @@
+De Moivre—Laplace CLT to the binomial
+
+P(Sn = 19)
+
+18 19 20 21 22
+
+e Exact answer:
+
+36, /1\36
+(3) (5) = 0.1251
+
+e When the 1/2 correction is used, the CLT can also approximate the binomial PMF
+(not just the binomial CDF)

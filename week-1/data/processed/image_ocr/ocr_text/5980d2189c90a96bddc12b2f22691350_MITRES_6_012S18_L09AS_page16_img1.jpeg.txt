@@ -1,0 +1,24 @@
+Uniform joint PDF ona set S$
+
+1
+fx.y(a,y) = ¢ area of S’
+
+0, otherwise.
+
+if (a,y) € S,
+
+area (ANS)
+
+* atea(S)
+
+IY) £(A)
+
+1/2
+
+1/4
+fy(u)
+
+Sx(2)
+
+3/4
+

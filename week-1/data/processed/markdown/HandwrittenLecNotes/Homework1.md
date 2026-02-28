@@ -1,0 +1,192 @@
+# Homework1
+
+---
+
+Statistical Foundations of Machine Learning
+Practice Set 1
+1 Homework problems
+Note: solutions to problems in this section are to be submitted and will be graded. Deadline
+for submission is Sun, 22nd Feb. Total marks : 15. Justify your answers and present all
+calculations/argumentsclearly.
+1. AliceandBobareamongagroupofeightcollegestudentswhoareinterestedindebating.
+Three students are picked randomly from this group to represent the college at an inter-
+collegiate fest. Let A be the event that Alice is among those picked, and B denote the
+eventthatBobisamongthosepicked.
+(a) P(A) [1mark]
+(b) P(A|B) [1mark]
+(c) P(A∪B) [1mark]
+2. You flip a fair coin thrice and note the outcome (in {H,T}3). Define the following
+events.
+Aistheeventthatalltosseshavethesameresult(allH orallT).
+B istheeventthattheyouseeatleastoneH andatleastoneT.
+C istheeventthatyouseeatmostoneH.
+(a) AreeventsAandB independent? [1mark]
+(b) AreeventsB andC independent? [1mark]
+(c) AreeventsAandC independent? [1mark]
+3. Show that if two events A and B are independent, then Ac and Bc are also independent.
+[2marks]
+4. Give examples for the following cases. For each of them, explain the sample space and
+theeventsproperly.
+Onlyassigningnumericalvaluessatisfyingtheconditionswillnotsuffice
+(a) P(A∩B) > P(A)P(B) [2marks]
+(b) P(A∩B) < P(A)P(B) [2marks]
+5. A and B throw a pair of dice alternately. A wins the game if he gets a total of 9 and B
+wins the game if he gets a total of 4. If A starts the game, then find the probability that
+Bwins. [3marks]
+1
+2 Practice problems
+Note: problemsinthissectionareforpractice,solutionsnottobesubmitted
+1. Consideraknockouttournamentwithkroundsofmatchesincludingthefinal. Recallthat
+in each round, half of the remaining players are ‘knocked out’ of the tournament. For
+example,thegrandslamtennistournamentsstartwith128playersandhavesevenrounds
+of matches. Define a suitable sample space for the random outcome of the tournament.
+Eachelementofthissamplespaceneednotbeequallylikely.
+2. A course is taught by four instructors. Before every lecture, the instructors draw lots
+and one of them is randomly chosen to teach on that day. What is the probability that in
+N classes, all the lecturers would have taught at least once. Generalise to k instructors
+teachingthecourse.
+3. Numbers1,2,3,4,5,and6arerandomlyplacedonacircle. Whatistheprobabilitythat
+theyareplacedinincreasingorder?
+4. A and B play the following game of dice. Both roll a die once. A gets is assigned the
+numberobtainedonitsroll. IfB rollsanumberotherthanone,itisassignedwhateverit
+rolls. However, if B rolls a one, then it rolls again and will be assigned whatever it rolls
+the second time (even if it rolls a one). Whoever is assigned the highest value wins. If
+thereisatieAwins. WhatistheprobabilitythatAwinsthegame.
+5. There are n urns and the r-th urn contains (r −1) brown balls and (n−r) black balls.
+You pick an urn at random and pick two balls at random without replacement. What is
+the probability that the second ball is black. What is the conditional probability that the
+secondballisblackgiventhatthefirstballisblack.
+6. I choose a number uniformly in the range [1,1000000]. Using inclusion exclusion prin-
+ciple, determine the probability that the chosen number is divisible by one or more of 4,
+6,and9.
+7. An urn starts off with one black and one brown ball. Sample one ball from this urn and
+put the ball back into the urn along with another ball of the same color. Now there are
+three balls in the urn. Repeat this action N times, i.e., sample a ball and put the ball and
+another ball of the same color back urn into the urn. There are now (N +2) balls in the
+urn. Findtheprobabilitythattherek blackballsintheurn.
+8. Consider a best-of-five tennis match in which whoever wins three sets first wins the
+match. The players are evenly matched, i.e., each one wins a set with equal probability.
+Findtheprobabilitythatloserhaswonk sets.
+9. A coin is tossed independently n times. The probability of heads at each toss is p. At
+eachtimek (k = 2,3,...,n),wegetarewardifkth tosswasaheadandtheprevioustoss
+wasatail. LetA betheeventthatarewardisobtainedattimek.
+k
+(a) AreeventsA andA independent?
+k k+1
+2
+(b) AreeventsA andA independent?
+k k+2
+Justifyallanswers.
+10. There are three types of coins which have different probabilities of landing heads when
+tossed.
+• TypeAcoinsarefair,withprobability0.5ofheads
+• TypeBcoinsarebiasedandhaveprobability0.7ofheads
+• TypeCcoinsarebiasedandhaveprobability0.9ofheads
+Suppose I have a drawer containing 5 coins: 2 of type A, 2 of type B, and 1 of type C. I
+reach into the drawer and pick a coin at random. Without showing you the coin I flip it
+onceandgetheads. WhatistheprobabilityitisTypeA?TypeB?TypeC?
+11. Provethat
+(a) P(A∩B) ≥ P(A)+P(B)−1
+(b) P(A ∩A ∩···∩A ) ≥ P(A )+P(A )+···+P(A )−(n−1)
+1 2 n 1 2 n
+12. ConsidertwoeventsAandB suchthatP(A) > 1−δ,andP(B) > 1−δ,forverysmall
+δ > 0. ProvethatP(A∩B)iscloseto1.
+13. TheErdo˝s-RényimodelG(n,p)isasimplerandomgraphmodel,wherenisthenumber
+ofnodesinthegraph. Inasocialnetworkingcontext,eachnodemightrepresentaperson.
+Every pair of nodes is connected by an edge with probability p. The occurrence of each
+edgeinthegraphisindependentofotheredgesinthegraph.
+LetB betheeventthatagraphrandomlygeneratedaccordingtotheG(n,p)modelhas
+n
+at least one isolated node. We want to show that P(B ) ≤ n(1 − p)n−1 and conclude
+n
+thatforanyϵ > 0,ifp = p = (1+ϵ)ln(n),then
+n n
+lim P(B ) = 0.
+n
+n→∞
+14. Each pack of Gold Cookies contains a coupon. There are n types of coupons available,
+and each is independent of previously obtained coupons. The probability of getting ith
+coupon is p , with Σp = 1. Let A denote the event that you have atleast one coupon of
+i i i
+typeiinthek alreadyobtainedcoupons. Answerthefollowing(assumei ̸= j)-
+(a) P(A )
+i
+(b) P(A ∪A )
+i j
+(c) P(A |A )
+i j
+15. You are a contestant in a TV show. There are 3 doors leading to rooms of which 2 are
+emptyand1containsaMercedes. Youareaskedtochooseoneroomandacorrectguess
+will win you the Mercedes. After you select a room, the game master opens one of the
+door of another room that you did not select and also that do not contain the Mercedes.
+ProvethatyouwillimproveyourchancetowintheMercedesifyouchangeyourchoice
+fromtheinitialguesstotheremainingcloseddoor. Mathematically
+3
+– E : EventofwinningtheMercedeswiththeinitialguess
+1
+– E : EventofwinningtheMercedesifhechangeshisinitialguess
+2
+– C : EventwhereyouknowoneoftheroomnotcontainingtheMercedes
+ProvethatP(E ) < P(E |C)
+1 2
+16. A group of n men enter a restaurant and check their hats. The hat-checker is absent
+minded, and upon leaving, she redistributes the hats back to the men at random. What
+is the probability P that no man gets his correct hat, and how does P behave as n
+n n
+approachesinfinity?
+17. You are given that at least one of the events A , 1 ≤ n ≤ N, will occur almost surely
+n
+i.e. P(∪N A ) = 1. Also no more than two occur almost surely. If P(A ) = p and
+n=1 n n
+P(A ∩A ) = q,m ̸= n,thenshowthatp ≥ 1 andq ≤ 2.
+n m N N
+18. Three friends are hanging out. To keep things simple, assume their birthdays are uni-
+formly and independently distributed across the 365-day year. What’s the probability
+that some (i.e. either two or three) of the people in this group have a birthday in com-
+mon?
+19. You invite some friends to a hat-themed party. As the night progresses, you decide to
+play a game: everyone will line up and place their hat on the ground in front of them.
+Theguestswillthenbereorderedrandomly,withallorderingsequallylikely. Afterward,
+eachguestwillgrabthehatinfrontofthem.
+We’re interested in the probability that at least one guest is wearing their own hat at the
+end of the game. What does that probability converge to as the number of guests grows
+infinitelylarge?
+Let A be the event that ith person picks own hat. For example A represents that 5th
+i 5
+personpicksownhat.
+We are interested in probability that at least one guest is wearing their own hat which is
+P( (cid:83)N A ).
+i=1 i
+20. Let A, B be events such that P(A) = 1 and P(B) = 1. Find maximum possible values
+4 2
+forP(A∪B)&P(A∩B)
+21. Assume a certain city X experience a hot day day with probability 0.4 and a cold day
+with probability 0.6. Each hot day experiences rain with probability 0.2 while a cold
+day experiences rain with probability 0.7. Given a particular day is rainy, what is the
+probabilitythatthedayishot.
+22. Let A be a sequence of events such that P(A ) = 1 ∀i ∈ N.A ’s partition the sample
+i i 2i i
+space. LetC beanothereventsuchthatP(C|A ) = 1 ∀i ∈ N. FindP(C)
+i 3i
+4
+23. Let A and B be events such that P(A|B) > P(A). Show that P(B|A) > P(B) and
+P(A|Bc) < P(A).
+24. A positive integer is selected, with P(I = n) = 1 ,n = 1,2,···. If I takes the value n,
+2n
+acoinwithprobabilityofheadsequaltoe−n istossedonce. Findtheprobabilitythatthe
+resultingtosswillbeahead.
+25. GivenasequenceofeventsA ,A ,··· ,A satisfying
+1 2 n
+n
+(cid:88) n
+P(A ) = P(∪A ).
+i i
+i=1
+i=1
+ProvethatP(A ∩A ) = 0∀i,j,i ̸= j.
+i j
+26. Amanisknowntospeakthetruth3outof4times. Hethrowsadieandreportsthatitis
+asix. Findtheprobabilitythatitisactuallyasix.
+5
+
+---

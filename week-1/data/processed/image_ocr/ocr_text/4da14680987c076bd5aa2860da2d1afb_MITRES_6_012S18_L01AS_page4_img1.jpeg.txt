@@ -1,0 +1,11 @@
+Sample space: discrete/finite example
+
+e Two rolls of a tetrahedral die sequential description
+
+Y = Second
+roll
+
+i)
+
+X = First roll
+

@@ -1,0 +1,34 @@
+The Poisson PMF for the number of arrivals
+
+e N;: arrivals in [0,7] P(k,r) = P(N; =k)
+n= 7/6 intervals/slots of length 6 @samald
+
+P(some slot contains two or more arrivals)
+
+i é has x2 arnsva@s)
+2 0(6 Ea”
+
+il % arnluals tu Pofssoun)= P(x sPots
+
+N, & binomial p=6+0(62) Qave quad
+
+mp= At +0(5 x he
+
+ps(k) =
+
+Bernoulli
+
+Gobi =a ki pk — pyr,
+
+k=0,...,n
+
+A=
+
+=
+
+noo p70
+For tixed A= 0, 1,. ..
+
+Jer
+ps(k) > ays >
+

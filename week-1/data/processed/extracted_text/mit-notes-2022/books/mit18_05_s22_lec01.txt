@@ -1,0 +1,279 @@
+Welcome to 18.05
+Introduction to Probability and Statistics
+Spring 2022
+Image courtesy of xkcd. License: CC BY-NC.
+https://xkcd.com/904/
+1/32
+Agenda
+• Introductions and class description
+• Administrative stuff
+• Begin probability: sets and counting
+2/32
+Websites
+You should have received this information in an email.
+If not let us know.
+• MITx:
+- If you registered for 18.05 you should be able to see the class.
+- Site will have all reading materials, problem sets, etc.
+- Lecture slides and problems will be posted before class. Solutions right
+after class.
+• Canvas: Has links to everything.
+• Gradescope: For turning in psets and quizzes
+• Piazza: Sign up – there is a link on our Canvas site.
+For asynchronous help: everyone can ask and answer questions. The
+teaching staff will also monitor the site and respond to questions.
+3/32
+Active Learning
+Read the ‘Calendar and Information’ section on our MITx site.
+All the educational research shows two things
+• Better and more long lasting educational gains.
+• Many students doubt this at first.
+Before class
+• Reading and reading questions.
+• Reading questions count toward grade.
+• Lecture will assume you’ve done the reading.
+In class:
+• Combination of lecture and problem solving
+• We won’t assume you’ve completely mastered the reading.
+- Will assume a level of familiarity.
+- Use the Piazza discussion board – links on MITx and Canvas.
+- Bring questions to class.
+4/32
+Class
+Read the ’Calendar and Information’ section on our MITx/18.05r site.
+Class Time
+• TR: Lecture/concept (clicker) questions/board questions
+- Participation on clicker questions counts towards your grade
+- Will use MITx for clicker questions –requires a computer or phone.
+- No computer or phone use –except for clicker questions– in class on
+TR.
+• F: Studio – bring your laptop
+In-class Groups
+• Groups of 3.
+• You will be able to choose your own group.
+• If you need to find a group or your group needs a third person let us
+know and we’ll help.
+R: for computation, simulation and visualization
+• will teach you everything you need
+• no hardcore programming.
+5/32
+Problem Sets
+• Usually due on Mondays
+• Turn in to Gradescope by 10 PM
+• You’ll be able to check your numerical answers to
+problems on our MITx site before the due date.
+• Problem sets will be graded on the logic and
+explanation of your answer.
+6/32
+R, Piazza
+R
+• Free open source package.
+• Very easy to use and install.
+• Instructions and a link for this are on MITx/18.05r.
+Piazza
+• We will use the Piazza discussion forum.
+• Mostly for students to ask questions of each other.
+• Sign up by following the link from our MITx site.
+7/32
+Calendar, Information, Policies and Goals
+Everything we just went over and more is in the
+Calendar and Information section of MITx/18.05r
+8/32
+For Next Time
+• Familiarize yourself with the MITx/18.05r site
+• Install R and R Studio
+• Sign up for Piazza and join our class. (Link on our
+Canvas site)
+• Read class 1 notes (a summary of what we’ll do today)
+• Go through the class 2 sequence and answer the
+reading questions
+9/32
+Platonic Dice
+4, 6, 8, 12, 20-sided
+10/32
+Probability vs. Statistics
+Different subjects: both about random processes
+Probability
+• Logically self-contained
+• A few rules for computing probabilities
+• One correct answer
+Statistics
+• Messier and more of an art
+• Seek to make probability based inferences from
+experimental data
+• No single correct answer
+11/32
+Counting: Motivating Examples
+What is the probability of getting exactly 1 heads in 3
+tosses of a fair coin?
+12/32
+Poker Hands
+Deck of 52 cards
+• 13 ranks: 2, 3, … , 9, 10, J, Q, K, A
+• 4 suits: ♡, ♠, ♢, ♣,
+Poker hands
+• Consists of 5 cards
+• A one-pair hand consists of two cards having one rank and the
+remaining three cards having three other ranks
+• Example: {2♡, 2♠, 5♡, 8♣, K♢}
+13/32
+Concept Question 1
+A one-pair hand consists of two cards having one rank and the
+remaining three cards having three other ranks
+The probability of a one-pair hand is:
+(1) less than 5%
+(2) between 5% and 10%
+(3) between 10% and 20%
+(4) between 20% and 40%
+(5) greater than 40%
+14/32
+Sets in Words
+Old New England rule: don’t eat clams (or any shellfish) in months
+without an ’r’ in their name.
+• 𝑆 = all months
+• 𝐿 = the month has 31 days
+• 𝑅 = the month has an ‘r’ in its name
+𝑆 = {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec}
+𝐿 = {Jan, Mar, May, Jul, Aug, Oct, Dec}
+𝑅 = {Jan, Feb, Mar, Apr, Sep, Oct, Nov, Dec}
+𝐿 ∩ 𝑅 = {Jan, Mar, Oct, Dec} = months with 31 days and an ‘r’
+15/32
+Visualize Set Operations with Venn Diagrams
+𝑆 𝐿 𝑅
+𝐿 ∪ 𝑅 𝐿 ∩ 𝑅 𝐿𝑐 𝐿−𝑅
+16/32
+Product of Sets
+𝑆 × 𝑇 = {pairs (𝑠, 𝑡) with 𝑠 in 𝑆, 𝑡 in 𝑇 }
+More simply: 𝑆 × 𝑇 = {(𝑠, 𝑡)}
+SIZE of 𝑆 × 𝑇 = (size of 𝑆) ⋅ (size of 𝑇 )
+|𝑆 × 𝑇 | = |𝑆| ⋅ |𝑇|.
+17/32
+Inclusion-Exclusion Principle
+𝑆
+𝐵 𝐴 ∩ 𝐵 𝐴
+|𝐴∪𝐵| = |𝐴|+|𝐵|−|𝐴∩𝐵|
+18/32
+Board Question 1
+A band consists of singers and guitar players:
+7 people sing, 4 play guitar, 2 do both
+How many people are in the band?
+19/32
+Rule of Product
+Example
+3 shirts, 4 pants = 12 outfits
+(set of shirts) × (set of pants) = set of outfits
+|𝑆| ⋅ |𝑇| = |𝑆 × 𝑇 |
+(More powerful than it seems.)
+20/32
+2. How many DNA sequences of length 3 are there with
+no repeats?
+(i) 12 (ii) 24 (iii) 64 (iv) 81
+Concept Questions: DNA
+1. DNA is made of sequences of nucleotides: A, C, G, T.
+How many DNA sequences of length 3 are there?
+(i) 12 (ii) 24 (iii) 64 (iv) 81
+21/32
+Concept Questions: DNA
+1. DNA is made of sequences of nucleotides: A, C, G, T.
+How many DNA sequences of length 3 are there?
+(i) 12 (ii) 24 (iii) 64 (iv) 81
+2. How many DNA sequences of length 3 are there with
+no repeats?
+(i) 12 (ii) 24 (iii) 64 (iv) 81
+21/32
+Board Question 2
+There are 5 Competitors in an Olympics 100m final.
+How many ways can gold, silver, and bronze be awarded?
+22/32
+Board Question 3
+I won’t wear green and red together; I think black or
+denim goes with anything; Here is my wardrobe.
+Shirts: 3B, 3R, 2G; sweaters 1B, 2R, 1G; pants 2D,2B.
+© Source unknown. All rights reserved. This content is excluded from our Creative
+Commons license. For more information, see https://ocw.mit.edu/help/faq-fair-use.
+How many different outfits can I wear?
+23/32
+Solution
+Solution: Suppose we choose shirts first. Depending on whether we
+choose red compatible or green compatible shirts there are different
+numbers of sweaters we can choose next. So we split the problem up
+before using the rule of product. A multiplication tree is an easy way to
+present the answer.
+3 3 2
+Shirts 𝑅 𝐵 𝐺
+3 4 2
+Sweaters 𝑅,B 𝑅,B,G B,G
+4 4 4
+Pants
+𝐵,𝐷 𝐵,𝐷 𝐵,𝐷
+Multiplying down the paths of the tree:
+Number of outfits = (3×3×4)+(3×4×4)+(2×2×4) = 100
+24/32
+Permutations
+Lining things up. How many ways can you do it?
+‘abc’ , ‘cab’ are 2 of the 6 permutations of {a, b, c}
+’ad’ , ‘da’ , ’bc’ are three of the twelve
+permutations of two things from {a,b,c,d}
+25/32
+𝑎𝑏𝑐 𝑎𝑏𝑑 𝑎𝑐𝑏 𝑎𝑐𝑑 𝑎𝑑𝑏 𝑎𝑑𝑐
+𝑏𝑎𝑐 𝑏𝑎𝑑 𝑏𝑐𝑎 𝑏𝑐𝑑 𝑏𝑑𝑎 𝑏𝑑𝑐
+𝑐𝑎𝑏 𝑐𝑎𝑑 𝑐𝑏𝑎 𝑐𝑏𝑑 𝑐𝑑𝑎 𝑐𝑑𝑏
+𝑑𝑎𝑏 𝑑𝑎𝑐 𝑑𝑏𝑎 𝑑𝑏𝑐 𝑑𝑐𝑎 𝑑𝑐𝑏
+Would you want to do this for 7 from a set of 10?
+Permutations of 𝑘 from a set of 𝑛
+Give all permutations of 3 things out of {𝑎, 𝑏, 𝑐, 𝑑}
+26/32
+Permutations of 𝑘 from a set of 𝑛
+Give all permutations of 3 things out of {𝑎, 𝑏, 𝑐, 𝑑}
+𝑎𝑏𝑐 𝑎𝑏𝑑 𝑎𝑐𝑏 𝑎𝑐𝑑 𝑎𝑑𝑏 𝑎𝑑𝑐
+𝑏𝑎𝑐 𝑏𝑎𝑑 𝑏𝑐𝑎 𝑏𝑐𝑑 𝑏𝑑𝑎 𝑏𝑑𝑐
+𝑐𝑎𝑏 𝑐𝑎𝑑 𝑐𝑏𝑎 𝑐𝑏𝑑 𝑐𝑑𝑎 𝑐𝑑𝑏
+𝑑𝑎𝑏 𝑑𝑎𝑐 𝑑𝑏𝑎 𝑑𝑏𝑐 𝑑𝑐𝑎 𝑑𝑐𝑏
+Would you want to do this for 7 from a set of 10?
+26/32
+Combinations
+Choosing subsets – order doesn’t matter.
+How many ways can you do it?
+27/32
+Combinations of 𝑘 from a set of 𝑛
+Give all combinations of 3 things out of {𝑎, 𝑏, 𝑐, 𝑑}
+Answer: {a,b,c}, {a,b,d}, {a,c,d}, {b,c,d}
+28/32
+Permutations and Combinations
+𝑃 = number of permutations (ordered lists)
+𝑛 𝑘
+of 𝑘 things from 𝑛
+𝑛
+𝐶 = ( ) = number of combinations (subsets)
+𝑛 𝑘 𝑘
+of 𝑘 things from 𝑛
+𝑛! 𝑛 𝑃 𝑛!
+𝑃 = ( ) = 𝐶 = 𝑛 𝑘 =
+𝑛 𝑘 (𝑛 − 𝑘)! 𝑘 𝑛 𝑘 𝑘! (𝑛 − 𝑘)! 𝑘!
+Proof: Rule of product!
+29/32
+Permutations and Combinations
+𝑎𝑏𝑐 𝑎𝑐𝑏 𝑏𝑎𝑐 𝑏𝑐𝑎 𝑐𝑎𝑏 𝑐𝑏𝑎 {𝑎, 𝑏, 𝑐}
+𝑎𝑏𝑑 𝑎𝑑𝑏 𝑏𝑎𝑑 𝑏𝑑𝑎 𝑑𝑎𝑏 𝑑𝑏𝑎 {𝑎, 𝑏, 𝑑}
+𝑎𝑐𝑑 𝑎𝑑𝑐 𝑐𝑎𝑑 𝑐𝑑𝑎 𝑑𝑎𝑐 𝑑𝑐𝑎 {𝑎, 𝑐, 𝑑}
+𝑏𝑐𝑑 𝑏𝑑𝑐 𝑐𝑏𝑑 𝑐𝑑𝑏 𝑑𝑏𝑐 𝑑𝑐𝑏 {𝑏, 𝑐, 𝑑}
+Permutations: Combinations:
+𝑃 (4) = 𝐶
+4 3 3 4 3
+4 𝑃 4!
+( ) = 𝐶 = 4 3 =
+3 4 3 3! 3!1!
+30/32
+Board Question 4
+(a) Count the number of ways to get exactly 3 heads in
+10 flips of a coin.
+(b) For a fair coin, what is the probability of exactly 3
+heads in 10 flips?
+31/32
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+32/32

@@ -1,0 +1,10 @@
+“Random incidence” in the Poisson process
+
+e Poisson process that has been running forever
+
+time
+
+e Believe that \ = 4/hour, so that E[7;,] =
+e Show up at some time and measure interarrival time
+
+— doit many times, average results, see something around 30 mins! Why?

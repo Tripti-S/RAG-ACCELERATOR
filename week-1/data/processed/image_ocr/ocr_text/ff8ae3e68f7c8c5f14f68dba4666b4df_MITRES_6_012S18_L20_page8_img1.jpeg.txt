@@ -1,0 +1,11 @@
+Confidence intervals for the mean when o is unknown
+
+©, = sample mean = M, =
+
+e Option 1: use upper bound ong
+
+— if X; Bernoulli: o< 1/2
+
+e Option 2: use ad hoc estimate of ao
+
+— if X; Bernoulli: ¢ = /On(1— On)

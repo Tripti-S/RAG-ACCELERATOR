@@ -1,0 +1,2780 @@
+Directory structure:
+└── week-1/
+    ├── submission.md
+    ├── week1_prequalify.py
+    ├── .gitingestignore
+    ├── analysis/
+    │   ├── data_quality_notes.md
+    │   └── analysis_output/
+    │       ├── analysis_report.json
+    │       ├── file_type_distribution.json
+    │       ├── source_distribution.json
+    │       └── topic_coverage.json
+    ├── data/
+    │   └── README.md
+    ├── docs/
+    │   └── scoping.md
+    ├── preprocessing_scripts/
+    │   ├── analyze_corpus.py
+    │   ├── classify_corpus.py.py
+    │   ├── clean_stackexchange.py
+    │   ├── copy_scripts.py
+    │   ├── download_stackexchange.py
+    │   ├── image_ocr_processor.py
+    │   ├── preprocess_all.py
+    │   ├── process_dataset.py
+    │   ├── smart_convertor.py
+    │   ├── split_mit.py
+    │   ├── split_open_intro.py
+    │   └── visualize_dataset_story.py
+    ├── scripts/
+    │   ├── 01_setup_qdrant.py
+    │   ├── 02_create_pipeline.py
+    │   ├── 03_run_indexing.py
+    │   ├── 04_test_rag_system.py
+    │   ├── 05_interactive_rag.py
+    │   └── 06_run_traces.py
+    └── traces/
+        ├── trace.md
+        └── traces.json
+
+================================================
+FILE: submission.md
+================================================
+# Week 1 Capstone Submission
+
+## Student Name
+
+Tripti Singh
+
+## Project Title
+
+ProbablAI: A Domain-Constrained RAG System for Academic Concept Mastery
+
+## Problem Statement
+
+Working professionals enrolled in advanced probability and statistics
+courses struggle with fragmented, heterogeneous study material across
+textbooks, lecture slides, notes, and transcripts; this project
+consolidates that material into a structured, searchable,
+source-grounded RAG knowledge base.
+
+------------------------------------------------------------------------
+
+## Data Overview
+
+-   **Corpus size:** 964 documents, \~1.7M total tokens\
+-   **Data sources:** MIT lecture notes, OpenIntro textbook material,
+    academic probability resources, processed OCR notes\
+-   **Formats:** Markdown (.md), text (.txt), OCR-extracted text\
+-   **Domain:** Probability theory and foundational statistics
+
+------------------------------------------------------------------------
+
+## Data Curation Summary
+
+-   **Extraction method:** PDF extraction via pdfplumber and PyMuPDF;
+    OCR processed separately\
+-   **Preprocessing steps:** Text normalization, whitespace cleanup,
+    metadata preservation, Markdown structure retention\
+-   **Key decisions:**
+    -   Preserved Markdown hierarchy for semantic chunk alignment\
+    -   Isolated OCR content to reduce embedding noise\
+    -   Removed extremely short documents (\<50 tokens) where
+        appropriate\
+    -   Applied structured chunking for long documents
+
+------------------------------------------------------------------------
+
+## Pipeline Configuration
+
+-   **Vector database:** Qdrant\
+-   **Collection name:** probability_rag_week1\
+-   **Embedding model:** BAAI/bge-large-en-v1.5 (1024 dimensions)\
+-   **Chunk strategy:** Structured chunking (\~400-word segments with
+    overlap)\
+-   **LLM:** Gemini 2.5 Flash\
+-   **Documents indexed:** 964 documents (producing chunked embeddings)
+
+------------------------------------------------------------------------
+
+## Trace Summary
+
+Five evaluation queries were executed across conceptual and
+definition-based prompts.
+
+Patterns observed: - High retrieval quality for foundational definitions
+(Bayes, CLT, expectation, independence). - Strong alignment when corpus
+contains dense academic explanations. - Retrieval occasionally returns
+multiple chunks from the same source when topic coverage is
+concentrated. - System performs best on well-covered, formula-driven
+questions.
+
+  -------------------------------------------------------------------------
+  Query           Retrieval               Answer            Notes
+  --------------- ----------------------- ----------------- ---------------
+  Explain Bayes   Good                    Good              Highly covered
+  theorem                                                   concept in
+                                                            corpus
+
+  Conditional     Good                    Good              Retrieved
+  probability                                               direct worked
+  example                                                   example
+
+  Independence    Good                    Good              Exact formula
+  definition                                                retrieved
+
+  Central Limit   Good                    Good              Strong
+  Theorem                                                   theoretical
+                                                            coverage
+
+  Define          Good                    Good              Retrieved
+  expectation                                               discrete +
+                                                            continuous
+                                                            cases
+  -------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Observations
+
+### What types of queries work well?
+
+-   Definition-based questions\
+-   Formula-driven conceptual prompts\
+-   Foundational probability topics\
+-   Worked examples present in textbook material
+
+### What types of queries struggle?
+
+-   Meta-level critique questions\
+-   Model failure or assumption-based analysis\
+-   Highly advanced theoretical edge cases\
+-   Topics sparsely represented in corpus
+
+### Is the issue retrieval or generation?
+
+Most issues are retrieval-related when content coverage is sparse.
+Generation performs well when provided accurate chunks.
+
+### What would you improve first?
+
+-   Add more balanced coverage for advanced theoretical topics\
+-   Improve deduplication across OCR and extracted materials\
+-   Implement retrieval score analysis and dynamic top-k tuning\
+-   Add evaluation metrics beyond qualitative traces
+
+------------------------------------------------------------------------
+
+## Self-Assessment
+
+  -----------------------------------------------------------------------
+  Criteria                Score (1-5)                    Notes
+  ----------------------- ------------------------------ ----------------
+  Problem scoping clarity 5                              Clear
+                                                         educational use
+                                                         case
+
+  Data sourcing and       5                              Structured,
+  curation                                               multi-source
+                                                         corpus
+
+  Pipeline is functional  5                              End-to-end RAG
+                                                         working
+
+  Trace quality and depth 4                              Strong but can
+                                                         include more
+                                                         failure cases
+
+  Observations and        5                              Clear patterns
+  analysis                                               and improvement
+                                                         roadmap
+  -----------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+
+
+================================================
+FILE: week1_prequalify.py
+================================================
+"""
+Week 1 Capstone Pre-Submission Check
+=====================================
+
+Run this before submitting to catch structural issues, bloat, and secrets.
+
+Usage (from your capstone repo root):
+    uv run python week-1/prequalify.py
+"""
+
+import re
+import sys
+from pathlib import Path
+
+# Resolve week-1/ directory (script lives inside it)
+WEEK_DIR = Path(__file__).resolve().parent
+REPO_ROOT = WEEK_DIR.parent
+
+# Expected filename: firstname_lastname_week1_submission.txt
+# Group: firstname1_firstname2_week1_submission.txt
+SUBMISSION_FILENAME_PATTERN = r"^[a-z]+(_[a-z]+)+_week1_submission\.txt$"
+
+REQUIRED_FILES = {
+    "submission.md": "Your main submission document",
+    "docs/scoping.md": "Problem scoping (IDENTIFY/QUALIFY/DEFINE/SCOPE)",
+    "data/README.md": "Data sourcing documentation",
+    "analysis/data_quality_notes.md": "Corpus analysis findings",
+    "traces/trace.md": "Traced queries with assessments",
+    ".gitingestignore": "Gitingest ignore rules for data exclusions",
+}
+
+SUBMISSION_REQUIRED_SECTIONS = [
+    "Student Name",
+    "Project Title",
+    "Problem Statement",
+    "Data Overview",
+    "Data Curation Summary",
+    "Pipeline Configuration",
+    "Trace Summary",
+    "Observations",
+    "Self-Assessment",
+]
+
+SCOPING_REQUIRED_SECTIONS = [
+    "IDENTIFY",
+    "QUALIFY",
+    "DEFINE",
+    "SCOPE",
+]
+
+MIN_TRACES = 5
+MAX_SUBMISSION_BYTES = 1_000_000  # 1MB
+MIN_SUBMISSION_BYTES = 5_000      # 5KB â€” below this, files are probably empty
+MAX_FILE_COUNT = 50               # Week 1 should not have 50+ files
+MAX_SINGLE_FILE_LINES = 2000      # Flag individual files over this in the .txt
+
+# Patterns that indicate leaked secrets
+SECRET_PATTERNS = [
+    (r"sk-[a-zA-Z0-9]{20,}", "OpenAI API key"),
+    (r"ghp_[a-zA-Z0-9]{36}", "GitHub PAT"),
+    (r"ghu_[a-zA-Z0-9]{36}", "GitHub user token"),
+    # Match KEY=value but NOT KEY = os.getenv(...) or KEY = Secret(...) etc.
+    (r"QDRANT_API_KEY\s*=\s*(?!os\.|Secret|None|getenv|environ|\"|\')[A-Za-z0-9_\-]{8,}", "Qdrant API key"),
+    (r"GOOGLE_API_KEY\s*=\s*(?!os\.|Secret|None|getenv|environ|\"|\')[A-Za-z0-9_\-]{8,}", "Google API key"),
+    (r"ANTHROPIC_API_KEY\s*=\s*(?!os\.|Secret|None|getenv|environ|\"|\')[A-Za-z0-9_\-]{8,}", "Anthropic API key"),
+    (r"VOYAGE_API_KEY\s*=\s*(?!os\.|Secret|None|getenv|environ|\"|\')[A-Za-z0-9_\-]{8,}", "Voyage API key"),
+    (r"Bearer\s+[a-zA-Z0-9\-_.]{20,}", "Bearer token"),
+    (r"password\s*=\s*['\"][^'\"]{8,}['\"]", "Hardcoded password"),
+]
+
+# Patterns indicating raw data leaked into the submission
+DATA_BLOAT_PATTERNS = [
+    (r"^FILE:\s+.*data/raw/", "data/raw/ files included â€” check .gitingestignore"),
+    (r"^FILE:\s+.*data/processed/", "data/processed/ files included â€” check .gitingestignore"),
+    (r"^FILE:\s+.*\.env$", ".env file included â€” secrets may be exposed"),
+    (r"^FILE:\s+.*\.csv$", "CSV file included â€” should be in .gitingestignore"),
+    (r"^FILE:\s+.*\.parquet$", "Parquet file included â€” should be in .gitingestignore"),
+]
+
+
+def check_file_exists(rel_path: str, description: str) -> bool:
+    path = WEEK_DIR / rel_path
+    if path.exists():
+        print(f"  PASS  {rel_path}")
+        return True
+    else:
+        print(f"  FAIL  {rel_path} â€” {description}")
+        return False
+
+
+def check_has_scripts() -> bool:
+    scripts_dir = WEEK_DIR / "scripts"
+    if not scripts_dir.exists():
+        print(f"  FAIL  scripts/ â€” directory not found")
+        return False
+    py_files = list(scripts_dir.glob("*.py"))
+    if len(py_files) == 0:
+        print(f"  FAIL  scripts/ â€” no Python files found")
+        return False
+    print(f"  PASS  scripts/ â€” {len(py_files)} Python file(s)")
+    return True
+
+
+def check_sections(file_path: Path, required_sections: list[str], label: str) -> tuple[bool, list[str]]:
+    if not file_path.exists():
+        return False, required_sections
+
+    content = file_path.read_text(encoding="utf-8", errors="ignore")
+    missing = []
+    for section in required_sections:
+        pattern = rf"(^#+\s*{re.escape(section)}|^\*\*{re.escape(section)}\*\*)"
+        if not re.search(pattern, content, re.MULTILINE | re.IGNORECASE):
+            if section.lower() not in content.lower():
+                missing.append(section)
+
+    if missing:
+        print(f"  FAIL  {label} â€” missing sections: {', '.join(missing)}")
+        return False, missing
+    else:
+        print(f"  PASS  {label} â€” all required sections present")
+        return True, []
+
+
+def check_student_names() -> tuple[bool, list[str]]:
+    """Check that submission.md has real names under Student Name section."""
+    submission_path = WEEK_DIR / "submission.md"
+    if not submission_path.exists():
+        return False, []
+
+    content = submission_path.read_text()
+
+    # Find Student Name section and extract the content after it
+    match = re.search(
+        r"##\s*Student\s*Name[s]?\s*\n+(.*?)(?=\n##|\Z)",
+        content,
+        re.IGNORECASE | re.DOTALL,
+    )
+    if not match:
+        print(f"  FAIL  Student Name section not found in submission.md")
+        return False, []
+
+    name_block = match.group(1).strip()
+    if not name_block or name_block.startswith("["):
+        print(f"  FAIL  Student Name is empty or still a placeholder")
+        return False, []
+
+    # Extract names (one per line, or comma-separated, or bullet points)
+    names = []
+    for line in name_block.splitlines():
+        line = line.strip().lstrip("- ").lstrip("* ").strip()
+        if line and not line.startswith("["):
+            # Handle comma-separated names
+            for name in line.split(","):
+                name = name.strip()
+                if name:
+                    names.append(name)
+
+    if not names:
+        print(f"  FAIL  No student names found in submission.md")
+        return False, []
+
+    # Each name should have at least first and last name (2+ words)
+    incomplete = [n for n in names if len(n.split()) < 2]
+    if incomplete:
+        print(f"  FAIL  Each student must have full name (first + last): {', '.join(incomplete)}")
+        return False, names
+
+    print(f"  PASS  Student name(s): {', '.join(names)}")
+    return True, names
+
+
+def check_trace_count() -> tuple[bool, int]:
+    trace_path = WEEK_DIR / "traces" / "trace.md"
+    if not trace_path.exists():
+        print(f"  FAIL  traces/trace.md â€” file not found")
+        return False, 0
+
+    content = trace_path.read_text()
+    query_matches = re.findall(r"^#+\s*Query\s", content, re.MULTILINE | re.IGNORECASE)
+    if not query_matches:
+        query_matches = re.findall(r"^\*\*Question:?\*\*", content, re.MULTILINE)
+    if not query_matches:
+        query_matches = re.findall(r"^##\s+\d+", content, re.MULTILINE)
+
+    count = len(query_matches)
+    if count >= MIN_TRACES:
+        print(f"  PASS  traces/trace.md â€” {count} queries found (minimum: {MIN_TRACES})")
+        return True, count
+    else:
+        print(f"  FAIL  traces/trace.md â€” {count} queries found (minimum: {MIN_TRACES})")
+        return False, count
+
+
+def check_submission_not_template() -> bool:
+    submission_path = WEEK_DIR / "submission.md"
+    if not submission_path.exists():
+        return False
+
+    content = submission_path.read_text()
+    template_markers = [
+        "[Your name]",
+        "[One-line project title]",
+        "[Your one-sentence problem statement",
+        "[X documents, Y total size]",
+    ]
+
+    unfilled = [m for m in template_markers if m in content]
+    if unfilled:
+        print(f"  WARN  submission.md â€” still has template placeholders: {', '.join(unfilled)}")
+        return False
+    else:
+        print(f"  PASS  submission.md â€” no template placeholders found")
+        return True
+
+
+def find_submission_txt() -> Path | None:
+    """Find the submission .txt file in repo root matching naming convention."""
+    candidates = list(REPO_ROOT.glob("*_week1_submission.txt"))
+    if len(candidates) == 1:
+        return candidates[0]
+    if len(candidates) > 1:
+        print(f"  FAIL  Multiple submission files found: {[c.name for c in candidates]}")
+        return None
+    # Fallback: check for old naming
+    fallback = REPO_ROOT / "week-1-submission.txt"
+    if fallback.exists():
+        return fallback
+    return None
+
+
+def check_submission_filename(names: list[str]) -> tuple[bool, Path | None]:
+    """Check submission .txt exists and follows naming convention."""
+    txt_path = find_submission_txt()
+
+    if txt_path is None:
+        print(f"  FAIL  No submission .txt found in repo root")
+        print(f"        Expected: firstname_lastname_week1_submission.txt")
+        print(f"        Run: uv run gitingest week-1/ -o <name>_week1_submission.txt")
+        return False, None
+
+    filename = txt_path.name
+
+    # Check naming convention
+    if re.match(SUBMISSION_FILENAME_PATTERN, filename):
+        print(f"  PASS  {filename} â€” naming convention correct")
+        return True, txt_path
+
+    if filename == "week-1-submission.txt":
+        # Build expected name from student names
+        if names:
+            first_names = "_".join(n.split()[0].lower() for n in names)
+            expected = f"{first_names}_week1_submission.txt"
+        else:
+            expected = "firstname_lastname_week1_submission.txt"
+        print(f"  FAIL  {filename} â€” wrong naming convention")
+        print(f"        Expected: {expected}")
+        print(f"        Run: uv run gitingest week-1/ -o {expected}")
+        return False, txt_path
+
+    print(f"  WARN  {filename} â€” does not match expected pattern")
+    print(f"        Expected: firstname_lastname_week1_submission.txt")
+    return False, txt_path
+
+
+def check_submission_size(txt_path: Path) -> bool:
+    size_bytes = txt_path.stat().st_size
+    size_kb = size_bytes / 1024
+    size_mb = size_bytes / (1024 * 1024)
+
+    passed = True
+    if size_bytes > MAX_SUBMISSION_BYTES:
+        print(f"  FAIL  {txt_path.name} â€” {size_mb:.1f}MB (must be under 1MB). Check .gitingestignore.")
+        passed = False
+    elif size_bytes < MIN_SUBMISSION_BYTES:
+        print(f"  WARN  {txt_path.name} â€” {size_kb:.0f}KB (suspiciously small, are your files empty?)")
+        passed = False
+    else:
+        print(f"  PASS  {txt_path.name} â€” {size_kb:.0f}KB")
+
+    return passed
+
+
+def check_file_count(txt_path: Path) -> bool:
+    """Check that the submission doesn't have too many files."""
+    content = txt_path.read_text()
+    file_headers = re.findall(r"^FILE:\s+", content, re.MULTILINE)
+    count = len(file_headers)
+
+    if count > MAX_FILE_COUNT:
+        print(f"  FAIL  {count} files in submission (max {MAX_FILE_COUNT}) â€” likely includes data files. Check .gitingestignore.")
+        return False
+    elif count == 0:
+        print(f"  FAIL  No files found in submission .txt â€” gitingest may have failed")
+        return False
+    else:
+        print(f"  PASS  {count} files in submission")
+        return True
+
+
+def check_no_secrets(txt_path: Path) -> bool:
+    """Scan submission .txt for leaked API keys, tokens, and passwords."""
+    content = txt_path.read_text()
+    found = []
+
+    for pattern, label in SECRET_PATTERNS:
+        matches = re.findall(pattern, content)
+        if matches:
+            found.append(f"{label} ({len(matches)} match{'es' if len(matches) > 1 else ''})")
+
+    if found:
+        print(f"  FAIL  Possible secrets detected:")
+        for f in found:
+            print(f"        - {f}")
+        print(f"        Remove secrets from your code and regenerate the submission .txt")
+        return False
+    else:
+        print(f"  PASS  No secrets detected")
+        return True
+
+
+def check_no_data_bloat(txt_path: Path) -> bool:
+    """Check that raw data files didn't leak into the submission."""
+    content = txt_path.read_text()
+    found = []
+
+    for pattern, label in DATA_BLOAT_PATTERNS:
+        if re.search(pattern, content, re.MULTILINE):
+            found.append(label)
+
+    if found:
+        print(f"  FAIL  Data files leaked into submission:")
+        for f in found:
+            print(f"        - {f}")
+        return False
+    else:
+        print(f"  PASS  No data file bloat detected")
+        return True
+
+
+def check_large_files(txt_path: Path) -> bool:
+    """Flag individual files in the .txt that are disproportionately large."""
+    content = txt_path.read_text()
+    # Split by file headers
+    file_sections = re.split(r"^={48}\nFILE:\s+(.+)\n={48}$", content, flags=re.MULTILINE)
+
+    # file_sections: [preamble, filename1, content1, filename2, content2, ...]
+    large_files = []
+    for i in range(1, len(file_sections) - 1, 2):
+        filename = file_sections[i]
+        file_content = file_sections[i + 1]
+        line_count = file_content.count("\n")
+        if line_count > MAX_SINGLE_FILE_LINES:
+            large_files.append((filename, line_count))
+
+    if large_files:
+        print(f"  WARN  Large files detected (over {MAX_SINGLE_FILE_LINES} lines):")
+        for name, lines in large_files:
+            print(f"        - {name} ({lines} lines)")
+        print(f"        Consider whether these should be in .gitingestignore")
+        return False
+    else:
+        print(f"  PASS  No oversized files")
+        return True
+
+
+def check_no_binary(txt_path: Path) -> bool:
+    """Check for binary content or base64 blobs that slipped through."""
+    content = txt_path.read_text(errors="replace")
+
+    # Check for base64 blobs (long strings of base64 chars)
+    base64_blobs = re.findall(r"[A-Za-z0-9+/=]{200,}", content)
+    # Filter out legitimate long strings (like URLs or hashes)
+    suspicious = [b for b in base64_blobs if len(b) > 500]
+
+    # Check for null bytes or binary indicators
+    has_binary_marker = "[Binary file]" in content
+
+    issues = []
+    if suspicious:
+        issues.append(f"{len(suspicious)} base64/binary blob(s) detected")
+    if has_binary_marker:
+        issues.append("Binary file markers found â€” binary files should not be in submission")
+
+    if issues:
+        print(f"  WARN  Possible binary content:")
+        for issue in issues:
+            print(f"        - {issue}")
+        return False
+    else:
+        print(f"  PASS  No binary content detected")
+        return True
+
+
+def main():
+    print("=" * 60)
+    print("  Week 1 Capstone â€” Pre-Submission Check")
+    print("=" * 60)
+    print(f"\nChecking: {WEEK_DIR}\n")
+
+    all_passed = True
+    warnings = False
+
+    # 1. Required files
+    print("Required files:")
+    for rel_path, description in REQUIRED_FILES.items():
+        if not check_file_exists(rel_path, description):
+            all_passed = False
+
+    if not check_has_scripts():
+        all_passed = False
+
+    # 2. Submission sections
+    print("\nSubmission document sections:")
+    passed, _ = check_sections(
+        WEEK_DIR / "submission.md",
+        SUBMISSION_REQUIRED_SECTIONS,
+        "submission.md",
+    )
+    if not passed:
+        all_passed = False
+
+    # 3. Scoping sections
+    print("\nScoping document sections:")
+    passed, _ = check_sections(
+        WEEK_DIR / "docs" / "scoping.md",
+        SCOPING_REQUIRED_SECTIONS,
+        "docs/scoping.md",
+    )
+    if not passed:
+        all_passed = False
+
+    # 4. Student names
+    print("\nStudent names:")
+    names_passed, names = check_student_names()
+    if not names_passed:
+        all_passed = False
+
+    # 5. Template check
+    print("\nTemplate check:")
+    if not check_submission_not_template():
+        warnings = True
+
+    # 6. Trace count
+    print("\nTraces:")
+    passed, count = check_trace_count()
+    if not passed:
+        all_passed = False
+
+    # 7. Submission .txt naming and size
+    print("\nSubmission file:")
+    name_ok, txt_path = check_submission_filename(names)
+    if not name_ok:
+        all_passed = False
+
+    if txt_path and txt_path.exists():
+        if not check_submission_size(txt_path):
+            all_passed = False
+
+        # 8. Content checks on the .txt
+        print("\nSubmission content checks:")
+        if not check_file_count(txt_path):
+            all_passed = False
+        if not check_no_data_bloat(txt_path):
+            all_passed = False
+        if not check_no_secrets(txt_path):
+            all_passed = False
+        if not check_no_binary(txt_path):
+            warnings = True
+        if not check_large_files(txt_path):
+            warnings = True
+
+    # Summary
+    print("\n" + "=" * 60)
+    if all_passed and not warnings:
+        print("  All checks passed. Ready to submit.")
+    elif all_passed and warnings:
+        print("  Checks passed with warnings. Review warnings above.")
+    else:
+        print("  Some checks failed. Fix the issues above before submitting.")
+    print("=" * 60)
+
+    sys.exit(0 if all_passed else 1)
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+================================================
+FILE: .gitingestignore
+================================================
+# week-1/.gitingestignore
+data/raw/
+data/processed/
+*.parquet
+*.csv
+*.npy
+*.bin
+
+
+
+================================================
+FILE: analysis/data_quality_notes.md
+================================================
+# Data Quality Notes
+
+Probability RAG System -- Week 1 Corpus Analysis
+
+------------------------------------------------------------------------
+
+## Quantitative Analysis
+
+### 1. Total Documents and Total Size
+
+-   **Total Documents:** 964\
+-   **Total Tokens:** 1,724,795\
+-   **Average Document Length:** 1,789 tokens
+
+The corpus size is sufficient for semantic retrieval and embedding-based
+QA systems.
+
+------------------------------------------------------------------------
+
+### 2. Document Length Distribution
+
+-   **Shortest Document:** 32 tokens\
+-   **Longest Document:** 62,950 tokens\
+-   **Estimated Median Length:** \~1,300--1,500 tokens
+
+**Observations:**
+
+-   Majority of documents fall within 0--5,000 tokens\
+-   Long-tail distribution includes extreme outliers (\>20,000 tokens)\
+-   Ultra-long documents (\~60k tokens) require structured chunking\
+-   Very short documents (\<50 tokens) may produce weak embeddings
+
+------------------------------------------------------------------------
+
+### 3. Format Breakdown
+
+**By File Type:**
+
+-   `.txt` â†’ 502\
+-   `.md` â†’ 462\
+-   OCR text â†’ 1,438
+
+**By Content Classification:**
+
+-   Conversational â†’ 20 (0.83%)\
+-   Extracted structured text â†’ 482 (20.07%)\
+-   Markdown â†’ 462 (19.23%)\
+-   OCR text â†’ 1,438 (59.87%)
+
+**Observation:**\
+OCR-derived text dominates corpus volume (\~60%), increasing noise risk.
+
+------------------------------------------------------------------------
+
+### 4. Duplicate Count
+
+No explicit duplicate detection results available.
+
+**Risk Level:** Moderate (especially across OCR and extracted content).
+
+Recommendation: Perform cosine similarity deduplication (\>0.95
+threshold).
+
+------------------------------------------------------------------------
+
+## Qualitative Analysis
+
+### 1. Well-Covered Topics
+
+High-frequency concepts:
+
+-   Random Variable (570)\
+-   Distribution (566)\
+-   Expectation (296)
+
+Moderately covered:
+
+-   Bayes (240)\
+-   Independence (200)
+
+The corpus strongly emphasizes foundational probability constructs.
+
+------------------------------------------------------------------------
+
+### 2. Sparse or Underrepresented Topics
+
+Lower frequency concepts:
+
+-   Central Limit Theorem (108)\
+-   Sample Space (136)\
+-   Conditional Probability (144)
+
+Advanced theoretical coverage appears lighter relative to foundational
+topics.
+
+------------------------------------------------------------------------
+
+### 3. Structural Quality Observations
+
+**Strengths:**
+
+-   Markdown preserves hierarchy and theorem structure\
+-   Extracted text relatively clean\
+-   Minimal conversational noise
+
+**Weaknesses:**
+
+-   OCR symbol degradation (Ïƒ, integrals, probability notation)\
+-   Formatting inconsistencies in OCR content\
+-   Potential repeated lecture materials
+
+------------------------------------------------------------------------
+
+### 4. Retrieval Risk Factors
+
+Potential impacts on vector search:
+
+-   Extremely long documents (60k+ tokens)\
+-   Very short documents (\<50 tokens)\
+-   OCR noise affecting embedding precision\
+-   Topic imbalance favoring foundational probability\
+-   Possible duplicate material
+
+**Mitigation Strategy:**
+
+-   400-word chunking with 50-word overlap\
+-   Separate OCR indexing\
+-   Deduplication pass before embedding\
+-   Topic distribution monitoring
+
+------------------------------------------------------------------------
+
+## Overall Data Health Assessment
+
+**Strengths:**
+
+-   Large academic corpus\
+-   High token density\
+-   Structured Markdown presence\
+-   Strong foundational topic coverage
+
+**Limitations:**
+
+-   OCR-heavy composition\
+-   Topic skew\
+-   Potential duplication
+
+**Overall Readiness for Embedding:** High (with preprocessing
+safeguards)
+
+
+
+================================================
+FILE: analysis/analysis_output/analysis_report.json
+================================================
+{
+    "total_documents": 964,
+    "total_tokens": 1724795,
+    "average_document_length": 1789.2064315352698,
+    "shortest_document": 32,
+    "longest_document": 62950,
+    "ocr_documents": 1438,
+    "probability_distribution": {
+        "conversational": 0.00832639467110741,
+        "extracted_text": 0.2006661115736886,
+        "markdown": 0.19233971690258117,
+        "ocr_text": 0.5986677768526228
+    }
+}
+
+
+================================================
+FILE: analysis/analysis_output/file_type_distribution.json
+================================================
+{
+    ".txt": 502,
+    ".md": 462,
+    "ocr_txt": 1438
+}
+
+
+================================================
+FILE: analysis/analysis_output/source_distribution.json
+================================================
+{
+    "conversational": 20,
+    "extracted_text": 482,
+    "markdown": 462,
+    "ocr_text": 1438
+}
+
+
+================================================
+FILE: analysis/analysis_output/topic_coverage.json
+================================================
+{
+    "random variable": 570,
+    "distribution": 566,
+    "expectation": 296,
+    "bayes": 240,
+    "independence": 200,
+    "central limit theorem": 108,
+    "sample space": 136,
+    "conditional probability": 144
+}
+
+
+================================================
+FILE: data/README.md
+================================================
+# Data Engineering & Corpus Documentation
+
+ProbablAI -- Week 1 Data Layer
+
+This document explains:
+
+1.  Where the data came from\
+2.  How it was extracted\
+3.  What preprocessing was applied\
+4.  What was filtered out and why\
+5.  Final corpus statistics\
+6.  The layered ingestion design
+
+Raw data lives in:
+
+week-1/data/raw/
+
+Processed data lives in:
+
+week-1/data/processed/
+
+These directories are excluded from submission due to size, but fully
+documented here.
+
+------------------------------------------------------------------------
+
+## 1. Data Sources
+
+The corpus was intentionally diversified to improve robustness,
+grounding, and conceptual coverage.
+
+### Academic Core
+
+â€¢ MIT 6.041 Probability Lectures & Transcripts\
+â€¢ MIT 18.05 (Spring 2022) -- Lectures, Exams, Problem Sets\
+â€¢ OpenIntro Statistics -- Probability chapters\
+â€¢ Probability textbooks (digital PDF)
+
+### Community & Applied Knowledge
+
+â€¢ StackExchange Probability Tag -- Top-voted Q&A threads\
+â€¢ StatQuest-style discussions
+
+### Internal / Manual Collection
+
+â€¢ Handwritten lecture notes (scanned PDFs)\
+â€¢ Instructor-provided course PDFs\
+â€¢ Slide decks (PPT / PDF format)
+
+This multi-source strategy improved conceptual depth, applied framing,
+and phrasing diversity.
+
+------------------------------------------------------------------------
+
+## 2. Data Extraction Methods
+
+### PDF Extraction
+
+Tools used:
+
+â€¢ pdfplumber\
+â€¢ PyMuPDF (fallback)
+
+Strategy:
+
+â€¢ Attempt structured text extraction\
+â€¢ If extraction length suspiciously small â†’ trigger OCR
+
+------------------------------------------------------------------------
+
+### OCR Pipeline
+
+Tools:
+
+â€¢ pytesseract\
+â€¢ pdf2image\
+â€¢ OpenCV
+
+OCR was:
+
+â€¢ Triggered conditionally\
+â€¢ Stored separately\
+â€¢ Not embedded initially
+
+Reason: Mathematical OCR introduces symbol distortion. Separation
+preserves embedding quality.
+
+------------------------------------------------------------------------
+
+### HTML Extraction
+
+Tools:
+
+â€¢ BeautifulSoup\
+â€¢ requests
+
+Steps:
+
+â€¢ Removed navigation menus\
+â€¢ Removed scripts and styling\
+â€¢ Extracted semantic text blocks\
+â€¢ Converted HTML â†’ clean TXT
+
+------------------------------------------------------------------------
+
+### YouTube Transcript Extraction
+
+Command used:
+
+python -m yt_dlp --write-auto-subs --skip-download --sub-lang en
+--convert-subs srt --yes-playlist PLAYLIST_URL
+
+Post-processing:
+
+â€¢ Converted SRT â†’ plain text\
+â€¢ Removed timestamps\
+â€¢ Normalized formatting
+
+------------------------------------------------------------------------
+
+### MIT Filtering Strategy
+
+Filtering command example:
+
+Get-ChildItem -File \| Where-Object {
+($_.Name -match "pset|exam|lec") -and ($\_.Extension -ne ".zip") }
+
+Purpose:
+
+â€¢ Avoid redundancy\
+â€¢ Exclude irrelevant materials\
+â€¢ Keep high-signal academic content
+
+------------------------------------------------------------------------
+
+## 3. Preprocessing Pipeline
+
+Layered transformation:
+
+RAW\
+â†“\
+extracted_text (format normalization)\
+â†“\
+markdown (structured academic content)\
+conversational (cleaned Q&A/chat)\
+â†“\
+INDEX THIS
+
+------------------------------------------------------------------------
+
+### extracted_text
+
+â€¢ Normalize formats\
+â€¢ Convert PDF/HTML/DOCX â†’ text\
+â€¢ Separate OCR content
+
+------------------------------------------------------------------------
+
+### markdown
+
+â€¢ Preserve headings\
+â€¢ Preserve theorem/definition structure\
+â€¢ Enable structure-aware chunking
+
+------------------------------------------------------------------------
+
+### conversational
+
+â€¢ Clean StackExchange threads\
+â€¢ Remove signatures and unrelated comments\
+â€¢ Retain Q&A structure
+
+------------------------------------------------------------------------
+
+## 4. Additional Preprocessing Steps
+
+### Duplicate Detection
+
+â€¢ Removed repeated documents\
+â€¢ Eliminated near-identical copies\
+â€¢ Prevented embedding redundancy
+
+### Large Book Splitting
+
+â€¢ Split large PDFs by topic/section\
+â€¢ Prevented multi-topic contamination\
+â€¢ Improved retrieval relevance
+
+### Noise Removal
+
+Removed:
+
+â€¢ Lock files\
+â€¢ Config files\
+â€¢ Navigation elements\
+â€¢ HTML headers/footers\
+â€¢ Empty OCR outputs
+
+### Metadata Enrichment
+
+â€¢ Added source labels\
+â€¢ Preserved file_path\
+â€¢ Maintained folder hierarchy
+
+------------------------------------------------------------------------
+
+## 5. Final Corpus Statistics
+
+Documents processed: 964\
+Total tokens: \~1.7M\
+OCR-derived files: 1,438 intermediate outputs\
+Longest document: \~62k tokens
+
+Format breakdown:
+
+â€¢ Markdown\
+â€¢ TXT\
+â€¢ OCR text\
+â€¢ Transcripts
+
+------------------------------------------------------------------------
+
+## 6. Value Added Through Preprocessing
+
+This data layer demonstrates:
+
+â€¢ Strategic dataset curation\
+â€¢ Layered ingestion architecture\
+â€¢ Conditional OCR handling\
+â€¢ Structure-aware chunking\
+â€¢ Noise filtering discipline\
+â€¢ Reproducible processing scripts
+
+
+------------------------------------------------------------------------
+
+End of Data Documentation
+
+
+
+================================================
+FILE: docs/scoping.md
+================================================
+# Project Scoping Document
+
+ProbablAI Domain-Constrained RAG for Probability and Statistics Mastery
+
+## IDENTIFY
+
+### What specific problem are you solving?
+
+Working professionals enrolled in an intensive Probability and
+Statistics course spend significant time navigating fragmented materials
+across textbooks, lecture slides, handwritten notes, and external
+resources to clarify core concepts, slowing down learning and exam
+preparation.
+
+### Who experiences this problem?
+
+â€¢ Executive PG Diploma students in Data Science and AI\
+â€¢ Mid-career professionals transitioning into analytics roles\
+â€¢ Senior leaders revisiting statistical foundations\
+â€¢ Adult learners balancing full-time work with academic study
+
+### Capability Level
+
+L2: Document QA
+
+The system retrieves and answers complex conceptual questions across a
+structured academic corpus with source grounding.
+
+### One-Sentence Problem Statement
+
+Working professionals spend 20--30 minutes searching across hundreds of
+pages of probability textbooks, lecture slides, and handwritten notes to
+clarify foundational concepts needed for coursework and exams.
+------------------------------------------------------------------------
+
+## 2. QUALIFY -- Is RAG the Right Approach?
+
+RAG is appropriate because:
+
+â€¢ The corpus is too large for prompt-only systems\
+â€¢ The material is domain-specific and partly proprietary\
+â€¢ Source attribution matters for academic trust\
+â€¢ Queries require semantic retrieval
+
+
+### Is the corpus too large for a single context window?
+
+Yes.
+
+The dataset contains:
+
+â€¢ 964 processed documents\
+â€¢ Over 1.7 million tokens\
+â€¢ Long documents exceeding 60,000 tokens
+
+This exceeds practical LLM context limits and requires retrieval-based
+narrowing.
+
+### Does semantic search add value over keyword matching?
+
+Yes.
+
+Probability questions are conceptual in nature. Semantic search captures
+relationships between definitions, theorems, and applied examples that
+keyword search would miss.
+
+### Does source attribution matter?
+
+Yes.
+
+In an academic setting, learners require grounded explanations aligned
+with course material and traceable references for exam preparation.
+
+### Is the content domain-specific or proprietary?
+
+Yes.
+
+The corpus includes internal course PDFs, instructor-provided notes, and
+structured academic lecture materials in addition to public MIT
+resources.
+
+Conclusion: RAG is appropriate due to corpus size, semantic retrieval
+needs, source grounding requirements, and domain specificity.
+Keyword search alone would not solve this problem. Direct prompting
+risks hallucination. RAG provides structured retrieval with grounding.
+
+------------------------------------------------------------------------
+
+## 3. DEFINE -- What Does Success Look Like?
+
+### Accuracy
+
+Target: 80%+ conceptually correct responses grounded in source material.
+
+### Latency
+
+Observed average latency approximately 15 seconds for prototype phase.
+
+### Cost
+
+Local embeddings using FastEmbed reduce embedding API cost.
+
+### Coverage
+
+964 processed documents\
+1.7M+ tokens\
+Multi-source academic integration
+
+------------------------------------------------------------------------
+
+## 4. SCOPE -- Data and Work Required
+
+### How many documents are indexed?
+
+964 processed documents\
+1.7M+ total tokens
+
+### What formats are included?
+
+â€¢ Markdown files\
+â€¢ Plain text files\
+â€¢ OCR-extracted text from PDFs\
+â€¢ YouTube lecture transcripts\
+â€¢ Structured academic notes\
+â€¢ Conversation threads from statquest\
+
+### How often does the data change?
+
+Moderate update frequency:
+
+â€¢ Weekly handwritten notes\
+â€¢ Periodic lecture updates\
+â€¢ Static textbook sources
+
+### What is the data quality like?
+
+Strengths:
+
+â€¢ High-density academic content\
+â€¢ Structured Markdown preservation\
+â€¢ Strong foundational concept coverage
+
+Challenges:
+
+â€¢ OCR noise\
+â€¢ Topic imbalance\
+â€¢ Very long documents requiring chunking
+
+### Who owns the data?
+
+â€¢ Internal academic institution for course materials\
+â€¢ MIT OpenCourseWare for public resources\
+â€¢ Open-source textbook authors\
+â€¢ Internet-Conversation-Threads\
+
+------------------------------------------------------------------------
+
+## Nuances and Trade-Offs
+
+Markdown vs Plain Text: Preserved Markdown for semantic hierarchy.
+
+OCR Inclusion: Extracted separately to protect embedding quality.
+
+Chunk Size: Balanced recall and precision using overlapping chunks.
+
+Embedding Model: Selected FastEmbed BGE-large for local reproducibility.
+
+Trace Logging: Implemented programmatic evaluation for reproducibility.
+
+------------------------------------------------------------------------
+
+## Vision
+
+ProbablAI demonstrates how domain-constrained RAG systems can
+power structured educational copilots and extend to regulated,
+technical, or compliance-heavy domains.
+
+Future enhancements include hybrid OCR integration, user document
+uploads, quiz generation, and concept graph visualization.
+
+------------------------------------------------------------------------
+
+End of Scoping Document
+
+
+================================================
+FILE: preprocessing_scripts/analyze_corpus.py
+================================================
+from pathlib import Path
+from collections import Counter
+import json
+import re
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+PROCESSED_DIR = WEEK1_DIR / "data" / "processed"
+OUTPUT_DIR = WEEK1_DIR / "analysis" / "analysis_output"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+doc_count = 0
+token_count = 0
+lengths = []
+source_distribution = Counter()
+topic_counter = Counter()
+
+KEYWORDS = [
+    "conditional probability",
+    "bayes",
+    "independence",
+    "central limit theorem",
+    "random variable",
+    "distribution",
+    "sample space",
+    "expectation"
+]
+
+for file in PROCESSED_DIR.rglob("*.txt"):
+    doc_count += 1
+    text = file.read_text(encoding="utf-8", errors="ignore")
+    tokens = text.split()
+    token_count += len(tokens)
+    lengths.append(len(tokens))
+
+    # Extract source name (first folder after processed/)
+    parts = file.relative_to(PROCESSED_DIR).parts
+    if len(parts) > 0:
+        source = file.relative_to(PROCESSED_DIR).parts[0]
+        source_distribution[source] += 1
+
+
+    lower_text = text.lower()
+    for keyword in KEYWORDS:
+        if keyword in lower_text:
+            topic_counter[keyword] += 1
+
+analysis_report = {
+    "total_documents": doc_count,
+    "total_tokens": token_count,
+    "average_document_length": sum(lengths) / len(lengths) if lengths else 0,
+    "shortest_document": min(lengths) if lengths else 0,
+    "longest_document": max(lengths) if lengths else 0
+}
+
+with open(OUTPUT_DIR / "analysis_report.json", "w") as f:
+    json.dump(analysis_report, f, indent=4)
+
+with open(OUTPUT_DIR / "source_distribution.json", "w") as f:
+    json.dump(source_distribution, f, indent=4)
+
+with open(OUTPUT_DIR / "topic_coverage.json", "w") as f:
+    json.dump(topic_counter, f, indent=4)
+
+print("Analysis reports generated.")
+
+
+
+================================================
+FILE: preprocessing_scripts/classify_corpus.py.py
+================================================
+from pathlib import Path
+import shutil
+import fitz  # PyMuPDF
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+# Adjust this to your actual folder
+input_dir = WEEK1_DIR / "data" / "raw" / "mit-notes"
+
+base_output = WEEK1_DIR / "data" / "raw"
+transcripts_dir = base_output / "transcripts"
+books_dir = base_output / "books"
+slides_dir = base_output / "slides_or_notes"
+other_dir = base_output / "other"
+
+for d in [transcripts_dir, books_dir, slides_dir, other_dir]:
+    d.mkdir(parents=True, exist_ok=True)
+
+
+def classify_pdf(pdf_path):
+    name = pdf_path.name.lower()
+
+    try:
+        doc = fitz.open(pdf_path)
+        first_page = doc[0].get_text().lower()
+    except:
+        return "other"
+
+    # ðŸ“š Book detection (strong signal)
+    if (
+        "introduction to probability" in first_page
+        or "bertsekas" in first_page
+        or "tsitsiklis" in first_page
+        or "chap." in first_page
+    ):
+        return "book"
+
+    # ðŸŽ“ Slide detection
+    if (
+        "lecture" in first_page
+        or "mit opencourseware" in first_page
+        or "mitres" in name
+    ):
+        return "slides"
+
+    # ðŸ—£ Transcript-style detection (long paragraph prose)
+    if len(first_page.split()) > 300:
+        return "transcript"
+
+    return "other"
+
+
+for pdf in input_dir.glob("*.pdf"):
+    category = classify_pdf(pdf)
+
+    if category == "transcript":
+        shutil.copy(pdf, transcripts_dir / pdf.name)
+    elif category == "book":
+        shutil.copy(pdf, books_dir / pdf.name)
+    elif category == "slides":
+        shutil.copy(pdf, slides_dir / pdf.name)
+    else:
+        shutil.copy(pdf, other_dir / pdf.name)
+
+print("Corpus classification complete.")
+
+
+from collections import Counter
+
+counts = Counter()
+
+for pdf in input_dir.glob("*.pdf"):
+    category = classify_pdf(pdf)
+    counts[category] += 1
+
+print(counts)
+
+
+
+================================================
+FILE: preprocessing_scripts/clean_stackexchange.py
+================================================
+from bs4 import BeautifulSoup
+from pathlib import Path
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+input_dir = WEEK1_DIR / "data" / "raw" / "stackexchange"
+output_dir = WEEK1_DIR / "data" / "processed" / "conversational" / "stackexchange"
+output_dir.mkdir(parents=True, exist_ok=True)
+
+for file in input_dir.glob("*.html"):
+    html = file.read_text(encoding="utf-8", errors="ignore")
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Remove unwanted sections
+    for tag in soup(["script", "style", "nav", "footer", "aside"]):
+        tag.decompose()
+
+    text = soup.get_text(separator="\n")
+
+    # Clean blank lines
+    cleaned = "\n".join(line.strip() for line in text.splitlines() if line.strip())
+
+    out_file = output_dir / file.with_suffix(".txt").name
+    out_file.write_text(cleaned, encoding="utf-8")
+
+print("StackExchange cleaning complete.")
+
+
+
+================================================
+FILE: preprocessing_scripts/copy_scripts.py
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x8f in position 1980: character maps to <undefined>
+
+
+================================================
+FILE: preprocessing_scripts/download_stackexchange.py
+================================================
+import requests
+from pathlib import Path
+import time
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+OUTPUT_DIR = WEEK1_DIR / "data" / "raw" / "stackexchange"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+# Get top 20 probability questions from API
+api_url = "https://api.stackexchange.com/2.3/questions"
+
+params = {
+    "order": "desc",
+    "sort": "votes",
+    "tagged": "probability",
+    "site": "stats.stackexchange",
+    "pagesize": 20
+}
+
+response = requests.get(api_url, params=params)
+data = response.json()
+
+question_ids = [item["question_id"] for item in data["items"]]
+
+print(f"Found {len(question_ids)} questions.")
+
+headers = {
+    "User-Agent": "Mozilla/5.0"
+}
+
+for qid in question_ids:
+    url = f"https://stats.stackexchange.com/questions/{qid}"
+    r = requests.get(url, headers=headers)
+
+    if r.status_code == 200:
+        file_path = OUTPUT_DIR / f"se_{qid}.html"
+        file_path.write_text(r.text, encoding="utf-8")
+        print(f"Downloaded {qid}")
+    else:
+        print(f"Failed {qid}")
+
+    time.sleep(1)
+
+print("Done.")
+
+
+
+================================================
+FILE: preprocessing_scripts/image_ocr_processor.py
+================================================
+import os
+from pathlib import Path
+import fitz  # PyMuPDF
+from PIL import Image
+import pytesseract
+import json
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+RAW_DIR = WEEK1_DIR / "data" / "raw"
+OUTPUT_DIR = WEEK1_DIR / "data" / "processed" / "image_ocr"
+
+IMAGE_DIR = OUTPUT_DIR / "extracted_images"
+OCR_DIR = OUTPUT_DIR / "ocr_text"
+
+IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+OCR_DIR.mkdir(parents=True, exist_ok=True)
+
+metadata_log = []
+
+# If Windows needs explicit path:
+# pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+
+def process_pdf(pdf_path):
+    doc = fitz.open(pdf_path)
+
+    for page_index in range(len(doc)):
+        page = doc[page_index]
+        image_list = page.get_images(full=True)
+
+        for img_index, img in enumerate(image_list):
+            xref = img[0]
+            base_image = doc.extract_image(xref)
+            image_bytes = base_image["image"]
+            image_ext = base_image["ext"]
+
+            relative_pdf = pdf_path.relative_to(RAW_DIR)
+            image_name = f"{relative_pdf.stem}_page{page_index+1}_img{img_index+1}.{image_ext}"
+
+            image_output_path = IMAGE_DIR / image_name
+            image_output_path.parent.mkdir(parents=True, exist_ok=True)
+
+            with open(image_output_path, "wb") as f:
+                f.write(image_bytes)
+
+            # OCR
+            try:
+                image = Image.open(image_output_path)
+                ocr_text = pytesseract.image_to_string(image)
+
+                ocr_output_path = OCR_DIR / (image_name + ".txt")
+                ocr_output_path.write_text(ocr_text, encoding="utf-8")
+
+                metadata_log.append({
+                    "pdf_file": str(relative_pdf),
+                    "page": page_index + 1,
+                    "image_file": str(image_output_path.name),
+                    "ocr_file": str(ocr_output_path.name)
+                })
+
+                print(f"OCR extracted: {image_name}")
+
+            except Exception as e:
+                print(f"OCR failed for {image_name}: {e}")
+
+
+def main():
+    total_pdfs = 0
+
+    for root, _, files in os.walk(RAW_DIR):
+        for file in files:
+            if file.lower().endswith(".pdf"):
+                pdf_path = Path(root) / file
+                print(f"Processing PDF: {pdf_path}")
+                process_pdf(pdf_path)
+                total_pdfs += 1
+
+    # Save metadata
+    metadata_path = OUTPUT_DIR / "metadata.json"
+    metadata_path.write_text(json.dumps(metadata_log, indent=2), encoding="utf-8")
+
+    print("\nâœ… Image OCR extraction complete")
+    print(f"PDFs processed: {total_pdfs}")
+    print(f"Images extracted: {len(metadata_log)}")
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+================================================
+FILE: preprocessing_scripts/preprocess_all.py
+================================================
+import fitz
+import pytesseract
+from pdf2image import convert_from_path
+from pathlib import Path
+import cv2
+import numpy as np
+import re
+
+# Set Tesseract path (Windows)
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+RAW_DIR = WEEK1_DIR / "data" / "raw"
+PROCESSED_DIR = WEEK1_DIR / "data" / "processed" / "extracted_text"
+PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def clean_text(text):
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
+
+def extract_text_pdf(pdf_path):
+    doc = fitz.open(pdf_path)
+    text = ""
+    for page in doc:
+        text += page.get_text()
+    doc.close()
+    return text
+
+
+def ocr_pdf(pdf_path):
+    pages = convert_from_path(pdf_path)
+    text = ""
+    for page in pages:
+        img = np.array(page)
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        text += pytesseract.image_to_string(gray)
+    return text
+
+
+for pdf in RAW_DIR.rglob("*.pdf"):
+    print(f"Processing {pdf}")
+
+    # Preserve folder structure
+    relative_path = pdf.relative_to(RAW_DIR)
+    output_path = PROCESSED_DIR / relative_path.with_suffix(".txt")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    text = extract_text_pdf(pdf)
+
+    if len(text.strip()) < 200:
+        print("  â†’ OCR fallback")
+        text = ocr_pdf(pdf)
+
+    if len(text.strip()) > 100:
+        text = clean_text(text)
+        output_path.write_text(text, encoding="utf-8")
+
+print("Recursive preprocessing complete.")
+
+
+
+================================================
+FILE: preprocessing_scripts/process_dataset.py
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x9d in position 4925: character maps to <undefined>
+
+
+================================================
+FILE: preprocessing_scripts/smart_convertor.py
+================================================
+import os
+from pathlib import Path
+import pdfplumber
+from docx import Document
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+INPUT_DIR = WEEK1_DIR / "data" / "raw"
+TEXT_OUTPUT_DIR = WEEK1_DIR / "data" / "processed" / "extracted_text"
+
+TEXT_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def extract_pdf_text(file_path):
+    text = ""
+    with pdfplumber.open(file_path) as pdf:
+        for page in pdf.pages:
+            text += page.extract_text() or ""
+            text += "\n"
+    return text
+
+
+def extract_docx_text(file_path):
+    doc = Document(file_path)
+    return "\n".join([para.text for para in doc.paragraphs])
+
+
+def process_files():
+    total = 0
+
+    for root, _, files in os.walk(INPUT_DIR):
+        for file in files:
+            input_path = Path(root) / file
+            relative_path = input_path.relative_to(INPUT_DIR)
+            output_path = TEXT_OUTPUT_DIR / relative_path.with_suffix(".txt")
+
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+
+            text = ""
+
+            try:
+                if file.lower().endswith(".pdf"):
+                    text = extract_pdf_text(input_path)
+
+                elif file.lower().endswith(".docx"):
+                    text = extract_docx_text(input_path)
+
+                elif file.lower().endswith((".txt", ".md")):
+                    text = input_path.read_text(encoding="utf-8", errors="ignore")
+
+                else:
+                    continue
+
+                output_path.write_text(text, encoding="utf-8")
+                total += 1
+                print("Extracted:", relative_path)
+
+            except Exception as e:
+                print("Error processing:", relative_path, e)
+
+    print(f"\nâœ… Extraction complete. Files processed: {total}")
+
+
+if __name__ == "__main__":
+    process_files()
+
+
+
+================================================
+FILE: preprocessing_scripts/split_mit.py
+================================================
+from pathlib import Path
+import shutil
+import fitz  # PyMuPDF
+from collections import Counter
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+# ðŸ”¹ Adjust path
+input_dir = WEEK1_DIR / "data" / "raw" / "mit_1805_curated"
+
+base_output = WEEK1_DIR / "data" / "raw" / "mit-notes"
+transcripts_dir = base_output / "transcripts"
+books_dir = base_output / "books"
+slides_dir = base_output / "slides_or_notes"
+other_dir = base_output / "other"
+
+for d in [transcripts_dir, books_dir, slides_dir, other_dir]:
+    d.mkdir(parents=True, exist_ok=True)
+
+counts = Counter()
+
+def classify_pdf(pdf_path):
+    name = pdf_path.name.lower()
+
+    try:
+        doc = fitz.open(pdf_path)
+        first_page = doc[0].get_text().lower()
+        doc.close()
+    except:
+        return "other"
+
+    # ðŸ“š Book detection
+    if (
+        "introduction to probability" in first_page
+        or "bertsekas" in first_page
+        or "tsitsiklis" in first_page
+        or "chap." in first_page
+    ):
+        return "book"
+
+    # ðŸŽ“ Slide detection
+    if (
+        "lecture" in first_page
+        or "mit opencourseware" in first_page
+        or "mitres" in name
+    ):
+        return "slides"
+
+    # ðŸ—£ Transcript-style detection
+    if len(first_page.split()) > 300:
+        return "transcript"
+
+    return "other"
+
+
+for pdf in input_dir.glob("*.pdf"):
+    category = classify_pdf(pdf)
+    counts[category] += 1
+
+    if category == "transcript":
+        shutil.copy(pdf, transcripts_dir / pdf.name)
+    elif category == "book":
+        shutil.copy(pdf, books_dir / pdf.name)
+    elif category == "slides":
+        shutil.copy(pdf, slides_dir / pdf.name)
+    else:
+        shutil.copy(pdf, other_dir / pdf.name)
+
+print("Corpus classification complete.")
+print(counts)
+
+
+
+================================================
+FILE: preprocessing_scripts/split_open_intro.py
+================================================
+import fitz
+from pathlib import Path
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEEK1_DIR = SCRIPT_DIR.parent
+
+input_pdf = WEEK1_DIR / "data" / "raw" / "open_intro" / "os.pdf"
+output_dir = WEEK1_DIR / "data" / "raw" / "open_intro"
+output_dir.mkdir(parents=True, exist_ok=True)
+
+doc = fitz.open(input_pdf)
+
+# Adjust page ranges manually after checking TOC
+chapters = {
+    "probability": (1, 40),
+    "random_variables": (41, 90),
+    "distributions": (91, 140),
+    "clt": (141, 180),
+}
+
+for name, (start, end) in chapters.items():
+    new_doc = fitz.open()
+    new_doc.insert_pdf(doc, from_page=start-1, to_page=end-1)
+    new_doc.save(output_dir / f"openintro_chapter_{name}.pdf")
+
+print("Chapters split.")
+
+
+
+================================================
+FILE: preprocessing_scripts/visualize_dataset_story.py
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x8f in position 3024: character maps to <undefined>
+
+
+================================================
+FILE: scripts/01_setup_qdrant.py
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x9d in position 4071: character maps to <undefined>
+
+
+================================================
+FILE: scripts/02_create_pipeline.py
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x8f in position 8787: character maps to <undefined>
+
+
+================================================
+FILE: scripts/03_run_indexing.py
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x81 in position 2384: character maps to <undefined>
+
+
+================================================
+FILE: scripts/04_test_rag_system.py
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x9d in position 2985: character maps to <undefined>
+
+
+================================================
+FILE: scripts/05_interactive_rag.py
+================================================
+# ============================================================================
+# The Engineer's RAG Accelerator - Course Code
+# Copyright (c) 2026 NeoSage. All rights reserved.
+#
+# This code is provided exclusively for enrolled students of the RAG Accelerator
+# course. It may not be shared, redistributed, or used to create derivative works.
+# See the Course Access Policy for full terms.
+# ============================================================================
+
+"""
+Interactive RAG System - Query Your Probability Knowledge Base
+=======================================================
+
+An interactive interface to explore your RAG system.
+Ask questions about Probability and see the full pipeline in action!
+
+Usage:
+    # Full RAG mode (retrieve + generate)
+    python 05_interactive_rag.py
+    python 05_interactive_rag.py --model gemini-2.5-flash-lite
+
+    # Retrieve-only mode (inspect chunks without LLM)
+    python 05_interactive_rag.py --retrieve-only
+"""
+
+import os
+import time
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Haystack imports
+from haystack import Pipeline
+from haystack.components.builders import ChatPromptBuilder
+from haystack.dataclasses import ChatMessage
+
+# FastEmbed imports
+from haystack_integrations.components.embedders.fastembed import FastembedTextEmbedder
+from haystack_integrations.components.retrievers.qdrant import QdrantEmbeddingRetriever
+
+# Google Gemini imports
+from haystack_integrations.components.generators.google_genai import GoogleGenAIChatGenerator
+
+# Qdrant import
+from haystack_integrations.document_stores.qdrant import QdrantDocumentStore
+from haystack.utils import Secret
+
+# Get project root (script -> rag_pipeline -> week1_foundations -> root)
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+
+# Available models (in order of preference for fallback)
+AVAILABLE_MODELS = [
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemma-3-27b"
+]
+
+
+def create_retrieval_pipeline(collection_name: str = None, top_k: int = 5):
+    """
+    Create a retrieval-only pipeline: Embedder -> Retriever
+
+    Used for inspecting chunks without LLM generation.
+    This is useful for understanding what the retriever returns
+    before the LLM processes it.
+    """
+    load_dotenv(PROJECT_ROOT / ".env")
+
+    # Configuration from environment
+    collection_name = collection_name or os.getenv("QDRANT_COLLECTION_PHASE1", "probability_phase1_baseline")
+    fastembed_model = os.getenv("FASTEMBED_MODEL", "BAAI/bge-large-en-v1.5")
+
+    print("Setting up retrieval pipeline (no LLM)...")
+    print(f"  Embedding model: {fastembed_model}")
+    print(f"  Collection: {collection_name}")
+    print(f"  Top-K: {top_k}")
+
+    # Connect to Qdrant document store
+    document_store = QdrantDocumentStore(
+        url=os.getenv("QDRANT_URL"),
+        index=collection_name,
+        api_key=Secret.from_env_var("QDRANT_API_KEY"),
+        embedding_dim=int(os.getenv("EMBEDDING_DIMENSION", "1024")),
+        recreate_index=False,
+        return_embedding=True,
+        wait_result_from_api=True
+    )
+    doc_count = document_store.count_documents()
+    print(f"  Connected to Qdrant ({doc_count} documents indexed)")
+
+    # Build the pipeline - only embedder and retriever
+    pipeline = Pipeline()
+
+    # 1. Text Embedder - same model as indexing (critical!)
+    text_embedder = FastembedTextEmbedder(model=fastembed_model, parallel=0, progress_bar=False)
+    text_embedder.warm_up()
+    pipeline.add_component("text_embedder", text_embedder)
+
+    # 2. Retriever
+    pipeline.add_component("retriever", QdrantEmbeddingRetriever(
+        document_store=document_store,
+        top_k=top_k
+    ))
+
+    # Connect embedder to retriever
+    pipeline.connect("text_embedder.embedding", "retriever.query_embedding")
+
+    print("Pipeline ready!\n")
+    return pipeline
+
+
+def create_rag_pipeline(collection_name: str = None, llm_model: str = None):
+    """
+    Create the complete RAG pipeline: Embedder -> Retriever -> Prompt Builder -> LLM
+
+    Uses the same components as 04_test_rag_system.py:
+    - FastEmbed with BAAI/bge-large-en-v1.5 for embeddings
+    - Qdrant for vector retrieval
+    - ChatPromptBuilder for prompt construction
+    - GoogleGenAIChatGenerator (Gemini) for response generation
+    """
+    load_dotenv(PROJECT_ROOT / ".env")
+
+    # Configuration from environment
+    collection_name = collection_name or os.getenv("QDRANT_COLLECTION_PHASE1", "probability_phase1_baseline")
+    fastembed_model = os.getenv("FASTEMBED_MODEL", "BAAI/bge-large-en-v1.5")
+    llm_model = llm_model or os.getenv("LLM_MODEL", "gemini-2.5-flash")
+
+    print("Setting up RAG pipeline...")
+    print(f"  Embedding model: {fastembed_model}")
+    print(f"  LLM: {llm_model}")
+    print(f"  Collection: {collection_name}")
+
+    # Connect to Qdrant document store
+    document_store = QdrantDocumentStore(
+        url=os.getenv("QDRANT_URL"),
+        index=collection_name,
+        api_key=Secret.from_env_var("QDRANT_API_KEY"),
+        embedding_dim=int(os.getenv("EMBEDDING_DIMENSION", "1024")),
+        recreate_index=False,
+        return_embedding=True,
+        wait_result_from_api=True
+    )
+    doc_count = document_store.count_documents()
+    print(f"  Connected to Qdrant ({doc_count} documents indexed)")
+
+    # Build the pipeline
+    pipeline = Pipeline()
+
+    # 1. Text Embedder - same model as indexing (critical!)
+    text_embedder = FastembedTextEmbedder(model=fastembed_model, parallel=0, progress_bar=False)
+    text_embedder.warm_up()
+    pipeline.add_component("text_embedder", text_embedder)
+
+    # 2. Retriever - top_k=5 chunks
+    pipeline.add_component("retriever", QdrantEmbeddingRetriever(
+        document_store=document_store,
+        top_k=5
+    ))
+
+    # 3. Prompt Builder - system message + context + question
+    template = [
+        ChatMessage.from_system(
+            "You are an expert assistant/tutor for Probability for Data Science. "
+            "Use the provided context to answer questions about Probability for Data Science concepts and applications. "
+            "Provide accurate, practical answers based on the context."
+        ),
+        ChatMessage.from_user("""Context:
+{% for document in documents %}
+{{ document.content }}
+---
+{% endfor %}
+
+Question: {{ question }}""")
+    ]
+    pipeline.add_component("prompt_builder", ChatPromptBuilder(
+        template=template,
+        required_variables=["documents", "question"]
+    ))
+
+    # 4. LLM - Gemini for generation
+    pipeline.add_component("llm", GoogleGenAIChatGenerator(model=llm_model))
+
+    # Connect the components
+    pipeline.connect("text_embedder.embedding", "retriever.query_embedding")
+    pipeline.connect("retriever.documents", "prompt_builder.documents")
+    pipeline.connect("prompt_builder.prompt", "llm.messages")
+
+    print("Pipeline ready!\n")
+    return pipeline, llm_model
+
+
+def is_retryable_error(error_msg: str) -> bool:
+    """Check if error is retryable (5xx server errors)."""
+    retryable_patterns = ["503", "502", "500", "overloaded", "unavailable", "internal"]
+    error_lower = error_msg.lower()
+    return any(pattern in error_lower for pattern in retryable_patterns)
+
+
+def generate_with_llm(llm, prompt_messages: list, model_name: str) -> tuple:
+    """
+    Run LLM generation. Returns (success, result_text, error_msg).
+    """
+    print(f"[4/4] Generating response ({model_name})...")
+    generate_start = time.time()
+
+    try:
+        llm_result = llm.run(messages=prompt_messages)
+        generate_time = time.time() - generate_start
+
+        replies = llm_result.get("replies", [])
+        if replies and replies[0].text:
+            print(f"      Done ({generate_time:.2f}s)")
+            return (True, replies[0].text, None)
+        else:
+            print("      No response generated")
+            return (False, None, "Empty response")
+
+    except Exception as e:
+        error_msg = str(e)
+        print(f"      Failed: {error_msg[:100]}")
+        return (False, None, error_msg)
+
+
+def ask_question(pipeline: Pipeline, question: str, current_model: str) -> tuple:
+    """
+    Run a question through the RAG pipeline and display the answer.
+
+    Returns (success: bool, new_model: str or None).
+    - success: True if answer was generated
+    - new_model: If model was switched, returns new model name; else None
+    """
+    print("\n[1/4] Embedding query...")
+    start_time = time.time()
+
+    # Step 1: Embed the question
+    embed_result = pipeline.get_component("text_embedder").run(text=question)
+    embed_time = time.time() - start_time
+    print(f"      Done ({embed_time:.2f}s)")
+
+    # Step 2: Retrieve documents
+    print("[2/4] Retrieving relevant documents...")
+    retrieve_start = time.time()
+    retrieve_result = pipeline.get_component("retriever").run(
+        query_embedding=embed_result["embedding"]
+    )
+    retrieve_time = time.time() - retrieve_start
+    documents = retrieve_result.get("documents", [])
+    print(f"      Found {len(documents)} chunks ({retrieve_time:.2f}s)")
+
+    # Show retrieved documents
+    if documents:
+        print("\n      Retrieved chunks:")
+        for i, doc in enumerate(documents, 1):
+            source = doc.meta.get('file_path', 'Unknown')
+            source_name = Path(source).name if source != 'Unknown' else 'Unknown'
+            content_preview = doc.content[:80].replace('\n', ' ') + "..."
+            print(f"      [{i}] {source_name}")
+            print(f"          \"{content_preview}\"")
+
+    # Step 3: Build prompt
+    print("\n[3/4] Building prompt...")
+    prompt_result = pipeline.get_component("prompt_builder").run(
+        documents=documents,
+        question=question
+    )
+    print("      Done")
+
+    # Step 4: Generate response (with retry logic)
+    prompt_messages = prompt_result["prompt"]
+    active_model = current_model
+    switched_model = None
+
+    while True:
+        # Get the LLM to use
+        if switched_model:
+            # Create new LLM for switched model
+            llm = GoogleGenAIChatGenerator(model=switched_model)
+            active_model = switched_model
+        else:
+            llm = pipeline.get_component("llm")
+
+        success, answer_text, error_msg = generate_with_llm(llm, prompt_messages, active_model)
+
+        if success and answer_text:
+            total_time = time.time() - start_time
+
+            # Display the answer
+            print("\n" + "=" * 60)
+            print("ANSWER:")
+            print("=" * 60)
+            print(answer_text)
+
+            # Show sources summary
+            if documents:
+                print("\nSources:")
+                seen_sources = set()
+                for doc in documents[:3]:
+                    source = doc.meta.get('file_path', 'Unknown')
+                    source_name = Path(source).name if source != 'Unknown' else 'Unknown'
+                    if source_name not in seen_sources:
+                        seen_sources.add(source_name)
+                        print(f"  - {source_name}")
+
+            print(f"\n[Total time: {total_time:.2f}s]")
+            return (True, switched_model)
+
+        # Generation failed - check if retryable
+        if error_msg and is_retryable_error(error_msg):
+            print(f"\n      Server error (retryable).")
+            print("      Options:")
+            print("        (r) Retry with same model")
+            print("        (s) Switch to different model")
+            print("        (n) Skip / new question")
+
+            choice = input("      Choice [r/s/n]: ").strip().lower()
+
+            if choice == 'r':
+                print()
+                continue  # Retry same model
+
+            elif choice == 's':
+                new_model = select_model(active_model)
+                if new_model != active_model:
+                    switched_model = new_model
+                    print()
+                    continue  # Retry with new model
+                else:
+                    print("      Model unchanged, retrying...")
+                    print()
+                    continue
+
+            else:  # 'n' or anything else
+                print("      Skipping.")
+                return (False, switched_model)
+
+        else:
+            # Non-retryable error (4xx, auth, etc.)
+            print(f"\n      Non-retryable error. Please check your configuration.")
+            return (False, switched_model)
+
+
+def print_chunk_details(doc, index: int) -> None:
+    """Print full details of a retrieved chunk."""
+    meta = doc.meta
+
+    print(f"\n{'='*70}")
+    print(f"CHUNK {index}")
+    print(f"{'='*70}")
+
+    # Score (similarity)
+    if doc.score is not None:
+        print(f"Score: {doc.score:.4f}")
+
+    # Source information
+    print(f"\nSource: {meta.get('file_path', 'Unknown')}")
+    print(f"Split ID: {meta.get('split_id', 'N/A')}")
+    print(f"Character Offset: {meta.get('split_idx_start', 'N/A')}")
+
+    # Additional metadata if present
+    if 'page_number' in meta:
+        print(f"Page: {meta['page_number']}")
+    if 'source_id' in meta:
+        print(f"Source ID: {meta['source_id'][:20]}...")
+
+    # Full content
+    print(f"\nContent ({len(doc.content)} chars):")
+    print("-" * 70)
+    print(doc.content)
+    print("-" * 70)
+
+
+def retrieve_and_inspect(pipeline: Pipeline, question: str) -> None:
+    """
+    Run retrieval and display full chunk details.
+
+    This uses pipeline.run() - the standard Haystack pattern -
+    to execute the embedder and retriever components.
+    """
+    print(f"\nQuery: \"{question}\"")
+    print("=" * 70)
+
+    start_time = time.time()
+
+    # Run the retrieval pipeline (embedder -> retriever)
+    # This is the standard Haystack way to execute a pipeline
+    result = pipeline.run({"text_embedder": {"text": question}})
+
+    elapsed = time.time() - start_time
+
+    # Get retrieved documents
+    documents = result.get("retriever", {}).get("documents", [])
+
+    print(f"\nRetrieved {len(documents)} chunks in {elapsed:.2f}s")
+
+    if not documents:
+        print("No chunks found for this query.")
+        return
+
+    # Display each chunk with full details
+    for i, doc in enumerate(documents, 1):
+        print_chunk_details(doc, i)
+
+    # Summary
+    print(f"\n{'='*70}")
+    print("SUMMARY")
+    print(f"{'='*70}")
+    print(f"Query: {question}")
+    print(f"Chunks retrieved: {len(documents)}")
+    print(f"Time: {elapsed:.2f}s")
+    print("\nSources:")
+    seen = set()
+    for doc in documents:
+        source = Path(doc.meta.get('file_path', 'Unknown')).name
+        if source not in seen:
+            seen.add(source)
+            print(f"  - {source}")
+
+
+def retrieve_only_loop(pipeline: Pipeline) -> None:
+    """Interactive loop for retrieve-only mode (no LLM generation)."""
+    print("=" * 60)
+    print("  Probability for Data Science RAG System - Retrieve Only Mode")
+    print("=" * 60)
+    print("\nThis mode shows retrieved chunks WITHOUT LLM generation.")
+    print("Use this to inspect what the retriever returns for your queries.")
+    print("\nCommands:")
+    print("  'quit' or 'exit' - Stop the program")
+    print("\nExample queries:")
+    print("  - How do I implement a probability model?")
+    print("  - What are the key concepts in probability for data science?")
+    print("  - Probability distributions and their applications")
+    print()
+
+    while True:
+        try:
+            question = input("Query: ").strip()
+
+            if not question:
+                continue
+
+            if question.lower() in ['quit', 'exit', 'q']:
+                print("\nGoodbye!")
+                break
+
+            retrieve_and_inspect(pipeline, question)
+            print()
+
+        except KeyboardInterrupt:
+            print("\n\nGoodbye!")
+            break
+        except Exception as e:
+            print(f"\nError: {str(e)}")
+            print("Please try again.\n")
+
+
+def print_welcome(current_model: str):
+    """Display welcome message and example queries."""
+    print("=" * 60)
+    print("  Probability for Data Science RAG System - Interactive Mode")
+    print("=" * 60)
+    print(f"\nCurrent LLM: {current_model}")
+    print("\nAsk questions about Probability for Data Science.")
+    print("Commands:")
+    print("  'quit' or 'exit' - Stop the program")
+    print("  'model'          - Switch to a different LLM")
+    print("\nExample questions to try:")
+    print("  - What is probability and why is it important in data science?")
+    print("  - How do I implement a probability model in Python?")
+    print("  - What are common probability distributions and their applications?")
+    print("  - How do I calculate probabilities for different events?")
+    print()
+
+
+def select_model(current_model: str) -> str:
+    """Let user select a different model."""
+    print("\nAvailable models:")
+    for i, model in enumerate(AVAILABLE_MODELS, 1):
+        marker = " (current)" if model == current_model else ""
+        print(f"  {i}. {model}{marker}")
+
+    while True:
+        try:
+            choice = input("\nSelect model (1-3) or press Enter to cancel: ").strip()
+            if not choice:
+                return current_model
+            idx = int(choice) - 1
+            if 0 <= idx < len(AVAILABLE_MODELS):
+                return AVAILABLE_MODELS[idx]
+            print("Invalid choice. Please enter 1, 2, or 3.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+
+def rebuild_pipeline_with_model(collection_name: str, new_model: str):
+    """Rebuild the pipeline with a different LLM model."""
+    print(f"\nSwitching to {new_model}...")
+    return create_rag_pipeline(collection_name=collection_name, llm_model=new_model)
+
+
+def interactive_loop(pipeline: Pipeline, current_model: str, collection_name: str) -> None:
+    """Run the interactive question-answer loop."""
+    print_welcome(current_model)
+
+    while True:
+        try:
+            # Get user input
+            question = input("Your question: ").strip()
+
+            # Handle empty input
+            if not question:
+                continue
+
+            # Handle exit commands
+            if question.lower() in ['quit', 'exit', 'q']:
+                print("\nGoodbye!")
+                break
+
+            # Handle model switching
+            if question.lower() == 'model':
+                new_model = select_model(current_model)
+                if new_model != current_model:
+                    pipeline, current_model = rebuild_pipeline_with_model(collection_name, new_model)
+                    print(f"Now using: {current_model}\n")
+                else:
+                    print("Model unchanged.\n")
+                continue
+
+            # Process the question
+            success, switched_model = ask_question(pipeline, question, current_model)
+
+            # If model was switched during retry, rebuild pipeline for next question
+            if switched_model and switched_model != current_model:
+                print(f"\nRebuilding pipeline with {switched_model} for future questions...")
+                pipeline, current_model = rebuild_pipeline_with_model(collection_name, switched_model)
+
+            print()  # Spacing between Q&A pairs
+
+        except KeyboardInterrupt:
+            print("\n\nGoodbye!")
+            break
+        except Exception as e:
+            print(f"\nError: {str(e)}")
+            print("Please try again.\n")
+
+
+def main():
+    """Main entry point."""
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Interactive RAG System for Probability for Data Science",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=f"""
+Available models: {', '.join(AVAILABLE_MODELS)}
+
+Examples:
+    # Full RAG (retrieve + generate)
+    python 05_interactive_rag.py
+    python 05_interactive_rag.py --model gemini-2.5-flash-lite
+
+    # Retrieve-only (inspect chunks, no LLM)
+    python 05_interactive_rag.py --retrieve-only
+    python 05_interactive_rag.py --retrieve-only --top-k 10
+        """
+    )
+    parser.add_argument("--collection", help="Qdrant collection name (default: from .env)")
+    parser.add_argument("--model", choices=AVAILABLE_MODELS, help="LLM model to use")
+    parser.add_argument("--retrieve-only", action="store_true",
+                        help="Retrieve-only mode: inspect chunks without LLM generation")
+    parser.add_argument("--top-k", type=int, default=5,
+                        help="Number of chunks to retrieve (default: 5)")
+    args = parser.parse_args()
+
+    try:
+        load_dotenv(PROJECT_ROOT / ".env")
+        collection_name = args.collection or os.getenv("QDRANT_COLLECTION_PHASE1", "probability_phase1_baseline")
+
+        if args.retrieve_only:
+            # Retrieve-only mode: no LLM needed
+            pipeline = create_retrieval_pipeline(
+                collection_name=collection_name,
+                top_k=args.top_k
+            )
+            retrieve_only_loop(pipeline)
+        else:
+            # Full RAG mode
+            pipeline, current_model = create_rag_pipeline(
+                collection_name=args.collection,
+                llm_model=args.model
+            )
+            interactive_loop(pipeline, current_model, collection_name)
+
+    except Exception as e:
+        print(f"\nError: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        exit(1)
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+================================================
+FILE: scripts/06_run_traces.py
+================================================
+import time
+import importlib.util
+from pathlib import Path
+
+
+# --------------------------------------------------
+# Load pipeline factory dynamically
+# --------------------------------------------------
+def _load_create_complete_rag_pipeline():
+    script_dir = Path(__file__).resolve().parent
+    module_path = script_dir / "04_test_rag_system.py"
+
+    spec = importlib.util.spec_from_file_location("test_rag_system", module_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Could not load module from: {module_path}")
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    factory = getattr(module, "create_complete_rag_pipeline", None)
+    if not callable(factory):
+        raise ImportError(
+            "Function create_complete_rag_pipeline not found in 04_test_rag_system.py"
+        )
+    return factory
+
+
+create_complete_rag_pipeline = _load_create_complete_rag_pipeline()
+
+
+# --------------------------------------------------
+# Complex / Higher-Level Queries
+# --------------------------------------------------
+TEST_QUERIES = [
+    "Explain how Bayesian updating works in a multi-stage experiment.",
+    "Compare the Central Limit Theorem and the Law of Large Numbers with formal guarantees.",
+    "Explain the mathematical definition of conditional independence.",
+    "Derive the expectation formula for a continuous random variable from its probability density function.",
+    "Under what modeling assumptions can Bayesian updating produce misleading results?"
+]
+
+
+# --------------------------------------------------
+# Main Trace Runner
+# --------------------------------------------------
+def run_traces():
+    print("ðŸš€ Creating RAG pipeline...")
+    pipeline = create_complete_rag_pipeline()
+
+    output_dir = Path("week-1/traces")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_file = output_dir / "trace.md"
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("# Week 1 Trace Report\n\n")
+
+        for i, query in enumerate(TEST_QUERIES, 1):
+            print(f"\nRunning Query {i}: {query}")
+
+            start_time = time.time()
+
+            result = pipeline.run(
+                {
+                    "text_embedder": {"text": query},
+                    "prompt_builder": {"question": query}
+                },
+                include_outputs_from={"retriever", "llm"}
+            )
+
+            latency = round(time.time() - start_time, 2)
+
+            retrieved_docs = result["retriever"]["documents"]
+            replies = result["llm"]["replies"]
+
+            full_answer = replies[0].text if replies else "No answer generated."
+
+            # --------------------------------------------------
+            # Write to markdown
+            # --------------------------------------------------
+            f.write(f"## Query {i}: {query}\n\n")
+            f.write(f"**Question:** {query}\n\n")
+
+            f.write("**Retrieved Chunks:**\n")
+
+            if not retrieved_docs:
+                f.write("No chunks retrieved.\n")
+            else:
+                for j, doc in enumerate(retrieved_docs, 1):
+                    source = Path(doc.meta.get("file_path", "Unknown")).name
+                    score = getattr(doc, "score", 0.0)
+                    preview = doc.content[:80].replace("\n", " ")
+                    f.write(
+                        f"{j}. {source} (score: {score:.4f}) - {preview}\n"
+                    )
+
+            f.write("\n**Generated Answer:**\n")
+            f.write(full_answer + "\n\n")
+
+            f.write("**Assessment:**\n")
+            f.write("- Retrieval quality: \n")
+            f.write("- Answer quality: \n")
+            f.write("- Was the right context retrieved? \n")
+            f.write("- If not, what was missing?\n\n")
+            f.write("---\n\n")
+
+            print(f"âœ… Completed (Latency: {latency}s)")
+
+    print("\nðŸŽ‰ Trace generation complete!")
+    print(f"ðŸ“„ Saved to: {output_file}")
+
+
+if __name__ == "__main__":
+    run_traces()
+
+
+
+================================================
+FILE: traces/trace.md
+================================================
+Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x9d in position 4690: character maps to <undefined>
+
+
+================================================
+FILE: traces/traces.json
+================================================
+[
+    {
+        "query": "Explain Bayes theorem.",
+        "latency_seconds": 10.41,
+        "retrieved_sources": [
+            "mit18_05_s22_statistics.md",
+            "mit18_05_s22_statistics.md",
+            "mit18_05_s22_statistics.md",
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_distributions.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 2835,
+        "answer_preview": "Bayes' theorem is a fundamental concept in inferential statistics that allows us to \"invert\" conditional probabilities. It provides a way to update the probability of a hypothesis being true *after* observing new data.\n\nThe theorem is expressed by the formula:\n\n**P(H|D) = [P(D|H) * P(H)] / P(D)**\n\nLet's break down each component:\n\n*   **P(H|D)**: This is the **posterior probability**. It's the probability that our **H**ypothesis is true *given* the **D**ata we have collected. This is precisely what we often want to know.\n*   **P(D|H)**: This is the **likelihood**. It's the probability of observing the **D**ata *given* that our **H**ypothesis is true. The context notes that this is the same \"likelihood function\" used for Maximum Likelihood Estimates (MLE).\n*   **P(H)**: This is the **prior "
+    },
+    {
+        "query": "Give an example of conditional probability with solution.",
+        "latency_seconds": 6.71,
+        "retrieved_sources": [
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_distributions.md",
+            "Week2-TA_Session2.md",
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_random_variables.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 300,
+        "answer_preview": "Here's an example of conditional probability with its solution, taken directly from the context:\n\n**Question:**\nA die is thrown. Find P(Even | Number > 3).\n\n**Solution:**\nS1. Numbers > 3 = {4,5,6}.\nEven numbers within this reduced sample space = {4,6}.\nSo, the probability P(Even | Number > 3) = 2/3."
+    },
+    {
+        "query": "Explain independence of events with formula.",
+        "latency_seconds": 7.97,
+        "retrieved_sources": [
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md",
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_random_variables.md",
+            "mit18_05_s22_probability.md",
+            "mit18_05_s22_probability.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 1134,
+        "answer_preview": "According to the context, two events $A$ and $B$ are independent if the probability of both events occurring ($A \\cap B$) is equal to the product of their individual probabilities.\n\nThe formal definition of independence is given by:\n**$P(A \\cap B) = P(A) \\cdot P(B)$** (Equation 6 in the context)\n\nThis means that the occurrence of one event does not influence the probability of the other event occurring.\n\nEquivalently, if $P(B) \\neq 0$, $A$ and $B$ are independent if and only if:\n**$P(A|B) = P(A)$** (Equation 5 in the context)\nThis implies that knowing that event $B$ occurred does not change the probability that event $A$ occurred. Similarly, if $P(A) \\neq 0$, then $A$ and $B$ are independent if and only if $P(B|A) = P(B)$.\n\n**Example from the context:**\nIf you toss a fair coin twice, let $"
+    },
+    {
+        "query": "What is the central limit theorem?",
+        "latency_seconds": 9.39,
+        "retrieved_sources": [
+            "mit18_05_s22_probability.md",
+            "mit18_05_s22_probability.md",
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md",
+            "Lec1-Introduction.md",
+            "mit18_05_s22_probability.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 1579,
+        "answer_preview": "The Central Limit Theorem (CLT) states that the sum or average of many independent and identically distributed (i.i.d) random variables is approximately a normal random variable.\n\nKey aspects of the CLT from the context:\n1.  **Approximation to Normal Distribution:** For a large number of independent samples ($n$) from the same distribution, their sum or average will approximate a normal random variable.\n2.  **Specifics for Average and Sum:**\n    *   The sample average ($\\bar{X}_n$) is approximately a normal distribution with the same mean as the individual random variable ($\\mu$) but a smaller variance ($\\sigma^2/n$).\n    *   The sum ($S_n$) is approximately normal with mean $n\\mu$ and variance $n\\sigma^2$.\n    *   The standardized version ($Z_n = (S_n - n\\mu) / (\\sigma\\sqrt{n})$ or $Z_n ="
+    },
+    {
+        "query": "Define expectation of a random variable.",
+        "latency_seconds": 7.86,
+        "retrieved_sources": [
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md",
+            "openintro_chapter_distributions.md",
+            "mit18_05_s22_probability.md",
+            "mit18_05_s22_probability.md",
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 859,
+        "answer_preview": "The **expected value** (also called the **expectation** or the **mean**) of a random variable X is a measure of its average outcome or central tendency. It is denoted by **E[X]** or **\u00b5**.\n\nFor a **discrete random variable X** with a Probability Mass Function (PMF) `pX(x)`, the expected value is defined as the sum of each possible outcome multiplied by its corresponding probability:\n\n`E[X] = \u03a3 x * pX(x)`\n\nThis can be written as:\n`E(X) = x1 * P(X = x1) + ... + xk * P(X = xk)`\n\nIt represents a weighted average of the possible values and can be thought of as the \"center of mass\" or balancing point of the distribution. The expected value need not be a possible value of the random variable itself.\n\nFor a **continuous random variable X** with a probability density function `fX(x)`, the expected "
+    }
+]
+

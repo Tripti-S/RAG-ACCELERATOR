@@ -1,0 +1,17 @@
+Total probability and expectation theorems
+
+© Aq,...,An! partition of & yo ee oe A: =F Y=7-9
+
+© px(x) = P(A1) pxja, (2) +-+> + P(An) px} a, (2)
+
+px(x) = Yo py(y) pxyy (#19)
+uy
+
+© E[X] = P(A) E[X | Ay] +++» + P(An) E[X | An]
+
+E[X] = Do py(y) B[X | Y =y] | °
+y
+
+e Fine print:
+Also valid when Y is a discrete r.v. that ranges over an infinite set,
+as long as E[|X|] < co

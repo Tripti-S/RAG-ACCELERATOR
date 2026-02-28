@@ -1,0 +1,317 @@
+LECTURE 22: The Poisson process
+• Definition of the Poisson process
+- applications
+• Distribution of number of arrivals
+• The time of the kth arrival
+• Memorylessness
+• Distribution of interarrival times
+1
+Definition of the Poisson process
+00
+Poisson Bernoulli
+=.i
+~ er~, -c.)
+~
+tc:=.O
+" ] ( J.
+ffJ [ "
+I I I Ixl I Ixl I I I Ixl xj I I •
+Ime
+time
+• Numbers of arrivals in disjoint time
+• Independence
+intervals are independent
+• Time homogeneity:
+P (k, T) = Prob. of k arrivals in interval of duration T
+Constant p at each slot
+• Small interval probabilities:
+For VERY small 0:
+O(S'")
++ 2
+1 - '\0 if k = 0 1 - '\0 0(0 ) if k = 0
++ 2 >
+P (k , o) '" '\0 if k = 1 P (k, 0) = '\0 0(0 ) if k = 1 0
+d
+2
+> > a~o
+0 if k 1 0 +0(0 ) if k 1
+J .
+C,\:
+"a rri va l rate"
+2
+(This image is in the public domain.
+Source: Wikipedia)
+3
+The Poisson PMF for the number of arrivals
+Bernoulli
+IIIIII I~ IIIIIIII ······ .
+o
+t ime
+T - n ! k( 1 )n- k
+ps (k) ­
+(n - k) ! k ! 'P - p ,
+• N T: arri va ls in [0, T ]
+P(k, T) = P(NT = k)
+k = O, ... , n
+Ti d -;'A"Oet.
+n = interva ls/slots of length d
+-
+A = np n -+ p-+O
+00
+P(so m e slot co ntains t wo or m ore arri va ls)
+For fi xed k = O, I " " ,
+cv,,/va.es)
+~!J(S(Jot ~ ()Q.$ 0>/2
+Ak
+k! e- ,\
+• ps (k) -+
+• 2.)
+-=
+0(0
+«-"> 0
+,1:
+6
+0-,>0
+1 f sPo,h
+o",.IvQP /.. 10 (J<.
+(l< s {JSO ....):::.
++ 2
+Q.a.v<.
+N T '" bin omi a l P = Ad 0(d ) a~"'''''
+k = O, l , ...
+to(Jh},,-r
+•
+np = ,h
+•
+4
+Mean and variance of the number of arrivals
+k = O, l , . ..
+va r(N = AT
+T )
+(AT)ke-M _ ,
+L00
+E IN = k = ... - 11(:
+T ]
+k!
+k=Q
+NT '" Binomial(n,p)
++
+2
+n = T/8, P = A8 0(8
+)
+7;)
+P;;;
+t; [ IV ~
+'Z l1li -z;
+"'p(l-r)::d"
+UO-I'(N,,) ';:;
+5
+Example
+• You get email according to a Poisson process,
+=
+at a rate of A 5 messages per hour.
+=
+va r (N AT
+T )
+• Mean and variance of mails received during a day =
+P 5' e -
+(I ,,) ""
+• P(one new message in the next hour) = 'i
+k = O, l , ...
+• P(exactly two messages during each of the next three hours) ­
+•
+'-e-'i
+'5 3
+\
+2
+6
+The time Tl until the first arrival
+AT
+(>'T) ke ­
+t
+I , v • P(k , T) = , k=O,l, ...
+k!
+co
+t)O
+<
+• Find the CDF: P(Tl t) =
+-Ai:
+e
+Jr, At >
+(t) = >.e- , for t 0
+Exponential(>.)
+>
+Memorylessness: conditioned on Tl t ,
+the PDF of Tl - t is again exponential
+7
+AT
+(AT)ke-
+The time Y of the kth arrival
+k
+P(k , T) = , k=O,l, ...
+k!
+.,.,
+I (I,.. '() :
+(71.,
+~ ~f '7)
+• Can derive its PDF by first finding the CDF
+• More intuitive argument:
+10 - ,
+I
+-:i
+o 1<
+r("-' ,/)
+~ A_
++
+P(~-fl,7)
+t
+-d ,,)
+O(d
+)
+k=!
+k=2
+y>O
+Erlang distribution:
+k=3
+k­
+o~oIer
+)
+y
+8
+Memorylessness and the fresh-start property
+• Analogous to the properties for the Bernoulli process
+plausible, given the relation between the two processes
+use intuitive reasoning
+- can be proved rigorously
+9
+Memorylessness and the fresh-start property
+v,
+c-
+-7 ~ [,,.--:j3 C-I
+- ) T.,c.
+• If we start watching at time t , ~
+o time
+we see Poisson process, independent of the history until time t
+£:-7<1' (tl) ) '· .... d"fe.'"'ol"..) ",0>&
+- time until next arrival: of-
+3
+=
+• If we start watching at time T
+, "
+1
+we see Poisson process, independent of the history until time Tl
+f"'p
+hence: time between first and second arrival, T2 = Y2 - Yl is: (,.1)
+similarly for all Tk = Y - Y - , k > 2 i ... 01. ~f T,
+k k 1
++ ... +
+Y = Tl Tk is sum of i.i.d. exponentials • An equivalent definition
+k
+•
+• A simulation method
+10
+Bernoulli/Poisson relation
+n = Tid ,
+1111111111111111 ······ . =
+np A.T
+o
+time P = Ad
+T
+POISSON BERNOULLI
+Times of Arrival Continuous Discrete
+Arrival Rate >./unit t ime piper trial
+•
+PMF of # of Arrivals Poisson Binomial
+Interarrival Time Oistr. Exponential GeometriC
+Time to k-th arriva l Erlang Pascal
+11
+Example: Poisson fishing
+• Fish are caught as a Poisson process, A = O.6/hour
+,
+t ,
+•
+fish for two hours; I x )( ,
+)( " It
+time
+2
+if you caught at least one fish, stop 5­
+•
+,
+I I )( v " I
+else continue until first fish is caught t time
+p
+(0, 2)
+pefish for more than two hours)=
+00
+1(1, >2)::
+(-ti (t)ol.t
+.2) ,
+E [N = AT
+pefish for more than two and less than five hours)= T ]
+(I -
+P(O,~) P(O,~)J
+S/'
+5
+f (2 ~ 5") ~ ol t
+< I, (t )
+T,
+12
+Example: Poisson fishing
+• Fish are caught as a Poisson process, A = O.6/hour
+•
+fish for two hours; I x I
+)( )(
+time
+2
+3
+if you caught at least one fish, stop
+I"'·...·...}(
+•
+I I
+else continue until first fish is caught time
+P(catch at least two fish)=
+q,
+1
+= P
+1- (0,:J.) - P(I,:z.)
+P(k,~)
+1<"-2 '­ fy
+-
+lC11~:l)=( (i)d.
+7
+)0 ~
+E [N = AT
+T ]
+I
+E[future fishing time already fished for three hours]= _
+I
+;
+13
+Example: Poisson fishing
+• Fish are caught as a Poisson process, A = O.6/hour
+fish for two hours;
+time
+if you caught at least one fish, stop
+else continue until first fish is caught time
+[r: -
+[F] 2J
+£ =.2. F
++
+E[total fishing time]=
+: 2. ..j(F=2)·O +1'(F->2)E[F-.2) F>2J
+P 2) , '/A
+: " +
+(0)
+J..
+A P
+(0,2.) •
+E[number of fish]= "t -I-
+.2.
+0.(;"
+14
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

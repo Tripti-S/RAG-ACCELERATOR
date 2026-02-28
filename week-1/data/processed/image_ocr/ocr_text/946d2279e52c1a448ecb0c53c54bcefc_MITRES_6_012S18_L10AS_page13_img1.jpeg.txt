@@ -1,0 +1,18 @@
+The Bayes rule —— continuous unknown, discrete measurement
+
+e measurement K: Bernoulli with parameter Y fry) bale)
+
+ye fric@ lA) =
+km 49) | uF Px (h)
+
+ee °
+
+e unkown Y: uniform on [0, 1] + —} pK(k) = [ fr) Pry Oly) ay!
+
+e Distribution of Y given that K = 1? Fux (y}4)
+
+fyr@= 41 yee) peyQ|y= ¥
+O ocffetuise
+pK(1) = (a-y dy= 2s a E xg bplnd
+6 2 i 2g 2 vik
+fyj«(y|1) = = ay ; yelo.t} Z ! ;

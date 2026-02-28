@@ -1,0 +1,9 @@
+Mathematical background: When does a sequence converge?
+e If a; <aj41, for all i, then either:
+
+— the sequence “converges to oo”
+
+— the sequence converges to some real number a
+
+e If ja;j—a| <j, for all i, and b; +0, then a; >a
+

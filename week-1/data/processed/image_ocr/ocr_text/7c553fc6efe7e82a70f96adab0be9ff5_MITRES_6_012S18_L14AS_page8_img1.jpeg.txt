@@ -1,0 +1,11 @@
+A sample of application domains
+
+Modeling and monitoring the oceans
+
+Modeling and monitoring global climate
+
+Modeling and monitoring pollution
+
+Interpreting data from physics experiments .
+
+e Interpreting astronomy data

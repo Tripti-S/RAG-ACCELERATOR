@@ -1,0 +1,93 @@
+# Dd00154C73Cf3D5B7C57Ef9B80B7F05E N3I2Zlbh6Zq
+
+---
+
+MITOCW | MITRES6_012S18_L01-06_300k
+We will now continue and derive some additional properties of probability laws which are, again, consequences of
+the axioms that we have introduced.
+The first property is the following.
+If we have two sets and one set is smaller than the other-- so we have a picture as follows.
+We have our sample space.
+And we have a certain set, A.
+And then we have a certain set, B, which is even bigger.
+So the set B is the bigger blue set.
+So if B is a set which is larger than A, then, naturally, the probability that the outcome falls inside B should be at
+least as big as the probability that the outcome falls inside A.
+How do we prove this formally?
+The set B can be expressed as a union of two pieces.
+One piece is the set A itself.
+The second piece is whatever elements of B there are, that do not belong in A. What are these elements?
+They are elements that belong to B. And they do not belong to A, which means that they belong to the
+complement of A.
+So we have expressed the set B as the union of two pieces.
+Now this piece is A. This piece here is outside A. So these two pieces are disjoint.
+And so we can apply the additivity axiom, and write that the probability of B is equal to the probability of A plus the
+probability of the other set.
+And since probabilities are non-negative, this expression here is at least as large as the probability of A. And this
+concludes the proof of the property that we wanted to show.
+Indeed, the probability of A is less than or equal to the probability of B.
+The next property we will show is the following.
+It allows us to write the probability of the union of two sets for the case now, where the two sets are not
+necessarily disjoint.
+So the picture is as follows.
+We have our two sets, A and B. These sets are not necessarily disjoint.
+And we want to say something about the probability of the union of A and B.
+Now the union of A and B consists of three pieces.
+One piece is this one here.
+And that piece consists of those elements of A that do not belong to B. So they belong to B complement.
+This set has a certain probability, let's call it little a and indicate it on this diagram.
+So a is the probability of this piece.
+Another piece is this one here, which is the intersection of A and B. It has a certain probability that we denote by
+little b.
+This is the probability of A intersection B.
+And finally, there's another piece, which is out here.
+And that piece has a certain probability c.
+It is the probability of that set.
+And what is that set?
+That set is the following.
+It's that part of B that consists of elements that do not belong in A. So it's B intersection with the complement of A.
+Now let's express the two sides of this equality here in terms of little a, little b, and little c, and see whether we get
+the same thing.
+So the probability of A union B. A union B consists of these three pieces that have probabilities little a, little b, and
+little c, respectively.
+And by the additivity axiom, the probability of the union of A and B is the sum of the probabilities of these three
+pieces.
+Let's look now at the right hand side of that equation and see whether we get the same thing.
+The probability of A plus the probability of B, minus the probability of A intersection B is equal to the following.
+A consists of two pieces that have probabilities little a and little b.
+The set B consists of two pieces that have probabilities little b and little c.
+And then we subtract the probability of the intersection, which is b.
+And we notice that we can cancel here one b with another b.
+And what we are left with is a plus b plus c.
+So this checks.
+And indeed we have this equality here.
+We have verified that it is true.
+One particular consequence of the equality that we derived is the following.
+Since this term here is always non-negative, this means that the probability of A union B is always less than or
+equal to the probability of A plus the probability of B. This inequality here is quite useful whenever we want to
+argue that a certain probability is smaller than something.
+And it has a name.
+It's called the union bound.
+We finally consider one last consequence of our axioms.
+And namely, we are going to derive an expression, a way of calculating the probability of the union of three sets,
+not necessarily disjoint.
+So we have our sample space.
+And within the sample space there are three sets-- set A, set B, and set C.
+We are going to use a set theoretic relation.
+We are going to express the union of these three sets as the union of three disjoint pieces.
+What are these disjoint pieces?
+One piece is the set A itself.
+The second piece is going to be that part of B which is outside A. So this is the intersection of B with the
+complement of A.
+The third piece is going to be whatever is left in order to form the union of the three sets.
+What is left is that part of C that does not belong to A and that does not belong to B. So that part is C intersection
+with A complement and B complement.
+Now this set here, of course, is the same as that set because intersection of two sets is the same no matter in
+which order we take the two sets.
+And similarly, the set that we have here is the same one that appears in that expression.
+Now we notice that these three pieces, the red, the blue, and the green, are disjoint from each other.
+So by the additivity axiom, the probability of this union here is going to be the sum of the probabilities of the three
+pieces.
+And that's exactly the expression the we have up here.
+
+---

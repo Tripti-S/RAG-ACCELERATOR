@@ -1,0 +1,24 @@
+Total probability and expectation theorems
+
+si A\NB
+
+Hs AQNB
+
+A3NB
+PAD px | 41]
+
+PAD) BLx | Ao]
+
+PAS) BLx | Aa]
+
+P(B) = P(A1)P(B| A1) +++» + P(An)P(B| An)
+px (2) = P(A1) pxja,(@) + +--+ P(An) Px, (2)
+F, (=): P(Xse) = PIM) L Cree IA) ++
+=F) wa, (x) Hees
+
+[ fx(2) = P(Ai) fxj4,@) +--+ Prin) |
+
+J $06) dz = P(A) Fa Sg (edele > —_
+
+[ee = P(A1)E[X | Ai] +--- + P(An)E[X | An] |
+

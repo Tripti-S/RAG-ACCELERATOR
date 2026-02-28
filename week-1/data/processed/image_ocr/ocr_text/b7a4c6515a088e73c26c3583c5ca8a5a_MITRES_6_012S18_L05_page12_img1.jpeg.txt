@@ -1,0 +1,6 @@
+Expectation of a Bernoulli r.v.
+
+x= 1, w.p. p
+0, w.p.1—p
+
+If X is the indicator of an event A, X =TI,:

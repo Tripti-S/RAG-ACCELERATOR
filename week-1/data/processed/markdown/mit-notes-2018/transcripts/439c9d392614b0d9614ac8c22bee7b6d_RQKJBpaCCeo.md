@@ -1,0 +1,66 @@
+# 439C9D392614B0D9614Ac8C22Bee7B6D Rqkjbpacceo
+
+---
+
+MITOCW | MITRES6_012S18_L12-06_300k
+In this segment, we discuss a few algebraic properties of the covariance.
+There is nothing deep here, only some observations that can be useful if we want to carry out covariance
+calculations.
+We start by looking at this quantity, the covariance of a random variable with itself.
+So it's a special case of this definition but where Y is the same as X. And therefore, this second term here is the
+same as the first term.
+And so what we're left with is the expected value of the square deviation of the random variable from its mean.
+And we recognize that this is the same as the variance of X.
+So we conclude that the covariance of a random variable with itself is the same as the variance.
+Now, for the variance, we had an alternative formula, which was often convenient in simplifying variance
+calculations.
+Is there a similar formula for the case of the covariance?
+Let us start from the definition and use linearity.
+We have a product here of two terms, and we expand that product to obtain four different terms.
+The expected value of the sum of these four terms is going to be the sum of their expectations.
+So let us go through the steps involved.
+We have the expected value of the product of this term with that term.
+Gives us expected value of X times Y. Then we take the expected value of the product of this term with that term.
+And because we have a minus sign, we put it out here.
+And we have the expected value of X times the expected value of Y inside the expectation.
+The next term is going to be the product of this expected value with Y. And that gives us minus the expected value
+of X times Y. And finally, the last term comes by multiplying this quantity with that quantity.
+And this is what we have by applying linearity to the definition of the covariance.
+Now, remember that the expected value of a random variable is a number, it's a constant.
+And constants can be pulled outside expectations.
+So if we do that, what we obtain is the following.
+We pull this constant outside the expectation, and we're left with the expected value of X times the expected value
+of Y. Similarly, for the next term, by pulling a constant outside the expectation, we obtain this expression.
+And finally, for the last term, we have the expected value of a constant, and this is the same as the constant itself.
+We recognize here that the same term gets repeated three times.
+And because here we have a minus sign, we can cancel this term with that term.
+And what we're left with is just the difference of these two terms, and this is an alternative form for the covariance
+of two random variables.
+And this form is often easier to work with to calculate covariances compared with the original definition.
+Let us now continue with some additional algebraic properties.
+Suppose that we know the covariance of X with Y, and we're interested in the covariance of this linear function of
+X with Y. What is the covariance going to be?
+To simplify the calculations, let us just assume zero means.
+Although, the final conclusion will be the same as in the case of non-zero means.
+So in the case of zero means, the covariance of two random variables is just the same as the expected value of
+the product of the two random variables.
+And using linearity, this is the expected value times a of X times Y plus b times the expected value of Y. Now, we
+assumed zero means, so this term goes away.
+And what we're left with is a times the covariance of X with Y. So we see that multiplying X by a increases the
+covariance by a factor of a.
+But adding a constant has no effect.
+The reason that it has no effect is that if we take a random variable and add the constant to it, the same constant
+gets added to its mean.
+And so this difference is not affected.
+As our final calculation, let us look at the covariance of a random variable with the sum of two other random
+variables.
+Again, we assume zero means.
+And so the calculation is as follows.
+The covariance is the product of the two random variables involved.
+And then we use linearity of expectations to write this as the expected value of X times Y plus the expected value
+of X times Z.
+And we recognize that this is the same as the covariance of X with Y plus the covariance of X with Z. So in this
+respect, covariances behave linearly.
+They behave linearly with respect to one of the arguments involved.
+
+---

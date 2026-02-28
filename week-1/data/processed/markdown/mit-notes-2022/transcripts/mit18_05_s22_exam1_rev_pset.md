@@ -1,0 +1,140 @@
+# Mit18 05 S22 Exam1 Rev Pset
+
+---
+
+Class Exam 1 Review Problems
+18.05, Spring 2022
+There are certainly too many problems here to do in class. Pick and choose the ones that
+will be most helpful to you. The actual test will be much much shorter.
+1 Normal probability table
+Problem 1. (Table of normal probabilities)
+Use the table of standard normal probabilities to compute the following. (𝑍 is the standard
+normal.)
+(a) (i) 𝑃 (𝑍 ≤ 1.5) (ii) 𝑃 (−1.5 < 𝑍 < 1.5) 𝑃 (𝑍 > −0.75).
+(b) Suppose 𝑋 ∼ N(2, (0.5)2). Find (i) 𝑃(𝑋 ≤ 2) (ii) 𝑃(1 < 𝑋 ≤ 1.75).
+2 Counting and Probability Problems
+Problem 2. (a) How many ways can you arrange the letters in the word STATISTICS?
+(e.g. SSSTTTIIAC counts a one arrangement.)
+(b) If all arrangements are equally likely, what is the probabilitiy the two ’i’s are next to
+each other.
+3 Conditional Probability and Bayes’ Theorem Problems
+Problem 3. Corrupted by their power, the judges running the popular game show
+America’s Next Top Mathematician have been taking bribes from many of the contestants.
+Each episode, a given contestant is either allowed to stay on the show or is kicked off.
+If the contestant has been bribing the judges they will be allowed to stay with probability
+1. If the contestant has not been bribing the judges, they will be allowed to stay with
+probability 1/3.
+Suppose that 1/4 of the contestants have been bribing the judges. The same contestants
+bribe the judges in both rounds, i.e., if a contestant bribes them in the first round, they
+bribe them in the second round too (and vice versa).
+(a) If you pick a random contestant who was allowed to stay during the first episode, what
+is the probability that they were bribing the judges?
+(b) If you pick a random contestant, what is the probability that they are allowed to stay
+during both of the first two episodes?
+(c) If you pick random contestant who was allowed to stay during the first episode, what
+is the probability that they get kicked off during the second episode?
+1
+Exam 1 review, Spring 2022 2
+4 Independence Problems
+Problem 4. You roll a twenty-sided die. Determine whether the following pairs of events
+are independent.
+(a) ‘You roll an even number’ and ‘You roll a number less than or equal to 10’.
+(b) ‘You roll an even number’ and ‘You roll a prime number’.
+5 Expectation and Variance Problems
+Problem 5. The random variable 𝑋 takes values -1, 0, 1 with probabilities 1/8, 2/8, 5/8
+respectively.
+(a) Compute 𝐸[𝑋].
+(b) Give the pmf of 𝑌 = 𝑋2 and use it to compute 𝐸[𝑌 ].
+(c) Instead, compute 𝐸[𝑋2] directly from an extended table.
+(d) Compute Var(𝑋).
+Problem 6. Suppose 100 people all toss a hat into a box and then proceed to randomly
+pick out of a hat. What is the expected number of people to get their own hat back.
+Hint: express the number of people who get their own hat as a sum of random variables
+whose expected value is easy to compute.
+6 Probability Mass Functions, Probability Density Functions
+and Cumulative Distribution Functions Problems
+Problem 7. (a) Suppose that 𝑋 has probability density function 𝑓 (𝑥) = 𝜆e−𝜆𝑥 for
+𝑋
+𝑥 ≥ 0. Compute the cdf, 𝐹 (𝑥).
+𝑋
+(b) If 𝑌 = 𝑋2, compute the pdf and cdf of 𝑌 .
+Problem 8. Suppose you roll a fair 6-sided die 100 times (independently), and you get
+$3 every time you roll a 6.
+Let 𝑋 be the number of dollars you win on rolls 1 through 25.
+1
+Let 𝑋 be the number of dollars you win on rolls 26 through 50.
+2
+Let 𝑋 be the number of dollars you win on rolls 51 through 75.
+3
+Let 𝑋 be the number of dollars you win on rolls 76 throught 100.
+4
+Let 𝑋 = 𝑋 +𝑋 +𝑋 +𝑋 be the total number of dollars you win over all 100 rolls.
+1 2 3 4
+(a) What is the probability mass function of 𝑋?
+(b) What is the expectation and variance of 𝑋?
+(c) Let 𝑌 = 4𝑋 . (So instead of rolling 100 times, you just roll 25 times and multiply your
+1
+winnings by 4.)
+(i) What are the expectation and variance of 𝑌 ?
+Exam 1 review, Spring 2022 3
+(ii) How do the expectation and variance of 𝑌 compare to those of 𝑋? (That is, are they
+bigger, smaller, or equal?) Explain (briefly) why this makes sense.
+7 Joint Probability, Covariance, Correlation Problems
+Problem 9. Covariance and Independence
+Let 𝑋 be a random variable that takes values -2, -1, 0, 1, 2; each with probability 1/5.
+Let 𝑌 = 𝑋2.
+(a) Fill out the following table giving the joint frequency function for 𝑋 and 𝑌 . Be sure
+to include the marginal probabilities.
+𝑋 -2 -1 0 1 2 total
+𝑌
+0
+1
+4
+total
+(b) Find 𝐸[𝑋] and 𝐸[𝑌 ].
+(c) Show 𝑋 and 𝑌 are not independent.
+(d) Show Cov(𝑋,𝑌) = 0.
+This is an example of uncorrelated but non-independent random variables. The reason
+this can happen is that correlation only measures the linear dependence between the two
+variables. In this case, 𝑋 and 𝑌 are not at all linearly related.
+Problem 10. Continuous Joint Distributions
+Suppose 𝑋 and 𝑌 are continuous random variables with joint density function 𝑓(𝑥,𝑦) =
+𝑐(𝑥 + 2𝑦) on the rectangle [0,1] × [0,2].
+When doing this problem in class: Only compute the integrals in parts (a) and (b). For the
+1 2
+others, just give the integrals in a form like ∫ ∫ 𝑥𝑓(𝑥,𝑦)𝑑𝑦 𝑑𝑥, but don’t compute them.
+0 0
+(a) Find the value of 𝑐.
+(b) Let 𝐹 (𝑥, 𝑦) be the joint CDF. Compute 𝐹 (𝑥, 𝑦). Compute 𝐹 (1, 2).
+(c) Compute the marginal densities for 𝑋 and 𝑌 .
+(d) Are 𝑋 and 𝑌 independent?
+(e) Compute 𝐸[𝑋], 𝐸[𝑌 ], 𝐸[𝑋2 + 𝑌 2], Cov(𝑋,𝑌 ), Cor(𝑋,𝑌 ).
+8 Law of Large Numbers, Central Limit Theorem Problems
+Problem 11. Suppose 𝑋 , … , 𝑋 are i.i.d. with mean 1/5 and variance 1/9. Use the
+1 100
+central limit theorem to estimate 𝑃 (∑ 𝑋 < 30).
+𝑖
+Problem 12. (More Central Limit Theorem)
+Exam 1 review, Spring 2022 4
+The average IQ in a population is 100 with standard deviation 15 (by definition, IQ is
+normalized so this is the case). What is the probability that a randomly selected group of
+100 people has an average IQ above 115?
+9 More problems
+Problem 13. (Arithmetic Puzzle)
+The joint and marginal pmf’s of 𝑋 and 𝑌 are partly given in the following table.
+\𝑌 1 2 3
+𝑋
+1 1/6 0 … 1/3
+2 … 1/4 … 1/3
+3 … … 1/4 …
+1/6 1/3 … 1
+(a) Complete the table.
+(b) Are 𝑋 and 𝑌 independent?
+Problem 14. Compute the expectation and variance of a Bernoulli(𝑝) random variable.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

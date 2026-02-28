@@ -1,0 +1,10 @@
+LECTURE 16: Least mean squares (LMS) estimation
+
+e minimize (conditional) mean squared error E [ce ~§)2|xX = |
+— solution: 6=E[O|X =a]
+
+— general estimation method
+
+e Mathematical properties
+
+e Example

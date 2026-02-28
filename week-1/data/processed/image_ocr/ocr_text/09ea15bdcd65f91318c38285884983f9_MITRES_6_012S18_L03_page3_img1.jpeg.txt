@@ -1,0 +1,14 @@
+Independence of two events
+e Intuitive “definition”: P(B|A)=P(B)
+
+— occurrence of A provides no new information about B
+
+P(A) 5 0 P(B)>0
+
+>
+Definition of independence: P(A 8B) = P(A)-P(B) Independent:
+
+— Symmetric with respect to A and B
+— implies P(A | B) = P(A)
+
+— applies even if P(A) =0

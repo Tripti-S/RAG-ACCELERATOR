@@ -1,0 +1,11 @@
+Mathematical background
+
+e Sets and De Morgan's laws
+e Sequences and ther limits
+
+e Infinite series
+
+— The geometric series
+e Sums with multiple indices
+
+e Countable and uncountable sets

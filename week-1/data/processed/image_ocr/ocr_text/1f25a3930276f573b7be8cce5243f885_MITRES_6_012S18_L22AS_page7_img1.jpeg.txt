@@ -1,0 +1,14 @@
+The time 7, until the first arrival
+
+a aa [aan ee
+° £30
+
+e Find the CDF: P(T, <t)= j
+-At
+=|-P(7,>4)=1- P(t) =)-e
+fr) =re™, fort >0
+
+Exponential(A)
+
+Memorylessness: conditioned on Ty >t,
+the PDF of T, —t is again exponential

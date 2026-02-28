@@ -1,0 +1,84 @@
+MITOCW | MITRES6_012S18_S18-01_300k
+This is a rather theoretical exercise that has two purposes.
+One is to verify that the notion of convergence in probability is quite natural and that it has properties similar to the
+notion of convergence of sequences.
+And the second purpose is to get a little bit of practice with the formal definition of convergence in probability.
+So what is the statement saying?
+It says that if we have a sequence of random variables that converges to a certain number, a, and this basically
+means that when n is large, the distribution is highly concentrated around a.
+And if we have another sequence of random variables that converges to a certain number, b, which means that
+the probability distribution of Yn is heavily concentrated around b.
+In that case, then the probability distribution of the sum of the two random variables is heavily concentrated in the
+vicinity of a plus b.
+So what are we saying?
+If Xn is very close to a with high probability and Yn is very close to b with high probability, then the sum will also be
+close to a plus b with high probability.
+This is the intuitive content of the statement.
+Now we want to establish this formally.
+Before establishing this statement, however, it will be a good practice to verify a property of this type for the
+ordinary convergence of sequences of numbers, not random variables.
+So let us do that.
+What we want to show is that if a sequence of numbers, an, converges to some number a, and another sequence
+converges to some number b, we want to show that in that case, an plus bn converges to the sum of a plus b, and
+we want to do this formally.
+So let us start with the definition of convergence.
+What does it mean that an converges to a?
+It means that if I fix some positive epsilon, then there exists some number or some time such that if we consider
+some n bigger than n0, then an is close to a in the sense that this difference is less than epsilon.
+Now this is true for any positive epsilon, so if instead of epsilon, I take epsilon over 2, this would also be true.
+Eventually, after some time, we will have the property that an minus a is less than epsilon over 2.
+Similarly, if bn converges to b, then we will have the property that there exists some time-- let's call it n0 prime--
+such that if n is bigger than that particular time, then bn minus b is going to be less than epsilon over 2.
+So after time n0 and after time n0 prime, these two inequalities will be true.
+So if we wait long enough so that both of these inequalities are true, that is, if n is bigger than the maximum of n0
+and n0 prime, then we will have the following.
+We will have that an plus bn minus a minus b which, by an elementary inequality, is less than or equal to an minus
+a plus bn minus b.
+Where is this inequality coming from?
+This is a general inequality about absolute values.
+If I give you two numbers, the absolute value of x plus y is always less than or equal to the sum of the absolute
+values.
+So we're using this inequality where x is an minus a and y is bn minus b.
+So we have this inequality, but when time is big enough, an minus a is less than epsilon over 2.
+bn minus b is also less than epsilon over 2.
+And putting everything together, this is epsilon.
+So what have we shown?
+That if an converges to a and bn converges to b, so that all these relations hold, then if time n is large enough,
+then the difference between this number and that number is going to be less than epsilon.
+And this is true for every positive epsilon, but that's just the definition of convergence of this quantity to that
+quantity.
+And this is the proof of this elementary relation about convergence of numbers.
+Now let us turn to convergence of random variables.
+We fix some epsilon that's positive.
+In order to show convergence in probability, we want to look at this difference and look at the probability that this
+difference is bigger than epsilon in magnitude.
+And we want to show that this quantity converges to 0.
+If it does, then we will have established convergence in probability because that's just the definition.
+Now, this is the event that the sum of the random variables is close to a plus b, and we want to use the fact that xn
+is close to a and yn is close to b.
+So this is the event that-- let's write it in a somewhat different way-- is the probability of the event that xn minus a
+plus yn minus b is bigger than epsilon in magnitude.
+Now, for a sum of two numbers to be bigger than epsilon in magnitude, it has to be the case that either one of
+them is larger than epsilon over 2 or the other number is bigger in magnitude than epsilon over 2.
+So if this event happens, this event must also happen.
+This means that this event is a subset of this event.
+This is a smaller one.
+If this happens, then this one happens.
+So since it's a smaller event, it means that its probability is less than or equal to the probability of that event.
+Now we use the union bound.
+The probability that something happens or something else is happening is less than or equal to the sum of their
+probabilities.
+And now, since Xn converges to a in probability, then by definition, we know that this quantity converges to 0 as n
+goes to infinity.
+Similarly, since Yn converges to b in probability, this quantity converges to 0 as n goes to infinity.
+This is a sequence of numbers that converges to 0.
+This is another sequence of numbers that converges to 0.
+Therefore, the sum of these two sequences also converges to 0.
+In essence, here we're applying what we established earlier about convergence of numbers.
+If a sequence converges to 0 and another sequence converges to 0, then the sum of these sequences also
+converges to 0 as n goes to infinity.
+But this is exactly what we need to show in order to establish convergence in probability of Xn plus Yn.
+We have shown that if I fix any epsilon, positive, no matter how small, the probability that I am more than epsilon
+away, the probability that Xn plus Yn is more than epsilon away from the supposed target or the limit, this
+probability must go to 0.
+And that's exactly what we established here, and this completes the derivation.

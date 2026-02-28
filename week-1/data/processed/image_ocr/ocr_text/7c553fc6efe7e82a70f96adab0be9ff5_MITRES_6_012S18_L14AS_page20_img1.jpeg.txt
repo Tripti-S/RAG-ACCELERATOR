@@ -1,0 +1,11 @@
+Summary
+
+e Problem data: pe(-), pxje(- | -)
+e Given the value x of X: find, e.g., Pex | x)
+
+— using appropriate version of the Bayes rule C4 elsrcex)
+e Estimator © = g(X) Estimate 6 = g(x)
+— MAP: Oumar = gmap(2) maximizes po} x(6 | x)
+— LMS: éLms
+
+g.ms(2) = E[O | X =a]

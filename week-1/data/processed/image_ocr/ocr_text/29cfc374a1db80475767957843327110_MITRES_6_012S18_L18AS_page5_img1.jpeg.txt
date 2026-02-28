@@ -1,0 +1,20 @@
+The Chebyshev inequality
+
+2e
+Chebyshev inequality: P(|X — j:| >) < 75
+¢
+2
+1 i}
+P(|X—p|>ko) < = — k=3 ae
+k*o kt
+
+1
+e Example: xX is Exponential(A = 1): P(X >a) <-— (Markov)
+a
+
+ros a Yar '/a
+K——_+—_1——_ |) peer >
+
+5) Q
+
+2(x20)=P(x-12a-)) ¢ p()x-1)2a-9)

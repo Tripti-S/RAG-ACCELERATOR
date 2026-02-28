@@ -1,0 +1,7 @@
+recurrent and transient states
+
+* state i is recurrent if “starting from i, and from wherever you can go, there is a
+way of returning to i”
+
+¢ if not recurrent, called transient
+

@@ -1,0 +1,12 @@
+LMS performance evaluation
+
+e LMS estimate: @=E[O|X =a]
+estimator: © = E[©| X]
+
+— Expected performance, once we have a measurement:
+
+MSE = E|(@ — E[@ | X =a])* | X =a] =var(@ | X =z)
+
+— Expected performance of the design:
+
+MSE = E|(O-E[© | x])’] = Elvar(9 | X)|

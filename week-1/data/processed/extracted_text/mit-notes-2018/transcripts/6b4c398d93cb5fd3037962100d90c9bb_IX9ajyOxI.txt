@@ -1,0 +1,43 @@
+MITOCW | MITRES6_012S18_L23-02_300k
+In this segment, we consider the sum of independent Poisson random variables, and we establish a remarkable
+fact, namely that the sum is also Poisson.
+This is a fact that we can establish by using the convolution formula.
+The PMF of the sum of independent random variables is the convolution of their PMFs.
+So we can take two Poisson PMFs, convolve them, carry out the algebra, and find out that in the end, you obtain
+again a Poisson PMF.
+However, such a derivation is completely unintuitive, and does not give you any insight.
+Instead, we will derive this fact by using our intuition about what Poisson random variables really represent.
+We will work with a Poisson process of rate lambda equal to 1.
+But let us remind ourselves of the general Poisson PMF if we have a more general rate lambda.
+This is the PMF of the number of arrivals in a Poisson process with rate lambda during a time interval of length
+tau.
+And this Poisson PMF has a mean equal to lambda tau.
+And you can think of lambda tau as being the parameter of this Poisson PMF.
+So we say that this is a Poisson PMF with parameter equal to lambda times tau.
+Now, let us consider two consecutive time intervals in this processes that have length mu and nu.
+And let us consider the numbers of arrivals during each one of these intervals.
+So we have M arrivals here and N arrivals there.
+Of course, M and N are random variables.
+What kind of random variables are they?
+Well, the number of arrivals in the Poisson process of rate 1, over a period of duration mu is going to have a
+Poisson PMF in which lambda is one, tau, the time interval is equal to mu, so it's going to be a Poisson random
+variable with parameter, or mean, equal to mu.
+Similarly for N, it's going to be a Poisson random variable with parameter equal to nu.
+Are these two random variables independent?
+Of course they are.
+In a Poisson process, the numbers of arrivals in disjoint time intervals are independent random variables.
+What kind of random variable is their sum?
+Their sum is the total number of arrivals during an interval of length mu plus nu, and therefore this is a Poisson
+random variable with mean equal to mu plus nu.
+So, what do we have here?
+We have the sum of two independent Poisson random variables, and that sum turns out also to be a Poisson
+random variable.
+More generally, if somebody gives you two independent Poisson random variables, you can always think of them
+as representing numbers of arrivals in disjoint time intervals, and therefore by following this argument, their sum is
+going to be a Poisson random variable.
+And this is the conclusion that we wanted to establish.
+It's a remarkable fact.
+It's similar to the fact that we had established for normal random variables.
+The sum of independent normal random variables is also normal, so Poisson and normal distributions are special
+in this respect.
+This is a property that most other distributions do not have, with very few exceptions.

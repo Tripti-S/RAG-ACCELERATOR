@@ -1,0 +1,26 @@
+The variance in the hat problem
+meh
+KX,=) =%=!
+
+e X: number of people who get their own hat
+X,2O =X,50
+
+— Find var(xX)
+1, if i selects own hat
+
+Xai tees X =X tXot--+Xn amt)
+0, otherwise. Pa» m- n
+
+_~_eo “-_—“e™\
+x2 =X? + YS XX;
+
+. farcxn]= ELX7] - (Bx)? = 2-1 AT] i ihiej
+a.
+
+e wix7l=E[xt]sED%) = ep xt] em La mlmniedi,
+© For i# j: EIMXj] = E[X.X2] = P(X, X2 =1)=P(x,21, %=0
+
+1
+—
+
+=P (% 21) P(x,= MEN ee

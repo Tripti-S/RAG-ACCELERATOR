@@ -1,0 +1,13 @@
+fx(a) = | fx,v(a,v) dy
+
+Uniform joint PDF ona set S$
+
+: fv(y) = | fxy(a,y) de
+fxv(z.y) = | aaa if (x,y) € 4,
+
+0, otherwise.
+
+3/4
+Syiz)
+
+1/4

@@ -1,0 +1,10 @@
+The variance of a sum of random variables
+
+var(X1 + Xo) = var(X1) + var(Xo) + 2cov(X1, Xo)
+
+var(X1+-+-+Xn) =
+
+var(X4 +--++ Xn) = > var(Xi)+ S>  cov(xXi,X;)
+
+i=1 { (i,j): #49}
+

@@ -1,0 +1,250 @@
+LECTURE 3: Independence
+• Independence of two events
+• Conditional independence
+• Independence of a collection of events
+• Pairwise independence
+• Reliability
+• The king 's sibling puzzle
+1
+E p::
+(fl. I 1-1, )
+~ f().it } T, )
+A model based on conditional probabilities
+f( Hz) : E(H,) f (l~.. ) J.I ,)
+• 3 tosses of a biased coin : P (H ) = p, p eT) = 1 - p
+1
+Hz.
++- NT,) f.( T,)
+1(\1,\ l
+f./,) (H)-I H, C1
+~~,)
+-=p
+.:mJ • M ultiplication rule: P (T /-IT) = (1- p) p(l- p)
+HfIT
+HTH
+• T ota l probabi lity:
+, - p
+3
+P ( l head) = p(1 _1')7.
+p niH
+, . p • Bayes rul e: E(H niCleoJ,)
+p
+I - p
+11
+= ..: ..-:.._~'-~~--
+P(first t oss is H head)
+p
+!?.
+•
+(l. (lead.)
+,
+rrr
+I . p
+2
+Independence of two events / A '\
+n
+13
+•
+I
+• Intuitive "definition": P CB A) = P CB)
+- occurrence of A provides no new inform ati on about B
+1
+~) ::.f (t/) .f( Bill) =- f f (s) "- /
+Ctj() (A)
+> >
+p eA) 0 P CB) 0
+In depend ent?
+Definition of independence: p eA n B) = p eA) . PCB)
+P(A0g)=0
+f. (.'\
+)!~. ( (3) ? 0
+- Symm etric w ith respect t o A and B
+I
+im pli es p eA B) = p eA)
+- applies even if p eA) = 0
+3
+Independence of event complements
+Definition of independence: P CA n B) = P CA) . P CB)
+-
+• If A and -B are independ ent. then A and B e are independent.
+- Intuitive argument - Formal proof
+A (A t)
+(I-Ing) u ()~
+A :0
+1
+.E f
+(4'1~) + (1If)~(-)
+(ll)::
+:: tr4H f 12/)
+(~) (.4~
+t
+.£
+,,£
+(AI)P;~) (11) -.H4)!(I»:: 1(4) (I - p. (1?»)
+.E C
+= f (a
+(A)
+)
+4
+Conditional independence
+• Conditional independence, given C,
+I
+is defined as ind ependence under the probability law PC· C)
+n Assume A and B are ind ependent
+/ A
+'­ ./
+A
+"­
+B
+C
+C
+• If we are told that C occurred,
+fIIo
+are A and B independent?
+5
+Conditioning may affect independence
+• Two unfair coins, A and B:
+I I
+P(H coin A) = 0.9, P(H coin B) = 0.1
+• choose either coin with equal probability
+• Are coin tosses independent?
+tv ./
+0.9
+O.
+0.1
+Coin A
+Compare: = " ( )
+0.9 irA) £. (!-I" )A) ... .En~h 8»
+P(toss 11 = H) flu
+O. 1
+0."
+0.1 o.
+= d). 9 r 0.5' • I 5"
+'Z <!).
+I
+O. 1 P(toss 11 = H first 10 tosses are heads)
+0.5
+0.9
+Coin B
+O. 1
+0.9
+6
+Independence of a collection of events
+• Intuitive "definition": Inform ati on on so me of the events
+does not change probabiliti es relat ed t o the rem aining events
+t); ))
+n
+A, )A1 '''. J f. (A,!> A'1' ) :. f. (.q ') A: \ A (,q2
+i '" e '(J ::::;> I) U l) •
+I
+n
+.£
+1 (A:;) ::. 1 (4 ') 1A At) .: J (4; 1A A; ) '" (A:; M,' 1)4
+,1\
+)
+I
+2
+Definition: Events Al l A 2,"" A n are ca lled independent if:
+for any distin ct indi ces i , j , ... )m
+n = 3:
+p eA , n A2) = p eA,) . P (A2)
+p eA , n A3) = p eA,) . P (A3) pairwise ind ependence
+P (A n A ) = P (A ) . P (A3)
+2 3 2
+7
+vs.
+Independence pairwise independence \-11
+HT
+• Two independent fair cOin tosses HH;
+'4 'N
+- H 1: First toss is H
+'N
+- H 2: Second toss is H
+TT
+H~
+P( H , ) = P( H 2) = 1( 2
+1
+• C : the two tosses had the same result -: H H," T~
+i . f =*
+.e
+l+
+,,1 '/'1 C: i .. ,hf..
+.Y (Ii,n c) (l-II()H~)" (H/H (c.) " I)
+H., c ,..
+<iff..
+.r ~
+(11, () l-I'/. ~ <.) "f (H I-I) :. '1"1 '- d'
+'- Itt·
+1(Il,)i(U,JiC<.)::>'18 /
+•
+.1' C(. \ H,) :: f
+= f.().)2.)
+'h :: f Cc.)
+()./2 \ I-} .=
+I )
+.i ( c. \ ).J, cl)..)'/,) :::: i =fr 'f C c..') = 'h
+H l. H 2, a nd C are pairw ise ind ependent, but not ind ependent
+8
+U; : (, t h u"i t u p
+Reliability
+,Uy, .• . ~v>JQ.fcvoJe",t
+,U",
+Pi : pro bability th at unit i is " up" (./,
+,... . i 1:)' I:
+independent un its r- •• u '" ~ 01.0 w .....
+t f
+~
+F:
+",o.(I.)?Il.1AJe'IA.
+probab ili t y th at syst em is " up"
+7
+f =1.
+el)..,
+n n
+(Sylte..... U,»
+1A-f')
+(,(t
+P. f.
+:-1((./,) t(U.)f p,
+(U~) ~
+I
+P l f
+1 (~r?.j."... " "'1') : u u
+(U, U. U'lo)
+.e
+(r:-, ()
+-:: I - F2 11 F3 ")
+I P2 I
+H
+f ((:,) f
+" I -
+~2.) (I=~)
+"1>3
+P,) (
+(I - (1 - F1 )
+" I _
+t - )? )
+9
+The king's sibling
+•
+• The king comes from a family of two children . /
+What is the probability that his Siblin'g is female?
+~O7> f~ecede"'ce ,/~
+()",ve
+!(l)c)'):o£.(<t{re);;
+t
+rell>de ...
+~ ... dl/.
+SG­
+~s
+_ -,/,q.c.
+,;/;q!._
+•
+• /;; ee
+10
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

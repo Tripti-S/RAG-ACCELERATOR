@@ -1,0 +1,272 @@
+Variance; Continuous Random Variables
+18.05 Spring 2022
+1/21
+Announcements/Agenda
+Announcements
+• None
+Agenda
+• Studio 2 comments
+• Variance and standard deviation for discrete variables
+• Calculus warmup
+• Continuous random variables - probability densities
+• Exponential distribution
+2/21
+Studio 2 comments
+• Graded studio 2 code is posted in the usual place.
+• Excellent job overall!
+• Please suppress stray printouts. We will start penalizing these.
+• If you used loops, please look at the solutions to see how R lets
+you do array operations without loops.
+• Expected value of payoff IS NOT payoff of expected value.
+Example. 𝑋 ∼ Bernoulli(𝑝) and 𝑌 = 𝑋2 +𝑋.
+𝐸[𝑋] = 𝑝, 𝐸[𝑌 ] = 2𝑝, 𝐸[𝑋]2 + 𝐸[𝑋] = 𝑝2 + 𝑝 ≠ 𝐸[𝑌 ].
+3/21
+Variance and standard deviation
+𝑋 a discrete random variable with mean 𝐸[𝑋] = 𝜇.
+• Meaning: spread of probability mass about the mean.
+• Definition as expectation (weighted sum):
+Var(𝑋) = 𝐸[(𝑋 − 𝜇)2].
+• Computation as sum:
+𝑛
+Var(𝑋) = ∑ 𝑝(𝑥 )(𝑥 − 𝜇)2.
+𝑖 𝑖
+𝑖=1
+• Standard deviation 𝜎 = √Var(𝑋).
+Units for standard deviation = units of 𝑋.
+4/21
+1. Concept question: Order the variance
+The graphs below give the pmf for 3 random variables.
+(A) (B)
+𝑥 𝑥
+1 2 3 4 5 1 2 3 4 5
+(C)
+𝑥
+1 2 3 4 5
+Order them by size of standard deviation from biggest to smallest.
+(Assume 𝑥 has the same units in all three.)
+1. ABC 2. ACB 3. BAC 4. BCA 5. CAB 6. CBA
+5/21
+2. Concept question: Zero variance
+Suppose 𝑋 is a discrete random variable,
+True or False: If Var(𝑋) = 0 then 𝑋 is constant.
+1. True 2. False
+6/21
+A very useful formula
+The following formula is often easier to use than the
+definition.
+𝑛
+Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 = (∑𝑝(𝑥 )𝑥2) − 𝜇2.
+𝑖 𝑖
+𝑖=1
+Redo the above computation using this formula.
+(Written solution with posted solutions )
+Computation from tables
+Example. Compute the variance and standard deviation
+of 𝑋.
+values 𝑥 1 2 3 4 5
+pmf 𝑝(𝑥) 1/10 2/10 4/10 2/10 1/10
+7/21
+Computation from tables
+Example. Compute the variance and standard deviation
+of 𝑋.
+values 𝑥 1 2 3 4 5
+pmf 𝑝(𝑥) 1/10 2/10 4/10 2/10 1/10
+A very useful formula
+The following formula is often easier to use than the
+definition.
+𝑛
+Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 = (∑𝑝(𝑥 )𝑥2) − 𝜇2.
+𝑖 𝑖
+𝑖=1
+Redo the above computation using this formula.
+(Written solution with posted solutions )
+7/21
+Table question: make probability tables for 𝑌 and 𝑊
+and compute their standard deviations.
+3. Concept question: Standard deviation
+Make an intuitive guess: Which pmf has the bigger
+standard deviation? (Assume 𝑤 and 𝑦 have the same
+units.)
+pmffor𝑌 𝑝(𝑦) 𝑝(𝑊) pmffor𝑊
+1/2
+0.4
+0.2
+0.1
+𝑦 𝑤
+-3 0 3 10 20 30 40 50
+1. 𝑌 2. 𝑊
+8/21
+3. Concept question: Standard deviation
+Make an intuitive guess: Which pmf has the bigger
+standard deviation? (Assume 𝑤 and 𝑦 have the same
+units.)
+pmffor𝑌 𝑝(𝑦) 𝑝(𝑊) pmffor𝑊
+1/2
+0.4
+0.2
+0.1
+𝑦 𝑤
+-3 0 3 10 20 30 40 50
+1. 𝑌 2. 𝑊
+Table question: make probability tables for 𝑌 and 𝑊
+and compute their standard deviations.
+8/21
+Algebraic properties of variance
+If 𝑎 and 𝑏 are constants then
+Var(𝑎𝑋 + 𝑏) = 𝑎2 Var(𝑋), 𝜎 = |𝑎|𝜎 .
+𝑎𝑋+𝑏 𝑋
+If 𝑋 and 𝑌 are independent random variables then
+Var(𝑋 + 𝑌) = Var(𝑋) + Var(𝑌 ).
+9/21
+Board questions
+(a) Let 𝑋 ∼ Bernoulli(𝑝). Compute Var(𝑋).
+(b) Let 𝑌 ∼ Bin(𝑛, 𝑝). Show Var(𝑌) = 𝑛𝑝(1 − 𝑝).
+(c) Suppose 𝑋 , 𝑋 , … , 𝑋 are independent and all have
+1 2 𝑛
+the same standard deviation 𝜎 = 2. Let 𝑋 be the average
+of 𝑋 , … , 𝑋 .
+1 𝑛
+What is the standard deviation of 𝑋?
+10/21
+Continuous random variables
+• Like discrete, except take a continuous range of values
+• Replace probability mass function by probability
+density function
+• Replace sums by integrals
+11/21
+Calculus warmup for continuous random variables
+𝑏
+1. ∫ 𝑓(𝑥)𝑑𝑥 = area under the curve 𝑦 = 𝑓(𝑥).
+𝑎
+𝑏
+2. ∫ 𝑓(𝑥)𝑑𝑥 = ‘sum of 𝑓(𝑥) 𝑑𝑥’.
+𝑎
+Connection between the two views:
+𝑦
+𝑦 𝑦=𝑓(𝑥)
+𝑦=𝑓(𝑥)
+Area=𝑓(𝑥)Δ𝑥
+𝑖
+Δ𝑥
+𝑥
+𝑎 𝑏 𝑥 𝑥 𝑎0 𝑥 1 𝑥 2 ⋯ 𝑥 𝑏𝑛
+Area is approximately the sum of rectangles:
+𝑏 𝑛
+∫ 𝑓(𝑥)𝑑𝑥 ≈ 𝑓(𝑥 )Δ𝑥+𝑓(𝑥 )Δ𝑥+…+𝑓(𝑥 )Δ𝑥 = ∑𝑓(𝑥 )Δ𝑥.
+1 2 𝑛 𝑖
+𝑎 1
+12/21
+Continuous random variables: pdf and cdf
+• Continuous range of values:
+[0, 1], [𝑎, 𝑏], [0, ∞), (−∞, ∞).
+• Probability density function (pdf)
+𝑑
+𝑓(𝑥) ≥ 0; 𝑃(𝑐 ≤ 𝑋 ≤ 𝑑) = ∫ 𝑓(𝑥)𝑑𝑥 = ‘sum’ of 𝑓(𝑥)𝑑𝑥.
+𝑐
+prob.
+Units for the pdf are (This explains the term density.)
+unit of x
+• Cumulative distribution function (cdf)
+𝑥
+𝐹(𝑥) = 𝑃(𝑋 ≤ 𝑥) = ∫ 𝑓(𝑡)𝑑𝑡.
+−∞
+13/21
+Visualization
+𝑓(𝑥)
+𝑃(𝑐 ≤𝑋 ≤𝑑)
+𝑥
+𝑐 𝑑
+pdf and probability
+𝑓(𝑥)
+𝐹(𝑥)=𝑃(𝑋 ≤𝑥)
+𝑥
+𝑥
+pdf and cdf
+14/21
+Properties of the cdf
+(Same as for discrete distributions)
+𝑥
+• (Definition) 𝐹(𝑥) = 𝑃(𝑋 ≤ 𝑥) = ∫ 𝑓(𝑢)𝑑𝑢.
+−∞
+• 0 ≤ 𝐹(𝑥) ≤ 1.
+• non-decreasing.
+• 0 to the left: lim 𝐹(𝑥) = 0.
+𝑥→−∞
+• 1 to the right: lim 𝐹(𝑥) = 1.
+𝑥→∞
+• 𝑃(𝑐 < 𝑋 ≤ 𝑑) = 𝐹(𝑑) − 𝐹(𝑐).
+• 𝐹 ′(𝑥) = 𝑓(𝑥).
+15/21
+Board questions
+1. Suppose 𝑋 has range [0, 2] and pdf 𝑓(𝑥) = 𝑐 𝑥2.
+(a) What is the value of 𝑐?
+(b) Compute the cdf 𝐹 (𝑥).
+(c) Compute 𝑃(1 ≤ 𝑋 ≤ 2).
+(d) Plot the pdf and use it to illustrate part (c).
+2. Suppose 𝑌 has range [0, 𝑏] and cdf 𝐹 (𝑦) = 𝑦2/9.
+(a) What is 𝑏?
+(b) Find the pdf of 𝑌 .
+16/21
+(b) What is 𝑃(𝑋 = 𝑎)?
+(c) Does 𝑃(𝑋 = 𝑎) = 0 mean 𝑋 never equals 𝑎?
+4. Discussion questions
+Suppose 𝑋 is a continuous random variable.
+(a) If the pdf of 𝑋 is 𝑓(𝑥) can there be an 𝑥 where 𝑓(𝑥) = 10?
+17/21
+(c) Does 𝑃(𝑋 = 𝑎) = 0 mean 𝑋 never equals 𝑎?
+4. Discussion questions
+Suppose 𝑋 is a continuous random variable.
+(a) If the pdf of 𝑋 is 𝑓(𝑥) can there be an 𝑥 where 𝑓(𝑥) = 10?
+(b) What is 𝑃(𝑋 = 𝑎)?
+17/21
+4. Discussion questions
+Suppose 𝑋 is a continuous random variable.
+(a) If the pdf of 𝑋 is 𝑓(𝑥) can there be an 𝑥 where 𝑓(𝑥) = 10?
+(b) What is 𝑃(𝑋 = 𝑎)?
+(c) Does 𝑃(𝑋 = 𝑎) = 0 mean 𝑋 never equals 𝑎?
+17/21
+Discussion questions
+Which of the following are graphs of valid cumulative distribution
+functions?
+A. B. C. D.
+1 1 1 1
+𝑥 𝑥 𝑥 𝑥
+−4 −2 2 4 −4 −2 2 4 −4 −2 2 4 −4 −2 2 4
+−0.5 −0.5 −0.5 −0.5
+18/21
+Exponential Random Variables
+Parameter: 𝜆 (called the rate parameter).
+Range: [0, ∞).
+Notation: exponential(𝜆) or exp(𝜆).
+Density: 𝑓(𝑥) = 𝜆e−𝜆𝑥 for 0 ≤ 𝑥.
+Models: Waiting time
+𝑃(3<𝑋<7)
+0.1 𝐹(𝑥)=1−e−𝜆𝑥
+1
+𝑓(𝑥)=𝜆e−𝜆𝑥
+𝑥 𝑥
+2 4 6 8 10121416 2 4 6 8 10 12 14 16
+Continuous analogue of geometric distribution!
+19/21
+Board question
+I’ve noticed that taxis drive past 77 Mass. Ave. on the average of
+once every 10 minutes.
+Suppose time spent waiting for a taxi is modeled by an exponential
+random variable
+1
+𝑋 ∼ Exponential(1/10); 𝑓(𝑥) = e−𝑥/10
+10
+(a) Sketch the pdf of this distribution
+(b) Shade the region which represents the probability of waiting
+between 3 and 7 minutes
+(c) Compute the probability of waiting between between 3 and 7
+minutes for a taxi
+(d) Compute and sketch the cdf.
+20/21
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+21/21

@@ -1,0 +1,1 @@
+The Poisson PMF for the number of arrivals

@@ -1,0 +1,21 @@
+Independence of two events
+e Intuitive “definition”: P(B| A) =P(B) <>
+
+— occurrence of A provides no new information about B
+
+£0008) = £(4) £( BIA) = BCA) PCB)
+
+P(A) >0 1EXGs)) >
+
+Independent?
+
+P(ANB)=0
+£(4) 208) >0
+
+[Petintion of independence: P(AN B) =P(A)- rc]
+
+— Symmetric with respect to A and B
+
+— implies P(A| B) = P(A)
+
+— applies even if P(A) =0

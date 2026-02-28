@@ -1,0 +1,15 @@
+Mathematical subtleties
+
+Countable Additivity Axiom:
+If Ay, Ao, A3,... is an infinite sequence of disjoint events,
+then P(Ay U AoU A3U---) = P(A1) + P(A2) + P(A3) + ---
+
+[ [ree P(2)= P (UFOS e (1 y)3) « =D0=0
+
+e Additivity holds only for “countable” sequences of events
+
+e The unit square (simlarly, the real line, etc.) is not countable
+(its elements cannot be arranged in a sequence)
+
+e “Area” is a legitimate probability law on the unit square,
+as long as we do not try to assign probabilities/areas to “very strange” sets

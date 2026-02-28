@@ -1,0 +1,19 @@
+Conditional expectation of X, given an event
+
+E[X] =) zpx(2)
+
+E[X | A] = )2py)a(c)
+
+Expected value rule:
+
+Elg(X)] = >> 9(2)px (2)
+
+E[g(X) | A] = }0 9(2)px)4(2)
+
+E[X] = [ 2fx(2) de
+
+B[X | A] = [ af xja(a) de
+
+Elg(X)] = [ 9()fx(@) de
+
+Blg(X)| A] = [ 9(c)fx\a(@) de

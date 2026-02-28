@@ -1,0 +1,13 @@
+Hypothesis testing versus estimation
+
+e Hypothesis testing:
+— unknown takes one of few possible values
+
+— aim at small probability of incorrect decision
+
+Is it an airplane or a bird?
+
+e Estimation:
+— numerical unknown(s)
+
+— aim at an estimate that is “close” to the true but unknown value

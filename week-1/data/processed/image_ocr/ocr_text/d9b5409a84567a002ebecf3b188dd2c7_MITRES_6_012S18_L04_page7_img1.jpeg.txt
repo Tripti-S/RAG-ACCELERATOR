@@ -1,0 +1,9 @@
+Binomial coefficient () —- Binomial probabilities
+e n> 1 independent coin tosses; P(H)=p P(k heads) = (PX =p)" *
+
+e P(HTTHHH) =
+e P(particular sequence) =
+
+e P(particular k—head sequence)
+
+P(k heads) =

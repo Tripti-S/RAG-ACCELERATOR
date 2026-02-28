@@ -1,0 +1,12 @@
+LECTURE 22: The Poisson process
+
+e Definition of the Poisson process
+
+— applications
+
+e Distribution of number of arrivals
+e The time of the kth arrival
+
+e Memorylessness
+
+e Distribution of interarrival times

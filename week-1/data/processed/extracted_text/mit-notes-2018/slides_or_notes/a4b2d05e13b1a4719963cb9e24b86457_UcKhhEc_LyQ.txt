@@ -1,0 +1,41 @@
+MITOCW | MITRES6_012S18_L25-05_300k
+The other thing that we discussed in the last lecture was a classification of the different states of the Markov chain
+into different types.
+A Markov chain in general has states that are recurrent, which means that from that recurrent state, you can go
+somewhere else and then from that somewhere else you can always come back to it.
+So if you have a Markov chain of this form and you start in state nine, the options for you is to either go to state
+three or to state five.
+But no matter what, if you go to three, you can come back always, and if you go to five, you can always come
+back as well.
+So clearly nine here would be a recurrent state, and three for the same reason, and five as well.
+Now, if you look at the state six or seven, it is the same thing.
+Starting from six, the only way that you can go to is to either stay at six or go to seven, and then in that case you
+always come back.
+And same thing from seven, you can either go to six and that's it's, actually, and come back.
+So both of these are recurrent as well.
+So in a case the state is not recurrent, we will call it transient.
+So let's look at for example state one.
+From state one, if you go from one to two and then go to six, there is no way to come back to one.
+So the state 1 is transient, and for the same reason the state four will be transient, and the state 2 will be
+transient.
+What about eight?
+Well, the same reason, the state is transient as well.
+So what we have seen also is the notion of a recurrent class.
+A recurrent class is, again, a collection of recurrent states that can communicate between each other.
+So here, for this specific example, we have two classes.
+This is one class, right, so it's a class one.
+Let's call it recurrent class one.
+And this is a recurrent class, recurrent class two.
+So here again we have two classes instead of one, because if you are in one of these classes, there is no way
+that you can find a path to go to one state here and vice versa.
+If you are in one of these states here, there is no path that would lead you to that recurrent class.
+In the case where you have two recurrent classes, like here or more, it is pretty clear that in the long run, the
+steady state behavior of the Markov chain will really depend on where you started.
+So for example, if your Markov chain started in that recurrent class, there is no probability that in the long run it will
+be in that class, and vice versa.
+If it started here, the probability of being in that recurrent class in the long run is zero.
+So the long run behavior of the Markov chain will depend on the initial condition.
+In the case where you have only one recurrent class, let's forget about that portion, for example, and you have
+only that portion here.
+Then maybe the initial condition will not matter in the long run, but in fact it's not going to be always the case,
+depending on the recurrent class being periodic or not as we will see in the next clip.

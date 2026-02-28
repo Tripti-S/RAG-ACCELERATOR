@@ -1,0 +1,57 @@
+MITOCW | MITRES6_012S18_L25-09_300k
+OK, so we have just seen that if we have a single recurrent class, which is not periodic, then the Markov chain
+reaches steady state, and the steady state probabilities satisfy the following system of equations.
+These equations are essential in the study of Markov chains, and they have a name.
+They are called the balance equations.
+In fact, it's worth looking at them in a somewhat different way than how we introduced them so far.
+Using a frequency interpretation.
+Along the way, it will shed some light on the how or why they are called balance equations.
+Intuitively, one can sometimes think of probabilities as frequencies.
+For example, if we keep tossing a fair coin, which has a probability half of Heads, and then in the long run, half of
+the time we are going to see Heads.
+So let us try an interpretation of this kind for pi of j, the steady state probability of state j.
+Imagine the evolution of a Markov chain as a particle jumping from state to state.
+And imagine an observer at a given state.
+So imagine that you have an observer here, in a given state j.
+And imagine that this observer will keep counting every time the particle visits the state j.
+So you have this observer keeping track every time the particle is in state j and keep recording.
+So, for example, one record at time two, and saw it at time four, eight, maybe n.
+And you can look at the total number of time this observer saw the particle being in j, and you can define it.
+Let's call it y of j of n.
+So yj of n represents the total number of ones that you have up to time n.
+So it's the total number, so we divide by n to have the frequency.
+So here that would be the frequency of time this observer saw the particle in state j up to time n.
+Well, when n is very, very large, so n large, that frequency approaches pi of j.
+In fact, we can make it more rigorous by saying that that converges to pi of j when n goes to infinity in a rigorous
+fashion that we will not discuss here.
+So we have now a frequency interpretation of pi of j.
+Now, let us think about a frequency interpretation of transitions from 1 to j.
+So again, you have a new observer, and this observer look at it here, and every time the particle pass here, he
+put a one.
+So, for example, maybe one here and here.
+So if you think about it, you're looking at from 1 to j, and of n, that would be the total number of ones that you
+observe here up to time n.
+And if you divide by 1, that's the frequency, and so what is this frequency?
+Well, let's look at it this way.
+So how often do we have such a transition?
+Well, a fraction pi1 of the time, the particle is in state 1, and whenever at state 1, there is going to be a probability
+p1j of going there.
+There might be other ways to go, but out of all the time the particle is in state one, the frequency of time it will
+transition to j will be pi 1j.
+So out of all possible transitions that can happen, the fraction of these transitions that will happen from 1 to j will
+be pi 1 times p1j.
+Again, this is when n is large, and this can be made more rigorous.
+Now, what's the total frequency of transitions into state j?
+So these are transitions leaving.
+These are the transitions of interest here.
+So think about a third observer looking here and recording every time the particle goes through here, here, here,
+or here.
+So what is the frequency of transition here?
+Well, it will be the sum of all the possible transitions that we have observed there.
+And so this is going to be this and that corresponds to this.
+Now, the last step of the argument is to see that the particle is in state j, if and only if the last transition was into
+state j.
+And this explains that this part, which we have calculated here, will be the same as this one and that explain that.
+So this equation expresses exactly the statement that we made.
+That's useful intuition to have, and we are going to see an example later on how it gives us shortcuts into
+analyzing Markov chains.

@@ -1,0 +1,15 @@
+Total expectation theorem
+
+AyN{X =z}
+
+ay P(B) = P(A1) P(B | A1) +++: + P(An) P(B | An)
+A> Agn{xX =z}
+px (x) = P(A1) pxj4,(@) +++: + P(An) px 4, @)
+A3N{X =a}
+A3
+PAD BE | Ai]
+SiMe) apy | Aa]
+E[X] = P(A1) E[X | Ai] +--+: + P(An) E[X | An]
+P(A3)
+
+E[X | A3]

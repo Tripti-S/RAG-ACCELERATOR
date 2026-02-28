@@ -1,0 +1,16 @@
+Variance of sum of a random number of independent r.v.'s
+
+[ Var) = E[var(y | N)| + var (B[Y | ™)))
+
+YS ye oe Fy
+
+[vary = E[N] var(x) + (BLA? var(w)
+
+e EY |N] = NE[X]
+
+2
+e var(ELY | N]) _ var (vel) = (efx) var(w)
+e var(Y|N=n) = Va% (X42 008 Me, |=") =var (x,p000*Xu)
+var(y|N) = Muan(x) =m van(a)
+
+Elvar(y|N)] =E] 0 var(x)) - E]w] vac (x)

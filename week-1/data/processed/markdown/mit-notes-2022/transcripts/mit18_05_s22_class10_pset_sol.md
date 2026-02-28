@@ -1,0 +1,134 @@
+# Mit18 05 S22 Class10 Pset Sol
+
+---
+
+Class 10 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. Is it a statistic?
+You believe that the lifetimes of a certain type of lightbulb follow an exponential distribution
+with parameter 𝜆. To test this hypothesis you measure the lifetime of 5 bulbs and get data
+𝑥 , … 𝑥 .
+1 5
+Which of the following are statistics?
+(a) The sample average 𝑥 = 𝑥 1 +𝑥 2 +𝑥 3 +𝑥 4 +𝑥 5 .
+5
+(b) The expected value of a sample, namely 1/𝜆.
+(c) The difference between 𝑥 and 1/𝜆.
+Solution: Only (a) is a statistic. Parts (b) and (c) need the value of 𝜆, which is a parameter
+of the distribution. It cannot be computed from the data. It can only be estimated. So any
+computation that needs the true value of 𝜆 does not produce a statistic.
+Board questions
+Problem 1. Coins
+(a) A box contains 3 coins. They land heads with, respectively, probability 𝑝 = 1/3, 1/2, 2/3.
+A coin is taken from the box. The mystery coin is tossed 80 times, resulting in 49 heads
+and 31 tails.
+What is the likelihood of this data for each type of coin? Which coin gives the maximum
+likelihood?
+(b) Now suppose you found a bent coin. It has an unknown probability 𝑝 of landing heads.
+To estimate 𝑝 you toss it 80 times getting 49 heads. Find the likelihood and log likelihood
+functions given this data. What is the maximum likelihood estimate for 𝑝?
+Solution: (a) The data 𝐷 is 49 heads in 80 tosses.
+We have three hypotheses: the coin has probability 𝑝 = 1/3, 𝑝 = 1/2, 𝑝 = 2/3. So the
+likelihood function 𝑃 (𝐷|𝑝) takes 3 values:
+80 1 49 2 31
+𝑃(𝐷|𝑝 = 1/3) = ( )( ) ( ) = 2.07 ⋅ 10−7
+49 3 3
+80 1 49 1 31
+𝑃(𝐷|𝑝 = 1/2) = ( ) ( ) ( ) = 0.0118
+49 2 2
+80 2 49 1 31
+𝑃(𝐷|𝑝 = 2/3) = ( ) ( ) ( ) = 0.0545
+49 3 3
+The maximum likelihood is when 𝑝 = 2/3 so this our maximum likelihood estimate is that
+𝑝 = 2/3.
+1
+18.05 class 10 problems, Spring 2022 2
+(b) Our hypotheses now allow 𝑝 to be any value between 0 and 1. So our likelihood function
+is
+80
+𝑃 (𝐷|𝑝) = ( )𝑝49(1 − 𝑝)31
+49
+To compute the maximum likelihood over all 𝑝, we set the derivative of the log likelihood
+to 0 and solve for 𝑝:
+80
+𝑙(𝑝) = ln(𝑃 (𝐷|𝑝)) = ln (( )) + 49 ln(𝑝) + 31 ln(1 − 𝑝)
+49
+𝑑𝑙(𝑝) 49 31
+− = 0
+𝑑𝑝 𝑝 1−𝑝
+49
+⇒ 𝑝 =
+80
+So our MLE is 𝑝̂ = 49/80.
+Problem 2. Continuous likelihood
+For continuous likelihood: use the pdf instead of the pmf
+Box of light bulbs.
+Lifetime of each bulb ∼ exp(𝜆), with unknown parameter 𝜆.
+For multiple independent data points, the likelihood is the product of the individual likeli-
+hoods.
+(a) We test 5 light bulbs and find they have lifetimes of 2, 3, 1, 3, 4 years respectively. We
+assume the tests are independent.
+(i) Find the likelihood and log likelihood functions (as functions of 𝜆.)
+(ii) What is the maximum likelihood estimate (MLE) for 𝜆?
+Reminder: An exponential distribution has pdf 𝑓(𝑥|𝜆) = 𝜆e−𝜆𝑥
+(b) Suppose we test 5 bulbs and find they have lifetimes 𝑥 , 𝑥 , 𝑥 , 𝑥 , 𝑥 years respectively.
+1 2 3 4 5
+Redo Part (a) using these lifetimes.
+Solution: (a)(i) For a single data value 𝑥, the likelihood function is 𝑓(𝑥|𝜆) = 𝜆e−𝜆𝑥. So,
+given our data, the likelihood functions for the 5 bulbs are
+𝑓(2|𝜆) = 𝜆e−2𝜆, 𝑓(3|𝜆) = 𝜆e−3𝜆, 𝑓(1|𝜆) = 𝜆e−1𝜆, 𝑓(3|𝜆) = 𝜆e−3𝜆, 𝑓(4|𝜆) = 𝜆e−4𝜆.
+We multiply these together to get the joint likelihood
+𝐿(𝜆) = 𝑓(2,3,1,3,4|𝜆) = 𝜆e−2𝜆⋅ 𝜆e−3𝜆 ⋅ 𝜆e−1𝜆 ⋅ 𝜆e−3𝜆 ⋅ 𝜆e−4𝜆 = 𝜆5e−13𝜆.
+The log likelihood is 𝑙(𝜆) = 5 ln(𝜆) − 13𝜆,
+(ii) We use calculus to find the maximum likelihood
+5 5
+𝑙′(𝜆) = −13 = 0 ⇒ 𝜆̂ = .
+𝜆 13
+The MLE for 𝜆 is 5 .
+13
+18.05 class 10 problems, Spring 2022 3
+(b)(i) For this problem we just replace the explicit numbers 2, 3, 1, 3, 4 by symbols.
+Likelihood = 𝐿(𝜆) = 𝑓(𝑥 ,𝑥 ,𝑥 ,𝑥 ,𝑥 |𝜆) = 𝜆5e−(𝑥 1 +𝑥 2 +𝑥 3 +𝑥 4 +𝑥 5 )𝜆
+1 2 3 4 5
+Log likelihood = 𝑙(𝜆)5 ln(𝜆) − (∑ 𝑥 ) 𝜆.
+𝑖
+(ii) The calculus is identical to that in part (a).
+5 5
+𝑙′(𝜆) = − ∑ 𝑥 = 0 ⇒ 𝜆̂ = .
+𝜆 𝑖 ∑ 𝑥
+𝑖
+The MLE for 𝜆 is 5 .
+∑ 𝑥
+𝑖
+Note: This is not surprising: we know the mean of an exponential distribution is 1/𝜆. The
+MLE for 𝜆 is one over the data mean.
+Extra
+Cilantro problem In the Cilantro experiment, assume 55 out of 100 people said Cilantro
+tastes like soap. Find the maximum likelihood estimate for 𝑝, the true proportion of people
+who feel that way.
+100
+Solution: The likelihood function for 𝑝 is 𝐿(𝑝) = ( )𝑝55(1 − 𝑝)45.
+55
+Method 2. Log likelihood
+Because the log function turns multiplication into addition it is often convenient to use the
+log of the likelihood function
+log likelihood = ln(likelihood) = ln(𝑃 (data | 𝑝)).
+In our example
+100
+Log likelihood 𝑙(𝑝) = ln (( ))+55 ln(𝑝) + 45 ln(1 − 𝑝).
+55
+(Note: The first term is just a messy constant.)
+Now we can set the derivative of 𝑙(𝑝) to 0 to find the MLE.
+55 45
+𝑙′(𝑝) = − = 0.
+𝑝 1−𝑝
+This is easy to solve for 𝑝. We get 𝑝̂ = 0.55.
+Adding a hat is a standard way of indicating an estimate, i.e. 𝑝̂ is an estimate of the
+unknown parameter 𝑝
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

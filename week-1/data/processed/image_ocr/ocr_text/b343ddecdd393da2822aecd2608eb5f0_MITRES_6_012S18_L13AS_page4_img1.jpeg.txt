@@ -1,0 +1,15 @@
+Stick-breaking example fy)
+
+e Stick example: stick of length ¢
+break at uniformly chosen point Y
+
+break what is left at uniformly chosen point X £ y
+
+© E[X|Y=y]= Ais fxiy(e|y)
+
+- Bx|yi= ¥/2
+
+voi= ELE [x4] -£[v/2] -+ fy.
+
+1.2.4
+Zz 2 4

@@ -1,0 +1,21 @@
+The case of multiple observations
+e Key conclusions:
+
+posterior is normal
+
+LMS and MAP ‘estimates coincide
+
+— these estimates are “linear,” of the form }9=ag+a,21 +-::+anrn
+e Interpretations:
+
+— estimate 8: weighted average of x9 (prior mean) and a; (observations)
+
+— weights determined by variances
+
+o* Darye
+Xe very noisy
+
+=> small welg Bt
+
+Oar = OL.ms = E[O |X =a] =!
+

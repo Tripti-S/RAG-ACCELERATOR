@@ -1,0 +1,12 @@
+Time until the first success/arrival
+
+e T=
+
+e P(T, =k) =
+
+° E[T,] =~
+Pp
+
+1 =
+var(T,) = —;
+Pp

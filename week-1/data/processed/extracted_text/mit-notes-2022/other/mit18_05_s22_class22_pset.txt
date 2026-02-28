@@ -1,0 +1,63 @@
+Class 22 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. Critical values
+𝑃(𝑍 ≤𝑞 ) 𝑃(𝑍 >𝑧 )
+𝛼 𝛼
+𝛼 𝛼
+𝑧
+𝑞 𝑧
+𝛼 𝛼
+1. 𝑧 =
+0.025
+(a) -1.96 (b) -0.95 (c) 0.95 (d) 1.96 (e) 2.87
+2. −𝑧 =
+0.16
+(a) -1.33 (b) -0.99 (c) 0.99 (d) 1.33 (e) 3.52
+Board questions
+Problem 1. Computing confidence intervals
+The data 4, 1, 2, 3 is drawn from N(𝜇, 𝜎2) with 𝜇 unknown.
+(a) Find a 90% 𝑧 confidence interval for 𝜇, given that 𝜎 = 2.
+For the remaining parts, suppose 𝜎 is unknown.
+(b) Find a 90% 𝑡 confidence interval for 𝜇.
+(c) Find a 90% 𝜒2 confidence interval for 𝜎2.
+(d) Find a 90% 𝜒2 confidence interval for 𝜎.
+(e) Given a normal sample with 𝑛 = 100, 𝑥 = 12, and 𝑠 = 5,
+find the rule-of-thumb 95% confidence interval for 𝜇.
+Problem 2. Confidence intervals and non-rejection regions
+Suppose 𝑥 ,…,𝑥 ∼ N(𝜇, 𝜎2) with 𝜎 known.
+1 𝑛
+Consider two intervals:
+1. The 𝑧 confidence interval around 𝑥 at confidence level 1 − 𝛼.
+2. The 𝑧 non-rejection region for 𝐻 ∶ 𝜇 = 𝜇 at significance level 𝛼.
+0 0
+Compute and sketch these intervals to show that:
+𝜇 is in the first interval ⇔ 𝑥 is in the second interval.
+0
+Problem 3. Polling
+For a poll to find the proportion 𝜃 of people supporting X we know that a (1−𝛼) confidence
+interval for 𝜃 is given by
+𝑧 𝑧
+𝛼/2 𝛼/2
+[ 𝑥 ̄ − √ , 𝑥 ̄ + √ ].
+2 𝑛 2 𝑛
+1
+18.05 class 22 problems, Spring 2022 2
+(a) How many people would you have to poll to have a margin of error of 0.01 with 95%
+confidence? (You can do this in your head.)
+(b) How many people would you have to poll to have a margin of error of 0.01 with 80%
+confidence. (You’ll want R or other calculator here.)
+(c) If 𝑛 = 900, compute the 95% and 80% confidence intervals for 𝜃.
+Discussion questions
+1. Width of confidence intervals
+The quantities 𝑛, 𝑐 = confidence, 𝑥, 𝜎 all appear in the 𝑧 confidence interval for the mean.
+How does the width of a confidence interval for the mean change if:
+1. We increase 𝑛 and leave the others unchanged?
+2. We increase 𝑐 and leave the others unchanged?
+3. We increase 𝜇 and leave the others unchanged?
+4. We increase 𝜎 and leave the others unchanged?
+(A) it gets wider (B) it gets narrower (C) it stays the same.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

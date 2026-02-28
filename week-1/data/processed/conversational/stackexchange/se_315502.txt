@@ -1,0 +1,2571 @@
+probability - At each step of a limiting infinite process, put 10 balls in an urn and remove one at random. How many balls are left? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+At each step of a limiting infinite process, put 10 balls in an urn and remove one at random. How many balls are left?
+Ask Question
+Asked
+8 years, 2 months ago
+Modified
+2 years ago
+Viewed
+32k times
+121
+$\begingroup$
+The question (slightly modified) goes as follows and if you have never encountered it before you can check it in example 6a, chapter 2, of Sheldon Ross'
+A First Course in Probability
+:
+Suppose that we possess an infinitely large urn and an infinite
+collection of balls labeled ball number 1, number 2, number 3, and so
+on. Consider an experiment performed as follows: At 1 minute to 12
+P.M., balls numbered 1 through 10 are placed in the urn and one ball
+removed at random. (Assume that the withdrawal takes no time.) At 1/2
+minute to 12 P.M., balls numbered 11 through 20 are placed in the  urn
+and another ball removed at random. At 1/4 minute to 12P.M., balls
+numbered 21 through 30 are placed in the urn and another ball removed
+at random... and so on. The question of interest is, How many balls
+are in the urn at 12 P.M.?
+This question, as it's posed, forces basically everyone to get it wrong --- usually the intuition is to say there will be infinitely many balls at 12 P.M. The  answer provided by Ross, however, is that with probability one the urn will be empty at 12 P.M.
+When teaching probability theory this problem is one of those for which is very hard to give a good intuitive explanation.
+On the one hand, you could try to explain it like this:
+"think of the probability of any ball i being on the urn at 12 P.M. During the infinite random draws, it will eventually be removed. Since this holds for all balls, none of them can be there at the end".
+However, students will correctly argue with you:
+"but I'm putting 10 balls and removing 1 ball at each time. It's impossible there will be zero balls at the end".
+What's the best explanation we can give to them to solve these conflicting intuitions?
+I'm also open to the argument the question is ill-posed and that if we formulate it better the "paradox" disappears or to the argument that the paradox is "purely mathematical"  (but please try to be precise about it).
+probability
+paradox
+Share
+Cite
+Improve this question
+Follow
+edited
+Nov 28, 2017 at 16:30
+asked
+Nov 24, 2017 at 18:23
+Carlos Cinelli
+12.9k
+6
+6 gold badges
+58
+58 silver badges
+92
+92 bronze badges
+$\endgroup$
+10
+6
+$\begingroup$
++1. I like the version where the urn begins with $2$ balls (and one is removed), then another $4$ are added (and one is removed), then another $8$ are added, etc. :-)  @Neil What is that argument, exactly?  Could you sketch it?
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 18:49:27 +00:00
+Commented
+Nov 24, 2017 at 18:49
+16
+$\begingroup$
+Many of the misconceptions and much of the confusion about probability comes from problems of limits and infinities. This is an excellent example of that as @enumaris's answer explains well. It is also an excellent example of a textbook example that will only lead students to the conclusion that they cannot succeed in the subject.
+$\endgroup$
+Michael Lew
+–
+Michael Lew
+2017-11-24 20:18:36 +00:00
+Commented
+Nov 24, 2017 at 20:18
+17
+$\begingroup$
+While it's clear that each particular ball has probability zero of being in the urn at midnight, it's not obvious to me that there is a well-defined probability distribution on the set of patterns of which balls are left at midnight, or there is a well-defined probability distribution on the variable "how many balls at midnight?".
+$\endgroup$
+user41979
+–
+user41979
+2017-11-25 04:04:20 +00:00
+Commented
+Nov 25, 2017 at 4:04
+15
+$\begingroup$
+Or more precisely, the sample space here is the infinite sequences of choices of which ball is removed at which time. It's not obvious there is a reasonable $\sigma$-algebra on the sample space for which "how many balls at midnight?" is a measurable function.
+$\endgroup$
+user41979
+–
+user41979
+2017-11-25 04:58:50 +00:00
+Commented
+Nov 25, 2017 at 4:58
+8
+$\begingroup$
+"Infinity is not a real number" is probably the key. Note that the problem uses "an infinitely large urn", "an infinite collection of balls", and uses infinite time slots (in Zeno's style). Three infinities in the same question is a sure sign of problems to come.
+$\endgroup$
+Rolazaro Azeveires
+–
+Rolazaro Azeveires
+2017-11-25 14:55:35 +00:00
+Commented
+Nov 25, 2017 at 14:55
+|
+Show
+5
+more comments
+21 Answers
+21
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+148
++200
+$\begingroup$
+Ross describes three versions of this "paradox"
+in the Example 6a in his textbook
+. In each version, 10 balls are added to the urn and 1 ball is removed at each step of the procedure.
+In the first version,
+$10n$
+-th ball is removed at the
+$n$
+-th step. There are infinitely many balls left after midnight because all balls with numbers not ending in zero are still in there.
+In the second version,
+$n$
+-th ball is removed at the
+$n$
+-th step. There are zero balls left after midnight because each ball is eventually going to be removed at the corresponding step.
+In the third version, balls are removed uniformly at random. Ross computes the probability of each ball to be removed by step
+$n$
+and finds that it converges to
+$1$
+as
+$n\to\infty$
+(note that this is not evident! one actually has to perform the computation). This means, by
+Boole's inequality
+, that the probability of having zero balls in the end is also
+$1$
+.
+You are saying that this last conclusion is not intuitive and hard to explain; this is wonderfully supported by many confused answers and comments in this very thread. However, the conclusion of the second version is exactly as un-intuitive!
+And it has
+absolutely nothing
+to do with probability or statistics.
+I think that after one accepts the second version, there is nothing particularly surprising about the third version anymore.
+So whereas the "probabilistic" discussion must be about the third version [see very insightful answers by @paw88789, @Paul, and @ekvall], the "philosophical" discussion should rather focus on the second version which is much easier and is similar in spirit to the
+Hilbert's hotel
+.
+The second version is known as the
+Ross-Littlewood paradox
+.
+I link to the Wikipedia page, but the discussion there is horribly confusing and I do not recommend reading it at all. Instead, take a look at
+this MathOverflow thread from years ago
+. It is closed by now but contains several very perceptive answers. A short summary of the answers that I find most crucial is as follows.
+We can define a set
+$S_n$
+of the balls present in the urn after step
+$n$
+. We have that
+$S_1=\{2,\ldots 10\}$
+,
+$S_2=\{3,\ldots 20\}$
+, etc. There is a mathematically well-defined notion of the
+limit of a sequence of sets
+and one can rigorously prove that the limit of this sequence exists and is the empty set
+$\varnothing$
+. Indeed, what balls can be in the limit set? Only the ones that are never removed. But
+every
+ball is eventually removed. So the limit is empty. We can write
+$S_n \to \varnothing$
+.
+At the same time, the number
+$|S_n|$
+of the balls in the set
+$S_n$
+, also known as the cardinality of this set, is equal to
+$10n-n=9n$
+. The sequence
+$9n$
+is obviously diverging, meaning that the cardinality converges to the cardinality of
+$\mathbb N$
+, also known as
+aleph-zero
+$\aleph_0$
+. So we can write that
+$|S_n|\to \aleph_0$
+.
+The "paradox" now is that these two statements seem to contradict each other:
+\begin{align}
+S_n &\to \varnothing \\
+|S_n| &\to \aleph_0 \ne 0
+\end{align}
+But of course there is no real paradox and no contradiction. Nobody said that taking cardinality is a "continuous" operation on sets, so we cannot exchange it with the limit:
+$$\lim |S_n| \ne |\lim S_n|.$$
+In other words, from the fact that
+$|S_n|=9n$
+for all integer
+$n\in \mathbb N$
+we cannot conclude that
+$|S_\omega|$
+(the value at
+the first ordinal
+) is equal to
+$\infty$
+. Instead,
+$|S_\omega|$
+has to be computed directly and turns out to be zero.
+So I think what we get out of this really is the conclusion that taking cardinalities is a discontinous operation... [@HarryAltman]
+So I think this paradox is just the human tendency to assume that "simple" operations are continuous. [@NateEldredge]
+This is easier to understand with functions instead of sets.
+Consider a characteristic (aka indicator) function
+$f_n(x)$
+of set
+$S_n$
+which is defined to be equal to one on the
+$[n, 10n]$
+interval and zero elsewhere. The first ten functions look like that (compare the ASCII art from @Hurkyl's answer):
+$\quad\quad\quad$
+Everybody will agree that for each point
+$a\in\mathbb R$
+, we have
+$\lim f_n(a) = 0$
+. This
+by definition
+means that functions
+$f_n(x)$
+converge to the function
+$g(x)=0$
+. Again, everybody will agree to that. However, observe that the integrals of these functions
+$\int_0^\infty f(x)dx = 9n$
+get larger and larger and the sequence of integrals diverges. In other words,
+$$\lim\int f_n(x)dx \ne \int \lim f_n(x) dx.$$
+This is a completely standard and familiar analysis result. But it is an exact reformulation of our paradox!
+A good way to formalize the problem is to describe the state of the jug not as a set (a subset of
+$\mathbb N$
+), because those are hard to take limits of, but as its characteristic function. The first "paradox" is that pointwise limits are not the same as uniform limits. [@TheoJohnson-Freyd]
+The crucial point
+is that "at
+midnight
+noon" the whole infinite sequence has
+already passed
+, i.e. we made a "trasfinite jump" and arrived to the
+transfinite
+state
+$f_\omega = \lim f_n(x)$
+. The value of the integral "at
+midnight
+noon" has to be the value of the integral of
+$\lim f_n$
+, not the other way around.
+Please note that some of the answers in this thread are misleading despite being highly upvoted.
+In particular, @cmaster computes
+$\lim_{n\to\infty} \operatorname{ballCount}(S_n)$
+which is indeed infinite, but this is
+not
+what the paradox asks about. The paradox asks about what happens after the whole infinite sequence of steps; this is a transfinite construction and so we need to be computing
+$\operatorname{ballCount}(S_\omega)$
+which is equal to zero as explained above.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jan 22, 2024 at 10:59
+joriki
+455
+2
+2 silver badges
+6
+6 bronze badges
+answered
+Nov 25, 2017 at 23:48
+amoeba
+109k
+38
+38 gold badges
+326
+326 silver badges
+350
+350 bronze badges
+$\endgroup$
+15
+8
+$\begingroup$
+Your answer along with @paw88789's answer seems enough to solve conflicting intuitions. Basically one can say: (i) your intuition will fail because cardinality is not continuous; and, (ii) if the physical analogy bothers you, think about the following question: is the "removal" function $f:\mathbb{N} \rightarrow \mathbb{N}$ surjective? In the probabilistic version, what's the probability we pick a surjective map? Of course, there's still the matter of whether these objects can model any real phenomena, but that's a different problem. Overall, I appreciate Ross example even more now.
+$\endgroup$
+Carlos Cinelli
+–
+Carlos Cinelli
+2017-11-26 01:58:18 +00:00
+Commented
+Nov 26, 2017 at 1:58
+12
+$\begingroup$
+@MichaelLew There are many counter-intuitive results in mathematics, and this is one of them. A sequence of sets S1={2,...10}, S2={3,...20}, etc. converges to the empty set even though each subsequent set has more elements than the previous one. This is just how it is. Please note that the formulation of the paradox asks what happens after the
+infinite
+number of steps. Clearly such a setup does not have any connection to the physical world; it is a mathematical abstraction, and has to be approached as such. [cont.]
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-26 20:22:39 +00:00
+Commented
+Nov 26, 2017 at 20:22
+6
+$\begingroup$
+[cont.] Intuitions can fail when dealing with infinities, so one has to rely on mathematical rigour. Perhaps this reformulation will help you: consider a sequence of functions where n-th function is zero everywhere apart from an interval [n+1, 10n]. This sequence converges to a function that is constant zero, even though each subsequent function has a longer non-zero interval. Most of us are more familiar with convergence of functions than with convergence of sets, so this reformulation might be easier to understand.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-26 20:22:45 +00:00
+Commented
+Nov 26, 2017 at 20:22
+6
+$\begingroup$
+@Martijn The functions $f_n(x)=I([n+1, 10n])$ converge to $g(x) =0$ because for each point $a\in\mathbb R$ it is true that $f_n(a)=0$ for all $n>a$, i.e.
+by definition
+. At the same time, the sequence of integrals $\int f_n$ diverges because $\int f_n=9n-1\to\infty$. This is not a contradiction because $\lim\int \ne \int\lim$. One can exchange them only when so called
+uniform convergence
+holds which is a much stronger condition than simple (pointwise) convergence. This is alluded to in
+mathoverflow.net/a/7113
+.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-26 21:46:25 +00:00
+Commented
+Nov 26, 2017 at 21:46
+7
+$\begingroup$
+Another way to explain this, is to ask the following: Are there more even numbers or natural numbers? Even though in any finite interval there are more natural numbers, they actually have the same cardinality. After that, are there more multiples of $10$ or natural numbers? Again, most people agree they have the same cardinality. Therefore, you add a "natural numbers" amount of balls, but you remove a "multiple of 10 amount of balls" - they have same cardinality, so in the end the urn is empty. (I know the analogy doesn't hold exactly, like ross 1st version shows, but it gives some intuition)
+$\endgroup$
+Ant
+–
+Ant
+2017-11-28 10:33:29 +00:00
+Commented
+Nov 28, 2017 at 10:33
+|
+Show
+10
+more comments
+28
+$\begingroup$
+Hurkyl (in an answer) and Dilip Sarwate (in a comment) give two common deterministic variants of this puzzle.  In both variants, at step $k$, balls $10k-9$ through $10k$ are added to the pile ($k=1,2,...$).
+In Hurkyl's variation, ball $k$ is removed.  In this variant, in can be definitively argued that there are no balls left because ball $n$ is removed at step $n$.
+In Dilip Sarwate's variation, ball $10k$ is removed at step $k$, and so in this variant, all balls that are not multiples of $10$ remain.  In this variant, there are infinitely many balls in the urn at the end.
+With these two variants as edge cases, we see that lots of different things can happen when doing this process.  For instance, you could arrange to have any finite set of balls remaining at the end, by doing Hurkyl's process but skipping the removal of certain balls.  In fact for any set $B$ with countably infinite complement (in the (positive) natural numbers), you can have that set of balls remaining at the end of the process.
+We could look at the random variation of the problem (given in the original post) as selecting a function $f:\mathbb{N}\to\mathbb{N}$ with the conditions that (i) $f$ is one-to-one and (ii) $f(k)\le 10k$ for all $k\in \mathbb{N}$.
+The argument given in the Sheldon Ross book (referenced in the post) shows that almost all (in the probabilistic sense) such functions are in fact onto functions (surjections).
+I see this as being somewhat analogous to the situation of selecting a number, $x$ from a uniform distribution on $[0,1]$ and asking what is the probability that the number is in the Cantor set (I am using the Cantor set rather than say the rational numbers because the Cantor set is uncountable).  The probability is $0$ even though there are many (uncountably many) numbers in the Cantor set that could have been chosen.  In the ball removing problem, the set of sequences in which there are any balls left is playing the role of the Cantor set.
+Edit: BenMillwood correctly points out that there are some finite sets of balls that cannot be the remaining set. For instance, $1,2,...,10$ cannot be the remaining set.  You can have at most $90\%$ of the first $10n$ balls remaining for $n=1,2,3,...$.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 25, 2017 at 20:00
+amoeba
+109k
+38
+38 gold badges
+326
+326 silver badges
+350
+350 bronze badges
+answered
+Nov 25, 2017 at 4:31
+paw88789
+389
+2
+2 silver badges
+5
+5 bronze badges
+$\endgroup$
+7
+4
+$\begingroup$
+You can't have
+any
+finite set of balls remaining at the end -- e.g. you can't have the set 1..10.
+$\endgroup$
+Ben Millwood
+–
+Ben Millwood
+2017-11-25 05:05:25 +00:00
+Commented
+Nov 25, 2017 at 5:05
+1
+$\begingroup$
+"The argument given in the Sheldon Ross book (referenced in the post) shows that almost all (in the probabilistic sense) such functions are in fact onto functions (surjections)." -- (+1) this is a very interesting way to look at the problem, and it actually might be easier and less confusing to present it as such than with the "physical story" of balls in an urn.
+$\endgroup$
+Carlos Cinelli
+–
+Carlos Cinelli
+2017-11-25 06:31:28 +00:00
+Commented
+Nov 25, 2017 at 6:31
+5
+$\begingroup$
++1. I think this is currently the only answer that has actually any bearing on the problem. Everybody else seems to be discussing whether or not there will be zero balls left if on the n-th step ball #n is removed. In other words, most of the discussion that I see in this thread is actually about the 2nd paragraph of your answer and does not move any further than that. Cc to @CarlosCinelli.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-25 21:13:04 +00:00
+Commented
+Nov 25, 2017 at 21:13
+3
+$\begingroup$
+This is actually the first answer to really make me understand what is the reasoning behind a result. You show how result we obtain is connected with choice function we apply -- that makes perfect sense and helps to move further than just to accept that amount could be zero because of cardinality not being contigious.
+$\endgroup$
+sukhmel
+–
+sukhmel
+2017-11-27 11:58:45 +00:00
+Commented
+Nov 27, 2017 at 11:58
+$\begingroup$
+(+1) I like this answer because the indeterminate nature of specious arguments based on indeterminate forms is better suggested. This can be made a lot simpler by saying that $0\times\infty$ is an indeterminate form and be done with it. Also, see my answer below which argues this more directly.
+$\endgroup$
+Carl
+–
+Carl
+2017-12-02 23:26:10 +00:00
+Commented
+Dec 2, 2017 at 23:26
+|
+Show
+2
+more comments
+24
+$\begingroup$
+Enumaris' answer
+is perfectly right on the diverging limits problem. Nevertheless, the question can actually be answered in an unambiguous way. So, my answer will show you precisely where the zero balls solution goes wrong, and why the intuitive solution is the correct one.
+It is true, that for any ball $n$, the probability of it being in the urn at the end $P(n)$ is zero. To be precise, it's only the
+limit
+that's zero: $P(n) = \lim_{N\to\infty} P(n, N) = 0$.
+Now, you try to compute the sum
+$$\lim_{N\to\infty} \operatorname{ballCount}(N) = \lim_{N\to\infty} \sum_{n=1}^{n\leq 10N} P(n,N).$$
+The broken calculation jumps right in to that $P(n,N)$ part, saying that's zero in the limit, so the sum contains only terms of zero, so the sum is zero itself:
+$$\begin{align}
+\lim_{N\to\infty}\operatorname{ballCount}(N)
+&= \lim_{N\to\infty} \sum_{n=1}^{n\leq 10N} P(n,N) \\
+\text{broken step here }\longrightarrow
+&= \lim_{N\to\infty} \sum_{n=1}^{n\leq 10N} \lim_{N\to\infty} P(n,N) \\
+&= \lim_{N\to\infty} \sum_{n=1}^{n\leq 10N} P(n) \\
+&= \lim_{N\to\infty} \sum_{n=1}^{n\leq 10N} 0 \\
+&= \lim_{N\to\infty} 10 N\times 0 \\
+&= 0
+\end{align}$$
+However, this is illegally splitting the $\lim$ into two independent parts.
+You cannot simply move the $\lim$ into the sum if the bounds of the sum depend on the parameter of the $\lim$.
+You must solve the $\lim$ as a whole.
+Thus, the only valid way to solve this $\lim$ is to solve the sum first, using the fact that $\sum_{n=1}^{n\leq 10N} P(n,N) = 9N$ for any finite $N$.
+$$\begin{align}
+\lim_{N\to\infty} \operatorname{ballCount}(N)
+&= \lim_{N\to\infty} \sum_{n=1}^{n\leq 10N} P(n,N) \\
+&= \lim_{N\to\infty} 9N \\
+&= \infty
+\end{align}$$
+The intuitive solution did precisely that, it's the "clever" solution that's fundamentally broken.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 25, 2017 at 3:49
+David Z
+286
+1
+1 silver badge
+9
+9 bronze badges
+answered
+Nov 24, 2017 at 22:23
+cmaster - reinstate monica
+453
+3
+3 silver badges
+3
+3 bronze badges
+$\endgroup$
+19
+10
+$\begingroup$
+That formulates the paradox, for sure.  It amounts to this: Asserting that infinitely many balls  remain raises the natural question:
+which balls?
+Can you name a single ball that has a nonzero chance of remaining?  If not, then it seems the countable additivity axiom implies no balls remain, because there are only countably many balls. Thus, by claiming the intuitive solution is correct, you are implicitly denying a fundamental axiom of probability.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 22:36:43 +00:00
+Commented
+Nov 24, 2017 at 22:36
+14
+$\begingroup$
+@whuber I don't need to name a ball with non-zero probability: I have infinitely many balls. And the limit of the product of two things, with one going to zero and the other to infinity, can be anything. It can be zero, it can be infinity, it can be anything in between (like 42). That depends on how the product behaves as a whole. It's the same kind of "paradox" that makes any point within a distribution in R have zero probability - it's only intervals of infinitely many points that have a non-zero probability to occur.
+There is really no paradox in the mathematical sense.
+$\endgroup$
+cmaster - reinstate monica
+–
+cmaster - reinstate monica
+2017-11-24 22:49:39 +00:00
+Commented
+Nov 24, 2017 at 22:49
+7
+$\begingroup$
+@Michael Unfortunately, that's a miscalculation.  Each ball's chance of remaining in the limit is $0$.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 22:59:08 +00:00
+Commented
+Nov 24, 2017 at 22:59
+7
+$\begingroup$
+@whuber I find the argument "Asserting that infinitely many balls remain raises the natural question: which balls? Can you name a single ball that has a nonzero chance of remaining?" a bit suspect. Imagine a slightly different problem. We start with one ball and at each time the existing ball is removed and a new one is added, with probability one. The replacement takes no time. I think we all agree that (with probability one) there is exactly one ball at any time. It is also true that any individual ball has zero probability of remaining.
+$\endgroup$
+Luca Citi
+–
+Luca Citi
+2017-11-25 00:38:14 +00:00
+Commented
+Nov 25, 2017 at 0:38
+13
+$\begingroup$
+Just commenting here again to make sure people are aware this answer is incorrect. @cvote you should read Ross' argument, your answer does not  address his derivation at all.
+$\endgroup$
+Carlos Cinelli
+–
+Carlos Cinelli
+2017-11-25 06:07:35 +00:00
+Commented
+Nov 25, 2017 at 6:07
+|
+Show
+14
+more comments
+14
+$\begingroup$
+This argument is focused on the tendency for infinite sets and sequences to behave in unitnuitive ways.  This is no more surprising than the
+Hilbert Hotel
+.  In such a case, you will indeed have taken out an infinite number of balls, but you will have put an infinite number in.  Consider the Hilbert Hotel in reverse.  You can remove an infinite number of guests from the hotel, and still have an infinite number left.
+Whether this is physically realizable is another question entirely.
+As such, I would consider it not necessarily ill formed, but rather put in the wrong book.  This sort of counting question belongs in a set theory course, not a probability course.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Nov 24, 2017 at 23:21
+Cort Ammon
+627
+3
+3 silver badges
+5
+5 bronze badges
+$\endgroup$
+2
+2
+$\begingroup$
+The argument given to support an answer of 0 is more sophisticated than just "infinity minus infinity is zero" so I don't think this answer really addresses it. You can also remove an infinite number of guests from the hotel and have zero left, and in some sense the challenge here is to work out which one you've done. It's by no means obvious that set theory has the answer to that question and probability theory doesn't.
+$\endgroup$
+Ben Millwood
+–
+Ben Millwood
+2017-11-25 05:31:21 +00:00
+Commented
+Nov 25, 2017 at 5:31
+3
+$\begingroup$
+@BenMillwood Which would be why I argue that this puzzle belongs in a set theory book, rather than a probability book.
+$\endgroup$
+Cort Ammon
+–
+Cort Ammon
+2017-11-25 05:35:52 +00:00
+Commented
+Nov 25, 2017 at 5:35
+Add a comment
+|
+14
+$\begingroup$
+I think it helps to remove the superfluous temporal component of the problem.
+The more basic variant of this paradox is to always remove the lowest numbered ball. For ease of drawing, I will also only add two balls at each step.
+The procedure describes how to fill out an infinite two-dimensional grid:
+.*........
+..**......
+...***....  ....
+....****..
+.....*****
+:  :  :
+:  :  :
+where each row is formed from the previous by adding two asterisks on the right then removing the leftmost.
+The questions one then asks are:
+How many columns end with repeated asterisks rather than repeated dots?
+In my opinion, the idea to mistakenly equate this result with "the limit of the number of asterisks in each row" is much less compelling.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 25, 2017 at 16:53
+answered
+Nov 25, 2017 at 3:57
+user41979
+$\endgroup$
+18
+2
+$\begingroup$
+@LucaCiti: Which balls are in the urn? The ones corresponding to the columns that end with repeated astrisks. How many columns end in repeated astrisks? None.
+$\endgroup$
+user41979
+–
+user41979
+2017-11-25 14:54:19 +00:00
+Commented
+Nov 25, 2017 at 14:54
+3
+$\begingroup$
+Asking which balls is not the same as asking how many.
+$\endgroup$
+Sentinel
+–
+Sentinel
+2017-11-25 15:46:26 +00:00
+Commented
+Nov 25, 2017 at 15:46
+3
+$\begingroup$
+@LucaCiti: How many columns end in asterisks? None. That is the
+specific
+question that Ross means to ask of this diagram. (in fact, part of the whole point of phrasing the problem this way is to make it clear what
+specific
+question is being asked)
+$\endgroup$
+user41979
+–
+user41979
+2017-11-25 16:35:08 +00:00
+Commented
+Nov 25, 2017 at 16:35
+5
+$\begingroup$
+@Hurkyl The question that has practical applications and is IMHO more meaningful is how many balls not which ones. Consider a room with an open window. At all times molecules of oxygen enter and leave the room. The probability that a molecule that entered at finite time $t $ is still in the room at time $T $ goes to zero as $T\to\infty $. This doesn't mean that the room will be depleted of oxygen as $T\to\infty $.
+$\endgroup$
+Luca Citi
+–
+Luca Citi
+2017-11-25 16:43:10 +00:00
+Commented
+Nov 25, 2017 at 16:43
+4
+$\begingroup$
+@LucaCiti: I suppose it wasn't clear, but the grid extends infinitely downwards and to the right. There is no "last". Yes, that is what the text in the yellow box says -- the formalization I give in my post is what was meant by that text. This is a standard problem, and Ross's actual analysis agrees with my formalization. You can ask a
+different
+question, but that will be a
+different
+problem.
+$\endgroup$
+user41979
+–
+user41979
+2017-11-25 16:55:47 +00:00
+Commented
+Nov 25, 2017 at 16:55
+|
+Show
+13
+more comments
+14
+$\begingroup$
+Several posters have been concerned the computations in Ross may not be rigorous. This answer addresses that by proving the existence of a probability space where all sets of outcomes considered by Ross are indeed measurable, and then repeats the vital parts of Ross's computations.
+Finding a suitable probability space
+To make Ross's conclusion that there are no balls in the urn at 12 P.M., almost surely, rigorous, we need the existence of a probability space $(\Omega, \mathcal F, P)$ where the event "no balls in the urn at 12 P.M." can be constructed formally and shown to be measurable. To that end, we shall use Theorem 33 [Ionescu - Tulcea] in
+these lecture notes
+, slightly reworded, and a construction suggested by @NateEldredge in a comment to the question.
+Theorem.
+(Ionescu - Tulcea Extension Theorem)
+Consider a sequence
+of measurable spaces $(\Xi_n, \mathcal X_n), n = 1, 2, \dots$. Suppose that for each $n$, there exists a probability kernel $\kappa_n$ from $(\Xi_1, \mathcal X_1) \times \dots \times(\Xi_{n-1}, \mathcal X_{n-1})$ to $(\Xi_n, \mathcal X_n)$ (taking $\kappa_1$ to be a kernel insensitive to its first argument, i.e., a probability measure). Then there exists a sequence of random variables $X_n, n = 1, 2, \dots$ taking values in the corresponding $\Xi_n$, such that, for every $n$, the joint distribution of $(X_1, \dots, X_n)$ is that implied by the kernels $\kappa_1, \dots, \kappa_n$.
+We let $X_n$ denote the label of the ball removed at the $n$th withdrawal. It's clear that the (infinite) process $X = (X_1, X_2, \dots)$, if it exists, tells us everything we need to know to mimic Ross's arguments. For example, knowing $X_1, \dots, X_m$ for some integer $m \geq 0$ is the same as knowing the number of balls in the urn after withdrawal $m$: they are precisely the added balls with labels $\{1, 2, \dots, 10m\}$, minus the removed balls $\{X_1, \dots, X_m\}$. More generally, events describing which, and how many, balls are in the urn after any given withdrawal can be stated in terms of the process $X$.
+To conform with Ross's experiment we need that, for every $n\geq 2$, the distribution of  $X_n \mid X_{n-1}, \dots, X_{1}$ is uniform on $\{1, 2, \dots, 10n\} \setminus {X_1, \dots, X_{n-1}}$. We also need the distribution of $X_1$ to be uniform on $\{1,\dots, 10\}$. To prove that an infinite process $X = (X_1, X_2, \dots)$ with these finite-dimensional distributions indeed exists, we check the conditions of the Ionescu-Tulcea Extension Theorem. For any integer $n$, let $\mathcal I_n = \{1, 2, \dots, n\}$ and define the measurable spaces $(\Xi_n, \mathcal X_n) = (\mathcal I_{10n}, 2^{\mathcal I_{10n}})$, where $2^B$ denotes the power set of the set $B$. Define the measure $\kappa_1$ on $(\Xi_1, \mathcal X_1)$ to be the one that puts mass $1/10$ on all elements of $\Xi_1$. For any $n  \geq 2$, and $(x_1, \dots, x_{n-1}) \in \Xi_1 \times \dots \times \Xi_{n-1}$ define $\kappa_n(x_1, \dots, x_{n-1}, \cdot)$ to be the probability kernel that puts equal mass on all points in $\Xi_n \setminus \{x_1, \dots, x_{n-1}\}$, and mass zero on all other points, i.e. on the integers $x_i \in \Xi_n, i = 1, \dots, n - 1$. By construction, the probability kernels agree with the uniform removal probability specified by Ross. Thus, the infinite process $X$ and the probability space $(\Omega, \mathcal F, P)$, the existence of which are given by the theorem, give us a way to formally carry out Ross's argument.
+Let $E_{in}$ denote the set of outcomes such that ball $i$ is in the urn after withdrawal $n$. In terms of our stochastic process $X$ this means that, for all $i$ and $n$ such that $i \leq 10n$ we define $E_{in} = \cap_{j = 1}^n\{\omega: X_j(\omega) \neq i\}$, i.e. ball $i$ was not removed in any of the draws up to and including the $n$th. For $i > 10n$ we can clearly define $E_{in} = \emptyset$ since ball $i$ has not yet been added to the turn. For every $j$ and $i$, the set $\{\omega: X_j(\omega) \neq i\}$ is measurable since $X_j$ is a random variable (measurable). Thus, $E_{in}$ is measurable as the finite interesection of measurable sets.
+We are interested in the set of outcomes such that there are
+no
+balls in the urn at 12 P.M. That is, the set of outcomes such that for
+every
+integer $i = 1, 2\dots$, ball $i$ is not in the urn at 12 P.M. For every $i$, let $E_i$ be the set of outcomes ($\omega \in \Omega$) such that ball $i$ is in the urn at 12 P.M. We can construct $E_i$ formally using our $E_{in}$ as follows. That $i$ is in the urn at 12 P.M. is equivalent to it being in the urn after every withdrawal made after it was added to the urn, so $E_i = \cap_{n:i\leq 10n}E_{in}$. The set of outcomes $E_i$ is now measurable as the countable intersection of measurable sets, for every $i$.
+The outcomes for which there is
+at least one
+ball in the urn at 12 P.M. are those for which at least one of the $E_i$ happen, i.e. $E = \cup_{i = 1}^\infty E_i$. The set of outcomes $E$ is measurable as the countable union of measurable sets. Now, $\Omega \setminus E$ is the event that there are no balls in the urn at 12 P.M., which is indeed measurable as the complement of a measurable set. We conclude that all desired sets of outcomes are measurable and we can move on to computing their probabilities, as Ross does.
+Computing the probability $P(\Omega \setminus E)$
+We first note since the family of events $E_i, i = 1, 2, \dots$ is countable, we have by countable sub-additivity of measures that
+$$
+P(E) \leq \sum_{i = 1}^\infty P(E_i) = \lim_{N\to \infty}\sum_{i = 1}^N P(E_i).
+$$
+For ease of notation, let's denote the real number $P(E_i) = a_i$ for all $i$. Clearly, to show that $P(E) = 0$ it suffices to show that $\sum_{i = 1}^N a_i = 0$ for all $N$. This is equivalent to showing that $a_i = 0$ for every $i$, which we shall do now.
+To that end, note that for all $n$ such that ball $i$ has been added to the urn, i.e. $10n \geq i$,  $E_{in} \supseteq E_{i(n + 1)}$. This is so because if ball $i$ is in the urn at step $n + 1$, it is also in the urn at step $n$. In other words, the sets $E_{in}$, form a decreasing sequence for all $n$ such that $10n \geq i$. For ease of notation, let $a_{in} = P(E_{in})$. Ross proves that $a_{1n} \to 0$ as $n \to \infty$ and states that this can also be shown for all other $i$, which I will take as true. The proof consists of showing that $a_{in} = \prod_{k = i}^n[9k / (9k + 1)]$ and $\lim_{n \to \infty}a_{in} = 0$ for all $i$, an elementary but lenghty calculation I will not repeat here. Armed with this result, and the fact that the family of events $E_{in}$, $10n > i$ is countable for every
+i
+, continuity of measures gives
+$$a_i = P(\cap_{n: 10n > i}E_{in}) = \lim_{n \to \infty} P(E_{in}) = \lim_{n \to \infty}a_{in} = 0.$$
+We conclude that $P(E) = 0$, and thus $P(\Omega\setminus E) = 1$ as claimed. QED.
+Some common misunderstandings:
+One answer is concerned with the fact that (in my notation) $\lim_{N \to \infty}\sum_{i = 1}^N \lim_{n \to \infty }a_{in} \neq \lim_{N \to \infty}\sum_{i = 1}^N a_{iN}$. This, however, has no bearing on the validity of the solution bevause the quantity on the right hand side is not the one of interest per the provided argument.
+There has been some concern that the limit cannot be moved inside the sum, or in other words cannot be interchanged with the sum in the sense that it may be the case that $\sum_{i = 1}^\infty \lim_{n \to \infty}a_{in} \neq \lim_{n \to \infty}\sum_{i = 1}^\infty a_{in}$. Like the previous remark, this is irrelevant to the solution because the quantity on the right hand side is not the one of interest.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 30, 2017 at 22:13
+answered
+Nov 28, 2017 at 21:09
+KOE
+4,671
+1
+1 gold badge
+21
+21 silver badges
+41
+41 bronze badges
+$\endgroup$
+2
+4
+$\begingroup$
+@ekvall Kudos for putting in this thankless work. What people should generally understand is that, if you define some events and do countable set operations on those events, the resulting sets are measurable in the sigma algebra generated by those events. That's precisely what sigma algebras are designed to do: give us a universe where we can do countable set operations without any concern about measurability.
+$\endgroup$
+Paul
+–
+Paul
+2017-11-30 21:46:14 +00:00
+Commented
+Nov 30, 2017 at 21:46
+$\begingroup$
+Comments are not for extended discussion; this conversation has been
+moved to chat
+.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2018-04-29 21:46:25 +00:00
+Commented
+Apr 29, 2018 at 21:46
+Add a comment
+|
+14
++50
+$\begingroup$
+This answer aims to do four things:
+Review Ross's mathematical formulation of the problem, showing how it follows directly and unambiguously from the problem description.
+Defend the position that Ross's paradoxical solution is both mathematically sound and relevant to our understanding of the physical world, whether or not it is 100% physically realizable.
+Discuss certain fallacious arguments rooted in physical intuition, and show that the oft-stated "physical" solution of infinite balls at noon is not only in contradiction to mathematics, but to physics as well.
+Describe a physical implementation of the problem which may make Ross's solution more intuitive.
+Start here for the answer to Carlos's original question.
+1. How to Describe the Problem Mathematically
+We will unpack the initial "infinite process modeling" step of
+Ross's argument (p. 46)
+. Here is the statement we will focus on justifying:
+Define $E_n$ to be the event that ball number 1 is still in
+the urn after the first n withdrawals have been made... The event that ball number 1 is in the urn at 12 P.M. is just the event $\bigcap_{n=1}^\infty E_n$.
+Before we unpack Ross's statement, let's consider how it is even possible to understand the urn's contents at noon, after an infinite sequence of operations. How could we possibly know what is in the urn? Well, let's think about a specific ball $b$; you can imagine $b=1$ or $1000$ or whatever you want. If ball $b$ was taken out at some stage of the process before noon, certainly it won't be in the urn at noon. And conversely, if a given ball
+was
+in the urn at every single stage of the process up until noon (after it was added), then it was in the urn at noon. Let's write these statements out formally:
+A ball $b$ is in the urn at noon if and only if it was in the urn at every stage $n \in \{n_b, n_b + 1, n_b + 2, ...\}$ before noon, where $n_b$ is the stage the ball was added to the urn.
+Now let's unpack Ross's statement - what does $\bigcap_{n=1}^\infty E_n$ mean in plain English? Let's take a single
+realization
+$x$ of the urn process and talk it out:
+$x \in E_1$ means that ball 1 is in the urn after stage 1 of the process.
+$x \in E_1 \bigcap E_2$ means that ball 1 is in the urn after stages 1 and 2 of the process.
+$x \in E_1 \bigcap E_2 \bigcap E_3$ means that ball 1 is in the urn after stages 1, 2, and 3 of the process.
+For any $k \in \{1, 2, 3, ...\}$, $x \in \bigcap_{k=1}^n E_k$ means that the ball is in the urn after stages $1$ thru $n$.
+Clearly, then, $x \in \bigcap_{k \in \{1, 2, 3...\}} E_k$ means that, in realization $x$ of this urn process, ball 1 is in the urn after stages 1, 2, 3,
+et cetera
+: all finite stages $k$ before noon. The infinite intersection $\bigcap_{n = 1}^\infty E_n$ is just another way of writing that, so $\bigcap_{n = 1}^\infty E_n$ contains precisely the realizations of the process where ball 1 was in the urn at all stages before noon. An event is just a defined set of realizations of a process, so the last sentence is precisely equivalent to saying that $\bigcap_{n = 1}^\infty E_n$ is the event that ball 1 was in the urn at all stages before noon, for this random process.
+Now, the punchline:
+by our "if and only if" statement above, this is exactly the same as saying that ball 1 was in the urn at noon!
+So $\bigcap_{n = 1}^\infty E_n$ is the event that ball 1 is in the urn at noon, just as Ross originally stated. QED
+In the derivation above,
+everything we said is equally valid for both the deterministic and probabilistic versions,
+because deterministic modeling is a special case of probabilistic modeling in which the sample space has one element. No measure theoretic or probability concepts were even used, beyond the words "event" and "realization" (which are just jargon for "set" and "element").
+2. The Paradoxical Solution is Mathematically Sound and Relevant to Physics
+After this setup point, the deterministic and probabilistic variants diverge. In the deterministic variant (version 2 from amoeba's post), we know ball 1 is taken out on the first step, so $E_1 = \emptyset$ and the infinite intersection, of course, is also empty. Similarly, any other ball $b$ is taken out at stage $b$ and is not present at noon. Thus the urn cannot contain any numbered ball $b$ at noon and must therefore be empty.
+In the probabilistic variant, the same phenomenon happens, just in a softer "in-expectation" sense. The probability of any given ball's being present dwindles to zero as we approach noon, and at the limiting time of noon, the ball is almost surely not present. Since each ball is present with probability zero, and the sum of infinitely many zeros is still zero, there are almost surely no balls in the urn at noon.
+All of this is shown completely rigorously by Ross;
+details can be filled in with a knowledge of graduate-level measure theory, as @ekvall's answer shows.
+If you accept the standard arguments about mathematical objects expressed as infinite sequences, for example $0.999... = 1$, the argument here should be just as acceptable, as it relies on the exact same principles. The only question remaining is whether the mathematical solution applies to the real world, or just the platonic world of mathematics. This question is complex and is discussed further in section 4.
+That said,
+there is no reason to presuppose that the infinite urn problem is unphysical, or to reject it as irrelevant even if it is unphysical.
+Many physical insights have been gained from studying infinite structures and processes, for example,
+infinite wires
+and
+percolation lattices
+. Not all of these systems are necessarily physically realizable, but their theory shapes the rest of physics. Calculus itself is "unphysical" in some ways, because we don't know if it is possible to physically realize the arbitrarily small distances and times that are often its subject of study. That doesn't stop us from putting calculus to incredibly good use in the theoretical and applied sciences.
+3. The Unphysicality of Solutions Based on "Physical Intuition"
+For those who still believe that Ross's math is wrong or physically inaccurate in the deterministic variant, and the true physical solution is infinitely many balls: regardless of what you think happens at noon, it is impossible to deny the situation before noon: every numbered ball added to the urn eventually gets removed. So if you think there are somehow still infinitely many balls in the urn at noon, you must admit that not one of those balls can be a ball added before noon. So those balls must have come from somewhere else:
+you are asserting that infinitely many balls, unrelated to the original problem process, suddenly pop into existence at precisely noon to rescue the continuity of cardinality from being violated.
+As unphysical as the "empty set" solution might seem intuitively, this alternative is objectively and demonstrably unphysical.
+Infinite collections of objects do not pop into being in an instant just to satisfy poor human intuitions about infinity.
+The common fallacy here seems to be that we can just look at the number of balls as time approaches noon, and assume that the divergent trend yields infinitely many balls at noon, without regard to exactly which balls are being taken in and out. There has even been an attempt to justify this with the "principle of indifference", which states that the answer shouldn't depend on whether the balls are labeled or not.
+Indeed, the answer does not depend on whether the balls are labeled or not, but that is an argument for Ross's solution, not against it.
+From the perspective of classical physics, the balls are effectively labeled whether you think of them as labeled or not. They have distinct, permanent identities which are equivalent to labels, and a truly physical analysis must account for this, whether or not numbers are literally written on the balls. The labels themselves do not directly affect how the solution comes out, but they are needed to describe exactly how the balls are moved around. Some procedures leave balls in the urn forever, others provably remove every ball that is added, and
+labels are needed to even describe the difference between these procedures.
+Attempting to ignore the labels is not "physical", it's just neglecting to understand the physical problem precisely enough to solve it. (The same goes for complicated variants that reshuffle the labels at each stage. What matters is which balls are in the urn, not the labels someone has placed or replaced on them. This can be determined by ignoring the complicated relabeling scheme entirely and simply using a single unchanging labeling scheme, the one of Ross's original problem.)
+The only way distinguishability would fail to be true is if the "balls" were quantum mechanical particles. In this case,
+the indifference principle fails spectacularly.
+Quantum physics tells us that
+indistinguishable particles
+behave completely differently than distinguishable ones. This has incredibly fundamental consequences for the structure of our universe, such as the Pauli exclusion principle, which is perhaps the single most important principle of chemistry. No one has attempted to analyze a quantum version of this paradox yet.
+4. Describing the Solution Physically
+We have seen how vague "physical" intuitions can lead us astray on this problem. Conversely, it turns out that a more
+physically precise
+description of the problem helps us understand why
+the mathematical solution is actually the one that makes the most physical sense.
+Consider an infinite Newtonian Universe governed by the laws of classical mechanics. This Universe contains two objects: an infinite Shelf and an infinite Urn, which start at the Origin of the Universe and run alongside one another, one feet apart, forever and ever. The Shelf lies on the line $y = 0$ feet, while the Urn lies on the line $y = 1$ feet. Along the Shelf are laid infinitely many identical balls, evenly spaced one foot apart, the first being one foot from the Origin (so ball $n$ is on the line $x = n$ feet). The Urn - which is really just like the Shelf, but a bit more ornate, closed over, and generally Urnish - is empty.
+An Aisle connects the Shelf and Urn at the bottom, and on top of the Aisle, at the Origin, sits an Endeavor robot with an infinite power supply. Beginning at 11 AM, Endeavor activates and begins zooming back and forth in the Aisle, transferring balls between Urn and Shelf according to Ross-Littlewood's programmed instructions:
+When the program commands ball $n$ to be inserted into the Urn, the ball $n$ feet from the Origin is transferred from the Shelf to the Urn.
+When the program commands ball $n$ to be removed from the Urn, the ball $n$ feet from the Origin is transferred from the Urn to the Shelf.
+In either case, the transfer is made straight across, so the ball remains $n$ feet from the Origin. The process unfolds as specified in the Ross-Littlewood problem:
+At 11:00 AM, Endeavor transfers balls 1-10 from Shelf to Urn, then moves one of the Urn balls back to Shelf.
+At 11:30 AM, Endeavor transfers balls 11-20 from Shelf to Urn, then moves one of the Urn balls back to Shelf.
+At 11:45 AM, Endeavor transfers balls 21-30 from Shelf to Urn, then moves one of the Urn balls back to Shelf.
+et cetera...
+As the process continues, each new step requires longer trips up and down the Aisle, and only half the time to make the trips. Thus, Endeavor must move up and down the Aisle exponentially faster as noon closes in. But it always keeps up with the program, because it has an infinite power supply and can move as fast as needed. Eventually, noon arrives.
+What happens in this more vividly imagined version of the paradox? Watched from above, the approach towards noon is truly spectacular. Within the Urn, a Wave of balls appears to propagate outward from the Origin. The Wave's size and speed grow without bound as noon approaches. If we were to take pictures immediately after each step what would the layout of balls would look like?
+In the deterministic case, they would look exactly like the step functions in amoeba's answer. The ball positions $(x, y)$ would follow precisely the curves he has plotted.
+In the probabilistic case, it would look roughly similar, but with more straggling near the Origin.
+When noon arrives, we take stock of what has happened. In the deterministic version, each ball was transferred from the Shelf to the Urn exactly once, then moved back at a later step, with both transfers happening before noon. At noon, the Universe must be back to its original 11 AM state. The Wave is no more.
+Each ball is back exactly where it started. Nothing has changed. The Urn is empty.
+In the probabilistic version the same thing happens, except now the result is only almost sure rather than sure.
+In either case, "physical objections" and complaints about infinity seem to vanish into thin air.
+Of course the Urn is empty at noon. How could we have imagined otherwise?
+The only remaining mystery is the fate of Endeavor. Its displacement from the Origin and its velocity became arbitrarily large as noon approached, so at noon, Endeavor is nowhere to be found in our infinite Newtonian Universe. The loss of Endeavor is the only violation of physics which has occurred during the process.
+At this point, one could object that Endeavor is not physically possible, since its speed grows without bound and would eventually violate the relativistic limit, the speed of light. However, we can change the scenario slightly to resolve this issue. Instead of a single robot, we could have infinitely many robots, each responsible for a single ball. We could program them beforehand to ensure perfect coordination and timing according to Ross's instructions.
+Is this variation 100% physical? Probably not, because the robots would have to operate with arbitrarily precise timing. As we approach noon, the precision demanded would eventually fall below the Planck time and create quantum mechanical issues. But ultimately, an infinite wire and an infinite percolation lattice might not be all that physical either.
+That doesn't stop us from studying infinite systems and processes and determining what would happen if the obstructing physical constraints were suspended.
+4a. Why Count Monotonicity is Violated
+A number of Ross skeptics have questioned how it is possible that the number of balls in the urn increases without bound as we approach noon, then is zero at noon. Ultimately we must believe in rigorous analysis over our own intuition, which is often wrong, but there is a variation of the paradox that helps illuminate this mystery.
+Suppose that instead of infinitely many balls, we have $10N$ balls labeled 1, 2, 3, up to $10N$, and we issue the following addition to the rules for the ball mover:
+If the instructions ask you to move a ball that does not exist, ignore that instruction.
+Note that the original problem is unchanged if we add to it this instruction, since the instruction will never be activated with infinitely many balls. Thus, we can think of the original problem and this new family of problems to be part of the same family, with the same rules. Examining the finite $N$ family, especially for very large $N$, can help us to understand the "N = $\infty$" case.
+In this variation, the balls accumulate 9 per step as before, but only up to step $N$ of the process. Then the numbers for balls to be added no longer correspond to actual balls, and we can only comply with the instruction to remove balls, and the process stops after $9N$ additional steps, for a total of $10N$ steps. If $N$ is very large, the removal-only phase occurs very close to noon, when the tasks are being done very rapidly, and the urn is emptied out very quickly.
+Now suppose we do this variation of the experiment for each value of $N$ and graph the ball count over time, $f_N(t)$, where $t$ ranges from 0 to 1 hour after 11AM (i.e. 11AM to noon). Typically $f_N(t)$ rises for a while, then falls back to zero at or before $t=1$. In the limit as $N$ approaches infinity, the graph rises ever higher and the fall is ever more rapid. By noon the urn is always empty: $f_N(1) = 0$. In the limiting graph, $f(t) = \lim_{N \rightarrow \infty} f_N(t)$, the curve approaches infinity for $t < 1$ but $f(1) = 0$. This is precisely the result derived in Ross's proof: the ball count diverges to infinity before noon, but is zero at noon. In other words,
+Ross's solution preserves continuity with respect to N:
+the pointwise limit of the ball count as $N \rightarrow \infty$ matches the ball count in the infinite ball case.
+I do not consider this a primary argument for Ross's solution, but it may be helpful for those who are puzzled about why the ball count goes up forever, than crashes to zero at noon. While strange, it is the limiting behavior of the finite version of the problem as $N \rightarrow \infty$, and thus does not come as a "sudden shock" in the infinite case.
+A Final Reflection
+Why has this problem proven to be such a tar-pit for so many? My speculation is that our physical intuition is much vaguer than we think it is, and we often draw conclusions based on imprecise and incomplete mental conceptions. For example, if I ask you to think of a square that is also a circle, you may imagine something squarish and circlish, but it won't be precisely both of those things - that would be impossible. The human mind can easily mash together vague, contradictory concepts into a single mental picture. If the concepts are less familiar, like the Infinite, we can convince ourselves that these vague mental mashups are actually conceptions of the Real Thing.
+This is precisely what happens in the urn problem. We do not really conceive of the whole thing at once; we think about bits and pieces of it, like how many balls there are over time. We wave away supposedly irrelevant technicalities, like what happens to each humble little ball over time, or how exactly an "urn" can hold infinitely many balls. We neglect to set out all the details precisely, not realizing that the result is a mashup of inconsistent, incompatible mental models.
+Mathematics is designed to rescue us from this condition. It disciplines and steels us in the face of the unfamiliar and the exotic. It demands that we think twice about the things that
+"must" be true... right?
+It reminds us that no matter how strange things get, one and one is still two, a ball is either in an urn or it is not, and a statement is either true or false. If we persevere, these principles eventually bring clarity to most of our problems.
+Those who subordinate mathematical analysis to "physical" or "common-sense" intuitions do so at their peril. Hand-waving about intuitions is only the start of physics. Historically, all successful branches of physics have eventually founded themselves on rigorous mathematics, which culls away incorrect physical intuitions, strengthens correct ones, and enables the rigorous study of ideal systems, such as the infinite current-carrying wire, which illuminate the behavior of the more complicated, messy real world.
+Ross-Littlewood is a physical problem,
+typically interpreted as one of classical mechanics, and classical mechanics has a completely mature and rigorous mathematical foundation. We should rely upon mathematical modeling and analysis for our intuitions about the world of classical physics, not the other way around.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 17, 2017 at 22:12
+answered
+Nov 28, 2017 at 17:59
+Paul
+11.2k
+3
+3 gold badges
+33
+33 silver badges
+58
+58 bronze badges
+$\endgroup$
+2
+3
+$\begingroup$
+This is the way to go.  However, the full meaning of "this has nothing to do with probability" isn't completely clear, because there are necessary assumptions on the probability: without them, the conclusions change.  For instance, if you assign zero probability at each stage to the chance of withdrawing ball $1$, then ball $1$ will remain after midnight.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-28 21:22:06 +00:00
+Commented
+Nov 28, 2017 at 21:22
+$\begingroup$
+Comments are not for extended discussion; this conversation has been
+moved to chat
+.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2018-04-29 21:45:16 +00:00
+Commented
+Apr 29, 2018 at 21:45
+Add a comment
+|
+10
+$\begingroup$
+On the one hand, you could try to explain it like this: "think of the
+probability of any ball i being on the urn at 12 P.M. During the
+infinite random draws, it will eventually be removed. Since this holds
+for all balls, none of them can be there at the end".
+I don't find this argument convincing.  If this argument works, then the following argument works:  Every year, some people are born (say a constant fraction of the total population), and some people die (suppose a constant fraction).  Then, since in the limit any particular person is almost surely dead, then the human race must go extinct!  Now, the human race may go extinct for other reasons, but this argument is garbage.
+It doesn't make any sense for this problem to have one solution when the balls are numbered and for it to have a totally different answer when the balls are anonymous.  By symmetry, arbitrary labels should not affect the solution.  Jaynes called this argument the
+principle of indifference
+, which I accept.
+In other words, if someone told you that they put ten balls into an urn and remove one repeatedly, and how full is the urn in the limit, would your answer be "It depends on whether the balls are numbered"?  Of course not.  That urn's contents diverge just like the urn in this problem.
+Therefore, I think the solution lies in how we formalize the problem.  From the usual definition of
+set-theoretic limit
+, we have
+$$\liminf_{n \to \infty} S_n = \bigcup_{n \ge 1} \bigcap_{j \geq n} S_j.$$
+$$\limsup_{n \to \infty} S_n = \bigcap_{n \ge 1} \bigcup_{j \geq n} S_j$$
+Let the limit of the cardinality of the set be
+$$k\triangleq \lim_{n\to\infty}|S_n|$$
+and the cardinality of the $\liminf$-limit of the set be
+$$l \triangleq \left|\liminf_{n\to\infty} (S_n)\right|.$$
+I propose that set-theoretic limit be redefined so that:
+\begin{align}
+\lim_{n\to\infty} S_n &\triangleq
+\begin{cases}
+\liminf_{n\to\infty} (S_n) &\text{if } \liminf_{n\to\infty} (S_n) = \limsup_{n\to\infty} (S_n), k \text{ exists, and }k=l \\
+\alpha_k &\text{if }\liminf_{n\to\infty} (S_n) = \limsup_{n\to\infty} (S_n), k\text{ exists, and }k \ne l \\
+\text{undefined} &\text{otherwise.}
+\end{cases}
+\end{align}
+This special “anonymous set” $\alpha_k$ describes what happens at infinity.  Just as $\infty$ stands in for the limiting behavior of numbers, $\alpha$ stands in for the limiting behavior of sets.  Namely, we have $i \notin \alpha_k \forall i$, and $|\alpha_k| = k$.  The benefit of this formalism is that it gives us
+continuity of cardinality
+and consistency with the
+principle of indifference
+.
+For the urn problem, we have $S_n = \{n+1, \dotsc, 10n\}$ is the set of balls in the urn.  And $$\lim_{n\to\infty} S_n = \alpha_{\infty}.$$
+Thus, the elements don't "fall off a cliff" at infinity, which doesn't make sense any more than it makes sense for humanity to go extinct merely because no man is immortal.
+Similarly, suppose we modify the problem so that at each step one ball is added and the lowest-numbered ball is removed.  Then, how many balls are in the urn in the limit?  Anonymous sets give the intuitive answer:
+$$\lim_{n\to\infty}\{n\} = \alpha_1.$$
+I recognize that mathematicians can disagree about resolutions to this paradox, but to me, this is the most intuitive resolution.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 1, 2017 at 3:09
+answered
+Nov 24, 2017 at 20:41
+Neil G
+15.8k
+3
+3 gold badges
+50
+50 silver badges
+91
+91 bronze badges
+$\endgroup$
+7
+8
+$\begingroup$
+Anyone arguing that the math needs to be fixed
+must
+deliver a very convincing demonstration of why.  Otherwise, the default position has to be that one's intuition deserves correction.  If not, then we can scarcely claim to have advanced at all beyond Zeno during the last 2500 years.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 20:47:30 +00:00
+Commented
+Nov 24, 2017 at 20:47
+5
+$\begingroup$
+If  you accept the regular probability axioms and if you further accept that the probability of any particular ball being in the urn is zero, then by Boole's inequality you are bound to accept that the probability that none of the balls are in the urn is one.
+$\endgroup$
+Carlos Cinelli
+–
+Carlos Cinelli
+2017-11-24 20:51:32 +00:00
+Commented
+Nov 24, 2017 at 20:51
+5
+$\begingroup$
+The human race isn't doomed to extinction by your argument because we will never reach a point at which infinitely many births / deaths have occurred -- there's never a need to take the limit. The fact that at 12pm, infinitely many things have happened, is pretty much the key source of the problem.
+$\endgroup$
+Ben Millwood
+–
+Ben Millwood
+2017-11-25 05:28:45 +00:00
+Commented
+Nov 25, 2017 at 5:28
+6
+$\begingroup$
+-1. Consider the modification of this paradox when ball #n is removed at the n-th step (instead of a random ball). It's clear that zero balls will be left at midnight (because every ball will be removed at the corresponding step) but we are still adding 10 balls and removing only 1 ball at each step, so I'd say it is as un-intuitive. However, this modification has
+nothing
+to do with probability or statistics. So there cannot be any "failure of modern statistics" here.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-25 21:16:18 +00:00
+Commented
+Nov 25, 2017 at 21:16
+6
+$\begingroup$
+@NeilG This point was made explicitly on the MathOverflow post, and on ameoba's answer. Cardinality is not a continuous operation, so just because $S_i\to\emptyset$ doesn't mean $|S_i|\to 0$. Calculus is not broken, but rather you have invented a limit rule that doesn't exist.
+$\endgroup$
+Mario Carneiro
+–
+Mario Carneiro
+2017-11-26 08:48:44 +00:00
+Commented
+Nov 26, 2017 at 8:48
+|
+Show
+2
+more comments
+6
+$\begingroup$
+The problem is either ill-formed or not in first-order logic.
+Root cause: execution of the "last" step will write an infinite number of digits on a ball, causing that step to take itself an infinite time to execute.
+The ability to execute an infinite process with an infinite step implies the ability to solve
+all
+first-order logic problems (
+Gödel
+is therefore false) by execution of the following sequence H (for theorem X):
+Z = asymptotic_coroutine(
+FOR N = 1...∞
+FOR P = 1...N
+Convert number P to string S by characters.
+IF S is a proof for theorem X
+THEN
+OUTPUT "yes" and HALT
+) + asymptotic_coroutine(
+FOR N = 1...∞
+FOR P = 1...N
+Convert number P to string S by characters.
+IF S is a proof for theorem ¬X
+THEN
+OUTPUT "no" and HALT
+)
+IF Z = ""
+THEN Z = "independent"
+IF Z = "yesno" ∨ Z = "noyes"
+THEN Z = "paradox"
+OUTPUT Z
+where the infinite step is unspooling the output
+The program inside the asymptotic_coroutine is merely an exhaustive search for a theorem that proves (or disproves) X. Converting P to S results in "aa", "ab", "ac", ... "a∨", ... where every symbol that can appear in a theorem is generated. This results in generating all theorems of length log
+characters
+N in turn. Since N grows without limit in the outer loop this will eventually generate all theorems.
+The side that is false will never terminate but we don't have to care about that because we are allowed to execute infinite steps. In fact we depend on being able to do this to detect independence as both sides will never finish. Except for one thing. We allowed an infinite number of steps to execute in a finite time by asymptotic increase of execution speed. This is the surprising part. The asymptotic_coroutine that never finishes and never generates output has "finished"* after the asymptotic time and still has never generated any output.
+*If we placed an OUTPUT after the FOR N = 1...∞ it would not be reached but we are not going to do that.
+The strong form of Gödel's Incompleteness Theorem may be stated "For every first-order logic system F there is a statement G
+F
+that is true in F but cannot be proven to be true in F." But proof method H cannot fail to prove all must-be-true statements in F(H).
+Dilemma: ¬Gödel ∨ ¬(infinite steps are allowed)
+Therefore:
+Dilemma: ¬Gödel ∨ ¬(315502 is well formed in first order logic)
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 30, 2017 at 3:33
+answered
+Nov 29, 2017 at 3:37
+Joshua
+291
+1
+1 gold badge
+2
+2 silver badges
+7
+7 bronze badges
+$\endgroup$
+8
+1
+$\begingroup$
+Good point (+1). Note that there is research on infinite-time Turing machines, see e.g.
+arxiv.org/abs/math/0212047v1
+and
+mathoverflow.net/a/22038
+. It's not first order of course.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-29 08:21:15 +00:00
+Commented
+Nov 29, 2017 at 8:21
+5
+$\begingroup$
+Joshua, your answer assumes knowledge that most people here is not familiar with so they won't be able to judge it. If you could elaborate further that would be great.
+$\endgroup$
+Carlos Cinelli
+–
+Carlos Cinelli
+2017-11-29 19:15:12 +00:00
+Commented
+Nov 29, 2017 at 19:15
+$\begingroup$
+For any finite number, the length is finite. For any infinite (aka transfinite) numbe, itr can be written in Cantor Normal Form, which is finite in length. It could be called "base infinity". So writing digits is not a limitation.
+$\endgroup$
+Craig  Hicks
+–
+Craig  Hicks
+2017-12-20 23:57:11 +00:00
+Commented
+Dec 20, 2017 at 23:57
+$\begingroup$
+@CraigHicks: That doesn't work when you had to write down all the intermediate numbers in between too. Hint: what's the stopping constraint on the loop when it switches from base 10 integer to cantor normal form output.
+$\endgroup$
+Joshua
+–
+Joshua
+2017-12-21 00:02:34 +00:00
+Commented
+Dec 21, 2017 at 0:02
+$\begingroup$
+That's only a constraint on a machine which doesn't have $\infty$ in it's symbol table.  To analyze in finite time the infinite +10 -1 process described by Ross, it is not necessary to simulate the entire process.  A smart program would connect to Mathematica and get it done much faster.
+$\endgroup$
+Craig  Hicks
+–
+Craig  Hicks
+2017-12-21 00:28:29 +00:00
+Commented
+Dec 21, 2017 at 0:28
+|
+Show
+3
+more comments
+4
+$\begingroup$
+What's the best explanation we can give to them to solve these
+conflicting intuitions?
+Here's the best answer, and it has very little to do with probabilities. All balls have numbers, let's call them birth numbers. The birth numbers start from B1, B2, B3... and go to infinity, because we really never stop. We get closer to 12:00AM but keep adding and removing balls, that's why there is not a final number of a ball. This is a very important consideration, btw.
+We put the balls into a box in 10 ball batches, such as batch #7: B71, B72,...,B80. Let's forget about these for a minute, and focus on the balls that are removed from the box. They come at a
+random
+order. I'll explain why randomness is important later, but for now all it means is that any ball with a brith number from B1 to B10k that's still in the box at step K can be drawn out.  We're going to index the balls that we remove by the order in which they were removed, let's call them death numbers: D1, D2, D3 ... DK.
+By 12:00AM we put infinite number of balls into a box, and surely we never ran out of balls to remove from it. Why? Because we first put 10 balls, THEN ONLY remove one. So, there's always a ball to remove. This means that we also removed infinite number of balls by 12:00AM.
+This also means that each removed ball was indexed from 1 to infinity, i.e. we could pair each removed ball to a ball that was put in the box: B1 to D1, B2 to D2, etc. This means that we removed as many balls as we put in, because each birth number was paired with each death number.
+Now that was the solution. Why does it defeat our intuition? It's elementary, Dr Watson. The reason is because we
+surely
+know that for all K this holds:
+$$K<10K$$
+That's why after K steps, we should not be able to remove all ball from the box, because we put 10K balls and removed only K of them. Right?
+There is a little problem. The matter is that when $K=\infty$, this is no longer true:
+$$10\times\infty\nless\infty$$
+That's why the intuition breaks down.
+Now, if the balls were not removed at random. Two thing may happen as in @amoeba's canonical answer. First, let's say we were putting 10 balls then immediately removing the last one. It's as if we were putting only nine balls in. This will match our intuition, and at 12:00AM there will be infinite number of balls. How come? Because we were not removing balls randomly, we were following the algorithm where the birth numbers were paired to death numbers as $B10K=DK$
+at the time of removal
+. So, we paired each removed ball to one of the balls that we put in: $B10\to D1,B20\to D2,B30\to D3,\dots$
+, this means a ton of balls were never ever paired B1,B2,...,B9,B11,... etc.
+The second thing that may happen with non random ball removal is also related to pairing at removal: we correlate BK=DK. We can do this by removing a ball with BK at each step K, which ensures that BK is paired to DK. This way each removed ball is paired with each ball that we put in, i.e. the same end result like in the random draw of removed balls. Obviously, this means that there are no balls left in the box after 12:00AM.
+I just have shown that the problem has very little to do with probabilities per se. It has everything to do with powers of infinite countable (?) sets. The only real problem that I avoided discussing is whether the sets are truly countable. You see when you get closer to 12:00AM your rate of ball inserts is increasing rather quickly, to put it mildly. So, it's not so trivial to devise whether the number of balls that we put into the box is actually countable.
+Unraveling
+Now, I'm going to unravel this canonical solution of the paradox, and get back to our intuition.
+How is is possible that we put 10 balls in, remove one and still run out of all the balls at 12 hour? Here's what really is happening. 12 hour is
+unreachable
+.
+Let as reformulate the problem. We don't halve time intervals anymore. We put and remove balls every minute. Isn't this exactly the same as in the original problem? Yes and no.
+Yes, because nowhere in my exposition above I referred explicitly to time but at the very end. I was counting the steps k. So, we can keep counting the steps and dead balls by k.
+No, because now we're
+never going to stop
+. We'll keep adding and removing balls till the end of time, which never arrives. While in the original problem the end is at 12 hour.
+This explains how our intuition fails. Although we put balls at 9x rate of removal,
+because
+time never ends, every ball that we put in will be removed eventually! It may take infinite number of minutes, but it's Ok, because we have infinite number of minutes remaining. That's the true solution of the problem.
+In this formulation would you ask "how many balls are in the box after infinity is over?" No! Because it's a nonsensical question. That's why the original question is nonsensical too. Or you could call it ill-posed.
+Now, if you go back to the original problem, then the end of time apparently happens. It's at 12. The fact that we stopped putting balls in means that time just ended, and we reached beyond the end of it. So, the true answer to the question is that 12 o'clock should never occur. It's unreachable.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 2, 2017 at 21:13
+answered
+Dec 1, 2017 at 17:39
+Aksakal
+63.4k
+6
+6 gold badges
+109
+109 silver badges
+212
+212 bronze badges
+$\endgroup$
+16
+2
+$\begingroup$
+@MartijnWeterings, I didn't do the probabilities because the paradox was constructed specifically to exploit measure theoretic foundations of probabilities. Whoever made the paradox must have first realized that it's about power of infinite countable sets. That's why it's prersented in three versions in the book as in amoeba's answer. The first version shows how a set of every tenths natural number has the same power as the set of all natural numbers, for example. The second and third versions are essentially the same. Probability here is just the landscape, all the action is in sets.
+$\endgroup$
+Aksakal
+–
+Aksakal
+2017-12-01 22:07:20 +00:00
+Commented
+Dec 1, 2017 at 22:07
+1
+$\begingroup$
+This reasoning does not seem to be able to distinguish between versions #1 and #2 from Ross book (see my answer), even though these versions lead to opposite results: in one case the urn gets empty and in another case it doesn't.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-12-01 22:16:37 +00:00
+Commented
+Dec 1, 2017 at 22:16
+1
+$\begingroup$
+I think the truth is that you can’t reach 12. That’s the true solution. Consider the same problem but instead of halving time at each step you make steps of equal duration in time, say 1 minute. This will go on forever. It will never stop. But the question will be “when you stop what’s in the box?” So your answer will be that it’s a nonsensical question because time never ends.
+$\endgroup$
+Aksakal
+–
+Aksakal
+2017-12-02 14:31:54 +00:00
+Commented
+Dec 2, 2017 at 14:31
+1
+$\begingroup$
+No. This is no ordinary time. That’s point. This problem sets up the time in a very different way than ordinary physical time. The urn is infinite and it’s ok
+$\endgroup$
+Aksakal
+–
+Aksakal
+2017-12-06 13:44:13 +00:00
+Commented
+Dec 6, 2017 at 13:44
+1
+$\begingroup$
+Are you a physicist? What physical process you know that even remotely resembles this one?
+$\endgroup$
+Aksakal
+–
+Aksakal
+2017-12-06 17:47:18 +00:00
+Commented
+Dec 6, 2017 at 17:47
+|
+Show
+11
+more comments
+4
+$\begingroup$
+It's worth reading amoeba's answer that is just excellent and clarifies the problem very much. I don't exactly disagree with his answer but want to point out that the solution of the problem is based on a certain convention. What is interesting is that this sort of problem shows that this convention, while often used, is questionable.
+Just as he says there is a technical point about proving that for each ball the probability to stay in the urn forever is 0. Apart from this point, the problem is not about probabilities. A deterministic equivalent may be given. It is much easier to understand. The key idea is: since every ball is absent from the urn from some point in time, the urn at the end is empty. If you represent the presence in the urn of each ball by a sequence of zeros and ones, each sequence is 0 from a certain range, thus its limit is 0.
+Now the problem can be simplified even more. I call the moments 1, 2, 3.... for simplicity:
+moment 1: put ball 1 in the urn
+moment 2: remove it
+moment 3: put ball 2 in the urn
+moment 4: remove it
+moment 5: put ball 3 in the urn
+...
+What balls at the end  (noon) ? With the same idea, same answer: none.
+But fundamentally, there is no way to know, because the problem does not say  what happens at noon. Actually, it is possible that at the end of times, Pikachu comes suddenly in the urn. Or maybe balls all suddenly collapse and merge into one big ball. Not meaning that this is meant to be realistic, it's just not specified.
+The problem can only be answered if a certain convention tells us how to go to the limit: a continuity assumption. The state of the urn at noon is the limit of its states before. Where should we look for a continuity assumption that would help us answer to the question?
+In physical laws? Physical laws ensure a certain continuity. I think of a simplistic classical model, not calling on to real modern physics. But fundamentally, physical laws would bring exactly the same questions as the mathematical ones: the way we choose to describe continuity for physical laws relies on asking the question mathematically: what is continuous, how?
+We have to look for a continuity assumption in a more abstract way. The usual idea is to define the state of the urn as a function from the set of balls into $\{0;1\}$. 0 means absent, 1 means present. And to define continuity, we use product topology, aka pointwise convergence. We say that the state at noon, is the limit of the states before noon according to this topology. With this topology, there is a limit, and it is 0: an empty urn.
+But now we modify the problem a little in order to challenge this topology:
+moment 1: put ball 1 in the urn
+moment 2: remove it
+moment 3: put ball 1 in the urn
+moment 4: remove it
+moment 5: put ball 1 in the urn
+...
+For the same topology, the sequence of states has no limit. That's where I start to see the paradox as a true paradox. For me this modified problem is essentially the same. Imagine you are the urn. You see balls coming and going. If you can't read the number on it, whether it is the same ball or another one does not change what's happening to you. Instead of seeing balls as individual distinct elements, you see them as a quantity of matter coming in and out. The continuity could naturally be defined by looking at variations of the quantity of matter. And there is indeed no limit. In a way this problem is the same as the original problem where you decide to ignore the ball identity, thus leading to a different metric and a different notion of convergence. And even if you could see the number on the balls, the state could be seen as just a flickering presence with a growing number.
+In one case, the limit of the sequence of your states is "empty", in the other case the limit is undefined.
+The formalization of the problem with the product topology fundamentally relies on separating what happens to each different ball, and thus creating a metric reflecting the "distinguishablitiy". Only because of this separation, a limit can be defined. The fact that this separation is so fundamental to the answer but not fundamental for describing "what's going on" in the urn (a point that is endlessly arguable), makes me think the solution is the consequence of a convention rather than a fundamental truth.
+For me, the problem, when considered as purely abstract has a solution as long as the missing information is provided: that the state at noon is the limit of the previous states and limit in what sense. However, when thinking of this problem intuitively, the limit of the sequence of states is not something you can think in a single manner. Fundamentally, I think there is no way to answer.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 2, 2017 at 23:01
+answered
+Dec 1, 2017 at 16:59
+Benoit Sanchez
+9,017
+30
+30 silver badges
+53
+53 bronze badges
+$\endgroup$
+17
+1
+$\begingroup$
+The answer to the original problem does not depend on the formalization. Your proposed problem variations are not different formalizations of the same problem, they are different problems.
+$\endgroup$
+Paul
+–
+Paul
+2017-12-01 17:51:29 +00:00
+Commented
+Dec 1, 2017 at 17:51
+1
+$\begingroup$
+I agree with @Paul but just commenting here to say that I do find the example of putting 1 ball on odd steps and taking it out on even steps interesting. This series of urn states clearly does not have any limit which IMHO means that this "
+supertask
+" is ill-defined and cannot be completed. This is in contrast to the supertask we are discussing here.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-12-02 13:53:03 +00:00
+Commented
+Dec 2, 2017 at 13:53
+1
+$\begingroup$
+Interesting rewrite Benoit! That's certainly one thought-provoking pair of supertasks. @Paul, don't miss the edit.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-12-02 22:56:29 +00:00
+Commented
+Dec 2, 2017 at 22:56
+1
+$\begingroup$
+To me the numbers on the balls make all the difference in the world in Benoit's two new urn problems. It is the difference between having a very persistent recurrent visitor and watching a stampede. It's hard to say what happens to the recurrent visitor at noon, but with the stampede it is very easy to see that it will pass away leaving nothing behind. It is only when you ignore the critical fact of the balls' distinct identities that you lose perspective and everything looks confusingly the same. The numbers are there to remind us of those identities. Ignoring them is unphysical.
+$\endgroup$
+Paul
+–
+Paul
+2017-12-03 07:53:51 +00:00
+Commented
+Dec 3, 2017 at 7:53
+1
+$\begingroup$
+Yes, I agree, for the recurrent single ball version. For the sequential numbered ball stampede, it's easy to prove that no ball is in the urn at noon.
+$\endgroup$
+Paul
+–
+Paul
+2017-12-03 08:05:36 +00:00
+Commented
+Dec 3, 2017 at 8:05
+|
+Show
+12
+more comments
+4
+$\begingroup$
+I want to make a reformulation that is as easy as possible to make the answer of 0 more intuitive, starting from the simplified example that balls are not removed randomly, but ball $n$ is removed at the $n$-th step.
+Consider this: I put
+all
+balls into the urn at the beginning. In step 1, I take out ball 1. In step 2, I take out ball 2, and so on. Any doubt that the urn will be empty after infinite steps?
+Okay. But if I don't put all balls into the urn at first, but only some balls, how could the urn be fuller in the end?
+Share
+Cite
+Improve this answer
+Follow
+answered
+Dec 4, 2017 at 13:32
+Thern
+281
+1
+1 silver badge
+5
+5 bronze badges
+$\endgroup$
+21
+1
+$\begingroup$
++1. Nice. It's like every person one by one moving out of the fully occupied
+Hilbert's Hotel
+; the hotel will be left empty.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-12-04 13:39:46 +00:00
+Commented
+Dec 4, 2017 at 13:39
+$\begingroup$
+After every finite step n, the urn is not empty. Transactions however can only happen at finite steps. Contradiction.
+$\endgroup$
+Wilhelm
+–
+Wilhelm
+2018-04-27 16:55:32 +00:00
+Commented
+Apr 27, 2018 at 16:55
+$\begingroup$
+@Wilhelm Can you elaborate on that? I don't get the point.
+$\endgroup$
+Thern
+–
+Thern
+2018-04-28 08:38:44 +00:00
+Commented
+Apr 28, 2018 at 8:38
+$\begingroup$
+@Thern: A ball can be removed only at a finite step n. But after every finite step there are balls in the urn (in the original example and in yours). Therefore the limit cannot be empty. Otherwise something must have happened between all finite steps and the limit. Contradiction.
+$\endgroup$
+Wilhelm
+–
+Wilhelm
+2018-04-28 10:37:13 +00:00
+Commented
+Apr 28, 2018 at 10:37
+$\begingroup$
+The contradiction is created by your belief in the following principle: "When the members of a sequence have a property I like, that property is preserved by taking the limit of the sequence." This is not a valid principle of mathematics (or physics for that matter).
+$\endgroup$
+Paul
+–
+Paul
+2018-05-01 00:12:58 +00:00
+Commented
+May 1, 2018 at 0:12
+|
+Show
+16
+more comments
+3
+$\begingroup$
+Let x be the number of balls that have been removed and y be the number of balls remaining. After each cycle y=9x. As x>0, y>0. There will be infinitely many balls in the urn at 12PM.
+The reason that solutions based on probabilities lead to difficulties is that the probabilities from infinite series are tricky. ET Jaynes wrote about a few different apparent paradoxes of probability, like this one, in his book
+Probability Theory: The Logic of Science
+. I do not have my copy at hand, but the first part of the book is available online from Larry Bretthorst
+here
+. The following quote is from the preface.
+Yet when all is said and done we find, to our own surprise, that
+little more than a loose philosophical agreement remains; on many
+technical issues we disagree strongly with de Finetti. It appears to
+us that his way of treating infinite sets has opened up a Pandora’s
+box of useless and unnecessary paradoxes; nonconglomerability and
+finite additivity are examples discussed in Chapter 15.
+Infinite set paradoxing has become a morbid infection that is today
+spreading in a way that threatens the very life of probability theory,
+and requires immediate surgical removal. In our system, after this
+surgery, such paradoxes are avoided automatically; they cannot arise
+from correct application of our basic rules, because those rules admit
+only finite sets and infinite sets that arise as well-defined and
+well-behaved limits of finite sets. The paradoxing was caused by (1)
+jumping directly into an infinite set without specifying any limiting
+process to define its properties; and then (2) asking questions whose
+answers depend on how the limit was approached.
+For example, the question: “What is the probability that an integer is
+even?” can have any answer we please in (0, 1), depending on what
+limiting process is to define the “set of all integers” (just as a
+conditionally convergent series can be made to converge to any number
+we please, depending on the order in which we arrange the terms).
+In our view, an infinite set cannot be said to possess any “existence”
+and mathematical prop- erties at all—at least, in probability
+theory—until we have specified the limiting process that is to
+generate it from a finite set. In other words, we sail under the
+banner of Gauss, Kronecker, and Poincar ́e rather than Cantor,
+Hilbert, and Bourbaki. We hope that readers who are shocked by this
+will study the indictment of Bourbakism by the mathematician Morris
+Kline (1980), and then bear with us long enough to see the advantages
+of our approach. Examples appear in almost every Chapter.
+The use of limits in the answer of @enumaris (+1) provides a way around the trickiness of infinities in probability.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 24, 2017 at 22:41
+answered
+Nov 24, 2017 at 21:54
+Michael Lew
+18.8k
+2
+2 gold badges
+46
+46 silver badges
+81
+81 bronze badges
+$\endgroup$
+16
+5
+$\begingroup$
+Please show us
+which laws of probability
+justify your conclusion in the first paragraph.  Without that, you are just making an unfounded assertion.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 22:09:35 +00:00
+Commented
+Nov 24, 2017 at 22:09
+3
+$\begingroup$
+The problem arises not from the laws of probability, but when people fail to acknowledge or use the laws of probability correctly.  It is no resolution of a paradox to deny the axioms and techniques that one otherwise uses for reasoning in other circumstances.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 22:13:43 +00:00
+Commented
+Nov 24, 2017 at 22:13
+4
+$\begingroup$
+The phrase "at random" in the question
+demands
+consideration of probabilities.  Otherwise, what do you understand "at random" to mean??
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 22:20:36 +00:00
+Commented
+Nov 24, 2017 at 22:20
+4
+$\begingroup$
+Your replies miss the point.  All I ask is what you could possibly mean by "at random" if not (the obviously intended)
+uniformly at random
+and, regardless, how you propose to reason about an explicitly stated random process if not with some theory of randomness?
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 22:24:51 +00:00
+Commented
+Nov 24, 2017 at 22:24
+5
+$\begingroup$
+I have yet to see any valid probabilistic reasoning in your post, Michael.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-25 00:13:21 +00:00
+Commented
+Nov 25, 2017 at 0:13
+|
+Show
+11
+more comments
+3
+$\begingroup$
+The aim of this post is to argue for the OPs last option that we need a better formulation. Or at least, Ross proof is not as clear cut as it may seem at first, and certainly, the proof is not so intuitive that is in a good position to be in an introduction course for theory of probability. It requires much explanation both in understanding the paradoxical aspects, and once that has been cleared explanation at the points where Ross' proof passes very quickly, making it difficult to see which axioms, theorems, and implicit interpretations that the proof depends on.
+Related to this aspect it is very amusing to read Teun Koetsier's final words in
+"Didactiek met oneindig veel pingpongballen?"
+Als we niet oppassen dan wordt het 'Paradoxes a window to confusion'.
+Translated
+"If we aren't carefull then it becomes 'Paradoxes a window to confusion'"
+Below is a description of the "regular" arguments that may pass in discussions on supertasks, and more specifically the deterministic Ross-Littlewood paradox. After this, when we set all this discussion aside, a view is given of the special case of the probabilistic Ross-Littlewood paradox as providing
+additional
+elements, which however get lost and confusing in the wider setting with supertasks.
+Three deterministic cases and discussion on supertasks
+The Ross-Littlewood paradox knows many different outcomes depending on the manner in which the balls are displaced from the urn. To investigate these, let's kick off by using the exact problem description as Littlewood describes as the 5th problem in his
+1953 manuscript
+Version 1 The set of balls remaining in the urn is
+empty
+The Ross-Littlewood paradox, or Littlewood-Ross paradox, first appeared as the 5th problem in Littlewood's 1953 manuscript "a mathematician's miscellany"
+An infinity paradox.
+Balls numbered 1, 2, ... (or for a mathematician the numbers themselves) are put into a box as follows. At 1 minute to
+noon the numbers 1 to 10 are put in, and the number 1 is taken out. At
+1/2 minute to noon numbers 11 to 20 are put in and the number 2 is
+taken out and so on. How  many are in the box at noon?
+Littlewood is short about this problem, but gives a nice representation as the set of points:
+$P_{1} + P_{2}+ ... + P_{10} - P_1 + P_{11} + ... + P_{20} - P_2 + ...$
+for which it is easily noticed that it is 'null'.
+Version 2 The set of balls remaining in the urn has
+infinite size
+Ross (1976) adds two more versions to this paradox. First we look at the first addition:
+Suppose that we possess an infinitely large urn and an infinite
+collection of balls labeled ball number 1, number 2, number 3, and so
+on. Consider an experiment performed as follows: At 1 minute to 12
+P.M. , balls numbered 1 through 10 are placed in the urn and ball
+number 10 is withdrawn. (Assume that the withdrawal takes no time.) At
+12 minute to 12 P.M. , balls numbered 11 through 20 are placed in the
+urn and ball number 20 is withdrawn. At 14 minute to 12 P.M. , balls
+numbered 21 through 30 are placed in the urn and ball number 30 is
+withdrawn. At 18 minute to 12 P.M. , and so on. The question of
+interest is, How many balls are in the urn at 12 P.M. ?
+Obviously the answer is infinity since this procedure leaves all the balls with numbers $x \mod 10 \neq 0$ in the urn, which are infinitely many.
+Before we move on to Ross' second addition, which included probabilities, we move on to another case.
+Version 3 The set of balls remaining in the urn is a finite set of
+arbitrary size
+The urn can have any number of balls at 12 p.m. depending on the procedure of displacing the balls. This variation has been described in by
+Tymoczko and Henle (1995)
+as the tennis ball problem.
+Tom is in a large box, empty except for himself. Jim is standing
+outside the box with an infinite number of tennis balls (numbered 1,
+2, 3, ....). Jim throws balls 1 and 2 into the box. Tom picks up a
+tennis ball and throws it out. Next Jim throws in balls 3 and 4. Tom
+picks up a ball and throws it out. Next Jim throws in balls 5 and 6.
+Tom picks up a ball and throws it out. This process goes on an
+infinite number of times until Jim has thrown all the balls in. Once
+again, we ask you to accept accomplishing an infinite number of tasks
+in a finite period of time.   Here is the question: How many balls are
+in the box with Tom when the action is over?
+The answer is somewhat disturbing: It depends. Not enough information
+has been given to answer the question. There might be an infinite
+number of balls left, or there might be none.
+In the textbook example they argue for the two cases, either infinite or finite (Tymoczko and Henle, leave the intermediate case as an exercise), however the problem is taken further in several journal articles in which the problem is generalized such that we can get any number depending on the procedure followed.
+Especially interesting are the articles on the combinatorial aspects of the problem (where the focus is, however, not on the aspects at infinity). For instance counting the number of possible sets that we can have at any time. In the case of adding 2 balls and removing 1 each step the results are simple and there the number of possible sets in the n-th step is the n+1-th catalan number. E.g. 2 possibilties {1},{2} in the first step, 5 possibilities {1,3}{1,4}{2,3}{2,4} and {3,4} in the second step, 14 in the third, 42 in the fourth, etcetera (see
+Merlin, Sprugnoli and Verri 2002, The tennis ball problem
+). This result has been generalized to different numbers of adding and substracting balls  but this goes too far for this post now.
+Arguments based on the concept of supertasks
+Before getting to the theory of probability, many arguments can already be made against the deterministic cases and the possibility of completing the supertask. Also, one can question whether the set theoretic treatment is a valid representation of the kinematic representation of the supertask. I do not wish to argue whether these arguments are good or bad. I mention them to highlight that the probabilistic case can be contrasted with these 'supertask'-arguments and can be seen as containing additional elements that have nothing to do with supertasks. The probabilistic case has a unique and separate element (the reasoning with theory of probability) that is neither proven or refuted by arguing against or for the case of supertasks.
+Continuity arguments
+: These arguments are often more conceptual. For instance the idea that the supertask can not be finished such as Aksakal and Joshua argue in their answers, and a clear demonstration of these notions is
+Thomson's lamp
+, which in the case of the Ross Littlewood paradox would be like asking, was the last removed number odd or even?
+Physical arguments:
+There exist also arguments that challenge the mathematical construction as being relevant to the physical realization of the problem. We can have a rigorous mathematical treatement of a problem, but a question remains whether this really has bearing on a mechanistic execution of the task (beyond the simplistic notions such as breaking certain barriers of the physical world as speed limits or energy/space requirements).
+One argument might be that the set-theoretic limit is a mathematical
+concept that not necessarily describes the physical reality
+For example consider the following different problem: The urn has a ball inside which we do
+not
+move. Each step we erase the number previously written on the ball and rewrite a new, lower, number on it. Will the urn be empty after infinitely many steps? In this case it seems a bit more absurd to use the set theoretic limit, which is the empty set. This limit is nice as a mathematical reasoning, but does it represent the physical nature of the problem? If we allow balls to disappear from urns because of abstract mathematical reasoning (which, maybe should be considered more as a
+different
+problem) then just as well we might make the entire urn disappear?
+Also, the differentiation of the balls and assigning them an ordering seems "unphysical" (it is relevant to the mathematical treatment of sets, but do the balls in the urn behave like those sets?). If we would reshuffle the balls at each step (e.g. each step randomly switch a ball from the discarded pile with a ball from the remaining pile of infinite balls), thus forgetting the numbering based on either when they enter the urn or the number they got from the beginning, then the arguments based on set theoretic limits makes no sense anymore because the sets do not converge (there is no stable solution once a ball has been discarded from the urn, it can return again).
+From the perspective of performing the physical tasks of
+filling and emptying the urn it seems like it should not matter
+whether or not we have numbers on the balls. This makes the set
+theoretic reasoning more like a mathematical thought about infinite
+sets rather than the actual process.
+Anyway, If we insist on the use of these infinite paradoxes for didactic purposes, and thus, before we get to the theory of probability, we first need to fight for getting an acceptable idea of (certain) supertasks accepted by the most skeptical/stubborn thinkers, then it may be interesting to use the correspondence between the Zeno's paradox and the Ross-Littlewood paradox described by
+Allis and Koetsier (1995)
+and shortly described below.
+In their analogy Achilles is trying to catch up the turtle while both of them cross flags that are placed in such a way, with distance $$F(n)=2^{-10 \log n}$$ such that the distance of Achilles with $n$ flags is twice the distance of the turtle with $10n$ flags, namely $F(n) = 2 F(10n)$. Then
+until 12.pm.
+the difference in the flags that the turtle and Achilles will have past is
+growing
+. But,
+eventually at 12 p.m.
+nobody except the Eleatics would argue that they Achilles and the turtle reached the same point and (thus) have zero flags in between them.
+The probabilistic case and how it adds new aspects to the problem.
+The second version added by Ross (in his textbook), removes the balls based on
+random selection
+Let us now suppose that whenever a ball is to be withdrawn, that ball
+is randomly selected from among those present. That is, suppose that
+at 1 minute to 12 P.M. balls numbered 1 through 10 are placed in the
+urn and a ball is randomly selected and withdrawn, and so on. In this
+case, how many balls are in the urn at 12 P.M. ?
+Ross solution is that the probability is 1 for the urn being empty. However, while Ross' argumentation seems sound and rigorous, one might wonder what kind of axioms are necessary for this and which of the used theorems might be placed under stress by implicit assumptions that might be not founded in those axioms (for instance the presupposition that the events at noon can be assigned probabilities).
+Ross' calculation is in short a combination of two elements that divides the event of a non-empty urn into countably many subsets/events and proves that for each of these events the probability is zero:
+For, $F_i$, the event that ball number $i$ is in the urn at 12 p.m., we have $P(F_1) = 0 $
+For,  $P(\bigcup_1^\infty F_i)$, the probability that the urn is not empty at 12 p.m. we have
+$P(\bigcup_1^\infty F_i) \leq \sum_1^\infty P(F_i) = 0$
+The probabilistic case of the Ross-Littlewood paradox, without reasoning about supertasks
+In the most naked form of the paradox, stripping it from any problems with the performance of supertasks, we may wonder about the "simpler" problem of subtracting infinite sets. For instance in the three versions we get:
+$$\begin{array} \\
+S_{added} &= \lbrace 1,2,3,4,5,6,7,8,9,10 \rbrace + \lbrace10k \text{ with } k \in \mathbb{N} \rbrace \\
+S_{removed,1} &= \lbrace k \text{ with } k \in \mathbb{N} \rbrace \\
+S_{removed,2} &= \lbrace 10k \text{ with } k \in \mathbb{N} \rbrace \\
+S_{removed,3} &= \lbrace k \text{ with } k \in \mathbb{N} \rbrace \setminus \lbrace a_1,a_2,a_3,... \text{ with } a_i \in \mathbb{N} \rbrace \end{array}$$
+and the problem reduces to a set subtraction like $S_{added}-S_{removed,1} = \emptyset$.
+Any infinite sequence, $S_{RL} =\lbrace a_k \text{ without repetitions and } a_k < 10k \rbrace$ , is a (equally) possible sequence that describes the order in which the balls can be removed in a probabilistic realization of the Ross-Littlewood problem. Lets call these infinite sequences RL-sequences.
+Now, the more general question, without the paradoxical reasoning about supertasks, is about the density of RL sequences that do not contain the entire set $\mathbb{N}$
+A graphical view of the problem.
+nested, fractal, structure
+Before the edited version of this answer I had made an argument that used the existence of an injective map from 'the infinite sequences that empty the urn' to 'the infinite sequences that do not contain the number 1'.
+That is not a valid argument. Compare for instance with the density of the set of squares. There are infinitely many squares (and there is the bijective relation $n \mapsto n^2$ and $n^2 \mapsto n$), yet the set of squares have density zero in $\mathbb{N}$.
+The image below creates a better view how, with each extra step, the probability of ball 1 in the urn is decreasing (and we can argue the same for all other balls). Even though the cardinality of the subset of all RL-sequences (the sequences of displaced balls) is equal to the cardinality of all the RL-sequences (the image displays a sort of fractal structure and the tree contains infinitely many copies of itselve).
+growth of sample space, number of paths
+The image shows all the possible realizations for the first five steps, with the scheme for the tennis ball problem (the tennis ball problem, each step: add 2 remove 1, grows less fast and is easier to display). The turquoise and purple lines display all possible paths that may unfold (imagine at each step $n$ we throw a dice of size $n+1$ and based on it's result we select one of the $n+1$ paths, or in other words based on the results we remove one of the $n+1$ balls in the urn).
+The number of possible urn compositions (the boxes) increase as the n+1-th Catalan number $C_{n+1}$, and the total number of paths increase as the factorial $(n+1)!$. For the case of the urn compositions with ball number 1 inside (colored dark gray) and the paths leading to these boxes (purple), the numbers unfolds exactly the same however this time it is the n-th catalan number and the factorial $n!$.
+density of paths that leave ball $n$ inside
+So, for the paths that lead to an urn with the ball number 1 inside, the density is $\frac{(n)!}{(n+1)!}$ and decreases as $n$ becomes larger. While there are many realization that lead to finding ball number $n$ in the box, the probability approaches zero (I would argue that this does not make it impossible, but just almost surely not happening, and the main trick in Ross' argument is that the union of countable many null events is also a null event).
+Example of paths for the first five steps in tennis ball problem (each step: add 2 remove 1)
+Ross' arguments for a certainly empty urn.
+Ross defines the events (subsets of the sample space), $E_{in}$, that a ball numbered $i$ is in the urn at step $n$. (in his textbook he actually leaves out the subscript $i$ and argues for ball 1).
+Proof step 1)
+Ross uses his proposition 6.1. for increasing or decreasing sequences of events (e.g. decreasing is equivalent to $E_1 \supset E_2 \supset E_3 \supset E_4 \supset ...$).
+Proposition 6.1: If $\lbrace E_n, n\geq 1 \rbrace$ is either an increasing or a decreasing sequence of events, then $$\lim_{n \to \infty} P(E_n) = P(\lim_{n \to \infty} E_n) $$
+Using this proposition Ross states that the probability for observing ball $i$ at 12 p.m. (which is the event $lim_{n \to  \infty} E_{in}$) is equal to
+$$lim_{n \to  \infty} P (E_{in})$$
+Allis and Koetsier argue that this is one of those implicit assumptions. The supertask itselve does not (logically) imply what happens at 12 p.m. and solutions to the problem have to make implicit assumptions, which is in this case that we can use the principle of continuity on the set of balls inside the urn to state what happens at infinity. If a (set-theoretic) limit to infinity is a particular value, then at infinity we
+will
+have that particular value (there can be no sudden jump).
+An interesting variant of the Ross-Littlewood paradox is when we also randomly return balls that had been discarded before. In that there won't be convergence (like Thomson's lamp) and we can not as easily define the limit of the sequences $E_{in}$ (which is not decreasing anymore).
+Proof step 2)
+The limit is calculated. This is a simple algebraic step.
+$$ lim_{n \to  \infty} P (E_{in}) = \prod_{k=i}^{\infty}  \frac{9k}{9k+1} = 0$$
+Proof step 3)
+It is argued that step 1 and 2 works for all $i$ by a simple statement
+"Similarly, we can show that $P(F_i)=0$ for all $i$"
+where $F_i$ is the event that ball $i$ has been taken out of the urn when we have reached 12 p.m.
+While this may be true, we may wonder about the product expression whose lower index now goes to infinity:
+$$lim_{i \to  \infty}(lim_{n \to  \infty} P (E_{in})) = lim_{i \to  \infty}\prod_{k=i}^{\infty}  \frac{9k}{9k+1} = ... ?$$
+I have not so much to say about it except that I hope that someone can explain to me whether it works.
+It would also be nice to obtain better intuitive examples about the notion that the decreasing sequences $E_{in}, E_{in+1}, E_{in+2}, ...$, which are required for proposition 6.1, can not all start with the step number index, $n$, being equal to 1. This index should be increasing to infinity (which is not just the number of steps becoming infinite, but also the random selection of the ball that is to be discarded becomes infinite and the number of balls for which we observe the limit becomes infinite). While this technicality might be tackled (and maybe already has been done in the other answers, either implicitly or explicitly), a thorough and intuitive, explanation might be very helpful.
+In this step 3 it becomes rather technical, while Ross is very short about it. Ross presupposes the existence of a probability space (or at least is not explicit about it) in which we can apply these operations at infinity, just the same way as we can apply the operations in finite subspaces.
+The answer by ekvall provides a construction, using the
+extension theorem due to Ionescu-Tulcea
+, resulting in an infinite product space $\sum_{k=0}^\infty \Omega_i \bigotimes_{k=0}^\infty \mathcal{A}_i$ in which we can express the events $P(E_i)$ by the infinite product of probability kernels, resulting in the $P=0$.
+However it is not spelled out in an intuitive sense. How can we show intuitively that the event space $E_{i}$ works? That it's complement is the null set (and not a number 1 with infinitly many zeros, such as is the solution in the adjusted version of the Ross-Littlewood problem by Allis and Koetsier) and that it is a probability space?
+Proof step 4)
+Boole's inequality is used to finalize the proof.
+$$P\left( \bigcup_1^\infty F_i \right) \leq \sum_1^\infty P(F_i) = 0$$
+The inequality is proven for sets of events which are finite or infinite countable. This is true for the $F_i$.
+This proof by Ross is not a proof in a constuctivist sense. Instead of proving that the probability is almost 1 for the urn to be
+empty
+at 12 p.m., it is proving that the probability is almost 0 for the urn to be filled with
+any
+ball with a finite number on it.
+Recollection
+The deterministic Ross-Littlewood paradox contains explicitly the empty set (this is how this post started). This makes it less surprising that the probabilistic version ends up with the empty set, and the result (whether it is true or not) is not so much more paradoxical as the non-probabilistic RL versions. An interesting thought experiment is the following version of the RL problem:
+Imagine starting with an urn that is full with infinitely many balls, and start randomly discarding balls from with it. This supertask, if it ends, must logically empty the urn. Since, if it was not empty we could have continued. (This thought experiment, however, stretches the notion of a supertask and has a vaguely defined end. Is it when the urn is empty or when we reach 12 p.m.?)
+There is something unsatisfying about the technique of Ross' proof, or at least some better intuition and explanation with other examples might be needed in order to be able to fully appreciate the beauty of the proof. The 4 steps together form a mechanism that can be generalized and possibly applied to generate many other paradoxes (Although I have tried I did not succeed).
+We may be able to generate a theorem such that for any other suitable sample space which increases in size towards infinity (the sample space of the RL problem has $card(2^\mathbb{N})$). If we can define a countable set of events $E_{ij}$ which are a decreasing sequence with a limit 0 as the step $j$ increases, then the probability of the event that is the union of those events goes to zero as we approach infinity. If we can make the union of the events to be the entire space (in the RL example the empty vase was not included in the union whose probability goes to zero, so no severe paradox occurred) then we can make a more severe paradox which challenges the consistency of the axioms in combination with transfinite deduction.
+One such example (or an attempt to create on) is the infinitely often splitting of a bread into smaller pieces (in order to fulfill the mathematical conditions let's say we only make the splits into pieces that have the size of a positive rational number). For this example we can define events (at step x we have a piece of size x), which are decreasing sequences and the limit of the probability for the events goes to zero (likewise as the RL paradox, the decreasing sequences only occur further and further in time, and there is pointwise but not and uniform convergence).
+We would have to conclude that when we finish this supertask that
+the bread has
+disappeared
+. We can go into different directions
+here. 1) We could say that the solution is the empty set (although
+this solution is much less pleasant than in the RL paradox, because
+the empty set is not part of the sample space) 2) We could say there
+are infinitely many undefined pieces (e.g. the size of infinitely
+small)  3) or maybe we would have to conclude (after performing Ross'
+proof and finding empty) that this is not a supertask that can be
+completed? That the notion of finishing such a supertask can be made
+but does not necessarily "exist" (a sort of Russell's paradox).
+A quote from Besicovitch printed in Littlewood's miscellany:
+"a mathematician's reputation rests on the number of bad proofs he has given".
+Allis, V., Koetsier, T. (1995),
+On Some Paradoxes of the Infinite II
+,
+The British Journal for the Philosophy of Science
+, pp. 235-247
+Koetsier, T. (2012), Didactiek met oneindig veel pingpongballen,
+Nieuw Archief voor Wiskunde
+, 5/13 nr4, pp. 258-261 (
+dutch original
+, translation is possible via google and other methods)
+Littlewood, J.E. (1953),
+A mathematician's Miscellany
+, pp. 5 (
+free link via archive.org
+)
+Merlin, D., Sprugnoli, R., and Verri M.C. (2002),
+The tennis ball problem
+,
+Journal of Combinatorial Theory
+, pp. 307-344
+Ross, S.M. (1976),
+A first course in probability
+, (section 2.7)
+Tymoczko, T. and Henle, J. (1995 original) (
+1999 2nd edition reference on google
+),
+Sweet Reason: a field guide to modern logic
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 7, 2017 at 9:22
+answered
+Nov 30, 2017 at 0:20
+Sextus Empiricus
+95.8k
+6
+6 gold badges
+129
+129 silver badges
+347
+347 bronze badges
+$\endgroup$
+1
+$\begingroup$
+Comments are not for extended discussion; this conversation has been
+moved to chat
+.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2018-04-29 21:49:08 +00:00
+Commented
+Apr 29, 2018 at 21:49
+Add a comment
+|
+1
+$\begingroup$
+OK, I'll try again.
+The answer is that the paradox is purely mathematical. Enumaris's and cmaster's answer's tell what is going on in one way, but this is another way to see the problem. The problem is how we deal with probabilities with infinities, as Jaynes has written about (see my other attempted answer for details).
+An infinite series is usually treated as if it has no end, but in this problem there is an end time (12PM) and so logically, even if not mathematically, there is a last cycle of addition and removal of balls: the one that happens infinitessimally prior to 12PM. The existence of a 'last' cycle allows us to look at the probabilities backwards as well as forwards through time.
+Consider the ten balls last added. For each of them their probability of being removed is zero because they are each just one of infinity balls that might be removed. Thus the probability that there will be at least ten balls remaining at 12PM is unity.
+QED. A probabilistic argument that does not lead to nonsense.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Nov 25, 2017 at 21:01
+Michael Lew
+18.8k
+2
+2 gold badges
+46
+46 silver badges
+81
+81 bronze badges
+$\endgroup$
+17
+4
+$\begingroup$
+There is no last "cycle" in the problem in question any more than there is a last term in the sequence $a_n = 1 - 1/n$, $n = 1, 2, \dots$, which also has "an end time" at 1.
+$\endgroup$
+KOE
+–
+KOE
+2017-11-25 22:23:29 +00:00
+Commented
+Nov 25, 2017 at 22:23
+$\begingroup$
+@ekvall Can you say why the infinite series of cycles can end at 12 PM and yet not have an end? Seems like this is a circumstance where the conventionally assumed rules of infinities leads to ridiculous (not counter-intuitive, but wrong) outcomes.
+$\endgroup$
+Michael Lew
+–
+Michael Lew
+2017-11-25 22:47:58 +00:00
+Commented
+Nov 25, 2017 at 22:47
+2
+$\begingroup$
+@MichaelLew: Consider the act of clapping your hands. Consider that there will come a point in time where your hands are 1/2 together. Then 1/4 together. Then 1/8 together. Consider that every time your hands halve the remaining distance to each other, they can always halve it
+again
+. This is a cycle that clearly has no end (what number of steps must you take before the next step will put the hands together?) but whose series very clearly has an end (or are you unable to clap?)
+$\endgroup$
+Vegard
+–
+Vegard
+2017-11-28 02:04:04 +00:00
+Commented
+Nov 28, 2017 at 2:04
+$\begingroup$
+@Vegard Consider not clapping your hands, because as they approach each other increasingly slowly. At a starting distance take 2 seconds to reach 1/2 the distance and in general $2^n$ more seconds to reach from $\frac{1}{2^{n-1}}$ of the distance $\frac{1}{2^n}$ of the distance. BTW for Michael +1.
+$\endgroup$
+Carl
+–
+Carl
+2017-12-01 02:55:51 +00:00
+Commented
+Dec 1, 2017 at 2:55
+$\begingroup$
+@Carl Why would my hands approach eachother increasingly slowly? That would be a sad clap. Assume that my hands are moving at some constant velocity and then explain how I haven't covered an infinite amount of distance-halvings in finite time? Infinite series can converge, and the infinite series
+1/2 + 1/4 + ... 1/2^n
+does converge, as I assume anyone who has had entry-level calculus knows? But this is in response to the question of how an infinite series can be traversed in finite time without there being an actual end to the series itself, not some solution to the ball-problem.
+$\endgroup$
+Vegard
+–
+Vegard
+2017-12-05 08:46:36 +00:00
+Commented
+Dec 5, 2017 at 8:46
+|
+Show
+12
+more comments
+0
+$\begingroup$
+I believe that this example supports "if the premise is false then the conditional is true"
+In this universe, there are no infinite urns and no infinite collection of balls.  It is impossible to split time into arbitrarily small pieces.
+Thus Sheldon Ross is right to say that the urn is empty at 12:00.  Students who say that the urn has infinite balls at 12:00 are just as right.
+If you answered the urn has 50 balls then you are also correct.
+I have not rigorously proved that this universe does not contain infinite urns and infinite balls and that time is not atomic - I just believe those things.  If you believe those three assertions are wrong, then you believe Ross's problem is empirically falsifiable.  I am waiting for your experimental results.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Nov 25, 2017 at 12:42
+emory
+209
+1
+1 silver badge
+4
+4 bronze badges
+$\endgroup$
+13
+2
+$\begingroup$
+Are you also waiting for experimental results that $\pi$ is irrational on grounds that there is no way one can fit an infinite number of infinitly tiny triangles in a circle in this universe?
+$\endgroup$
+user603
+–
+user603
+2017-11-25 13:58:50 +00:00
+Commented
+Nov 25, 2017 at 13:58
+3
+$\begingroup$
+@user603 no, but I claim the last digit of pi is 7.  Can you prove otherwise?
+$\endgroup$
+emory
+–
+emory
+2017-11-25 14:04:16 +00:00
+Commented
+Nov 25, 2017 at 14:04
+1
+$\begingroup$
+indeed, it's a fair distinction.
+$\endgroup$
+user603
+–
+user603
+2017-11-25 14:05:34 +00:00
+Commented
+Nov 25, 2017 at 14:05
+5
+$\begingroup$
+-1. The problem is well-defined mathematically and the impossibility of physical realization has nothing to do with it.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-26 00:18:28 +00:00
+Commented
+Nov 26, 2017 at 0:18
+2
+$\begingroup$
+I also find this question nonsense.  If the urn is empty at 12:00, then there must have been a time when the last ball was removed.  But at any given moment when a ball is removed, more balls are added so that the last ball is
+not
+removed.  How can there be no time at which the last ball is removed?  On the other hand, if at 12:00 the adding of balls has ceased, then there must be a time at which the last ball was added. But, if some ball was the last to have been added, there cannot be infinitely many balls in the urn. A process cannot have a beginning, be never-ending, and yet cease.
+$\endgroup$
+Kevin
+–
+Kevin
+2017-12-01 04:23:50 +00:00
+Commented
+Dec 1, 2017 at 4:23
+|
+Show
+8
+more comments
+0
+$\begingroup$
+I support the opinion that the problem is ill-posed. When we consider something transfinite we often have to use a limit. It seems that here it is the only way. Since we distinguish different balls, we have an infinite-dimensional process  $$(X_{t,1}, X_{t,2},...),$$
+where $t=-1,-1/2,-1/4,...$ stands for the time, $X_{t,j}=1$ if there is the ball $j$ at time $t+0$ and $X_{t,j}=0$ otherwise.
+Now it is on each everyone's discretion which convergence to use: uniform, componentwise, $l_p$, etc. Needless to say, the answer depends on the choice.
+The misunderstanding in this problem goes from neglecting the fact that metric issues are crucial when we consider convergence of infinite-dimensional vectors. Without choosing the type of convergence, no correct answer can be given.
+(There is componentwise convergence to zero vector. While $l_1$ norm counts the number of balls, so in this norm the process is exploding.)
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 2, 2017 at 19:22
+answered
+Dec 2, 2017 at 14:00
+Viktor
+1,049
+1
+1 gold badge
+11
+11 silver badges
+25
+25 bronze badges
+$\endgroup$
+13
+2
+$\begingroup$
+"The urn is empty" if and only if every ball that had been put in was eventually taken out. That's the definition of emptiness. And it translates to component-wise convergence.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-12-02 14:35:42 +00:00
+Commented
+Dec 2, 2017 at 14:35
+2
+$\begingroup$
+I agree with this answer. First, what convergence notion to choose is totally independent of probability theory. It's not because we have an habit of using pointwise convergence/product topology (where here a point is a ball with a certain identity) that this notion must be used as the only option. It's not specified in the problem nor a general convention. And this even if we decide to agree totally with standard probability theory.
+$\endgroup$
+Benoit Sanchez
+–
+Benoit Sanchez
+2017-12-02 17:24:50 +00:00
+Commented
+Dec 2, 2017 at 17:24
+1
+$\begingroup$
+This is cargo cult math. You throw in metric issues because they matter on other problems, not because they're relevant to this problem.
+$\endgroup$
+Paul
+–
+Paul
+2017-12-02 18:57:12 +00:00
+Commented
+Dec 2, 2017 at 18:57
+1
+$\begingroup$
+@Paul "Cargo cult math". Never thought such a term exists. Will think over it. :)
+$\endgroup$
+Viktor
+–
+Viktor
+2017-12-02 19:01:09 +00:00
+Commented
+Dec 2, 2017 at 19:01
+2
+$\begingroup$
+(+1) I agree that this problem is posited without a metric. Moreover, the answer of zero balls is also 1 ball at the same time so the zero ball answer is not a number. Countable infinity is not a number. Ill-posited question. There are indeed questions so ridiculous that they have no answers.
+$\endgroup$
+Carl
+–
+Carl
+2017-12-03 23:45:19 +00:00
+Commented
+Dec 3, 2017 at 23:45
+|
+Show
+8
+more comments
+0
+$\begingroup$
+Recently several comments by Wilhelm, Wolfgang Mückenheim, caused me to reconsider certain formulations in my answer. I am posting this as a new answer mainly because the different approach of this answer, not arguing about the teaching of this problem, but instead about the paradox being invalid.
+Wilhelm discusses in his lengthy
+manuscript
+that
+Transactions are only possible
+at finite steps
+$n$
+(there is no action possible "between all
+$n$
+and
+$\omega$
+").
+This reminded me of the term
+$$\sum_{k=1}^\infty \prod_{n=k}^\infty \left( \frac{9n}{9n+1} \right)$$
+which is derived from Ross' work. This term is
+indeterminate when the path to infinity is not defined
+for the following limit.
+$$\lim_\limits{(l,m)\to(\infty,\infty)}\sum_{k=1}^l\prod_{n=k}^m\left(\frac{9n}{9n+1}\right)$$
+This seems to resemble the point that Wilhelm discusses and is also mentioned in aksakal's answer. The steps in time become infinitely small, so we will be able to reach 12 p.m. in that sense, but we will at the same time need to add and remove an (unphysical) infinity number of balls. It is a false idea to attach this supertask to a process like Zeno's arrow, just like the switch of
+Thompson's paradoxical lamp
+can not have a definite position at the end of a supertask.
+In terms of the limit we can say that the
+physical
+path to infinity that we take is
+$$\lim_\limits{l\to \infty}\sum_{k=1}^l\prod_{n=k}^l\left(\frac{9n}{9n+1}\right) = \lim_\limits{l\to \infty} \frac{9l}{10}$$
+so not zero but infinite.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 18, 2019 at 19:10
+Glorfindel
+1,129
+2
+2 gold badges
+12
+12 silver badges
+20
+20 bronze badges
+answered
+Apr 30, 2018 at 22:56
+Sextus Empiricus
+95.8k
+6
+6 gold badges
+129
+129 silver badges
+347
+347 bronze badges
+$\endgroup$
+7
+3
+$\begingroup$
+FYI, Wolfgang Mückenheim has been trolling math forums with nonsense for decades
+mathforum.org/kb/…
+$\endgroup$
+Paul
+–
+Paul
+2018-05-01 00:06:46 +00:00
+Commented
+May 1, 2018 at 0:06
+$\begingroup$
+Thank you for that information, and to be honest I did not read the entire manuscript, although I do like a nice finitist argument, and his argument (troll or not) does make sense (which is not uncommon to trolling). Although I'd personally say that, if the steps become infinitely small, then we might have a (physical) process that is allowed to be considered infinite in number of steps . Sadly, it is not as much his trolling, and much more the mobbing with the votes against opposite positions (or in favour ones own) that spoils discussion in his thread and fuels trolling (or other).
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2018-05-01 01:25:18 +00:00
+Commented
+May 1, 2018 at 1:25
+$\begingroup$
+@Martijn Weterings: It is easy to prove who is the troll here around: The idea of Cantor is the limit $\omega$ after 1, 2, 3, ... . First this violates mathematical induction, because before $\omega$ there is
+always
+another natural number. Second, to exclude any physical relevance of set theory, model the sequence by a merry-go-round where the revolutions are counted. Can there be a limit? (The collapse of the earth's orbit after having emitted gravitational waves for $10^{15}$ years is certainly not a result of set theory.)
+$\endgroup$
+Wilhelm
+–
+Wilhelm
+2018-05-01 11:35:44 +00:00
+Commented
+May 1, 2018 at 11:35
+2
+$\begingroup$
+"First this violates mathematical induction, because before ω there is always another natural number." Mathematical Induction says nothing whatsoever about what should or should not be "before" ω. Limit ordinals are not generated by induction and induction has nothing to say about whether they exist or not. Your mind is full of false assumptions about how math should work, and when these false assumptions contradict the real mathematics, you blame the latter.
+$\endgroup$
+Paul
+–
+Paul
+2018-05-01 17:01:31 +00:00
+Commented
+May 1, 2018 at 17:01
+$\begingroup$
+Mathematical induction says that for every $n$ there is $n+1$ and this does
+never
+change. The limit ordinal is assumed by mathematicians who are unable to comprehend the infinite. What means quantifying over all natural numbers? Does it mean to take only those natural numbers which have the characteristic property of every natural number, i.e., to be followed by infinitely many natural numbers? Then you don't get all of them because always infinitely many are remaining. Or do you take all natural numbers with no exception?
+$\endgroup$
+Wilhelm
+–
+Wilhelm
+2018-05-01 18:02:32 +00:00
+Commented
+May 1, 2018 at 18:02
+|
+Show
+2
+more comments
+0
+$\begingroup$
+The problem as stated is a variant of a
+conditionally convergent
+sum.  That is, the sum is indeterminate depending on how the addition is performed; in what order the terms are summed. In general, if
+$\Sigma_{n=0}^\infty x_n$
+converges but
+$\Sigma_{n=0}^\infty |x_n|$
+is divergent, then convergence is conditional and not absolute. Although this is most often applied to alternating sign series, the order of signs is either irrelevant or the series is conditionally convergent. As such, there is no unique answer, see
+Mathworld commentary
+.
+Finally, the only paradox inherent in finding different answers for a conditionally convergent sum is how one can expect it to be otherwise. This is worse than asking a pseudo-random number generator to create equal valued answers for different seeds because in that latter case one would not typically obtain as well
+$\pm\infty$
+as admissible answers.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jun 20, 2022 at 1:20
+answered
+Jun 18, 2022 at 4:51
+Carl
+13.6k
+7
+7 gold badges
+57
+57 silver badges
+122
+122 bronze badges
+$\endgroup$
+Add a comment
+|
+-2
+$\begingroup$
+More intuition than formal education, but:
+If the intervals to midnight are halving, we never reach midnight... we only approach asymptotically; so one could argue that there
+is
+no solution.
+Alternatively, depending on the phrasing:
+as there are infinite intervals of +10 balls the answer is infinite
+as there are infinite intervals of (+10 balls - 1) the answer is 10*infinite -1*infinite = 0?
+as there are infinite intervals of (+9 balls) +1 the answer is infinite + 1
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 24, 2017 at 22:35
+answered
+Nov 24, 2017 at 22:29
+CGretski
+29
+2
+2 bronze badges
+$\endgroup$
+8
+11
+$\begingroup$
+It looks like you would agree with Zeno that
+Achilles can never catch the tortoise
+; and worse,
+neither can even get started in their race.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-24 22:48:51 +00:00
+Commented
+Nov 24, 2017 at 22:48
+$\begingroup$
+@whuber Those problems are not at all related to this answer.
+$\endgroup$
+Clearer
+–
+Clearer
+2017-11-26 12:29:52 +00:00
+Commented
+Nov 26, 2017 at 12:29
+2
+$\begingroup$
+@Clearer I would like to suggest they are closely related through their naive treatment of "infinity."
+$\endgroup$
+whuber
+–
+whuber
+♦
+2017-11-26 13:39:11 +00:00
+Commented
+Nov 26, 2017 at 13:39
+5
+$\begingroup$
+-1 because it's 00:00 on my watch right now so I have just reached midnight despite remaining time periods halving ad infinitum during the last minute.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-11-26 23:00:14 +00:00
+Commented
+Nov 26, 2017 at 23:00
+$\begingroup$
+@amoeba The discontinuity is that you have an infinite number of removed balls at that time. Exactly where are you keeping that number of balls? Are the balls infinitely small as well so that there is possibly room enough in the universe for us non-balls? Mind you, an infinite number of infinitely small balls could still occupy an infinite volume, and when you play with metrics the rules are not so naive as the posts here.
+$\endgroup$
+Carl
+–
+Carl
+2017-11-29 22:40:08 +00:00
+Commented
+Nov 29, 2017 at 22:40
+|
+Show
+3
+more comments
+-4
+$\begingroup$
+Rewrite: Jan 16, 2018
+Section 1: Outline
+The fundamental results this post are as follows:
+The halfway ball has a probability of about $0.91$ of remaining in the limit as the step goes to $\infty$ - this is both a real world observation and is derived mathematically.
+The derived function has a domain of the rationals in $(0,1]$. For example, the probability in the limit of the halfway ball remaining corresponds to the domain value $1/2$.
+This function can computed the probability of remaining for any fraction of the step size.
+Ross' analysis is not wrong but is incomplete because it attempts to iterate the rationals in order of magnitude $\left(i,\infty\right), i=1..\infty$.
+The rationals cannot be iterated in order of magnitude.  Hence, Ross's analysis cannot access the full domain and can only offer a limited view of the total behavior.
+Ross's analysis does however account for one particular observable behavior:  in the limit
+it is not possible through serial iteration from 1 to reach the first remaining ballset.
+Ross' limit sequences have some nice convincing properties that seem intuitively unique.
+However, we show another set of limit sequences which satisfy the same nice properties and give the values for our function.
+Section 2 "Notation and terminology" covers notation and terminology used in this post.
+Section 3 "The Halfway Ballset" introduces a real world observation - the converge in the limit of the probability of remaining of a ball
+whose index is a halfway through all the inserted balls.  This limit value is about 91%.  The case of the halfway ballset is generalized to any rational in $(0,1]$,
+which all have non-zero limit values.
+Section 4 "Resolution of the Paradox" presents a unified framework for including both Ross' result and the 'rational-domain' results (described herein).
+As already noted, Ross' analysis an only offer a limited view of the total behavior. Hence, the source of the paradox is identified and resolved.
+In the appendix some other results less important results are discussed:
+"Expectations in the limit" calculates the expected number of balls remaining up to and including any fraction of the step size.
+A corollary of this result is determining the index of the first ball which has an expectation of remaining greater than one.
+Section 2: Notation and terminology
+We label the ball indexes inserted at step $n$ as $\{n.1, n.2, n.3, ..... n.10\}$
+and call this set the $n$th "ballset".  Ballset is one word, created for this post.
+This terminology regrettably deviates from Ross' terminology, but it also makes the text much clearer and shorter.
+The notation $E(a,b)$ refers to the event that ball $a.1$ in ballset $a$ remains at step $b$, ignoring the other balls in the ballset.
+The notation $P(a,b)$ is an abbreviation for $P(E(a,b))$ and it refers to the probability of $E(a,b)$.
+Note that all balls $a.i$ in ballset $a$ have the same probability of remaining.
+-- The value of $P(E(a,b))$ is $\prod_{k=a}^{b} \frac{9k}{(9k+1)}$.
+The Ross limit $P(a)$ is the probability $P(a,b)$ as $b$ goes to infinity:
+-- $P_{lim1}(a) = \lim_{b\rightarrow\infty} P(a,b)$
+The rational-limit is defined as the limit as the both ball index $a$ and step $b$ go to infinity while maintaining constant ratio:
+-- $P_{lim2}(a,b) = \lim_{k\rightarrow\infty} P(ka,kb)$
+Section 3: The halfway ballset
+At every even step $2n$, the halfway ballset is defined as the $n$th ballset.
+At every even step $2n$, the halfway probability of remaining is defined as $P(n,2n)$.
+In the limit as $n\rightarrow\infty$,
+the halfway probability of remaining is therefore
+$\lim_{n\rightarrow\infty} P(1*n,2*n)$.
+Theorem 1 below gives a numerical value for the halfway probability of remaining.
+Theorem 1 - Limit of probability of elements in a ratio-preserving domain sequence
+\begin{equation}
+\lim_{n\rightarrow\infty} P(a*n,b*n) = (\frac{a}{b})^\frac{1}{9}
+\end{equation}
+The proof is given below just before the appendix.
+By Theorem 1, the halfway probability of remaining in the limit is
+$(\frac{1}{2})^\frac{1}{9}$
+which evaluates to an approximate decimal value of $0.925875$.
+Sanity Check
+Lets do a sanity check to see if the numerical limit for the halfway probability "looks right".
+\begin{array}{|l|rcl|}
+\hline
+n & P(n/2,n) &=&  \text{trunc decimal val} \\
+\hline
+1000 & P(500,1000) &=& 0.92572614082 \\
+\hline
+10000 & P(5000,10000) &=& 0.9258598528 \\
+\hline
+100000 & P(50000,100000) &=&  0.925873226 \\
+\hline
+1000000 & P(500000,1000000) &=&  0.92587456 \\
+\hline
+\hline
+\infty & \lim_{n\rightarrow\infty} P(n,2n) &=& 0.925875 \\
+\hline
+\end{array}
+The first 4 rows are the halfway probabilities of remaining for the step number values of
+$10^3$, $10^4$, $10^5$, and $10^6$, respectively.
+The final row is the limit.
+It seems the halfway probabilities are indeed converging to the predicted limit.
+This real world observation, which does not fit within Ross's framework, needs to be explained.
+** Section 4 "Resolution of the Paradox" **
+This section explains a unified framework for both Ross' analysis and the rational-domain analysis,
+By viewing them together the paradox is resolved.
+The rational limit $P_{lim2}(a,b)$ is reducible to a function from the rationals $(0,1]$ to the reals $(0,1]$:
+\begin{array}{rcl}
+P_{lim2}(a,b) &=& lim_{k\rightarrow\infty} P(ka,kb) \\
+&=& (\frac{a'}{b'})^\frac{1}{9}
+\end{array}
+where $gcd(a',b')=1$ and $\frac{a'}{b'} = \frac{a}{b}$.  Here $gcd()$ indicates greatest common divisor.
+Equivalently statements are "$a'$ and $b'$ are mutually prime", and "$\frac{a'}{b'}$ is the reduced fraction of $\frac{a}{b}$.
+The Ross limit can be written as the limit of a sequence of rational limits:
+\begin{array}{rclr}
+P_{lim1}(a) &=& lim_{k\rightarrow\infty} P(a,k) & \\
+&=& lim_{i,k\rightarrow\infty} P(ka/i,kb) & \text{for some } b \\
+&=& lim_{i\rightarrow\infty} P_{lim2}(a/i,b) & \\
+&=& lim_{i\rightarrow\infty} P_{lim2}(0,b) &
+\end{array}
+The tuple $(0,b)$ is not a member of the rationals in $(0,1]$; it belongs to $[0,0]$.
+Therefore the Ross limit is isomorphic to the function  $P_{lim2}(a,b)$ on domain $[0,0]$ and its image is always the unique real $0$.
+The Ross limit and the rational-limit are the same function on two disjoint domains $[0,0]$ and $(0,1]$ respectively.
+The Ross limit only considers the case of ballset indexes which have been demoted to be infinitely small relative to the stepsize.
+The Ross-limit analysis predicts that in the limit, accessing the values $P_{lim1}(i)$ sequentially for $i=1,2,...\infty$  will never reach a non-zero value.
+This is a correct and corresponds to real world observation.
+The rational-limit analysis accounts for real world observations such as the halfway ballset which the Ross-limit does not account for.
+The function is the same $P_{lim2}(a,b)$ but the domain is $(0,1]$ instead of $[0,0]$
+The diagram below depicts the both the Ross limit sequences and the rational limit sequences.
+It is probably fair to say that Ross' analysis includes an implicit assumption that the Ross-limit and its domain is the entire domain of interest.
+The intuition implicitly underlying Ross' assumption is like due to the four conditions below even if they are not explicitly recognized:
+Let $S_i = P(i,n), n=1,...,\infty$ be the $i$th Roth limit sequence.
+Let $S = \cup_{i=(1...\infty)} S_i$ be the union of Roth limit sequences.
+(1) The sequences $S_i$ are disjoint and each sequence converges.
+(2) The union of elements of all sequences $S$ cover exactly the set of all (ball,step) tuples coming into play: $\{ (i,n)\ |\ i\leq n\ \land \ i,n\in Q \}$
+(3) All of the sequences $S_i$ are infinite in $n$, the step index, so they don't terminate "early".
+(4) The sequences $S_i$ themselves form a super-sequence $\{ S_i \}_{i_in (1...\infty) }$.  Therefore that super-sequence can be "created" iteratively, i,e,, they are countable.
+It's not immediately apparent that another system of limit sequences could satisfy the above points (1) - (4).
+However, we will now discuss another system of limit sequences which do indeed satisfy the above points (1) - (4).
+Let $S_{p,q}$, where $gcd(p,q)=1$, represent the rational-limit sequence
+\begin{equation}
+S_{p,q} = \{ (kp,kq)    \}_{k\in (1...\infty)}
+\end{equation}
+Let $D^*$ be the mutually prime tuples of $D$:   =  $D^* =\{ (p,q)\in D \land gcd(p,q)=1 \}$ .
+Let $S^*$ be the union of said rational limit sequences:  $S^* = \cup_{d\in D^*} S_{p,q}$
+Clearly the sequences $S_{p,q}$ whose union is $S^*$ satisfy the above properties (1) - (3).
+The indexes $(p,q)$ are exactly the rationals on $(0,1]$.
+To satisfy condition (4) we need to show that the rationals on $(0,1]$ are countable.
+The (Farey sequence)
+2
+of order $n$ is the sequence of completely reduced fractions between 0 and 1 which when in lowest terms have denominators less than or equal to $n$,
+arranged in order of increasing size.  Here are the first eight Farey sequences:
+F1 = {0/1,                                                                                                          1/1}
+F2 = {0/1,                                                   1/2,                                                   1/1}
+F3 = {0/1,                               1/3,                1/2,                2/3,                               1/1}
+F4 = {0/1,                     1/4,      1/3,                1/2,                2/3,      3/4,                     1/1}
+F5 = {0/1,                1/5, 1/4,      1/3,      2/5,      1/2,      3/5,      2/3,      3/4, 4/5,                1/1}
+F6 = {0/1,           1/6, 1/5, 1/4,      1/3,      2/5,      1/2,      3/5,      2/3,      3/4, 4/5, 5/6,           1/1}
+F7 = {0/1,      1/7, 1/6, 1/5, 1/4, 2/7, 1/3,      2/5, 3/7, 1/2, 4/7, 3/5,      2/3, 5/7, 3/4, 4/5, 5/6, 6/7,      1/1}
+F8 = {0/1, 1/8, 1/7, 1/6, 1/5, 1/4, 2/7, 1/3, 3/8, 2/5, 3/7, 1/2, 4/7, 3/5, 5/8, 2/3, 5/7, 3/4, 4/5, 5/6, 6/7, 7/8, 1/1}
+Let $F^*_n$ represent the $n$th Farey sequence without the first element $0/1$.
+Let $S^*_n$ be the union of rational limit sequences which have at least one element up to and including step $n$:
+\begin{equation}
+S^*_n = \{  S_{p,q}\ |\ \exists (a,b)               \}
+\end{equation}
+The elements of $F^*_n$ index, converted from fractions to tuples, exactly index the elements of $S^*_n$.
+The following table compares the grouping of the limit sequences in the Ross analysis and the rational limit analysis:
+\begin{array}{|c|c|c|}
+\hline
+& \text{Ross} & \text{rational} \\
+\hline
+\text{num new seq per step } & 1 & \text{multiple (generally)} \\
+\hline
+\text{new seq at step } n & S_n &  F^*_n - F^*_{n-1} \\
+\hline
+\text{tot num seq up to step }n & n & \| F^*_n \| \\
+\hline
+\text{super-seq up to step }n & \{ S_m \}_{m=1}^{n} &  F^*_n \\
+\hline
+\end{array}
+Finally, since methods exist [
+3
+],[
+4
+] for iteratively creating the super sequence $ F^*_n $, the condition (4) is also satisfied.
+One of those methods, a variant of the Stern-Brocot tree, is as follows:
+The mediant of two rationals $a/c$ and $b/d$ is defined as $\frac{a+b}{c+d}$
+Set $F*_n = \emptyset$
+Append $1/n$ to $F*_n$
+Loop for $i$ in $1...(\|F*_{n-1}\|-1)$
+Append $F*_{n-1}[i]$ to F*_n$
+Let $x = mediant(F*_{n-1}[i], F*_{n-1}[i+1])$
+If $denom(x) \leq n$ append x to $F*_n$
+continue loop
+Append $F*_{n-1}[n]$ to $F*_n$
+The paradox has been resolved.
+Proof of Theorem 1
+First note that:
+\begin{eqnarray}
+P(E_{a,b})
+&=&
+\prod_{k=a}^{b} \frac{9k}{(9k+1)}
+\\
+&=&
+\frac{\Gamma \left(a+\frac{1}{9}\right) \Gamma (b+1)}{\Gamma (a) \Gamma\left(b+\frac{10}{9}\right)}
+\\
+&=&
+(a-1)^{\frac{1}{2}-a} \left(a-\frac{8}{9}\right)^{a-\frac{7}{18}} b^{b+\frac{1}{2}}
+\left(b+\frac{1}{9}\right)^{-b-\frac{11}{18}}
+\end{eqnarray}
+where the last transformation is the Sterling transformation.
+Then, syntactically substituting $a\rightarrow a*n$ and $b\rightarrow b*n$ into the last (Sterling form) equation we get
+\begin{eqnarray}
+\lim_{n\rightarrow\infty} P(E_{a,b}) &=& \lim_{n\rightarrow\infty}
+(a M-1)^{\frac{1}{2}-a M} \left(a M-\frac{8}{9}\right)^{a M-\frac{7}{18}} (b M)^{b
+M+\frac{1}{2}} \left(b M+\frac{1}{9}\right)^{-b M-\frac{11}{18}}
+\\
+&=& \left(\frac{a}{b}\right)^\frac{1}{9}
+\end{eqnarray}
+Appendix: Other results
+Expectations in the limit
+This section gives a closed expression for the expected number of balls remaining up to and including any fraction of the step size.
+A corollary of this result is a numerical approximation of the index of the first ball which has an expectation of remaining greater than one.
+( To be continued )
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jan 17, 2018 at 1:29
+answered
+Dec 2, 2017 at 10:36
+Craig  Hicks
+149
+6
+6 bronze badges
+$\endgroup$
+5
+1
+$\begingroup$
+Please do not post two of the same answer to two different questions.
+$\endgroup$
+Glen_b
+–
+Glen_b
+2017-12-02 10:55:55 +00:00
+Commented
+Dec 2, 2017 at 10:55
+$\begingroup$
+@Glen_b - I have completely rewritten my answer, changing to a purely mathematical and statistical approach.  No philosophy, sets, counting, or computational science.  I think this is in keeping with this board. Perhaps I could post it as a new answer?  I would appreciate your consideration.
+$\endgroup$
+Craig  Hicks
+–
+Craig  Hicks
+2017-12-20 23:55:32 +00:00
+Commented
+Dec 20, 2017 at 23:55
+1
+$\begingroup$
+I'm not sure what you're asking me to do here. If you really think you have a different answer you can post it.
+$\endgroup$
+Glen_b
+–
+Glen_b
+2017-12-21 02:28:37 +00:00
+Commented
+Dec 21, 2017 at 2:28
+$\begingroup$
+@Glen_b Craig cannot post another answer because this thread is protected and his reputation (minus association bonus) is currently negative. I am not sure there is any way to help him apart from temporarily removing the protection. Craig, a better solution would be for you to post some other answers in other threads, get a couple of upvotes, and accumulate enough rep to be able to post here.
+$\endgroup$
+amoeba
+–
+amoeba
+2017-12-21 21:39:02 +00:00
+Commented
+Dec 21, 2017 at 21:39
+$\begingroup$
+@amoeba - I have condensed the answer to deliver the message in fewer words.  Did you read it?  In the $(i,n)$ >DOMAIN< space, each Ross limit approaches an $i/n$ ratio of zero.  In comparison the ratio preserving limits of $\lim_{n\rightarrow \infty} \frac{a*n}{b*n}$ preserve the ratio $a/b$.  Do you see my point?
+$\endgroup$
+Craig  Hicks
+–
+Craig  Hicks
+2017-12-23 20:27:01 +00:00
+Commented
+Dec 23, 2017 at 20:27
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+paradox
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+15
+The frog problem with negative steps
+15
+Identifiability of neural network models
+6
+How do we characterize probabilities on this infinite sample space
+3
+Constructive mathematics and statistics
+Related
+3
+Multivariate distribution from drawing balls with elimination of previously picked colors from urn at each step
+1
+Conditional Probability of balls in cells
+1
+Drawing two balls with different colours from two trials
+1
+Expected value of balls left, drawing colored balls with 0.5 probability
+1
+Urn problem with replacement of a ball of diferent color
+14
+Bertrand's Box Paradox
+Hot Network Questions
+Create and verify a large single file in parallel-mode
+Can a coin be 'completely' unclippable?
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+Where do we stop vetting people in the presidential line of succession for eligibility to be president?
+Why the races have to restart if someone leaves the starting position before starter pistol signal?
+What does "crown" symbolise in "the crown of righteousness" 2 Timothy 4:8?
+Does a corpse keep its damage immunities?
+Are US passport holders required to keep passports on their person, when in Canada?
+The Animation Story
+Can we run out of PNR codes?
+Making code less scattered when crossing a pagebreak in lstlisting
+Line of Sight function for a hex-based wargame
+What's the best explanation that E# is not the same as F?
+Writing your own Wikipedia biography?
+Why two NaNs with the same binary are still not equal to each other but two infs are?
+Is there such thing as "Fundamental Theorem of Markov Processes"?
+Why is the asymptotic variance of true errors and residuals the same
+What to do when there are multiple descriptions or definitions of the same mathematical object?
+Is "Spider-Man is a good movie" an unfalsifiable statement?
+What becomes of seized tankers and their oil cargo?
+Why would an extraterrestrial ecosystem without predators have evolved?
+Why does 74x138 have 3 EN and why does it have to be 1 EN active high and 2 active low?
+Arrow not pointing in the correct direction/incorrectly rendered
+PTIJ: Serving With Oy
+more hot questions
+Question feed

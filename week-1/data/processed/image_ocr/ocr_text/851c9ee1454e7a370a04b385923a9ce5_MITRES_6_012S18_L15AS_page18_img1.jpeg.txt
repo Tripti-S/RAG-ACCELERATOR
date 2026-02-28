@@ -1,0 +1,15 @@
+An illustration Estimating the trajectory of a free-falling object
+
+100
+
+Qo ~ N(200, 507), 0; ~ N(50, 507), @2 = —9.81, W; ~ N(0, 50”)
+ek x (4)
+
+X; = Oo + O1t) + Oot? + W;
+
+minimize (09 — 200)? + (6; — 50)?
+60, 01 n
++ Yo (a; - 9% — 01t; + 9.8117)?
+
+i=1
+

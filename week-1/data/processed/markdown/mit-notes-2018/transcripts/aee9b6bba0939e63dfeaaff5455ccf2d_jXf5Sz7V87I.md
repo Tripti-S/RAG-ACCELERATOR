@@ -1,0 +1,40 @@
+# Aee9B6Bba0939E63Dfeaaff5455Ccf2D Jxf5Sz7V87I
+
+---
+
+MITOCW | MITRES6_012S18_L22-09_300k
+Let us now take stock and summarize what we have done for these two processes, the Bernoulli and the Poisson
+process, and their relation.
+The Poisson process runs in continuous time, whereas, for the Bernoulli process, time is discrete and is divided
+into slots.
+The Poisson process is defined by a single parameter, lambda, which is the intensity or arrival rate, and tells us
+the expected number of arrivals per unit time.
+For the Bernoulli process, we have, again, one basic parameter, which is the probability of success at any given
+trial, or the probability of an arrival during each one of the slots.
+Based on our model, we were interested in three kinds of quantities.
+And we found the distributions of them.
+The first quantity is the number of arrivals during a certain time interval.
+For the discrete case, the number of arrivals has a binomial distribution, whereas for the one Poisson case, the
+distribution is that of a Poisson random variable.
+Then we looked at the time until the first arrival, or the time between consecutive arrivals.
+For the Bernoulli process, that distribution is geometric.
+For the Poisson process, that distribution is exponential.
+Note that in this instance, we're dealing with a discrete random variable, but, here, with a continuous random
+variable.
+And then, as a generalization, we could find the time until a kth arrival, which, in the Poisson case, is given by an
+Erlang distribution.
+And for the Bernoulli case, we developed one particular formula.
+And that formula is actually known under the name of the Pascal distribution.
+All of these results, for the Poisson case, were obtained because we used an approximation argument.
+That is, we had the results for the Bernoulli case.
+But then we argued that the Poisson process is a limiting case of the Bernoulli process in which we take time,
+But then we argued that the Poisson process is a limiting case of the Bernoulli process in which we take time,
+divide it into a large number of slots, during each one of the slots, however, we have a small probability of an
+arrival.
+And this is done in a way so that the product of these two numbers stays a constant.
+By using a finer and finer discretization, we could approach the Poisson process arbitrarily close by a Bernoulli
+process.
+And then we used the Bernoulli formulas in which we took the limit as delta was going to zero.
+And this gave us the result for the Poisson case.
+
+---

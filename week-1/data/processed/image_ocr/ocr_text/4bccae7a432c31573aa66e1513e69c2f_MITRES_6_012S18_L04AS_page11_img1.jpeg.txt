@@ -1,0 +1,26 @@
+Example: 52-card deck, dealt (fairly) to four players.
+Find P(each player gets an ace)
+
+e Outcomes are: Partition equall, key
+
+— number of outcomes: 5 \
+2
+
+\ | °
+1: 19219, 19.
+e Constructing an outcome with one ace for each person:
+
+— distribute the aces 4 23-9 - |
+
+\
+— distribute the remaining 48 cards 4
+
+B
+No aoe! (2s
+1
+4.3.2.
+« Apewer 12112! 12112!
+
+52!
+13!13!13!13!
+

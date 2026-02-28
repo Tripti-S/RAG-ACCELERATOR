@@ -1,0 +1,9 @@
+Covariance o.
+Definition for general case:
+
+e Zero-mean, discrete X and Y
+
+— ifindependent: E[XY] = CONE B(x hs ie a le EIY)|
+
+e independent > cov(x,Y) =0
+(converse is not true)

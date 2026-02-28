@@ -1,0 +1,5 @@
+From the joint to the marginals
+px(«) = Dpxy(2,y) fx(a) = | fxy(a,u) dy
+y
+
+py(y) = Dpxy(2,y) fv(y) = | fxy(,y) de

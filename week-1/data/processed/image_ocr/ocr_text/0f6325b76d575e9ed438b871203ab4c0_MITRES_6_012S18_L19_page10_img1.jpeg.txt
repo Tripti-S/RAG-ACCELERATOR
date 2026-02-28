@@ -1,0 +1,10 @@
+Example 2
+e P(S, <a) xb given two parameters, find the third Zn = =
+no
+
+e Package weights Xj, i.i.d. exponential, A = 1/2;
+pr=o=
+
+e Let n= 100. Choose the “capacity” a,
+so that P(Sn > a) + 0.05.
+

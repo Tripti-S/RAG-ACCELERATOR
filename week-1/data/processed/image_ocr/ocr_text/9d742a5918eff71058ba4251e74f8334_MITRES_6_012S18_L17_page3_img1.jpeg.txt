@@ -1,0 +1,11 @@
+Solution to the LLMS problem
+e Minimize E (eo = aX = b)?], w.r.t. a, b
+
+— suppose a has already been found:
+
+Cov(©, X)
+
+©, = E[6] + var(Xx)
+
+(x - E[X]) = E[9] + poo (x — E[X])
+

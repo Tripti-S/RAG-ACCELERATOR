@@ -1,0 +1,344 @@
+LECTURE 9: Conditioning on an event; Multiple continuous r.v.'s
+• Conditioning a r.v. on an event
+Conditional PDF
+Conditional expectation and the expected value rule
+Exponential PDF: memorylessness
+Total probability and expectation theorems
+Mixed distributions
+• JOintly continuous r.v.'s and joint PDFs
+From the joints to the marginals
+Uniform joint PDF example
+The expected value rule and linearity of expectations
+The joint CDF
+1
+Conditional PDF, given an event
+PX( x ) = P (X = x ) JX(x) ·6 ", P (x:5 X :5 x +6)
+I
+PX IA(X) = P (X = x A)
+L
+P (X E B) = px( x ) P (X E B) = fB Jx (x ) dx
+x E B
+L
+= I Def
+P (X E B I A) PX IA(X) P (X E B A) = fB!x ,A(x)dx
+xE B
+f JX IA(X)dx = 1
+•
+2
+Conditional PDF of X , given that X E A
+.J"
+< + I
+P (x X ::; x J X E A) '" !X IXEA(X)
+_ 1 (..
+~x~ ~+cS') XEA)
+-
+.
+•
+-
+A
+2 (A)
+1
+_ H:>: f"
+5X !:?otb) _ (?o)
+­
+-
+....
+"
+.£
+.P(A) (A)
+0, if xfjc A
+!X IX EA(X) = ix(x)
+if x E A
+p eA) ,
+3
+Conditional expectation of X, given an event
+J
+=
+E[X] L XPx(x)
+E[X] = x!X(x ) dx
+x
+J
+I
+=
+E[X A] L XPX IA(X)
+Def
+I
+E [X A] = X!X IA(X) dx
+x
+Expected value rule:
+J
+E[g(X) ] = L 9(x)px(x) E[g(X) ] = g(x)!X(x) dx
+x
+J
+I
+E[g(X) A] = L 9(x)PX IA(X) I =
+E[g(X) A ] g(X)fX IA(X) dx
+x
+4
+Example
+A:
+fx( x )
+a b c d x a.
+I
+I ~!>
+b
++-
+E [X I A} - - •.
+0.... " - :t •
+2-
+~
+~
+fXIA( X)
+- 2..
+- !... b
+<>. ..
+'-i
+1 - ..... '1
+- -­ E [X2 I A} =
+•
+\;> .....
+!;,
+i i oL?G
+·X
+.
+•
+b -
+a 0 , .." c x ,. (l\. •
+",.!>
+•
+5
+Memorylessness of the exponential PDF
+• Do you prefer a used or a new "exponential" light bulb? Pro)labilistically identical!
+, /\./ .,:T
+• Bulb lifetime T: exponential(.\)
+\ I
+I I
+'-AI' ,
+t ""
+~.?<
+> Ax >
+P(T x ) = e- , for x 0
+>
+we "" re told that T t
+=
+T - t
+r.v. X: remaining lifetime
+P(X > x IT > t) = e - Ax , for x > 0
+=.£(T-b?C.)T:>t)= E(T>-t+?c.)T"?t)",
+-
+£( T') e-)
+:: e - H t e _ ,h::
++'k.) .,.
+e -;\{
+6
+Memorylessness of the exponential PDF
+Ax
+>
+fT(X) = Ae- , for x 0
+I , "I
+I \ , '""
++
+< <
+P(t T t & IT > t) "
+similar to an independent coin flip,
+every & time steps,
+with P(success) ", A&
+7
+Total probability and expectation theorems
++ ... +
+A, n B PCB) = P(Al) P ( B I Al) P(An )P ( B I A n )
++ ... +
+Px(x ) = peAl) PX IA, (x) P(An ) pX IAn(X)
+EJx.):
+)?(II,).E(J(>?o/A,)+ .••
+f()(~~):::
+F
+=.£(11,) (?C)f- .• '
+)ell'l,
++ ... +
+f X(x) = P(Al) fx IAl (x) P(An ) f X IA" (x )
+P(A,)
+I 11
+r'--"-'-'-'-- E [X A
+A,"2,),-- [X I A21
+'-----_-P'­ -("- E
+P(A3) E[X I A31
+8
+Example
+• Bill goes to the supermarket shortly, with probability 1/3,
+at a time uniformly distributed between 0 and 2 hours from now;
+or with probability 2/3, later in the day
+at a time uniformly distributed between 6 and 8 hours from now
+fx{x)
+r -­
+1/(,
+2
+~ • - -1 + - . ?­
+o ..
+x
+1 2 6 7 6 3
+9
+Mixed distributions
+No
+uniform on [0 , 2], with probability 1/ 2 Is X discrete?
+X=
+1, with probability 1/ 2
+IV
+Is X continuous? 0
+f()(=')~'/i,
+X = Y, with probability p
+Y discrete
+X is mixed
+Z , with probability 1 - p
+Z continuous
+=
+p • i
+F" ..£ ( '(
+(-.c.):: ~ ?c.) t (, - p) (2- x)
+r
+= Fy F? ('):.)
+(?<-) + (,- p)
+r
+[l(] f [ Y] [2-]
+p f
+= + (, - p)
+10
+Mixed distributions
+uniform on [0 , 2], with probability 1/ 2
+x=
+1, with probability 1/ 2
+i
+Fxex)
+o
+1 2 x
+j o
+1 2 x
+o
+1 2 x
+11
+ix(x)
+Jointly continuous r.v.'s and joint PDFs
+PX,Y(x, y) ix,Y(x, y)
+> >
+PX,y (x,y) = P (X = x and Y = y) 0 ix,Y(x, y) 0
+JJ
+p( B)
+p(X,Y) E B)= LL PX ,Y(x ,y)
+(X, Y) E = ix,Y(x, y) dx dy •
+(x ,y)E B
+(x,y) EB
+LL PX,Y(x,y) =
+1
+J:J:ix,Y(x,y)dxdy =
+1
+x y
+Definition: T wo random variables are jointly continuous
+if they can be described by a jOint PDF
+12
+Visualizing a joint PDF
+JJ
+B)
+p (X, Y) E = fX ,y (x,y)dxdy
+(x,y)EB
+13
+-
+- - r - - ­
+On joint PDFs
+-
+JJ
+p( B)
+(X, Y) E = fx,Y(x, y) dx dy
+( x,Y )EB
+ld l
+< < <
+P ea X < b, c Y d) = fx ,y(x, y) dxdy
+y = x
+fx y(x, y): probability per unit area
+,
+'*
+B)
+area(B) = 0 p ((X, Y) E = 0
+14
+to the marginals
+the joint
+fx(x) = j'fx ,y(x, y)dY
+px(x) = LPX,Y(x,y)
+y
+J
+fy(y) = fx ,Y(x , y) dx
+py(y) = LPX,Y(x,y)
+x
+-
+-
+, _ _ _- - ( -·
+- 00 .... ,
+oo~_~
+15
+Uniform joint PDF on a set S
+-
+- -I
+1
+if (x,y) E S,
+area of S '
+/X ,y(x,y) =
+y
+y
+0, otherwise.
+1/ 2
+- - , - - ­
+I
+1/4
+- 0-'l-ea(5)
+J
+h(y)
+I 2 3
+'"
+3/4 , - ,
+"-,1/4
+16
+More than two random variables
+PX,Y,Z(X , Y, z) fx ,y,z(x, y , z)
+2:2:2>x,Y,Z(X , Y,Z) = 1
+x y z
+px(x) = 2:2: PX ,Y,z(x,y,z)
+y z
+PX,y(x, y) = 2: PX ,Y,z(x, y , z)
+z
+17
+Functions of multiple random variables
+Z = g(X, Y)
+Expected value rule:
+JJ
+E[g(X , Y)} = L L 9(x, Y)PX,y(x , y) E[g(X ,Y)} = g(x , y)Jx,y(x,y)dxdy
+x 11
+Linearity of expectations
+•
++ +
+E[aX b} = aE[X} b
++ +
+E[X Y} = E[X} E[Y}
++ ... + + ... +
+E[Xl Xn} = E[Xl} E[Xn}
+18
+The joint CDF
+[00 dF
+Jx(x)= x(x)
+FX(x) = P(X :s x) = Jx(t) dt
+dx
+:s
+< =
+Fxy( x, y) = P (X x, Y y)
+(P
+F - 00
+= 8x ~~Y
+Jx,Y( x, y) (x , y)
+I
+•
+I
+19
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

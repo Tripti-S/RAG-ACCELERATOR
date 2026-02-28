@@ -1,0 +1,225 @@
+LECTURE 2: Conditioning and Bayes' rule
+• Conditional probability
+• Three important tools :
+- Multiplication rule
+- Total probability theorem
+Bayes' rule ( • inference)
+1
+The idea of conditioning Use new information to revise a model
+Assume 12 equal ly likely ou t comes If to ld B occu rred:
+n n
+• '/1'2.
+/ A / A
+•
+•
+•
+•
+• • • •
+•
+B •
+B
+• • •
+• • •
+"'­
+~
+I
+P CA ) = 5 I
+P CB B ) =
+- ,
+12
+•
+n
+n
+3
+A
+A
+-
+12
+3
+12
+2
+B
+B
+-
+12 4
+-
+12
+L
+2
+3
+Example: two rolls of a 4-sided die
+" 1/16
+• Let B be the event: min (X, Y) = 2
+4
+L et AI = max(X , Y)
+Y = Second 3
+0
+roll = 1 1 =
+P ( M B )
+2
+I
+I 2 3 4
+x
+= First roll
+_ 2/1 b
+_ 2­
+- -
+5/)b
+4
+Conditional probabilities share properties of ordinary probabilities
+I > a > a
+p eA B ) assumin g PC B )
+c
+=
+P (11 1B ) = f (..nn ~) f(S) = I
+£($)
+r(~)
+?
+I (e,n e,) -;. I
+P CB B ) = B
+£(11))
+I I I
+If A n C = 0, th en P(A U C B ) = peA B ) +P(C B )
+L..
+, J
++:e
+f (( l'
+=.f. ((A \"),, l'!,) _ AIl~j LJ criB")) _ (,41113) (err B)
+f(j?,) - - :­
+f(£')
+f.(~)
+5
+_ PC A n B )
+Models based on conditional probabilities PC A I B ) = PCA n B ) )
+C I
+P B A - PC A )
+PCB)
+Event A : Airplane is flying above
+Event B : Something registers on radar screen
+A n B
+0.99
+peA) = 0.05
+0.01
+·0,<')"
+• PC B ) = 0.0')
+.f3"-'
++-0 0.1 .:b,I\14S"
+0.10
+0.90
+6
+A n B n G
+The multiplication rule
+A n B
+I
+I PC B A )
+pe A B ) = P( A n B )
+PC B )
+A
+A n B C
+I
+peA n B ) = PC B ) pe A B )
+I
+= pe A ) PC B A )
+B)n G
+P( ~C
+n C =
+.
+)
+........
+, ,
+l' I
+&) 1')
+::;1 (c' A'11
+(/1<'1\
+=f(A').lC&W)f
+(ccll/cf)~)
+7
+Total probability theorem
+• Partitio n o f sa mpl e space into Ai> A A , _ ••
+, 3
+2
+A3
+Al
+• Have P ( Ai ) . for every i
+B ,,\
+/ Al n B
+I
+• Have P CB A i ) . for eve ry i
+A3 n B
+\<:
+A2 n B
+I
+A2
+=.e
+(\3nA ,).\of (Bntl
+11~IJA.J
+PCB)
+)
+1
+: £ ,J f ,1
+(A (S 1~ + •• -
+t •••
+'2: f fA,·)"
+i
+Q).s
+WCV>~
+• --
+"
+V-e,Ab He"!
+vp.~~l"
+0.
+:e
+I (B)t) ,,)
+PC B ) = ~.P(Ai) PCB A i ) ~
+0
+8
+Bayes' rule
+• Partition of sample space into AI. A 2 , A3
+A3
+Al
+• Have P( Ai ), for every i initial "beliefs"
+IA l n B
+I
+• Have P( B Ai ), for every i
+A3 n B
+'< A2 n B
+A2 revised "beliefs," given that B occurred:
+AI n B
+I
+P( Ai B ) =
+•
+I
+P (A ,) P ( B A ,)
+I
+P (A i B) -
+I
+Lj P (A j )P (B A j )
+9
+Bayes' rule and inference
+Cc.
+Thomas Bayes, presbyterian minister 1701-1761)
+"Bayes' theorem," published posthumously
+systematic approach for incorporating new evidence
+• Bayesian inference
+initial beliefs PCA ) on possible causes of an observed event B
+i
+I
+model of the world under each A;: PC B Ai )
+model
+,
+A B
+----~~~--+,
+I
+PC B Ai )
+draw conclusions about causes
+inference A .
+B I
+I
+PC A i B ). ,
+10
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

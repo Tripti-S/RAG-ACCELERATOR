@@ -1,0 +1,33 @@
+wl UU
+
+4 balls Lave
+
+OO O00
+
+|
+
+eS
+Black =
+P(Blue | Red)
+
+P(B
+intersect
+
+B2) = (1/31)
+
+P(B1 empty)
+
+16/31
+
+E = B1 emp OR
+P(B1 | B2) = B2 is emp
+P(B1 intersect [using union]
+B2)/ P(B2)
+
+P(B1IE) =
+
+P(B1
+
+intersect
+
+E)/P(E)

@@ -1,0 +1,14 @@
+Convergence “in probability”
+
+WLLN: For anye>0, P(|Mn—p|>€) +0, asn-—oo
+
+e Would like to say that “M, converges to pu”
+
+e Need to define the word “converges”
+
+e Sequence of random variables Y;; not necessarily independent
+
+Definition: A sequence Y,, converges in probability to a number a if:
+
+foranye>0, lim P(|¥n—a|>«) =0
+

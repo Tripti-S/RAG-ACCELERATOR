@@ -1,0 +1,16 @@
+The time the first (or the last) light bulb burns out
+
+rs
+
+e Three lightbulbs time
+RR
+
+— independent lifetimes X, Y, Z; exponential(A) chee
+e Find expected time until first burnout t——
+time
+
+e X,Y, Z: first arrivals in independent Poisson processes
+
+Merged process:
+
+min{X,Y,Z}: 1st arrival in merged process

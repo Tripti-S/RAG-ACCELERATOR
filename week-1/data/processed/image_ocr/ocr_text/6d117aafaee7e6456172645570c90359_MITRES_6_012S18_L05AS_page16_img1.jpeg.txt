@@ -1,0 +1,21 @@
+The expected value rule, for calculating E[g(X)] 2 y
+
+e Let X bear.v. and let Y = g(X) g
+‘ 0.4-5 5
+e Averaging over y: E(Y] = Yo ypy(y) A
+0.3
+3. (0.1+0.9) +4 (0,340.4) prob “4 4
+
+Sa
+e Averaging over x: 3-0.) 13:0,2 64-03+4°0.5 a3 8
+2
+
+E[Y] = Elg(X)] = > 9(@)px(2)
+
+Proofs Ps 9 (=) Px Ce) ° ELX2]= 5 xc? Py (=)
+Y Zsg(x)=y . =
+GO) agct
+a 2 ISDE. (x) = 2 2 Px (2) e Caution: In general, E[g(X)] ¥ 9(E[X])
+
+*g(e)=7 7 X~OR)2y 2 &
+-2y ho) <0 Oe efx] & Elrl)

@@ -1,0 +1,28 @@
+An illustration Estimating the trajectory of a free-falling object
+
+@ ~ N(200, 50"). @, ~ N(50, 50"), @, = 9.81, W, ~ N(0, 507)
+
+400
+
+X; = Oo + O4t; + Oot? + W;
+
+minimize (8) — 200)? + (6; — 50)?
+
+90, 94 n D0
+
+i=1
+
+True 6) = 236.2702
+MAP @ = 256.0561
+Error std(§,) = 21.1193
+-400 |} True @, = 46.8473
+MAP 6, = 48.282
+Error std(6,) = 3.2538
+
+True trajectory
+* Sampled points
+—«e Estimated trajectory based on MAP
+
+——— 95% confidence interval
+SS
+

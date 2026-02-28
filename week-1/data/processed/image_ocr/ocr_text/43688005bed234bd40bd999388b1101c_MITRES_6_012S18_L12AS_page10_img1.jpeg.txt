@@ -1,0 +1,19 @@
+The Correlation coefficient
+
+x — EX oe [7
+e Dimensionless version of covariance: pA(X,Y) = E ( [X]) a 1)
+ox oy
+
+_ cov(x,Y)
+dip <1 S) Wexcr
+
+e Measure of the degree of “association” between X and Y
+
+e Independent > p=0O, “uncorrelated” © MEO = var (x) _ 4
+(converse is not true) , a,
+
+pl =1 <— (X -E[X]) =c(Y —E[Y]) | (linearly related)
+
+x, .
+cov(aX +b,Y¥)=a-cov(X,Y) = p(aX+b,Y)= a cov (x) = $igulad
+la| Ox Oy -p (xe)

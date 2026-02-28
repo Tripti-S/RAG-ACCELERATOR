@@ -1,0 +1,136 @@
+Exam 1 Practice Questions II, 18.05, Spring 2022
+Notes.
+Not every possible question be covered in 11 problems. Look at the other review problems
+as well as the readings, psets and class problems.
+Even the first 11 problems are much longer than the actual test will be,
+Problem 1. A full house in poker is a hand where three cards share one rank and two
+cards share another rank. How many ways are there to get a full-house? What is the
+probability of getting a full-house?
+Problem 2. Let 𝐶 and 𝐷 be two events with 𝑃(𝐶) = 0.25, 𝑃 (𝐷) = 0.45, and 𝑃(𝐶∩𝐷) =
+0.1. What is 𝑃(𝐶𝑐 ∩𝐷)?
+Problem 3. Corrupted by their power, the judges running the popular game show
+America’s Next Top Mathematician have been taking bribes from many of the contestants.
+Each episode, a given contestant is either allowed to stay on the show or is kicked off.
+If the contestant has been bribing the judges they will be allowed to stay with probability
+1. If the contestant has not been bribing the judges, they will be allowed to stay with
+probability 1/3.
+Suppose that 1/4 of the contestants have been bribing the judges. The same contestants
+bribe the judges in both rounds, i.e., if a contestant bribes them in the first round, they
+bribe them in the second round too (and vice versa).
+(a) If you pick a random contestant who was allowed to stay during the first episode, what
+is the probability that they were bribing the judges?
+(b) If you pick a random contestant, what is the probability that they are allowed to stay
+during both of the first two episodes?
+(c) If you pick random contestant who was allowed to stay during the first episode, what
+is the probability that they get kicked off during the second episode?
+Problem 4. Suppose now that events 𝐴, 𝐵 and 𝐶 are mutually independent with
+𝑃(𝐴) = 0.3, 𝑃(𝐵) = 0.4, 𝑃(𝐶) = 0.5.
+Compute the following: (Hint: Use a Venn diagram)
+(i) 𝑃(𝐴∩𝐵 ∩𝐶𝑐) (ii) 𝑃(𝐴∩𝐵𝑐 ∩𝐶) (iii) 𝑃(𝐴𝑐 ∩𝐵 ∩𝐶)
+Problem 5. Suppose 𝑋 is a random variable with 𝐸[𝑋] = 5 and Var(𝑋) = 2. What is
+𝐸[𝑋2]?
+Problem 6. (a) Suppose that 𝑋 has probability density function 𝑓 (𝑥) = 𝜆e−𝜆𝑥 for
+𝑋
+𝑥 ≥ 0. Compute the cdf, 𝐹 (𝑥).
+𝑋
+(b) If 𝑌 = 𝑋2, compute the pdf and cdf of 𝑌 .
+1
+Exam 1 Practice II, Spring 2022 2
+Problem 7. For each of the following say whether it can be the graph of a cdf. If it can
+be, say whether the variable is discrete or continuous.
+(i) (ii) (iii)
+𝐹 (𝑥) 𝐹 (𝑥) 𝐹 (𝑥)
+1 1 1
+0.5 0.5 0.5
+𝑥 𝑥 𝑥
+(iv) (v) (vi)
+𝐹 (𝑥) 𝐹 (𝑥) 𝐹 (𝑥)
+1 1 1
+0.5 0.5 0.5
+𝑥 𝑥 𝑥
+(vii) (viii)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+Problem 8. Compute the median for the exponential distribution with parameter 𝜆.
+Problem 9. (Another Arithmetic Puzzle)
+Let 𝑋 and 𝑌 be two independent Bernoulli(0.5) random variables. Define 𝑆 and 𝑇 by:
+𝑆 = 𝑋+𝑌 and 𝑇 = 𝑋−𝑌.
+(a) Find the joint and marginal pmf’s for 𝑆 and 𝑇 .
+(b) Are 𝑆 and 𝑇 independent.
+Problem 10. Let 𝑋 and 𝑌 be two random variables and let 𝑟, 𝑠, 𝑡, and 𝑢 be real numbers.
+(a) Show that Cov(𝑋+𝑠,𝑌 +𝑢) = Cov(𝑋,𝑌 ).
+(b) Show that Cov(𝑟𝑋, 𝑡𝑌 ) = 𝑟𝑡Cov(𝑋,𝑌 ).
+(c) Show that Cov(𝑟𝑋 + 𝑠, 𝑡𝑌 + 𝑢) = 𝑟𝑡Cov(𝑋, 𝑌 ).
+Problem 11. (More Central Limit Theorem)
+The average IQ in a population is 100 with standard deviation 15 (by definition, IQ is
+normalized so this is the case). What is the probability that a randomly selected group of
+100 people has an average IQ above 115?
+Exam 1 Practice II, Spring 2022 3
+More problems
+Problem 12. 20 politicians are having a tea party, 6 Democrats and 14 Republicans. To
+prepare, they need to choose:
+3 people to set the table, 2 people to boil the water, 6 people to make the scones.
+Each person can only do 1 task. (Note that this doesn’t add up to 20. The rest of the
+people don’t help.)
+(a) In how many different ways can they choose which people perform these tasks?
+(b) Suppose that the Democrats all hate tea. If they only give tea to 10 of the 20 people,
+what is the probability that they only give tea to Republicans?
+(c) If they only give tea to 10 of the 20 people, what is the probability that they give tea
+to 9 Republicans and 1 Democrat?
+Problem 13. More cards! Suppose you want to divide a 52 card deck into four hands
+with 13 cards each. What is the probability that each hand has a king?
+Problem 14. There is a screening test for prostate cancer that looks at the level of PSA
+(prostate-specific antigen) in the blood. There are a number of reasons besides prostate
+cancer that a man can have elevated PSA levels. In addition, many types of prostate cancer
+develop so slowly that that they are never a problem. Unfortunately there is currently no
+test to distinguish the different types and using the test is controversial because it is hard
+to quantify the accuracy rates and the harm done by false positives.
+For this problem we’ll call a positive test a true positive if it catches a dangerous type of
+prostate cancer. We’ll assume the following numbers:
+Rate of prostate cancer among men over 50 = 0.0005
+True positive rate for the test = 0.9
+False positive rate for the test = 0.01
+Let 𝑇 be the event a man has a positive test and let 𝐷 be the event a man has a dangerous
+type of the disease. Find 𝑃 (𝐷|𝑇 ) and 𝑃(𝐷|𝑇 𝑐).
+Problem 15. Let 𝑋 be a discrete random variable with pmf 𝑝 given by:
+𝑥 −2 −1 0 1 2
+𝑝(𝑥) 1/15 2/15 3/15 4/15 5/15
+(a) Let 𝑌 = 𝑋2. Find the pmf of 𝑌 .
+(b) Find the value the cdf of 𝑋 at -3/2, 3/4, 7/8, 1, 1.5, 5.
+(c) Find the value the cdf of 𝑌 at -3/2, 3/4, 7/8, 1, 1.5, 5.
+Problem 16. Suppose I play a gambling game with even odds. So, I can wager 𝑏 dollars
+and I either win or lose 𝑏 dollars with probability 𝑝 = 0.5.
+I employ the following strategy to try to guarantee that I win some money.
+Exam 1 Practice II, Spring 2022 4
+I bet $1; if I lose, I double my bet to $2, if I lose I double my bet again. I continue until
+I win. Eventually I’m sure to win a bet and net $1 (run through the first few rounds and
+you’ll see why this is the net).
+If this really worked casinos would be out of business. Our goal in this problem is to
+understand the flaw in the strategy.
+(a) Let 𝑋 be the amount of money bet on the last game (the one I win). 𝑋 takes values
+1, 2, 4, 8, …. Determine the probability mass function for 𝑋. That is, find 𝑝(2𝑘), where 𝑘
+is in {0, 1, 2, …}.
+(b) Compute 𝐸[𝑋].
+(c) Use your answer in part (b) to explain why the stategy is a bad one.
+Problem 17. Normal Distribution: Throughout these problems, let 𝜙 and Φ be the
+pdf and cdf, respectively, of the standard normal distribution Suppose 𝑍 is a standard
+normal random variable and let 𝑋 = 3𝑍 +1.
+(a) Express 𝑃(𝑋 ≤ 𝑥) in terms of Φ
+(b) Differentiate the expression from (𝑎) with respect to 𝑥 to get the pdf of 𝑋, 𝑓(𝑥).
+Remember that Φ′(𝑧) = 𝜙(𝑧) and don’t forget the chain rule
+(c) Find 𝑃(−1 ≤ 𝑋 ≤ 1)
+(d) Recall that the probability that 𝑍 is within one standard deviation of its mean is
+approximately 68%. What is the probability that 𝑋 is within one standard deviation of its
+mean?
+Problem 18. Toss a fair coin 3 times. Let 𝑋 = the number of heads on the first toss, 𝑌
+the total number of heads on the last two tosses, and 𝐹 the number of heads on the first
+two tosses.
+(a) Give the joint probability table for 𝑋 and 𝑌 . Compute Cov(𝑋, 𝑌 ).
+(b) Give the joint probability table for 𝑋 and 𝐹 . Compute Cov(𝑋, 𝐹 ).
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

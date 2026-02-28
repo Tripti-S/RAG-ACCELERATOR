@@ -1,0 +1,22 @@
+Definition of the Poisson process
+
+- foo)
+. Poisson > P(e,x) =4 Bernoulli
+- x xX X|
+me time
+e Numbers of arrivals in disjoint time e Independence
+
+intervals are independent
+e Time homogeneity:
+
+P(k,r) = Prob. of k arrivals in interval of duration 7
+Constant p at each slot
+
+e Small interval probabilities:
+For VERY small 6:
+
+i= irk—0 1-6 +0(62) ifk=0 05) |
+P(k, 6) © & 6 ifk=1 P(k,d)=$5 + 0(62) ifk=1 oO
+) ifk>1 0+ 0(62) ifk>1 Ss) See
+
+A: “arrival rate” °

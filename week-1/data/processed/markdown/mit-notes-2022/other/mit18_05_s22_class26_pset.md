@@ -1,0 +1,45 @@
+# Mit18 05 S22 Class26 Pset
+
+---
+
+Class 26 in-class problems, 18.05, Spring 2022
+Board questions
+Problem 1. Make it fit
+We are given bivariate data: (1, 3), (2, 1), (4, 4).
+(a) Do (simple) linear regression to find the best fitting line.
+(i) Give the model for simple linear regression.
+(ii) Write down the formula for the total squared error.
+(iii) Use calculus to find the parameters that minimize the total squared error.
+(b) Do linear regression to find the best fitting parabola. (Really just set this up and get
+as far as needing to solve equations to find the coeﬀicients.)
+(c) Find the best fitting exponential 𝑦 = e𝑎𝑥+𝑏. (As before, set up the equations but don’t
+solve them.)
+Hint: take ln(𝑦) and do simple linear regression.
+(d) For data (𝑥 , 𝑦 ), … , (𝑥 , 𝑦 ). Set up the linear regression to find the best fitting cubic.
+1 1 𝑛 𝑛
+Don’t try to take derivatives or actually find the formulas for the coeﬀicients.
+Problem 2. Using the formulas plus some theory
+Bivariate data: (1, 3), (2, 1), (4, 4)
+(a) Calculate the sample means for 𝑥 and 𝑦.
+(b) Use the formulas to find a best-fit line in the 𝑥𝑦-plane.
+𝑠
+𝑎̂= 𝑥𝑦 𝑏̂ = 𝑦− 𝑎𝑥̂
+𝑠
+𝑥𝑥
+1 1
+𝑠 = ∑(𝑥 − 𝑥)(𝑦 − 𝑦) 𝑠 = ∑(𝑥 − 𝑥)2.
+𝑥𝑦 𝑛 − 1 𝑖 𝑖 𝑥𝑥 𝑛 − 1 𝑖
+(c) Show the point (𝑥, 𝑦) is always on the fitted line.
+(d) (For fun later!) Under the assumption 𝐸 ∼ N(0, 𝜎2) show that the least squares method
+𝑖
+is equivalent to finding the MLE for the parameters (𝑎, 𝑏).
+Hint: 𝑓(𝑦 |𝑥 ,𝑎,𝑏) ∼ N(𝑎𝑥 + 𝑏, 𝜎2).
+𝑖 𝑖 𝑖
+1
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

@@ -1,0 +1,1164 @@
+bayesian - Amazon interview question—probability of 2nd interview - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Amazon interview question—probability of 2nd interview
+Ask Question
+Asked
+12 years ago
+Modified
+6 years, 3 months ago
+Viewed
+82k times
+151
+$\begingroup$
+I got this question during an interview with Amazon:
+50% of all people who receive a first interview receive a second interview
+95% of your friends that got a second interview felt they had a good first interview
+75% of your friends that DID NOT get a second interview felt they had a good first interview
+If you feel that you had a good first interview, what is the probability you will receive a second interview?
+Can someone please explain how to solve this? I'm having trouble breaking down the word problem into math (the interview is long over now). I understand there may not be an actual numerical solution, but an explanation of how you would walk through this problem would help.
+edit: Well I did get a second interview. If anyone is curious I had gone with an explanation that was a combination of a bunch of the responses below: not enough info, friends not representative sample, etc and just talked through some probabilities. The question left me puzzled at the end though, thanks for all of the responses.
+probability
+bayesian
+conditional-probability
+Share
+Cite
+Improve this question
+Follow
+edited
+Nov 8, 2019 at 20:44
+Tim
+144k
+27
+27 gold badges
+279
+279 silver badges
+545
+545 bronze badges
+asked
+Feb 10, 2014 at 1:45
+Rick
+1,481
+3
+3 gold badges
+11
+11 silver badges
+9
+9 bronze badges
+$\endgroup$
+36
+5
+$\begingroup$
+I'm not sure myself, but I'm thinking Bayes Rule may be the direction we should take this in?
+$\endgroup$
+nicefella
+–
+nicefella
+2014-02-10 01:52:22 +00:00
+Commented
+Feb 10, 2014 at 1:52
+75
+$\begingroup$
+The good news is that you have at least 24 friends, otherwise distinct subsets of them could not add up to 95% and 75%.
+$\endgroup$
+Andomar
+–
+Andomar
+2014-02-10 12:56:45 +00:00
+Commented
+Feb 10, 2014 at 12:56
+9
+$\begingroup$
+Is this a statistician's sarcastically hilarious way of telling you you didn't get the job?
+$\endgroup$
+geotheory
+–
+geotheory
+2014-02-10 14:47:03 +00:00
+Commented
+Feb 10, 2014 at 14:47
+27
+$\begingroup$
+The existence of multiple contradictory answers--a few of which are given below--convincingly demonstrates that the point of this question is not to obtain a mathematical answer but rather to see whether the interviewee thinks carefully about what assumptions need to be made in order to obtain a reasonable, defensible answer. Thus, we ought to consider any
+single, definite
+answer to this question to be incorrect--or at least not worthy of getting a job offer from Amazon. The answers that point out the ambiguities and discuss the assumptions are the ones that have merit.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2014-02-10 16:01:00 +00:00
+Commented
+Feb 10, 2014 at 16:01
+6
+$\begingroup$
+@whubere this philosophy certainly explains AWS pricing - very hard to understand, no single answer there.
+$\endgroup$
+Dmitri
+–
+Dmitri
+2014-02-10 16:10:34 +00:00
+Commented
+Feb 10, 2014 at 16:10
+|
+Show
+31
+more comments
+15 Answers
+15
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+164
+$\begingroup$
+Say 200 people took the interview, so that 100 received a 2nd interview and 100 did not. Out of the first lot, 95 felt they had a great first interview. Out of the 2nd lot, 75 felt they had a great first interview. So in total 95 + 75 people felt they had a great first interview. Of those 95 + 75 = 170 people, only 95 actually got a 2nd interview. Thus the probability is:
+$$\frac{95}{(95 + 75)}=\frac{95}{170}=\frac{19}{34}$$
+Note that, as many commenters graciously point out, this computation is only justifiable if you assume that your friends form an unbiased and well distributed sampling set, which may be a strong assumption.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 14, 2014 at 22:44
+answered
+Feb 10, 2014 at 2:25
+Vincent Gelinas
+1,302
+1
+1 gold badge
+9
+9 silver badges
+5
+5 bronze badges
+$\endgroup$
+24
+3
+$\begingroup$
+Agrees with my answer. Nice thought process.
+$\endgroup$
+digbyterrell
+–
+digbyterrell
+2014-02-10 02:27:59 +00:00
+Commented
+Feb 10, 2014 at 2:27
+23
+$\begingroup$
+(+1) This is a good use of Gigerenzer's "natural frequencies" approach to Bayes rule computations.
+$\endgroup$
+dimitriy
+–
+dimitriy
+2014-02-10 02:39:29 +00:00
+Commented
+Feb 10, 2014 at 2:39
+27
+$\begingroup$
+Even though we live in a facebook age, where all people, even unknown, may be considered friends, the question was quite specific - 50% of ALL PEOPLE got 2nd interview and 75% of YOUR (optimistic) FRIENDS did not get the 2nd interview. Thus I think your answer is missing the most important part. Amazon wanted to see how friendly you are :)
+$\endgroup$
+Krystian
+–
+Krystian
+2014-02-10 08:38:35 +00:00
+Commented
+Feb 10, 2014 at 8:38
+4
+$\begingroup$
+I just signed up only to +1 this answer. :). Awesome explanation bro.
+$\endgroup$
+Mithun Satheesh
+–
+Mithun Satheesh
+2014-02-10 12:49:46 +00:00
+Commented
+Feb 10, 2014 at 12:49
+11
+$\begingroup$
+I think it would be nice to mention that you can make this guess (answer is 95/(95+75)) only if you believe that your friends is an unbiased and well distributed sampling set (because they are not all the people). Like it is done with surveys - if you want to make a good guess you need to pick a good sampling set.
+$\endgroup$
+Ski
+–
+Ski
+2014-02-10 14:15:49 +00:00
+Commented
+Feb 10, 2014 at 14:15
+|
+Show
+19
+more comments
+108
+$\begingroup$
+Let
+$\text{pass}=$ being invited to a second interview,
+$\text{fail}=$ not being so invited,
+$\text{good}=$ feel good about first interview, and
+$\text{bad}=$ don't feel good about first interview.
+$$
+\begin{align}
+p(\text{pass}) &= 0.5 \\
+p(\text{good}\mid\text{pass}) &= 0.95 \\
+p(\text{good}\mid\text{fail}) &= 0.75 \\
+p(\text{pass}\mid\text{good}) &= \;?
+\end{align}
+$$
+Use Bayes' Rule
+$$
+p(\text{pass}\mid\text{good}) =
+\frac{p(\text{good}\mid\text{pass})
+\times
+p(\text{pass})}{p(\text{good})}
+$$
+To solve, we need to realize that:
+$$
+\begin{align}
+p(\text{good}) &= p(\text{good}\mid\text{pass})\times p(\text{pass}) + p(\text{good}\mid\text{fail})\times p(\text{fail}) \\&= 0.5(0.95 + 0.75) \\&= 0.85
+\end{align}
+$$
+Thus:
+$$
+p(\text{pass}\mid\text{good}) = \frac{0.95 \times 0.5}{0.85} \approx 0.559
+$$
+So feeling good about your interview only makes you slightly more likely to actually move on.
+Edit:
+Based on a large number of comments and additional answers, I feel compelled to state some implicit assumptions. Namely, that your friend group is a representative sample of all interview candidates.
+If your friend group
+is not
+representative of all interview candidates, but is representative of your performance (i.e. you and your friends fit within the same subset of the population) then your information about your friends could still provide predictive power. Let's say you and your friends are a particularly intelligent bunch, and 75% of you move on to the next interview. Then we can modify the above approach as follows:
+$$p(\text{pass}\mid\text{friend})=0.75$$
+$$p(\text{good}\mid\text{pass, friend})=0.95$$
+$$p(\text{good}\mid\text{fail, friend})=0.75$$
+$$
+p(\text{pass}\mid\text{good, friend}) =
+\frac{p(\text{good}\mid\text{pass, friend})
+\times
+p(\text{pass}\mid\text{friend})}{p(\text{good}\mid\text{friend})} =
+\frac{0.95 \times 0.75}{0.85} \approx 0.838
+$$
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 11, 2014 at 18:13
+answered
+Feb 10, 2014 at 2:24
+digbyterrell
+2,496
+1
+1 gold badge
+18
+18 silver badges
+26
+26 bronze badges
+$\endgroup$
+8
+10
+$\begingroup$
+This is true only if we assume that
+your friends
+are representative of the overall group.
+$\endgroup$
+gerrit
+–
+gerrit
+2014-02-10 09:59:53 +00:00
+Commented
+Feb 10, 2014 at 9:59
+$\begingroup$
+I'm not sure why u defined 'bad' there ... but i found you solution as the only viable one throught all the answers
+$\endgroup$
+Decebal
+–
+Decebal
+2014-02-10 12:42:41 +00:00
+Commented
+Feb 10, 2014 at 12:42
+$\begingroup$
+What is the difference between $p(good|pass)$ and $p(pass|good)$ ? Is the combination not commutative?
+$\endgroup$
+Iain Samuel McLean Elder
+–
+Iain Samuel McLean Elder
+2014-02-10 15:00:00 +00:00
+Commented
+Feb 10, 2014 at 15:00
+$\begingroup$
+"So feeling good about your interview only makes you slightly more likely to actually move on." Really? This could just be a symptom of the factors used to decide if you pass, not itself a factor. My feeling good about the interview does not change how well I performed. In fact, the entire analysis is based on the idea that how good you feel is itself a cause for passing/failing.
+$\endgroup$
+AJMansfield
+–
+AJMansfield
+2014-02-10 16:35:35 +00:00
+Commented
+Feb 10, 2014 at 16:35
+2
+$\begingroup$
+While this answer and Vincent's answer come to the same result, I think this answer gives a more general explanation.  This question is like a stock exercise in bayesian probability.
+$\endgroup$
+Ask About Monica
+–
+Ask About Monica
+2014-02-10 20:57:03 +00:00
+Commented
+Feb 10, 2014 at 20:57
+|
+Show
+3
+more comments
+36
+$\begingroup$
+The question contains insufficient information to answer the question:
+$x$% of all people do A
+$y$% of your friends do B
+Unless we know the population size of
+all people
+and
+your friends
+, it is not possible to answer this question accurately, unless we make either of two assumptions:
+The group
+your friends
+is representative of the overall population.  This results in
+Vincent Galinas' answer
+or, equivalently,
+Alex Williams' answer
+.
+The group
+your friends
+is not representative, and is much smaller than the overall population.  This results in
+CeeJeeB's answer
+.
+Edit:
+Do also read the
+comment by Kyle Strand below
+.  Another aspect we should consider is
+how similar am I to my friends
+?.  This depends on whether one interprets
+you
+as
+the person spoken to
+or as
+an unspecified individual or group of individuals
+(both usages exist).
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 13, 2017 at 12:44
+Community
+Bot
+1
+answered
+Feb 10, 2014 at 9:59
+gerrit
+1,459
+1
+1 gold badge
+17
+17 silver badges
+28
+28 bronze badges
+$\endgroup$
+5
+2
+$\begingroup$
+This is the only correct answer thus far.
+$\endgroup$
+akappa
+–
+akappa
+2014-02-10 17:24:45 +00:00
+Commented
+Feb 10, 2014 at 17:24
+1
+$\begingroup$
+I think I agree...
+$\endgroup$
+Behacad
+–
+Behacad
+2014-02-10 18:16:18 +00:00
+Commented
+Feb 10, 2014 at 18:16
+9
+$\begingroup$
+There's an additional assumption you're making here: the question doesn't ask how likely
+an arbitrary candidate
+is to get a second interview: it asks how likely
+you
+are to get a second interview. By pondering whether your friend group is a representative sample of the general population, you're ignoring the possibility that you are more similar to your friends than you are to members of the general population, in which case data about your friends might be more indicative of your own chances than data about the general population is.
+$\endgroup$
+Kyle Strand
+–
+Kyle Strand
+2014-02-10 19:55:51 +00:00
+Commented
+Feb 10, 2014 at 19:55
+$\begingroup$
+I would suppose that somewhere here the keystone is. The question is whether you are similar to your friends, or whether you are not. So maybe this is the best answer at the interview: "Depends on whether my friends are similar enough to me or not. I assume they are quite, so the answer is somewhere inbetween 50% and 59%".
+$\endgroup$
+yo'
+–
+yo'
+2014-02-11 14:27:01 +00:00
+Commented
+Feb 11, 2014 at 14:27
+2
+$\begingroup$
+Another key piece of missing information is
+when
+my friends were evaluated for their feelings about their interview. I am being asked
+before
+I know whether I have a second interview, but what if all my friends were evaluated after they knew whether they would receive a second interview? That knowledge could have changed their self-assessment, making their a posteriori feelings not directly comparable to my a priori assessment of my own performance.
+$\endgroup$
+Jonathan Van Matre
+–
+Jonathan Van Matre
+2014-02-11 19:36:06 +00:00
+Commented
+Feb 11, 2014 at 19:36
+Add a comment
+|
+25
+$\begingroup$
+The answer is 50%. Particularly since it was an interview question I think Amazon wanted to test the candidate to see if they could spot the obvious and not be distracted by the unimportant.
+When you hear hoofbeats, think horses, not zebras -
+reference
+My explanation:  The first statement is all the information you need.
+50% of All People who receive first interview receive a second interview
+The other two statements are just observations. Feeling you had a good interview does not increase your chances of having a second.
+Although statistically the observations may be correct I believe they cannot be used to predict future outcomes.
+Consider the following.
+2 shops sell lottery scratch cards
+After selling 100 cards each a customer gets a winning card from shop 1
+Statistically you could say that shop 1 now has a greater chance of a person getting a winning ticket, 1 in 100 compared to 0 in 100 for shop 2.
+We understand this is not true. The reason it is not true is because in this example past events will not have a bearing on future outcomes.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 12, 2014 at 8:13
+answered
+Feb 10, 2014 at 8:30
+CeejeeB
+423
+3
+3 silver badges
+4
+4 bronze badges
+$\endgroup$
+16
+21
+$\begingroup$
+Everything is just an observation. Reminds me about the anecdote, what is a probability of getting hit by the bus. 50%, you either get hit, or not.
+$\endgroup$
+mpiktas
+–
+mpiktas
+2014-02-10 08:58:46 +00:00
+Commented
+Feb 10, 2014 at 8:58
+3
+$\begingroup$
+That would be my response too. My reasoning being that the number of
+my friends that had an interview at Amazon
+is completely drowned out by the
+all people hat had an interview at Amazon
+.
+$\endgroup$
+deroby
+–
+deroby
+2014-02-10 09:24:50 +00:00
+Commented
+Feb 10, 2014 at 9:24
+5
+$\begingroup$
+deroby, I think you should ask if your friends is a reasonably well distributed measurement set. Even if they are completely drowned by all the other people they still can provide valuably correct insights. This is how surveys work.
+$\endgroup$
+Ski
+–
+Ski
+2014-02-10 13:58:13 +00:00
+Commented
+Feb 10, 2014 at 13:58
+2
+$\begingroup$
+"The other two statements are just observations." -- What do you mean "just observations"? Observations hold predictive power.
+$\endgroup$
+digbyterrell
+–
+digbyterrell
+2014-02-10 21:06:55 +00:00
+Commented
+Feb 10, 2014 at 21:06
+17
+$\begingroup$
+Nobody claims that feeling good about an interview
+causes
+a second interview to happen. However, it is both plausible and possible for there to be an
+association
+between that feeling and getting a second interview. (In fact, if we knew how many friends there were we could test the data given in the question for statistical significance.) At the very outset your answer abandons any attempt at exploiting that potentially useful information. That makes it less than a satisfactory response to the question.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2014-02-12 17:42:17 +00:00
+Commented
+Feb 12, 2014 at 17:42
+|
+Show
+11
+more comments
+15
+$\begingroup$
+The answer that I would give is:
+Based on this information, 50%. 'Your friends' is not a representative sample so it should not be considered in the probability calculation.
+If you assume that the data is valid then Bayes' theorem is the way to go.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 10, 2014 at 9:20
+Sam Beckman
+151
+2
+2 bronze badges
+$\endgroup$
+4
+8
+$\begingroup$
+Not a representative sample of what population, exactly?  This is not a question about some random interviewee: it's a question about "you."  As such it invites us to consider which data are relevant to "you" and to what extent they might be, but your vague use of "representative" just dodges that altogether.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2014-02-10 15:53:26 +00:00
+Commented
+Feb 10, 2014 at 15:53
+$\begingroup$
+@whuber The statistics that were given state that 'your friends' is the sample of the population that is being studied. It strongly implies that population is all the people who have had an interview at Amazon. The statistic (of the sample) is being inferred to discover a parameter (of the population). Then the parameter is applied to an individual of the population as a probability. In this case, the sample is a convenience sample and therefore doesn't represent to population. The question is about probability so it is not about "you," it is about the population, of which you are a member.
+$\endgroup$
+Sam Beckman
+–
+Sam Beckman
+2014-02-11 03:20:04 +00:00
+Commented
+Feb 11, 2014 at 3:20
+$\begingroup$
+What do you mean "not considered"? Where are you drawing this conclusion from?
+$\endgroup$
+Jase
+–
+Jase
+2014-02-11 14:48:11 +00:00
+Commented
+Feb 11, 2014 at 14:48
+$\begingroup$
+@Jase I mean that the parameter will not be valid if it is based on a non-representative sample. If you include the statistics that are based on a bad sample in your probability calculation, the result will be invalid. This is fundamental to statistics. A sample cannot be assumed to be representative of a population unless that sample has been chosen in a random manner. 'Your friends' is not a random selection so statistics that are derived from that sample shouldn't be used to infer charistics of the population.
+$\endgroup$
+Sam Beckman
+–
+Sam Beckman
+2014-02-12 08:02:50 +00:00
+Commented
+Feb 12, 2014 at 8:02
+Add a comment
+|
+9
+$\begingroup$
+State that none of your friends are also up for interview.
+State that the question is underconstrained.
+Before they can scramble for some further constraint to the problem quickly try and get in a more productive pre-prepared question of your own in a manner fully expecting a response. Maybe you can get them to move on to a more productive interview.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 10, 2014 at 7:11
+Paddy3118
+207
+1
+1 silver badge
+3
+3 bronze badges
+$\endgroup$
+4
+3
+$\begingroup$
+Why the downvote? An interview is two-way. You need to make sure that this job and these people are a fit for you too.
+$\endgroup$
+Paddy3118
+–
+Paddy3118
+2014-02-10 07:42:09 +00:00
+Commented
+Feb 10, 2014 at 7:42
+$\begingroup$
+I like the cheekiness, probably won't get you through, but an amusing approach.
+$\endgroup$
+hd1
+–
+hd1
+2014-02-10 07:42:17 +00:00
+Commented
+Feb 10, 2014 at 7:42
+1
+$\begingroup$
+I don't think stating that none of your friends are up for an interview is a valid answer, nor is it helpful.
+$\endgroup$
+gerrit
+–
+gerrit
+2014-02-10 10:03:27 +00:00
+Commented
+Feb 10, 2014 at 10:03
+3
+$\begingroup$
+@gerrit, if the job had a component where the applicant had to interpret customer specifications for example, then pointing out that flaw might be the right answer that the interviewer probably didn't hope to receive.
+$\endgroup$
+Paddy3118
+–
+Paddy3118
+2014-02-10 13:10:53 +00:00
+Commented
+Feb 10, 2014 at 13:10
+Add a comment
+|
+8
+$\begingroup$
+Joke answers but should work well:
+"
+100%
+When it comes to demanding superb performance from myself,
+I don't attribute the outcome to any probability
+. See you in the 2nd interview."
+"50%, until my friends got
+their own Amazon Prime account
+I won't consider their feelings valid. Actually, sorry, that was a bit too harsh. Let me take it back and rephrase: I won't even consider them human beings."
+"Wait, no one ever made my whiny friends feel good. What are your secrets? I want to work for Amazon;
+give me a chance to please to unpleasable!
+"
+Fake a phone vibration
+"Oh, sorry! It was just my
+Amazon Prime
+account telling me that the Honda I ordered was shipped. Where were we?"
+"Regardless, I still feel you should send those who didn't get a 2nd interview a 1-month free trial of
+Amazon Prime
+. No one should live their life without knowing its glory. And once we got them, retention, retention, retention."
+"55.9% All my friends have an
+Amazon Prime
+account and I will make sure to make their experience counts."
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 12, 2014 at 23:30
+answered
+Feb 12, 2014 at 22:14
+Penguin_Knight
+12k
+34
+34 silver badges
+53
+53 bronze badges
+$\endgroup$
+Add a comment
+|
+3
+$\begingroup$
+Simple case :
+95 / (95 + 75) ≈ 0.559
+is a quick way to get to the result  Out of people who felt good - 95 succeeded , 75 failed . So thats probability of you passing from that group is above . But
+No where it is said you are part of the above group .
+If you can think that distributions (your friends circle's) pattern
+is generic or you are in that group you might as well compute this
+way
+Also IMO not that it matters much but the facts about your friend feelings NEED not have any implication in future - that way its worded . For example it rained yday doesn't mean there is a possibility of rain tommorow unless
+Facts , like 50% clearing is not affecting the probability of "what you feel" and the "chances of getting based on that" in that case.
+Safer Approach :
+However I even would have thought of the 50% thingy above . I.e from the perspective of real facts - 50% is probability makes sense . 1) No where does it say your feelings SHOULD have anything to do with your results .2) There could be  ppl who are your friends - but HAD NO feelings - what happened to them ... So given all the combinations that are possible - stick with the safest choice !
+PS: I might have flunked this test too.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 12, 2014 at 19:41
+answered
+Feb 10, 2014 at 12:41
+Nishant
+131
+4
+4 bronze badges
+$\endgroup$
+3
+1
+$\begingroup$
+You can't say that b/c that is not the overall % of people who felt good, only the OPs friends.
+$\endgroup$
+MDMoore313
+–
+MDMoore313
+2014-02-10 15:46:51 +00:00
+Commented
+Feb 10, 2014 at 15:46
+$\begingroup$
+Probably Amazon wanted both answers to truly judge your capabilities . Ifs and buts type of interview questions .
+$\endgroup$
+Nishant
+–
+Nishant
+2014-02-10 18:45:16 +00:00
+Commented
+Feb 10, 2014 at 18:45
+$\begingroup$
+Got the same answer, but I assume that I have
+many
+friends ;)
+$\endgroup$
+Dog eat cat world
+–
+Dog eat cat world
+2014-02-11 11:49:58 +00:00
+Commented
+Feb 11, 2014 at 11:49
+Add a comment
+|
+3
+$\begingroup$
+It might be helpful to view this chain of events as a binary tree where just two leaf probabilities are relevant. The root node contains all folks who had a 1st interview; we then split this group on being invited to a 2nd interview (
+"2nd", "no 2nd"
+) and subsequently on whether they felt good about the 1st interview (
+"good", "bad"
+).
+The conditional probabilities
+$P(\text{good} | \text{2nd}) = 0.95$
+and
+$P(\text{good} | \text{no 2nd}) = 0.75$
+are positioned at the edges.
+For educational reasons, we present two versions: one with decimal probabilities and  the other with absolute counts -assuming a population of
+$200$
+.
+We can now directly compute the conditional probability (of receiving a second interview given that you had a good first interview) from the leaf probabilities in two ways:
+$$
+P(\text{2nd } | \text{ good}) = \frac{P(\text{2nd} \cap \text{good})}{P( \text{good})} = \frac{0.475}{0.475 + 0.375} = \frac{95}{95 + 75} \approx 0.56
+$$
+Share
+Cite
+Improve this answer
+Follow
+answered
+Nov 8, 2019 at 20:33
+Markus Loecher
+1,018
+6
+6 silver badges
+13
+13 bronze badges
+$\endgroup$
+Add a comment
+|
+2
+$\begingroup$
+The answer is 50%. They told you in the first line what the chance of anyone getting a second interview is. It's a test of your ability to see the essential information and not get distracted by irrelevant noise like how your friends felt. How they felt made no difference.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 10, 2014 at 14:32
+Thomas Worthington
+29
+1
+1 bronze badge
+$\endgroup$
+2
+3
+$\begingroup$
+If we added the statistic that only 0.00001% of the world's population receive Interview Two, you could use this same logic to say that the probability is always 0.00001%. Obviously, additional factors (such as receiving Interview One) can have an impact on the probability on receiving Interview Two, and we don't know whether how they felt is one of those factors or not. See my comment
+here
+.
+$\endgroup$
+nmclean
+–
+nmclean
+2014-02-10 15:13:18 +00:00
+Commented
+Feb 10, 2014 at 15:13
+1
+$\begingroup$
+That's wrong. Conditions change the probabilities. I don't have 50% chance to get to the second interview, because I didn't go to the first. What's the chance of you being killed by a car? Is it the same when you're inside your house. What is your chance of being killed in a gas explosion? Is it the same when you feel the smell of gas?
+$\endgroup$
+Ark-kun
+–
+Ark-kun
+2014-02-11 13:38:05 +00:00
+Commented
+Feb 11, 2014 at 13:38
+Add a comment
+|
+2
+$\begingroup$
+Both statements say:
+% of your friends
+not
+% of your friends who were interviewed
+We do know that the group
+"that got a second interview"
+can only include those who had a first interview. However, the group
+"that did not get a second interview"
+includes
+all other friends
+.
+Without knowing what percentage of your friends were interviewed, it is impossible to identify any correlation between feeling you had a good first interview and receiving a second.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 10, 2014 at 14:58
+nmclean
+121
+2
+2 bronze badges
+$\endgroup$
+16
+1
+$\begingroup$
+Wrong. The second group did not feel they had a first good interview. Hence, they had it.
+$\endgroup$
+Mikaël Mayer
+–
+Mikaël Mayer
+2014-02-10 15:59:39 +00:00
+Commented
+Feb 10, 2014 at 15:59
+1
+$\begingroup$
+@MikaëlMayer Nonsense. Having had the interview is
+not
+a prerequisite for that statement. NOT having a specific opinion about something includes NOT having ANY opinion about it at all.
+$\endgroup$
+nmclean
+–
+nmclean
+2014-02-10 16:49:10 +00:00
+Commented
+Feb 10, 2014 at 16:49
+3
+$\begingroup$
+This seems like semantic nitpicking that intentionally avoids using what is clearly the intended interpretation of the question.
+$\endgroup$
+Kyle Strand
+–
+Kyle Strand
+2014-02-10 19:39:29 +00:00
+Commented
+Feb 10, 2014 at 19:39
+1
+$\begingroup$
+@KyleStrand In the real world, errors in interpreting statistics like this can happen. What you call nitpicking, I call diligence. I would not hesitate to give this answer in the actual interview. First, we don't know that this
+wasn't
+a deliberate trick of the question. Second, it's not an avoidance as the discussion doesn't need to end there. Once the variables are confirmed, the "expected" answer can be given, but the attention to detail will still be remembered.
+$\endgroup$
+nmclean
+–
+nmclean
+2014-02-10 20:26:13 +00:00
+Commented
+Feb 10, 2014 at 20:26
+2
+$\begingroup$
+@KyleStrand You're suggesting that someone would ignore my request for more relevant data because they find it annoying. Sorry, but interviews are two-way, and you're describing an interviewer with a very unprofessional attitude. If someone becomes annoyed and dismissive at the prospect of critical analysis
+while interviewing for a job that calls for critical analysis
+, don't expect me to stick around.
+$\endgroup$
+nmclean
+–
+nmclean
+2014-02-11 05:36:51 +00:00
+Commented
+Feb 11, 2014 at 5:36
+|
+Show
+11
+more comments
+2
+$\begingroup$
+This being an interview question, I don't believe there is a correct answer.
+I would most likely calculate the ~56% using Bayes and then tell the interviewer:
+Without any knowledge about me, it could be between 50% and 56%, but because I know me and my past, the probability is 100%
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 10, 2014 at 16:50
+Josef
+131
+5
+5 bronze badges
+$\endgroup$
+Add a comment
+|
+1
+$\begingroup$
+I think the answer is 50% - right at the beginning of the question. It's irrelevant what percentage of your friends feel.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 10, 2014 at 11:48
+Dmitri
+135
+2
+2 bronze badges
+$\endgroup$
+3
+$\begingroup$
+How can you take into account the "Feeling" about the outcome? Let's pretend that of those who did not get the interview 95% thought they did good and of those who got the interview 95% also thought they did good. You see, we changed the "Feeling" percentages but the outcome is still 50/50
+$\endgroup$
+Dmitri
+–
+Dmitri
+2014-02-11 20:43:48 +00:00
+Commented
+Feb 11, 2014 at 20:43
+$\begingroup$
+That is astronomically wrong. In this case it is now 50/50 as you have shown that the "feeling" is irrelevant. As the feeling that they had, had no bearing on the outcome. This is categorically different than the question which shows that the feeling did make a difference.
+$\endgroup$
+Cruncher
+–
+Cruncher
+2014-02-11 20:47:14 +00:00
+Commented
+Feb 11, 2014 at 20:47
+$\begingroup$
+Statistics is all about using given information, and forming probabilities with it. You can't just disregard information because it sounds like it shouldn't matter to you. If it said: "95% of the white people got a second interview" and "75% of the people who did not get a second interview were black". Would you ignore this fact and say it's irrelevant if I'm black or white? Or would you statistically consider it?
+$\endgroup$
+Cruncher
+–
+Cruncher
+2014-02-11 20:52:59 +00:00
+Commented
+Feb 11, 2014 at 20:52
+Add a comment
+|
+1
+$\begingroup$
+Mathematically
+You're chances are 50%. This is because in the Venn diagram of Amazon Interviewees you fall into the Universal Set of ALL Interviewees, but not the set of 'Your friends'.
+Had the question stated: 'One of your friends had a great interview. What is the percentage she'll get a second interview?' Then the current top answer would be valid. But those 2nd and 3rd statistics only apply to you if you consider yourself one of your own friends. So, maybe it's more of a psychological question?
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 10, 2014 at 15:42
+MDMoore313
+127
+4
+4 bronze badges
+$\endgroup$
+19
+1
+$\begingroup$
+Presenting this as an interview question has caused people to imagine that there are all sorts of semantic minefields. You could certainly preface your answer with "Assuming I'm like my friends....", but I doubt the interviewer would let you off the hook with this answer.
+$\endgroup$
+Matt Krause
+–
+Matt Krause
+2014-02-10 16:02:05 +00:00
+Commented
+Feb 10, 2014 at 16:02
+4
+$\begingroup$
+This would have been the obvious answer if it hadn't been stated that you thought you had a good interview. That's extra information. You fall in the part of the Venn diagram of all Amazon interviewees that thought they had a good interview, which is of unknown size, but can maybe be estimated somewhat.
+$\endgroup$
+RemcoGerlich
+–
+RemcoGerlich
+2014-02-10 17:19:34 +00:00
+Commented
+Feb 10, 2014 at 17:19
+1
+$\begingroup$
+Well, it's not perfect, but it's better than nothing, isn't it?
+$\endgroup$
+RemcoGerlich
+–
+RemcoGerlich
+2014-02-10 17:57:43 +00:00
+Commented
+Feb 10, 2014 at 17:57
+1
+$\begingroup$
+@RemcoGerlich lol that's debatable :-)
+$\endgroup$
+MDMoore313
+–
+MDMoore313
+2014-02-10 20:20:24 +00:00
+Commented
+Feb 10, 2014 at 20:20
+2
+$\begingroup$
+You really think it's 50%? If I gave you 2 interviewees. And I said, one of them thought they had a really good interview, and the other thought they blew it. Do you think it's a 50/50 chance who got the second interview? Of course not, and you'd be a bozo to think to so. Apart from that, the question EXPLICITLY tells you, that more people that thought they had a good interview, get a second one.
+$\endgroup$
+Cruncher
+–
+Cruncher
+2014-02-11 15:00:48 +00:00
+Commented
+Feb 11, 2014 at 15:00
+|
+Show
+14
+more comments
+0
+$\begingroup$
+Answer is: ≈1
+The question doesnt provide how many people among those appearing for interview,are our friends.However, we can assume that data & get any answer we want.Also, main thing about this assumption is that only our friends get selected for 2nd interview.
+Lets say 104 of your friends appear for the interview,& 100 of them get 2nd interview.
+So, we can say 95 of them felt they had a good first interview(
+Criteria 2
+).Also, out of remaining 4,75%(ie 3) of them felt they had a good interview(
+Criteria 3
+).So out of 104, 98 felt they had a good interview.but 95 were selected.so final probability is : 95/98.We can always say that 100*2 = 200(104 are friends out of them) people in total gave the first interview, in order to satisfy the
+1st criteria
+.here, all 96 who were not friends,failed to clear 1st interview.
+Now you increase friends to 108 & do it again, for 100 of them getting 2nd interview.your final probability would be 101/108 .Thus, as we increase no of friends who didnt clear first interview, the probability decreases.So for maximum efficiency, no of friends who didnt clear should always be 4.
+Now increase the friends.Suppose they are 10,004(10000 who cleared,4 who didnt).
+so now, out of 10000,9500 felt they had a good interview.So in total, 9503(among 4 failed,3 felt they had good interview, therefore 9500+3) felt they had a good interview,but only 9500 cleared. ie final probability = 9500/9503 which is ≈1.Again, we can put that 20000 people in total appeared for the interview, & all those who werent friends, couldnt clear it.So, 1st criteria is again satisfied.
+Note: Our assumption about no of friends,no of them clearing the interview & no of other participants, is all in order to get the probability to 1.we can modify this data & can get any probability we want.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 15, 2014 at 13:07
+answered
+Feb 10, 2014 at 13:38
+Sumedh
+109
+3
+3 bronze badges
+$\endgroup$
+4
+1
+$\begingroup$
+This doesn't even make sense.
+$\endgroup$
+akappa
+–
+akappa
+2014-02-10 17:26:08 +00:00
+Commented
+Feb 10, 2014 at 17:26
+1
+$\begingroup$
+You didn't use one of the facts given to you.
+$\endgroup$
+Ben Voigt
+–
+Ben Voigt
+2014-02-10 19:40:51 +00:00
+Commented
+Feb 10, 2014 at 19:40
+6
+$\begingroup$
+Its nice to read stuff on the internet
+$\endgroup$
+rocketsarefast
+–
+rocketsarefast
+2014-02-10 22:11:48 +00:00
+Commented
+Feb 10, 2014 at 22:11
+1
+$\begingroup$
+edited my answer to make it more understandable.
+$\endgroup$
+Sumedh
+–
+Sumedh
+2014-02-15 13:05:42 +00:00
+Commented
+Feb 15, 2014 at 13:05
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+bayesian
+conditional-probability
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+62
+What references should be cited to support using 30 as a large enough sample size?
+Related
+1
+Help setting up a Bayes rule problem
+0
+Probability for Fair Dice/Coin According to Bayesian Theorem
+3
+conditional probability involving mixed variable types
+5
+Green poop, leafy greens and probability of disease, how can I formalize this reasoning?
+4
+Computing probability distributions in the two envelope problem
+1
+Conditional Probability simplification
+4
+Applying Bayesian probability to a generalized Monty Hall problem
+Hot Network Questions
+Question 14 from section 3.6 of Topology And Groupoids
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+PTIJ: Is it holy or heresy to tell someone to "have a good one"?
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+Hadith prohibits wearing wig when there's a defect
+Line of Sight function for a hex-based wargame
+How do different prepositions affect meaning when adding an adjective to "Je suis venu en voiture"?
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+Issue attempting "fullwidth" image on document
+Create and verify a large single file in parallel-mode
+How do I encourage more interaction with Fate's mechanics?
+Trying to figure out a function in set theory formally
+Why can we add up the internal energy of a moving gas and its kinetic energy due to flow velocity?
+Giving prizes for not being late to school
+Should we use have or has in this case?
+apt remove does not fail upon removing a package that is a dependency of another
+Lightweight e-mail client for unsupported Windows versions
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+What do philosophers consider to be natural?
+What to do when there are multiple descriptions or definitions of the same mathematical object?
+Wake on LAN stopped working after upgrading packages
+Modeling a curved boombox body with clean topology for speaker holes
+Select clients where they have one feature type but not another - ArcGIS Pro
+more hot questions
+Question feed

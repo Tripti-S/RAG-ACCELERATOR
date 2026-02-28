@@ -1,0 +1,21 @@
+The sum of independent Poisson random variables
+
+. ‘i idl
+
+e Poisson process of rate \=1 f-——_}-+_+-}+-
+
+™ Ww time
+e Consecutive intervals of len Qr)ke™"
+
+gth » and v P(k,t) =
+ki
+
+e Numbers of arrivals during these intervals: M and N LorssouCAc)
+e M: Lorssom Cy) ® Independent? Yes
+e N: Lorss04 (7) © M+N: Poison Cpr)
+
+The sum of independent Poisson random variables,
+
+with means/parameters y and v,
+is Poisson with mean/parameter pi + v
+

@@ -1,0 +1,2047 @@
+# Openintro Chapter Random Variables
+
+---
+
+2.1. EXAMINING NUMERICAL DATA 41
+2.1 Examining numerical data
+In this section we will explore techniques for summarizing numerical variables. For example,
+consider the loan amount variable from the loan50 data set, which represents the loan size for all
+50 loans in the data set. This variable is numerical since we can sensibly discuss the numerical
+difference of the size of two loans. On the other hand, area codes and zip codes are not numerical,
+but rather they are categorical variables.
+Throughout this section and the next, we will apply these methods using the loan50 and
+county data sets, which were introduced in Section 1.2. If you’d like to review the variables from
+either data set, see Figures 1.3 and 1.5.
+2.1.1 Scatterplots for paired data
+A scatterplot provides a case-by-case view of data for two numerical variables. In Figure 1.8
+onpage16,ascatterplotwasusedtoexaminethehomeownershiprateagainstthefractionofhousing
+units that were part of multi-unit properties (e.g. apartments) in the county data set. Another
+scatterplot is shown in Figure 2.1, comparing the total income of a borrower (total income) and
+the amount they borrowed (loan amount) for the loan50 data set. In any scatterplot, each point
+represents a single case. Since there are 50 cases in loan50, there are 50 points in Figure 2.1.
+$40k
+$30k
+$20k
+$10k
+$0
+$0 $50k $100k $150k $200k $250k $300k
+Total Income
+tnuomA
+naoL
+Figure 2.1: A scatterplot of total income versus loan amount for the loan50
+data set.
+Looking at Figure 2.1, we see that there are many borrowers with an income below $100,000
+on the left side of the graph, while there are a handful of borrowers with income above $250,000.
+EXAMPLE2.1
+Figure 2.2 shows a plot of median household income against the poverty rate for 3,142 counties.
+What can be said about the relationship between these variables?
+The relationship is evidently nonlinear, as highlighted by the dashed line. This is different from
+previous scatterplots we’ve seen, which show relationships that do not show much, if any, curvature
+in the trend.
+42 CHAPTER 2. SUMMARIZING DATA
+$120k
+$100k
+$80k
+$60k
+$40k
+$20k
+$0
+0% 10% 20% 30% 40% 50%
+Poverty Rate (Percent)
+emocnI
+dlohesuoH
+naideM
+Figure2.2: Ascatterplotofthemedianhouseholdincomeagainstthepovertyrate
+for the county data set. A statistical model has also been fit to the data and is
+shown as a dashed line.
+GUIDEDPRACTICE2.2
+What do scatterplots reveal about the data, and how are they useful?1
+GUIDEDPRACTICE2.3
+Describe two variables that would have a horseshoe-shaped association in a scatterplot (∩ or ⌢).2
+2.1.2 Dot plots and the mean
+Sometimestwovariablesareonetoomany: onlyonevariablemaybeofinterest. Inthesecases,
+a dot plot provides the most basic of displays. A dot plot is a one-variable scatterplot; an example
+usingtheinterestrateof50loansisshowninFigure2.3. Astackedversionofthisdotplotisshown
+in Figure 2.4.
+5% 10% 15% 20% 25%
+Interest Rate
+Figure 2.3: A dot plot of interest rate for the loan50 data set. The distribu-
+tion’s mean is shown as a red triangle.
+1Answers may vary. Scatterplots are helpful in quickly spotting associations relating variables, whether those
+associationscomeintheformofsimpletrendsorwhetherthoserelationshipsaremorecomplex.
+2Consider the case where your vertical axis represents something “good” and your horizontal axis represents
+somethingthatisonlygoodinmoderation. Healthandwaterconsumptionfitthisdescription: werequiresomewater
+tosurvive,butconsumetoomuchanditbecomestoxicandcankillaperson.
+2.1. EXAMINING NUMERICAL DATA 43
+l
+l
+l
+l lll
+lllll
+lllllll l l
+lllllll l ll
+lllllllllllllllll ll
+5% 10% 15% 20% 25%
+Interest Rate, Rounded to Nearest Percent
+Figure2.4: Astackeddotplotof interest ratefortheloan50dataset. Therates
+have been rounded to the nearest percent in this plot, and the distribution’s mean
+is shown as a red triangle.
+Themean,oftencalledtheaverage,isacommonwaytomeasurethecenterofadistribution
+ofdata. Tocomputethemeaninterestrate,weaddupalltheinterestratesanddividebythenumber
+of observations:
+10.90%+9.92%+26.30%+···+6.08%
+x¯= =11.57%
+50
+The sample mean is often labeled x¯. The letter x is being used as a generic placeholder for the
+variable of interest, interest rate, and the bar over the x communicates we’re looking at the
+average interest rate, which for these 50 loans was 11.57%. It is useful to think of the mean as the
+balancing point of the distribution, and it’s shown as a triangle in Figures 2.3 and 2.4.
+MEAN
+The sample mean can be computed as the sum of the observed values divided by the number
+of observations:
+x +x +···+x
+x¯= 1 2 n
+n
+where x , x , ..., x represent the n observed values.
+1 2 n
+GUIDEDPRACTICE2.4
+Examinetheequationforthemean. Whatdoesx correspondto? Andx ? Canyouinferageneral
+1 2
+meaning to what x might represent?3
+i
+GUIDEDPRACTICE2.5
+What was n in this sample of loans?4
+The loan50 data set represents a sample from a larger population of loans made through
+Lending Club. We could compute a mean for this population in the same way as the sample mean.
+However, the population mean has a special label: µ. The symbol µ is the Greek letter mu and
+representstheaverageofallobservationsinthepopulation. Sometimesasubscript,suchas ,isused
+x
+to represent which variable the population mean refers to, e.g. µ . Often times it is too expensive
+x
+to measure the population mean precisely, so we often estimate µ using the sample mean, x¯.
+3x1 correspondstotheinterestrateforthefirstloaninthesample(10.90%),x2 tothesecondloan’sinterestrate
+(9.92%), and xi corresponds to the interest rate for the ith loan in the data set. For example, if i = 4, then we’re
+examiningx4,whichreferstothefourthobservationinthedataset.
+4Thesamplesizewasn=50.
+44 CHAPTER 2. SUMMARIZING DATA
+EXAMPLE2.6
+The average interest rate across all loans in the population can be estimated using the sample data.
+Based on the sample of 50 loans, what would be a reasonable estimate of µ , the mean interest rate
+x
+for all loans in the full data set?
+The sample mean, 11.57%, provides a rough estimate of µ . While it’s not perfect, this is our single
+x
+best guess of the average interest rate of all the loans in the population under study.
+In Chapter 5 and beyond, we will develop tools to characterize the accuracy of point estimates like
+the sample mean. As you might have guessed, point estimates based on larger samples tend to be
+more accurate than those based on smaller samples.
+EXAMPLE2.7
+Themeanisusefulbecauseitallowsustorescaleorstandardizeametricintosomethingmoreeasily
+interpretableandcomparable. Provide2exampleswherethemeanisusefulformakingcomparisons.
+1. We would like to understand if a new drug is more effective at treating asthma attacks than the
+standard drug. A trial of 1500 adults is set up, where 500 receive the new drug, and 1000 receive a
+standard drug in the control group:
+New drug Standard drug
+Number of patients 500 1000
+Total asthma attacks 200 300
+Comparing the raw counts of 200 to 300 asthma attacks would make it appear that the new drug is
+better, but this is an artifact of the imbalanced group sizes. Instead, we should look at the average
+number of asthma attacks per patient in each group:
+New drug: 200/500=0.4 Standard drug: 300/1000=0.3
+The standard drug has a lower average number of asthma attacks per patient than the average in
+the treatment group.
+2. Emilio opened a food truck last year where he sells burritos, and his business has stabilized
+over the last 3 months. Over that 3 month period, he has made $11,000 while working 625 hours.
+Emilio’s average hourly earnings provides a useful statistic for evaluating whether his venture is,
+at least from a financial perspective, worth it:
+$11000
+=$17.60 per hour
+625 hours
+By knowing his average hourly wage, Emilio now has put his earnings into a standard unit that is
+easier to compare with many other jobs that he might consider.
+EXAMPLE2.8
+Suppose we want to compute the average income per person in the US. To do so, we might first
+think to take the mean of the per capita incomes across the 3,142 counties in the county data set.
+What would be a better approach?
+The county data set is special in that each county actually represents many individual people. If
+weweretosimplyaverageacrossthe incomevariable, wewouldbetreatingcountieswith5,000and
+5,000,000residentsequallyinthecalculations. Instead,weshouldcomputethetotalincomeforeach
+county, add up all the counties’ totals, and then divide by the number of people in all the counties.
+If we completed these steps with the county data, we would find that the per capita income for the
+US is $30,861. Had we computed the simple mean of per capita income across counties, the result
+would have been just $26,093!
+Thisexample usedwhatis calleda weighted mean. For moreinformationon thistopic, checkout
+the following online supplement regarding weighted means openintro.org/d?file=stat wtd mean.
+2.1. EXAMINING NUMERICAL DATA 45
+2.1.3 Histograms and shape
+Dotplotsshowtheexactvalueforeachobservation. Thisisusefulforsmalldatasets,butthey
+canbecomehardtoreadwithlargersamples. Ratherthanshowingthevalueofeachobservation,we
+prefertothinkofthevalueasbelongingtoabin. Forexample, intheloan50dataset, wecreateda
+tableofcountsforthenumberofloanswithinterestratesbetween5.0%and7.5%, thenthenumber
+of loans with rates between 7.5% and 10.0%, and so on. Observations that fall on the boundary of
+a bin (e.g. 10.00%) are allocated to the lower bin. This tabulation is shown in Figure 2.5. These
+binned counts are plotted as bars in Figure 2.6 into what is called a histogram, which resembles a
+more heavily binned version of the stacked dot plot shown in Figure 2.4.
+Interest Rate 5.0% - 7.5% 7.5% - 10.0% 10.0% - 12.5% 12.5% - 15.0% ··· 25.0% - 27.5%
+Count 11 15 8 4 ··· 1
+Figure 2.5: Counts for the binned interest rate data.
+Interest Rate
+ycneuqerF
+15
+10
+5
+0
+5% 10% 15% 20% 25%
+Figure 2.6: A histogram of interest rate. This distribution is strongly skewed
+to the right.
+Histograms provide a view of the data density. Higher bars represent where the data are
+relatively more common. For instance, there are many more loans with rates between 5% and 10%
+than loans with rates between 20% and 25% in the data set. The bars make it easy to see how the
+density of the data changes relative to the interest rate.
+Histograms are especially convenient for understanding the shape of the data distribution.
+Figure 2.6 suggests that most loans have rates under 15%, while only a handful of loans have rates
+above 20%. When data trail off to the right in this way and has a longer right tail, the shape is said
+to be right skewed.5
+Data sets with the reverse characteristic – a long, thinner tail to the left – are said to be left
+skewed. Wealsosaythatsuchadistributionhasalonglefttail. Datasetsthatshowroughlyequal
+trailing off in both directions are called symmetric.
+LONGTAILSTOIDENTIFYSKEW
+When data trail off in one direction, the distribution has a long tail. If a distribution has a
+long left tail, it is left skewed. If a distribution has a long right tail, it is right skewed.
+5Otherwaystodescribedatathatarerightskewed: skewedtotheright,skewedtothehighend,orskewed
+to the positive end.
+46 CHAPTER 2. SUMMARIZING DATA
+GUIDEDPRACTICE2.9
+Take a look at the dot plots in Figures 2.3 and 2.4. Can you see the skew in the data? Is it easier
+to see the skew in this histogram or the dot plots?6
+GUIDEDPRACTICE2.10
+Besides the mean (since it was labeled), what can you see in the dot plots that you cannot see in
+the histogram?7
+In addition to looking at whether a distribution is skewed or symmetric, histograms can be
+used to identify modes. A mode is represented by a prominent peak in the distribution. There is
+only one prominent peak in the histogram of loan amount.
+A definition of mode sometimes taught in math classes is the value with the most occurrences
+in the data set. However, for many real-world data sets, it is common to have no observations with
+the same value in a data set, making this definition impractical in data analysis.
+Figure 2.7 shows histograms that have one, two, or three prominent peaks. Such distributions
+are called unimodal, bimodal, and multimodal, respectively. Any distribution with more than
+2 prominent peaks is called multimodal. Notice that there was one prominent peak in the unimodal
+distribution with a second less prominent peak that was not counted since it only differs from its
+neighboring bins by a few observations.
+20 20 20
+15 15 15
+10 10 10
+5 5 5
+0 0 0
+0 5 10 15 0 5 10 15 20 0 5 10 15 20
+Figure 2.7: Counting only prominent peaks, the distributions are (left to right)
+unimodal,bimodal,andmultimodal. Notethatwe’vesaidtheleftplotisunimodal
+intentionally. Thisisbecausewearecountingprominent peaks,notjustanypeak.
+EXAMPLE2.11
+Figure 2.6 reveals only one prominent mode in the interest rate. Is the distribution unimodal,
+bimodal, or multimodal?
+Unimodal. Remember that uni stands for 1 (think unicycles). Similarly, bi stands for 2 (think
+bicycles). We’re hoping a multicycle will be invented to complete this analogy.
+GUIDEDPRACTICE2.12
+Height measurements of young students and adult teachers at a K-3 elementary school were taken.
+How many modes would you expect in this height data set?8
+Lookingformodesisn’taboutfindingaclearandcorrectansweraboutthenumberofmodesin
+a distribution, which is why prominent is not rigorously defined in this book. The most important
+part of this examination is to better understand your data.
+6The skew is visible in all three plots, though the flat dot plot is the least useful. The stacked dot plot and
+histogramarehelpfulvisualizationsforidentifyingskew.
+7Theinterestratesforindividualloans.
+8Theremightbetwoheightgroupsvisibleinthedataset: oneofthestudentsandoneoftheadults. Thatis,the
+dataareprobablybimodal.
+2.1. EXAMINING NUMERICAL DATA 47
+2.1.4 Variance and standard deviation
+The mean was introduced as a method to describe the center of a data set, and variability in
+the data is also important. Here, we introduce two measures of variability: the variance and the
+standard deviation. Both of these are very useful in data analysis, even though their formulas are
+a bit tedious to calculate by hand. The standard deviation is the easier of the two to comprehend,
+and it roughly describes how far away the typical observation is from the mean.
+We call the distance of an observation from its mean its deviation. Below are the deviations
+for the 1st, 2nd, 3rd, and 50th observations in the interest rate variable:
+x −x¯=10.90−11.57=−0.67
+1
+x −x¯=9.92−11.57=−1.65
+2
+x −x¯=26.30−11.57=14.73
+3
+.
+.
+.
+x −x¯=6.08−11.57=−5.49
+50
+If we square these deviations and then take an average, the result is equal to the sample variance,
+denoted by s2:
+(−0.67)2+(−1.65)2+(14.73)2+···+(−5.49)2
+s2 =
+50−1
+0.45+2.72+216.97+···+30.14
+=
+49
+=25.52
+We divide by n−1, rather than dividing by n, when computing a sample’s variance; there’s some
+mathematical nuance here, but the end result is that doing this makes this statistic slightly more
+reliable and useful.
+Notice that squaring the deviations does two things. First, it makes large values relatively
+much larger, seen by comparing (−0.67)2, (−1.65)2, (14.73)2, and (−5.49)2. Second, it gets rid of
+any negative signs.
+The standard deviation is defined as the square root of the variance:
+√
+s= 25.52=5.05
+While often omitted, a subscript of may be added to the variance and standard deviation, i.e.
+x
+s2 and s , if it is useful as a reminder that these are the variance and standard deviation of the
+x x
+observations represented by x , x , ..., x .
+1 2 n
+VARIANCEANDSTANDARDDEVIATION
+The variance is the average squared distance from the mean. The standard deviation is the
+squarerootofthevariance. Thestandarddeviationisusefulwhenconsideringhowfarthedata
+are distributed from the mean.
+Thestandarddeviationrepresentsthetypicaldeviationofobservationsfromthemean. Usually
+about 70% of the data will be within one standard deviation of the mean and about 95% will
+be within two standard deviations. However, as seen in Figures 2.8 and 2.9, these percentages
+are not strict rules.
+Likethemean,thepopulationvaluesforvarianceandstandarddeviationhavespecialsymbols:
+σ2 for the variance and σ for the standard deviation. The symbol σ is the Greek letter sigma.
+48 CHAPTER 2. SUMMARIZING DATA
+6.5% 11.6% 16.7% 21.8% 26.9%
+Interest Rate, x = 11.57%, s = 5.05%
+x
+Figure 2.8: For the interest rate variable, 34 of the 50 loans (68%) had interest
+rates within 1 standard deviation of the mean, and 48 of the 50 loans (96%) had
+rates within 2 standard deviations. Usually about 70% of the data are within
+1 standard deviation of the mean and 95% within 2 standard deviations, though
+this is far from a hard rule.
+−3 −2 −1 0 1 2 3
+−3 −2 −1 0 1 2 3
+−3 −2 −1 0 1 2 3
+Figure2.9: Threeverydifferentpopulationdistributionswiththesamemeanµ=0
+and standard deviation σ =1.
+GUIDEDPRACTICE2.13
+On page 45, the concept of shape of a distribution was introduced. A good description of the shape
+of a distribution should include modality and whether the distribution is symmetric or skewed to
+one side. Using Figure 2.9 as an example, explain why such a description is important.9
+EXAMPLE2.14
+Describe the distribution of the interest rate variable using the histogram in Figure 2.6. The
+description should incorporate the center, variability, and shape of the distribution, and it should
+also be placed in context. Also note any especially unusual cases.
+The distribution of interest rates is unimodal and skewed to the high end. Many of the rates fall
+near the mean at 11.57%, and most fall within one standard deviation (5.05%) of the mean. There
+are a few exceptionally large interest rates in the sample that are above 20%.
+Inpractice,thevarianceandstandarddeviationaresometimesusedasameanstoanend,where
+the “end” is being able to accurately estimate the uncertainty associated with a sample statistic.
+For example, in Chapter 5 the standard deviation is used in calculations that help us understand
+how much a sample mean varies from one sample to the next.
+9Figure2.9showsthreedistributionsthatlookquitedifferent,butallhavethesamemean,variance,andstandard
+deviation. Using modality, we can distinguish between the first plot (bimodal) and the last two (unimodal). Using
+skewness,wecandistinguishbetweenthelastplot(rightskewed)andthefirsttwo. Whileapicture,likeahistogram,
+tellsamorecompletestory,wecanusemodalityandshape(symmetry/skew)tocharacterizebasicinformationabout
+adistribution.
+2.1. EXAMINING NUMERICAL DATA 49
+2.1.5 Box plots, quartiles, and the median
+Abox plotsummarizesadatasetusingfivestatisticswhilealsoplottingunusualobservations.
+Figure2.10providesaverticaldotplotalongsideaboxplotoftheinterest ratevariablefromthe
+loan50 data set.
+etaR
+tseretnI
+suspected outliers
+25%
+max whisker reach
+20% upper whisker
+Q (third quartile)
+15% 3
+median
+10%
+Q (first quartile)
+1
+lower whisker
+5%
+Figure2.10: Averticaldotplot, wherepointshavebeenhorizontallystacked, next
+to a labeled box plot for the interest rates of the 50 loans.
+Thefirststepinbuildingaboxplotisdrawingadarklinedenotingthemedian,whichsplitsthe
+datainhalf. Figure2.10shows50%ofthedatafallingbelowthemedianandother50%fallingabove
+the median. There are 50 loans in the data set (an even number) so the data are perfectly split into
+twogroupsof25. Wetakethemedianinthiscasetobetheaverageofthetwoobservationsclosestto
+the50th percentile,whichhappentobethesamevalueinthisdataset: (9.93%+9.93%)/2=9.93%.
+When there are an odd number of observations, there will be exactly one observation that splits the
+data into two halves, and in such a case that observation is the median (no average needed).
+MEDIAN:THENUMBERINTHEMIDDLE
+If the data are ordered from smallest to largest, the median is the observation right in the
+middle. Ifthereareanevennumberofobservations,therewillbetwovaluesinthemiddle,and
+the median is taken as their average.
+The second step in building a box plot is drawing a rectangle to represent the middle 50% of
+the data. The total length of the box, shown vertically in Figure 2.10, is called the interquartile
+range(IQR,forshort). It,likethestandarddeviation,isameasureofvariabilityindata. Themore
+variable the data, the larger the standard deviation and IQR tend to be. The two boundaries of the
+boxarecalledthefirst quartile(the25th percentile, i.e. 25%ofthedatafallbelowthisvalue)and
+the third quartile (the 75th percentile), and these are often labeled Q and Q , respectively.
+1 3
+50 CHAPTER 2. SUMMARIZING DATA
+INTERQUARTILERANGE(IQR)
+The IQR is the length of the box in a box plot. It is computed as
+IQR=Q −Q
+3 1
+where Q and Q are the 25th and 75th percentiles.
+1 3
+GUIDEDPRACTICE2.15
+What percent of the data fall between Q and the median? What percent is between the median
+1
+and Q ?10
+3
+Extending out from the box, the whiskers attempt to capture the data outside of the box.
+However, their reach is never allowed to be more than 1.5×IQR. They capture everything within
+thisreach. InFigure2.10,theupperwhiskerdoesnotextendtothelasttwopoints,whichisbeyond
+Q +1.5×IQR, and so it extends only to the last point below this limit. The lower whisker stops
+3
+atthelowestvalue, 5.31%, sincethereisnoadditionaldatatoreach; thelowerwhisker’slimitisnot
+showninthefigurebecausetheplotdoesnotextenddowntoQ −1.5×IQR. Inasense, theboxis
+1
+like the body of the box plot and the whiskers are like its arms trying to reach the rest of the data.
+Anyobservationlyingbeyondthewhiskersislabeledwithadot. Thepurposeoflabelingthese
+points–insteadofextendingthewhiskerstotheminimumandmaximumobservedvalues–istohelp
+identify any observations that appear to be unusually distant from the rest of the data. Unusually
+distant observations are called outliers. In this case, it would be reasonable to classify the interest
+rates of 24.85% and 26.30% as outliers since they are numerically distant from most of the data.
+OUTLIERSAREEXTREME
+An outlier is an observation that appears extreme relative to the rest of the data.
+Examining data for outliers serves many useful purposes, including
+1. Identifying strong skew in the distribution.
+2. Identifying possible data collection or data entry errors.
+3. Providing insight into interesting properties of the data.
+GUIDEDPRACTICE2.16
+Using Figure 2.10, estimate the following values for interest rate in the loan50 data set:
+(a) Q , (b) Q , and (c) IQR.11
+1 3
+10SinceQ1 andQ3 capturethemiddle50%ofthedataandthemediansplitsthedatainthemiddle,25%ofthe
+datafallbetweenQ1 andthemedian,andanother25%fallsbetweenthemedianandQ3.
+11Thesevisualestimateswillvaryalittlefromonepersontothenext: Q1=8%,Q3=14%,IQR=Q3−Q1=6%.
+(Thetruevalues: Q1=7.96%,Q3=13.72%,IQR=5.76%.)
+2.1. EXAMINING NUMERICAL DATA 51
+2.1.6 Robust statistics
+Howarethesamplestatisticsoftheinterest ratedatasetaffectedbytheobservation,26.3%?
+What would have happened if this loan had instead been only 15%? What would happen to these
+summary statistics if the observation at 26.3% had been even larger, say 35%? These scenarios are
+plotted alongside the original data in Figure 2.11, and sample statistics are computed under each
+scenario in Figure 2.12.
+Original l
+l
+26.3% to 15%
+26.3% to 35% l
+5% 10% 15% 20% 25% 30% 35%
+Interest Rate
+Figure2.11: Dotplotsoftheoriginalinterestratedataandtwomodifieddatasets.
+robust not robust
+scenario median IQR x¯ s
+original interest rate data 9.93% 5.76% 11.57% 5.05%
+move 26.3% → 15% 9.93% 5.76% 11.34% 4.61%
+move 26.3% → 35% 9.93% 5.76% 11.74% 5.68%
+Figure 2.12: A comparison of how the median, IQR, mean (x¯), and standard deviation
+(s)changehadanextremeobservationsfromtheinterest ratevariablebeendifferent.
+GUIDEDPRACTICE2.17
+(a) Which is more affected by extreme observations, the mean or median? Figure 2.12 may be
+helpful. (b) Is the standard deviation or IQR more affected by extreme observations?12
+The median and IQR are called robust statistics because extreme observations have little
+effectontheirvalues: movingthemostextremevaluegenerallyhaslittleinfluenceonthesestatistics.
+On the other hand, the mean and standard deviation are more heavily influenced by changes in
+extreme observations, which can be important in some situations.
+EXAMPLE2.18
+The median and IQR did not change under the three scenarios in Figure 2.12. Why might this be
+the case?
+The median and IQR are only sensitive to numbers near Q , the median, and Q . Since values in
+1 3
+these regions are stable in the three data sets, the median and IQR estimates are also stable.
+GUIDEDPRACTICE2.19
+The distribution of loan amounts in the loan50 data set is right skewed, with a few large loans
+lingering out into the right tail. If you were wanting to understand the typical loan size, should you
+be more interested in the mean or median?13
+12(a)Meanisaffectedmore. (b)Standarddeviationisaffectedmore. Completeexplanationsareprovidedinthe
+materialfollowingGuidedPractice2.17.
+13Answerswillvary! Ifwe’relookingtosimplyunderstandwhatatypicalindividualloanlookslike,themedianis
+probably more useful. However, if the goal is to understand something that scales well, such as the total amount of
+moneywemightneedtohaveonhandifweweretooffer1,000loans,thenthemeanwouldbemoreuseful.
+52 CHAPTER 2. SUMMARIZING DATA
+2.1.7 Transforming data (special topic)
+When data are very strongly skewed, we sometimes transform them so they are easier to model.
+3000
+2500
+2000
+1500
+1000
+500
+0
+0m 2m 4m 6m 8m 10m
+Population (m = millions)
+ycneuqerF
+1000
+500
+0
+2 3 4 5 6 7
+log (Population) 10
+(a)
+ycneuqerF
+(b)
+Figure2.13: (a)AhistogramofthepopulationsofallUScounties. (b)Ahistogram
+of log -transformed county populations. For this plot, the x-value corresponds to
+10
+the power of 10, e.g. “4” on the x-axis corresponds to 104 = 10,000.
+EXAMPLE2.20
+Consider the histogram of county populations shown in Figure 2.13(a), which shows extreme skew.
+What isn’t useful about this plot?
+Nearly all of the data fall into the left-most bin, and the extreme skew obscures many of the
+potentially interesting details in the data.
+There are some standard transformations that may be useful for strongly right skewed data
+where much of the data is positive but clustered near zero. A transformation is a rescaling of
+the data using a function. For instance, a plot of the logarithm (base 10) of county populations
+results in the new histogram in Figure 2.13(b). This data is symmetric, and any potential outliers
+appear much less extreme than in the original data set. By reigning in the outliers and extreme
+skew, transformations like this often make it easier to build statistical models against the data.
+Transformations can also be applied to one or both variables in a scatterplot. A scatterplot of
+the population change from 2010 to 2017 against the population in 2010 is shown in Figure 2.14(a).
+Inthisfirstscatterplot,it’shardtodecipheranyinterestingpatternsbecausethepopulationvariable
+is so strongly skewed. However, if we apply a log transformation to the population variable, as
+10
+shown in Figure 2.14(b), a positive association between the variables is revealed. In fact, we may
+be interested in fitting a trend line to the data when we explore methods around fitting regression
+lines in Chapter 8.
+Transformations other than the logarithm can be useful, too. For instance, the square root
+√
+( original observation) and inverse ( 1 ) are commonly used by data scientists. Com-
+originalobservation
+mon goals in transforming data are to see the data structure differently, reduce skew, assist in
+modeling, or straighten a nonlinear relationship in a scatterplot.
+2.1. EXAMINING NUMERICAL DATA 53
+egnahC
+noitalupoP
+40% 40%
+20% 20%
+0% 0%
+−20% −20%
+0m 2m 4m 6m 8m 10m 2 3 4 5 6 7
+Population Before Change (m = millions) log 10 (Population Before Change)
+(a)
+egnahC
+noitalupoP
+(b)
+Figure 2.14: (a) Scatterplot of population change against the population before
+the change. (b) A scatterplot of the same data but where the population size has
+been log-transformed.
+2.1.8 Mapping data (special topic)
+Thecountydatasetoffersmanynumericalvariablesthatwecouldplotusingdotplots,scatter-
+plots,orboxplots,butthesemissthetruenatureofthedata. Rather,whenweencountergeographic
+data, we should create an intensity map, where colors are used to show higher and lower values
+of a variable. Figures 2.15 and 2.16 shows intensity maps for poverty rate in percent (poverty),
+unemployment rate (unemployment rate), homeownership rate in percent (homeownership), and
+median household income (median hh income). The color key indicates which colors correspond
+to which values. The intensity maps are not generally very helpful for getting precise values in
+any given county, but they are very helpful for seeing geographic trends and generating interesting
+research questions or hypotheses.
+EXAMPLE2.21
+What interesting features are evident in the poverty and unemployment rate intensity maps?
+Poverty rates are evidently higher in a few locations. Notably, the deep south shows higher poverty
+rates, as does much of Arizona and New Mexico. High poverty rates are evident in the Mississippi
+flood plains a little north of New Orleans and also in a large section of Kentucky.
+The unemployment rate follows similar trends, and we can see correspondence between the two
+variables. In fact, it makes sense for higher rates of unemployment to be closely related to poverty
+rates. One observation that stand out when comparing the two maps: the poverty rate is much
+higher than the unemployment rate, meaning while many people may be working, they are not
+making enough to break out of poverty.
+GUIDEDPRACTICE2.22
+What interesting features are evident in the median hh income intensity map in Figure 2.16(b)?14
+14Note: answerswillvary. Thereissomecorrespondencebetweenhighearningandmetropolitanareas,wherewe
+canseedarkerspots(highermedianhouseholdincome),thoughthereareseveralexceptions. Youmightlookforlarge
+citiesyouarefamiliarwithandtrytospotthemonthemapasdarkspots.
+54 CHAPTER 2. SUMMARIZING DATA
+>25%
+14%
+2%
+ytrevoP
+(a)
+>7%
+4%
+2%
+etaR
+tnemyolpmenU
+(b)
+Figure 2.15: (a) Intensity map of poverty rate (percent). (b) Map of the unem-
+ployment rate (percent).
+2.1. EXAMINING NUMERICAL DATA 55
+91%
+73%
+<55%
+etaR
+pihsrenwoemoH
+(a)
+>$75
+$47
+$19
+emocnI
+dlohesuoH
+naideM
+(b)
+Figure2.16: (a)Intensitymapofhomeownershiprate(percent). (b)Intensitymap
+of median household income ($1000s).
+56 CHAPTER 2. SUMMARIZING DATA
+Exercises
+2.1 Mammallifespans. Datawerecollectedonlifespans(inyears)andgestationlengths(indays)for62
+mammals. A scatterplot of life span versus length of gestation is shown below.15
+l
+(a) Whattypeofanassociationisapparentbe-
+tween life span and length of gestation? l
+(b) What type of an association would you ex-
+pect to see if the axes of the plot were re- l l
+l
+versed,i.e. ifweplottedlengthofgestation l l l l
+versus life span? l l ll l ll
+(c) p A e r n e d l e if n e t? sp E a x n p a la n i d n l y e o n u g r th re o a f so g n e i s n t g a . tion inde- lll l lll l l ll l l lll l l l l l ll l l l l l l l l l ll l l ll l
+Gestation (days)
+)sraey(
+napS
+efiL
+100
+75
+50
+25
+0
+0 200 400 600
+2.2 Associations. Indicate which of the plots show (a) a positive association, (b) a negative association,
+or (c) no association. Also determine if the positive and negative associations are linear or nonlinear. Each
+part may refer to more than one plot.
+(1) (2) (3) (4)
+2.3 Reproducingbacteria. Supposethatthereisonlysufficientspaceandnutrientstosupportonemillion
+bacterialcellsinapetridish. Youplaceafewbacterialcellsinthispetridish,allowthemtoreproducefreely,
+and record the number of bacterial cells in the dish over time. Sketch a plot representing the relationship
+between number of bacterial cells and time.
+2.4 Officeproductivity. Officeproductivityisrelativelylowwhentheemployeesfeelnostressabouttheir
+work or job security. However, high levels of stress can also lead to reduced employee productivity. Sketch
+a plot to represent the relationship between stress and productivity.
+2.5 Parametersandstatistics. Identifywhichvaluerepresentsthesamplemeanandwhichvaluerepresents
+the claimed population mean.
+(a) Americanhouseholdsspentanaverageofabout$52in2007onHalloweenmerchandisesuchascostumes,
+decorationsandcandy. Toseeifthisnumberhadchanged,researchersconductedanewsurveyin2008
+before industry numbers were reported. The survey included 1,500 households and found that average
+Halloween spending was $58 per household.
+(b) The average GPA of students in 2001 at a private university was 3.37. A survey on a sample of 203
+students from this university yielded an average GPA of 3.59 a decade later.
+2.6 Sleepingincollege. Arecentarticleinacollegenewspaperstatedthatcollegestudentsgetanaverage
+of 5.5 hrs of sleep each night. A student who was skeptical about this value decided to conduct a survey
+by randomly sampling 25 students. On average, the sampled students slept 6.25 hours per night. Identify
+which value represents the sample mean and which value represents the claimed population mean.
+15T.AllisonandD.V.Cicchetti. “Sleepinmammals: ecologicalandconstitutionalcorrelates”. In: Arch. Hydrobiol
+75(1975),p.442.
+2.1. EXAMINING NUMERICAL DATA 57
+2.7 Days off at a mining plant. Workers at a particular mining site receive an average of 35 days paid
+vacation, which is lower than the national average. The manager of this plant is under pressure from a
+local union to increase the amount of paid time off. However, he does not want to give more days off to
+the workers because that would be costly. Instead he decides he should fire 10 employees in such a way as
+to raise the average number of days off that are reported by his employees. In order to achieve this goal,
+shouldhefireemployeeswhohavethemostnumberofdaysoff,leastnumberofdaysoff,orthosewhohave
+about the average number of days off?
+2.8 MediansandIQRs. Foreachpart,comparedistributions(1)and(2)basedontheirmediansandIQRs.
+You do not need to calculate these statistics; simply state how the medians and IQRs compare. Make sure
+to explain your reasoning.
+(a) (1) 3, 5, 6, 7, 9 (c) (1) 1, 2, 3, 4, 5
+(2) 3, 5, 6, 7, 20 (2) 6, 7, 8, 9, 10
+(b) (1) 3, 5, 6, 7, 9 (d) (1) 0, 10, 50, 60, 100
+(2) 3, 5, 7, 8, 9 (2) 0, 100, 500, 600, 1000
+2.9 MeansandSDs. Foreachpart,comparedistributions(1)and(2)basedontheirmeansandstandard
+deviations. You do not need to calculate these statistics; simply state how the means and the standard
+deviationscompare. Makesuretoexplainyourreasoning. Hint: Itmaybeusefultosketchdotplotsofthe
+distributions.
+(a) (1) 3, 5, 5, 5, 8, 11, 11, 11, 13 (c) (1) 0, 2, 4, 6, 8, 10
+(2) 3, 5, 5, 5, 8, 11, 11, 11, 20 (2) 20, 22, 24, 26, 28, 30
+(b) (1) -20, 0, 0, 0, 15, 25, 30, 30 (d) (1) 100, 200, 300, 400, 500
+(2) -40, 0, 0, 0, 15, 25, 30, 30 (2) 0, 50, 300, 550, 600
+2.10 Mix-and-match. Describethedistributioninthehistogramsbelowandmatchthemtotheboxplots.
+70 100
+6 80
+65
+60
+4
+60
+40
+2
+55 20
+0 0
+50 60 70 0 50 100 0 2 4 6
+(a) (b) (c) (1) (2) (3)
+58 CHAPTER 2. SUMMARIZING DATA
+2.11 Airquality. Daily air quality is measured by the air quality index (AQI) reported by the Environ-
+mental Protection Agency. This index reports the pollution level and what associated health effects might
+beaconcern. TheindexiscalculatedforfivemajorairpollutantsregulatedbytheCleanAirActandtakes
+values from 0 to 300, where a higher value indicates lower air quality. AQI was reported for a sample of
+91 days in 2011 in Durham, NC. The relative frequency histogram below shows the distribution of the AQI
+values on these days.16
+0.2
+(a) Estimate the median AQI value of this sample.
+0.15
+(b) Would you expect the mean AQI value of this sample
+to be higher or lower than the median? Explain your
+0.1
+reasoning.
+(c) Estimate Q1, Q3, and IQR for the distribution.
+(d) Would any of the days in this sample be considered 0.05
+to have an unusually low or high AQI? Explain your
+reasoning. 0
+10 20 30 40 50 60
+Daily AQI
+2.12 Medianvs. mean. Estimate the median for the 400 observations shown in the histogram, and note
+whether you expect the mean to be higher or lower than the median.
+80
+60
+40
+20
+0
+40 50 60 70 80 90 100
+2.13 Histogramsvs. boxplots. Compare the two plots below. What characteristics of the distribution
+are apparent in the histogram and not in the box plot? What characteristics are apparent in the box plot
+but not in the histogram?
+200
+25
+150 20
+100 15
+50 10
+5
+0
+5 10 15 20 25
+2.14 Facebook friends. Facebook data indicate that 50% of Facebook users have 100 or more friends,
+and that the average friend count of users is 190. What do these findings suggest about the shape of the
+distribution of number of friends of Facebook users?17
+2.15 Distributionsandappropriatestatistics,PartI. For each of the following, state whether you expect
+the distribution to be symmetric, right skewed, or left skewed. Also specify whether the mean or median
+wouldbestrepresentatypicalobservationinthedata,andwhetherthevariabilityofobservationswouldbe
+best represented using the standard deviation or IQR. Explain your reasoning.
+(a) Number of pets per household.
+(b) Distance to work, i.e. number of miles between work and home.
+(c) Heights of adult males.
+16USEnvironmentalProtectionAgency,AirData,2011.
+17LarsBackstrom. “AnatomyofFacebook”. In: Facebook Data Team’s Notes (2011).
+2.1. EXAMINING NUMERICAL DATA 59
+2.16 Distributionsandappropriatestatistics,PartII.Foreachofthefollowing,statewhetheryouexpect
+the distribution to be symmetric, right skewed, or left skewed. Also specify whether the mean or median
+wouldbestrepresentatypicalobservationinthedata,andwhetherthevariabilityofobservationswouldbe
+best represented using the standard deviation or IQR. Explain your reasoning.
+(a) Housingpricesinacountrywhere25%ofthehousescostbelow$350,000,50%ofthehousescostbelow
+$450,000, 75% of the houses cost below $1,000,000 and there are a meaningful number of houses that
+cost more than $6,000,000.
+(b) Housingpricesinacountrywhere25%ofthehousescostbelow$300,000,50%ofthehousescostbelow
+$600,000, 75% of the houses cost below $900,000 and very few houses that cost more than $1,200,000.
+(c) Number of alcoholic drinks consumed by college students in a given week. Assume that most of these
+students don’t drink since they are under 21 years old, and only a few drink excessively.
+(d) AnnualsalariesoftheemployeesataFortune500companywhereonlyafewhighlevelexecutivesearn
+much higher salaries than all the other employees.
+2.17 Incomeatthecoffeeshop. Thefirsthistogrambelowshowsthedistributionoftheyearlyincomesof
+40patronsatacollegecoffeeshop. Supposetwonewpeoplewalkintothecoffeeshop: onemaking$225,000
+and the other $250,000. The second histogram shows the new income distribution. Summary statistics are
+also provided.
+12
+8
+4
+(1) (2)
+0 n 40 42
+$60k $62.5k $65k $67.5k $70k Min. 60,680 60,680
+1st Qu. 63,620 63,710
+(1)
+Median 65,240 65,350
+12 Mean 65,090 73,300
+3rd Qu. 66,160 66,540
+8
+Max. 69,890 250,000
+4 SD 2,122 37,321
+0
+$60k $110k $160k $210k $260k
+(2)
+(a) Would the mean or the median best represent what we might think of as a typical income for the 42
+patrons at this coffee shop? What does this say about the robustness of the two measures?
+(b) WouldthestandarddeviationortheIQRbestrepresenttheamountofvariabilityintheincomesofthe
+42 patrons at this coffee shop? What does this say about the robustness of the two measures?
+2.18 Midrange. Themidrange ofadistributionisdefinedastheaverageofthemaximumandtheminimum
+of that distribution. Is this statistic robust to outliers and extreme skew? Explain your reasoning
+60 CHAPTER 2. SUMMARIZING DATA
+2.19 Commutetimes. TheUScensuscollectsdataontimeittakesAmericanstocommutetowork,among
+many other variables. The histogram below shows the distribution of average commute times in 3,142 US
+counties in 2010. Also shown below is a spatial intensity map of the same data.
+200
+>33
+100
+19
+0
+10 20 30 40 4
+Mean work travel (in min)
+(a) Describe the numerical distribution and comment on whether or not a log transformation may be
+advisable for these data.
+(b) Describe the spatial distribution of commuting times using the map above.
+2.20 Hispanicpopulation. TheUScensuscollectsdataonraceandethnicityofAmericans,amongmany
+other variables. The histogram below shows the distribution of the percentage of the population that is
+Hispanic in 3,142 counties in the US in 2010. Also shown is a histogram of logs of these values.
+2000
+250
+1500 200
+150
+1000
+100
+500
+50
+0 0
+0% 20% 40% 60% 80% 100% −2 −1 0 1 2 3 4
+Percent Hispanic log(Percent Hispanic)
+>40
+20
+0
+(a) Describe thenumericaldistribution and comment onwhywemight want to uselog-transformed values
+in analyzing or modeling these data.
+(b) What features of the distribution of the Hispanic population in US counties are apparent in the map
+but not in the histogram? What features are apparent in the histogram but not the map?
+(c) Is one visualization more appropriate or helpful than the other? Explain your reasoning.
+2.2. CONSIDERING CATEGORICAL DATA 61
+2.2 Considering categorical data
+In this section, we will introduce tables and other basic tools for categorical data that are
+used throughout this book. The loan50 data set represents a sample from a larger loan data set
+calledloans. Thislargerdatasetcontainsinformationon10,000loansmadethroughLendingClub.
+Wewillexaminetherelationshipbetweenhomeownership,whichfortheloansdatacantakeavalue
+of rent, mortgage (owns but has a mortgage), or own, and app type, which indicates whether the
+loan application was made with a partner or whether it was an individual application.
+2.2.1 Contingency tables and bar plots
+Figure2.17summarizestwovariables: app typeandhomeownership. Atablethatsummarizes
+datafortwocategoricalvariablesinthiswayiscalledacontingency table. Eachvalueinthetable
+representsthenumberoftimesaparticularcombinationofvariableoutcomesoccurred. Forexample,
+the value 3496 corresponds to the number of loans in the data set where the borrower rents their
+home and the application type was by an individual. Row and column totals are also included. The
+row totalsprovidethetotalcountsacrosseachrow(e.g. 3496+3839+1170=8505), andcolumn
+totals are total counts down each column. We can also create a table that shows only the overall
+percentages or proportions for each combination of categories, or we can create a table for a single
+variable, such as the one shown in Figure 2.18 for the homeownership variable.
+homeownership
+rent mortgage own Total
+individual 3496 3839 1170 8505
+app type
+joint 362 950 183 1495
+Total 3858 4789 1353 10000
+Figure 2.17: A contingency table for app type and homeownership.
+homeownership Count
+rent 3858
+mortgage 4789
+own 1353
+Total 10000
+Figure 2.18: A table summarizing the frequencies of each value for the
+homeownership variable.
+Abarplotisacommonwaytodisplayasinglecategoricalvariable. TheleftpanelofFigure2.19
+shows a bar plot for the homeownership variable. In the right panel, the counts are converted into
+proportions,showingtheproportionofobservationsthatareineachlevel(e.g. 3858/10000=0.3858
+for rent).
+62 CHAPTER 2. SUMMARIZING DATA
+rent mortgage own
+ycneuqerF
+4000 0.4
+3000 0.3
+2000 0.2
+1000 0.1
+0 0.0
+rent mortgage own
+Homeownership
+noitroporP
+Homeownership
+Figure 2.19: Two bar plots of number. The left panel shows the counts, and the
+right panel shows the proportions in each group.
+2.2.2 Row and column proportions
+Sometimesitisusefultounderstandthefractionalbreakdownofonevariableinanother,andwe
+can modify our contingency table to provide such a view. Figure 2.20 shows the row proportions
+for Figure 2.17, which are computed as the counts divided by their row totals. The value 3496 at
+the intersection of individual and rent is replaced by 3496/8505 = 0.411, i.e. 3496 divided by
+its row total, 8505. So what does 0.411 represent? It corresponds to the proportion of individual
+applicants who rent.
+rent mortgage own Total
+individual 0.411 0.451 0.138 1.000
+joint 0.242 0.635 0.122 1.000
+Total 0.386 0.479 0.135 1.000
+Figure 2.20: A contingency table with row proportions for the app type and
+homeownership variables. The row total is off by 0.001 for the joint row due
+to a rounding error.
+Acontingencytableofthecolumnproportionsiscomputedinasimilarway,whereeachcolumn
+proportioniscomputedasthecountdividedbythecorrespondingcolumntotal. Figure2.21shows
+such a table, and here the value 0.906 indicates that 90.6% of renters applied as individuals for the
+loan. This rate is higher compared to loans from people with mortgages (80.2%) or who own their
+home(86.5%). Becausetheseratesvarybetweenthethreelevelsof homeownership(rent,mortgage,
+own), this provides evidence that the app type and homeownership variables are associated.
+rent mortgage own Total
+individual 0.906 0.802 0.865 0.851
+joint 0.094 0.198 0.135 0.150
+Total 1.000 1.000 1.000 1.000
+Figure 2.21: A contingency table with column proportions for the app type and
+homeownership variables. The total for the last column is off by 0.001 due to a
+rounding error.
+We could also have checked for an association between app type and homeownership in Fig-
+ure 2.20 using row proportions. When comparing these row proportions, we would look down
+columns to see if the fraction of loans where the borrower rents, has a mortgage, or owns varied
+across the individual to joint application types.
+2.2. CONSIDERING CATEGORICAL DATA 63
+GUIDEDPRACTICE2.23
+(a) What does 0.451 represent in Figure 2.20?
+(b) What does 0.802 represent in Figure 2.21?18
+GUIDEDPRACTICE2.24
+(a) What does 0.122 at the intersection of joint and own represent in Figure 2.20?
+(b) What does 0.135 represent in the Figure 2.21?19
+EXAMPLE2.25
+Data scientists use statistics to filter spam from incoming email messages. By noting specific char-
+acteristicsofanemail,adatascientistmaybeabletoclassifysomeemailsasspamornotspamwith
+highaccuracy. Onesuchcharacteristiciswhethertheemailcontainsnonumbers, smallnumbers, or
+big numbers. Another characteristic is the email format, which indicates whether or not an email
+hasanyHTMLcontent, suchasboldedtext. We’llfocusonemailformatandspamstatususingthe
+email data set, and these variables are summarized in a contingency table in Figure 2.22. Which
+would be more helpful to someone hoping to classify email as spam or regular email for this table:
+row or column proportions?
+A data scientist would be interested in how the proportion of spam changes within each email
+format. This corresponds to column proportions: the proportion of spam in plain text emails and
+the proportion of spam in HTML emails.
+Ifwegeneratethecolumnproportions,wecanseethatahigherfractionofplaintextemailsarespam
+(209/1195 = 17.5%) than compared to HTML emails (158/2726 = 5.8%). This information on its
+ownisinsufficienttoclassifyanemailasspamornotspam, asover80%ofplaintextemailsarenot
+spam. Yet, when we carefully combine this information with many other characteristics, we stand a
+reasonable chance of being able to classify some emails as spam or not spam with confidence.
+text HTML Total
+spam 209 158 367
+not spam 986 2568 3554
+Total 1195 2726 3921
+Figure 2.22: A contingency table for spam and format.
+Example 2.25 points out that row and column proportions are not equivalent. Before settling
+on one form for a table, it is important to consider each to ensure that the most useful table is
+constructed. However, sometimes it simply isn’t clear which, if either, is more useful.
+EXAMPLE2.26
+LookbacktoTables2.20and2.21. Arethereanyobviousscenarioswhereonemightbemoreuseful
+than the other?
+None that we thought were obvious! What is distinct about app type and homeownership vs the
+email example is that these two variables don’t have a clear explanatory-response variable relation-
+ship that we might hypothesize (see Section 1.2.4 for these terms). Usually it is most useful to
+“condition” on the explanatory variable. For instance, in the email example, the email format was
+seen as a possible explanatory variable of whether the message was spam, so we would find it more
+interesting to compute the relative frequencies (proportions) for each email format.
+18(a) 0.451 represents the proportion of individual applicants who have a mortgage. (b) 0.802 represents the
+fractionofapplicantswithmortgageswhoappliedasindividuals.
+19(a) 0.122 represents the fraction of joint borrowers who own their home. (b) 0.135 represents the home-owning
+borrowerswhohadajointapplicationfortheloan.
+64 CHAPTER 2. SUMMARIZING DATA
+2.2.3 Using a bar plot with two variables
+Contingency tables using row or column proportions are especially useful for examining how
+two categorical variables are related. Stacked bar plots provide a way to visualize the information
+in these tables.
+A stacked bar plot is a graphical display of contingency table information. For example,
+a stacked bar plot representing Figure 2.21 is shown in Figure 2.23(a), where we have first created a
+bar plot using the homeownership variable and then divided each group by the levels of app type.
+One related visualization to the stacked bar plot is the side-by-side bar plot, where an
+example is shown in Figure 2.23(b).
+For the last type of bar plot we introduce, the column proportions for the app type and
+homeownership contingency table have been translated into a standardized stacked bar plot in
+Figure 2.23(c). This type of visualization is helpful in understanding the fraction of individual
+or joint loan applications for borrowers in each level of homeownership. Additionally, since the
+proportionsof jointandindividualvaryacrossthegroups,wecanconcludethatthetwovariables
+are associated.
+joint
+individual
+4000
+3000
+2000
+1000
+0
+rent mortgage own
+ycneuqerF
+joint
+individual
+4000
+3000
+2000
+1000
+0
+rent mortgage own
+(a)
+ycneuqerF
+(b)
+1.0
+0.8
+0.6
+0.4
+joint
+0.2
+individual
+0.0
+rent mortgage own
+noitroporP
+(c)
+Figure 2.23: (a) Stacked bar plot for homeownership, where the counts have been
+further broken down by app type. (b) Side-by-side bar plot for homeownership
+and app type. (c) Standardized version of the stacked bar plot.
+2.2. CONSIDERING CATEGORICAL DATA 65
+EXAMPLE2.27
+Examine the three bar plots in Figure 2.23. When is the stacked, side-by-side, or standardized
+stacked bar plot the most useful?
+The stacked bar plot is most useful when it’s reasonable to assign one variable as the explanatory
+variableandtheothervariableastheresponse,sinceweareeffectivelygroupingbyonevariablefirst
+and then breaking it down by the others.
+Side-by-side bar plots are more agnostic in their display about which variable, if any, represents the
+explanatory and which the response variable. It is also easy to discern the number of cases in the
+six different group combinations. However, one downside is that it tends to require more horizontal
+space; the narrowness of Figure 2.23(b) makes the plot feel a bit cramped. Additionally, when two
+groups are of very different sizes, as we see in the own group relative to either of the other two
+groups, it is difficult to discern if there is an association between the variables.
+Thestandardizedstackedbarplotishelpfuliftheprimaryvariableinthestackedbarplotisrelatively
+imbalanced, e.g. the own category has only a third of the observations in the mortgage category,
+making the simple stacked bar plot less useful for checking for an association. The major downside
+of the standardized version is that we lose all sense of how many cases each of the bars represents.
+2.2.4 Mosaic plots
+A mosaic plot is a visualization technique suitable for contingency tables that resembles a
+standardizedstackedbarplotwiththebenefitthatwestillseetherelativegroupsizesoftheprimary
+variable as well.
+To get started in creating our first mosaic plot, we’ll break a square into columns for each
+category of the homeownership variable, with the result shown in Figure 2.24(a). Each column
+represents a level of homeownership, and the column widths correspond to the proportion of loans
+in each of those categories. For instance, there are fewer loans where the borrower is an owner than
+where the borrower has a mortgage. In general, mosaic plots use box areas to represent the number
+of cases in each category.
+rent mortgage own
+rent mortgage own
+indiv.
+joint
+(a) (b)
+Figure2.24: (a)Theone-variablemosaicplotforhomeownership. (b)Two-variable
+mosaic plot for both homeownership and app type.
+Tocreateacompletedmosaicplot, thesingle-variablemosaicplotisfurtherdividedintopieces
+in Figure 2.24(b) using the app type variable. Each column is split proportional to the number
+of loans from individual and joint borrowers. For example, the second column represents loans
+wheretheborrowerhasamortgage, anditwasdividedintoindividualloans(upper)andjointloans
+(lower). As another example, the bottom segment of the third column represents loans where the
+borrower owns their home and applied jointly, while the upper segment of this column represents
+borrowers who are homeowners and filed individually. We can again use this plot to see that the
+homeownership and app type variables are associated, since some columns are divided in different
+66 CHAPTER 2. SUMMARIZING DATA
+vertical locations than others, which was the same technique used for checking an association in the
+standardized stacked bar plot.
+In Figure 2.24, we chose to first split by the homeowner status of the borrower. However, we
+could have instead first split by the application type, as in Figure 2.25. Like with the bar plots, it’s
+commontousetheexplanatoryvariabletorepresentthefirstsplitinamosaicplot,andthenforthe
+response to break up each level of the explanatory variable, if these labels are reasonable to attach
+to the variables under consideration.
+indiv. joint
+rent
+mortgage
+own
+Figure 2.25: Mosaic plot where loans are grouped by the homeownership variable
+after they’ve been divided into the individual and joint application types.
+2.2.5 The only pie chart you will see in this book
+A pie chart is shown in Figure 2.26 alongside a bar plot representing the same information.
+Pie charts can be useful for giving a high-level overview to show how a set of cases break down.
+However, it is also difficult to decipher details in a pie chart. For example, it takes a couple seconds
+longer to recognize that there are more loans where the borrower has a mortgage than rent when
+looking at the pie chart, while this detail is very obvious in the bar plot. While pie charts can be
+useful, we prefer bar plots for their ease in comparing groups.
+4000
+rent
+3000
+2000
+own
+1000
+mortgage
+0
+rent mortgage own
+Homeownership
+ycneuqerF
+Figure 2.26: A pie chart and bar plot of homeownership.
+2.2. CONSIDERING CATEGORICAL DATA 67
+2.2.6 Comparing numerical data across groups
+Some of the more interesting investigations can be considered by examining numerical data
+acrossgroups. Themethodsrequiredherearen’treallynew: allthat’srequiredistomakeanumerical
+plot for each group in the same graph. Here two convenient methods are introduced: side-by-side
+box plots and hollow histograms.
+We will take a look again at the county data set and compare the median household income
+for counties that gained population from 2010 to 2017 versus counties that had no gain. While we
+might like to make a causal connection here, remember that these are observational data and so
+such an interpretation would be, at best, half-baked.
+There were 1,454 counties where the population increased from 2010 to 2017, and there were
+1,672 counties with no gain (all but one were a loss). A random sample of 100 counties from the
+first group and 50 from the second group are shown in Figure 2.27 to give a better sense of some of
+the raw median income data.
+Median Income for 150 Counties, in $1000s
+Population Gain No Population Gain
+38.2 43.6 42.2 61.5 51.1 45.7 48.3 60.3 50.7
+44.6 51.8 40.7 48.1 56.4 41.9 39.3 40.4 40.3
+40.6 63.3 52.1 60.3 49.8 51.7 57 47.2 45.9
+51.1 34.1 45.5 52.8 49.1 51 42.3 41.5 46.1
+80.8 46.3 82.2 43.6 39.7 49.4 44.9 51.7 46.4
+75.2 40.6 46.3 62.4 44.1 51.3 29.1 51.8 50.5
+51.9 34.7 54 42.9 52.2 45.1 27 30.9 34.9
+61 51.4 56.5 62 46 46.4 40.7 51.8 61.1
+53.8 57.6 69.2 48.4 40.5 48.6 43.4 34.7 45.7
+53.1 54.6 55 46.4 39.9 56.7 33.1 21 37
+63 49.1 57.2 44.1 50 38.9 52 31.9 45.7
+46.6 46.5 38.9 50.9 56 34.6 56.3 38.7 45.7
+74.2 63 49.6 53.7 77.5 60 56.2 43 21.7
+63.2 47.6 55.9 39.1 57.8 42.6 44.5 34.5 48.9
+50.4 49 45.6 39 38.8 37.1 50.9 42.1 43.2
+57.2 44.7 71.7 35.3 100.2 35.4 41.3 33.6
+42.6 55.5 38.6 52.7 63 43.4 56.5
+Figure 2.27: In this table, median household income (in $1000s) from a random
+sample of 100 counties that had population gains are shown on the left. Median
+incomes from a random sample of 50 counties that had no population gain are
+shown on the right.
+68 CHAPTER 2. SUMMARIZING DATA
+$120k
+$100k
+$80k
+$60k
+$40k
+$20k
+Gain No Gain
+Change in Population
+emocnI
+dlohesuoH
+naideM
+Gain
+No Gain
+$20k $40k $60k $80k $100k
+Median Household Income
+Figure 2.28: Side-by-side box plot (left panel) and hollow histograms (right panel)
+formed hh income,wherethecountiesaresplitbywhethertherewasapopulation
+gain or there was no gain.
+The side-by-side box plot is a traditional tool for comparing across groups. An example is
+shown in the left panel of Figure 2.28, where there are two box plots, one for each group, placed
+into one plotting window and drawn on the same scale.
+Another useful plotting method uses hollow histograms to compare numerical data across
+groups. These are just the outlines of histograms of each group put on the same plot, as shown in
+the right panel of Figure 2.28.
+GUIDEDPRACTICE2.28
+Use the plots in Figure 2.28 to compare the incomes for counties across the two groups. What do
+you notice about the approximate center of each group? What do you notice about the variability
+between groups? Is the shape relatively consistent between groups? How many prominent modes
+are there for each group?20
+GUIDEDPRACTICE2.29
+What components of each plot in Figure 2.28 do you find most useful?21
+20Answers may vary a little. The counties with population gains tend to have higher income (median of about
+$45,000) versus counties without a gain (median of about $40,000). The variability is also slightly larger for the
+populationgaingroup. ThisisevidentintheIQR,whichisabout50%biggerinthegain group. Bothdistributions
+showslighttomoderaterightskewandareunimodal. Theboxplotsindicatetherearemanyobservationsfarabove
+the median in each group, though we should anticipate that many observations will fall beyond the whiskers when
+examininganydatasetthatcontainmorethanacouplehundreddatapoints.
+21Answerswillvary. Theside-by-sideboxplotsareespeciallyusefulforcomparingcentersandspreads,whilethe
+hollowhistogramsaremoreusefulforseeingdistributionshape,skew,andpotentialanomalies.
+2.2. CONSIDERING CATEGORICAL DATA 69
+Exercises
+2.21 Antibioticuseinchildren. Thebarplotandthepiechartbelowshowthedistributionofpre-existing
+medical conditions of children involved in a study on the optimal duration of antibiotic use in treatment of
+tracheitis, which is an upper respiratory infection.
+Prematurity
+Trauma
+Cardiovascular Neuromuscular
+Respiratory Respiratory
+Trauma Genetic/metabolic
+Neuromuscular Immunocompromised
+Gastrointestinal
+Genetic/metabolic
+Immunocompromised
+Cardiovascular
+Gastrointestinal
+0.00 0.10 0.20 0.30 Prematurity
+Relative frequency
+(a) What features are apparent in the bar plot but not in the pie chart?
+(b) What features are apparent in the pie chart but not in the bar plot?
+(c) Which graph would you prefer to use for displaying these categorical data?
+2.22 Viewsonimmigration. 910 randomly sampled registered voters from Tampa, FL were asked if they
+thought workers who have illegally entered the US should be (i) allowed to keep their jobs and apply for
+US citizenship, (ii) allowed to keep their jobs as temporary guest workers but not allowed to apply for US
+citizenship, or (iii) lose their jobs and have to leave the country. The results of the survey by political
+ideology are shown below.22
+Political ideology
+Conservative Moderate Liberal Total
+(i) Apply for citizenship 57 120 101 278
+(ii) Guest worker 121 113 28 262
+Response
+(iii) Leave the country 179 126 45 350
+(iv) Not sure 15 4 1 20
+Total 372 363 175 910
+(a) What percent of these Tampa, FL voters identify themselves as conservatives?
+(b) What percent of these Tampa, FL voters are in favor of the citizenship option?
+(c) What percent of these Tampa, FL voters identify themselves as conservatives and are in favor of the
+citizenship option?
+(d) What percent of these Tampa, FL voters who identify themselves as conservatives are also in favor of
+thecitizenshipoption? Whatpercentofmoderatessharethisview? Whatpercentofliberalssharethis
+view?
+(e) Do political ideology and views on immigration appear to be independent? Explain your reasoning.
+22SurveyUSA,NewsPoll#18927,datacollectedJan27-29,2012.
+70 CHAPTER 2. SUMMARIZING DATA
+2.23 Views on the DREAM Act. A random sample of registered voters from Tampa, FL were asked
+if they support the DREAM Act, a proposed law which would provide a path to citizenship for people
+broughtillegallytotheUSaschildren. Thesurveyalsocollectedinformationonthepoliticalideologyofthe
+respondents. Based on the mosaic plot shown below, do views on the DREAM Act and political ideology
+appear to be independent? Explain your reasoning.23
+Conservative Moderate Liberal
+Support
+Not support
+Not sure
+2.24 Raise taxes. A random sample of registered voters nationally were asked whether they think it’s
+better to raise taxes on the rich or raise taxes on the poor. The survey also collected information on the
+political party affiliation of the respondents. Based on the mosaic plot shown below, do views on raising
+taxes and political affiliation appear to be independent? Explain your reasoning.24
+Democrat Republican Indep / Other
+Raise taxes on the rich
+Raise taxes on the poor
+Not sure
+23SurveyUSA,NewsPoll#18927,datacollectedJan27-29,2012.
+24Public Policy Polling, Americans on College Degrees, Classic Literature, the Seasons, and More, data collected
+Feb20-22,2015.
+2.3. CASE STUDY: MALARIA VACCINE 71
+2.3 Case study: malaria vaccine
+EXAMPLE2.30
+Supposeyourprofessorsplitsthestudentsinclassintotwogroups: studentsontheleftandstudents
+on the right. If pˆ and pˆ represent the proportion of students who own an Apple product on the
+L R
+left and right, respectively, would you be surprised if pˆ did not exactly equal pˆ ?
+L R
+While the proportions would probably be close to each other, it would be unusual for them to be
+exactly the same. We would probably observe a small difference due to chance.
+GUIDEDPRACTICE2.31
+If we don’t think the side of the room a person sits on in class is related to whether the person
+owns an Apple product, what assumption are we making about the relationship between these two
+variables?25
+2.3.1 Variability within data
+We consider a study on a new malaria vaccine called PfSPZ. In this study, volunteer patients
+were randomized into one of two experiment groups: 14 patients received an experimental vaccine
+and 6 patients received a placebo vaccine. Nineteen weeks later, all 20 patients were exposed to
+a drug-sensitive malaria parasite strain; the motivation of using a drug-sensitive strain of parasite
+here is for ethical considerations, allowing any infections to be treated effectively. The results are
+summarized in Figure 2.29, where 9 of the 14 treatment patients remained free of signs of infection
+while all of the 6 patients in the control group patients showed some baseline signs of infection.
+outcome
+infection no infection Total
+vaccine 5 9 14
+treatment
+placebo 6 0 6
+Total 11 9 20
+Figure 2.29: Summary results for the malaria vaccine experiment.
+GUIDEDPRACTICE2.32
+Is this an observational study or an experiment? What implications does the study type have on
+what can be inferred from the results?26
+In this study, a smaller proportion of patients who received the vaccine showed signs of an
+infection (35.7% versus 100%). However, the sample is very small, and it is unclear whether the
+difference provides convincing evidence that the vaccine is effective.
+25Wewouldbeassumingthatthesetwovariablesareindependent.
+26Thestudyisanexperiment,aspatientswererandomlyassignedanexperimentgroup. Sincethisisanexperiment,
+the results can be used to evaluate a causal relationship between the malaria vaccine and whether patients showed
+signsofaninfection.
+72 CHAPTER 2. SUMMARIZING DATA
+EXAMPLE2.33
+Data scientists are sometimes called upon to evaluate the strength of evidence. When looking at
+the rates of infection for patients in the two groups in this study, what comes to mind as we try to
+determine whether the data show convincing evidence of a real difference?
+The observed infection rates (35.7% for the treatment group versus 100% for the control group)
+suggestthevaccinemaybeeffective. However,wecannotbesureiftheobserveddifferencerepresents
+the vaccine’s efficacy or is just from random chance. Generally there is a little bit of fluctuation in
+sample data, and we wouldn’t expect the sample proportions to be exactly equal, even if the truth
+was that the infection rates were independent of getting the vaccine. Additionally, with such small
+samples, perhaps it’s common to observe such large differences when we randomly split a group due
+to chance alone!
+Example 2.33 is a reminder that the observed outcomes in the data sample may not perfectly
+reflect the true relationships between variables since there is random noise. While the observed
+difference in rates of infection is large, the sample size for the study is small, making it unclear if
+this observed difference represents efficacy of the vaccine or whether it is simply due to chance. We
+label these two competing claims, H and H , which are spoken as “H-nought” and “H-A”:
+0 A
+H : Independence model. The variables treatment and outcome are independent. They have
+0
+norelationship, andtheobserveddifferencebetweentheproportionofpatientswhodeveloped
+an infection in the two groups, 64.3%, was due to chance.
+H : Alternative model. The variables are not independent. The difference in infection rates of
+A
+64.3% was not due to chance, and vaccine affected the rate of infection.
+Whatwoulditmeaniftheindependencemodel,whichsaysthevaccinehadnoinfluenceonthe
+rate of infection, is true? It would mean 11 patients were going to develop an infection no matter
+which group they were randomized into, and 9 patients would not develop an infection no matter
+which group they were randomized into. That is, if the vaccine did not affect the rate of infection,
+the difference in the infection rates was due to chance alone in how the patients were randomized.
+Now consider the alternative model: infection rates were influenced by whether a patient re-
+ceived the vaccine or not. If this was true, and especially if this influence was substantial, we would
+expect to see some difference in the infection rates of patients in the groups.
+We choose between these two competing claims by assessing if the data conflict so much with
+H that the independence model cannot be deemed reasonable. If this is the case, and the data
+0
+support H , then we will reject the notion of independence and conclude the vaccine was effective.
+A
+2.3.2 Simulating the study
+We’regoingtoimplementsimulations,wherewewillpretendweknowthatthemalariavaccine
+being tested does not work. Ultimately, we want to understand if the large difference we observed
+is common in these simulations. If it is common, then maybe the difference we observed was purely
+due to chance. If it is very uncommon, then the possibility that the vaccine was helpful seems more
+plausible.
+Figure 2.29 shows that 11 patients developed infections and 9 did not. For our simulation,
+we will suppose the infections were independent of the vaccine and we were able to rewind back
+to when the researchers randomized the patients in the study. If we happened to randomize the
+patientsdifferently,wemaygetadifferentresultinthishypotheticalworldwherethevaccinedoesn’t
+influence the infection. Let’s complete another randomization using a simulation.
+2.3. CASE STUDY: MALARIA VACCINE 73
+In this simulation, we take 20 notecards to represent the 20 patients, where we write down
+“infection” on 11 cards and “no infection” on 9 cards. In this hypothetical world, we believe each
+patient that got an infection was going to get it regardless of which group they were in, so let’s see
+what happens if we randomly assign the patients to the treatment and control groups again. We
+thoroughly shuffle the notecards and deal 14 into a vaccine pile and 6 into a placebo pile. Finally,
+we tabulate the results, which are shown in Figure 2.30.
+outcome
+infection no infection Total
+treatment vaccine 7 7 14
+(simulated) placebo 4 2 6
+Total 11 9 20
+Figure 2.30: Simulation results, where any difference in infection rates is purely
+due to chance.
+GUIDEDPRACTICE2.34
+WhatisthedifferenceininfectionratesbetweenthetwosimulatedgroupsinFigure2.30? Howdoes
+this compare to the observed 64.3% difference in the actual data?27
+2.3.3 Checking for independence
+We computed one possible difference under the independence model in Guided Practice 2.34,
+whichrepresentsonedifferenceduetochance. Whileinthisfirstsimulation,wephysicallydealtout
+notecards to represent the patients, it is more efficient to perform this simulation using a computer.
+Repeating the simulation on a computer, we get another difference due to chance:
+2 9
+− =−0.310
+6 14
+And another:
+3 8
+− =−0.071
+6 14
+And so on until we repeat the simulation enough times that we have a good idea of what represents
+the distribution of differences from chance alone. Figure 2.31 shows a stacked plot of the differences
+found from 100 simulations, where each dot represents a simulated difference between the infection
+rates (control rate minus treatment rate).
+Note that the distribution of these simulated differences is centered around 0. We simulated
+these differences assuming that the independence model was true, and under this condition, we
+expect the difference to be near zero with some random fluctuation, where near is pretty generous
+in this case since the sample sizes are so small in this study.
+EXAMPLE2.35
+How often would you observe a difference of at least 64.3% (0.643) according to Figure 2.31? Often,
+sometimes, rarely, or never?
+It appears that a difference of at least 64.3% due to chance alone would only happen about 2% of
+the time according to Figure 2.31. Such a low probability indicates a rare event.
+274/6−7/14=0.167 or about 16.7% in favor of the vaccine. This difference due to chance is much smaller than
+thedifferenceobservedintheactualgroups.
+74 CHAPTER 2. SUMMARIZING DATA
+l
+l
+l
+l
+l l
+l l
+l l
+l l
+l l
+l l l
+l l l
+l l l
+l l l
+l l l
+l l l
+l l l
+l l l
+l l l
+l l l
+l l l
+l l l l
+l l l l
+l l l l
+l l l l
+l l l l
+l l l l
+l l l l
+l l l l
+l l l l
+l l l l l
+l l l l l l
+l l l l l l
+−0.6 −0.4 −0.2 0.0 0.2 0.4 0.6 0.8
+Difference in Infection Rates
+Figure2.31: Astackeddotplotofdifferencesfrom100simulationsproducedunder
+the independence model, H , where in these simulations infections are unaffected
+0
+by the vaccine. Two of the 100 simulations had a difference of at least 64.3%, the
+difference observed in the study.
+The difference of 64.3% being a rare event suggests two possible interpretations of the results
+of the study:
+H Independence model. The vaccine has no effect on infection rate, and we just happened to
+0
+observe a difference that would only occur on a rare occasion.
+H Alternative model. The vaccine has an effect on infection rate, and the difference we
+A
+observedwasactuallyduetothevaccinebeingeffectiveatcombattingmalaria,whichexplains
+the large difference of 64.3%.
+Based on the simulations, we have two options. (1) We conclude that the study results do not
+providestrongevidenceagainsttheindependencemodel. Thatis, wedonothavesufficientlystrong
+evidence to conclude the vaccine had an effect in this clinical setting. (2) We conclude the evidence
+is sufficiently strong to reject H and assert that the vaccine was useful. When we conduct formal
+0
+studies,usuallywerejectthenotionthatwejusthappenedtoobservearareevent.28 Sointhiscase,
+we reject the independence model in favor of the alternative. That is, we are concluding the data
+provide strong evidence that the vaccine provides some protection against malaria in this clinical
+setting.
+One field of statistics, statistical inference, is built on evaluating whether such differences are
+duetochance. Instatisticalinference,datascientistsevaluatewhichmodelismostreasonablegiven
+the data. Errors do occur, just like rare events, and we might choose the wrong model. While we
+do not always choose correctly, statistical inference gives us tools to control and evaluate how often
+these errors occur. In Chapter 5, we give a formal introduction to the problem of model selection.
+We spend the next two chapters building a foundation of probability and theory necessary to make
+that discussion rigorous.
+28This reasoning does not generally extend to anecdotal observations. Each of us observes incredibly rare events
+everyday,eventswecouldnotpossiblyhopetopredict. However,inthenon-rigoroussettingofanecdotalevidence,
+almost anything may appear to be a rare event, so the idea of looking for rare events in day-to-day activities is
+treacherous. Forexample,wemightlookatthelottery: therewasonlya1in292millionchancethatthePowerball
+numbers for the largest jackpot in history (January 13th, 2016) would be (04, 08, 19, 27, 34) with a Powerball of
+(10), but nonetheless those numbers came up! However, no matter what numbers had turned up, they would have
+hadthesameincrediblyrareodds. Thatis,anysetofnumberswecouldhaveobservedwouldultimatelybeincredibly
+rare. Thistypeofsituationistypicalofourdailylives: eachpossibleeventinitselfseemsincrediblyrare, butifwe
+consider every alternative, those outcomes are also incredibly rare. We should be cautious not to misinterpret such
+anecdotalevidence.
+2.3. CASE STUDY: MALARIA VACCINE 75
+Exercises
+2.25 SideeffectsofAvandia. Rosiglitazone is the active ingredient in the controversial type 2 diabetes
+medicineAvandiaandhasbeenlinkedtoanincreasedriskofseriouscardiovascularproblemssuchasstroke,
+heartfailure,anddeath. Acommonalternativetreatmentispioglitazone,theactiveingredientinadiabetes
+medicine called Actos. In a nationwide retrospective observational study of 227,571 Medicare beneficiaries
+aged 65 years or older, it was found that 2,593 of the 67,593 patients using rosiglitazone and 5,386 of
+the 159,978 using pioglitazone had serious cardiovascular problems. These data are summarized in the
+contingency table below.29
+Cardiovascular problems
+Yes No Total
+Rosiglitazone 2,593 65,000 67,593
+Treatment
+Pioglitazone 5,386 154,592 159,978
+Total 7,979 219,592 227,571
+(a) Determine if each of the following statements is true or false. If false, explain why. Be careful: The
+reasoning may be wrong even if the statement’s conclusion is correct. In such cases, the statement
+should be considered false.
+i. Sincemorepatientsonpioglitazonehadcardiovascularproblems(5,386vs. 2,593),wecanconclude
+that the rate of cardiovascular problems for those on a pioglitazone treatment is higher.
+ii. Thedatasuggestthatdiabeticpatientswhoaretakingrosiglitazonearemorelikelytohavecardio-
+vascularproblemssincetherateofincidencewas(2,593/67,593=0.038)3.8%forpatientsonthis
+treatment, while it was only (5,386 / 159,978 = 0.034) 3.4% for patients on pioglitazone.
+iii. The fact that the rate of incidence is higher for the rosiglitazone group proves that rosiglitazone
+causes serious cardiovascular problems.
+iv. Based on the information provided so far, we cannot tell if the difference between the rates of
+incidences is due to a relationship between the two variables or due to chance.
+(b) What proportion of all patients had cardiovascular problems?
+(c) Ifthetypeoftreatmentandhavingcardiovascularproblemswereindependent,abouthowmanypatients
+in the rosiglitazone group would we expect to have had cardiovascular problems?
+(d) Wecaninvestigatetherelationshipbetweenoutcomeandtreatmentinthisstudyusingarandomization
+technique. Whileinrealitywewouldcarryoutthesimulationsrequiredforrandomizationusingstatisti-
+calsoftware,supposeweactuallysimulateusingindexcards. Inordertosimulatefromtheindependence
+model,whichstatesthattheoutcomeswereindependentofthetreatment,wewritewhetherornoteach
+patient had a cardiovascular problem on cards, shuffled all the cards together, then deal them into two
+groupsofsize67,593and159,978. Werepeatthissimulation1,000timesandeachtimerecordthenum-
+ber of people in the rosiglitazone group who had cardiovascular problems. Use the relative frequency
+histogram of these counts to answer (i)-(iii).
+0.2
+i. What are the claims being tested?
+ii. Compared to the number calculated in part (c),
+whichwouldprovidemoresupportforthealterna-
+tive hypothesis, more or fewer patients with car-0.1
+diovascular problems in the rosiglitazone group?
+iii. Whatdothesimulationresultssuggestaboutthe
+relationshipbetweentakingrosiglitazoneandhav-
+0
+ing cardiovascular problems in diabetic patients?
+2250 2350 2450
+Simulated rosiglitazone cardiovascular events
+29D.J. Graham et al. “Risk of acute myocardial infarction, stroke, heart failure, and death in elderly Medicare
+patientstreatedwithrosiglitazoneorpioglitazone”. In: JAMA304.4(2010),p.411. issn: 0098-7484.
+76 CHAPTER 2. SUMMARIZING DATA
+2.26 Heart transplants. The Stanford University Heart Transplant Study was conducted to determine
+whether an experimental heart transplant program increased lifespan. Each patient entering the program
+wasdesignatedanofficialhearttransplantcandidate,meaningthathewasgravelyillandwouldmostlikely
+benefit from a new heart. Some patients got a transplant and some did not. The variable transplant
+indicateswhichgroupthepatientswerein;patientsinthetreatmentgroupgotatransplantandthoseinthe
+control group did not. Of the 34 patients in the control group, 30 died. Of the 69 people in the treatment
+group, 45died. Anothervariablecalledsurvivedwasusedtoindicatewhetherornotthepatientwasalive
+at the end of the study.30
+control treatment
+alive
+dead
+)syad(
+emiT
+lavivruS
+1500
+1000
+500
+0
+control treatment
+(a) Basedonthemosaicplot,issurvivalindependentofwhetherornotthepatientgotatransplant? Explain
+your reasoning.
+(b) Whatdotheboxplotsbelowsuggestabouttheefficacy(effectiveness)ofthehearttransplanttreatment.
+(c) Whatproportionofpatientsinthetreatmentgroupandwhatproportionofpatientsinthecontrolgroup
+died?
+(d) One approach for investigating whether or not the treatment is effective is to use a randomization
+technique.
+i. What are the claims being tested?
+ii. The paragraph below describes the set up for such approach, if we were to do it without using
+statistical software. Fill in the blanks with a number or phrase, whichever is appropriate.
+We write alive on cards representing patients who were alive at the end of
+the study, and dead on cards representing patients who were not. Then,
+we shuffle these cards and split them into two groups: one group of size
+representingtreatment,andanothergroupofsize representingcontrol. We
+calculatethedifferencebetweentheproportionofdead cardsinthetreatmentandcontrol
+groups (treatment - control) and record this value. We repeat this 100 times to build a
+distribution centered at . Lastly, we calculate the fraction of simulations
+where the simulated differences in proportions are . If this fraction is low,
+we conclude that it is unlikely to have observed such an outcome by chance and that the
+null hypothesis should be rejected in favor of the alternative.
+iii. What do the simulation results shown below suggest about the effectiveness of the transplant pro-
+gram?
+lllllllllllllllllll
+llllllllllllllllll lllllllllllllllllll
+llllllllllllllllll lllllllllllllllllll
+llllllllllllllllll lllllllllllllllllll
+lllllllllllllll llllllllllllllllll lllllllllllllllllll
+lllllllllllllll llllllllllllllllll lllllllllllllllllll
+lllllllllllllll llllllllllllllllll lllllllllllllllllll
+lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll
+lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll
+lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll
+lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll
+llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll
+llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll lllllll
+llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll lllllll
+llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll lllllll
+llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll lllllll llll
+llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll lllllll llll lll
+ll llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll lllllll llll lll
+ll l llllllll lllllllllllllll llllllllllllllllll lllllllllllllllllll llllllllllll lllllllllll lllllll llll lll
+−0.25 −0.15 −0.05 0.05 0.15 0.25
+simulated differences in proportions
+30B.Turnbulletal.“SurvivorshipofHeartTransplantData”. In: JournaloftheAmericanStatisticalAssociation
+69(1974),pp.74–80.
+2.3. CASE STUDY: MALARIA VACCINE 77
+Chapter exercises
+2.27 Make-up exam. In a class of 25 students, 24 of them took an exam in class and 1 student took a
+make-up exam the following day. The professor graded the first batch of 24 exams and found an average
+scoreof74pointswithastandarddeviationof8.9points. Thestudentwhotookthemake-upthefollowing
+day scored 64 points on the exam.
+(a) Does the new student’s score increase or decrease the average score?
+(b) What is the new average?
+(c) Does the new student’s score increase or decrease the standard deviation of the scores?
+2.28 Infantmortality. The infant mortality rate is defined as the number of infant deaths per 1,000 live
+births. This rate is often used as an indicator of the level of health in a country. The relative frequency
+histogrambelowshowsthedistributionofestimatedinfantdeathratesfor224countriesforwhichsuchdata
+were available in 2014.31
+(a) EstimateQ1,themedian,andQ3fromthe
+histogram.
+(b) Wouldyouexpectthemeanofthisdataset
+to be smaller or larger than the median?
+Explain your reasoning.
+Infant Mortality (per 1000 Live Births)
+seirtnuoC
+fo
+noitcarF
+0.4
+0.3
+0.2
+0.1
+0
+0 20 40 60 80 100 120
+2.29 TV watchers. Students in an AP Statistics class were asked how many hours of television they
+watchperweek(includingonlinestreaming). Thissampleyieldedanaverageof4.71hours,withastandard
+deviationof4.18hours. Isthedistributionofnumberofhoursstudentswatchtelevisionweeklysymmetric?
+If not, what shape would you expect this distribution to have? Explain your reasoning.
+2.30 A new statistic. The statistic x¯ can be used as a measure of skewness. Suppose we have a
+median
+distributionwhereallobservationsaregreaterthan0,x >0. Whatistheexpectedshapeofthedistribution
+i
+under the following conditions? Explain your reasoning.
+(a) x¯ =1
+median
+(b) x¯ <1
+median
+(c) x¯ >1
+median
+2.31 Oscarwinners. The first Oscar awards for best actor and best actress were given out in 1929. The
+histograms below show the age distribution for all of the best actor and best actress winners from 1929 to
+2018. Summary statistics for these distributions are also provided. Compare the distributions of ages of
+best actor and actress winners.32
+Best actress
+50
+Best Actress
+40
+Mean 36.2
+30
+SD 11.9
+20
+n 92
+10
+0
+Best actor
+50
+40
+30 Best Actor
+20 Mean 43.8
+10 SD 8.83
+0 n 92
+20 40 60 80
+Age (in years)
+31CIAFactbook,CountryComparisons,2014.
+32Oscarwinnersfrom1929–2012,dataupto2009fromtheJournalofStatisticsEducationdataarchiveandmore
+currentdatafromwikipedia.org.
+78 CHAPTER 2. SUMMARIZING DATA
+2.32 Exam scores. The average on a history exam (scored out of 100 points) was 85, with a standard
+deviation of 15. Is the distribution of the scores on this exam symmetric? If not, what shape would you
+expect this distribution to have? Explain your reasoning.
+2.33 Statsscores. Below are the final exam scores of twenty introductory statistics students.
+57, 66, 69, 71, 72, 73, 74, 77, 78, 78, 79, 79, 81, 81, 82, 83, 83, 88, 89, 94
+Create a box plot of the distribution of these scores. The five number summary provided below may be
+useful.
+Min Q1 Q2 (Median) Q3 Max
+57 72.5 78.5 82.5 94
+2.34 Marathonwinners. The histogram and box plots below show the distribution of finishing times in
+hours for male and female winners of the New York Marathon between 1970 and 1999.
+20
+10
+0
+2.0 2.4 2.8 3.2
+semit
+nohtaraM
+3.2
+2.8
+2.4
+2.0
+(a) What features of the distribution are apparent in the histogram and not the box plot? What features
+are apparent in the box plot but not in the histogram?
+(b) What may be the reason for the bimodal distribution? Explain.
+(c) Compare the distribution of marathon times for men and women based on the box plot shown below.
+Men
+Women
+2.0 2.4 2.8 3.2
+(d) The time series plot shown below is another way to look at these data. Describe what is visible in this
+plot but not in the others.
+l
+l l l l l
+l l l l l l l l l l l l l l l l l l l l l l l l
+semit
+nohtaraM
+3.2
+Women
+l Men
+2.8
+2.4
+2.0
+1970 1975 1980 1985 1990 1995 2000
+79
+Chapter 3
+Probability
+3.1 Defining probability
+3.2 Conditional probability
+3.3 Sampling from a small population
+3.4 Random variables
+3.5 Continuous distributions
+80
+Probability forms the foundation of statistics, and you’re probably
+already aware of many of the ideas presented in this chapter. However,
+formalization of probability concepts is likely new for most readers.
+While this chapter provides a theoretical foundation for the ideas in
+later chapters and provides a path to a deeper understanding, mastery
+of the concepts introduced in this chapter is not required for applying
+the methods introduced in the rest of this book.
+For videos, slides, and other resources, please visit
+www.openintro.org/os
+3.1. DEFINING PROBABILITY 81
+3.1 Defining probability
+Statisticsisbasedonprobability,andwhileprobabilityisnotrequiredfortheappliedtechniques
+inthisbook,itmayhelpyougainadeeperunderstandingofthemethodsandsetabetterfoundation
+for future courses.
+3.1.1 Introductory examples
+Before we get into technical ideas, let’s walk through some basic examples that may feel more
+familiar.
+EXAMPLE3.1
+A “die”, the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the
+chance of getting 1 when rolling a die?
+If the die is fair, then the chance of a 1 is as good as the chance of any other number. Since there
+are six outcomes, the chance must be 1-in-6 or, equivalently, 1/6.
+EXAMPLE3.2
+What is the chance of getting a 1 or 2 in the next roll?
+1 and 2 constitute two of the six equally likely possible outcomes, so the chance of getting one of
+these two outcomes must be 2/6=1/3.
+EXAMPLE3.3
+What is the chance of getting either 1, 2, 3, 4, 5, or 6 on the next roll?
+100%. The outcome must be one of these numbers.
+EXAMPLE3.4
+What is the chance of not rolling a 2?
+Sincethechanceofrollinga2is1/6or16.¯6%,thechanceofnotrollinga2mustbe100%−16.¯6%=
+83.¯3% or 5/6.
+Alternatively, we could have noticed that not rolling a 2 is the same as getting a 1, 3, 4, 5, or 6,
+which makes up five of the six equally likely outcomes and has probability 5/6.
+EXAMPLE3.5
+Consider rolling two dice. If 1/6 of the time the first die is a 1 and 1/6 of those times the second
+die is a 1, what is the chance of getting two 1s?
+If 16.¯6% of the time the first die is a 1 and 1/6 of those times the second die is also a 1, then the
+chance that both dice are 1 is (1/6)×(1/6) or 1/36.
+82 CHAPTER 3. PROBABILITY
+3.1.2 Probability
+We use probability to build tools to describe and understand apparent randomness. We often
+frame probability in terms of a random process giving rise to an outcome.
+Roll a die → 1, 2, 3, 4, 5, or 6
+Flip a coin → H or T
+Rolling a die or flipping a coin is a seemingly random process and each gives rise to an outcome.
+PROBABILITY
+The probability of an outcome is the proportion of times the outcome would occur if we
+observed the random process an infinite number of times.
+Probabilityisdefinedasaproportion, anditalwaystakesvaluesbetween0and1(inclusively).
+It may also be displayed as a percentage between 0% and 100%.
+Probabilitycanbeillustratedbyrollingadiemanytimes. Letpˆ betheproportionofoutcomes
+n
+thatare1afterthefirstnrolls. Asthenumberofrollsincreases, pˆ willconvergetotheprobability
+n
+of rolling a 1, p=1/6. Figure 3.1 shows this convergence for 100,000 die rolls. The tendency of pˆ
+n
+to stabilize around p is described by the Law of Large Numbers.
+0.3
+0.2
+^
+p
+n
+0.1
+0.0
+1 10 100 1,000 10,000 100,000
+n (number of rolls)
+Figure 3.1: The fraction of die rolls that are 1 at each stage in a simulation. The
+proportiontendstogetclosertotheprobability1/6≈0.167asthenumberofrolls
+increases.
+LAWOFLARGENUMBERS
+As more observations are collected, the proportion pˆ of occurrences with a particular outcome
+n
+converges to the probability p of that outcome.
+Occasionally the proportion will veer off from the probability and appear to defy the Law of
+Large Numbers, as pˆ does many times in Figure 3.1. However, these deviations become smaller as
+n
+the number of rolls increases.
+Above we write p as the probability of rolling a 1. We can also write this probability as
+P(rolling a 1)
+As we become more comfortable with this notation, we will abbreviate it further. For instance, if it
+is clear that the process is “rolling a die”, we could abbreviate P(rolling a 1) as P(1).
+3.1. DEFINING PROBABILITY 83
+GUIDEDPRACTICE3.6
+Random processes include rolling a die and flipping a coin. (a) Think of another random process.
+(b)Describeallthepossibleoutcomesofthatprocess. Forinstance,rollingadieisarandomprocess
+with possible outcomes 1, 2, ..., 6.1
+What we think of as random processes are not necessarily random, but they may just be too
+difficult to understand exactly. The fourth example in the footnote solution to Guided Practice 3.6
+suggestsaroommate’sbehaviorisarandomprocess. However,evenifaroommate’sbehaviorisnot
+truly random, modeling her behavior as a random process can still be useful.
+3.1.3 Disjoint or mutually exclusive outcomes
+Two outcomes are called disjoint or mutually exclusive if they cannot both happen. For
+instance,ifwerolladie,theoutcomes1and2aredisjointsincetheycannotbothoccur. Ontheother
+hand, the outcomes 1 and “rolling an odd number” are not disjoint since both occur if the outcome
+of the roll is a 1. The terms disjoint and mutually exclusive are equivalent and interchangeable.
+Calculating the probability of disjoint outcomes is easy. When rolling a die, the outcomes 1
+and 2 are disjoint, and we compute the probability that one of these outcomes will occur by adding
+their separate probabilities:
+P(1 or 2)=P(1)+P(2)=1/6+1/6=1/3
+What about the probability of rolling a 1, 2, 3, 4, 5, or 6? Here again, all of the outcomes are
+disjoint so we add the probabilities:
+P(1 or 2 or 3 or 4 or 5 or 6)
+=P(1)+P(2)+P(3)+P(4)+P(5)+P(6)
+=1/6+1/6+1/6+1/6+1/6+1/6=1
+The Addition Rule guarantees the accuracy of this approach when the outcomes are disjoint.
+ADDITIONRULEOFDISJOINTOUTCOMES
+If A and A represent two disjoint outcomes, then the probability that one of them occurs is
+1 2
+given by
+P(A or A )=P(A )+P(A )
+1 2 1 2
+IftherearemanydisjointoutcomesA , ..., A , thentheprobabilitythatoneoftheseoutcomes
+1 k
+will occur is
+P(A )+P(A )+···+P(A )
+1 2 k
+1Herearefourexamples. (i)Whethersomeonegetssickinthenextmonthornotisanapparentlyrandomprocess
+with outcomes sick and not. (ii) We can generate a random process by randomly picking a person and measuring
+thatperson’sheight. Theoutcomeofthisprocesswillbeapositivenumber. (iii)Whetherthestockmarketgoesup
+ordownnextweekisaseeminglyrandomprocesswithpossibleoutcomesup,down,andno change. Alternatively,we
+couldhaveusedthepercentchangeinthestockmarketasanumericaloutcome. (iv)Whetheryourroommatecleans
+herdishestonightprobablyseemslikearandomprocesswithpossibleoutcomescleans dishesandleaves dishes.
+84 CHAPTER 3. PROBABILITY
+GUIDEDPRACTICE3.7
+We are interested in the probability of rolling a 1, 4, or 5. (a) Explain why the outcomes 1, 4, and
+5 are disjoint. (b) Apply the Addition Rule for disjoint outcomes to determine P(1 or 4 or 5).2
+GUIDEDPRACTICE3.8
+In the loans data set in Chapter 2, the homeownership variable described whether the borrower
+rents, has a mortgage, or owns her property. Of the 10,000 borrowers, 3858 rented, 4789 had a
+mortgage, and 1353 owned their home.3
+(a) Are the outcomes rent, mortgage, and own disjoint?
+(b) Determine the proportion of loans with value mortgage and own separately.
+(c) Use the Addition Rule for disjoint outcomes to compute the probability a randomly selected
+loan from the data set is for someone who has a mortgage or owns her home.
+Data scientists rarely work with individual outcomes and instead consider sets or collections
+of outcomes. Let A represent the event where a die roll results in 1 or 2 and B represent the event
+that the die roll is a 4 or a 6. We write A as the set of outcomes {1, 2} and B = {4, 6}. These
+sets are commonly called events. Because A and B have no elements in common, they are disjoint
+events. A and B are represented in Figure 3.2.
+A D
+1 2 3 4 5 6
+B
+Figure 3.2: Three events, A, B, and D, consist of outcomes from rolling a die. A
+and B are disjoint since they do not have any outcomes in common.
+The Addition Rule applies to both disjoint outcomes and disjoint events. The probability that
+one of the disjoint events A or B occurs is the sum of the separate probabilities:
+P(A or B)=P(A)+P(B)=1/3+1/3=2/3
+GUIDEDPRACTICE3.9
+(a) Verify the probability of event A, P(A), is 1/3 using the Addition Rule. (b) Do the same for
+event B.4
+GUIDEDPRACTICE3.10
+(a) Using Figure 3.2 as a reference, what outcomes are represented by event D? (b) Are events B
+and D disjoint? (c) Are events A and D disjoint?5
+GUIDEDPRACTICE3.11
+In Guided Practice 3.10, you confirmed B and D from Figure 3.2 are disjoint. Compute the proba-
+bility that event B or event D occurs.6
+2(a) The random process is a die roll, and at most one of these outcomes can come up. This means they are
+disjointoutcomes. (b)P(1or4or5)=P(1)+P(4)+P(5)= 1 + 1 + 1 = 3 = 1
+6 6 6 6 2
+3(a) Yes. Each loan is categorized in only one level of homeownership. (b) Mortgage: 4789 = 0.479. Own:
+10000
+1353 =0.135. (c)P(mortgageorown)=P(mortgage)+P(own)=0.479+0.135=0.614.
+10000
+4(a)P(A)=P(1or2)=P(1)+P(2)= 1 + 1 = 2 = 1. (b)Similarly,P(B)=1/3.
+6 6 6 3
+5(a)Outcomes2and3. (b)Yes,eventsB andD aredisjointbecausetheysharenooutcomes. (c)TheeventsA
+andD shareanoutcomeincommon,2,andsoarenotdisjoint.
+6SinceB andD aredisjointevents,usetheAdditionRule: P(B orD)=P(B)+P(D)= 1 + 1 = 2.
+3 3 3
+3.1. DEFINING PROBABILITY 85
+3.1.4 Probabilities when events are not disjoint
+Let’s consider calculations for two events that are not disjoint in the context of a regular deck
+of 52 cards, represented in Figure 3.3. If you are unfamiliar with the cards in a regular deck, please
+see the footnote.7
+2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♣
+2♢ 3♢ 4♢ 5♢ 6♢ 7♢ 8♢ 9♢ 10♢ J♢ Q♢ K♢ A♢
+2♡ 3♡ 4♡ 5♡ 6♡ 7♡ 8♡ 9♡ 10♡ J♡ Q♡ K♡ A♡
+2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠ A♠
+Figure 3.3: Representations of the 52 unique cards in a deck.
+GUIDEDPRACTICE3.12
+(a)Whatistheprobabilitythatarandomlyselectedcardisadiamond? (b)Whatistheprobability
+that a randomly selected card is a face card?8
+Venn diagramsareusefulwhenoutcomescanbecategorizedas“in”or“out”fortwoorthree
+variables,attributes,orrandomprocesses. TheVenndiagraminFigure3.4usesacircletorepresent
+diamonds and another to represent face cards. If a card is both a diamond and a face card, it falls
+into the intersection of the circles. If it is a diamond but not a face card, it will be in part of the
+left circle that is not in the right circle (and so on). The total number of cards that are diamonds is
+given by the total number of cards in the diamonds circle: 10+3 = 13. The probabilities are also
+shown (e.g. 10/52=0.1923).
+Diamonds, 0.2500
+There are also
+10 3 9 30 cards that are
+neither diamonds
+0.1923 0.0577 0.1731
+nor face cards
+Face cards, 0.2308
+Figure 3.4: A Venn diagram for diamonds and face cards.
+Let A represent the event that a randomly selected card is a diamond and B represent the
+event that it is a face card. How do we compute P(A or B)? Events A and B are not disjoint – the
+cards J♢, Q♢, and K♢ fall into both categories – so we cannot use the Addition Rule for disjoint
+events. Instead we use the Venn diagram. We start by adding the probabilities of the two events:
+P(A)+P(B)=P(♢)+P(face card)=13/52+12/52
+7The52cardsaresplitintofoursuits: ♣(club),♢(diamond),♡(heart),♠(spade). Eachsuithasits13cards
+labeled: 2,3,...,10,J(jack),Q(queen),K(king),andA(ace). Thus,eachcardisauniquecombinationofasuitand
+alabel,e.g. 4♡andJ♣. The12cardsrepresentedbythejacks,queens,andkingsarecalledface cards. Thecards
+thatare♢or♡aretypicallycoloredredwhiletheothertwosuitsaretypicallycoloredblack.
+8(a) There are 52 cards and 13 diamonds. If the cards are thoroughly shuffled, each card has an equal chance
+of being drawn, so the probability that a randomly selected card is a diamond is P(♢)= 13 =0.250. (b) Likewise,
+52
+thereare12facecards,soP(facecard)= 12 = 3 =0.231.
+52 13
+86 CHAPTER 3. PROBABILITY
+However, the three cards that are in both events were counted twice, once in each probability. We
+must correct this double counting:
+P(A or B)=P(♢ or face card)
+=P(♢)+P(face card)−P(♢ and face card)
+=13/52+12/52−3/52
+=22/52=11/26
+This equation is an example of the General Addition Rule.
+GENERALADDITIONRULE
+If A and B are any two events, disjoint or not, then the probability that at least one of them
+will occur is
+P(A or B)=P(A)+P(B)−P(A and B)
+where P(A and B) is the probability that both events occur.
+TIP: “or” is inclusive
+When we write “or” in statistics, we mean “and/or” unless we explicitly state otherwise.
+Thus, A or B occurs means A, B, or both A and B occur.
+GUIDEDPRACTICE3.13
+(a) If A and B are disjoint, describe why this implies P(A and B) = 0. (b) Using part (a), verify
+that the General Addition Rule simplifies to the simpler Addition Rule for disjoint events if A and
+B are disjoint.9
+GUIDEDPRACTICE3.14
+Intheloansdatasetdescribing10,000loans,1495loanswerefromjointapplications(e.g. acouple
+appliedtogether),4789applicantshadamortgage,and950hadbothofthesecharacteristics. Create
+a Venn diagram for this setup.10
+GUIDEDPRACTICE3.15
+(a) Use your Venn diagram from Guided Practice 3.14 to determine the probability a randomly
+drawn loan from the loans data set is from a joint application where the couple had a mortgage.
+(b) What is the probability that the loan had either of these attributes?11
+9(a)IfAandB aredisjoint,AandB canneveroccursimultaneously. (b)IfAandB aredisjoint,thenthelast
+P(AandB)termofintheGeneralAdditionRuleformulais0(seepart(a))andweareleftwiththeAdditionRule
+fordisjointevents.
+10Both the counts and corresponding probabilities (e.g. 3839/10000=0.384) applicant had a mortgage joint application
+are shown. Notice that the number of loans represented in the left circle 3839 950 545
+correspondsto3839+950=4789,andthenumberrepresentedintheright 0.384 0.095 0.055
+circleis950+545=1495. Other loans: 10000 − 3839 − 950 − 545 = 4666(0.467)
+11(a) The solution is represented by the intersection of the two circles: 0.095. (b) This is the sum of the three
+disjointprobabilitiesshowninthecircles: 0.384+0.095+0.055=0.534(offby0.001duetoaroundingerror).
+3.1. DEFINING PROBABILITY 87
+3.1.5 Probability distributions
+A probability distribution is a table of all disjoint outcomes and their associated probabili-
+ties. Figure 3.5 shows the probability distribution for the sum of two dice.
+Dice sum 2 3 4 5 6 7 8 9 10 11 12
+Probability 1 2 3 4 5 6 5 4 3 2 1
+36 36 36 36 36 36 36 36 36 36 36
+Figure 3.5: Probability distribution for the sum of two dice.
+RULESFORPROBABILITYDISTRIBUTIONS
+A probability distribution is a list of the possible outcomes with corresponding probabilities
+that satisfies three rules:
+1. The outcomes listed must be disjoint.
+2. Each probability must be between 0 and 1.
+3. The probabilities must total 1.
+GUIDEDPRACTICE3.16
+Figure 3.6 suggests three distributions for household income in the United States. Only one is
+correct. Which one must it be? What is wrong with the other two?12
+Income Range $0-25k $25k-50k $50k-100k $100k+
+(a) 0.18 0.39 0.33 0.16
+(b) 0.38 -0.27 0.52 0.37
+(c) 0.28 0.27 0.29 0.16
+Figure 3.6: Proposed distributions of US household incomes (Guided Prac-
+tice 3.16).
+Chapter1emphasizedtheimportanceofplottingdatatoprovidequicksummaries. Probability
+distributions can also be summarized in a bar plot. For instance, the distribution of US household
+incomes is shown in Figure 3.7 as a bar plot. The probability distribution for the sum of two dice is
+shown in Figure 3.5 and plotted in Figure 3.8.
+0.25
+0.20
+0.15
+0.10
+0.05
+0.00
+$0−25k $25k−50k $50k−100k $100k+
+US Household Incomes
+ytilibaborP
+Figure 3.7: The probability distribution of US household income.
+12Theprobabilitiesof(a)donotsumto1. Thesecondprobabilityin(b)isnegative. Thisleaves(c), whichsure
+enough satisfies the requirements of a distribution. One of the three was said to be the actual distribution of US
+householdincomes,soitmustbe(c).
+88 CHAPTER 3. PROBABILITY
+0.15
+0.10
+0.05
+0.00
+2 3 4 5 6 7 8 9 10 11 12
+Dice Sum
+ytilibaborP
+Figure 3.8: The probability distribution of the sum of two dice.
+In these bar plots, the bar heights represent the probabilities of outcomes. If the outcomes
+are numerical and discrete, it is usually (visually) convenient to make a bar plot that resembles a
+histogram, as in the case of the sum of two dice. Another example of plotting the bars at their
+respective locations is shown in Figure 3.18 on page 115.
+3.1.6 Complement of an event
+Rolling a die produces a value in the set {1, 2, 3, 4, 5, 6}. This set of all possible outcomes
+is called the sample space (S) for rolling a die. We often use the sample space to examine the
+scenario where an event does not occur.
+Let D = {2, 3} represent the event that the outcome of a die roll is 2 or 3. Then the com-
+plement of D represents all outcomes in our sample space that are not in D, which is denoted
+by Dc = {1, 4, 5, 6}. That is, Dc is the set of all possible outcomes not already included in D.
+Figure 3.9 shows the relationship between D, Dc, and the sample space S.
+D DC
+S 2 3
+1 4 5 6
+Figure 3.9: Event D ={2, 3} and its complement, Dc ={1, 4, 5, 6}. S represents
+the sample space, which is the set of all possible outcomes.
+GUIDEDPRACTICE3.17
+(a) Compute P(Dc)=P(rolling a 1, 4, 5, or 6). (b) What is P(D)+P(Dc)?13
+GUIDEDPRACTICE3.18
+Events A={1, 2} and B ={4, 6} are shown in Figure 3.2 on page 84. (a) Write out what Ac and
+Bc represent. (b) Compute P(Ac) and P(Bc). (c) Compute P(A)+P(Ac) and P(B)+P(Bc).14
+13(a) The outcomes are disjoint and each has probability 1/6, so the total probability is 4/6=2/3. (b) We can
+alsoseethatP(D)= 1 + 1 =1/3. SinceD andDc aredisjoint,P(D)+P(Dc)=1.
+6 6
+14Brief solutions: (a) Ac ={3, 4, 5, 6} and Bc ={1, 2, 3, 5}. (b) Noting that each outcome is disjoint, add the
+individual outcome probabilities to get P(Ac)=2/3 and P(Bc)=2/3. (c) A and Ac are disjoint, and the same is
+trueofB andBc. Therefore,P(A)+P(Ac)=1andP(B)+P(Bc)=1.
+3.1. DEFINING PROBABILITY 89
+A complement of an event A is constructed to have two very important properties: (i) every
+possible outcome not in A is in Ac, and (ii) A and Ac are disjoint. Property (i) implies
+P(A or Ac)=1
+That is, if the outcome is not in A, it must be represented in Ac. We use the Addition Rule for
+disjoint events to apply Property (ii):
+P(A or Ac)=P(A)+P(Ac)
+Combining the last two equations yields a very useful relationship between the probability of an
+event and its complement.
+COMPLEMENT
+The complement of event A is denoted Ac, and Ac represents all outcomes not in A. A and Ac
+are mathematically related:
+P(A)+P(Ac)=1, i.e. P(A)=1−P(Ac)
+Insimpleexamples,computingAorAcisfeasibleinafewsteps. However,usingthecomplement
+can save a lot of time as problems grow in complexity.
+GUIDEDPRACTICE3.19
+Let A represent the event where we roll two dice and their total is less than 12. (a) What does the
+event Ac represent? (b) Determine P(Ac) from Figure 3.5 on page 87. (c) Determine P(A).15
+GUIDEDPRACTICE3.20
+Find the following probabilities for rolling two dice:16
+(a) The sum of the dice is not 6.
+(b) The sum is at least 4. That is, determine the probability of the event B ={4, 5, ..., 12}.
+(c) Thesumisnomorethan10. Thatis, determinetheprobabilityoftheeventD ={2, 3, ..., 10}.
+3.1.7 Independence
+Just as variables and observations can be independent, random processes can be independent,
+too. Two processes are independent if knowing the outcome of one provides no useful information
+about the outcome of the other. For instance, flipping a coin and rolling a die are two independent
+processes – knowing the coin was heads does not help determine the outcome of a die roll. On the
+other hand, stock prices usually move up or down together, so they are not independent.
+Example3.5providesabasicexampleoftwoindependentprocesses: rollingtwodice. Wewant
+todeterminetheprobabilitythatbothwillbe1. Supposeoneofthediceisredandtheotherwhite.
+Iftheoutcomeofthereddieisa1,itprovidesnoinformationabouttheoutcomeofthewhitedie. We
+first encountered this same question in Example 3.5 (page 81), where we calculated the probability
+usingthefollowingreasoning: 1/6ofthetimethereddieisa1,and1/6ofthose timesthewhitedie
+15(a) The complement of A: when the total is equal to 12. (b) P(Ac) = 1/36. (c) Use the probability of the
+complement from part (b), P(Ac) = 1/36, and the equation for the complement: P(less than 12) = 1−P(12) =
+1−1/36=35/36.
+16(a)FirstfindP(6)=5/36,thenusethecomplement: P(not6)=1−P(6)=31/36.
+(b) First find the complement, which requires much less effort: P(2 or 3)=1/36+2/36=1/12. Then calculate
+P(B)=1−P(Bc)=1−1/12=11/12.
+(c) As before, finding the complement is the clever way to determine P(D). First find P(Dc) = P(11 or 12) =
+2/36+1/36=1/12. ThencalculateP(D)=1−P(Dc)=11/12.
+90 CHAPTER 3. PROBABILITY
+willalsobe1. ThisisillustratedinFigure3.10. Becausetherollsareindependent, theprobabilities
+ofthecorrespondingoutcomescanbemultipliedtogetthefinalanswer: (1/6)×(1/6)=1/36. This
+can be generalized to many independent processes.
+All rolls
+1/6th of the first
+rolls are a 1.
+1/6th of those times where
+the first roll is a 1 the
+second roll is also a 1.
+Figure 3.10: 1/6 of the time, the first roll is a 1. Then 1/6 of those times, the
+second roll will also be a 1.
+EXAMPLE3.21
+What if there was also a blue die independent of the other two? What is the probability of rolling
+the three dice and getting all 1s?
+The same logic applies from Example 3.5. If 1/36 of the time the white and red dice are both 1,
+then 1/6 of those times the blue die will also be 1, so multiply:
+P(white=1 and red=1 and blue=1)=P(white=1)×P(red=1)×P(blue=1)
+=(1/6)×(1/6)×(1/6)=1/216
+Example 3.21 illustrates what is called the Multiplication Rule for independent processes.
+MULTIPLICATIONRULEFORINDEPENDENTPROCESSES
+If A and B represent events from two different and independent processes, then the probability
+that both A and B occur can be calculated as the product of their separate probabilities:
+P(A and B)=P(A)×P(B)
+Similarly, if there are k events A , ..., A from k independent processes, then the probability
+1 k
+they all occur is
+P(A )×P(A )×···×P(A )
+1 2 k
+GUIDEDPRACTICE3.22
+About 9% of people are left-handed. Suppose 2 people are selected at random from the U.S. pop-
+ulation. Because the sample size of 2 is very small relative to the population, it is reasonable to
+assume these two people are independent. (a) What is the probability that both are left-handed?
+(b) What is the probability that both are right-handed?17
+17(a)Theprobabilitythefirstpersonisleft-handedis0.09,whichisthesameforthesecondperson. Weapplythe
+MultiplicationRuleforindependentprocessestodeterminetheprobabilitythatbothwillbeleft-handed: 0.09×0.09=
+0.0081.
+(b)Itisreasonabletoassumetheproportionofpeoplewhoareambidextrous(bothright-andleft-handed)isnearly
+0,whichresultsinP(right-handed)=1−0.09=0.91. Usingthesamereasoningasinpart(a),theprobabilitythat
+bothwillberight-handedis0.91×0.91=0.8281.
+
+---

@@ -1,0 +1,34 @@
+MITOCW | MITRES6_012S18_L22-03_300k
+In what kind of situations does the Poisson process arise?
+In general, it arises whenever we have events like arrivals that are somewhat rare, and which happen in a
+completely uncoordinated manner, so that they can show up at any particular time.
+In such situations, the number of arrivals will be often described by a certain distribution called the Poisson
+distribution, and which is named after the person who first studied this situation, who is a famous French
+mathematician by the name of Simon Denis Poisson.
+An early example where the data seems to fit the description of the Poisson process is a curious one.
+It had to do with deaths from horse kicks, that is, accidental deaths, in the Prussian army.
+The idea here is that a death by horse kick can happen pretty much at any time.
+And different arrivals, that is, different accidents are completely uncoordinated from each other.
+So the process is sort of completely random.
+For more scientific applications, it was realized that certain physical phenomena obey the Poisson process.
+Examples are the following.
+You have some radioactive body which decays, and the decaying happens once in awhile, emitting various
+particles.
+Different particles get emitted at completely random times in a completely uncoordinated manner and, therefore,
+this process is actually described as a Poisson process.
+Conversely, if you have a photo detector who looks at a very weak light source.
+So photons arrive from that weak light source one at a time.
+And you look at the time at which photons hit the detector.
+Then, the process of photon arrivals is very well-modeled by the Poisson process.
+For more modern applications, if you look at the financial markets and the times at which certain very unexpected
+events, like certain market shocks, occur, a model that is commonly employed is to use a Poisson process model.
+Although this is not an entirely accurate model, it provides a first approach to situations like this.
+But these days, the predominant source of applications for the Poisson process is in various service operations.
+You are the phone company.
+Phone calls get placed at random times.
+And because there are several people involved who are uncoordinated with each other, those calls get placed at
+completely random times.
+And the same story goes about, let's say, service requests to a web server, service requests to any kind of
+company.
+So, many applications that are being studied these days and which rest on Poisson models involve service
+operations of this type.

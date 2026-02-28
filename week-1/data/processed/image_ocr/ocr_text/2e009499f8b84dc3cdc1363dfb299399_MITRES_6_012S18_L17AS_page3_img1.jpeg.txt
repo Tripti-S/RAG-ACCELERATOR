@@ -1,0 +1,15 @@
+Solution to the LLMS problem
+® Minimize E|(© —aX —)?], w.r-t. a, b
+ea
+
+— suppose a has already been found: be E[@]-abl*x]
+min E] (O-ax ~£[6-ax])*]=var(@-a%)
+(6) + a*var(x) ~ 2a cov(O,x)
+
+=var a)
+Jd. 0: Qa var (x) ~2¢0v(O,x)=0 p= a
+
+da Q= cov (O,*)Wvar(x) a: peer
+
+[e.=ne1+ X —E[X]) = E[@] + p(X — FIX] a)?
+

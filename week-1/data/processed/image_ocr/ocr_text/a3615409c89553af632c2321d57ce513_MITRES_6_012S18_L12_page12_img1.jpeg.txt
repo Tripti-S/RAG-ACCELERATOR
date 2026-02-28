@@ -1,0 +1,14 @@
+Interpreting the correlation coefficient cov( X,Y)
+AxX,Y) = ————
+oxoy
+e Association does not imply causation or influence
+
+X: math aptitude
+Y: musical ability
+
+e Correlation often reflects underlying, common, hidden factor
+— Assume, Z, V, W are independent
+
+X=Z+V Y=Z+W
+
+Assume, for simplicity, that Z, V, W have zero means, unit variances

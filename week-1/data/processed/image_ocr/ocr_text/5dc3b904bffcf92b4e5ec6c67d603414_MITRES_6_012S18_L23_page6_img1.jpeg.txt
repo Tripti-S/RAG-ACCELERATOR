@@ -1,0 +1,10 @@
+The time the first (or the last) light bulb burns out
+
+_——— ns
+e Three lightbulbs time
+_————
+
+— independent lifetimes X, Y, Z; exponential(A) time
+ee
+
+e Find expected time until all burn out "ime

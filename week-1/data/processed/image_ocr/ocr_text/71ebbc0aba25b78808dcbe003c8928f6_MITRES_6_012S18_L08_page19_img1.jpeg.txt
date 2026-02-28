@@ -1,0 +1,5 @@
+Calculating normal probabilities
+
+e Express an event of interest
+in terms of standard normal
+

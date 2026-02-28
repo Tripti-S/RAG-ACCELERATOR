@@ -1,0 +1,22 @@
+Memorylessness and the fresh-start property
+a % [3 ee
+Te :
+
+ee ee es
+e If we start watching at time ¢, =
+o +, Th f Yeo Yn time
+
+we see Poisson process, independent of the history until time t * tart $resQ
+— time until next arrival: Exp (A) , im de pemole at 6 f£ pos€
+e If we start watching at time 7}, yes
+
+we see Poisson process, independent of the history until time Ty;
+
+— hence: time between first and second arrival, T>2 = Y2 — Yj is: Exp CA)
+
+— similarly for all T, = Yz—Ye_1, k > 2 émol. of T,
+
+Y¥, =T1 +---+ 7; is sum of i.i.d. exponentials e An equivalent definition
+
+E[Y;] = k/A var(Y;) = k/A2 e A simulation method
+

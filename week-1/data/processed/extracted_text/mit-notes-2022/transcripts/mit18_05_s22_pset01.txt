@@ -1,0 +1,59 @@
+18.05 Problem Set 1, Spring 2022
+Problem 1. (20 pts.) (6 card draw)
+You can easily look up the probability of 5 card poker hands, e.g. https://en.wikipedia.
+org/wiki/Poker_probability
+For this problem, let’s consider hands with 6 cards. Here are two types:
+Two-pair: Two cards have one rank, two cards have another rank, and the remaining two
+cards have two different ranks. e.g. {2♡, 2♠, 5♡, 5♣, 𝑄♢, 𝐾♢}
+Three-of-a-kind: Three cards have one rank and the remaining three cards have three other
+ranks. e.g. {2♡, 2♠, 2♣, 5♣, 9♠, 𝐾♡}
+Calculate the probability of each type of hand. Which is more probable?
+Problem 2. (20: 10,10 pts.) (Non-transitive dice)
+In class we worked with non-transitive dice:
+Blue: 3 3 3 3 3 6; Orange: 1 4 4 4 4 4; White: 2 2 2 5 5 5.
+(a) Find the probability that white beats orange, the probability that orange beats blue
+and the probability that blue beats white.
+Can you line the dice up in order from best to worst? (Hint: this is why these are called
+‘non-transitive’.)
+(b) Suppose you roll two white dice against two blue dice. What is the probability that
+the sum of the white dice is greater than the sum of the blue dice?
+For hints on this problem and ways to make money with your dice, watch at least the first
+six minutes of the following video.
+https://www.youtube.com/watch?v=zWUrwhaqq_c
+Here a tree is used to organize the calculation rather than a table. We will discuss this
+method in Week 2.
+Problem 3. (55: 5,5,10,5,10,10,10 pts.) (Birthdays: counting and simulation)
+Ignoring leap days, the days of the year can be numbered 1 to 365. Assume that birthdays
+are equally likely to fall on any day of the year. Consider a group of 𝑛 people, of which
+you are not a member. An element of the sample space 𝑆 will be a sequence of 𝑛 birthdays
+(one for each person).
+(a) Define the probability function 𝑃 for 𝑆. (This will depend on 𝑛.)
+(b) Consider the following events:
+A: “someone in the group shares your birthday”
+B: “some two people in the group share a birthday”
+C: “some three people in the group share a birthday”
+Carefully describe the subset of 𝑆 that corresponds to each event.
+(c) Find an exact formula for 𝑃 (𝐴). What is the smallest 𝑛 such that 𝑃 (𝐴) > 0.5?
+(d) Justify why 𝑛 in part (c) is greater than 365 without doing any computation. (We are
+2
+looking for a short answer giving a heuristic sense of why this is so.)
+(e) Use R simulation to estimate the smallest 𝑛 for which 𝑃 (𝐵) > 0.9. For these simula-
+tions, let the number of trials be 10000. (You can reuse your code from Studio 1.)
+1
+18.05 Problem Set 1, Spring 2022 2
+For this value of 𝑛, repeat the simulation a few times to verify that it always gives similar
+results.
+Using 10000 trials you saw very little variation in the estimate of 𝑃 (𝐵). Try this again
+using 30 trials and verify that the estimated probabilities are much more variable. On your
+pset, give the results 7 runs of 30 trials using the value of 𝑛 you just found.
+(f) Find an exact formula for 𝑃 (𝐵).
+(g) Use R simulation to estimate the smallest 𝑛 for which 𝑃(𝐶) > 0.5. Again use 10000
+trials. You will find that two adjacent values of 𝑛 are equally plausible based on simulations.
+You may pick either one for your answer.
+Note that it is much harder to find an exact formula for 𝑃 (𝐶), so simulation is especially
+handy.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

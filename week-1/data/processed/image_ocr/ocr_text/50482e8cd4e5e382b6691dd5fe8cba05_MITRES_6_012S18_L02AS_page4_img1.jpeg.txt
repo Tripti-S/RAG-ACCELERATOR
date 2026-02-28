@@ -1,0 +1,25 @@
+Example: two rolls of a 4-sided die
+he
+
+e Let B be the event: min(Xx,Y) = 2
+
+F Let M = max(x,Y)
+Y = Second
+
+roll P(M=1|B)= OQ
+
+2 3 4
+
+X = First roll ie ( 8)
+
+eh 'G
+
+£(%=3 and B)
+
+P(M=3|B)=
+
+IN
+
+WS
+
+5/16

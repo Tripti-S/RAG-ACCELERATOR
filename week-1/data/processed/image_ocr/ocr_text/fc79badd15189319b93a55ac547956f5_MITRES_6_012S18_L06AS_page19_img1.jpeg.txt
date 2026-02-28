@@ -1,0 +1,6 @@
+Linearity of expectations
+E[aX + b] = aE[X] +6
+
+E[LX + Y] = E[X]+ EY]
+
+E2x+3y—-zj= El2xl+efayj-efe} =2E[xJ +3ELy]) -Ef2)

@@ -1,0 +1,143 @@
+LECTURE 11: Derived distributions
+• Given the distribution of X,
+=
+find the distribution of Y g(X)
+- the discrete case
+- the continuous case
+- general approach, using CDFs
++
+=
+- the linear case: Y aX b
+- general formula when g is monotonic
+• Given the (joint) distribution of X and Y,
+=
+find the distribution of Z g(X, Y)
+1
+Derived d·strib tions - t d·sc,rete case
+=
+y g(X)
+y
+X
+g
+5.
+0.3
+4
+4
+prob
+- =
+py(y) - P(g(X) y)
+3
+3 --
+Px(x)
+2 x: g(x)=y
+2
+2
+A linea funct-on of a disc e e r.v.
+Z=2X
+pz(z)
+3/6
+2/6
+1/6
+z
+,.
+-1 1 2
+X
+=
+Y 2X 3
+py(y)
+I
+-ab)
+y Y aX b. py(y) P ( y
+3
+A linea fun ,ct-on o a contin ous .v.
+fx(x) )'
+2/3 -------
+1/3
+-1 1 X
+fz(z) Z-2 Y-2X 3
+/y(y)
+y
+z
+4
+A linea fun ,ct-on o a contin ous .v. -a b
+(y- b a ) y-b)
+(
+l1a lf
+fy(y) - py(y) - PX a
+5
+-
+A linea funct-on of a no ma .v. s no ma
+= 1 e-(x-µ)2 /2a2
+fx(x)
+21ru
+=
+Y aX b, a;/= 0
+(y-a
+1 b
+ialf
+f (y)
+6
+A general function g(X) of a continuous r. v.
+• Two - step procedure:
+=
+- Find the CDF of Y: Fy(y) P(Y y)
+~
+dFy
+=
+Differentiate: fy(y) dy (y)
+7
+=
+x 3
+Example: Y X uniform on [O,2]
+;
+8
+= a/
+Example: Y X
+• You go to the gym and set the speed X of the treadmill
+to a number between 5 and 10 km/hr (with a uniform distribution).
+Find the PDF of the time it takes to run 10km.
+9
+=
+A general formula for the PDF of Y g(X) when g is monotonic
+Assume g strictly increasing
+and differentiable
+y = g(x)
+y
+h(y) x
+inv erse function h
+10
+=
+Example: Y X 2 ; X un· orm on [O, 1
+11
+An intuitive explanation for the monotonic case
+12
+= x 2
+A nonmonotonic example: Y
+• The discrete case:
+=
+py(9)
+=
+py(y)
+• The continuous case:
+13
+z
+=
+A funct·on of mult- - e r .v 's: g(X, Y)
+• Same methodo ogy: find CD of Z
+=
+• Let Z Y/X; X, Y independent, u iform on [O,1]
+y y
+h
+i l
+1 .,..______ _
+1 .-----
+1
+X 1 X
+14
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+15

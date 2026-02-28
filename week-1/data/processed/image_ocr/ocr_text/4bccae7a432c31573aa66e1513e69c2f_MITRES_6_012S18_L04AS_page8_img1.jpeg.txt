@@ -1,0 +1,23 @@
+A coin tossing problem
+
+. . Assumptions:
+Given that there were 3 heads in 10 tosses ‘
+. i . e independence
+what is the probability that the first two tosses were heads
+e P(H) =p
+— event A: the first 2 tosses were heads
+
+NW ke n—k
+= 1-
+— event B: 3 out of 10 tosses were heads BU Weaas) (,) ( »)
+
+e First solution:
+
+p P(ANB) _£(H, H. and ome H im tosses 3,
+ee” PCB)
+(F)p'st-p) (8)
+
+(2yPo-p* CP) () ¢
+
+5
+

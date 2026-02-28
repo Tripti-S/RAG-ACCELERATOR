@@ -1,0 +1,24 @@
+Expectation/mean of a random variable
+
+1, w.p. 2/10 ~29°
+e Motivation: Play a game 1000 times. X=2, wp. 5/10 ~ S00
+Random gain at each play described by: i.
+
+, Ww.p. 3/10 ~ 00
+e “Average” gain:
+
+1-200 492-5004 4-300
+—
+1000
+
+raked a 4k
+lo
+
+e Definition: E[X] = So apx (2) e Interpretation: Average in large number
+© ° of independent repetitions of the experiment
+
+e Caution: If we have an infinite sum
+
+, it needs to be well-defined.
+We assume )-|2|px(a) < 00
+x

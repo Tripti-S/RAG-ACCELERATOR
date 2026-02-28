@@ -1,0 +1,20 @@
+The distribution of busy periods
+
+e At each slot, a server is busy or idle (Bernoulli process) pe
+
+e First busy period: Ge ° (1 =p)
+— starts with first busy slot
+
+— ends just before the first subsequent idle slot
+
+B I
+
+—___>=s >
+
+B]B] BJ I] I}B]BIBIB] IP IPIyIyB
+
+=e Geo(i-p)
+
+A es Me Bo Ed BD EDO |
+
+=

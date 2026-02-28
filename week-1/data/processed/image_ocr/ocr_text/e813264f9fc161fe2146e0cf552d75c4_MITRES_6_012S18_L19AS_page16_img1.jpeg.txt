@@ -1,0 +1,18 @@
+The pollster’s problem revisited
+
+e p: fraction of population that will vote ‘yes’ in a referendum
+
+. Kefl= =
+e ith (randomly selected) person polled: X;= {0 i yes, ELx;]=p ‘i
+0, if no. o=\Vpn-p -p)
+e Mn = (Xi, +---+ Xn)/n: fraction of “yes” in our sample
+o,)
+e Would like “small error,” e.g.:  |Mn—p| < 0.01 wi >
+Ol os
+2 —
+P(Me—ni2-01) #2 (12al2 2) £ (2! om
+o 2u
+—_™
+
+_ Sn — nye Sa om oe | -01vn
+In =O” |= Py .01 | =z |? 2S

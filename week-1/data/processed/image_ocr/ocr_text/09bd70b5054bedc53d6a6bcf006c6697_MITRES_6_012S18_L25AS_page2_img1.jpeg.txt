@@ -1,0 +1,7 @@
+review
+
+* discrete time, discrete state space, £
+— transition probabilities 2:° 2 POMS =) Xsat)e nes Vae--
+— Markov property P(Xs-u=; |Xseul, Xo=4o, - --, Xs-1= 51)
+Vv W~—eerrernarerarrrw
+

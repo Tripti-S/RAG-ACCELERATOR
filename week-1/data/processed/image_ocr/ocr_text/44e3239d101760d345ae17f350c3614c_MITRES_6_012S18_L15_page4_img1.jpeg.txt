@@ -1,0 +1,20 @@
+Estimating a normal random variable fo(9) fxje( | #)
+; ti , 6 | x) = ————
+in the presence of additive normal noise fojx(
+
+fx(2)
+
+X=0+W ©,W : N(0,1),
+
+independent | fx(e)= [ fo(®)fxje(« | 8) 40
+
+— — xX
+
+Omap = ©_ms = ElO| X] = >
+
+e Even with general means and variances:
+— posterior is normal
+
+— LMS and MAP estimators coincide
+
+— these estimators are “linear,” of the form © =aX +b

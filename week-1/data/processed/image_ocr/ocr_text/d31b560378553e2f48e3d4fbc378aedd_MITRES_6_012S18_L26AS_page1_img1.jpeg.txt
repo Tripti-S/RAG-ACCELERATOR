@@ -1,0 +1,8 @@
+Markov processes — Ill
+
+* review of steady-state behavior YO
+
+* probability of blocked phone calls Yo
+* calculating absorption probabilities
+
+* calculating expected time to absorption

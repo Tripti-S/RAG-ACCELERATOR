@@ -1,0 +1,7 @@
+Independence of event complements
+
+Definition of independence: P(A 8) = P(A)-P(B)
+
+e If A and B are independent, then A and B® are independent.
+
+— Intuitive argument — Formal proof

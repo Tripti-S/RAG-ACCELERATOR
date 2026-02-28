@@ -1,0 +1,11 @@
+Conditional PDF, given an event
+
+px(z) = P(X = 2) fx(z)-6=P(a@< X <2+6)
+px|a(z) = P(X =2| A) fxja(@z) 6 Pla < X Sats A)
+P(X € B) = YT px(za) P(X € B)= [,fx@ dn
+zrEB
+
+P(XEB|A)= Y pxja(z) = P(X BIA) =f fxa(@) de
+zEB
+
+Ypxa(z) = 1 | fxja@) de = 1

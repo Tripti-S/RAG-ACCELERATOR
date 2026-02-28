@@ -1,0 +1,19 @@
+Section means and variances (ctd.)
+ELX | Y]= ea a a3 E|E[X | Y]] = 70 = ELX] ; :
+var (E[X | Y]) =; (90-70) +2 (60 -70) +200
+
+10 30
+
+1
+e More data: 10 & 90)? = 10 oT e& 60)? = 20
+3 1o
+var(X |¥Y=1)= 10 var(X|¥)= a
+720
+var(X |Y =2)=20
+ee 4 _5O
+Elvar(X | Y)] 3 Ot 2. gee —
+
+var(x)= E[var(x | Y)] + var(ELX | YI) = FOf/r, +200
+
+(var(x) = (average variability within sections)+ (variability between sections)
+

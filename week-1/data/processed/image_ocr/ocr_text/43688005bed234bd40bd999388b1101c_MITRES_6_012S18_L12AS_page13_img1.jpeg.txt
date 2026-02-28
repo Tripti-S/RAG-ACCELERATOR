@@ -1,0 +1,17 @@
+Correlations matter...
+
+e A real-estate investment company invests $10M in each of 10 states.
+At each state 7, the return on its investment is a random variable X;,
+with mean 1 and standard deviation 1.3 (in millions).
+
+10
+var(Xy +-:-+ X19) = So var(x)+ So cov(x;,X;)
+i=1 {G.5): 145} ely. d ixeehia [=10
+e If the X; are uncorrelated, then:
+
+var(X4 += + Xo) = 10» (1.3)* = 16,9741 + + X40) = ‘40
+
+© If fori Xj, (Xi, X))=0.9: cov (Xe, %)= Co - Big? PSS “he
+
+Var(%,+ +X) =10- (1.3)* +90 6).522154 2 Fe
+o(X1+---+Xi) = 19,4

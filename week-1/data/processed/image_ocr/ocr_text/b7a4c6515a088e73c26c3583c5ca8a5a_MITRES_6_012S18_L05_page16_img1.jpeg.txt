@@ -1,0 +1,17 @@
+The expected value rule, for calculating E[g(X)] x y
+
+e Let X bear.v. and let Y = g(X) 9
+; 0.4,5 5
+e Averaging over y: E[Y] = > ypy (y) ss.
+0.3
+y prob —— 4 4
+
+Sen.0.2
+e Averaging over z: Na 3
+2
+E[Y] = Elg(X)] = Y9(2)px(e) °
+
+Proof:
+e E[X2]=
+
+e Caution: In general, E[g(X)] # g(E[X])

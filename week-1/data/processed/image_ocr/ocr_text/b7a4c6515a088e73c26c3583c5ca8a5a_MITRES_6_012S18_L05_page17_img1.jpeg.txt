@@ -1,0 +1,5 @@
+Linearity of expectation: E/axX +6] =aE[X]+ 5
+
+e Intuitive
+
+e Derivation, based on the expected value rule:

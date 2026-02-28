@@ -1,0 +1,17 @@
+MITOCW | MITRES6_012S18_L09-01_300k
+In this lecture, we continue our discussion of continuous random variables.
+We will start by bringing conditioning into the picture and discussing how the PDF of a continuous random variable
+changes when we are told that a certain event has occurred.
+We will take the occasion to develop counterparts of some of the tools that we developed in the discrete case
+such as the total probability and total expectation theorems.
+In fact, we will push the analogy even further.
+In the discrete case, we looked at the geometric PMF in some detail and recognized an important
+memorylessness property that it possesses.
+In the continuous case, there is an entirely analogous story that we will follow, this time involving the exponential
+distribution which has a similar memorylessness property.
+We will then move to a second theme which is how to describe the joint distribution of multiple random variables.
+We did this in the discrete case by introducing joint PMFs.
+In the continuous case, we can do the same using appropriately defined joint PDFs and by replacing sums by
+integrals.
+As usual, we will illustrate the various concepts through some simple examples and also take the opportunity to
+introduce some additional concepts such as mixed random variables and the joint cumulative distribution function.

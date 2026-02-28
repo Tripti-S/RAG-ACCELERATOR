@@ -1,0 +1,16 @@
+The hat problem
+
+e n people throw their hats in a box and then pick one at random
+— All permutations equally likely
+
+Equivalent to picking one hat at a time
+
+e xX: number of people who get their own hat
+— Find E[X]
+
+x= 1, if « selects own hat
+_ O, otherwise.
+
+X= Xp +Xot-+Xn
+
+e E[X{] =

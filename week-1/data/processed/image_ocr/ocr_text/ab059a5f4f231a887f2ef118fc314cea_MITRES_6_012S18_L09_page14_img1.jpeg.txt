@@ -1,0 +1,15 @@
+On joint PDFs
+
+P((x,y)eB)= | / fxy(,y)dedy
+
+(z,y)EB
+
+d fb
+Paa<X<bc<¥<a@=/ [| fx y(o,y)dedy
+c a
+
+P(a< X <a+6,c<Y <c+5) & fxy(a,c) + 5?
+
+fx,y(2,y): probability per unit area
+
+area(B)=0 => P((X,Y) €B) =0

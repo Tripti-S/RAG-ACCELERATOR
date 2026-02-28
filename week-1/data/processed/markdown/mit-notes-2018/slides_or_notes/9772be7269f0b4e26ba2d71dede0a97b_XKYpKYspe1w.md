@@ -1,0 +1,103 @@
+# 9772Be7269F0B4E26Ba2D71Dede0A97B Xkypkyspe1W
+
+---
+
+MITOCW | MITRES6_012S18_L25-10_300k
+We are going to spend the rest of this lecture by looking into an interesting subclass of Markov chains for which
+steady-state convergence exists-- the class of birth and death processes.
+So what is a birth and death process?
+It's a Markov chain whose diagram looks like this-- the states of the Markov chain start from zero and go to some
+finite integer number m.
+And if you are at a typical state in the middle, say i.
+Then next you will either go to the right-- or up by one unit-- or you will go to the left-- or down by one unit-- or you
+will stay where you are.
+And this will happen with the following transition probabilities-- here p i-- i function of the state-- here q i.
+And this one the remaining 1 minus p i minus q i.
+So it's like keeping track of some animal population.
+Animals get born.
+They die.
+The assumption here is that at any point in time, either one animal gets born, or one dies, or nothing happens.
+There are no multiple deaths, no births happening at the same time.
+There are many practical applications where this structure provides a basic first-level model.
+An example of a chain of this kind of was the supermarket counter example that we discussed before, where the
+states represented the number of customers in a queue.
+A customer arrives and the queue increases by one.
+A customer leaves and the queue decreases by one.
+Or nothing happens and the queue stays as it is.
+Now, in this supermarket example, the p's and the q's were all taken to be the same across the states.
+But we can generalize.
+For example, the departure rate, q, could be different from state to state.
+For example, with lots of customers in the queue, perhaps the clerk will work faster.
+Such a chain can also be used to model the spread of disease in a population.
+For example, the states could represent the number of people in a given population that have the flu.
+One more person gets the flu.
+The count goes up.
+One more person gets healed.
+The count goes down.
+These probabilities, in such an epidemic model, will certainly depend on the current state.
+If lots of people already have the flu, the probability that another person catches it would be pretty high.
+But if no one has the flu, then the probability that one gets a transition-- where someone catches the flu-- would
+be pretty small.
+The rate at which new people get the disease definitely depends on how many people already have it.
+And that motivates cases where those p's, here, depend on the state of the chain.
+There are lots of other applications for which these special Markov chains are useful.
+So how do we study them?
+Such a chain consists of a single aperiodic recurrent class, and so has a well-defined steady-state behavior.
+To calculate the steady-state probability pi of i of a state i, you can write the system of m linear equations in the
+pi's that we had discussed before.
+But this may be cumbersome, and in fact, more work than one actually needs to do.
+There is a very clever shortcut that applies to birth and death processes.
+And it's based on the frequency interpretation that we discussed in a recent clip.
+To see this, let's draw a line somewhere in the middle of this chain, and focus on the transitions between this left
+part and this right part.
+Assume that the line cuts through the middle of two adjacent states, i and i plus one, like here.
+And so you zoom here and this is the picture of what you have here.
+So what is the chain going to do?
+Let's say it starts on the left.
+It's going to move around.
+And at some point, it makes a transition to the other side, going here.
+And that is a transition from i to i plus 1.
+And now, once it's on the right side, it's going to move around as well.
+And then at one point, it will come back to that part again.
+And this is a transition from i plus one to i, and so on and so forth.
+Now, there is a certain balance that must be obeyed here.
+The number of upward transitions through this line cannot be very different from the number of downward
+transitions from this line.
+Because if we cross this way, then in order to cross again this way, you will have first to cross down the other way.
+You can not go up 100 times here, in that direction, and go down here 50 times.
+If you have gone up 100 times, it means that you have gone down 99, 100 or 101, but nothing different from that.
+So the long-term frequency with which transitions of these kind occur has to be the same as the long-term
+frequency that transitions of that kind occur.
+Or, in this diagram, the frequency of that kind has to be the same as the frequency of that kind.
+So what are these frequencies?
+We discussed that before.
+The fraction of times at which transitions of this kind are observed is the fraction of time that we happen to be at
+The fraction of times at which transitions of this kind are observed is the fraction of time that we happen to be at
+that state, which is pi of i.
+And out of the times that we are in that state, the fraction of time that transitions of that time happen is p of i.
+So the overall frequency will be pi i times p of i.
+And with the same argument, this is the frequency with which transitions of that kind are observed-- pi i plus 1
+times q i plus 1.
+Since these two frequencies are the same, we get an equation that relates pi of i to pi of i plus 1, like this.
+So this is the frequency that we observed here, of this transition.
+And these are the frequencies of these transitions.
+And they have to be equal.
+This has a nice form, because it gives us a recursion.
+If we knew pi i, we can calculate pi i plus 1 as such.
+So it's a system of equations that's easier to solve than the original system of linear equations which we presented
+before for a general Markov chain.
+But how do we get started?
+If we knew pi of 0, then we could use it to find pi of 1.
+Then from pi of 1, you can get pi of 2, pi of 3, etc.
+But we don't know pi of 0.
+It's one more unknown.
+It's an unknown and we need to actually use the extra normalization conditions that the sum of all the pi j, has to
+be equal to 1.
+After we use that normalization condition, then we can find all of the pi by first solving for pi of 0.
+How?
+This can be returned pi 0 plus pi 1, which is pi 0 times p0 over q1 plus pi of 2, which is pi of 1 times p1 over q2, pi
+of 0 times p0 times p1 over q1 times q2, which is pi 2, plus et cetera equals 1.
+This equation allows us to find pi of 0.
+And then we use this recursion to find pi of 1, pi of 2, pi 3, et cetera.
+
+---

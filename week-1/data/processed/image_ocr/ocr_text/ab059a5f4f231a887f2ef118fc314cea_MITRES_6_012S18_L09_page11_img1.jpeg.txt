@@ -1,0 +1,15 @@
+Mixed distributions
+
+x= intern on [0,2], with probability 1/2
+
+1, with probability 1/2
+Fxiai) Fx (2) = P(A1) Fx}a, (2) + P(A) Fx 45 (2)
+Fx (x)
+0 1 2 x
+Fx |A,(@)
+0 1 2 £
+
+fo)
+a
+N
+8

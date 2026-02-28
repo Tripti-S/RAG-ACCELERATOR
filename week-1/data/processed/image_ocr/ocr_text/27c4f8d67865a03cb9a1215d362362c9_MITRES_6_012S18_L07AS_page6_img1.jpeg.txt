@@ -1,0 +1,15 @@
+Independence
+e of two events: P(AN B) = P(A) - P(B) P(A|B) = P(A)
+
+e of ar.v. and an event: P(X =z and A)=P(X =2)-P(A), forallz
+
+Pera (%) = Be C%) , Gor a0 & P6AIK=%)= 2A), for a0 hx
+of two r.v.'s: P(X =e and Y =y) = P(X =—2z)-P(Y=y), forall oy
+eo eee —
+
+Bery(*l7)* fe )  pxy(#,y) =px(@)py(y), for all x, y
+
+Pye Cyl®) = Py Cy)
+
+X,Y,Z are independent if: .
+Px Y,Z(,y,2) = px (x) py(y) pz(z), for all x,y,z

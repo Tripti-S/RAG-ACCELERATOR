@@ -1,0 +1,144 @@
+# Mit18 05 S22 Class15 Pset
+
+---
+
+Class 15 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. More Beta
+Suppose your prior 𝑓(𝜃) in the bent coin example is Beta(6, 8). You flip the coin 7 times,
+getting 2 heads and 5 tails. What is the posterior pdf 𝑓(𝜃|𝑥)?
+(a) Beta(2,5)
+(b) Beta(11,10)
+(c) Beta(6,8)
+(d) Beta(8,13)
+Concept question 2. Strong priors
+Say we have a bent coin with unknown probability of heads 𝜃.
+We are convinced that 𝜃 ≤ 0.7.
+Our prior is uniform on [0, 0.7] and 0 from 0.7 to 1.
+We flip the coin 65 times and get 60 heads.
+Which of the graphs below is the posterior pdf for 𝜃?
+0.0 0.2 0.4 0.6 0.8 1.0
+08
+06
+04
+02
+0
+A B C D E F
+Concept question 3. Normal priors, normal likelihood
+(a)
+1
+18.05 class 15 problems, Spring 2022 2
+0 2 4 6 8 10 12 14
+8.0
+6.0
+4.0
+2.0
+0.0
+Plot 3 Plot 5
+Plot 2
+Prior
+Plot 4
+Plot 1
+x_1 x_2 x_3
+Blue graph = prior, Red lines = data in order: 3, 9, 12
+Which plot is the posterior to just the first data value?
+Concept question 4. Normal priors, normal likelihood
+(b)
+0 2 4 6 8 10 12 14
+8.0
+6.0
+4.0
+2.0
+0.0
+Plot 3 Plot 5
+Plot 2
+Prior
+Plot 4
+Plot 1
+x_1 x_2 x_3
+Blue graph = prior, Red lines = data in order: 3, 9, 12
+Which graph is posterior to all 3 data values?
+Board questions
+Problem 1. Beta priors
+Suppose you are testing a new medical treatment with unknown probability of success 𝜃.
+You don’t know 𝜃, but your prior belief is that it’s probably not too far from 0.5. You
+capture this intuition with a Beta(5,5) prior on 𝜃.
+18.05 class 15 problems, Spring 2022 3
+0.0 0.2 0.4 0.6 0.8 1.0
+0.2
+0.1
+0.0
+q
+Beta(5,5) for
+To sharpen this distribution you take data and update the prior.
+(𝑎 + 𝑏 − 1)!
+• Beta(𝑎, 𝑏): 𝑓(𝜃) = 𝜃𝑎−1(1 − 𝜃)𝑏−1
+(𝑎 − 1)!(𝑏 − 1)!
+• Treatment has prior 𝑓(𝜃) ∼ Beta(5, 5)
+(a) Suppose you test it on 25 patients and have 20 successes.
+– Find the posterior distribution on 𝜃.
+– Identify the type of the posterior distribution.
+(b) Suppose you recorded the order of the results and got
+𝑆𝑆𝑆𝑆𝐹 𝑆𝑆𝑆𝑆𝑆𝐹 𝐹 𝑆𝑆𝑆𝐹 𝑆𝐹 𝑆𝑆𝑆𝑆𝑆𝑆𝑆
+(20 S and 5 F). Find the posterior based on this data.
+(c) Using your answer to (b) give an integral for the posterior predictive probability of
+success with the next patient.
+(d) Don’t do in class. Use what you know about pdf’s to evaluate the integral without
+computing it directly
+Problem 2. Normal-normal updating
+For data 𝑥 , … , 𝑥 with data mean 𝑥 ̄ = 𝑥 1 +…+𝑥 𝑛
+1 𝑛 𝑛
+1 𝑛 𝑎𝜇 + 𝑏𝑥̄ 1
+𝑎 = , 𝑏 = , 𝜇 = prior , 𝜎2 = .
+𝜎2 𝜎2 post 𝑎+𝑏 post 𝑎+𝑏
+prior
+Suppose we have one data point 𝑥 = 2 drawn from N(𝜃, 32)
+Suppose 𝜃 is our parameter of interest with prior 𝜃 ∼ N(4, 22).
+(a) Identify 𝜇 , 𝜎 , 𝜎, 𝑛, and 𝑥.̄
+prior prior
+(b) Make a Bayesian update table, but leave the posterior as an unsimplified product.
+(c) Use the updating formulas to find the posterior.
+Problem 2. Normal/normal
+Question. On a basketball team the average career free throw percentage over all players
+follows a N(75, 62) distribution. In a given year individual players free throw percentage is
+N(𝜃, 42) where 𝜃 is their career average.
+18.05 class 15 problems, Spring 2022 4
+This season Sophie Lie made 85 percent of her free throws. What is the posterior expected
+value of her career percentage 𝜃?
+In class examples and discussion
+1. Likelihood principle
+Suppose the prior has been set. Let 𝑥 and 𝑥 be two sets of data. Which of the following
+1 2
+are true?
+(a) If the likelihoods 𝜙(𝑥 |𝜃) and 𝜙(𝑥 |𝜃) are the same then they result in the same posterior.
+1 2
+(b) If the likelihoods 𝜙(𝑥 |𝜃) and 𝜙(𝑥 |𝜃) are proportional (as functions of 𝜃) then they
+1 2
+result in the same posterior.
+(c) If two likelihood functions are proportional then they are equal.
+Extra problems
+Extra 1. Conjugate priors
+Which of the following likelihood/prior pairs are conjugate?
+hypothesis data prior likelihood
+(a)Exponential/Normal 𝜃∈[0,∞) 𝑥 N(𝜇 ,𝜎2 ) exp(𝜃)
+prior prior
+𝜃 𝑥 𝑐 exp(−(𝜃−𝜇 prior )2 ) 𝜃e−𝜃𝑥
+1 2𝜎2
+prior
+(b)Exponential/Gamma 𝜃∈[0,∞) 𝑥 Gamma(𝑎,𝑏) exp(𝜃)
+𝜃 𝑥 𝑐 𝜃𝑎−1e−𝑏𝜃 𝜃e−𝜃𝑥
+1
+(c) Binomial/Normal 𝜃∈[0,1] 𝑥 N(𝜇 ,𝜎2 ) binomial(𝑁,𝜃)
+prior prior
+(fixed𝑁) 𝜃 𝑥 𝑐 exp(−(𝜃−𝜇 prior )2 ) 𝑐 𝜃𝑥(1−𝜃)𝑁−𝑥
+1 2𝜎2 2
+prior
+1. none 2. a 3. b 4. c
+5. a,b 6. a,c 7. b,c 8. a,b,c
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

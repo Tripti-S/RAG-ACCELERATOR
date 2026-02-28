@@ -1,0 +1,24 @@
+LECTURE 6: Variance; Conditioning on an event; Multiple random variables
+e Variance and its properties
+
+— Variance of the Bernoulli and uniform PMFs
+e Conditioning a r.v. on an event
+
+— Conditional PMF, mean, variance
+
+— Total expectation theorem
+
+e Geometric PMF
+
+— Memorylessness
+
+— Mean value
+e Multiple random variables
+
+— Joint and marginal PMFs
+
+— Expected value rule
+
+— Linearity of expectations
+
+e The mean of the binomial PMF

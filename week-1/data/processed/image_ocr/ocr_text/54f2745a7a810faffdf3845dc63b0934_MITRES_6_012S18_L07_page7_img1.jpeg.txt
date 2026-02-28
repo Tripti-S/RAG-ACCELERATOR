@@ -1,0 +1,10 @@
+Example: independence and conditional independence
+
++ |irafaeofaeo]
+e Independent?
+|| nn
+[|i
+oe
+i 2 3 4
+
+e What if we condition on X <2 and Y > 3?

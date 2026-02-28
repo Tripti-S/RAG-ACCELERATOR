@@ -1,0 +1,16 @@
+Variance and its properties
+
+e Definition of variance: var(X) = E[(X — »)?]
+
+Co
+
+e Calculation using the expected value rule, E[g(X)] =| g(x) fx (a) dx
+[© @)
+
+var(Xx) =
+
+Standard deviation: ox = ,/var(X)
+
+var(aX + b) = a2var(X)
+
+A useful formula: var(X) = E[X2] — (B[x])°

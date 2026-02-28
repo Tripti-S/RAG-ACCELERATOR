@@ -1,0 +1,24 @@
+A function of multiple r.v.’s: Z = g(X,Y) Y- y(n)
+
+e Same methodology: find CDF of Z
+
+e Let Z=Y/X; X,Y independent, uniform on [0,1] | T0* 0°. - = ~
+
+¥ y Va — >bope é
+
+‘ Yreex F
+
+Cope : A
+
+lil?
+LT /
+1 = 2 1 oz
+
+R(@)=PC <2) =O, &<o
+
+)
+5%, O<2s)
+!
+
+I+ 3a 27!
+

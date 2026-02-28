@@ -1,0 +1,14 @@
+Cumulative distribution function (CDF)
+
+px(k)
+[cor definition: Fy(«) = P(X < »] 1/4 G/4)
+e Discrete random variables: 1 2 3 4 9
+Fx (2) = P(X <2) = Dpx(h) Lfnrijnie § Eteeaims
+
+k<a £Cx 3) = 3/4 a;
+
+4
+
+Fx(2)
+
+By

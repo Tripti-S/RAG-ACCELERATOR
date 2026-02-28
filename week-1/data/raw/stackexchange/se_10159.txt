@@ -1,0 +1,686 @@
+probability - Find expected value using CDF - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Find expected value using CDF
+Ask Question
+Asked
+14 years, 9 months ago
+Modified
+1 year, 7 months ago
+Viewed
+251k times
+76
+$\begingroup$
+I'm trying to solve the following problem:
+Let
+$X$
+have the CDF
+$F(x) = 1 - x^{-\alpha}, x\ge1$
+.
+Find
+$E(X)$
+for those values of
+$\alpha$
+for which
+$E(X)$
+exists.
+How can I determine which values of
+$\alpha$
+exist? What do I do with the CDF?
+There are formulas for finding the expected value when you have a frequency function or density function. Wikipedia says the CDF of
+$X$
+can be defined in terms of the probability density function
+$f$
+as follows:
+$$F(x) = \int_{-\infty}^x f(t)\,dt$$
+This is as far as I got. Where do I go from here?
+probability
+self-study
+expected-value
+Share
+Cite
+Improve this question
+Follow
+edited
+Jul 18, 2024 at 5:05
+cottontail
+1,097
+5
+5 gold badges
+10
+10 silver badges
+16
+16 bronze badges
+asked
+Apr 29, 2011 at 22:30
+styfle
+987
+1
+1 gold badge
+9
+9 silver badges
+12
+12 bronze badges
+$\endgroup$
+2
+$\begingroup$
+Note that the distribution $F(x) = 1 - x^{-\alpha}, x\ge1$ for $\alpha \in (0,2)$ is often said to have a
+fat tail
+. The distribution has a finite mean only for $\color{blue}{\alpha >1}$, as obtained in this
+answer
+, and finite variance only for $\alpha>2$; see also
+power law distributions
+.
+$\endgroup$
+Amir
+–
+Amir
+2024-05-10 13:52:38 +00:00
+Commented
+May 10, 2024 at 13:52
+$\begingroup$
+See
+math.stackexchange.com/a/2211416/91378
+$\endgroup$
+Avraham
+–
+Avraham
+2024-05-10 18:44:49 +00:00
+Commented
+May 10, 2024 at 18:44
+Add a comment
+|
+7 Answers
+7
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+31
+$\begingroup$
+Note that
+$F(1)=0$
+in this case so the distribution has probability
+$0$
+of being less than
+$1$
+, so
+$x \ge 1$
+, and you will also need
+$\alpha > 0$
+for an increasing cdf.
+If you have the cdf then you want the anti-integral or derivative which with a continuous distribution is like this:
+$$f(x) = \frac{dF(x)}{dx}$$
+and in reverse
+$F(x) = \int_{1}^x  f(t)\,dt$
+for
+$x \ge 1$
+.
+Then to find the expectation you need to find
+$$E[X] = \int_{1}^{\infty}  x f(x)\,dx$$
+providing that this exists.  I will leave the calculus to you.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 18, 2024 at 5:50
+cottontail
+1,097
+5
+5 gold badges
+10
+10 silver badges
+16
+16 bronze badges
+answered
+Apr 29, 2011 at 23:21
+Henry
+45.8k
+1
+1 gold badge
+85
+85 silver badges
+163
+163 bronze badges
+$\endgroup$
+6
+3
+$\begingroup$
+@henry - $F(1)=1-1^{-\alpha}=1-1=0$, so support can't be below 1 (as CDF is a non-decreasing function)
+$\endgroup$
+probabilityislogic
+–
+probabilityislogic
+2011-04-30 06:59:39 +00:00
+Commented
+Apr 30, 2011 at 6:59
+$\begingroup$
+@probabilityislogic: You may be correct in terms of the book.  I will change my response.
+$\endgroup$
+Henry
+–
+Henry
+2011-04-30 09:49:36 +00:00
+Commented
+Apr 30, 2011 at 9:49
+$\begingroup$
+Thanks for the response. What does f(x) represent? The probability density function? Is the derivative of the cdf always f(x)?
+$\endgroup$
+styfle
+–
+styfle
+2011-04-30 20:23:26 +00:00
+Commented
+Apr 30, 2011 at 20:23
+1
+$\begingroup$
+$f(x)$ is indeed supposed to be the probability density function.  If the cdf has a derivative then it is the density, though there are distributions (for example discrete) where the cdf does not have a derivative everywhere
+$\endgroup$
+Henry
+–
+Henry
+2011-04-30 20:24:25 +00:00
+Commented
+Apr 30, 2011 at 20:24
+1
+$\begingroup$
+@styfle: If it exists then $E[X^2] = \int_{1}^{\infty}  x^2 f(x)\,dx$, and similarly for the expectations of other functions of $x$.
+$\endgroup$
+Henry
+–
+Henry
+2011-04-30 22:08:27 +00:00
+Commented
+Apr 30, 2011 at 22:08
+|
+Show
+1
+more comment
+150
+$\begingroup$
+Usage of the density function is not necessary
+Integrate 1 minus the CDF
+When you have a random variable $X$ that has a support that is non-negative (that is, the variable has nonzero density/probability for only positive values), you can use the following property:
+$$
+E(X) = \int_0^\infty \left( 1 - F_X(x) \right) \,\mathrm{d}x
+$$
+A similar property applies in the case of a discrete random variable.
+Proof
+Since $1 - F_X(x) = P(X\geq x) = \int_x^\infty f_X(t) \,\mathrm{d}t$,
+$$
+\int_0^\infty \left( 1 - F_X(x) \right) \,\mathrm{d}x = \int_0^\infty P(X\geq x) \,\mathrm{d}x = \int_0^\infty \int_x^\infty f_X(t) \,\mathrm{d}t \mathrm{d}x
+$$
+Then change the order of integration:
+$$
+= \int_0^\infty \int_0^t f_X(t) \,\mathrm{d}x \mathrm{d}t = \int_0^\infty \left[xf_X(t)\right]_0^t \,\mathrm{d}t = \int_0^\infty t f_X(t) \,\mathrm{d}t
+$$
+Recognizing that $t$ is a dummy variable, or taking the simple substitution $t=x$ and $\mathrm{d}t = \mathrm{d}x$,
+$$
+= \int_0^\infty x f_X(x) \,\mathrm{d}x = \mathrm{E}(X)
+$$
+Attribution
+I used the
+Formulas for special cases
+section of the
+Expected value
+article on
+Wikipedia
+to refresh my memory on the proof. That section also contains proofs for the discrete random variable case and also for the case that no density function exists.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 22, 2011 at 15:30
+Firefeather
+2,297
+4
+4 gold badges
+16
+16 silver badges
+21
+21 bronze badges
+$\endgroup$
+6
+2
+$\begingroup$
++1 great result: the integral of the cdf is really simple, moreover, it is wise to avoid derivatives, whenever we can (they are not as well behaved as integrals ;)). Additional: using the cdf to calculate the variance see here
+math.stackexchange.com/questions/1415366/…
+$\endgroup$
+loved.by.Jesus
+–
+loved.by.Jesus
+2017-05-30 21:46:18 +00:00
+Commented
+May 30, 2017 at 21:46
+4
+$\begingroup$
+When you change the order of integration, how do you get the integration limits?
+$\endgroup$
+Zaz
+–
+Zaz
+2017-10-01 16:40:27 +00:00
+Commented
+Oct 1, 2017 at 16:40
+1
+$\begingroup$
+The standard proof does not assume that $X$ has a density.
+$\endgroup$
+ae0709
+–
+ae0709
+2018-09-27 23:19:08 +00:00
+Commented
+Sep 27, 2018 at 23:19
+4
+$\begingroup$
+@Zaz we set the integration limits so that the same part of (t, x) space is covered. The original constraints are x >0 and t > x. We can't have the outer limits depend on the inner variable, but we can define the same region as t > 0 and 0 < x < t. Good examples of this process here:
+mathinsight.org/…
+$\endgroup$
+fredcallaway
+–
+fredcallaway
+2019-10-07 21:16:57 +00:00
+Commented
+Oct 7, 2019 at 21:16
+$\begingroup$
+how is that $\int_0^t f_X(t)\,\mathrm{d}x = xf_X(t)\Big|_0^t$?
+$\endgroup$
+Kuo
+–
+Kuo
+2024-02-23 04:53:10 +00:00
+Commented
+Feb 23, 2024 at 4:53
+|
+Show
+1
+more comment
+66
+$\begingroup$
+The result extends to the $k$th moment of $X$ as well. Here is a graphical representation:
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 10, 2017 at 15:09
+StijnDeVuyst
+2,850
+17
+17 silver badges
+18
+18 bronze badges
+$\endgroup$
+2
+10
+$\begingroup$
+an undervalued answer
+$\endgroup$
+Kuo
+–
+Kuo
+2023-10-08 18:35:39 +00:00
+Commented
+Oct 8, 2023 at 18:35
+2
+$\begingroup$
+I love this result. I would really appreciate a citation so that I can use it in some of my formal work.
+$\endgroup$
+Galen
+–
+Galen
+2024-05-14 14:51:01 +00:00
+Commented
+May 14, 2024 at 14:51
+Add a comment
+|
+13
+$\begingroup$
+I think you actually mean $x\geq 1$, otherwise the CDF is vacuous, as $F(1)=1-1^{-\alpha}=1-1=0$.
+What you "know" about CDFs is that they eventually approach zero as the argument $x$ decreases without bound and eventually approach one as $x \to \infty$.  They are also non-decreasing, so this means $0\leq F(y)\leq F(x)\leq 1$ for all $y\leq x$.
+So if we plug in the CDF we get:
+$$0\leq 1-x^{-\alpha}\leq 1\implies 1\geq \frac{1}{x^{\alpha}}\geq 0\implies x^{\alpha}\geq 1 > 0\implies x\geq 1 \>.$$
+From this we conclude that the support for $x$ is $x\geq 1$.  Now we also require $\lim_{x\to\infty} F(x)=1$ which implies that $\alpha>0$
+To work out what values the expectation exists, we require:
+$$\newcommand{\rd}{\mathrm{d}}E(X)=\int_{1}^{\infty}x\frac{\rd F(x)}{\rd x}\rd x=\alpha\int_{1}^{\infty}x^{-\alpha} \rd x$$
+And this last expression shows that for $E(X)$ to exist, we must have $-\alpha<-1$, which in turn implies $\alpha>1$.  This can easily be extended to determine the values of $\alpha$ for which the $r$'th raw moment $E(X^{r})$ exists.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 30, 2011 at 13:59
+cardinal
+27.7k
+8
+8 gold badges
+107
+107 silver badges
+141
+141 bronze badges
+answered
+Apr 30, 2011 at 7:59
+probabilityislogic
+25.7k
+4
+4 gold badges
+88
+88 silver badges
+117
+117 bronze badges
+$\endgroup$
+5
+2
+$\begingroup$
+(+1) Particularly for the sharp-eyed recognition that the given support was incorrect.
+$\endgroup$
+cardinal
+–
+cardinal
+2011-04-30 14:00:14 +00:00
+Commented
+Apr 30, 2011 at 14:00
+$\begingroup$
+Thanks for the response. I fixed the question. I meant to put x>=1. How did you know to first differentiate the cdf to get the density function?
+$\endgroup$
+styfle
+–
+styfle
+2011-04-30 20:37:51 +00:00
+Commented
+Apr 30, 2011 at 20:37
+$\begingroup$
+@styfle - because that's what a PDF is, whenever the CDF is continuous and differentiable.  You can see this by looking at how you have defined your CDF.  Differentiating an integral just gives you the integrand when the upper limit is the subject of the differentiation.
+$\endgroup$
+probabilityislogic
+–
+probabilityislogic
+2011-05-01 01:00:51 +00:00
+Commented
+May 1, 2011 at 1:00
+1
+$\begingroup$
+@styfle - the PDF can also be seen as the probability that a RV lies in an infinitesimal interval.  $Pr(x<X<x+dx)=F(x+dx)-F(x)\to \frac{dF(x)}{dx}dx=f(x)dx$ as $dx\to 0$.  This way holds more generally, even for discrete RV and RV without a density (the limit is just something other than a derivative)
+$\endgroup$
+probabilityislogic
+–
+probabilityislogic
+2011-05-01 01:04:12 +00:00
+Commented
+May 1, 2011 at 1:04
+$\begingroup$
++1 because this post actually answers the question!
+$\endgroup$
+whuber
+–
+whuber
+♦
+2022-03-23 13:25:43 +00:00
+Commented
+Mar 23, 2022 at 13:25
+Add a comment
+|
+12
+$\begingroup$
+The Answer requiring change of order is unnecessarily ugly. Here's a more elegant 2 line proof.
+$$\int udv = uv - \int vdu$$
+Now take
+$du = dx$
+and
+$v = 1- F(x)$
+\begin{align}
+\int_{0}^{\infty} [ 1- F(x)] dx &= [x(1-F(x))]_{0}^{\infty} + \int_{0}^{\infty} x f(x)dx \\
+&= 0 + \int_{0}^{\infty} x f(x)dx \\
+&= \mathbb{E}[X] \qquad \blacksquare
+\end{align}
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 18, 2024 at 5:50
+cottontail
+1,097
+5
+5 gold badges
+10
+10 silver badges
+16
+16 bronze badges
+answered
+Aug 30, 2019 at 18:27
+chirag nagpal
+129
+1
+1 silver badge
+3
+3 bronze badges
+$\endgroup$
+4
+$\begingroup$
+I think you mean to let du-dx so that u=x.
+$\endgroup$
+Michael R. Chernick
+–
+Michael R. Chernick
+2019-08-30 19:20:08 +00:00
+Commented
+Aug 30, 2019 at 19:20
+2
+$\begingroup$
+With your proof, we need to assume that $\lim _{x \rightarrow \infty} x(1 - F(x)) = 0$. Does it make sense to assume that for any continuous cdf F ?
+$\endgroup$
+Eryna
+–
+Eryna
+2023-06-11 08:42:11 +00:00
+Commented
+Jun 11, 2023 at 8:42
+$\begingroup$
+@Eryna otherwise the expectation wouldn't exist i guess?
+$\endgroup$
+DuttaA
+–
+DuttaA
+2024-02-29 19:30:03 +00:00
+Commented
+Feb 29, 2024 at 19:30
+$\begingroup$
+It does not work for distributions with fat tails when $\alpha \in (0,1].$ You may see
+this MSE post
+for more details.
+$\endgroup$
+Amir
+–
+Amir
+2024-05-10 11:59:13 +00:00
+Commented
+May 10, 2024 at 11:59
+Add a comment
+|
+0
+$\begingroup$
+In case when a conditional expectation using only CDF is needed, we can formulate two cases,
+$\mathbb{E}\left(x|x\geq y\right)=y+\frac{\int_{y}^{\infty}\left(1-F(x)\right)dx}{\left(1-F(y)\right)}$
+$\mathbb{E}\left(x|x\leq y\right)=y-\frac{\int_{-\infty}^{y}F(x)dx}{F(y)}$
+The derivation leverages on previous post such that we first define following integral,
+$\int_{y}^{\infty} [ 1- F(x)] dx = [x(1-F(x)) ]_{y}^{\infty} + \int_{y}^{\infty} x f(x)dx$
+$\int_{y}^{\infty} x f(x)dx=\mathbb{E}\left(x|x\geq y\right)(1-F(y))$
+Then using this definition and some algebra we arrive at first result. The second result can be obtained in the same way.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Mar 22, 2022 at 18:15
+Alper Hekimoglu
+61
+2
+2 bronze badges
+$\endgroup$
+2
+$\begingroup$
+The first formula is not fully correct.  Although it holds when $F$ is continuous at $y,$ if it has a jump at $y$ then the amount of that jump needs to be subtracted from the denominator.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2022-03-22 18:53:31 +00:00
+Commented
+Mar 22, 2022 at 18:53
+1
+$\begingroup$
+Thank you very much @whuber for pointing that out. I solely, thought of a continuous one and did numerical experiments based on that.
+$\endgroup$
+Alper Hekimoglu
+–
+Alper Hekimoglu
+2022-03-22 23:55:22 +00:00
+Commented
+Mar 22, 2022 at 23:55
+Add a comment
+|
+0
+$\begingroup$
+Alternative derivation of
+$EX = \int_0^\infty \left(1-F_X(x)\right)\mathrm d x$
+(for a positive r.v.
+$X$
+):
+For any
+$x \ge 0$
+one has that
+$x=\int_0^x 1 \mathrm dt = \int_0^\infty \mathbf I_{t\le x}\mathrm dt$
+, where
+$\mathbf I$
+is the indicator function. Let
+$x=X$
+, take expectations on both sides, and use Fubini's theorem to exchange the integrals to obtain
+$EX = \int_0^\infty P(X\ge t)\mathrm dt$
+.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 4, 2024 at 7:39
+Flo
+103
+3
+3 bronze badges
+$\endgroup$
+Add a comment
+|
+Your Answer
+Draft saved
+Draft discarded
+Sign up or
+log in
+Sign up using Google
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+By clicking “Post Your Answer”, you agree to our
+terms of service
+and acknowledge you have read our
+privacy policy
+.
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+self-study
+expected-value
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+15
+The frog problem with negative steps
+5
+Expected value of a random variable by integrating $1-CDF$ when lower limit $a\neq 0$?
+5
+Exact meaning of conditional expectation $\mathbb{E}[X|\mathcal{F}]$
+5
+Approximate Order Statistics for lognormal variables
+3
+What is the expected inverse stopping time for an Brownian Motion?
+2
+Poisson Process: Computers in a lab fail, on average, twice a day, according to a Poisson process
+2
+Question about an exponential Bernoulli distribution
+2
+Density estimation from ECDF - numerical derivatives and scaled domains
+3
+Prove or disprove the Linearity of Expectiles used in Expectile Regression
+2
+Method of moments estimate of Pareto Distribution
+See more linked questions
+Related
+1
+Expected Value of Random Variable
+1
+Existence of expected value of function
+24
+How to calculate the expected value of a standard normal distribution?
+2
+Is my understanding of Expected Value of a Random Variable correct?
+2
+Find the value of an integral using Monte-Carlo method
+1
+Find expected value with pdf and LOTUS
+5
+Expected value of a random variable by integrating $1-CDF$ when lower limit $a\neq 0$?
+Hot Network Questions
+Would the Catholic Church excommunicate parents who are otherwise faithful, over only their being credo baptists?
+Identify tv episode, everyone's got a brain chip - except one man who ultimately must destroy it
+Can a coin be 'completely' unclippable?
+Sicilian Defense Yates Variation straight up hangs a piece
+Can I recover this money?
+Select clients where they have one feature type but not another - ArcGIS Pro
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+Do we assume that there are assumptions?
+Hadith prohibits wearing wig when there's a defect
+Why can we add up the internal energy of a moving gas and its kinetic energy due to flow velocity?
+How to wash produce to remove pathogens (including fecal-contamination)
+PTIJ: 6-7 - Mi Yodeya?
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+Authorship decision for substantial writing assistance
+What to do when there are multiple descriptions or definitions of the same mathematical object?
+Making code less scattered when crossing a pagebreak in lstlisting
+Identify this IC's manufacturer logo with stylised 'm'
+Why does 74x138 have 3 EN and why does it have to be 1 EN active high and 2 active low?
+Is it legal for the military to send a soldier on a mission that will lead almost surely to their death?
+What are the meanings of the columns in the output of lsinitrd?
+Trying to figure out a function in set theory formally
+Regular delays in sent (not received) pings
+Does a corpse keep its damage immunities?
+more hot questions
+Question feed

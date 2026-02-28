@@ -1,0 +1,17 @@
+Conditional PDFs, given another r.v.
+pxy(a,y) fxy(2,y)
+
+pxjaA(z) = fxa(x)
+pxiy(z|y)  fxjy(z|y)
+
+px,y (x,y)
+
+pyy) ” if py(y) > 0
+
+pxyy(z|y) =P(X=2|Y=y)=
+
+P(a@<X <2+6|A)®& fxa(z) - 4, where P(A) > 0
+
+Pia<X<a2+6|y<Y¥<yte)
+
+Definition. P(X eA|Y=y)= |, fxiv@ | y) dx

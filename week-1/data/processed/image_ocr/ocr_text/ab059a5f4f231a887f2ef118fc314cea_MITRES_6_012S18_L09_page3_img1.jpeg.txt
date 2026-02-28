@@ -1,0 +1,11 @@
+Conditional PDF of xX, given that XxX € A
+
+P(a<X <a+5|X€A)% fxixca(e)-6
+
+0, ifagA
+
+fxixca(®) = 4 fx(a)
+P(A)’
+
+ifxeEeA
+

@@ -1,0 +1,383 @@
+LECTURE 8: Continuous random variables and probability density functions
+• Probability density functions
+Properties
+Examples
+• Expectation and its properties
+The expected value rule
+Linearity
+• Variance and its properties
+• Uniform and exponential random variables
+• Cumulative distribution functions
+• Normal random variables
+Expectation and variance
+Linearity properties
+Using tables to calculate probabilities
+1
+Probability density functions (PDFS)
+PDF fx (x)
+P (a < X <b)
+~
+2:
+P (a < X < b) = px(x) P (a < X <b) = (b fx(x)dx
+Ja •
+x:
+a<x<b
+px(x) > 0 2: Px(x) = 1 • fx (x ) > 0 • J :fx(x ) dx =l
+x
+Definition: A ra nd o m va ri ab le is continuous if it can be described by a PDF
+2
+Probability density functions (PDFS)
+{!e
+ho, }....
+o PDF fx(x)
+1 (
++d )
+a. : a
+>(:;;:
+P ea < x < b)
+~
+:::: -5", (o.).S
+x
+t
+x
+< <
+P ea b) = Jx(x) dx
+<
+Pea x <a + 6) "" Jx(a)·6
+>
+fx(x) 0
+P (X = a) = 0
+J:Jx(x)dx= l
+3
+Example: continuous uniform PDF
+fx(x)
+( )
+Px x
+,
+-
+1
+b -
+b ­ a +l Q.
+......
+x b x
+fx(x)
+• Generalization: piecewise constant PDF
+a b
+4
+Expectation/mean of a continuous random variable
+PDF Ix (x )
+px(x)
+~
+P (a < X S b)
+,
+b
+L
+E[X] = XPX(X)
+E[X] = J : xfx(x)dx
+x •
+• Interpretation: Averag e in larg e numb er Fine print:
+J: lx1fx(x)dx
+<
+Assume
+of ind epend ent repetiti ons of the experiment 00
+5
+Properties of expectations
+> >
+• If X 0 , th en E [X ] 0
+< < < <
+• If a X b, then a E [X] b
+• Expected va lu e rule:
+E[g(X)] = J : g(x)!x(x) dx
+E[g(X)] = L 9(x)px(x)
+x
+J
+~
+(; [Xl) ,
+{~
+(')c)d.
+Z i 'X.
+• Lin earity + +
+E [aX b] = aE[X] b
+•
+6
+Variance and its properties
+• Definition of variance: var(X) = E [(X - 1')2J
+f ex>
+• Ca lculat io n using th e expect ed va lu e rul e, E[g(X)J = g(x)fx(x) dx
+'" t 2­
+- ex>
+-r)
+dx
+(X
+f~ (?:;) ~(f)c) '" (?c -r)
+va r (X) =
+ax
+Standard deviation: = j var (X)
++ 2
+va r (aX b) = a var(X)
+•
+2
+A useful formula: va r (X) = E [X J - (E [XJ)2
+7
+Continuous uniform random variable; parameters a , b
+fxCx)
+( x)
+IIX
+.-.
+1 , - - ­ 1 ............
+........
++
+b - a 1
+• • • • • •
+a x x
+J :xJx( x)dx
+E [X ] =
+a~b
+E[X] =
+= d..?C. -:;
+(b~:;.
+I" ,
+1
+b-q.
+1
++
+... b
+var(X) = (b - a )(b - a 2)
+oI.?c. __, 12 .:
+E [X2] = ~1.
+I _ 1_
+b-<>­ - b-Q.
+h-a.
+­
+8
+>
+Exponential random variable; parameter'\ 0
+, - AX
+x > O
+,
+~e
+fxCx) =
+0, x < O
+sma ll A large A
+o o
+x x
+0.., 0
+9
+Cumulative distribution function (CD F)
+fx( x )
+<
+CDF definition: !'x (x) = P(X x )
+1
+b ­ a
+• Continuous random variables:
+< f",/x(t)
+FX(x) = P(X x ) = dt
+.__
+~11( t. ', ,,0« <q..,""
+Fx(x)
+,
+,
+,
+,
+b x
+10
+Cumulative distribution function (CD F)
+<
+CDF definition: Fx(x) = P( X x )
+1/ 4
+• Discrete random variables:
+k
+1 2 3 4
+<
+Fx(x) = P(X x) = 2>x(k)
+k <x lCxs3)= </
+Fx(x)
+'h
+')jq
+r·
+I/!
+I(~
+x
+1 2 3 4
+11
+General CDF properties
+< J III ]
+FX( x ) = P (X x ) I r
+i
+j j
+• No n-decreasing
+• Fx(x) tends to 1, as x --+ •
+(X)
+• Fx(x) tends t o 0, as x --+
+-(X)
+12
+Normal (Gaussian) random variables
+• Important in the theory of probability
+- Central limit theorem
+• Prevalent in applications
+Convenient analytical properties
+Model of noise consisting of many, small independent noise terms
+13
+Standard normal (Gaussian) random variables
+p:
+~e-x2/2
+• Standard normal N(,Sl , Jx (x) =
+•
+o
+0
+• E[X} =
+• var (X) = 1
+14
+General normal (Gaussian) random variables
+• General normal N(p" ,,2):
+o
+-1 1 2 3 I
+0-> "
+r
+t"
+• E[X} =
+• var(X) = ,,2
+15
+Linear functions of a normal random variable
++
+2
+• L et Y = aX b X ~ N (IJ- , a )
+•
+b
+1'1 +
+E[Y) = Q.
+9.
+~
+var(Y) = 0­
+Q.
+• Fact (wil l prove later in this co urse): • Special case: a = 07
+V :::: b aU
+fOe te
+5"-
+/'
+1\1(/),0)
+16
+Standard normal tables
+o. ,
+0.' .5793 .5910 .5918 ,(,004 .61();l .61·11
+• CDF
+No closed form available for 0.:1 ,G179 .6217 .Co255 .629.1 .63.:11 .6406 .64-1:1 .6480 .65 17
+.ems
+M ,f';>5·] .r">91 .roOO·] .6700 .67:W .6772 .H808 .('84.1 .(,879
+0.5 ,Co9!5 .6950 .6985 .7019 .705_1 .7088 .it2:] .7157 .i190 .7224
+but have ta bles, for the standard normal
+0.6 ,7257 .7291 .7.12_1 .7.%7 .7.1.89 .7·122 .745_1 .7486 .7517 .75']9
+0.7 .7<>80 .7611 .76-12 .767.1 .770_1 .int .7764 .7794 .782:1 .78<>2
+0.8 .788 1 .7910 .79:19 .7967 .7995 .802:1 .8051 .8078 .8106 .81.1:1
+y",AI(o,/)
+.s:ns
+0.9 .8159 .8186 .SZIZ .82:18 .8:26·] .8289 .8:140 .8:165 .8:1S9
+...
+- ,) 0.0 .8·113 .8·]:18 .MG ! .8·18;, .8508 .8:>:\1 .8599 .8621
+­
+9>(7)= r'1'
+(I) £('(~ .86-1.1 .8686 .8708 .8729 .87·19 .8810 .88.10
+.86f~~
+0., .8849 .8SG9 .8S8S .8907 .892<, .891-1 .8997 .9015
+...
+.""'"
+7 u ,90:12 .90_19 .008' .9()99 .9 115 .91 :n .9147 .9162 .9177
+.9191 .9107 .92'22 .92:16 .925 1 .9:265 .9279 .9292 .9:100 .9:11 9
+g
+=f('(~o) .:.O.J
+(0) 0.5 .9:1:12 .9:1·];, .9:157 .9:170 .93.82 .9:\9.] .9400 .9.]18 .9·]29 .9·]·]1
+..
+1.6 .9·]52 .9·]Chl .9·]7.] .9·1S<! .9·]% .9505 .9515 .9525 9" 'I" .95·]5
+~. ~
+1.7 .%5·] .%G.] • 9;">~1 .' 1 .%82 .%9 1 .%99 .9f>il8 .96lG .9625 .9fhl:l
+Q(I.I,)=o.8r;to ( 0.8 .9().]] .9649 .9656 .966·] .967 1 .9678 .9686 .969:1 .9699 .9700
+~ (~.'3) -:.O.~~5
+1.9 .9719 .9726 .97:12 .97:\8 .974·] .9750 .975G .9761 .9767
+,
+,' ..0 .978a .9788 .979a .9798 .98o:! .9808 .9812 .98 17
+,.,
+'Ie - .9826 .98:10 .98:1.] .98:s8 .9842 .984G .9850 .985·] .98.~7
+~) .98G l .98G.] .9868 .987 1 .987:> .9878 .9881 .9884 .9887 .9890
+."'"
+, 2 . .: . 1 .989:1 .9896 .9898 .000 , .990·] .9906 .99]] .991:1 .99lG
+~
+-<£ .9918 ."'", .1)922 .1)92:> .9927 .9929 .99:n .99:12 .99:n .99:lG
+(z)
+(
+•
+-- 2.6 .995a .1)95<, .1)956 .1)957 .9959 .99f,o .9961 .9962 .99fhl .996·]
+-
+• '17
+I 1- i 2.7 . 99f>.~ .99f>6 .9967 .9968 .9969 .9970 .9971 .9972 .997:1 .9974
+' .8 .1)97:; .1)976 .1)977 .9977 .9978 .9979 .9979 .9980 .9981
+."'"
+-2, 2 .998a .998,] .9984 .9985 .9985 .9986 .998G
+17
+Standardizing a random variable
+>
+• Let X have m ean J1- and variance ,,2 0
+• L et Y = X - J1­
+"
+• If also X is normal, then:
+18
+.'"
+.00 .0< .03 .0·1 .05 .00 m 08 .00
+Calculating normal probabilities
+0.0 .500) .50·10 .5080 .5120 .5WO .5 199 .52:19 .5279 .5:119 .5:1<>9
+o. ,
+.eMS .5-1:18 .5-178 .5:;17 .5557 .5,,00 .5G:1G .5G75 .5714 .57<>:1
+0.' .5793 .58:12 .587 1 .5910 .5918 .5987 .f>02G .(,064 .610:1 .61·11
+• Express an event of interest 0.:1 ,G179 .6217 .Co255 .6293 .6.1:11 .6.1(',8 .6406 .64-1:1 .6480 .65 17
+.r"m .ems
+0.' ,f';>5·] .roOO·] .6700 .67:1G .6772 .H808 .('84.1 .(,879
+in terms of standard normal 0.5 ,G915 .6950 .6985 .7019 .705·1 .7088 .it2:] .7157 .i190 .7224
+0.6 ,7257 .729 1 .7.12_1 .7357 .7.1.89 .7·122 .745·1 .7486 .7517 .75-19
+0.7 .7<>80 .7611 .7612 .7673 .nO_I .77:1.1 .7764 .7794 .782:1
+.i&~2
+0.8 .788 1 .7910 .79:19 .7967 .7995 .802:1 .8051 .8078 .8106 .81.1:1
+"' .s:ns
+0.9 8 .8186 .8212 .82:18 .8:26·1 .8289 .8:140 .8:165 .8:1S9
+,
+... .
+0.0 ,8·11 3 .8·1:\8 .Mr. l .8·18;> .8508 8YI .8577 .8599 .8621
+.8;~n
+·1:1 .86f';> .8686 .8708 .8729 .8749 .8770 .8790 .8810 .88.10
+0., .8849 .88G9 .8888 .8907 .892:; .89\.1 .8%2 .89SO .8997 .9015
+...
+-
+X -(, 1.:1 .90:12 .90·19 .9066 .008' .9099 .9 115 .91 :n .9147 .9162 .91 i7
+-
+.9 192 .9207 .9222 .92:16 .925 1 .9265 .9279 .9292 .9:\06 .9:\ 19
+0.5 .9:1:\2 .~KI.l:; .9:157 .9.170 .9:182 .9:\9.1 .9406 .9.118 .9.129 .9·1·11
+..
+1.6 .9·152 .9·lfhl .9·17.1 .9·18<1 .9·1% .9505 .9515 .9525 9"'I" .95·15
+~. ~
+l.i .%5·1 .%6·1 .9:;7:1 .%82 .%9 1 .%99 .9f>il8 .9616 .9625 .9fhl:\
+0.8 .96·11 .96·19 .0056 .900·1 .967 1 .9678 .9686 .969:\ .9699 .9706
+1.9 .911.1 .9719 .9726 .97:12 .97:18 .9U·1 .9750 .975G .9761 .9767
+2.0~:9i78
+.978.1 .9788 .979.1 .9798 .980:\ .9808 .9812 .98 17
+2.1 . .9826 .98:10 .98:1·1 .98:18 .9842 .984G .9850 .985·1
+.9&~7
+2.2 .986 1 .986·1 .9868 .987 1 .987:; .9878 .9881 .9884 .9887 .9890
+." '"
+2.:1 .989:1 ..9,8'9"6 .9898 .990 1 .990·1 .9906 .9911 .991:\ .99 16
+-21
+'-' .9918 . .9922 .992:; .9927 .9929 .99:n .99:12 .99:n .99:W
+",.f(y: I) -
+f('(~
+2.5 .99:18 .99·10 .991 1 .991.1 .99.1:; .9916 .9918 .9919 .9951 .99:;2
+2.6 .995:1 .9956 .9957 .9959 .99f,o .9961 .9962 .996:\ .996·1
+.995,~
+, (I :u) 2.7 . !)9f>,~ .99f>6 .fI967 .fI968 .9969 .9970 .9971 .9972 .997:\ .9974
+~1C'« I) ­ -1'.('(~
+' .8 .997.1 .997:'> .9976 .9977 .9977 .9978 .9979 .9979 .99SO .9981
+."'"
+2.9 .998 1 .9982 .998.1 .998·1 .9984 .9985 .9985 .9986 .9986
+19
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

@@ -1,0 +1,7 @@
+Discrete uniform law
+
+— Assume 22 consists of n equally likely elements
+— Assume A consists of k elements
+
+P(A) =
+

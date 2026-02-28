@@ -1,0 +1,3 @@
+More consequences of the axioms
+
+e P(AU BUC) = P(A) + P(A°N B) + P(AEN BENC)

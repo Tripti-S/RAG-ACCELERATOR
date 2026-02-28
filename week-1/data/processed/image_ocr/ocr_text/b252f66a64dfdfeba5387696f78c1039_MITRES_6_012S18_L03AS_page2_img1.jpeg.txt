@@ -1,0 +1,23 @@
+£(H.1H.)2 p=PCH, JT.)
+2( 2) = 2CH,) 20H.) A»)
+
+2p
+* Multiplication rule: P(THT) = (1-p) pC- Pp)
+
+A model based on conditional probabilities
+e 3 tosses of a biased coin: P(H) =p, P(T)=1-p
+74, |H 2 (Hs), Whe)
+
+e Total probability:
+
+P(1 head) = 3 pCi -p)*
+Bayes rule: P ( H, ad Read)
+
+P(first toss is H| 1 head) =
+aa 2 (4 head)
+
+_ PC py
+3 p(i-p)
+
+i
+5

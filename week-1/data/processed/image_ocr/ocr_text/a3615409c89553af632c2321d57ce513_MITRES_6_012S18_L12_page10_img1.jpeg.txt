@@ -1,0 +1,19 @@
+The Correlation coefficient
+
+— pi/(X EX) ( —EIY)
+ox oy
+
+e Dimensionless version of covariance:
+
+_ cov(x,Y)
+
+e Measure of the degree of “association” between X and Y
+
+e Independent > p=0O, “uncorrelated”
+
+e A(X,X) =
+(converse is not true)
+
+e |jpl=1 6 (X -E[X]) =c(Y -E[Y]) (linearly related)
+
+e cov(aX +b,Y)=a-cov(X,Y) => p(aX+b,Y)=

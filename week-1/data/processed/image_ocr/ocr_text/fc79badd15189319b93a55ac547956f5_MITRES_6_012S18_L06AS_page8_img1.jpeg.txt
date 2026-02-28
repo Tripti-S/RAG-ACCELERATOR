@@ -1,0 +1,6 @@
+Total expectation theorem
+
+A AiNB
+/ P(B) = P(A1) P(B| Ay) +--+ P(An) P(B | An)
+is AonB B — $x am
+A3NB

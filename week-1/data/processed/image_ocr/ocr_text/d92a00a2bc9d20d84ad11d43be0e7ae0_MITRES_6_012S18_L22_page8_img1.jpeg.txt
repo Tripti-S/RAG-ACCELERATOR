@@ -1,0 +1,12 @@
+The time Y; of the kth arrival
+
+e Can derive its PDF by first finding the CDF
+
+e More intuitive argument:
+
+fy, wmoxPy<¥%<yth)=
+
+ykyk-1e—dy
+
+Erlang distribution: fy,(y) = “(k-1!
+

@@ -1,0 +1,51 @@
+An illustration
+
+400
+
+300
+
+200
+
+100
+
+100
+
+~200
+
+Bareston
+Comf.i 'demce
+bu ate rvals
+
+21.1193
+
+Emor std(dp) =
+“True 6, = 40.8473
+MAP 4, = 48.282
+
+Error std(6;) = 3.2538
+
+True trajectory
+* — Sampled points
+
+—— Estimated trajectory based on MAP
+
+—— 95% confidence interval
+
+Estimating the trajectory of a free-falling object
+
+Qo ~ N(200, 507), 0; ~ N(50, 507), @2 = —9.81, W; ~ N(0, 50”)
+
+x (4)
+——————\
+X; = Oo + Cyt) + Oot? + W;
+
+minimize (09 — 200)? + (6; — 50)?
+9, 94
+t+ > (2; — 09 — 03; + 9.8117)?
+
+=1
+
+Lee imtervad [dala)
+= 0.95
+
+1 2 3 4

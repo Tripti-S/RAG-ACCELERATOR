@@ -1,0 +1,19 @@
+discrete-time finite state Markov chains
+
+Softine ~ f A TN = time
+-_
+. ) state after n transitions p> \
+— belongs toa finite § +7?) =
+— initial stat ither given or random fs +f3et ”
+— transition probabilities: yn Ps: Be @&
+Py = P(X1=5| X0=4) eeoqmeseS fz
+OP = PR =P =H ) @® *%
+n+1 J n v afi, = ja xm
+* Markov property/assumption: J @ fs)
+
+“given Surrent state, the past doesn’t matter”
+Diji =p P(Xn41 =J| Xn =?)
+= PUXpa =) | Xn Si, Knew iy +9 XO)
+——— rn
+
+* model specification: identify states, transitions, and transition probabilities

@@ -1,0 +1,684 @@
+prediction - Probability of a single real-life future event: What does it mean when they say that "Hillary has a 75% chance of winning"? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Probability of a single real-life future event: What does it mean when they say that "Hillary has a 75% chance of winning"?
+Ask Question
+Asked
+9 years, 7 months ago
+Modified
+9 years, 6 months ago
+Viewed
+17k times
+84
+$\begingroup$
+As the election is a one time event, it is not an experiment that can be repeated. So exactly what does the statement
+"Hillary has a 75% chance of winning"
+technically mean? I am seeking a statistically correct definition not an intuitive or conceptual one.
+I am an amateur statistics fan who is trying to respond to this question that came up in a discussion. I am pretty sure there's a good objective response to it but I can't come up with it myself...
+probability
+prediction
+politics
+Share
+Cite
+Improve this question
+Follow
+edited
+Jul 25, 2016 at 23:36
+Kodiologist
+20.9k
+2
+2 gold badges
+45
+45 silver badges
+80
+80 bronze badges
+asked
+Jul 24, 2016 at 13:59
+pitosalas
+963
+1
+1 gold badge
+7
+7 silver badges
+6
+6 bronze badges
+$\endgroup$
+12
+4
+$\begingroup$
+Since the polls don't make probabilistic estimates and without further context, it sounds like that statement is based on the current results from one of the prediction markets, e.g., the Iowa Electronic Market (see
+tippie.uiowa.edu/iem
+). See their Methodology page or any of the many papers about prediction markets for deeper explanations.
+$\endgroup$
+user78229
+–
+user78229
+2016-07-24 14:05:15 +00:00
+Commented
+Jul 24, 2016 at 14:05
+13
+$\begingroup$
+A key issue here is whether we can attach probabilities to unique (i.e. one-off) events, where we can't apply empirical probabilities in the manner of "if I roll a fair die a large number of times, the proportion of times I roll a six will approach one sixth". But there is an argument that mere subjective
+degree of belief
+still ought to behave in practice like a "probability" - more technically, should obey the axioms of probability. So a philosophical approach to this question might make reference to the so-called
+Dutch Book argument
+.
+$\endgroup$
+Silverfish
+–
+Silverfish
+2016-07-24 19:02:20 +00:00
+Commented
+Jul 24, 2016 at 19:02
+1
+$\begingroup$
+arxiv.org/abs/1212.0953
+$\endgroup$
+Count Iblis
+–
+Count Iblis
+2016-07-25 02:32:56 +00:00
+Commented
+Jul 25, 2016 at 2:32
+2
+$\begingroup$
+It depends on the source of the statement; in some cases it refers to a probability under some model, for example (as with the probability assessments on fivethirtyeight.com) but in other cases it relates to some other context it may mean something else.
+$\endgroup$
+Glen_b
+–
+Glen_b
+2016-07-25 08:40:28 +00:00
+Commented
+Jul 25, 2016 at 8:40
+4
+$\begingroup$
+I'd read from that that, from polls, Clinton's
+expected
+result is to win, but the
+confidence
+interval of the numbers is such that there's as 25% chance that the
+actual
+outcome is not the same as the
+expected
+result.
+$\endgroup$
+JimmyB
+–
+JimmyB
+2016-07-25 11:08:31 +00:00
+Commented
+Jul 25, 2016 at 11:08
+|
+Show
+7
+more comments
+9 Answers
+9
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+63
+$\begingroup$
+All the answers so far provided are helpful, but they aren't very statistically precise, so I'll take a shot at that. At the same time, I'm going to give a general answer rather than focusing on this election.
+The first thing to keep in mind when we're trying to answer questions about real-world events like Clinton winning the election, as opposed to made-up math problems like taking balls of various colors out of an urn, is that there isn't a unique reasonable way to answer the question, and hence not a unique reasonable answer. If somebody just says "Hillary has a 75% chance of winning" and doesn't go on to describe their model of the election, the data they used to make their estimates, the results of their model validation, their background assumptions, whether they're referring to the popular vote or the electoral vote, etc., then they haven't really told you what they mean, much less provided enough information for you to evaluate whether their prediction is any good. Besides, it isn't beneath some people to do no data analysis at all and simply draw a precise-sounding number out of thin air.
+So, what are some procedures a statistician might use to estimate Clinton's chances? Indeed, how might they frame the problem? At a high level, there are various notions of probability itself, two of the most important of which are frequentist and Bayesian.
+In a
+frequentist
+view, a probability represents the limiting frequency of an event over many independent trials of the same experiment, as in the
+law of large numbers
+(strong or weak). Even though any particular election is a unique event, its outcome can be seen as a draw from an infinite population of events both historical and hypothetical, which could comprise all American presidential elections, or all elections worldwide in 2016, or something else. A 75% chance of a Clinton victory means that if $X_1, X_2, …$ is a sequence of outcomes (0 or 1) of independent elections that are entirely equivalent to this election so far as our model is concerned, then the sample mean of $X_1, X_2, …, X_n$ converges in probability to .75 as $n$ goes to infinity.
+In a
+Bayesian
+view, a probability represents a degree of believability or credibility (which may or may not be actual belief, depending on whether you're a subjectivist Bayesian). A 75% chance of a Clinton victory means that it is 75% credible she will win. Credibilities, in turn, can be chosen freely (based on a model's or analyst's preexisting beliefs) within the constraints of basic laws of probability (like
+Bayes's theorem
+, and the fact that the probability of a joint event cannot exceed the marginal probability of either of the component events). One way to summarize these laws is that if you take bets on the outcome of an event, offering odds to gamblers according to your credibilities, then no gambler can construct a
+Dutch book
+against you, that is, a set of bets that guarantees you will lose money no matter how the event actually works out.
+Whether you take a frequentist or Bayesian view on probability, there are still a lot of decisions to be made about how to analyze the data and estimate the probability. Possibly the most popular method is based on parametric regression models, such as linear regression. In this setting, the analyst chooses a
+parametric family
+of distributions (that is,
+probability measures
+) that is indexed by a vector of numbers called parameters. Each outcome is an independent random variable drawn from this distribution, transformed according to the covariates, which are known values (such as the unemployment rate) that the analyst wants to use to predict the outcome. The analyst chooses estimates of the parameter values using the data and a criterion of model fit such as
+least squares
+or
+maximum likelihood
+. Using these estimates, the model can produce a prediction of the outcome (possibly just a single value, possibly
+an interval
+or other set of values) for any given value of the covariates. In particular, it can predict the outcome of an election. Besides parametric models, there are nonparametric models (that is, models defined by a family of distributions that is indexed with an infinitely long parameter vector), and also methods of deciding on predicted values that use no model by which the data was generated at all, such as
+nearest-neighbor classifiers
+and
+random forests
+.
+Coming up with predictions is one thing, but how do you know whether they're any good? After all, sufficiently inaccurate predictions are worse than useless. Testing predictions is part of the larger practice of model validation, that is, quantifying how good a given model is for a given purpose. Two popular methods for validating predictions are
+cross-validation
+and splitting the data into training and testing subsets before fitting any models. To the degree that the elections included in the data are representative of the 2016 US presidential election, the estimates of predictive accuracy we get from validating predictions will inform us how accurate our prediction will be of the 2016 US presidential election.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 26, 2016 at 5:05
+answered
+Jul 24, 2016 at 18:06
+Kodiologist
+20.9k
+2
+2 gold badges
+45
+45 silver badges
+80
+80 bronze badges
+$\endgroup$
+4
+$\begingroup$
+I like this answer a lot, pointing out that there were two common points-of-view was what I was expecting to see.  I think less would have been more though.
+$\endgroup$
+Mike Wise
+–
+Mike Wise
+2016-07-25 00:40:43 +00:00
+Commented
+Jul 25, 2016 at 0:40
+4
+$\begingroup$
+There are already a few concise answers. I wanted to make an attempt at more complete one.
+$\endgroup$
+Kodiologist
+–
+Kodiologist
+2016-07-25 01:02:12 +00:00
+Commented
+Jul 25, 2016 at 1:02
+10
+$\begingroup$
+I don't think the frequentist view is tenable. An event like an election is inherently non-random. If you repeat the election a million times under exactly the same conditions, you will get the same result a million times. We just artificially introduce randomness into our models to compensate for our incomplete knowledge of the conditions.
+$\endgroup$
+Stefan
+–
+Stefan
+2016-07-26 13:23:33 +00:00
+Commented
+Jul 26, 2016 at 13:23
+9
+$\begingroup$
+That is a not uncontroversial issue in the philosophy of statistics. My own view is that no model is literally true, but some models are more useful than others.
+$\endgroup$
+Kodiologist
+–
+Kodiologist
+2016-07-26 14:23:43 +00:00
+Commented
+Jul 26, 2016 at 14:23
+Add a comment
+|
+33
+$\begingroup$
+When statisticians want to predict a binary outcome (Hillary wins vs Hillary does not win), they imagine that the universe is tossing an imaginary coin - Heads, Hillary wins; tails, she loses. To some statisticians, the coin represents their degree of belief in the outcome; to others, the coin represents what might happen if we reran the election under the same circumstances over and over. Philosophically speaking, it's hard to know what we mean when we speak of uncertain future events, even before we drag numbers into it. But we can look at where the number comes from.
+At this point in the election, we have a sequence of poll results. These are of the form: 1000 people were polled in, say, Ohio. 40% support Trump, 39% support Hillary, 21% are undecided. There would be similar polls from previous elections for the respective Democratic, Republican (and other trace party) candidates. For previous years, there are also outcomes. You might know that, say, candidates with 40% of the vote in a poll in July, won 8 out of the 10 previous elections. Or the results might say, in 7 out of 10 elections, Democrats took Ohio. You might know how Ohio compares to Texas (perhaps they never choose the same candidate) - you might have information on how the undecided vote breaks down - and you might have interesting models of what happens when a candidate begins to "surge". They might also look at who tends to actually get out and vote, and what happens if it's snowing on The Day.
+So when you take previous elections into account, you can say that the election coin has already been tossed a number of times. The same election is not being rerun every 4 years, but we can pretend that it sort of is. From all this information, the pollsters build complex models to predict the outcome for this year.
+Hillary's 75% chance of winning is relative to our state of knowledge "today". It's saying that a candidate with the kind of poll results she has "now", in the states that she has them, and given the trends in her polls throughout the campaign, wins the election in 3 election years out of 4. A month from now, her probability of winning will have changed, because the model will be based on the state of polls in August.
+The US hasn't had a statistically large number of elections in its history, much less since polling began. Nor can we be sure that polling trends from, say, the 70's, still apply. So it's all a bit dodgy.
+The bottom line is that Hillary should begin working on her inauguration speech.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 24, 2016 at 22:34
+Nick Cox
+62.9k
+8
+8 gold badges
+149
+149 silver badges
+238
+238 bronze badges
+answered
+Jul 24, 2016 at 16:10
+Placidia
+14.6k
+6
+6 gold badges
+46
+46 silver badges
+77
+77 bronze badges
+$\endgroup$
+1
+1
+$\begingroup$
+She still has the nomination acceptance speech to get through first.
+$\endgroup$
+WBT
+–
+WBT
+2016-07-25 23:19:50 +00:00
+Commented
+Jul 25, 2016 at 23:19
+Add a comment
+|
+26
+$\begingroup$
+When statisticians say this they are not referring to the margin of victory or the share of the vote. They are running a large number of simulations of the election and counting what percentage of the vote each candidate gains. For many robust presidential models they have forecasts for each state. Some are close and if the race is run multiple times, both candidates could win. Because prediction intervals many times overlap a margin of victory of 0, it is not a binary response but instead a simulation will tell us more precisely what to expect.
+FiveThirtyEight's methodology page may help understand a little more what is under the hood:
+http://fivethirtyeight.com/features/a-users-guide-to-fivethirtyeights-2016-general-election-forecast/
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 24, 2016 at 14:05
+a.powell
+1,077
+1
+1 gold badge
+7
+7 silver badges
+22
+22 bronze badges
+$\endgroup$
+Add a comment
+|
+17
+$\begingroup$
+There's an episode of freakonomics radio that is very relevant to this question (in general, not in the specifics of en election).  In it, Stephen Dubner interviews the lead of a project from a United States defense agency to determine the best way to forecast global political events.
+It [also] helps a lot to know more about politics than most people do. I would say they’re almost necessary conditions for doing well. But they’re not sufficient, because there are plenty of people who are very smart and close-minded.
+There are plenty of people who are very smart and think that it’s impossible to attach probabilities to unique events
+.
+Then they discuss what
+not
+to do
+if you ask those types of questions, most people say,
+“How could you possibly assign probabilities to what seem to be unique historical events?”
+There just doesn’t seem to be any way to do that. The best we can really do is, use vague verbiage, make vague-verbiage forecasts. We can say things like, “Well, this might happen. This could happen. This may happen.” And to say something could happen isn’t to say a lot.
+Then the episode goes into the methodologies that the most successful forecasters used to estimate these probabilities, advocating an informal Bayesian approach
+So, knowing nothing about the African dictator or the country even, let’s say I’ve never heard of this dictator, I’ve never heard of this country, and I just look at the base rate and I say, “hmm, looks like about 87 percent.” That would be my initial hunch estimate. Then the question is, “What do I do?” Well, then I start to learn something about the country and the dictator. And if I learn that the dictator in question is 91 years old and has advanced prostate cancer,
+I should adjust my probability
+. And if I learn that there are riots in the capital city and there are hints of military coups in the offing, I should again
+adjust my probability
+. But starting with the base-rate probability is a good way to at least ensure that you’re going to be in the plausibility ballpark initially.
+The episode is called
+How to Be Less Terrible at Predicting the Future
+, and is a very fun listen.  I encourage you to check it out if you're interested in this sort of thing!
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 24, 2016 at 16:35
+answered
+Jul 24, 2016 at 16:07
+Matthew Drury
+36.8k
+5
+5 gold badges
+119
+119 silver badges
+147
+147 bronze badges
+$\endgroup$
+2
+3
+$\begingroup$
++1.  In an
+older post
+I sketched out this approach with a running example.  I aimed to do it in a manner that is neutral concerning the Bayesian-vs-Frequentist debate, indicating that Bayesian methods are not the sole means to estimate probabilities, make forecasts, or provide useful information about seemingly unique events.  I tried to identify exactly what role probability plays in such analyses and, implicitly, to emphasize the need to estimate probabilities accurately (rather than just make them up in some "non-informative" way).
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-07-24 16:28:10 +00:00
+Commented
+Jul 24, 2016 at 16:28
+1
+$\begingroup$
+Related to this thread is the so-called "hot hands" controversy. In a unique paper titled
+Surprised by the Gambler's and Hot Hand Fallacies?
+, Miller and Sanjuro offer convincing evidence that the literature has been wrong for decades in denying the existence of "hot hands." The historic literature was based on the unconditional probability of iid Bernoulli trials whereas the conditional probability of a finite sequence of the same trials confirms the hot hands intuition. Similarly for elections, one can treat this election as the result of a sequence of conditionally probabilistic outcomes.
+$\endgroup$
+user78229
+–
+user78229
+2016-07-24 21:30:40 +00:00
+Commented
+Jul 24, 2016 at 21:30
+Add a comment
+|
+17
+$\begingroup$
+The 2016 election is indeed a one time event.  But so is the flip of a coin or the toss of a die.
+When someone claims they know a candidate has a 75% chance of winning they are not predicting the outcome.  They are claiming they know the shape of the die.
+The outcome of the election can't invalidate this.  But if the model they use to arrive at 75% is tested against many elections it could be shown to have limited predictive value.  Or it may be born out as valuable.
+Of course, once a valuable predictor is known to the candidates they can change their behavior and the model can be made irrelevant.  Or it can be blown all out of proportion.  Just look at what happens in Iowa.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 26, 2016 at 3:18
+answered
+Jul 24, 2016 at 20:12
+candied_orange
+313
+1
+1 silver badge
+8
+8 bronze badges
+$\endgroup$
+3
+8
+$\begingroup$
++1 for "They are claiming they know the shape of the die."
+$\endgroup$
+WBT
+–
+WBT
+2016-07-25 23:21:50 +00:00
+Commented
+Jul 25, 2016 at 23:21
+$\begingroup$
+@WBT, no that's completely the wrong message. The 75% has nothing to do with (physical) probabilites that (are presumed) to govern random events, such as dice rolls. They mean they have 75% degree of certainty
+$\endgroup$
+innisfree
+–
+innisfree
+2016-07-28 06:18:13 +00:00
+Commented
+Jul 28, 2016 at 6:18
+1
+$\begingroup$
+@innisfree The metaphor is still useful.  Though I recognize by your comments on other answers that you disagree (and you're welcome to post another answer), the 75% is someone claiming the outcome probability distribution is equal to that of a four-sided (pyramidal) die on which three of four sides are labeled "Hillary." The metaphor flows a little better if you consider "shape" to include the labels too.
+$\endgroup$
+WBT
+–
+WBT
+2016-07-28 12:48:36 +00:00
+Commented
+Jul 28, 2016 at 12:48
+Add a comment
+|
+7
+$\begingroup$
+When someone says that "Hillary has a 75% chance of winning", they mean that if you offered them a bet where one person gets 25 dollars if Hillary wins and the other person gets 75 dollars if Hillary does not win, they would consider that a fair bet and have no particular reason to prefer either side.
+These percentages typically come from prediction markets. These summarize all the information available and typically outperform analytical methods of predicting most events.
+Prediction markets offer people the opportunity to wager on whether or not a particular event will occur. The payoffs are set by negotiation between the people on both sides of the proposition. Generally, people who have special knowledge about a proposition will be try to leverage that knowledge to make money, which has the side effect of leaking that information.
+For example, suppose there's a prediction market on whether a particular celebrity will live until the end of this year. The public knows the celebrity's age and anyone can look up the basic probability that the celebrity will die by the end of the year. If that was all that was known, you would expect people to be willing to bet on one side or the other of this proposition at roughly that probability.
+Now, suppose someone knew that celebrity was in poor health but was concealing it. Or even say lots of people knew that that celebrity's family had a history of heart disease that would reduce their odds of surviving. The people with that information will be willing to take one side of that proposition, causing the rate to adjust just as buyers push a stock price up and sellers push it down.
+In other words, when the odds are too low, people looking to profit push them up. And when they are too high, people looking to profit push them down. The price of the bet ultimately reflects the collective wisdom of everyone on the odds of the proposition occurring just as all prices reflect collective wisdom on the costs and values of things.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 25, 2016 at 17:28
+answered
+Jul 25, 2016 at 6:43
+David Schwartz
+221
+1
+1 silver badge
+7
+7 bronze badges
+$\endgroup$
+4
+2
+$\begingroup$
+It is a pity that no other answer mentions betting, this is essentially the definition of what a probability is… looks like everybody forgot it.
+$\endgroup$
+Michaël Le Barbier
+–
+Michaël Le Barbier
+2016-07-26 22:22:52 +00:00
+Commented
+Jul 26, 2016 at 22:22
+2
+$\begingroup$
+@MichaelGrünewald: Not quite.  While it's possible to have gambling odds that reflect true probabilities (such as those involving roulette wheels or card games), that's not what this is.  Betting odds for who will win elections are similar to stock prices...they're based primarily on
+how people feel.
+$\endgroup$
+Robert Harvey
+–
+Robert Harvey
+2016-07-27 04:42:35 +00:00
+Commented
+Jul 27, 2016 at 4:42
+$\begingroup$
+@RobertHarvey The point is that probabilities express a
+subjective
+belief (the word
+expectation
+should remind us that). So yes, I can build models, aggregate information using the smartest ways but in the end, all what I can state is “Given all available information I can access to,
+I
+believe that these betting odds are fair”. There is no such a thing as “true probabilities” – probability calculus is helps us to compute on our beliefs consequently. Unless maybe you care to define “true probabilities”.
+$\endgroup$
+Michaël Le Barbier
+–
+Michaël Le Barbier
+2016-07-27 05:26:01 +00:00
+Commented
+Jul 27, 2016 at 5:26
+$\begingroup$
+@RobertHarvey You can argue that everything is based on how people feel. If I make a mathematical argument, it's because I feel it's correct. People are free to decide what odds to accept for a proposition bet by any method they want, arbitrary or rigorous. In a good prediction method, there are enough people with information that the final result conveys the wisdom of the crowd.
+$\endgroup$
+David Schwartz
+–
+David Schwartz
+2016-07-27 05:43:15 +00:00
+Commented
+Jul 27, 2016 at 5:43
+Add a comment
+|
+5
+$\begingroup$
+The key question is how do you assign a probability to a unique event.the answer is that you develop a model by which it is no longer unique. I think an easier example is what is the probability of the president dying in office? You may view the president as a person of a certain age, as a person of a certain age and sex,. Etc... each model gives you a different prediction ...a priori there is no correct model..it is up to the statistician to select which model is most appropriate.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 25, 2016 at 7:21
+seanv507
+7,544
+1
+1 gold badge
+25
+25 silver badges
+33
+33 bronze badges
+$\endgroup$
+2
+1
+$\begingroup$
+Even though I gave the longer answer above my "correct" checkmark, I really like this one too. Moving the question to odds of president dying in office clarifies it. Thanks to EVERYONE for all your thoughtful consideration!
+$\endgroup$
+pitosalas
+–
+pitosalas
+2016-07-25 22:40:01 +00:00
+Commented
+Jul 25, 2016 at 22:40
+1
+$\begingroup$
+There is a framework (Bayesian statistics) for assigning probabilities (degrees of plausibility) to any hypothesis, including outcomes of unique events
+$\endgroup$
+innisfree
+–
+innisfree
+2016-07-28 06:16:56 +00:00
+Commented
+Jul 28, 2016 at 6:16
+Add a comment
+|
+3
+$\begingroup$
+Given the polls show a very tight race, the 75% may or may not be accurate.
+You are asking what it means, not how did they calculate this. The implication is that (if we ignore anyone else except Clinton and her one major opponent) that you would need to bet \$3 to get a \$4 return if she wins. Alternately, a \$1 bet on the other runner would return $4 if he wins.
+My answer makes a small distinction, between the actual chance for either candidate to win, and what people (gamblers, or odds makes) are expecting. I suspect that when you see numbers like this, e.g. 75%, you are seeing the odds makers numbers, when you see 49 to 48%, you are seeing poll results.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 25, 2016 at 2:00
+JTP - Apologise to Monica
+211
+2
+2 silver badges
+6
+6 bronze badges
+$\endgroup$
+4
+2
+$\begingroup$
+And since the questioner is asking about statistical meaning, note that although this doesn't usually happen in elections, you could quite possibly predict a "tight" result, for example 52/48, but still have 75% confidence in the victor without referring to Vegas for their odds. For example, in the men's 100m final of the Olympics the margin of victory is going to be less than 4%, but your statistical model might predict a likely winner. It's all about the confidence interval on that 52/48, which is large enough when predicting elections that it doesn't
+usually
+translate to a 75% chance.
+$\endgroup$
+Steve Jessop
+–
+Steve Jessop
+2016-07-25 12:08:45 +00:00
+Commented
+Jul 25, 2016 at 12:08
+1
+$\begingroup$
+I think JoeTaxpayer's is very useful, pragmatic (in the philosophic meaning of that term)  perspective. It is a somewhat imprecise decision-theoretic presentation. It is how parimutuel betting odds get set. Other characterizations might be "the wisdom of the crowd" or a "market-based price". It really addresses the question, what can I
+do
+with that information (assuming I believe it.)
+$\endgroup$
+DWin
+–
+DWin
+2016-07-26 23:46:02 +00:00
+Commented
+Jul 26, 2016 at 23:46
+1
+$\begingroup$
+I haven't seen mention of the electoral college.  POTUS is elected via the electoral college.  So, if Clinton gets just 51% of 51% of the electoral college, and none of the rest, then with only ~26% of the popular vote, she wins.  Thus, poll results, which generally don't consider electoral college, are sometimes wrong.
+$\endgroup$
+MikeP
+–
+MikeP
+2016-07-27 16:08:14 +00:00
+Commented
+Jul 27, 2016 at 16:08
+2
+$\begingroup$
+@MikeP polls don't report a chance of winning, they report, well, poll results. Models that report chances of winning draw on data from polls in various states and do take the electoral college into account — at least, respectable ones do.
+$\endgroup$
+hobbs
+–
+hobbs
+2016-07-30 02:58:18 +00:00
+Commented
+Jul 30, 2016 at 2:58
+Add a comment
+|
+2
+$\begingroup$
+If they're doing it right, something happens approximately three-fourths of those times when they say it had a 75% chance of happening. (or more generally, the same idea adapted over all percentage forecasts)
+It is possible to ascribe more meaning than that depending on our philosophical opinions and how much we believe the models, but this pragmatic point of view is something of a lowest common denominator — at the very least, statistical methods try (although possibly as a side effect rather than directly) to make forecasts obeying this pragmatic point of view.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 24, 2016 at 17:57
+user41979
+$\endgroup$
+2
+$\begingroup$
+No, the meaning is clearly epistemological/Bayesian, 75% degree of belief. No one is imagining pseudo-experiments in which the election result is a random variable.
+$\endgroup$
+innisfree
+–
+innisfree
+2016-07-28 06:15:15 +00:00
+Commented
+Jul 28, 2016 at 6:15
+$\begingroup$
+@Innisfree: If half the times you have a 75% degree of belief in something it turns out to be wrong, you need to recalibrate how you're measuring your belief! No need for imagined experiments to be involved, just an objective measure of how often your belief has translated into reality in the past.
+$\endgroup$
+user41979
+–
+user41979
+2016-07-28 12:23:59 +00:00
+Commented
+Jul 28, 2016 at 12:23
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+prediction
+politics
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+2
+Election modeling : How is this a valid approach?
+2
+What do poll probabilities actually mean
+113
+What is meant by a "random variable"?
+78
+Is there any *mathematical* basis for the Bayesian vs frequentist debate?
+12
+Can we think of a probability in both the classical and subjective sense simultaneously?
+Related
+11
+What does it mean when all edges in a real-world network/graph are statistically just as likely to happen by chance?
+2
+How do I calculate the probability that an event occurred by 1 of 2 independent processes when they occur together?
+16
+What does it mean to say that an event "happens eventually"?
+4
+What does it mean when we say p(y|x) is fixed?
+1
+What is the probability that 6 of the last 25 Super Bowl winning teams had a All-Pro Quarterback by chance?
+8
+What does it mean to say that $X_1, X_2$ have a "common" Normal distribution?
+Hot Network Questions
+Arrow not pointing in the correct direction/incorrectly rendered
+How to use -dialect sqlite -sql so empty array values aren't dropped from properties?
+Python cast byte array to C void pointer
+`reinterpret_cast` between unrelated structs with the same layout
+When was Spider-Man first depicted using a bulky external web fluid tank as seen in Your Friendly Neighborhood Spider-Man?
+Wrap a leafy plant onto a dodecahedron
+Regular delays in sent (not received) pings
+What are the consequences of mass murder?
+Identify tv episode, everyone's got a brain chip - except one man who ultimately must destroy it
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+Is "naturalism of the gaps" a fallacy acknowledged by philosophers, just like "God of the gaps" usually is?
+Trying to figure out a function in set theory formally
+Generate random, unique, nonzero integers
+What to do when there are multiple descriptions or definitions of the same mathematical object?
+Dragon Adventure cards interaction with Acolyte of Bahamut
+Lightweight e-mail client for unsupported Windows versions
+Interpreting Adjective + Noun Phrases Where the Adjective Doesn’t Directly Describe the Noun
+"イカのナントカ"... what kind of expression is this?
+What does "correlated data" mean?
+Can we run out of PNR codes?
+What does "crown" symbolise in "the crown of righteousness" 2 Timothy 4:8?
+Episode of an anime about a witch or magic girl in high school named Kurumi, who starts crying and herself turns into a baby
+Recurrence functional inequality
+Do we assume that there are assumptions?
+more hot questions
+Question feed

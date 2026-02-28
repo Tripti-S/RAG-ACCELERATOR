@@ -1,0 +1,8 @@
+The joint CDF
+
+x dF’
+Fx(x) = P(X <2) = [ fx(t) dt fx (2) = (2)
+Fy y(z,y) = P(X <2,Y <y)
+
+62F
+fxy av) = Sew)

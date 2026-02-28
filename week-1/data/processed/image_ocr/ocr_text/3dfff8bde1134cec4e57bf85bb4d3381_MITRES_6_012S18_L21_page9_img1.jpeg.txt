@@ -1,0 +1,9 @@
+Time of the kth success/arrival
+
+e Y,, = time of kth arrival Yy=T1+°°-+T,
+
+T;, = kth inter-arrival time =Y,—Yp_-1  (k> 2) the T; are i.i.d., Geometric(p)
+
+The process starts fresh after time Ty
+
+T> is independent of T,; Geometric(p); etc.

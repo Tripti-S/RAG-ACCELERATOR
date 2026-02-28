@@ -1,0 +1,2250 @@
+Introduction to Probability
+SECOND EDITION
+Dimitri P. Bertsekas and John N. Tsitsiklis
+Massachusetts Institute of Technology
+Selected Summary Material – All Rights Reserved
+WWW site for book informationand orders
+http://www.athenasc.com
+Athena Scientific, Belmont, Massachusetts
+1
+1
+Sample Space and
+Probability
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+1.1. Sets . . . . . . . . . . . . . . . . . . . . . . . . . . . p. 3
+1.2. Probabilistic Models . . . . . . . . . . . . . . . . . . . . p. 6
+1.3. Conditional Probability . . . . . . . . . . . . . . . . . p. 18
+1.4. Total Probability Theorem and Bayes’ Rule . . . . . . . . p. 28
+1.5. Independence . . . . . . . . . . . . . . . . . . . . . . p. 34
+1.6. Counting . . . . . . . . . . . . . . . . . . . . . . . p. 44
+1.7. Summary and Discussion . . . . . . . . . . . . . . . . p. 51
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 53
+1
+2 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 1
+1.1 SETS
+1.2 PROBABILISTIC MODELS
+Elements of a Probabilistic Model
+The sample space Ω,whichisthe setofallpossibleoutcomesofan
+•
+experiment.
+The probability law, which assigns to a set A of possible outcomes
+•
+(alsocalledanevent)anonnegativenumberP(A)(calledtheproba-
+bility of A) that encodes our knowledge or belief about the collective
+“likelihood” of the elements of A. The probability law must satisfy
+certain properties to be introduced shortly.
+Probability Axioms
+1. (Nonnegativity) P(A) 0, for every event A.
+≥
+2. (Additivity) IfAandB aretwodisjointevents,thenthe probability
+of their union satisfies
+P(A B)=P(A)+P(B).
+∪
+Moregenerally,ifthe sample spacehas aninfinite number ofelements
+and A ,A ,...is a sequence ofdisjoint events,then the probabilityof
+1 2
+their union satisfies
+P(A A )=P(A )+P(A )+ .
+1 2 1 2
+∪ ∪··· ···
+3. (Normalization) The probability of the entire sample space Ω is
+equal to 1, that is, P(Ω)=1.
+Sec. 1.2 Probabilistic Models 3
+Discrete Probability Law
+Ifthesamplespaceconsistsofafinitenumberofpossibleoutcomes,thenthe
+probability law is specified by the probabilities of the events that consist of
+a single element. In particular, the probability of any event s ,s ,...,s
+1 2 n
+{ }
+is the sum of the probabilities of its elements:
+P s ,s ,...,s =P(s )+P(s )+ +P(s ).
+1 2 n 1 2 n
+{ } ···
+(cid:0) (cid:1)
+Discrete Uniform Probability Law
+If the sample space consists of n possible outcomes which are equally likely
+(i.e., all single-element events have the same probability), then the proba-
+bility of any event A is given by
+number of elements of A
+P(A)= .
+n
+Some Properties of Probability Laws
+Consider a probability law, and let A, B, and C be events.
+(a) If A B, then P(A) P(B).
+⊂ ≤
+(b) P(A B)=P(A)+P(B) P(A B).
+∪ − ∩
+(c) P(A B) P(A)+P(B).
+∪ ≤
+(d) P(A B C)=P(A)+P(Ac B)+P(Ac Bc C).
+∪ ∪ ∩ ∩ ∩
+4 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 1
+1.3 CONDITIONAL PROBABILITY
+Properties of Conditional Probability
+The conditional probability of an event A, given an event B with
+•
+P(B)>0, is defined by
+P(A B)
+P(A B)= ∩ ,
+| P(B)
+and specifies a new (conditional) probability law on the same sample
+space Ω. In particular, all properties of probability laws remain valid
+for conditional probability laws.
+Conditional probabilities can also be viewed as a probability law on a
+•
+new universe B, because all of the conditional probability is concen-
+trated on B.
+If the possible outcomes are finitely many and equally likely, then
+•
+number of elements of A B
+P(A B)= ∩ .
+| number of elements of B
+1.4 TOTAL PROBABILITY THEOREM AND BAYES’ RULE
+Total Probability Theorem
+Let A ,...,A be disjoint events that form a partition of the sample space
+1 n
+(each possible outcome is included in exactly one of the events A ,...,A )
+1 n
+and assume that P(A )>0, for all i. Then, for any event B, we have
+i
+P(B)=P(A B)+ +P(A B)
+1 n
+∩ ··· ∩
+=P(A )P(B A )+ +P(A )P(B A ).
+1 1 n n
+| ··· |
+Sec. 1.5 Independence 5
+1.5 INDEPENDENCE
+Independence
+Two events A and B are said to be independent if
+•
+P(A B)=P(A)P(B).
+∩
+If in addition, P(B)>0, independence is equivalent to the condition
+P(A B)=P(A).
+|
+If A and B are independent, so are A and Bc.
+•
+Two events A and B are said to be conditionally independent,
+•
+given another event C with P(C)>0, if
+P(A B C)=P(A C)P(B C).
+∩ | | |
+If in addition, P(B C) > 0, conditional independence is equivalent
+∩
+to the condition
+P(A B C)=P(A C).
+| ∩ |
+Independencedoesnotimplyconditionalindependence,andviceversa.
+•
+Definition of Independence of Several Events
+We say that the events A ,A ,...,A are independent if
+1 2 n
+P A = P(A ), for every subset S of 1,2,...,n .
+i i
+! { }
+i∈S i∈S
+\ Y
+6 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 1
+1.6 COUNTING
+The Counting Principle
+Consider a process that consists of r stages. Suppose that:
+(a) There are n possible results at the first stage.
+1
+(b) Foreverypossibleresultatthefirststage,therearen possibleresults
+2
+at the second stage.
+(c) More generally, for any sequence of possible results at the first i 1
+−
+stages, there are n possible results at the ith stage.
+i
+Then, the total number of possible results of the r-stage process is
+n n n .
+1 2 r
+···
+Summary of Counting Results
+Permutations of n objects: n!.
+•
+k-permutations of n objects: n!/(n k)!.
+• −
+n n!
+Combinations of k out of n objects: = .
+• k k!(n k)!
+(cid:18) (cid:19) −
+Partitions of n objects into r groups, with the ith group having n
+i
+•
+objects:
+n n!
+= .
+n ,n ,...,n n !n ! n !
+(cid:18) 1 2 r(cid:19) 1 2 ··· r
+1.7 SUMMARY AND DISCUSSION
+2
+Discrete Random Variables
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+2.1. Basic Concepts . . . . . . . . . . . . . . . . . . . . . p. 72
+2.2. Probability Mass Functions . . . . . . . . . . . . . . . p. 74
+2.3. Functions of Random Variables . . . . . . . . . . . . . . p. 80
+2.4. Expectation, Mean, and Variance . . . . . . . . . . . . . p. 81
+2.5. Joint PMFs of Multiple Random Variables . . . . . . . . . p. 92
+2.6. Conditioning . . . . . . . . . . . . . . . . . . . . . . p. 97
+2.7. Independence . . . . . . . . . . . . . . . . . . . . . . p. 109
+2.8. Summary and Discussion . . . . . . . . . . . . . . . . p. 115
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 119
+7
+8 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 2
+2.1 BASIC CONCEPTS
+Main Concepts Related to Random Variables
+Starting with a probabilistic model of an experiment:
+A random variable is a real-valued function of the outcome of the
+•
+experiment.
+A function of a random variable defines another randomvariable.
+•
+We can associate with each random variable certain “averages”of in-
+•
+terest, such as the mean and the variance.
+A random variable can be conditioned on an event or on another
+•
+random variable.
+There is a notion of independence of a random variable from an
+•
+event or from another random variable.
+Concepts Related to Discrete Random Variables
+Starting with a probabilistic model of an experiment:
+Adiscreterandom variableisareal-valuedfunctionoftheoutcome
+•
+of the experiment that can take a finite or countably infinite number
+of values.
+Adiscreterandomvariablehasanassociatedprobabilitymassfunc-
+•
+tion (PMF),whichgivestheprobabilityofeachnumericalvaluethat
+the random variable can take.
+Afunction of a discrete random variabledefinesanotherdiscrete
+•
+random variable, whose PMF can be obtained from the PMF of the
+original random variable.
+Sec. 2.4 Expectation, Mean, and Variance 9
+2.2 PROBABILITY MASS FUNCTIONS
+Calculation of the PMF of a Random Variable X
+For each possible value x of X:
+1. Collect all the possible outcomes that give rise to the event X =x .
+{ }
+2. Add their probabilities to obtain p (x).
+X
+2.3 FUNCTIONS OF RANDOM VARIABLES
+2.4 EXPECTATION, MEAN, AND VARIANCE
+Expectation
+We define theexpected value(alsocalledtheexpectationorthe mean)
+of a random variable X, with PMF p , by
+X
+E[X]= xp (x).
+X
+x
+X
+Expected Value Rule for Functions of Random Variables
+Let X be a random variable with PMF p , and let g(X) be a function of
+X
+X. Then, the expected value of the random variable g(X) is given by
+E g(X) = g(x)p (x).
+X
+x
+(cid:2) (cid:3) X
+10 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 2
+Variance
+The variance var(X) of a random variable X is defined by
+2
+var(X)=E X E[X] ,
+−
+h(cid:0) (cid:1) i
+and can be calculated as
+2
+var(X)= x E[X] p (x).
+X
+−
+x
+X(cid:0) (cid:1)
+It is alwaysnonnegative. Its square rootis denoted by σ and is called the
+X
+standard deviation.
+Mean and Variance of a Linear Function of a Random Variable
+Let X be a random variable and let
+Y =aX+b,
+where a and b are given scalars. Then,
+E[Y]=aE[X]+b, var(Y)=a2var(X).
+Variance in Terms of Moments Expression
+2
+var(X)=E[X2] E[X] .
+−
+(cid:0) (cid:1)
+Sec. 2.5 Joint PMFs of Multiple Random Variables 11
+2.5 JOINT PMFS OF MULTIPLE RANDOM VARIABLES
+Summary of Facts About Joint PMFs
+Let X and Y be random variables associated with the same experiment.
+The joint PMF p of X and Y is defined by
+X,Y
+•
+p (x,y)=P(X =x,Y =y).
+X,Y
+The marginal PMFs of X and Y can be obtained from the joint
+•
+PMF, using the formulas
+p (x)= p (x,y), p (y)= p (x,y).
+X X,Y Y X,Y
+y x
+X X
+A function g(X,Y) of X and Y defines another random variable, and
+•
+E g(X,Y) = g(x,y)p (x,y).
+X,Y
+x y
+(cid:2) (cid:3) XX
+If g is linear, of the form aX+bY +c, we have
+E[aX+bY +c]=aE[X]+bE[Y]+c.
+The above have natural extensions to the case where more than two
+•
+random variables are involved.
+12 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 2
+2.6 CONDITIONING
+Summary of Facts About Conditional PMFs
+Let X and Y be random variables associated with the same experiment.
+Conditional PMFs are similar to ordinary PMFs, but pertain to a
+•
+universe where the conditioning event is known to have occurred.
+TheconditionalPMFofX givenaneventAwithP(A)>0,isdefined
+•
+by
+p (x)=P(X =x A)
+X|A
+|
+and satisfies
+p (x)=1.
+X|A
+x
+X
+If A ,...,A are disjoint events that form a partition of the sample
+1 n
+•
+space, with P(A )>0 for all i, then
+i
+n
+p (x)= P(A )p (x).
+X i X|Ai
+i=1
+X
+(This is a specialcaseof the totalprobabilitytheorem.) Furthermore,
+for any event B, with P(A B)>0 for all i, we have
+i
+∩
+n
+p (x)= P(A B)p (x).
+X|B i
+|
+X|Ai∩B
+i=1
+X
+The conditional PMF of X given Y = y is related to the joint PMF
+•
+by
+p (x,y)=p (y)p (x y).
+X,Y Y X|Y
+|
+The conditional PMF of X given Y can be used to calculate the
+•
+marginal PMF of X through the formula
+p (x)= p (y)p (x y).
+X Y X|Y
+|
+y
+X
+There are natural extensions of the above involving more than two
+•
+random variables.
+Sec. 2.6 Conditioning 13
+Summary of Facts About Conditional Expectations
+Let X and Y be random variables associated with the same experiment.
+The conditional expectation of X given an event A with P(A)>0, is
+•
+defined by
+E[X A]= xp (x).
+X|A
+|
+x
+X
+For a function g(X), we have
+E g(X) A = g(x)p (x).
+X|A
+|
+x
+(cid:2) (cid:3) X
+The conditional expectation of X given a value y of Y is defined by
+•
+E[X Y =y]= xp (x y).
+X|Y
+| |
+x
+X
+If A ,...,A be disjoint events that form a partition of the sample
+1 n
+•
+space, with P(A )>0 for all i, then
+i
+n
+E[X]= P(A )E[X A ].
+i i
+|
+i=1
+X
+Furthermore, for any event B with P(A B)>0 for all i, we have
+i
+∩
+n
+E[X B]= P(A B)E[X A B].
+i i
+| | | ∩
+i=1
+X
+We have
+•
+E[X]= p (y)E[X Y =y].
+Y
+|
+y
+X
+14 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 2
+2.7 INDEPENDENCE
+Summary of Facts About Independent Random Variables
+Let A be an event, with P(A) > 0, and let X and Y be random variables
+associated with the same experiment.
+X is independent of the event A if
+•
+p (x)=p (x), for all x,
+X|A X
+that is, if for all x, the events X =x and A are independent.
+{ }
+X and Y are independent if for all pairs (x,y), the events X = x
+• { }
+and Y =y are independent, or equivalently
+{ }
+p (x,y)=p (x)p (y), for all x,y.
+X,Y X Y
+If X and Y are independent random variables, then
+•
+E[XY]=E[X]E[Y].
+Furthermore, for any functions g and h, the random variables g(X)
+and h(Y) are independent, and we have
+E g(X)h(Y) =E g(X) E h(Y) .
+(cid:2) (cid:3) (cid:2) (cid:3) (cid:2) (cid:3)
+If X and Y are independent, then
+•
+var(X +Y)=var(X)+var(Y).
+Sec. 2.8 Summary and Discussion 15
+2.8 SUMMARY AND DISCUSSION
+Summary of Results for Special Random Variables
+Discrete Uniform over [a,b]:
+1
+, if k =a,a+1,...,b,
+p X (k)= b a+1
+(0, − otherwise,
+a+b (b a)(b a+2)
+E[X]= , var(X)= − − .
+2 12
+Bernoulli with Parameter p: (Describesthe successorfailureinasingle
+trial.)
+p, if k =1,
+p (k)=
+X 1 p, if k =0,
+(cid:26) −
+E[X]=p, var(X)=p(1 p).
+−
+Binomial with Parameters p and n: (Describesthenumberofsuccesses
+in n independent Bernoulli trials.)
+n
+p (k)= pk(1 p)n−k, k =0,1,...,n,
+X
+k −
+(cid:18) (cid:19)
+E[X]=np, var(X)=np(1 p).
+−
+Geometric with Parameter p: (Describes the number of trials until the
+first success, in a sequence of independent Bernoulli trials.)
+p (k)=(1 p)k−1p, k =1,2,...,
+X
+−
+1 1 p
+E[X]= , var(X)= − .
+p p2
+Poisson with Parameter λ: (Approximates the binomial PMF when n
+is large, p is small, and λ=np.)
+λk
+p (k)=e−λ , k =0,1,...,
+X
+k!
+E[X]=λ, var(X)=λ.
+3
+General Random Variables
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+3.1. Continuous Random Variables and PDFs . . . . . . . . . p. 140
+3.2. Cumulative Distribution Functions . . . . . . . . . . . . p. 148
+3.3. Normal Random Variables . . . . . . . . . . . . . . . . p. 153
+3.4. Joint PDFs of Multiple Random Variables . . . . . . . . . p. 158
+3.5. Conditioning . . . . . . . . . . . . . . . . . . . . . p. 164
+3.6. The Continuous Bayes’ Rule . . . . . . . . . . . . . . . p. 178
+3.7. Summary and Discussion . . . . . . . . . . . . . . . . p. 182
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 184
+17
+18 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 3
+3.1 CONTINUOUS RANDOM VARIABLES AND PDFS
+Summary of PDF Properties
+Let X be a continuous random variable with PDF f .
+X
+f (x) 0 for all x.
+X
+• ≥
+∞
+f (x)dx=1.
+X
+•
+Z−∞
+If δ is very small, then P [x,x+δ] f (x) δ.
+X
+• ≈ ·
+For any subset B of the r(cid:0)eal line, (cid:1)
+•
+P(X B)= f (x)dx.
+X
+∈
+ZB
+Expectation of a Continuous Random Variable and its Properties
+Let X be a continuous random variable with PDF f .
+X
+The expectation of X is defined by
+•
+∞
+E[X]= xf (x)dx.
+X
+Z−∞
+The expected value rule for a function g(X) has the form
+•
+∞
+E g(X) = g(x)f (x)dx.
+X
+Z−∞
+(cid:2) (cid:3)
+The variance of X is defined by
+•
+∞
+2 2
+var(X)=E X E[X] = x E[X] f (x)dx.
+X
+− −
+Z−∞
+(cid:2)(cid:0) (cid:1) (cid:3) (cid:0) (cid:1)
+We have
+• 2
+0 var(X)=E[X2] E[X] .
+≤ −
+If Y =aX+b, where a and b are given sc(cid:0)alars,(cid:1)then
+•
+E[Y]=aE[X]+b, var(Y)=a2var(X).
+Sec. 3.2 CumulativeDistribution Functions 19
+3.2 CUMULATIVE DISTRIBUTION FUNCTIONS
+Properties of a CDF
+The CDF F of a random variable X is defined by
+X
+F (x)=P(X x), for all x,
+X
+≤
+and has the following properties.
+F is monotonically nondecreasing:
+X
+•
+if x y, then F (x) F (y).
+X X
+≤ ≤
+F (x) tends to 0 as x , and to 1 as x .
+X
+• →−∞ →∞
+If X is discrete, then F (x) is a piecewise constant function of x.
+X
+•
+If X is continuous, then F (x) is a continuous function of x.
+X
+•
+If X is discrete and takes integer values, the PMF and the CDF can
+•
+be obtained from each other by summing or differencing:
+k
+F (k)= p (i),
+X X
+i=−∞
+X
+p (k)=P(X k) P(X k 1)=F (k) F (k 1),
+X X X
+≤ − ≤ − − −
+for all integers k.
+If X is continuous, the PDF and the CDF can be obtained from each
+•
+other by integration or differentiation:
+x dF
+X
+F (x)= f (t)dt, f (x)= (x).
+X X X
+dx
+Z−∞
+(The second equality is valid for those x at which the PDF is contin-
+uous.)
+20 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 3
+3.3 NORMAL RANDOM VARIABLES
+Normality is Preserved by Linear Transformations
+IfX isanormalrandomvariablewithmeanµandvarianceσ2,andifa=0,
+6
+b are scalars, then the random variable
+Y =aX +b
+is also normal, with mean and variance
+E[Y]=aµ+b, var(Y)=a2σ2.
+CDF Calculation for a Normal Random Variable
+For a normal random variable X with mean µ and variance σ2, we use a
+two-step procedure.
+(a) “Standardize”X,i.e.,subtractµanddividebyσ toobtainastandard
+normal random variable Y.
+(b) Read the CDF value from the standard normal table:
+X µ x µ x µ x µ
+P(X x)=P − − =P Y − =Φ − .
+≤ σ ≤ σ ≤ σ σ
+(cid:18) (cid:19) (cid:18) (cid:19) (cid:18) (cid:19)
+Sec. 3.4 Normal Random Variables 21
+.00 .01 .02 .03 .04 .05 .06 .07 .08 .09
+0.0 .5000 .5040 .5080 .5120 .5160 .5199 .5239 .5279 .5319 .5359
+0.1 .5398 .5438 .5478 .5517 .5557 .5596 .5636 .5675 .5714 .5753
+0.2 .5793 .5832 .5871 .5910 .5948 .5987 .6026 .6064 .6103 .6141
+0.3 .6179 .6217 .6255 .6293 .6331 .6368 .6406 .6443 .6480 .6517
+0.4 .6554 .6591 .6628 .6664 .6700 .6736 .6772 .6808 .6844 .6879
+0.5 .6915 .6950 .6985 .7019 .7054 .7088 .7123 .7157 .7190 .7224
+0.6 .7257 .7291 .7324 .7357 .7389 .7422 .7454 .7486 .7517 .7549
+0.7 .7580 .7611 .7642 .7673 .7704 .7734 .7764 .7794 .7823 .7852
+0.8 .7881 .7910 .7939 .7967 .7995 .8023 .8051 .8078 .8106 .8133
+0.9 .8159 .8186 .8212 .8238 .8264 .8289 .8315 .8340 .8365 .8389
+1.0 .8413 .8438 .8461 .8485 .8508 .8531 .8554 .8577 .8599 .8621
+1.1 .8643 .8665 .8686 .8708 .8729 .8749 .8770 .8790 .8810 .8830
+1.2 .8849 .8869 .8888 .8907 .8925 .8944 .8962 .8980 .8997 .9015
+1.3 .9032 .9049 .9066 .9082 .9099 .9115 .9131 .9147 .9162 .9177
+1.4 .9192 .9207 .9222 .9236 .9251 .9265 .9279 .9292 .9306 .9319
+1.5 .9332 .9345 .9357 .9370 .9382 .9394 .9406 .9418 .9429 .9441
+1.6 .9452 .9463 .9474 .9484 .9495 .9505 .9515 .9525 .9535 .9545
+1.7 .9554 .9564 .9573 .9582 .9591 .9599 .9608 .9616 .9625 .9633
+1.8 .9641 .9649 .9656 .9664 .9671 .9678 .9686 .9693 .9699 .9706
+1.9 .9713 .9719 .9726 .9732 .9738 .9744 .9750 .9756 .9761 .9767
+2.0 .9772 .9778 .9783 .9788 .9793 .9798 .9803 .9808 .9812 .9817
+2.1 .9821 .9826 .9830 .9834 .9838 .9842 .9846 .9850 .9854 .9857
+2.2 .9861 .9864 .9868 .9871 .9875 .9878 .9881 .9884 .9887 .9890
+2.3 .9893 .9896 .9898 .9901 .9904 .9906 .9909 .9911 .9913 .9916
+2.4 .9918 .9920 .9922 .9925 .9927 .9929 .9931 .9932 .9934 .9936
+2.5 .9938 .9940 .9941 .9943 .9945 .9946 .9948 .9949 .9951 .9952
+2.6 .9953 .9955 .9956 .9957 .9959 .9960 .9961 .9962 .9963 .9964
+2.7 .9965 .9966 .9967 .9968 .9969 .9970 .9971 .9972 .9973 .9974
+2.8 .9974 .9975 .9976 .9977 .9977 .9978 .9979 .9979 .9980 .9981
+2.9 .9981 .9982 .9982 .9983 .9984 .9984 .9985 .9985 .9986 .9986
+3.0 .9987 .9987 .9987 .9988 .9988 .9989 .9989 .9989 .9990 .9990
+3.1 .9990 .9991 .9991 .9991 .9992 .9992 .9992 .9992 .9993 .9993
+3.2 .9993 .9993 .9994 .9994 .9994 .9994 .9994 .9995 .9995 .9995
+3.3 .9995 .9995 .9995 .9996 .9996 .9996 .9996 .9996 .9996 .9997
+3.4 .9997 .9997 .9997 .9997 .9997 .9997 .9997 .9997 .9997 .9998
+The standard normal table. Theentries in thistableprovidethenumericalvalues
+of Φ(y)=P(Y ≤y), where Y is a standard normal random variable, for y between 0
+and 3.49. For example, to find Φ(1.71), we look at the row corresponding to 1.7 and
+the column corresponding to 0.01, so that Φ(1.71) = .9564. When y is negative, the
+value of Φ(y) can be found using theformula Φ(y)=1−Φ(−y).
+22 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 3
+3.4 JOINT PDFS OF MULTIPLE RANDOM VARIABLES
+Summary of Facts about Joint PDFs
+Let X and Y be jointly continuous random variables with joint PDF f .
+X,Y
+The joint PDF is used to calculate probabilities:
+•
+P (X,Y) B = f (x,y)dxdy.
+X,Y
+∈
+Z Z
+(cid:0) (cid:1) (x,y)∈B
+ThemarginalPDFsofX andY canbeobtainedfromthejointPDF,
+•
+using the formulas
+∞ ∞
+f (x)= f (x,y)dy, f (y)= f (x,y)dx.
+X X,Y Y X,Y
+Z−∞ Z−∞
+The joint CDF is defined by F (x,y) = P(X x, Y y), and
+X,Y
+• ≤ ≤
+determines the joint PDF through the formula
+∂2F
+X,Y
+f (x,y)= (x,y),
+X,Y
+∂x∂y
+for every (x,y) at which the joint PDF is continuous.
+A function g(X,Y) of X and Y defines a new random variable, and
+•
+∞ ∞
+E g(X,Y) = g(x,y)f (x,y)dxdy.
+X,Y
+Z−∞Z−∞
+(cid:2) (cid:3)
+If g is linear, of the form aX+bY +c, we have
+E[aX+bY +c]=aE[X]+bE[Y]+c.
+The above have natural extensions to the case where more than two
+•
+random variables are involved.
+Sec. 3.5 Conditioning 23
+3.5 CONDITIONING
+Conditional PDF Given an Event
+The conditional PDF f of a continuous random variable X, given
+X|A
+•
+an event A with P(A)>0, satisfies
+P(X B A)= f (x)dx.
+X|A
+∈ |
+ZB
+If A is a subset of the real line with P(X A)>0, then
+• ∈
+f (x)
+X
+, if x A,
+f X|{X∈A} (x)=  P(X ∈ A) ∈
+0, otherwise.
+
+LetA ,A ,...,A bedisjointeventsthatformapartitionofthesam-
+1 2 n
+•
+ple space, and assume that P(A )>0 for all i. Then,
+i
+n
+f (x)= P(A )f (x)
+X i X|Ai
+i=1
+X
+(a version of the total probability theorem).
+Conditional PDF Given a Random Variable
+Let X and Y be jointly continuous random variables with joint PDF f .
+X,Y
+The joint, marginal, and conditional PDFs are related to each other
+•
+by the formulas
+f (x,y)=f (y)f (x y),
+X,Y Y X|Y
+|
+∞
+f (x)= f (y)f (x y)dy.
+X Y X|Y
+|
+Z−∞
+The conditional PDF f (x y) is defined only for those y for which
+X|Y
+|
+f (y)>0.
+Y
+We have
+•
+P(X A Y =y)= f (x y)dx.
+X|Y
+∈ | |
+ZA
+24 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 3
+Summary of Facts About Conditional Expectations
+Let X sndY be jointly continuous randomvariables,and let A be anevent
+with P(A)>0.
+Definitions: The conditional expectation of X given the event A is
+•
+defined by
+∞
+E[X A]= xf (x)dx.
+X|A
+|
+Z−∞
+The conditional expectation of X given that Y =y is defined by
+∞
+E[X Y =y]= xf (x y)dx.
+X|Y
+| |
+Z−∞
+The expected value rule: For a function g(X), we have
+•
+∞
+E g(X) A = g(x)f (x)dx,
+X|A
+|
+Z−∞
+(cid:2) (cid:3)
+and
+∞
+E g(X) Y =y = g(x)f (x y)dx.
+X|Y
+| |
+Z−∞
+(cid:2) (cid:3)
+Total expectation theorem: Let A ,A ,...,A be disjoint events
+1 2 n
+•
+that forma partitionofthe sample space,andassumethat P(A )>0
+i
+for all i. Then,
+n
+E[X]= P(A )E[X A ].
+i i
+|
+i=1
+X
+Similarly,
+∞
+E[X]= E[X Y =y]f (y)dy.
+Y
+|
+Z−∞
+There are natural analogs for the case of functions of several random
+•
+variables. For example,
+E g(X,Y) Y =y = g(x,y)f (x y)dx,
+X|Y
+| |
+Z
+(cid:2) (cid:3)
+and
+E g(X,Y) = E g(X,Y) Y =y]f (y)dy.
+Y
+|
+Z
+(cid:2) (cid:3) (cid:2)
+Sec. 3.5 Conditioning 25
+Independence of Continuous Random Variables
+Let X and Y be jointly continuous random variables.
+X and Y are independent if
+•
+f (x,y)=f (x)f (y), for all x,y.
+X,Y X Y
+If X and Y are independent, then
+•
+E[XY]=E[X]E[Y].
+Furthermore, for any functions g and h, the random variables g(X)
+and h(Y) are independent, and we have
+E g(X)h(Y) =E g(X) E h(Y) .
+(cid:2) (cid:3) (cid:2) (cid:3) (cid:2) (cid:3)
+If X and Y are independent, then
+•
+var(X +Y)=var(X)+var(Y).
+26 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 3
+3.6 BAYES’ RULE AND APPLICATIONS IN INFERENCE
+Bayes’ Rule Relations for Random Variables
+Let X and Y be two random variables.
+IfX andY arediscrete,wehaveforallx,ywithp (x)=0,p (y)=0,
+X Y
+• 6 6
+p (x)p (y x)=p (y)p (x y),
+X Y|X Y X|Y
+| |
+and the terms on the two sides in this relation are both equal to
+p (x,y).
+X,Y
+IfX isdiscreteandY iscontinuous,wehaveforallx,ywithp (x)=0,
+X
+• 6
+f (y)=0,
+Y
+6
+p (x)f (y x)=f (y)p (x y),
+X Y|X Y X|Y
+| |
+and the terms on the two sides in this relation are both equal to
+P(X =x, y Y y+δ)
+lim ≤ ≤ .
+δ→0 δ
+If X and Y are continuous, we have for all x,y with f (x) = 0,
+X
+• 6
+f (y)=0,
+Y
+6
+f (x)f (y x)=f (y)f (x y),
+X Y|X Y X|Y
+| |
+and the terms on the two sides in this relation are both equal to
+P(x X x+δ, y Y y+δ)
+lim ≤ ≤ ≤ ≤ .
+δ→0 δ2
+Sec. 3.7 Summary and Discussion 27
+3.7 SUMMARY AND DISCUSSION
+Summary of Results for Special Random Variables
+Continuous Uniform Over [a,b]:
+1
+, if a x b,
+f X (x)=  b − a ≤ ≤
+0, otherwise,
+
+a+b (b a)2
+E[X]= , var(X)= − .
+2 12
+Exponential with Parameter λ:
+λe−λx, if x 0, 1 e−λx, if x 0,
+f X (x)= 0, othe ≥ rwise, F X (x)= 0, − othe ≥ rwise,
+(cid:26) (cid:26)
+1 1
+E[X]= , var(X)= .
+λ λ2
+Normal with Parameters µ and σ2 >0:
+1 2 2
+f (x)= e−(x−µ) /2σ ,
+X
+√2πσ
+E[X]=µ, var(X)=σ2.
+4
+Further Topics
+on Random Variables
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+4.1. Derived Distributions . . . . . . . . . . . . . . . . . . p. 202
+4.2. Covariance and Correlation . . . . . . . . . . . . . . . p. 217
+4.3. Conditional Expectation and Variance Revisited . . . . . . p. 222
+4.4. Transforms . . . . . . . . . . . . . . . . . . . . . . p. 229
+4.5. Sum of a Random Number of Independent Random Variables p. 240
+4.6. Summary and Discussion . . . . . . . . . . . . . . . . p. 244
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 246
+29
+30 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 4
+4.1 DERIVED DISTRIBUTIONS
+Calculation of the PDF of a Function Y = g(X) of a Continuous
+Random Variable X
+1. Calculate the CDF F of Y using the formula
+Y
+F (y)=P g(X) y = f (x)dx.
+Y X
+≤
+Z{x|g(x)≤y}
+(cid:0) (cid:1)
+2. Differentiate to obtain the PDF of Y:
+dF
+Y
+f (y)= (y).
+Y
+dy
+The PDF of a Linear Function of a Random Variable
+Let X be a continuous random variable with PDF f , and let
+X
+Y =aX+b,
+where a and b are scalars, with a=0. Then,
+6
+1 y b
+f (y)= f − .
+Y X
+a a
+| | (cid:18) (cid:19)
+Sec. 4.2 Covariance and Correlation 31
+PDF Formula for a Strictly Monotonic Function of a Continuous
+Random Variable
+Suppose that g is strictly monotonic andthat for some function h andall x
+in the range of X we have
+y =g(x) if and only if x=h(y).
+Assume that h is differentiable. Then, the PDF of Y in the region where
+f (y)>0 is given by
+Y
+dh
+f (y)=f h(y) (y) .
+Y X
+dy
+(cid:12) (cid:12)
+(cid:0) (cid:1)(cid:12) (cid:12)
+(cid:12) (cid:12)
+(cid:12) (cid:12)
+4.2 COVARIANCE AND CORRELATION
+Covariance and Correlation
+The covariance of X and Y is given by
+•
+cov(X,Y)=E X E[X] Y E[Y] =E[XY] E[X]E[Y].
+− − −
+h(cid:0) (cid:1)(cid:0) (cid:1)i
+If cov(X,Y)=0, we say that X and Y are uncorrelated.
+•
+If X and Y are independent, they are uncorrelated. The converse is
+•
+not always true.
+We have
+•
+var(X +Y)=var(X)+var(Y)+2cov(X,Y).
+The correlation coefficientρ(X,Y) oftwo randomvariables X and
+•
+Y with positive variances is defined by
+cov(X,Y)
+ρ(X,Y)= ,
+var(X)var(Y)
+p
+and satisfies
+1 ρ(X,Y) 1.
+− ≤ ≤
+32 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 4
+4.3 CONDITIONALEXPECTATIONANDVARIANCEREVISITED
+Law of Iterated Expectations: E E[X Y] =E[X].
+|
+(cid:2) (cid:3)
+Law of Total Variance: var(X)=E var(X Y) +var E[X Y] .
+| |
+(cid:2) (cid:3) (cid:0) (cid:1)
+Properties of the Conditional Expectation and Variance
+E[X Y =y] is a number whose value depends on y.
+• |
+E[X Y] is a function ofthe randomvariable Y, hence a randomvari-
+• |
+able. Its value is E[X Y =y] whenever the value of Y is y.
+|
+E E[X Y] =E[X] (law of iterated expectations).
+• |
+E(cid:2)[X Y = (cid:3)y] may be viewed as an estimate of X given Y = y. The
+• |
+correspondingerrorE[X Y] X isazeromeanrandomvariablethat
+| −
+is uncorrelated with E[X Y].
+|
+var(X Y)isarandomvariablewhosevalueisvar(X Y =y)whenever
+• | |
+the value of Y is y.
+var(X)=E var(X Y) +var E[X Y] (law of total variance).
+• | |
+(cid:2) (cid:3) (cid:0) (cid:1)
+Sec. 4.4 Transforms 33
+4.4 TRANSFORMS
+Summary of Transforms and their Properties
+The transform associated with a random variable X is given by
+•
+esxp (x), X discrete,
+X
+x
+M
+X
+(s)=E[esX]=X
+∞
+
+esxf
+X
+(x)dx, X continuous.
+Z−∞
+
+Thedistributionofarandomvariableiscompletelydeterminedbythe
+•
+corresponding transform.
+Moment generating properties:
+•
+d dn
+M (0)=1, M (s) =E[X], M (s) =E[Xn].
+X ds X dsn X
+(cid:12)s=0 (cid:12)s=0
+(cid:12) (cid:12)
+(cid:12) (cid:12)
+If Y =aX+b, then M (s(cid:12))=esbM (as). (cid:12)
+Y X
+•
+If X and Y are independent, then M (s)=M (s)M (s).
+X+Y X Y
+•
+34 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 4
+Transforms for Common Discrete Random Variables
+Bernoulli(p) (k =0,1)
+p, if k =1,
+p (k)= M (s)=1 p+pes.
+X 1 p, if k =0, X −
+(cid:26) −
+Binomial(n,p) (k =0,1,...,n)
+n
+p (k)= pk(1 p)n−k, M (s)=(1 p+pes)n.
+X X
+k − −
+(cid:18) (cid:19)
+Geometric(p) (k =1,2,...)
+pes
+p (k)=p(1 p)k−1, M (s)= .
+X − X 1 (1 p)es
+− −
+Poisson(λ) (k =0,1,...)
+e−λλk s
+p (k)= , M (s)=eλ(e −1).
+X X
+k!
+Uniform(a,b) (k =a,a+1,...,b)
+1 esa es(b−a+1) 1
+p (k)= , M (s)= − .
+X b a+1 X (b a+1)(es 1)
+− −(cid:0) − (cid:1)
+Transforms for Common Continuous Random Variables
+Uniform(a,b) (a x b)
+≤ ≤
+1 esb esa
+f (x)= , M (s)= − .
+X X
+b a s(b a)
+− −
+Exponential(λ) (x 0)
+≥
+λ
+f (x)=λe−λx, M (s)= , (s<λ).
+X X
+λ s
+−
+Normal(µ,σ2) ( <x< )
+−∞ ∞
+1 2 2 2 2
+f (x)= e−(x−µ) /2σ , M (s)=e(σ s /2)+µs.
+X X
+√2πσ
+Sec. 4.6 Summary and Discussion 35
+4.5 SUMOFARANDOMNUMBEROFINDEPENDENTRANDOM
+VARIABLES
+Properties of the Sum of a Random Number of Independent Ran-
+dom Variables
+Let X ,X ,...be identically distributed randomvariableswith mean E[X]
+1 2
+andvariancevar(X). LetN bearandomvariablethattakesnonnegativein-
+tegervalues. Weassumethatalloftheserandomvariablesareindependent,
+and we consider the sum
+Y =X + +X .
+1 N
+···
+Then:
+E[Y]=E[N]E[X].
+•
+2
+var(Y)=E[N]var(X)+ E[X] var(N).
+•
+We have (cid:0) (cid:1)
+•
+M (s)=M logM (s) .
+Y N X
+Equivalently,thetransformM (s)i(cid:0)sfoundbys(cid:1)tartingwiththetrans-
+Y
+form M (s) and replacing each occurrence of es with M (s).
+N X
+4.6 SUMMARY AND DISCUSSION
+5
+Limit Theorems
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+5.1. Markov and Chebyshev Inequalities . . . . . . . . . . . . p. 265
+5.2. The Weak Law of Large Numbers . . . . . . . . . . . . . p. 269
+5.3. Convergence in Probability . . . . . . . . . . . . . . . . p. 271
+5.4. The Central Limit Theorem . . . . . . . . . . . . . . . p. 273
+5.5. The Strong Law of Large Numbers . . . . . . . . . . . . p. 280
+5.6. Summary and Discussion . . . . . . . . . . . . . . . . p. 282
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 284
+37
+38 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 5
+5.1 MARKOV AND CHEBYSHEV INEQUALITIES
+Markov Inequality
+If a random variable X can only take nonnegative values, then
+E[X]
+P(X a) , for all a>0.
+≥ ≤ a
+Chebyshev Inequality
+If X is a random variable with mean µ and variance σ2, then
+σ2
+P X µ c , for all c>0.
+| − |≥ ≤ c2
+(cid:0) (cid:1)
+5.2 THE WEAK LAW OF LARGE NUMBERS
+The Weak Law of Large Numbers
+LetX ,X ,...beindependentidenticallydistributedrandomvariableswith
+1 2
+mean µ. For every ǫ>0, we have
+X + +X
+1 n
+P M µ ǫ =P ··· µ ǫ 0, as n .
+n
+| − |≥ n − ≥ → →∞
+(cid:18)(cid:12) (cid:12) (cid:19)
+(cid:0) (cid:1) (cid:12) (cid:12)
+(cid:12) (cid:12)
+(cid:12) (cid:12)
+Sec. 5.3 Convergence in Probability 39
+5.3 CONVERGENCE IN PROBABILITY
+Convergence of a Deterministic Sequence
+Let a ,a ,... be a sequence of real numbers, and let a be another real
+1 2
+number. We say that the sequence a converges to a, or lim a =a, if
+n n→∞ n
+for every ǫ>0 there exists some n such that
+0
+a a ǫ, for all n n .
+n 0
+| − |≤ ≥
+Convergence in Probability
+Let Y ,Y ,... be a sequence of random variables (not necessarily indepen-
+1 2
+dent), andlet a be a realnumber. We saythat the sequence Y converges
+n
+to a in probability, if for every ǫ>0, we have
+lim P Y a ǫ =0.
+n
+n→∞ | − |≥
+(cid:0) (cid:1)
+40 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 5
+5.4 THE CENTRAL LIMIT THEOREM
+The Central Limit Theorem
+LetX ,X ,...be asequenceofindependentidenticallydistributedrandom
+1 2
+variables with common mean µ and variance σ2, and define
+X + +X nµ
+1 n
+Z = ··· − .
+n
+σ√n
+Then, the CDF of Z converges to the standard normal CDF
+n
+1 z 2
+Φ(z)= e−x /2dx,
+√2π
+Z−∞
+in the sense that
+lim P(Z z)=Φ(z), for every z.
+n
+n→∞ ≤
+Normal Approximation Based on the Central Limit Theorem
+Let S = X + + X , where the X are independent identically dis-
+n 1 n i
+···
+tributed random variables with mean µ and variance σ2. If n is large, the
+probability P(S c) can be approximated by treating S as if it were
+n n
+≤
+normal, according to the following procedure.
+1. Calculate the mean nµ and the variance nσ2 of S .
+n
+2. Calculate the normalized value z =(c nµ)/σ√n.
+−
+3. Use the approximation
+P(S c) Φ(z),
+n
+≤ ≈
+where Φ(z) is available from standard normal CDF tables.
+Sec. 5.6 Summary and Discussion 41
+De Moivre-Laplace Approximation to the Binomial
+IfS isabinomialrandomvariablewithparametersnandp,nislarge,and
+n
+k, l are nonnegative integers, then
+l+ 1 np k 1 np
+P(k S l) Φ 2 − Φ − 2 − .
+n
+≤ ≤ ≈ np(1 p)!− np(1 p)!
+− −
+p p
+5.5 THE STRONG LAW OF LARGE NUMBERS
+The Strong Law of Large Numbers
+LetX ,X ,...be asequenceofindependentidenticallydistributedrandom
+1 2
+variables with mean µ. Then, the sequence of sample means M = (X +
+n 1
++X )/n converges to µ, with probability 1, in the sense that
+n
+···
+X + +X
+1 n
+P lim ··· =µ =1.
+n→∞ n
+(cid:18) (cid:19)
+Convergence with Probability 1
+Let Y ,Y ,... be a sequence of random variables (not necessarily indepen-
+1 2
+dent). Let c be a real number. We say that Y converges to c with prob-
+n
+ability 1 (or almost surely) if
+P lim Y =c =1.
+n
+n→∞
+(cid:16) (cid:17)
+5.6 SUMMARY AND DISCUSSION
+6
+The Bernoulli and Poisson
+Processes
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+6.1. The Bernoulli Process . . . . . . . . . . . . . . . . . . p. 297
+6.2. The PoissonProcess . . . . . . . . . . . . . . . . . . p. 309
+6.3. Summary and Discussion . . . . . . . . . . . . . . . . p. 324
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 326
+43
+44 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 6
+6.1 THE BERNOULLI PROCESS
+Some Random Variables Associated with the Bernoulli Process
+and their Properties
+The binomial with parameters p and n. This is the number S of
+•
+successes in n independent trials. Its PMF, mean, and variance are
+n
+p (k)= pk(1 p)n−k, k =0,1,...,n,
+S
+k −
+(cid:18) (cid:19)
+E[S]=np, var(S)=np(1 p).
+−
+The geometric with parameter p. This is the number T of trials
+•
+up to (and including) the first success. Its PMF, mean, and variance
+are
+p (t)=(1 p)t−1p, t=1,2,...,
+T
+−
+1 1 p
+E[T]= , var(T)= − .
+p p2
+Independence Properties of the Bernoulli Process
+Foranygiventimen,thesequenceofrandomvariablesX ,X ,...
+n+1 n+2
+•
+(the future of the process) is also a Bernoulli process, and is indepen-
+dent from X ,...,X (the past of the process).
+1 n
+Let n be a given time and let T be the time of the first success after
+•
+time n. Then, T n has a geometric distribution with parameter p,
+−
+and is independent of the random variables X ,...,X .
+1 n
+Alternative Description of the Bernoulli Process
+1. Start with a sequence of independent geometric random variables T ,
+1
+T ,..., with commonparameterp, andlet these standfor the interar-
+2
+rival times.
+2. Record a success (or arrival) at times T , T +T , T +T +T , etc.
+1 1 2 1 2 3
+Sec. 6.1 The Bernoulli Process 45
+Properties of the kth Arrival Time
+Thektharrivaltimeisequaltothesumofthefirstkinterarrivaltimes
+•
+Y =T +T + +T ,
+k 1 2 k
+···
+and the latter are independent geometric random variables with com-
+mon parameter p.
+The mean and variance of Y are given by
+k
+•
+k
+E[Y ]=E[T ]+ +E[T ]= ,
+k 1 k
+··· p
+k(1 p)
+var(Y )=var(T )+ +var(T )= − .
+k 1 ··· k p2
+The PMF of Y is given by
+k
+•
+t 1
+p (t)= − pk(1 p)t−k, t=k,k+1,...,
+Yk
+k 1 −
+(cid:18) − (cid:19)
+and is known as the Pascal PMF of order k.
+46 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 6
+Poisson Approximation to the Binomial
+A Poisson random variable Z with parameter λ takes nonnegative
+•
+integer values and is described by the PMF
+λk
+p (k)=e−λ , k =0,1,2,....
+Z
+k!
+Its mean and variance are given by
+E[Z]=λ, var(Z)=λ.
+For any fixed nonnegative integer k, the binomial probability
+•
+n!
+p (k)= pk(1 p)n−k
+S
+(n k)!k! · −
+−
+converges to p (k), when we take the limit as n and p = λ/n,
+Z
+→ ∞
+while keeping λ constant.
+In general,the PoissonPMF is a goodapproximationto the binomial
+•
+as long as λ=np, n is very large, and p is very small.
+Sec. 6.2 The Poisson Process 47
+6.2 THE POISSON PROCESS
+Definition of the Poisson Process
+An arrival process is called a Poisson process with rate λ if it has the fol-
+lowing properties:
+(a) (Time-homogeneity) The probability P(k,τ) of k arrivals is the
+same for all intervals of the same length τ.
+(b) (Independence) The number of arrivals during a particular interval
+is independent of the history of arrivals outside this interval.
+(c) (Small interval probabilities) The probabilities P(k,τ) satisfy
+P(0,τ)=1 λτ +o(τ),
+−
+P(1,τ)=λτ +o (τ),
+1
+P(k,τ)=o (τ), for k =2,3,...
+k
+Here, o(τ) and o (τ) are functions of τ that satisfy
+k
+o(τ) o (τ)
+k
+lim =0, lim =0.
+τ→0 τ τ→0 τ
+Random Variables Associated with the Poisson Process and their
+Properties
+The Poissonwith parameterλτ. ThisisthenumberN ofarrivals
+τ
+•
+inaPoissonprocesswithrateλ,overanintervaloflengthτ. ItsPMF,
+mean, and variance are
+(λτ)k
+p (k)=P(k,τ)=e−λτ , k =0,1,...,
+Nτ
+k!
+E[N ]=λτ, var(N )=λτ.
+τ τ
+The exponential with parameter λ. This is the time T until the
+•
+first arrival. Its PDF, mean, and variance are
+1 1
+f (t)=λe−λt, t 0, E[T]= , var(T)= .
+T ≥ λ λ2
+48 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 6
+Independence Properties of the Poisson Process
+For anygiventime t>0, the historyofthe processafter time t isalso
+•
+a Poisson process, and is independent from the history of the process
+until time t.
+Let t be a given time and let T be the time of the first arrival after
+•
+time t. Then, T t has anexponentialdistribution withparameterλ,
+−
+and is independent of the history of the process until time t.
+Alternative Description of the Poisson Process
+1. Start with a sequence of independent exponential random variables
+T ,T ,..., with common parameter λ, and let these represent the in-
+1 2
+terarrival times.
+2. Record an arrival at times T , T +T , T +T +T , etc.
+1 1 2 1 2 3
+Properties of the kth Arrival Time
+Thektharrivaltimeisequaltothesumofthefirstkinterarrivaltimes
+•
+Y =T +T + +T ,
+k 1 2 k
+···
+andthelatterareindependentexponentialrandomvariableswithcom-
+mon parameter λ.
+The mean and variance of Y are given by
+k
+•
+k
+E[Y ]=E[T ]+ +E[T ]= ,
+k 1 k
+··· λ
+k
+var(Y )=var(T )+ +var(T )= .
+k 1 ··· k λ2
+The PDF of Y is given by
+k
+•
+λkyk−1e−λy
+f (y)= , y 0,
+Yk
+(k 1)! ≥
+−
+and is known as the Erlang PDF of order k.
+Sec. 6.3 Summary and Discussion 49
+Properties of Sums of a Random Number of Random Variables
+LetN,X ,X ,...beindependentrandomvariables,whereN takesnonneg-
+1 2
+ative integer values. Let Y = X + +X for positive values of N, and
+1 N
+···
+let Y =0 when N =0.
+IfX isBernoulliwithparameterp,andN isbinomialwithparameters
+i
+•
+m and q, then Y is binomial with parameters m and pq.
+If X is Bernoulli with parameter p, and N is Poissonwith parameter
+i
+•
+λ, then Y is Poisson with parameter λp.
+If X is geometric with parameter p, and N is geometric with param-
+i
+•
+eter q, then Y is geometric with parameter pq.
+If X is exponential with parameter λ, and N is geometric with pa-
+i
+•
+rameter q, then Y is exponential with parameter λq.
+6.3 SUMMARY AND DISCUSSION
+7
+Markov Chains
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+7.1. Discrete-Time Markov Chains . . . . . . . . . . . . . . p. 340
+7.2. Classification of States . . . . . . . . . . . . . . . . . . p. 346
+7.3. Steady-State Behavior . . . . . . . . . . . . . . . . . . p. 352
+7.4. Absorption Probabilities and Expected Time to Absorption . p. 362
+7.5. Continuous-Time Markov Chains . . . . . . . . . . . . . p. 369
+7.6. Summary and Discussion . . . . . . . . . . . . . . . . p. 378
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 380
+51
+52 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 7
+7.1 DISCRETE-TIME MARKOV CHAINS
+Specification of Markov Models
+A Markov chain model is specified by identifying:
+•
+(a) the set of states = 1,...,m ,
+§ { }
+(b) thesetofpossibletransitions,namely,thosepairs(i,j)forwhich
+p >0, and,
+ij
+(c) the numerical values of those p that are positive.
+ij
+The Markov chain specified by this model is a sequence of random
+•
+variables X ,X ,X ,..., that take values in , and which satisfy
+0 1 2
+§
+P(X =j X =i,X =i ,...,X =i )=p ,
+n+1 n n−1 n−1 0 0 ij
+|
+foralltimesn,allstatesi,j ,andallpossiblesequencesi ,...,i
+0 n−1
+∈§
+of earlier states.
+Chapman-Kolmogorov Equation for the n-Step Transition
+Probabilities
+Then-steptransitionprobabilitiescanbegeneratedbytherecursiveformula
+m
+r (n)= r (n 1)p , for n>1, and all i, j,
+ij ik kj
+−
+k=1
+X
+starting with
+r (1)=p .
+ij ij
+Sec. 7.2 Classification of States 53
+7.2 CLASSIFICATION OF STATES
+Markov Chain Decomposition
+AMarkovchaincanbedecomposedintooneormorerecurrentclasses,
+•
+plus possibly some transient states.
+A recurrent state is accessible from all states in its class, but is not
+•
+accessible from recurrent states in other classes.
+A transient state is not accessible from any recurrent state.
+•
+Atleastone,possiblymore,recurrentstatesareaccessiblefromagiven
+•
+transient state.
+Periodicity
+Consider a recurrent class R.
+The class is called periodic if its states can be grouped in d > 1
+•
+disjointsubsetsS ,...,S ,sothatalltransitionsfromS leadtoS
+1 d k k+1
+(or to S if k =d).
+1
+The classis aperiodic(notperiodic)if andonly ifthere existsa time
+•
+n such that r (n)>0, for all i,j R.
+ij
+∈
+54 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 7
+7.3 STEADY-STATE BEHAVIOR
+Steady-State Convergence Theorem
+Consider a Markov chain with a single recurrent class, which is aperiodic.
+Then, the states j are associated with steady-state probabilities π that
+j
+have the following properties.
+(a) For each j, we have
+lim r (n)=π , for all i.
+ij j
+n→∞
+(b) The π are the unique solution to the system of equations below:
+j
+m
+π = π p , j =1,...,m,
+j k kj
+k=1
+X
+m
+1= π .
+k
+k=1
+X
+(c) We have
+π =0, for all transient states j,
+j
+π >0, for all recurrent states j.
+j
+Steady-State Probabilities as Expected State Frequencies
+For a Markov chain with a single class which is aperiodic, the steady-state
+probabilities π satisfy
+j
+v (n)
+ij
+π = lim ,
+j
+n→∞ n
+where v (n) is the expected value of the number of visits to state j within
+ij
+the first n transitions, starting from state i.
+Sec. 7.4 Absorption Probabilities and Expected Time to Absorption 55
+Expected Frequency of a Particular Transition
+Consider n transitions of a Markovchain with a single class which is aperi-
+odic, starting froma giveninitial state. Let q (n) be the expected number
+jk
+of such transitions that take the state from j to k. Then, regardless of the
+initial state, we have
+q (n)
+jk
+lim =π p .
+j jk
+n→∞ n
+7.4 ABSORPTION PROBABILITIES AND EXPECTED TIME
+TO ABSORPTION
+Absorption Probability Equations
+Consider a Markov chain where each state is either transient or absorb-
+ing, and fix a particular absorbing state s. Then, the probabilities a of
+i
+eventually reaching state s, starting from i, are the unique solution to the
+equations
+a =1,
+s
+a =0, for all absorbing i=s,
+i
+6
+m
+a = p a , for all transient i.
+i ij j
+j=1
+X
+56 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 7
+Equations for the Expected Times to Absorption
+Consider a Markov chain where all states are transient, except for a single
+absorbing state. The expected times to absorption, µ ,...,µ , are the
+1 m
+unique solution to the equations
+µ =0, if i is the absorbing state,
+i
+m
+µ =1+ p µ , if i is transient.
+i ij j
+j=1
+X
+Equations for Mean First Passage and Recurrence Times
+Consider a Markov chain with a single recurrent class, and let s be a par-
+ticular recurrent state.
+The mean first passage times µ to reach state s starting from i, are
+i
+•
+the unique solution to the system of equations
+m
+µ =0, µ =1+ p µ , for all i=s.
+s i ij j
+6
+j=1
+X
+The mean recurrence time µ∗ of state s is given by
+s
+•
+m
+µ∗ =1+ p µ .
+s sj j
+j=1
+X
+Sec. 7.5 Continuous-Time Markov Chains 57
+7.5 CONTINUOUS-TIME MARKOV CHAINS
+Continuous-Time Markov Chain Assumptions
+If the current state is i, the time until the next transition is exponen-
+•
+tially distributed with a given parameter ν , independent of the past
+i
+history of the process and of the next state.
+Ifthecurrentstateisi,thenextstatewillbej withagivenprobability
+•
+p ,independentofthepasthistoryoftheprocessandofthetimeuntil
+ij
+the next transition.
+58 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 7
+Alternative Description of a Continuous-Time Markov Chain
+Given the current state i of a continuous-time Markov chain, and for any
+j =i, the state δ time units later is equal to j with probability
+6
+q δ+o(δ),
+ij
+independent of the past history of the process.
+Steady-State Convergence Theorem
+Consider a continuous-time Markov chain with a single recurrent class.
+Then, the states j are associated with steady-state probabilities π that
+j
+have the following properties.
+(a) For each j, we have
+limP X(t)=j X(0)=i =π , for all i.
+j
+t→∞ |
+(cid:0) (cid:1)
+(b) The π are the unique solution to the system of equations below:
+j
+π q = π q , j =1,...,m,
+j jk k kj
+k=6 j k=6 j
+X X
+m
+1= π .
+k
+k=1
+X
+(c) We have
+π =0, for all transient states j,
+j
+π >0, for all recurrent states j.
+j
+7.6 SUMMARY AND DISCUSSION
+8
+Bayesian Statistical Inference
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+8.1. Bayesian Inference and the Posterior Distribution . . . . . p. 412
+8.2. Point Estimation, Hypothesis Testing, and the MAP Rule . . p. 420
+8.3. Bayesian Least Mean Squares Estimation . . . . . . . . . p. 430
+8.4. Bayesian Linear Least Mean Squares Estimation . . . . . . p. 437
+8.5. Summary and Discussion . . . . . . . . . . . . . . . . p. 444
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 446
+59
+60 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 8
+Major Terms, Problems, and Methods in this Chapter
+Bayesian statistics treats unknown parametersas randomvariables
+•
+with known prior distributions.
+In parameter estimation, we want to generate estimates that are
+•
+close to the true values of the parameters in some probabilistic sense.
+In hypothesis testing, the unknown parameter takes one of a finite
+•
+number ofvalues,correspondingtocompeting hypotheses;wewantto
+choose one of the hypotheses, aiming to achieve a small probability of
+error.
+Principal Bayesianinference methods:
+•
+(a) Maximum a posteriori probability (MAP) rule: Out of the
+possibleparametervalues/hypotheses,selectonewithmaximum
+conditional/posterior probability given the data (Section 8.2).
+(b) Leastmeansquares(LMS)estimation: Selectanestimator/fun-
+ctionofthedatathatminimizesthemeansquarederrorbetween
+the parameter and its estimate (Section 8.3).
+(c) Linear least mean squares estimation: Select an estimator
+which is a linear function of the data and minimizes the mean
+squared error between the parameter and its estimate (Section
+8.4). This may resultin higher mean squarederror,but requires
+simple calculations,based only on the means, variances, and co-
+variances of the random variables involved.
+8.1 BAYESIANINFERENCEANDTHEPOSTERIORDISTRIBUTION
+Summary of Bayesian Inference
+We start with a prior distribution p or f for the unknown random
+Θ Θ
+•
+variable Θ.
+We have a model p or f of the observation vector X.
+X|Θ X|Θ
+•
+After observing the value x of X, we form the posterior distribution
+•
+of Θ, using the appropriate version of Bayes’ rule.
+Sec. 8.1 Bayesian Inference and the Posterior Distribution 61
+The Four Versions of Bayes’ Rule
+Θ discrete, X discrete:
+•
+p (θ)p (x θ)
+Θ X|Θ
+p (θ x)= | .
+Θ|X
+| p (θ′)p (x θ′)
+Θ X|Θ
+|
+Xθ′
+Θ discrete, X continuous:
+•
+p (θ)f (x θ)
+Θ X|Θ
+p (θ x)= | .
+Θ|X
+| p (θ′)f (x θ′)
+Θ X|Θ
+|
+Xθ′
+Θ continuous, X discrete:
+•
+f (θ)p (x θ)
+Θ X|Θ
+f (θ x)= | .
+Θ|X
+|
+f (θ′)p (x θ′)dθ′
+Θ X|Θ
+|
+Z
+Θ continuous, X continuous:
+•
+f (θ)f (x θ)
+Θ X|Θ
+f (θ x)= | .
+Θ|X
+|
+f (θ′)f (x θ′)dθ′
+Θ X|Θ
+|
+Z
+62 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 8
+8.2 POINTESTIMATION,HYPOTHESISTESTING,ANDTHE
+MAP RULE
+The Maximum a Posteriori Probability (MAP) Rule
+Given the observation value x, the MAP rule selects a value θˆ that
+•
+maximizesoverθtheposteriordistributionp (θ x)(ifΘisdiscrete)
+Θ|X
+|
+or f (θ x) (if Θ is continuous).
+Θ|X
+|
+Equivalently, it selects θˆthat maximizes over θ:
+•
+p (θ)p (x θ) (if Θ and X are discrete),
+Θ X|Θ
+|
+p (θ)f (x θ) (if Θ is discrete and X is continuous),
+Θ X|Θ
+|
+f (θ)p (x θ) (if Θ is continuous and X is discrete),
+Θ X|Θ
+|
+f (θ)f (x θ) (if Θ and X are continuous).
+Θ X|Θ
+|
+IfΘtakesonlyafinitenumberofvalues,theMAPruleminimizes(over
+•
+all decision rules) the probability of selecting an incorrect hypothesis.
+This is true for both the unconditional probability of error and the
+conditional one, given any observation value x.
+Sec. 8.3 Bayesian Least Mean SquaresEstimation 63
+Point Estimates
+An estimator is a random variable of the form Θˆ = g(X), for some
+•
+function g. Different choices of g correspond to different estimators.
+An estimate is the value θˆ of an estimator, as determined by the
+•
+realized value x of the observation X.
+Once the value x of X is observed, the Maximum a Posteriori
+• Probability (MAP) estimator, sets the estimate θˆ to a value that
+maximizes the posterior distribution over all possible values of θ.
+Once the value x of X is observed, the Conditional Expectation
+• (LMS) estimator sets the estimate θˆto E[Θ X =x].
+|
+The MAP Rule for Hypothesis Testing
+Given the observation value x, the MAP rule selects a hypothesis H
+i
+•
+for which the value of the posterior probability P(Θ = θ X = x) is
+i
+|
+largest.
+Equivalently,itselects ahypothesis H for whichp (θ )p (x θ ) (if
+i Θ i X|Θ i
+• |
+X is discrete) or p (θ )f (x θ ) (if X is continuous) is largest.
+Θ i X|Θ i
+|
+The MAP rule minimizes the probability of selecting an incorrect hy-
+•
+pothesisforanyobservationvaluex,aswellastheprobabilityoferror
+over all decision rules.
+64 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 8
+8.3 BAYESIAN LEAST MEAN SQUARES ESTIMATION
+Key Facts About Least Mean Squares Estimation
+In the absence of any observations, E (Θ θˆ)2 is minimized when
+• −
+θˆ=E[Θ]:
+(cid:2) (cid:3)
+E Θ E[Θ] 2 E (Θ θˆ)2 , for all θˆ.
+− ≤ −
+h(cid:0) (cid:1) i (cid:2) (cid:3)
+For any given value x of X, E (Θ θˆ)2 X = x is minimized when
+• − |
+θˆ=E[Θ X =x]:
+| (cid:2) (cid:3)
+E Θ E[Θ X =x] 2 X =x E (Θ θˆ)2 X =x , for all θˆ.
+− | ≤ − |
+h(cid:0) (cid:1) (cid:12) i (cid:2) (cid:3)
+Out of all estimators g(X(cid:12)) of Θ based on X, the mean squared esti-
+•
+2
+mation error E Θ g(X) is minimized when g(X)=E[Θ X]:
+− |
+h(cid:0) (cid:1) i
+2 2
+E Θ E[Θ X] E Θ g(X) , for all estimators g(X).
+− | ≤ −
+h(cid:0) (cid:1) i h(cid:0) (cid:1) i
+Sec. 8.5 Summary and Discussion 65
+Properties of the Estimation Error
+The estimation error Θ˜ is unbiased, i.e., it has zero unconditional
+•
+and conditional mean:
+E[Θ˜]=0, E[Θ˜ X =x]=0, for all x.
+|
+The estimation error Θ˜ is uncorrelated with the estimate Θˆ:
+•
+cov(Θˆ,Θ˜)=0.
+The variance of Θ can be decomposed as
+•
+var(Θ)=var(Θˆ)+var(Θ˜).
+8.4 BAYESIANLINEARLEASTMEANSQUARESESTIMATION
+Linear LMS Estimation Formulas
+The linear LMS estimator Θˆ of Θ based on X is
+•
+cov(Θ,X) σ
+Θˆ =E[Θ]+ X E[X] =E[Θ]+ρ Θ X E[X] ,
+var(X) − σ −
+X
+(cid:0) (cid:1) (cid:0) (cid:1)
+where
+cov(Θ,X)
+ρ=
+σ σ
+Θ X
+is the correlationcoefficient.
+The resulting mean squared estimation error is equal to
+•
+(1 ρ2)σ2.
+− Θ
+8.5 SUMMARY AND DISCUSSION
+9
+Classical Statistical Inference
+Excerpts from Introduction to Probability: Second Edition
+by Dimitri P. Bertsekas and John N. Tsitsiklis c
+(cid:13)
+Massachusetts Institute of Technology
+Contents
+9.1. Classical Parameter Estimation . . . . . . . . . . . . . . p. 460
+9.2. Linear Regression . . . . . . . . . . . . . . . . . . . . p. 475
+9.3. Binary Hypothesis Testing . . . . . . . . . . . . . . . . p. 485
+9.4. Significance Testing . . . . . . . . . . . . . . . . . . . p. 495
+9.5. Summary and Discussion . . . . . . . . . . . . . . . . p. 506
+Problems . . . . . . . . . . . . . . . . . . . . . . . . p. 507
+67
+68 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 9
+Major Terms, Problems, and Methods in this Chapter
+Classical statistics treats unknown parameters as constants to be
+•
+determined. A separate probabilistic model is assumed for each pos-
+sible value of the unknown parameter.
+In parameter estimation, we want to generate estimates that are
+•
+nearly correct under any possible value of the unknown parameter.
+Inhypothesistesting,theunknownparametertakesafinitenumber
+•
+mofvalues(m 2),correspondingtocompetinghypotheses;wewant
+≥
+to chooseone of the hypotheses,aiming to achievea smallprobability
+of error under any of the possible hypotheses.
+In significance testing, we want to acceptor reject a single hypoth-
+•
+esis, while keeping the probability of false rejection suitably small.
+Principal classical inference methods in this chapter:
+•
+(a) Maximum likelihood (ML) estimation: Select the parame-
+ter that makes the observed data “most likely,” i.e., maximizes
+the probability of obtaining the data at hand (Section 9.1).
+(b) Linear regression: Find the linear relation that matches best
+a set of data pairs, in the sense that it minimizes the sum of
+the squaresofthe discrepanciesbetweenthe modelandthe data
+(Section 9.2).
+(c) Likelihood ratio test: Given two hypotheses,select one based
+ontheratiooftheir“likelihoods,”sothatcertainerrorprobabil-
+ities are suitably small (Section 9.3).
+(d) Significancetesting: Givenahypothesis,rejectitifandonlyif
+theobserveddatafallswithinacertainrejectionregion. Thisre-
+gionisspeciallydesignedtokeeptheprobabilityoffalserejection
+below some threshold (Section 9.4).
+Sec. 9.1 Classical Parameter Estimation 69
+9.1 CLASSICAL PARAMETER ESTIMATION
+Terminology Regarding Estimators
+Let Θˆ be an estimator of an unknown parameter θ, that is, a function of
+n
+n observations X ,...,X whose distribution depends on θ.
+1 n
+The estimation error, denoted by Θ˜ , is defined by Θ˜ =Θˆ θ.
+n n n
+• −
+The bias of the estimator, denoted by b (Θˆ ), is the expected value
+θ n
+•
+of the estimation error:
+b (Θˆ )=E [Θˆ ] θ.
+θ n θ n
+−
+The expected value, the variance, and the bias of Θˆ depend on θ,
+n
+•
+while the estimation error depends in addition on the observations
+X ,...,X .
+1 n
+We call Θˆ unbiased if E [Θˆ ]=θ, for every possible value of θ.
+n θ n
+•
+We call Θˆ asymptotically unbiased if lim E [Θˆ ] = θ, for
+n n→∞ θ n
+•
+every possible value of θ.
+We callΘˆ consistentif the sequenceΘˆ convergesto the true value
+n n
+•
+of the parameter θ, in probability, for every possible value of θ.
+Maximum Likelihood Estimation
+We are given the realization x = (x ,...,x ) of a random vector
+1 n
+•
+X = (X ,...,X ), distributed according to a PMF p (x;θ) or PDF
+1 n X
+f (x;θ).
+X
+Themaximumlikelihood(ML)estimateisavalueofθ thatmaximizes
+•
+the likelihood function, p (x;θ) or f (x;θ), over all θ.
+X X
+The ML estimate ofa one-to-onefunction h(θ) ofθ is h(θˆ ), where θˆ
+n n
+•
+is the ML estimate of θ (the invariance principle).
+When the random variables X are i.i.d., and under some mild addi-
+i
+•
+tionalassumptions,eachcomponentofthe ML estimatoris consistent
+and asymptotically normal.
+70 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 9
+Estimates of the Mean and Variance of a Random Variable
+Let the observations X ,...,X be i.i.d., with mean θ and variance v that
+1 n
+are unknown.
+The sample mean
+• X + +X
+1 n
+M = ···
+n
+n
+is an unbiased estimator of θ, and its mean squared error is v/n.
+Two variance estimators are
+•
+n n
+S 2 = 1 (X M )2, Sˆ2 = 1 (X M )2.
+n i n n i n
+n − n 1 −
+i=1 − i=1
+X X
+2
+The estimator S coincides with the ML estimator if the X are nor-
+n i
+• mal. It is biased but asymptotically unbiased. The estimator Sˆ2 is
+n
+unbiased. Forlargen,thetwovarianceestimatorsessentiallycoincide.
+Confidence Intervals
+Aconfidenceintervalforascalarunknownparameterθisaninterval
+• whose endpoints Θˆ− andΘˆ+ bracketθ witha givenhighprobability.
+n n
+Θˆ− and Θˆ+ are random variables that depend on the observations
+n n
+•
+X ,...,X .
+1 n
+A 1 α confidence interval is one that satisfies
+• −
+P Θˆ− θ Θˆ+ 1 α,
+θ n n
+≤ ≤ ≥ −
+(cid:0) (cid:1)
+for all possible values of θ.
+Sec. 9.2 Linear Regression 71
+9.2 LINEAR REGRESSION
+Linear Regression
+Given n data pairs (x ,y ), the estimates that minimize the sum of the
+i i
+squared residuals are given by
+n
+(x x)(y y)
+i i
+− −
+θˆ 1 = X i=1 n , θˆ 0 =y − θˆ 1 x,
+(x x)2
+i
+−
+i=1
+X
+where
+n n
+1 1
+x= x , y = y .
+i i
+n n
+i=1 i=1
+X X
+72 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 9
+Bayesian Linear Regression
+Model:
+•
+(a) We assume a linear relation Y =Θ +Θ x +W .
+i 0 1 i i
+(b) The x are modeled as known constants.
+i
+(c) The random variables Θ ,Θ ,W ,...,W are normal and inde-
+0 1 1 n
+pendent.
+(d) The random variables Θ and Θ have mean zero and variances
+0 1
+σ2, σ2, respectively.
+0 1
+(e) The random variables W have mean zero and variance σ2.
+i
+Estimation Formulas:
+•
+Given the data pairs (x ,y ), the MAP estimates of Θ and Θ are
+i i 0 1
+σ2 n
+θˆ = 1 (x x) y y ,
+1 n · i − i −
+σ2+σ 1 2 (x i − x)2 X i=1 (cid:0) (cid:1)
+i=1
+X
+nσ2
+θˆ = 0 (y θˆ x),
+0 σ2+nσ2 − 1
+0
+where
+n n
+1 1
+x= x , y = y .
+i i
+n n
+i=1 i=1
+X X
+9.3 BINARY HYPOTHESIS TESTING
+Likelihood Ratio Test (LRT)
+Start with a target value α for the false rejection probability.
+•
+Choose a value for ξ such that the false rejection probability is equal
+•
+to α:
+P L(X)>ξ;H =α.
+0
+(cid:0) (cid:1)
+Once the value x of X is observed, reject H if L(x)>ξ.
+0
+•
+Sec. 9.4 Significance Testing 73
+Neyman-Pearson Lemma
+Consider a particular choice of ξ in the LRT, which results in error proba-
+bilities
+P L(X)>ξ;H =α, P L(X) ξ;H =β.
+0 1
+≤
+Suppose thats(cid:0)omeothertest(cid:1), withrejectio(cid:0)nregionR,ac(cid:1)hievesa smalleror
+equal false rejection probability:
+P(X R;H ) α.
+0
+∈ ≤
+Then,
+P(X / R;H ) β,
+1
+∈ ≥
+with strict inequality P(X / R;H )>β when P(X R;H )<α.
+1 0
+∈ ∈
+74 From Introduction toProbability, byBertsekas and Tsitsiklis Chap. 9
+9.4 SIGNIFICANCE TESTING
+Significance Testing Methodology
+Astatisticaltestofahypothesis H isto be performed,basedonthe obser-
+0
+vations X ,...,X .
+1 n
+The following steps are carried out before the data are observed.
+•
+(a) Choose a statistic S, that is, a scalar random variable that
+will summarize the data to be obtained. Mathematically, this
+involves the choice of a function h : n , resulting in the
+ℜ → ℜ
+statistic S =h(X ...,X ).
+1 n
+(b) Determine the shape of the rejection region by specifying
+the set of values of S for which H will be rejected as a function
+0
+of a yet undetermined critical value ξ.
+(c) Choose the significance level, i.e., the desired probability α of
+a false rejection of H .
+0
+(d) Choose the critical value ξ so that the probability of false re-
+jectionis equal(orapproximatelyequal)to α. Atthis point,the
+rejection region is completely determined.
+Once the values x ,...,x of X ,...,X are observed:
+1 n 1 n
+•
+(i) Calculate the value s=h(x ,...,x ) of the statistic S.
+1 n
+(ii) Reject the hypothesis H if s belongs to the rejection region.
+0
+Sec. 9.5 Summary and Discussion 75
+The Chi-Square Test:
+Use the statistic
+• m
+N
+k
+S = N log
+k nθ∗
+X k=1 (cid:16) k (cid:17)
+(or possibly the related statistic T) and a rejection region of the form
+reject H if 2S >γ
+0
+(or T >γ, respectively).
+The critical value γ is determined from the CDF tables for the χ2
+•
+distribution with m 1 degrees of freedom so that
+−
+P(2S >γ;H )=α,
+0
+where α is a given significance level.
+9.5 SUMMARY AND DISCUSSION
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a p articular course on MIT OpenCourseWare, but has been
+provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

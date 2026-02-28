@@ -1,0 +1,7 @@
+ML estimation example: parameter of binomial
+
+e kK: binomial with parameters n (known), and @ (unknown)
+
+px(ki0) = (7 )ek(1 —9)"*
+
+e same as MAP estimator with uniform prior on @

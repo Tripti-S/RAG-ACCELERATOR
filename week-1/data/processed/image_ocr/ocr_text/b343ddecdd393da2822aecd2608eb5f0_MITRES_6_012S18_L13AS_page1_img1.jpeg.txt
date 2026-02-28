@@ -1,0 +1,19 @@
+LECTURE 13: Conditional expectation and variance revisited;
+
+Application: Sum of a random number of independent r.v.'s
+e A more abstract version of the conditional expectation
+— view it as a random variable
+
+— the law of iterated expectations
+
+e A more abstract version of the conditional variance
+— view it as a random variable
+
+— the law of total variance
+
+e Sum of a random number
+of independent r.v.’s
+
+— mean
+
+— variance

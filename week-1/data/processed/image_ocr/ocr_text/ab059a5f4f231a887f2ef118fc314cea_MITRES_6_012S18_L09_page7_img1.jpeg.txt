@@ -1,0 +1,10 @@
+Memorylessness of the exponential PDF
+fr(x) = Ae", for >0
+
+P(O<T<6)
+PU<T<t+6|T>?)
+
+similar to an independent coin flip,
+every 6 time steps,
+
+with P(success) Ad

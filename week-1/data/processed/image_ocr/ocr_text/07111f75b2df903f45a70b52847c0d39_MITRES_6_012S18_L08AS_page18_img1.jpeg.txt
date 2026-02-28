@@ -1,0 +1,10 @@
+Standardizing a random variable
+
+e Let X have mean pj and variance o? > 0
+
+« Let Pee ElYJ=0 Var(") 2+; Van¢x) = |
+° o
+
+Ka pro?’
+
+° If also X is normal, then: \ ~ (V(0,1)

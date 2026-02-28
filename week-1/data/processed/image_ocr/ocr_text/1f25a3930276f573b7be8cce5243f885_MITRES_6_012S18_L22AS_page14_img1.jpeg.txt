@@ -1,0 +1,29 @@
+Example: Poisson fishing
+
+e Fish are caught as a Poisson process, \ = 0.6/hour
+
+— fish for two hours;
+
+— if you caught at least one fish, stop
+
+— else continue until first fish is caught
+
+E[total fishing time]= E[F] = 2+ Efe «g]
+
+=9 +P (F=2)*O +p(fra)EfF-2)F>2]
+
+29 +P(0,2) ay |
+
+E[number of fish]= A iT
+0.6*2
+
++ P(0,2)-4
+
+e=g time
+Re At
+P(k,r) = Chet
+k!
+E[N-] = Ar
+Myk-leay
+fy) — “e=DI_
+

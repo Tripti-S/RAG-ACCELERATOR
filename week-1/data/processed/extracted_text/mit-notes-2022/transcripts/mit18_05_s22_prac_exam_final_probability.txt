@@ -1,0 +1,213 @@
+Review for final exam : probability unit
+MIT 18.05 Spring 2022
+Sets and counting
+• Sets: ∅, union, intersection, complement Venn diagrams, products
+• Counting: inclusion-exclusion, rule of product,
+permutations 𝑃 , combinations 𝐶 = (𝑛 )
+𝑛 𝑘 𝑛 𝑘 𝑘
+Problem 1. Consider the nucleotides 𝐴, 𝐺, 𝐶, 𝑇 .
+(a) How many ways are there to make a sequence of 5 nucleotides.
+(b) How many sequences of length 5 are there where no adjacent nucleotides are the same
+(c) How many sequences of length 5 have exactly one 𝐴?
+Problem 2. (a) How many 5 card poker hands are there?
+(b) How many ways are there to get a full house (3 of one rank and 2 of another)?
+(c) What’s the probability of getting a full house?
+Problem 3. (Counting)
+(a) How many arrangements of the letters in the word probability are there?
+(b) Suppose all of these arrangements are written in a list and one is chosen at random.
+What is the probability it begins with ‘b’.
+Probability
+• Sample space, outcome, event, probability function. Rule: 𝑃(𝐴∪𝐵) = 𝑃(𝐴)+𝑃(𝐵)−
+𝑃(𝐴 ∩ 𝐵).
+Special case: 𝑃(𝐴𝑐) = 1−𝑃(𝐴)
+(𝐴 and 𝐵 disjoint ⇒ 𝑃(𝐴∪𝐵) = 𝑃(𝐴)+𝑃(𝐵).)
+• Conditional probability, multiplication rule, trees, law of total probability, indepen-
+dence
+• Bayes’ theorem, base rate fallacy
+Problem 4. Let 𝐸 and 𝐹 be two events. Suppose the probability that at least one of
+them occurs is 2/3. What is the probability that neither 𝐸 nor 𝐹 occurs?
+Problem 5. Let 𝐶 and 𝐷 be two events with 𝑃(𝐶) = 0.3, 𝑃 (𝐷) = 0.4, and 𝑃(𝐶𝑐∩𝐷) =
+0.2.
+What is 𝑃(𝐶 ∩𝐷)?
+Problem 6. Suppose we have 8 teams labeled 𝑇 , …, 𝑇 . Suppose they are ordered by
+1 8
+placing their names in a hat and drawing the names out one at a time.
+1
+(a) How many ways can it happen that all the odd numbered teams are in the odd
+numbered slots and all the even numbered teams are in the even numbered slots?
+(b) What is the probability of this happening?
+Problem 7. More cards! Suppose you want to divide a 52 card deck into four hands with
+13 cards each. What is the probability that each hand has a king?
+Problem 8. Suppose we roll a fair die twice. Let 𝐴 be the event ‘the sum of the rolls is
+5’ and let 𝐵 be the event ‘at least one of the rolls is 4.’
+(a) Calculate 𝑃 (𝐴|𝐵).
+(b) Are 𝐴 and 𝐵 independent?
+Problem 9. On a quiz show the contestant is given a multiple choice question with 4
+options. Suppose there is a 70% chance the contestant actually knows the answer. If they
+don’t know the answer they guess with a 25% chance of getting it right. Suppose they get
+it right. What is the probability that they were guessing?
+Problem 10. Suppose you have an urn containing 7 red and 3 blue balls. You draw three
+balls at random. On each draw, if the ball is red you set it aside and if the ball is blue you
+put it back in the urn. What is the probability that the third draw is blue?
+(If you get a blue ball it counts as a draw even though you put it back in the urn.)
+Problem 11. Suppose that 𝑃 (𝐴) = 0.4, 𝑃 (𝐵) = 0.3 and 𝑃((𝐴∪𝐵)𝐶) = 0.42. Are 𝐴 and
+𝐵 independent?
+Problem 12. Suppose now that events 𝐴, 𝐵 and 𝐶 are mutually independent with
+𝑃(𝐴) = 0.3, 𝑃(𝐵) = 0.4, 𝑃(𝐶) = 0.5.
+Compute the following: (Hint: Use a Venn diagram)
+(i) 𝑃(𝐴∩𝐵 ∩𝐶𝑐) (ii) 𝑃(𝐴∩𝐵𝑐 ∩𝐶) (iii) 𝑃(𝐴𝑐 ∩𝐵 ∩𝐶)
+Problem 13. Suppose 𝐴 and 𝐵 are events with 0 < 𝑃(𝐴) < 1 and 0 < 𝑃(𝐵) < 1.
+(a) If 𝐴 and 𝐵 are disjoint can they be independent?
+(b) If 𝐴 and 𝐵 are independent can they be disjoint?
+(c) If 𝐴 ⊂ 𝐵 can they be independent?
+Random variables, expectation and variance
+• Discrete random variables: events, pmf, cdf
+2
+• Bernoulli(𝑝), binomial(𝑛, 𝑝), geometric(𝑝), uniform(𝑛)
+• 𝐸[𝑋], meaning, algebraic properties, 𝐸[ℎ(𝑋)]
+• Var(𝑋), meaning, algebraic properties
+• Continuous random variables: pdf, cdf
+• uniform(𝑎,𝑏), exponential(𝜆), normal(𝜇,𝜎)
+• Transforming random variables
+• Quantiles
+Problem 14. Directly from the definitions of expected value and variance, compute 𝐸[𝑋]
+and Var(𝑋) when 𝑋 has probability mass function given by the following table:
+X -2 -1 0 1 2
+pmf 1/15 2/15 3/15 4/15 5/15
+Problem 15. Suppose that 𝑋 takes values between 0 and 1 and has probability density
+function 2𝑥. Compute Var(𝑋) and Var(𝑋2).
+Problem 16. The pmf of 𝑋 is given by the following table
+Value of 𝑋 -1 0 1
+Probability 1/3 1/6 1/2
+(a) Compute 𝐸[𝑋].
+(b) Give the pdf of 𝑌 = 𝑋2 and use it to compute 𝐸[𝑌 ].
+(c) Instead, compute 𝐸[𝑋2] directly from an extended table.
+(d) Compute Var(𝑋).
+Problem 17. Compute the expectation and variance of a Bernoulli(𝑝) random variable.
+Problem 18. Suppose 100 people all toss a hat into a box and then proceed to randomly
+pick out of a hat. What is the expected number of people to get their own hat back.
+Hint: express the number of people who get their own hat as a sum of random variables
+whose expected value is easy to compute.
+pmf, pdf, cdf
+Probability Mass Functions, Probability Density Functions and Cumulative Distribution
+Functions
+Problem 19. Suppose that 𝑋 ∼ Bin(𝑛, 0.5). Find the probability mass function of
+𝑌 = 2𝑋.
+3
+Problem 20. (a) Suppose that 𝑋 is uniform on [0, 1]. Compute the pdf and cdf of 𝑋.
+(b) If 𝑌 = 2𝑋+5, compute the pdf and cdf of 𝑌 .
+Problem 21. (a) Suppose that 𝑋 has probability density function 𝑓 (𝑥) = 𝜆e−𝜆𝑥 for
+𝑋
+𝑥 ≥ 0. Compute the cdf, 𝐹 (𝑥).
+𝑋
+(b) If 𝑌 = 𝑋2, compute the pdf and cdf of 𝑌 .
+Problem 22. Suppose that 𝑋 is a random variable that takes on values 0, 2 and 3 with
+probabilities 0.3, 0.1, 0.6 respectively. Let 𝑌 = 3(𝑋−1)2.
+(a) What is the expectation of 𝑋?
+(b) What is the variance of 𝑋?
+(c) What is the expection of 𝑌 ?
+(d) Let 𝐹 (𝑡) be the cumulative density function of 𝑌 . What is 𝐹 (7)?
+𝑌 𝑌
+Problem 23. Suppose you roll a fair 6-sided die 25 times (independently), and you get
+$3 every time you roll a 6. Let 𝑋 be the total number of dollars you win.
+(a) What is the pmf of 𝑋.
+(b) Find 𝐸[𝑋] and Var(𝑋).
+(c) Let 𝑌 be the total won on another 25 independent rolls. Compute and compare 𝐸[𝑋+𝑌 ],
+𝐸[2𝑋], Var(𝑋 +𝑌), Var(2𝑋).
+Explain briefly why this makes sense.
+Problem 24. A continuous random variable 𝑋 has PDF 𝑓(𝑥) = 𝑥 + 𝑎𝑥2 on [0,1]
+Find 𝑎, the CDF and 𝑃(0.5 < 𝑋 < 1).
+Problem 25. For each of the following say whether it can be the graph of a cdf. If it can
+be, say whether the variable is discrete or continuous.
+(i) (ii)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+(iii) (iv)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+4
+(v) (vi)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+(vii) (viii)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+Problem 26. Correlation
+Flip a coin 5 times. Use properties of covariance to compute the covariance and correlation
+between the number of heads on the first 3 and last 3 flips.
+Distributions with names
+Problem 27. Exponential Distribution
+Suppose that buses arrive are scheduled to arrive at a bus stop at noon but are always 𝑋
+minutes late, where 𝑋 is an exponential random variable with probability density function
+𝑓 (𝑥) = 𝜆e−𝜆𝑥. Suppose that you arrive at the bus stop precisely at noon.
+𝑋
+(a) Compute the probability that you have to wait for more than five minutes for the bus
+to arrive.
+(b) Suppose that you have already waiting for 10 minutes. Compute the probability that
+you have to wait an additional five minutes or more.
+Problem 28. Normal Distribution: Throughout these problems, let 𝜙 and Φ be the
+pdf and cdf, respectively, of the standard normal distribution Suppose 𝑍 is a standard
+normal random variable and let 𝑋 = 3𝑍 +1.
+(a) Express 𝑃(𝑋 ≤ 𝑥) in terms of Φ
+(b) Differentiate the expression from (𝑎) with respect to 𝑥 to get the pdf of 𝑋, 𝑓(𝑥).
+Remember that Φ′(𝑧) = 𝜙(𝑧) and don’t forget the chain rule
+(c) Find 𝑃(−1 ≤ 𝑋 ≤ 1)
+(d) Recall that the probability that 𝑍 is within one standard deviation of its mean is
+approximately 68%. What is the probability that 𝑋 is within one standard deviation of its
+mean?
+Problem 29. Transforming Normal Distributions
+Suppose 𝑍 ∼ N(0,1) and 𝑌 = e𝑍.
+5
+(a) Find the cdf 𝐹 (𝑎) and pdf 𝑓 (𝑦) for 𝑌 . (For the CDF, the best you can do is write
+𝑌 𝑌
+it in terms of Φ the standard normal cdf.)
+(b) We don’t have a formula for Φ(𝑧) so we don’t have a formula for quantiles. So we have
+to write quantiles in terms of Φ−1.
+(i) Write the 0.33 quantile of 𝑍 in terms of Φ−1
+(ii) Write the 0.9 quantile of 𝑌 in terms of Φ−1.
+(iii) Find the median of 𝑌 .
+Problem 30. (Random variables derived from normal random variables)
+Let 𝑋 , 𝑋 , …𝑋 be i.i.d. N(0, 1) random variables.
+1 2 𝑛
+Let 𝑌 = 𝑋2 + … + 𝑋2 .
+𝑛 1 𝑛
+(a) Use the formula Var(𝑋 ) = 𝐸[𝑋2] − 𝐸[𝑋 ]2 to show 𝐸[𝑋2] = 1.
+𝑗 𝑗 𝑗 𝑗
+(b) Set up an integral in 𝑥 for computing 𝐸[𝑋4].
+𝑗
+For 3 extra credit points, use integration by parts show 𝐸[𝑋4] = 3.
+𝑗
+(If you don’t do this, you can still use this result in part c.)
+(c) Deduce from parts (a) and (b) that Var(𝑋2) = 2.
+𝑗
+(d) Use the Central Limit Theorem to approximate 𝑃 (𝑌 > 110).
+100
+Problem 31. More Transforming Normal Distributions
+(a) Suppose 𝑍 is a standard normal random variable and let 𝑌 = 𝑎𝑍+𝑏, where 𝑎 > 0 and
+𝑏 are constants.
+Show 𝑌 ∼ N(𝑏, 𝑎2) (remember our notation for normal distributions uses mean and vari-
+ance).
+𝑌 −𝜇
+(b) Suppose 𝑌 ∼ N(𝜇, 𝜎2). Show follows a standard normal distribution.
+𝜎
+Problem 32. (Sums of normal random variables)
+Let 𝑋, 𝑌 be independent random variables where 𝑋 ∼ 𝑁(2,5) and 𝑌 ∼ 𝑁(5,9) (we use
+the notation 𝑁(𝜇, 𝜎2)). Let 𝑊 = 3𝑋−2𝑌 +1.
+(a) Compute 𝐸[𝑊 ] and Var(𝑊 ).
+(b) It is known that the sum of independent normal distributions is normal. Compute
+𝑃(𝑊 ≤ 6).
+Problem 33. Let 𝑋 ∼ U(𝑎, 𝑏). Compute 𝐸[𝑋] and Var(𝑋).
+6
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

@@ -1,0 +1,6 @@
+On the mean squared error of an estimator
+e For any estimator, using E[Z2] = var(Z) + (E[Z])?:
+
+B[(S — 4)?] = var(G — 6) + (BIS - 6])” = var(S) + (bias)?
+
+e \/var(©) is called the standard error

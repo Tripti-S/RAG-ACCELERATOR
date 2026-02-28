@@ -1,0 +1,30 @@
+# 9Fb71E37908E232Dfef9917087E1D5A0 Gwoklyjwhdi
+
+---
+
+MITOCW | MITRES6_012S18_L21-04_300k
+In this segment, we go through a quick review of a few properties of the Bernoulli process that we already know.
+We start by thinking about the number of successes or arrivals in the first n time slots.
+This is the following quantity.
+At each time we add a 0 or a 1, depending on whether we've had a success or not, then by adding those
+numbers, we get the total number of successes.
+Now we already know that the number of successes in n trials obeys a binomial distribution, so the probability of
+having k successes is given by the binomial probabilities.
+And this is a formula that holds for k equal to 0 up to n, which are the possible numbers for the random variable S.
+For this random variable, we know the expected value.
+It's n times p.
+And we also know its variance, which is n times p times 1 minus p.
+Another random variable of interest is the time until the first success or arrival.
+So this is defined to be the smallest i for which the random variable Xi is equal to 1.
+We have done this calculation in the past.
+The probability that the first success appears at time k is the same as the probability that the first k minus 1 trials
+resulted in 0's.
+And then, the k-th trial resulted in a 1.
+And so the probability of this is 1 minus p, the probability of 0, and we have k minus 1 of them, times p, the
+probability that the next trial gives us a success.
+And this formula is valid for k being 1, 2, and so on, which is the range of possible values of this random variable
+T1.
+This is the familiar geometric distribution that we have dealt with on several occasions.
+And in particular, we know the expected value and the variance of the geometric random variable.
+
+---

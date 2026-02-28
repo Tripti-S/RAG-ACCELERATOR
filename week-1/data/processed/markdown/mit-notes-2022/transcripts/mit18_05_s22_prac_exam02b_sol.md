@@ -1,0 +1,222 @@
+# Mit18 05 S22 Prac Exam02B Sol
+
+---
+
+18.05 Practice Exam 2b Solutions
+Problem 1. Concept questions
+(a) A certain august journal publishes psychological research. They will only publish results
+that are statistically significant when tested at a significance level of 0.05.
+Could all of their published results be true? Yes No
+Could all of their published results be false? Yes No
+(b) True or false: Setting the prior probability of a hypothesis to 0 means that no amount of
+data will make the posterior probability of that hypothesis the maximum over all hypotheses.
+True False
+(c) A researcher collected data that fit the criteria for a two-sided 𝑍-test. He set the
+significance level at 0.05. He ran 80 trials and got a 𝑧-value of 1.7. This gave a 𝑝-value of
+0.0892, so he could not reject the null hypothesis. Convinced that his alternative hypothesis
+was correct he ran 80 more trials. The combined data from the 160 trials now had a 𝑧-value
+of 2.1. He wrote a paper carefully describing his experiments and submitted it to the journal
+in part (a).
+Will the journal publish his results? Yes No
+(d) Let 𝜃 be the probability of heads for a bent coin. Suppose your prior 𝑓(𝜃) is Beta(6, 8).
+Also suppose you flip the coin 7 times, getting 2 heads and 5 tails. What is the posterior
+pdf 𝑓(𝜃|𝑥)?
+Answers. (a) Yes and yes. Frequentist statistics don’t give the probability an hypothesis
+is true.
+(b) True. Bayesian updating involves multiplying the likelihood and the prior. If the prior
+is 0 then this product will be 0.
+(c) No. The actual experiment that was run would reject the null hypothesis if it were true,
+more than 5% of the time.
+(d) Beta(8,13).
+Problem 2. The Pareto distribution with parameter 𝛼 has range [1, ∞) and pdf
+𝛼
+𝑓(𝑥) =
+𝑥𝛼
+Suppose the data
+5, 2, 3
+was drawn independently from such a distribution. Find the maximum likelihood estimate
+(MLE) of 𝛼.
+𝛼 𝛼 𝛼 𝛼3
+Solution: likelihood = 𝜙(data | 𝛼) = ⋅ ⋅ = .
+5𝛼 2𝛼 3𝛼 30𝛼
+1
+18.05 Practice Exam 2b Solutions 2
+Therefore, log likelihood = ln(𝜙(data | 𝛼)) = 3 ln(𝛼) − 𝛼 ln(30). We find the maximum
+likelihood by setting the derivative equal to 0:
+𝑑 3
+ln(𝜙(data | 𝛼)) = − ln(30) = 0.
+𝑑𝛼 𝛼
+3
+Solving we get 𝛼̂ = .
+ln(30)
+Problem 3.
+Your friend grabs a die at random from a drawer containing two 4-sided dice, one 8-sided
+die, and one 12-sided die. They roll the die once and report that the result is 5.
+(a) Make a discrete Bayes table showing the prior, likelihood, and posterior for the type of
+die rolled given the data.
+Solution: (We include the last column for part (d).)
+hypoth. prior likelihood Bayes posterior likelihood
+𝜃 𝑃 (𝑥 = 5 | 𝜃) numer. 𝑃 (𝑥 = 7 | 𝜃)
+1 2
+4-sided 1/2 0 0 0 0
+8-sided 1/4 1/8 1/32 3 1/8
+5
+12-sided 1/4 1/12 1/48 2 1/12
+5
+𝑇 = 1 + 1 = 5
+32 48 96
+Note, the posterior probabilites have to have the same ratio as the Bayes numerators, i.e.
+1 1 3 2
+0 ∶ ∶ = 0 ∶ ∶ = 0 ∶ 3 ∶ 2.
+32 48 5 5
+(b) What is the prior predictive probability of rolling a 5?
+Solution: 𝑃(𝑥 = 5) = 𝑇 = 1 + 1 = 5 ≈ 0.0521. (Any of these expressions is a fine
+1 32 48 96
+answer.)
+(c) What are your posterior odds that the die has 12 sides?
+𝑃(𝜃 = 12 | 𝑥 = 5) 2/5
+Solution: Odds(𝜃 = 12 | 𝑥 = 5) = 1 = = 2/3.
+1 𝑃(𝜃 ≠ 12 | 𝑥 = 5) 3/5
+1
+(d) Given the data of the first roll, what is your probability that the next roll will be a 7?
+Solution: Here we use the posterior probabilities of the for each of the dice to compute
+the predictive probability
+3 1 2 1 13
+𝑃(𝑥 = 7 | 𝑥 = 5) = 0⋅0+ ⋅ + ⋅ = ≈ 0.108
+2 1 5 8 5 12 120
+(Any of these answers is okay.)
+Problem 4. Everyone knows that giraffes are tall, but how much do they weigh? Let’s
+suppose that the weight of male giraffes is normally distributed with mean 1200 kg and
+standard deviation 200 kg.
+I volunteered at the zoo and was given the task of weighing their male giraffe Beau. Now
+weighing a giraffe is not easy and the process produces random errors following a N(0, 1002)
+distribution. To compensate for the inaccuracy of the scale I weighed Beau three times and
+got the following measurements:
+18.05 Practice Exam 2b Solutions 3
+1250 kg, 1300 kg, 1350 kg .
+What is the posterior expected value of Beau’s weight?
+Solution: This is a normal/normal conjugate prior pair, so we use the normal-normal
+update formulas.
+𝜇 = Beau’s weight.
+𝑛 = 3, 𝑥 = 1300
+Prior ∼ N(1200, 2002), so 𝜇 = 1200, 𝜎2 = 2002 .
+prior prior
+Likelihood ∼ N(𝜇 | 1002), so 𝜎2 = 1002.
+𝑎 = 1 = 1 , 𝑏 = 𝑛 = 3 .
+𝜎2 2002 𝜎2 1002
+𝑝𝑟
+𝑎 ⋅ 𝜇 + 𝑏 ⋅ 𝑥 1 ⋅ 1200 + 3 ⋅ 1300
+𝜇 = prior = 2002 1002
+posterior 𝑎 + 𝑏 1/2002 + 3/1002
+Problem 5. Data is drawn from a binomial(5, 𝜃) distribution, where 𝜃 is unknown. Here
+is the table of probabilities 𝑝(𝑥 | 𝜃) for 3 values of 𝜃:
+𝑥 0 1 2 3 4 5
+𝜃 = 0.5 0.031 0.156 0.313 0.313 0.156 0.031
+𝜃 = 0.6 0.010 0.077 0.230 0.346 0.259 0.078
+𝜃 = 0.8 0.000 0.006 0.051 0.205 0.410 0.328
+You want to run a significance test on the value of 𝜃. You have the following:
+Null hypothesis: 𝜃 = 0.5.
+Alternate hypotheses: 𝜃 > 0.5.
+Significance level: 𝛼 = 0.1.
+(a) Find the rejection region.
+(b) Compute the power of the test for each of the two hypotheses 𝜃 = 0.6 and 𝜃 = 0.8.
+(c) Suppose you run an experiment and the data gives 𝑥 = 4. Compute the 𝑝-value of this
+data.
+Answers. (a) Since the 𝐻 is right-sided we use a right-sided rejection region: rejection region 𝑥 = 5 .
+𝐴
+𝑥 0 1 2 3 4 5
+𝜃 = 0.5 0.031 0.156 0.313 0.313 0.156 0.031
+𝜃 = 0.6 0.010 0.077 0.230 0.346 0.259 0.078
+𝜃 = 0.8 0.000 0.006 0.051 0.205 0.410 0.328
+(b) Power = 𝑃 (reject | 𝜃).
+𝜃 = 0.6: power = 0.078
+𝜃 = 0.8: power = 0.328
+(c) 𝑝 = 𝑃(𝑥 ≥ 4 | 𝜃 = 0.5) = 0.156+0.031 = 0.187.
+Problem 6. You have data drawn from a normal distribution with a known variance of
+16. You set up the following NHST:
+• 𝐻 : data follows a 𝑁(2, 42)
+0
+18.05 Practice Exam 2b Solutions 4
+• 𝐻 : data follows a 𝑁(𝜇, 42) where 𝜇 ≠ 2.
+𝐴
+• Test statistic: standardized sample mean 𝑧.
+• Significance level set to 𝛼 = 0.05.
+You then collected 𝑛 = 16 data points with sample mean 1.5.
+(a) Find the rejection region. Draw a graph indicating the null distribution and the rejection
+region.
+(b) Find the 𝑧-value and add it to your picture in part (a).
+(c) Find the 𝑝-value for this data and decide whether or not to reject 𝐻 in favor of 𝐻 .
+0 𝐴
+Answers. (a) The test statistic is 𝑧, so we need a 𝑍-graph
+𝜙(𝑧|𝐻 )
+0
+.025 .025
+𝑧(part(b))
+𝑧
+𝑧 =−1.96 𝑧 =1.96
+.975 .025
+reject𝐻 don’treject𝐻 reject𝐻
+0 0 0
+The rejection region is 𝑧 < −1.96 or 𝑧 > 1.96.
+𝑥−2 1.5−2
+(b) We standardize 𝑥 to get 𝑧: 𝑧 = = √ = −0.5
+𝜎 4/ 16
+𝑥
+(c) 𝑝 = 2𝑃 (𝑍 ≤ −0.5) = 2 ⋅ (0.3085) = 0.6170. Since 𝑝 > 0.05 we do not reject 𝐻 .
+0
+Problem 7. Someone claims to have found a long lost work by Jane Austen. She asks you
+to decide whether or not the book was actually written by Austen.
+You buy a copy of Sense and Sensibility and count the frequencies of certain common words
+on some randomly selected pages. You do the same thing for the ‘long lost work’. You get
+the following table of counts.
+Word a an this that
+Sense and Sensibility 150 30 30 90
+Long lost work 90 20 10 80
+Using this data, set up and evaluate a significance test of the claim that the long lost book
+is by Jane Austen. Use a significance level of 0.1.
+Solution: The null hypothesis 𝐻 : For the 4 words counted the long lost book has the
+0
+same relative frequencies as Sense and Sensibility
+Total word count of both books combined is 500, so the maximum likelihood estimate of
+the relative frequencies assuming 𝐻 is simply the total count for each word divided by the
+0
+total word count.
+18.05 Practice Exam 2b Solutions 5
+Word a an this that Total count
+Sense and Sensibility 150 30 30 90 300
+Long lost work 90 20 10 80 200
+totals 240 50 40 170 500
+rel. frequencies under 𝐻 240/500 50/500 40/500 170/500 500/500
+0
+Now the expected counts for each book under 𝐻 are the total count for that book times
+0
+the relative frequencies in the above table. The following table gives the counts: (observed,
+expected) for each book.
+Word a an this that Totals
+Sense and Sensibility (150, 144) (30, 30) (30, 24) (90, 102) (300, 300)
+Long lost work (90, 96) (20, 20) (10, 16) (80, 68) (200, 200)
+Totals (249, 240) (50, 50) (40, 40) (170, 170) (500, 500)
+The chi-square statistic is
+(𝑂 − 𝐸 )2
+𝑋2 = ∑ 𝑖 𝑖
+𝐸
+𝑖
+62 02 62 122 62 02 62 122
+= + + + + + + +
+144 30 24 102 96 20 16 68
+≈ 7.9
+There are 8 cells and all the marginal counts are fixed, so we can freely set the values in 3
+cells in the table, e.g. the 3 blue cells, then the rest of the cells are determined in order to
+make the marginal totals correct. Thus 𝑑𝑓 = 3.
+Looking in the 𝑑𝑓 = 3 row of the chi-square table we see that 𝑋2 = 7.9 gives 𝑝 between 0.025
+and 0.05. Since this is less than our significance level of 0.1 we reject the null hypothesis that
+the relative frequencies of the words are the same in both books. Based on the assumption
+that all her books have similar word frequencies (which is something we could check) we
+conclude that the book is probably not by Jane Austen.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

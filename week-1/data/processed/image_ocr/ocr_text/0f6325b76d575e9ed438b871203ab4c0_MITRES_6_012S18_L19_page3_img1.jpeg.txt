@@ -1,0 +1,16 @@
+The Central Limit Theorem (CLT)
+e Xj,...,Xn i.i.d., finite mean pw and variance o2
+© Snp=Xyte+Xn variance: no?
+
+Sn _ Xi ts: tXn variance: o7
+
+B)
+B)
+
+sad Jno E[Zn] = var(Zn) =
+
+e Let Z be a standard normal r.v. (zero mean, unit variance)
+
+Central Limit Theorem: For every z: nim, P(Zn <= 7)= PU < z)
+
+e P(Z < z) is the standard normal CDF, (z), available from the normal tables

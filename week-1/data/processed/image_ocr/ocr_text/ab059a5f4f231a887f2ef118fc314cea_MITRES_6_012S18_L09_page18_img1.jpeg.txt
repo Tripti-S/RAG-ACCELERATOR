@@ -1,0 +1,12 @@
+Functions of multiple random variables
+Z=gG(X,Y)
+Expected value rule:
+
+El(X Y= Voewexy@v) Blox Y= ff 9(e,y)fxy(@y) dedy
+zy
+
+Linearity of expectations
+E[aX + b] = aE[X] +b
+
+E[X + Y] = E[X] + E[Y]
+

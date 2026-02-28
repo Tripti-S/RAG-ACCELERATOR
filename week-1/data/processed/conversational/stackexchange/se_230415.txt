@@ -1,0 +1,1073 @@
+probability - Is there any *mathematical* basis for the Bayesian vs frequentist debate? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Is there any *mathematical* basis for the Bayesian vs frequentist debate?
+Ask Question
+Asked
+9 years, 6 months ago
+Modified
+3 years, 5 months ago
+Viewed
+13k times
+78
+$\begingroup$
+It says on
+Wikipedia
+that:
+the mathematics [of probability] is largely independent of any interpretation of probability.
+Question:
+Then if we want to be mathematically correct, shouldn't we disallow
+any
+interpretation of probability? I.e., are both Bayesian and frequentism mathematically incorrect?
+I don't like philosophy, but I do like math, and I want to work exclusively within the framework of Kolmogorov's axioms. If this is my goal, should it follow from what it says on Wikipedia that I should reject
+both
+Bayesianism and frequentism? If the concepts are purely philosophical and not at all mathematical, then why do they appear in statistics in the first place?
+Background/Context:
+This blog post
+doesn't quite say the same thing, but it does argue that attempting to classify techniques as "Bayesian" or "frequentist" is counter-productive from a pragmatic perspective.
+If the quote from Wikipedia is true, then it seems like from a philosophical perspective attempting to classify statistical methods is also counter-productive -- if a method is mathematically correct, then it is valid to use the method when the assumptions of the underlying mathematics hold, otherwise, if it is not mathematically correct or if the assumptions do not hold, then it is invalid to use it.
+On the other hand, a lot of people seem to identify "Bayesian inference" with probability theory (i.e. Kolmogorov's axioms), although I'm not quite sure why. Some examples are Jaynes's treatise on Bayesian inference called "Probability", as well as James Stone's book "Bayes' Rule". So if I took these claims at face value, that means I should prefer Bayesianism.
+However, Casella and Berger's book seems like it is frequentist because it discusses maximum likelihood estimators but ignores maximum a posteriori estimators, but it also seems like everything therein is mathematically correct.
+So then wouldn't it follow that the only mathematically correct version of statistics is that which refuses to be anything but entirely agnostic with respect to Bayesianism and frequentism? If methods with both classifications are mathematically correct, then isn't it improper practice to prefer some over the others, because that would be prioritizing vague, ill-defined philosophy over precise, well-defined mathematics?
+Summary:
+In short, I don't understand what the mathematical basis is for the Bayesian versus frequentist debate, and if there is no mathematical basis for the debate (which is what Wikipedia claims), I don't understand why it is tolerated at all in academic discourse.
+probability
+bayesian
+frequentist
+philosophical
+kolmogorov-axioms
+Share
+Cite
+Improve this question
+Follow
+edited
+Aug 24, 2022 at 1:19
+Chris Watson
+132
+1
+1 silver badge
+12
+12 bronze badges
+asked
+Aug 18, 2016 at 3:40
+Chill2Macht
+6,759
+5
+5 gold badges
+34
+34 silver badges
+64
+64 bronze badges
+$\endgroup$
+9
+6
+$\begingroup$
+Perhaps also of interest:
+Do Bayesians accept Kolmogorov axioms?
+.
+$\endgroup$
+Scortchi
+–
+Scortchi
+♦
+2016-08-18 08:42:56 +00:00
+Commented
+Aug 18, 2016 at 8:42
+1
+$\begingroup$
+@PeterMortensen I already saw that question before asking this question; however the answer to that question did not address my primary source of confusion, namely what
+mathematical
+difference, if any exists between the two; remember that I am not interested in philosophical differences since they shouldn't have any bearing on the space of possible models.
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2016-08-18 19:56:16 +00:00
+Commented
+Aug 18, 2016 at 19:56
+1
+$\begingroup$
+Comments are not for extended discussion; this conversation has been
+moved to chat
+.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-08-18 23:42:34 +00:00
+Commented
+Aug 18, 2016 at 23:42
+4
+$\begingroup$
+The bayesean debate is less about
+probability
+and much more about
+statistical interpretation
+and the validity of it's application.
+$\endgroup$
+RBarryYoung
+–
+RBarryYoung
+2016-08-19 19:54:45 +00:00
+Commented
+Aug 19, 2016 at 19:54
+2
+$\begingroup$
+@Mehrdad This question is not about the different approaches giving different answers, it is about the possibility of formalizing, via mathematical axioms, the difference between Bayesianism and frequentism. The answers to the linked-to question do not explain the axiomatic differences between the two approaches.
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2016-08-21 01:20:18 +00:00
+Commented
+Aug 21, 2016 at 1:20
+|
+Show
+4
+more comments
+11 Answers
+11
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+19
+$\begingroup$
+Probability spaces and Kolmogorov's axioms
+A probability space $\mathcal{P}$ is by definition a tripple $(\Omega, \mathcal{F}, \mathbb{P} )$ where $\Omega$ is a set of outcomes, $\mathcal{F}$ is a $\sigma$-algebra on the subsets of $\Omega$ and $\mathbb{P}$ is a probability-measure that fulfills the axioms of Kolmogorov, i.e. $\mathbb{P}$ is a function from $\mathcal{F}$ to $[0,1]$ such that $\mathbb{P}(\Omega)=1$ and for disjoint $E_1, E_2, \dots$ in $\mathcal{F}$ it holds that $P \left( \cup_{j=1}^\infty E_j \right)=\sum_{j=1}^\infty \mathbb{P}(E_j)$.
+Within such a probability space one can, for two events $E_1, E_2$ in $\mathcal{F}$ define the conditional probability as $\mathbb{P}(E_1|_{E_2})\stackrel{def}{=}\frac{\mathbb{P}(E_1 \cap E_2)}{\mathbb{P}(E_2)}$
+Note that:
+this ''conditional probability'' is only defined when $\mathbb{P}$ is defined on $\mathcal{F}$, so we need a probability space to be able to define conditional probabilities.
+A probability space is defined in very general terms (
+a
+set $\Omega$,
+a
+$\sigma$-algebra $\mathcal{F}$ and
+a
+probability measure $\mathbb{P}$), the only requirement is that certain properties should be fulfilled but apart from that these three elements can be ''anything''.
+More detail can be found in
+this link
+Bayes' rule holds in any (valid) probability space
+From the definition of conditional probability it also holds that $\mathbb{P}(E_2|_{E_1})=\frac{\mathbb{P}(E_2 \cap E_1)}{\mathbb{P}(E_1)}$. And from the two latter equations we find Bayes' rule.  So Bayes' rule holds (by definition of conditional probabilty) in any probability space (to show it, derive $\mathbb{P}(E_1 \cap E_2)$ and $\mathbb{P}(E_2 \cap E_1)$ from each equation and equate them (they are equal because intersection is commutative)).
+As Bayes rule is the basis for Bayesian inference, one can do Bayesian analysis in any valid (i.e. fulfilling all conditions, a.o. Kolmogorov's axioms) probability space.
+Frequentist definition of probability is a ''special case''
+The above holds ''in general'', i.e. we have no specific $\Omega$, $\mathcal{F}$, $\mathbb{P}$ in mind as long as $\mathcal{F}$ is a $\sigma$-algebra on subsets of $\Omega$ and $\mathbb{P}$ fulfills Kolmogorov's axioms.
+We will now show that a ''frequentist'' definition of $\mathbb{P}$ fulfills Kolomogorov's axioms.  If that is the case then ''frequentist'' probabilities are only a special case of Kolmogorov's general and abstract probability.
+Let's take an example and roll the dice. Then the set of all possible outcomes $\Omega$ is $\Omega=\{1,2,3,4,5,6\}$. We also need a $\sigma$-algebra on this set $\Omega$ and we take $\mathcal{F}$ the set of all subsets of $\Omega$, i.e. $\mathcal{F}=2^\Omega$.
+We still have to define the probability measure $\mathbb{P}$ in a frequentist way. Therefore we define $\mathbb{P}(\{1\})$ as $\mathbb{P}(\{1\}) \stackrel{def}{=} \lim_{n \to +\infty} \frac{n_1}{n}$ where $n_1$ is the number of $1$'s obtained in $n$ rolls of the dice. Similar for $\mathbb{P}(\{2\})$, ... $\mathbb{P}(\{6\})$.
+In this way $\mathbb{P}$ is defined for all singletons in $\mathcal{F}$.  For any other set in $\mathcal{F}$, e.g. $\{1,2\}$ we define $\mathbb{P}(\{1,2\})$ in a frequentist way i.e.
+$\mathbb{P}(\{1,2\}) \stackrel{def}{=} \lim_{n \to +\infty} \frac{n_1+n_2}{n}$, but by the linearity of the 'lim', this is equal to $\mathbb{P}(\{1\})+\mathbb{P}(\{2\})$, which implies that Kolmogorov's axioms hold.
+So the frequentist definition of probability is only a special case of Kolomogorov's general and abstract definition of a probability measure.
+Note that there are other ways to define a probability measure that fulfills Kolmogorov's axioms, so the frequentist definition is not the only possible one.
+Conclusion
+The probability in Kolmogorov's axiomatic system is ''abstract'', it has no real meaning, it only has to fulfill conditions called ''axioms''.  Using only these axioms Kolmogorov was able to derive a very rich set of theorems.
+The frequentist definition of probability fullfills the axioms and therefore replacing the abstract, ''meaningless'' $\mathbb{P}$ by a probability defined in a frequentist way, all these theorems are valid because the
+''frequentist probability'' is only a special case of Kolmogorov's abstract probability (i.e. it fulfills the axioms).
+One of the properties that can be derived in Kolmogorov's general framework is Bayes rule.  As it holds in the general and abstract framework, it will also hold (cfr supra) in the specific case that the probabilities are defined in a frequentist way (because the frequentist definition fulfills the axioms and these axioms were the only thing that is needed to derive all theorems).
+So one can do Bayesian analysis with a frequentist definition of probability.
+Defining $\mathbb{P}$ in a frequentist way is not the only possibility, there are other ways to define it such that it fulfills the abstract axioms of Kolmogorov.  Bayes' rule will also hold in these ''specific cases''.
+So one can also do Bayesian analysis with a
+non
+-frequentist definition of probability.
+EDIT 23/8/2016
+@mpiktas reaction to your comment:
+As I said, the sets $\Omega, \mathcal{F}$ and the probability measure $\mathbb{P}$ have no particular meaning in the axiomatic system, they are abstract.
+In order to apply this theory you have to give further
+definitions
+(so what you say in your comment
+"no need to muddle it further with some bizarre definitions''
+is
+wrong, you need additional definitions
+).
+Let's apply it to the case of tossing a fair coin.  The set $\Omega$ in Kolmogorov's theory has no particular meaning, it just has to be ''a set''.  So we must specify what this set is in case of the fair coin, i.e. we must define the set $\Omega$.  If we represent head as H and tail as T, then the set $\Omega$ is
+by definition
+$\Omega\stackrel{def}{=}\{H,T\}$.
+We also have to
+define
+the events, i.e. the $\sigma$-algebra $\mathcal{F}$. We define is as $\mathcal{F} \stackrel{def}{=} \{\emptyset, \{H\},\{T\},\{H,T\} \}$. It is easy to verify that $\mathcal{F}$ is a $\sigma$-algebra.
+Next we must define for every event in $E \in \mathcal{F}$ its measure.  So we need to
+define
+a map from $\mathcal{F}$ in $[0,1]$.  I will define it in the frequentist way, for a fair coin, if I toss it a huge number of times, then the fraction of heads will be 0.5, so I define $\mathbb{P}(\{H\})\stackrel{def}{=}0.5$.  Similarly I define $\mathbb{P}(\{T\})\stackrel{def}{=}0.5$, $\mathbb{P}(\{H,T\})\stackrel{def}{=}1$ and $\mathbb{P}(\emptyset)\stackrel{def}{=}0$. Note that $\mathbb{P}$ is a map from $\mathcal{F}$ in $[0,1]$ and that it fulfills Kolmogorov's axioms.
+For a reference with the frequentist definition of probability see
+this link
+(at the end of the section 'definition') and
+this link
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 13, 2017 at 12:44
+Community
+Bot
+1
+answered
+Aug 21, 2016 at 7:55
+user83346
+$\endgroup$
+32
+21
+$\begingroup$
+Perhaps one should note somewhere that there is a frequentist/Bayesian debate about the interpretation of probability and there is a frequentist/Bayesian debate about statistical inference.
+These are two different (albeit related) debates.
+This answer talks exclusively about the first one, which is fine (and I guess what @William was interested in here, as he chose to accept this answer), but most of the other answers talk mostly about the second one. This is just a note for future readers, but also a note to William.
+$\endgroup$
+amoeba
+–
+amoeba
+2016-08-22 18:47:39 +00:00
+Commented
+Aug 22, 2016 at 18:47
+3
+$\begingroup$
+I am voting down, because there is no reference to the definition of "frequentist probability" definition, and without it, the post does not make sense. For example the given definition of $P(\{1\})$  is not even mathematically correct, because the definition depends on a limit of a $n$ rolls of a dice. Mathematical objects are abstract and do not depend on physical objects. Furthermore to prove that the limit exists you need to construct a probability space, where the random variable $n_1/n$ is defined, and then prove that it converges, for which you need the measure theory and the ...
+$\endgroup$
+mpiktas
+–
+mpiktas
+2016-08-23 06:16:58 +00:00
+Commented
+Aug 23, 2016 at 6:16
+2
+$\begingroup$
+definition of the probability. So even if we allow such as definition it is circular, i.e. to check whether object satisfies the definition you need to have the object defined. I would dearly want to get a reference to a textbook which uses such a definition and tries to use it to derive all the usual results in statistics.
+$\endgroup$
+mpiktas
+–
+mpiktas
+2016-08-23 06:22:34 +00:00
+Commented
+Aug 23, 2016 at 6:22
+8
+$\begingroup$
+This long and detailed article in Stanford Encyclopedia of Philosophy
+on Probability Interpretations
+contains a long and detailed section on frequentism and might be a better reference than your link to Wikipedia (Stanford Encyclopedia is quite authoritative, unlike Wikipedia). It makes it clear that whether frequentist definition makes sense at all and even what exactly constitutes the frequentist definition is a matter of 150-years-long ongoing debate that you and @mpiktas seem to be re-enacting here in the comments section.
+$\endgroup$
+amoeba
+–
+amoeba
+2016-08-23 15:20:08 +00:00
+Commented
+Aug 23, 2016 at 15:20
+2
+$\begingroup$
+@amoeba: I particularly like the reminder in your link that we could interpret "probability" in all sorts of ways having nothing to do with the concept as usually understood -  e.g. normalized length - & still remain consistent with Kolmogorov's axioms.
+$\endgroup$
+Scortchi
+–
+Scortchi
+♦
+2016-08-25 15:22:06 +00:00
+Commented
+Aug 25, 2016 at 15:22
+|
+Show
+27
+more comments
+71
+$\begingroup$
+Stats is not Math
+First, I steal @whuber's words from a comment in
+Stats is not maths?
+(applied in a different context, so I'm stealing words, not citing):
+If you were to replace "statistics" by "chemistry," "economics," "engineering," or any other field that employs mathematics (such as home economics), it appears none of your argument would change.
+All these fields are allowed to exist and to have questions that are not solved only by checking which theorems are correct. Though some answers at
+Stats is not maths?
+disagree, I think it is clear that statistics is not (pure) mathematics. If you want to do probability theory, a branch of (pure) mathematics, you may indeed ignore all debates of the kind you ask about. If you want to apply probability theory into modeling some real-world questions, you need something more to guide you than just the axioms and theorems of the mathematical framework. The remainder of the answer is rambling about this point.
+The claim "if we want to be mathematically correct, shouldn't we disallow any interpretation of probability" also seems unjustified. Putting an interpretation on top of a mathematical framework does not make the mathematics incorrect (as long as the interpretation is not claimed to be a theorem in the mathematical framework).
+The debate is not (mainly) about axioms
+Though there are some alternative axiomatizations*, the(?) debate is not about disputing Kolmogorov axioms. Ignoring some subtleties with zero-measure conditioning events, leading to regular conditional probability etc., about which I don't know enough, the Kolmogorov axioms and conditional probability imply the Bayes rule, which no-one disputes. However, if $X$ is not even a random variable in your model (model in the sense of the mathematical setup consisting of a probability space or a family of them, random variables, etc.), it is of course not possible to compute the conditional distribution $P(X\mid Y)$. No-one also disputes that the frequency properties, if correctly computed, are consequences of the model. For example, the conditional distributions $p(y\mid \theta)$ in a Bayesian model define an indexed family of probability distributions $p(y; \theta)$ by simply letting $p(y \mid \theta) = p(y; \theta)$ and if some results hold for all $\theta$ in the latter, they hold for all $\theta$ in the former, too.
+The debate is about how to apply the mathematics
+The debates (as much as any exist**), are instead about how to decide what kind of probability model to set up for a (real-life, non-mathematical) problem and which implications of the model are relevant for drawing (real-life) conclusions. But these questions would exist even if all statisticians agreed. To quote from the blog post you linked to [1], we want to answer questions like
+How should I design a roulette so my casino makes $? Does this fertilizer increase crop yield? Does streptomycin cure pulmonary tuberculosis? Does smoking cause     cancer? What movie would would this user enjoy? Which baseball player should the Red Sox give a contract to? Should this patient receive chemotherapy?
+The axioms of probability theory do not even contain a definition of baseball, so it is obvious that "Red Sox should give a contract to baseball player X" is not a theorem in probability theory.
+Note about mathematical justifications of the Bayesian approach
+There are 'mathematical justifications' for considering all unknowns as probabilistic such as the Cox theorem that Jaynes refers to, (though I hear it has mathematical problems, that may or not have been fixed, I don't know, see [2] and references therein) or the (subjective Bayesian) Savage approach (I've heard this is in [3] but haven't ever read the book) that proves that under certain assumptions, a rational decision-maker will have a probability distribution over states of world and select his action based on maximizing the expected value of a utility function. However, whether or not the manager of Red Sox should accept the assumptions, or whether we should accept the theory that smoking causes cancer, cannot be deduced from any mathematical framework, so the debate cannot be (only) about the correctness of these justifications as theorems.
+Footnotes
+*I have not studied it, but I've heard de Finetti has an approach where conditional probabilities are primitives rather than obtained from the (unconditional) measure by conditioning. [4] mentions a debate between (Bayesians) José Bernardo, Dennis Lindley and Bruno de Finetti in a cosy French restaurant about whether $\sigma$-additivity is needed.
+**as mentioned in the blog post you link to [1], there might be no clear cut debate with every statistician belonging to one team and despising the other team. I have heard it said that we are all pragmatics nowadays and the useless debate is over. However, in my experience these differences exist in, for example, whether someone's first approach is to model all unknowns as random variables or not and how interested someone is in frequency guarantees.
+References
+[1] Simply Statistics, a statistical blog by Rafa Irizarry, Roger Peng, and Jeff Leek, "I declare the Bayesian vs. Frequentist debate over for data scientists", 13 Oct 2014,
+http://simplystatistics.org/2014/10/13/as-an-applied-statistician-i-find-the-frequentists-versus-bayesians-debate-completely-inconsequential/
+[2] Dupré, M. J., & Tipler, F. J. (2009). New axioms for rigorous Bayesian probability. Bayesian Analysis, 4(3), 599-606.
+http://projecteuclid.org/download/pdf_1/euclid.ba/1340369856
+[3] Savage, L. J. (1972). The foundations of statistics. Courier Corporation.
+[4] Bernardo, J.M. The Valencia Story - Some details of the origin and development of the Valencia International Meetings on Bayesian Statistics.
+http://www.uv.es/bernardo/ValenciaStory.pdf
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 13, 2017 at 12:44
+Community
+Bot
+1
+answered
+Aug 18, 2016 at 5:30
+Juho Kokkala
+8,134
+4
+4 gold badges
+35
+35 silver badges
+48
+48 bronze badges
+$\endgroup$
+9
+15
+$\begingroup$
++1, in particular for "The axioms of probability theory do not even contain a definition of baseball".
+$\endgroup$
+amoeba
+–
+amoeba
+2016-08-18 22:05:20 +00:00
+Commented
+Aug 18, 2016 at 22:05
+5
+$\begingroup$
+@William: The parameter is not
+believed
+to be a constant random variable - that's not a fact to be deduced or observed. The question is whether or not to represent epistemic uncertainty about the true value of the parameter using a probability distribution. (Frequentist analysis represents only the aleatory data-generating process using a probability distribution.)
+$\endgroup$
+Scortchi
+–
+Scortchi
+♦
+2016-08-19 14:29:03 +00:00
+Commented
+Aug 19, 2016 at 14:29
+4
+$\begingroup$
+@William the classical Monty Hall has nothing that would reasonably be interpreted as a parameter or as data, it's a probability problem.  Bayesian/frequentist approach would only come into play if you wanted to estimate, say, the parameter $q$ of the parametrized variant described here
+en.wikipedia.org/wiki/Monty_Hall_problem#Variants
+by watching multiple episodes of the gameshow. I, as a Bayesian, would probably put, e.g., a beta prior over $q$ and start updating. Whether this would work well in a computer simulation could depend strongly on how the computer simulation selects $q$.
+$\endgroup$
+Juho Kokkala
+–
+Juho Kokkala
+2016-08-19 14:37:59 +00:00
+Commented
+Aug 19, 2016 at 14:37
+8
+$\begingroup$
+I preemptively note that I am not interested in continuing any debate over this in the comment section, since it (nor this site at all) is not a place for debates.
+$\endgroup$
+Juho Kokkala
+–
+Juho Kokkala
+2016-08-19 14:46:32 +00:00
+Commented
+Aug 19, 2016 at 14:46
+3
+$\begingroup$
+I completely agree "stats are not math".  Wigner wrote an essay called "The Unreasonable Effectiveness  of Mathematics in Physics", which argued that since there was no inherent connection between the abstract world of mathematics and the concrete world of physics. It was surprising (and wonderful) that mathematics worked so well in describing physics. I feel the same is true for statistics. I look forward to someone writing  "The Unreasonable Effectiveness of Mathematics in Statistics". I personally find it amazing that abstract mathematics works so well in describing statistical phenomena.
+$\endgroup$
+meh
+–
+meh
+2016-08-22 18:30:31 +00:00
+Commented
+Aug 22, 2016 at 18:30
+|
+Show
+4
+more comments
+34
+$\begingroup$
+The mathematical basis for the Bayesian vs frequentist debate is very simple. In Bayesian statistics the unknown parameter is treated as a random variable;  in frequentist statistics it is treated as a fixed element. Since a random variable is a much more complicated mathematical object than a simple element of the set, the mathematical difference is quite evident.
+However, it turns out that the actual results in terms of models can be surprisingly similar. Take linear regression for example. Bayesian linear regression with uninformative priors leads to a distribution of a regression parameter estimate, whose mean is equal to the estimate of the parameter of frequentist linear regression, which is a solution to a least squares problem, which is not even a problem from probability theory. Nevertheless the mathematics which was used to arrive at the similar solution is quite different, for the reason stated above.
+Naturally because of the difference of treatment of the unknown parameter mathematical properties (random variable vs element of the set) both Bayesian and frequentist statistics hit on cases where it might seem that it is more advantageous to use a competing approach. Confidence intervals is a prime example. Not having to rely on MCMC to get a simple estimate is another. However, these are usually more matters of taste and not of mathematics.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 18, 2016 at 9:10
+Nick Cox
+62.9k
+8
+8 gold badges
+149
+149 silver badges
+238
+238 bronze badges
+answered
+Aug 18, 2016 at 7:09
+mpiktas
+35.8k
+6
+6 gold badges
+92
+92 silver badges
+147
+147 bronze badges
+$\endgroup$
+11
+6
+$\begingroup$
+Although the constant is a special case of a random variable, I would hesitate to conclude that Bayesianism is more general. You would not get frequentist results from Bayesian ones by simply collapsing the random variable to a constant. The difference is more profound. When you assume that your parameter is the unknown constant, the focal point of study becomes the estimate, which is a random variable (since it is a measurable function of the sample)  and how close it is to the the true value of the parameter, or in what way to get the estimate so it is close to the true estimate.
+$\endgroup$
+mpiktas
+–
+mpiktas
+2016-08-19 07:08:46 +00:00
+Commented
+Aug 19, 2016 at 7:08
+6
+$\begingroup$
+Since the estimate is a random variable, you cannot study it by ignoring measure theory, so I find your statement that many statisticians display an astonishing amount of ignorance and disdain for measure theory quite surprising. Have you read Asymptotic Statistics by A. van der Vaart? I would consider this book a very good overview of frequentist statistics and measure theory features quite prominently there.
+$\endgroup$
+mpiktas
+–
+mpiktas
+2016-08-19 07:14:14 +00:00
+Commented
+Aug 19, 2016 at 7:14
+3
+$\begingroup$
+Bayesian statistics on the other hand derive the distribution of parameter almost immediately and then the question is how to actually compute it (lots of research on various sampling algorithms, Metropolis-Hastings, etc) and what is the importance of priors. I am not that familiar with the research on Bayesian statistics, so my generalisation might be off a bit. Going to personal preferences, not-withstanding the fact that I was trained more or less as a frequentist, I do not like that Bayesian statistics uses quite a restricted subset of available distributions...
+$\endgroup$
+mpiktas
+–
+mpiktas
+2016-08-19 07:25:07 +00:00
+Commented
+Aug 19, 2016 at 7:25
+3
+$\begingroup$
+It always starts with normal distribution and its conjugates and how far this gets you. Since almost all data I work is not normally distributed, I am immediately suspicious and prefer to work with methods which are distribution agnostic. However this is a personal preference, and I find that in applied work I do I have not yet found a problem for which frequentist approach would fail so spectacularly that I would need to switch to Bayesian one.
+$\endgroup$
+mpiktas
+–
+mpiktas
+2016-08-19 07:31:38 +00:00
+Commented
+Aug 19, 2016 at 7:31
+4
+$\begingroup$
+"It always starts with normal distribution and its conjugates and how far this gets you..." - this is why one uses Monte Carlo methods to sample from the posterior parameter distribution; these work also for general distributions (BUGS software and its variants).
+$\endgroup$
+John Donn
+–
+John Donn
+2016-08-19 17:03:08 +00:00
+Commented
+Aug 19, 2016 at 17:03
+|
+Show
+6
+more comments
+30
+$\begingroup$
+I don't like philosophy, but I do like math, and I want to work
+exclusively within the framework of Kolmogorov's axioms.
+How exactly would you apply
+Kolmogorov's axioms
+alone without any interpretation? How
+would
+you interpret probability? What would you say to someone who asked you
+"What does your estimate of probability $0.5$ mean?"
+Would you say that your result is a number $0.5$, which is correct since it follows the axioms? Without any interpretation you couldn't say that this suggests how often we would expect to see the outcome if we repeated our experiment. Nor could you say that this number tells you how certain are you about the chance of an event happening. Nor could you answer that this tells you how likely do you believe the event to be. How would you interpret expected value - as some numbers multiplied by some other numbers and summed together that are valid since they follow the axioms and a few other theorems?
+If you want to apply the mathematics to the real world, then you need to interpret it. The numbers alone without interpretations are... numbers. People do not calculate expected values to estimate expected values, but to learn something about reality.
+Moreover, probability is abstract, while we apply statistics (and probability per se) to real world happenings. Take the most basic example: a fair coin. In the frequentist interpretation, if you threw such a coin a large number of times, you would expect the same number of heads and tails. However, in a real-life experiment this would almost never happen. So $0.5$ probability has really nothing to to with any particular coin thrown any particular number of times.
+Probability does not exist
+-- Bruno de Finetti
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 18, 2016 at 9:13
+Nick Cox
+62.9k
+8
+8 gold badges
+149
+149 silver badges
+238
+238 bronze badges
+answered
+Aug 18, 2016 at 8:14
+Tim
+144k
+27
+27 gold badges
+279
+279 silver badges
+545
+545 bronze badges
+$\endgroup$
+11
+3
+$\begingroup$
+"If you threw such a coin a large number of times, you would expect the same number of heads and tails" -- that is an incorrect understanding of the law of large numbers. See chapter III of Volume 1 of Feller's
+An Introduction to Probability Theory and Applications
+. For example, on p.67 "In a population of normal coins the majority is necessarily maladjusted".
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2016-08-18 18:26:44 +00:00
+Commented
+Aug 18, 2016 at 18:26
+1
+$\begingroup$
+@William so what exactly would you answer to the question "what does p=0.5 mean?" where p is estimate of probability on coin tossing experiment...?
+$\endgroup$
+Tim
+–
+Tim
+2016-08-18 19:41:39 +00:00
+Commented
+Aug 18, 2016 at 19:41
+1
+$\begingroup$
+You are also quoting Feller who mentions "majority" - majority of what exactly if you are not making frequentist interpretations of probability..?
+$\endgroup$
+Tim
+–
+Tim
+2016-08-18 19:50:19 +00:00
+Commented
+Aug 18, 2016 at 19:50
+8
+$\begingroup$
+Oversimplifying things: in frequentist viewpoint probability is related to proportions of events happening among possible events; in Bayesian interpretation is is about how much something is believable (see
+en.wikipedia.org/wiki/Probability#Interpretations
+). By telling me about sample space etc. you
+assumed
+that there is something besides the single future coin toss -- this is your
+interpretation
+of probability, since there is going to be only single toss, so the whole argument about sample space does not apply to it. You are perfectly right with your interpretation, but this is
+$\endgroup$
+Tim
+–
+Tim
+2016-08-18 20:53:35 +00:00
+Commented
+Aug 18, 2016 at 20:53
+6
+$\begingroup$
+interpretation. To apply probability to real-world happenings you need to make such interpretations. What is the probability that Trump wins US election in 2016? This question is unanswerable if you won't make assumptions about what probability is.
+$\endgroup$
+Tim
+–
+Tim
+2016-08-18 20:55:12 +00:00
+Commented
+Aug 18, 2016 at 20:55
+|
+Show
+6
+more comments
+11
+$\begingroup$
+My view of the contrast between Bayesian and frequentist inference is that the first issue is the choice of the event for which you want a probability.  Frequentists assume what you are trying to prove (e.g., a null hypothesis) then compute the probability of observing something that you already observed, under that assumption.  There is an exact analogy between such reverse-information flow-order probabilities and sensitivity and specificity in medical diagnosis, which have caused enormous misunderstandings and need to be bailed out by Bayes' rule to get forward probabilities ("post-test probabilities").  Bayesians compute the probability of an event, and absolute probabilities are impossible to compute without an anchor (the prior).  The Bayesian probability of the veracity of a statement is much different from the frequentist probability of observing data under a certain unknowable assumption.  The differences are more pronounced when the frequentist must adjust for other analyses that have been done or could have been done (multiplicity; sequential testing, etc.).
+So the discussion of the mathematical basis is very interesting and is a very appropriate discussion to have.  But one has to make a fundamental choice of forwards vs. backwards probabilities.  Hence what is conditioned upon, which isn't exactly math, is incredibly important.  Bayesians believe that full conditioning on what you already know is key.  Frequentists more often condition on what makes the mathematics simple.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 21, 2016 at 12:28
+Frank Harrell
+107k
+6
+6 gold badges
+213
+213 silver badges
+496
+496 bronze badges
+$\endgroup$
+Add a comment
+|
+9
+$\begingroup$
+I will break this up into two separate questions and answer each.
+1.) Given the different philosophical views of what probability means
+in a Frequentist and Bayesian perspective, are there mathematical rules of probability that apply to one interpretation and do not apply to another?
+No. The rules of probability remain exactly the same between the two groups.
+2.) Do Bayesians and Frequentists use the same mathematical models to analyze data?
+Generally speaking, no. This is because the two different interpretations suggest that a researcher can gain insight from different sources. In particular, the Frequentist framework is often thought to suggest that one can make inference on the parameters of interest only from the data observed, while a Bayesian perspective suggests that one should also include independent expert knowledge about the subject. Different data sources means different mathematical models will be used for analysis.
+It is also of note that there are plenty divides between the models used by the two camps that is more related to what
+has
+been done than what
+can
+be done (i.e. many models that are traditionally used by one camp can be justified by the other camp). For example, BUGs models (Bayesian inference Using Gibbs sampling, a name that no longer accurately describes the set of models for many reasons) are traditionally analyzed with Bayesian methods, mostly due to the availability of great software packages to do this with (JAGs, Stan for example). However, there is nothing that says these models must be strictly Bayesian. In fact, I worked on the project NIMBLE that builds these models in the BUGs framework, but allows the user much more freedom on how to make inference on them. While the vast majority of the tools we provided were customizable Bayesian MCMC methods, one could also use maximum likelihood estimation, a traditionally Frequentist method, for these models as well. Similarly, priors are often thought of as what you can do with Bayesian that you cannot do with Frequentist models. However, penalized estimation can provide for the same models using regularizing parameter estimates (although the Bayesian framework provides an easier way of justifying and choosing regularization parameters, while Frequentists are left with, in a best case scenario of a lots of data, "we chose these regularization parameters because over a large number of cross-validated samples, they lowered the estimated out of sample error"...for better or for worse).
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 21, 2016 at 1:50
+answered
+Aug 20, 2016 at 18:33
+Cliff AB
+22.2k
+1
+1 gold badge
+55
+55 silver badges
+105
+105 bronze badges
+$\endgroup$
+4
+1
+$\begingroup$
+I object, somewhat, to this quote: "In particular, the Frequentist framework is often thought to suggest that one can make inference on the parameters of interest only from the data observed, while a Bayesian perspective suggests that one should also include independent expert knowledge about the subject". Primarily for the implication that frequentists are, for whatever reason, uninterested in independent expert knowledge about the subject. The difference between frequentists and Bayesians isn't that the former stubbornly refuse to use prior knowledge or context ... (1/2)
+$\endgroup$
+Ryan Simmons
+–
+Ryan Simmons
+2016-08-22 19:28:54 +00:00
+Commented
+Aug 22, 2016 at 19:28
+1
+$\begingroup$
+... but rather that the two schools of thought utilize that prior knowledge/context in different ways. You may argue that the Bayesian perspective takes a more principled approach towards incorporating this prior knowledge directly into a model (though, I would argue the widespread usage of non-informative priors rather dilutes this argument). But I don't think it is fair to characterize it as being an issue of frequentists NOT using that information. (2/2)
+$\endgroup$
+Ryan Simmons
+–
+Ryan Simmons
+2016-08-22 19:30:18 +00:00
+Commented
+Aug 22, 2016 at 19:30
+1
+$\begingroup$
+@RyanSimmons: right, this is why I stated "is often thought to suggest...". For example, if a researcher observes that regularizing parameter estimates around an expert's opinion tends to lead itself to better predictions in the long run, there is no problem in incorporating this in a Frequentist framework ("based on Frequentist measures, this augmented estimator has better long run operating characteristics than the data-only estimator"). But this is not as straightforward as in the Bayesian framework.
+$\endgroup$
+Cliff AB
+–
+Cliff AB
+2016-08-22 19:40:17 +00:00
+Commented
+Aug 22, 2016 at 19:40
+1
+$\begingroup$
+Fair enough! I concur.
+$\endgroup$
+Ryan Simmons
+–
+Ryan Simmons
+2016-08-22 19:44:38 +00:00
+Commented
+Aug 22, 2016 at 19:44
+Add a comment
+|
+4
+$\begingroup$
+Bayesians and Frequentists think probabilities represent different things.  Frequentists think they're related to frequencies and only make sense in contexts where frequencies are possible.  Bayesians view them as ways to represent uncertainty.  Since any fact can be uncertain, you can talk about the probability of anything.
+The mathematical consequence is that Frequentists think the basic equations of probability only sometimes apply, and Bayesians think they always apply. So they view the same equations as correct, but differ on how general they are.
+This has the following practical consequences:
+(1) Bayesians will derive their methods from the basic equations of probability theory (of which Bayes Theorem is just one example), while Frequentists invent one intuitive ad-hoc approach after another to solve each problem.
+(2) There are theorems indicating that if you reason from incomplete information you had better use the basic equations of probability theory consistently, or you'll be in trouble.  Lots of people have doubts about how meaningful such theorems are, yet this is what we see in practice.
+For example, it's possible for real world innocent looking 95% Confidence Intervals to consist entirely of values which are provably impossible (from the same info used to derive the Confidence Interval).  In other words, Frequentist methods can contradict simple deductive logic.  Bayesian methods derived entirely from the basic equations of probability theory don't have this problem.
+(3) Bayesian is strictly more general than Frequentist.  Since there can be uncertainty about any fact, any fact can be assigned a probability.  In particular, if the facts you're working on is related to real world frequencies (either as something you're predicting or part of the data) then Bayesian methods can consider and use them just as they would any other real world fact.
+Consequently any problem Frequentist feel their methods apply to Bayesians can also work naturally.  The reverse however is often not true unless Frequentists invent subterfuges to interpret their probability as a "frequency" such as, for example, imagining the multiple universes, or inventing hypothetical repetitions out to infinity which are never performed and often couldn't be in principle.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 18, 2016 at 5:45
+Laplace
+107
+1
+1 bronze badge
+$\endgroup$
+16
+7
+$\begingroup$
+Could you provide some references to the bold statements you have provided? For example " Frequentists think the basic equations of probability only sometimes apply"? And what are the basic equations of probability?
+$\endgroup$
+mpiktas
+–
+mpiktas
+2016-08-18 06:01:43 +00:00
+Commented
+Aug 18, 2016 at 6:01
+6
+$\begingroup$
+Much more interesting than the B vs F debate is your remark about Confidence intervals containing impossible values. Can you give or link to specific example of a 95% CI containing only impossible values? This could be one of those things every statistician should have seen at least once in their lives (as a cautionary tale), but I haven't.
+$\endgroup$
+Vincent
+–
+Vincent
+2016-08-18 08:17:04 +00:00
+Commented
+Aug 18, 2016 at 8:17
+9
+$\begingroup$
+That a CI might contain all "impossible" values does not "contradict simple deductive logic" at all.  This sounds like a misunderstanding of the definition of a CI--or perhaps a confusion between the interpretations of CIs and credible intervals.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-08-18 14:05:51 +00:00
+Commented
+Aug 18, 2016 at 14:05
+7
+$\begingroup$
+This seems like a philosophical rant rather than an answer to the OP's question (which was strictly
+not
+about philosophy).
+$\endgroup$
+Cliff AB
+–
+Cliff AB
+2016-08-18 21:10:30 +00:00
+Commented
+Aug 18, 2016 at 21:10
+5
+$\begingroup$
+"It's possible for the inference that every statistician would make from a CI (without which CI's have no practical purpose or contact with the real world) to contradict what can be deduced from the same evidence". This
+still
+in no way backs your claim that Frequentists ignore the rules of probability. And I'm afraid this is going down the well trodden path of "Bayes  vs Frequentists: fight!" that most readers here would prefer to avoid.
+$\endgroup$
+Cliff AB
+–
+Cliff AB
+2016-08-19 04:21:22 +00:00
+Commented
+Aug 19, 2016 at 4:21
+|
+Show
+11
+more comments
+4
+$\begingroup$
+The bayes/frequentist debate is based on numerous grounds. If you are talking about mathematical basis, I don't think there is much.
+They both need to apply various approximate methods for complex problems. Two examples are "bootstrap" for frequentist and "mcmc" for bayesian.
+They both come with rituals/procedures for how to use them. A frequentist example is "propose an estimator of something and evaluate its properties under repeated sampling" while a bayesian example is "calculate probability distributions for what you don't know conditional on what you do know". There is no mathematical basis for using probabilities in this way.
+The debate is more about application, interpretation, and ability to solve real world problems.
+In fact, this is often used by people debating "their side" where they will use a specific "ritual/procedure" used by the "other side" to argue that the whole theory should be thrown away for theirs. Some examples include...
+using stupid priors (and not checking them)
+using stupid CIs (and not checking them)
+confusing a computational technique with the theory (bayes is not mcmc!! Same goes for equating cross validation with machine learning)
+talking about a problem with a specific application with one theory and not how the other theory would solve the specific problem "better"
+Share
+Cite
+Improve this answer
+Follow
+answered
+Dec 9, 2017 at 11:38
+probabilityislogic
+25.7k
+4
+4 gold badges
+88
+88 silver badges
+117
+117 bronze badges
+$\endgroup$
+1
+$\begingroup$
+Haha yes this is very true I think. I had to listen to a professor go on for a half hour about how Bayesianism is terrible because coming up with priors subjectively doesn't make sense and the whole time I was thinking "well, duh, so that's why you wouldn't choose a prior that way". My point being, I agree that strawman arguments abound.
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2017-12-09 15:17:46 +00:00
+Commented
+Dec 9, 2017 at 15:17
+Add a comment
+|
+3
+$\begingroup$
+Question: Then if we want to be mathematically correct, shouldn't we disallow any interpretation of probability? I.e., are both Bayesian and frequentism mathematically incorrect?
+Yes, and this is exactly what people do both in Philosophy of Science and in Mathematics.
+Philosophical approach. Wikipedia provides a
+compendium of interpretations/definitions of probability
+.
+Mathematicians are not safe. In the past, the Kolmogorovian school had the monopoly of probability: a probability is defined as a finite measure that assigns 1 to the whole space ... This hegemony is no longer valid since there are new trends on defininig probability such as
+Quantum probability
+and
+Free probability
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 18, 2016 at 22:12
+Silverfish
+24.4k
+28
+28 gold badges
+108
+108 silver badges
+219
+219 bronze badges
+answered
+Aug 18, 2016 at 11:26
+Tim Allen
+33
+3
+3 bronze badges
+$\endgroup$
+2
+$\begingroup$
+Do you understand what is meant by relaxing assumptions of commutativity of random variables? (with regards to free probability -- I don't know enough QM to understand the ideas behind quantum probability) Does this mean that $X + Y \not= Y+X$ or $XY \not= YX$? I guess the discussion of von Neumann algebras and $C^*$ algebras imply the latter.
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2016-08-19 19:32:16 +00:00
+Commented
+Aug 19, 2016 at 19:32
+7
+$\begingroup$
+@William $C^{*}$ algebras do not correctly model most of what statistics is applied to. (By analogy, the invention of complex numbers in no way affected any application of the natural numbers to phenomena. No possible extension of the mathematical concept of probability would ever change how probability--as currently understood--is applied, either.)  Tim, this answer is puzzling: the only purely
+mathematical
+issue concerning any application of probability is whether its axioms are consistent, and that is easily proven with simple models.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-08-19 20:22:45 +00:00
+Commented
+Aug 19, 2016 at 20:22
+Add a comment
+|
+1
+$\begingroup$
+So then wouldn't it follow that the only mathematically correct version of statistics is that which refuses to be anything but entirely agnostic with respect to Bayesianism and frequentism? If methods with both classifications are mathematically correct, then isn't it improper practice to prefer some over the others, because that would be prioritizing vague, ill-defined philosophy over precise, well-defined mathematics?
+No.  It does not follow.  Individuals who are unable to feel their emotions are biologically incapable of making decisions, including decisions that appear to have only one objective solution.  The reason is that rational decision making depends upon our emotional capacity and our preferences both cognitive and emotional.  While that is scary, it is the empirical reality.
+Gupta R, Koscik TR, Bechara A, Tranel D. The amygdala and decision making. Neuropsychologia. 2011;49(4):760-766. doi:10.1016/j.neuropsychologia.2010.09.029.
+A person who prefers apples to oranges cannot defend this as it is a preference.  Conversely, a person who prefers oranges to apples cannot defend this rationally as it is a preference.  People who prefer apples will often eat oranges because the cost of apples is too great compared to the cost of oranges.
+Much of the Bayesian and Frequentist debate, as well as the Likelihoodist and Frequentist debate, was centered around mistakes of understanding.  Nonetheless, if we imagine that we have a person who is well trained in all methods, including minor or no longer used methods such as Carnapian probability or fiducial statistics, then it is only rational for them to prefer some tools over other tools.
+Rationality only depends upon preferences; the behavior depends upon preferences and costs.
+It may be the case that from a purely mathematical perspective that one tool is better than the other, where better is defined using some cost or utility function, but unless there is a unique answer where only one tool could work, then both the costs and the preferences are to be weighed.
+Consider the problem of a bookie considering offering a complex bet.  Clearly, the bookie should use Bayesian methods in this case as they are coherent and have other nice properties, but also imagine that the bookie has a calculator only and not even a pencil and paper.  It may be the case that the bookie, with the use of his calculator and by keeping track of things in his head can calculate the Frequentist solution and has no chance on Earth to calculate the Bayesian.  If he is willing to take the risk of being "Dutch Booked," and also finds the potential cost small enough, then it is rational for him to offer bets using Frequentist methods.
+It is
+rational
+for
+you
+to be
+agnostic
+because your emotional preferences find that to be better for you.  It is not rational for the field to be agnostic unless you believe that all people share your emotional and cognitive preferences, which we know is not the case.
+In short, I don't understand what the mathematical basis is for the Bayesian versus frequentist debate, and if there is no mathematical basis for the debate (which is what Wikipedia claims), I don't understand why it is tolerated at all in academic discourse.
+The purpose of academic debate is to bring light to both old and to new ideas.  Much of the Bayesian versus Frequentist debate and the Likelihoodist versus Frequentist debate came from misunderstandings and sloppiness of thought.  Some came from failing to call out preferences for what they are.  A discussion of the virtues of an estimator being unbiased and noisy versus and estimator being biased and accurate is a discussion of emotional preferences, but until someone has it, it is quite likely that the thinking on it will remain muddy throughout the field.
+I don't like philosophy, but I do like math, and I want to work exclusively within the framework of Kolmogorov's axioms.
+Why?  Because you prefer Kolmogorov's to Cox's, de Finetti's or Savage's?  Is that preference sneaking in?  Also, probability and statistics are not math, they use math.  It is a branch of rhetoric.  To understand why this may matter consider your statement:
+if a method is mathematically correct, then it is valid to use the method when the assumptions of the underlying mathematics hold, otherwise, if it is not mathematically correct or if the assumptions do not hold, then it is invalid to use it.
+This is not true.  There is a nice article on confidence intervals and their abuse its citation is:
+Morey, Richard ; Hoekstra, Rink ; Rouder, Jeffrey ; Lee, Michael ; Wagenmakers, Eric-Jan, The fallacy of placing confidence in confidence intervals, Psychonomic Bulletin & Review, 2016, Vol.23(1), pp.103-123
+If you read the different potential confidence intervals in the article, each one is mathematically valid, but if you then evaluate their properties, they differ very substantially.  Indeed, some of the confidence intervals provided could be thought of as having "bad" properties, though they meet all of the assumptions in the problem.  If you drop the Bayesian interval from the list and focus only on the four Frequentist intervals, then if you do a deeper analysis as to when the intervals are wide or narrow, or constant, then you will find that the intervals may not be "equal" though each meets the assumptions and requirements.
+It is not enough for it to be mathematically valid for it to be useful or, alternatively, as useful as possible.  Likewise, it could be mathematically true, but harmful.  In the article, there is an interval that is at its most narrow precisely when there is the least amount of information about the true location and widest when perfect knowledge or near perfect knowledge exists about the location of the parameter.  Regardless, it meets the coverage requirements and satisfies the assumptions.
+Math can never be enough.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Dec 9, 2017 at 21:46
+Dave Harris
+7,920
+18
+18 silver badges
+27
+27 bronze badges
+$\endgroup$
+5
+$\begingroup$
+I really like the second article. (The conclusion of the first article was something I had already heard argued in a way that convinced me, so it seemed unnecessary for me to read.) I mostly agree with what you say. To be fair, when I say math, I had more in mind the meaning "applied math" as well as the implicit understanding that the subjects and directions of mathematical research, as well as choices of mathematical axioms, are meant to model observations of the real world. Also, I don't think the second article contradicts what I am saying -- the authors take the common fallacies, phrase
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2017-12-10 03:41:46 +00:00
+Commented
+Dec 10, 2017 at 3:41
+$\begingroup$
+them mathematically (i.e. precisely, rigorously), and then provide counterexamples showing that they are false. What I was trying to say (if I remember correctly about my intentions many months ago), was that if your "philosophy" or "philosophical idea" or whatever can't be phrased/narrowed down to a precise statement, i.e. stated unambiguously, then it is useless to throw around. E.g. frequentists who draw a distinction between MLE (MAP with a flat prior) and other types of objective priors for vague reasons -- if your objection can't be stated in the form of a mathematical axiom, then there
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2017-12-10 03:44:29 +00:00
+Commented
+Dec 10, 2017 at 3:44
+$\begingroup$
+is no good reason to state your objection in the first place, because your objection is too vague as to be falsifiable. Just because statistics is "using math" doesn't mean, in my opinion, that statisticians are justified to be sloppier thinkers than mathematicians. Mathematicians argue all of the time about which mathematical axioms are "worthwhile" or "interesting" to consider, as you point out, based ultimately only on emotional preferences. But these arguments are actually capable of having substance and moving fields forward, because the positions of each side are clearly and unambiguous-
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2017-12-10 03:46:56 +00:00
+Commented
+Dec 10, 2017 at 3:46
+$\begingroup$
+ly stated -- e.g. one can say with clarity that intuitionists reject using the Law of the Excluded Middle, while other mathematicians are content to use it. Note also the fierce debate about the Axiom of Choice. But both the Law of the Excluded Middle and the Axiom of Choice are
+precise
+statements which, given other
+precise
+assumptions, can be falsified, shown to be falsifiable, proved, etc. (depends on the other assumptions). I.e. what I was trying to argue is that "philosophy"/"emotion" should only come into play to state preferences for different
+unambiguous/precise
+axioms
+. As
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2017-12-10 03:49:33 +00:00
+Commented
+Dec 10, 2017 at 3:49
+$\begingroup$
+compared to someone saying "priors are bad", and not giving a mathematical axiom which they believe inference should satisfy, and which choosing a prior could be shown logically to violate. The former is useless, while the latter is constructive, because it gives opponents something concrete to work with, e.g. the opportunity to propose an alternative axiom which to them "seems more reasonable to assume for this problem". This is why I really like the second article you linked to, because it does exactly that- it
+"mathematizes"
+false interpretations of CI's, and
+proves
+that they are false.
+$\endgroup$
+Chill2Macht
+–
+Chill2Macht
+2017-12-10 03:52:42 +00:00
+Commented
+Dec 10, 2017 at 3:52
+Add a comment
+|
+1
+$\begingroup$
+The following is taken from my manuscript on confidence distributions - Johnson, Geoffrey S. "Decision Making in Drug Development via Confidence Distributions." arXiv preprint arXiv:2005.04721 (2020).
+In the Bayesian framework the population-level parameter of interest is considered an unrealized or unobservable realization of a random variable that depends on the observed data.  This premise has cause and effect reversed.  In order to overcome this the Bayesian approach reinterprets probability as measuring the subjective belief of the experimenter. Another interpretation is that the unknown fixed parameter, say theta, was randomly selected from a known collection or prevalence of theta's (prior distribution) and the observed data is used to subset this collection, forming the posterior.  The unknown fixed true theta is now imagined to have instead been randomly selected from the posterior.  Every time the prior or posterior is updated the sampling frame from where we obtained our unknown fixed true theta under investigation must be changed.  A third interpretation is that all values of theta are true simultaneously.  The truth exists in a superposition depending on the evidence observed (think Schrodinger's cat).  Ascribing any of these interpretations to the posterior allows one to make philosophical probability statements about hypotheses given the data.  While the p-value is typically not interpreted in the same manner, it does show us the plausibility of a hypothesis given the data - the ex-post sampling probability of the observed result or something more extreme if the hypothesis is true.  This does not reverse cause and effect.
+To the Bayesian, probability is axiomatic and measures the experimenter.  To the frequentist, probability measures the experiment and must be verifiable.  The Bayesian interpretation of probability as a measure of belief is unfalsifiable. Only if there exists a real-life mechanism by which we can sample values of theta can a probability distribution for theta be verified.  In such settings probability statements about theta would have a purely frequentist interpretation (see the second interpretation of the posterior above).  This may be a reason why frequentist inference is ubiquitous in the scientific literature.
+The interpretation of frequentist inference is straight forward for non-statisticians by citing confidence levels, e.g. 'We are 15.9% confident that theta is less than or equal to theta_0.'  Of course to fully appreciate this statement of confidence one must more fully define the p-value as a frequency probability of the experiment if the hypothesis is true (think of the proof by contradiction structure a prosecutor uses in a court room setting, innocent until proven guilty).  A Bayesian approach may make it easy for some to interpret a posterior probability, e.g. 'There is 17.4% Bayesian belief probability that theta is less than or equal to theta_0.'  Of course to fully appreciate this statement one must fully define Bayesian belief and make it clear this is not a verifiable statement about the actual parameter, the hypothesis, nor the experiment.  If the prior distribution is chosen in such a way that the posterior is dominated by the likelihood or is proportional to the likelihood, Bayesian belief is more objectively viewed as confidence based on frequency probability of the experiment.  In short, for those who subscribe to the frequentist interpretation of probability, the
+confidence distribution
+summarizes all probability statements about the experiment one can make.  It is a matter of correct interpretation given the definition of probability and what constitutes a random variable.  The posterior remains an incredibly useful tool and can be interpreted as a valid asymptotic confidence distribution.  The frequentist framework can easily incorporate historical data through a fixed-effect meta-analysis.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 31, 2020 at 18:59
+answered
+Dec 31, 2020 at 15:03
+Geoffrey Johnson
+11
+2
+2 bronze badges
+$\endgroup$
+Add a comment
+|
+Your Answer
+Draft saved
+Draft discarded
+Sign up or
+log in
+Sign up using Google
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+By clicking “Post Your Answer”, you agree to our
+terms of service
+and acknowledge you have read our
+privacy policy
+.
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+bayesian
+frequentist
+philosophical
+kolmogorov-axioms
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+1
+Frequentist vs bayesian statistics
+84
+Probability of a single real-life future event: What does it mean when they say that "Hillary has a 75% chance of winning"?
+60
+Bayesian vs frequentist Interpretations of Probability
+61
+Who are frequentists?
+67
+Examples of Bayesian and frequentist approach giving different answers
+20
+Stats is not maths?
+31
+Do Bayesians accept Kolmogorov's axioms?
+12
+Conditional probabilities - are they unique to Bayesianism?
+13
+Using p-value to compute the probability of hypothesis being true; what else is needed?
+9
+When (and why) do Bayesians reject valid Bayesian methods?
+See more linked questions
+Related
+15
+If you use a point estimate that maximizes $P(x | \theta)$, what does that say about your philosophy? (frequentist or Bayesian or something else?)
+13
+Frequentist statistics references for someone well versed in modern probability theory
+67
+Examples of Bayesian and frequentist approach giving different answers
+95
+When (if ever) is a frequentist approach substantively better than a Bayesian?
+18
+"It was the correct play even though I lost"
+21
+Within the frequentist "school of thought" how are beliefs updated?
+3
+Comparison of bayesian and frequentist methods example
+8
+iid data (Bayesian) vs iid random variables (Frequentist)?
+Hot Network Questions
+What is the name of this polyhedron formed from six squares and eight equilateral triangles?
+How to use -dialect sqlite -sql so empty array values aren't dropped from properties?
+What are the consequences of mass murder?
+Recurrence functional inequality
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+Modeling a curved boombox body with clean topology for speaker holes
+Is "Spider-Man is a good movie" an unfalsifiable statement?
+PTIJ: Is it holy or heresy to tell someone to "have a good one"?
+Is there a way that some devices can share in local network but not going online?
+Holding notes and purpose of the arc
+Giving prizes for not being late to school
+What becomes of seized tankers and their oil cargo?
+"Senselessness" of tautology within TLP
+How do we incentivize breadth in mathematics? Should we?
+Select clients where they have one feature type but not another - ArcGIS Pro
+PTIJ: 6-7 - Mi Yodeya?
+Is there such thing as "Fundamental Theorem of Markov Processes"?
+Dragon Adventure cards interaction with Acolyte of Bahamut
+Why two NaNs with the same binary are still not equal to each other but two infs are?
+Why would an extraterrestrial ecosystem without predators have evolved?
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+When are Closure nodes necessary in Geometry Nodes compared to Node Groups?
+PTIJ: Need help picking a topic for a halacha shiur
+Arrow not pointing in the correct direction/incorrectly rendered
+more hot questions
+Question feed

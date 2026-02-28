@@ -1,0 +1,13 @@
+Classical statistics
+
+e Inference using the Bayes rule:
+unknown © and observation X are both random variables
+
+e Classical statistics: unknown constant @
+
+; xX
+
+— also for vectors X and @: px,....x,(@1,-+-,@n;91,..., 8m)
+— px(x;@) are NOT conditional probabilities; 6 is NOT random
+
+— mathematically: many models, one for each possible value of 0

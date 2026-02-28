@@ -1,0 +1,231 @@
+18.05 Problem Set 10, Spring 2022 Solutions
+Problem 1. (15: 10,5 pts.) Z
+Suppose we have 𝑛 data points drawn from a N(𝜃, 92) distribution, where the value of the
+mean 𝜃 is unknown.
+(a) Suppose that 𝑛 = 30 and that the sample mean is 𝑥 = 15. Give the 95% confidence
+interval for the mean 𝜃. Also give the 70% confidence interval.
+In this problem you should use R to give precise confidence intervals. That is, you should
+find the critical values to several decimal points of accuracy.
+Solution: We have 𝜎 = 9, 𝑛 = 30, 𝑥 = 15. The 𝑧-confidence interval for the mean is
+√
+𝑥 ± 𝑧 𝜎/ 𝑛.
+𝛼/2
+So, using R, (𝑧 = pnorm(1 − 𝛼/2)) the 95% (𝛼 = 0.05) confidence interval is
+𝛼/2
+15 ± 3.220549 = [11.77945, 18.22055]
+Likewise, the 70% (𝛼 = 0.3) confidence interval is
+15 ± 1.703034 = [13.29697, 16.70303]
+(b) Explain why the 95% confidence interval for the mean 𝜃 is always narrower when 𝑛 = 90
+when 𝑛 = 30.
+√
+Solution: The formula for the confidence interval has width 2𝑧 𝜎 𝑛. Since 𝜎 and 𝑧
+𝛼/2 𝛼/2
+are fixed, this gets smaller as 𝑛 increases.
+Problem 2. (10 pts.) (Soda)
+Consider a machine that is known to fill soda cans with amounts that follow a normal
+distribution with (unknown) mean 𝜇 and standard deviation 𝜎 = 3 mL. We measure the
+volume of soda in a sample of bottles and obtain the following data (in mL):
+352, 351, 361, 353, 352, 358, 360, 358, 359
+For this problem, you will probably want to use R to make the calculations.
+(a) Construct a precise 95% confidence interval for the mean 𝜇.
+Solution: The sample mean is 𝑥̄ = 356. Since 𝑧 ≈ 1.96, 𝜎 = 3 and 𝑛 = 9, the 95%
+0.025
+confidence interval is
+𝜎
+𝑥 ̄ ± 𝑧 ⋅ √ ≈ 356 ± 1.96 = [354.04, 357.96]
+0.025 𝑛
+(We can find 𝑧 in our memory or using R: z = qnorm(1-0.025).)
+0.025
+(b) Now construct a 98% confidence interval for the mean 𝜇.
+Solution: We have 𝑧 = qnorm(0.99) ≈ 2.33. So the 98% confidence interval is
+0.01
+𝜎
+𝑥 ̄ ± 𝑧 ⋅ √ ≈ 356 ± 2.33 = [353.67, 358.33].
+0.01 𝑛
+1
+18.05 Problem Set 10, Spring 2022 Solutions 2
+(c) Suppose now that 𝜎 is not known. Redo parts (a) and (b), and compare your answers
+to those above.
+Solution: The sample standard deviation is
+∑(𝑥 − 𝑥)̄ 2
+𝑠 = √ 𝑖 = sd(c(352 351 361 353 352 358 360 358 359)) ≈ 3.94.
+𝑛 − 1
+Since 𝑛 = 9 the number of degrees of freedom for the 𝑡-statistic is 8.
+Redo (a): 𝑡 = qt(0.975, 8) ≈ 2.31. So the 95% t-confidence interval is
+8,0.025
+𝑠
+𝑥 ̄ ± 𝑡 ⋅ √ ≈ 356 ± 3.03 = [352.97, 359.03].
+8,0.025 𝑛
+Redo (b): 𝑡 = qt(0.99, 8) ≈ 2.896. So the 98% confidence interval is
+8,0.01
+𝑠
+𝑥 ̄ ± 𝑡 ⋅ √ ≈ 356 ± 3.89 = [352.20, 359.80].
+8,0.01 𝑛
+These intervals are larger than the corresponding intervals from parts (a) and (b). The new
+uncertainly regarding the value of 𝜎 means we (generally) have larger intervals for the same
+level of confidence. This is reflected in the fact that the 𝑡 distribution has fatter tails than
+the normal distribution.
+Problem 3. (10 pts.) (Cholesterol)
+In a study on cholesterol levels a sample of 12 men and women was chosen. The plasma
+cholesterol levels (mmol/L) of the subjects were as follows:
+6.0, 6.4, 7.0, 5.8, 6.0, 5.8, 5.9, 6.7, 6.1, 6.5, 6.3, 5.8.
+(a) Estimate the variance of the plasma cholesterol levels with a 95% confidence interval.
+Solution: This is similar to problem 3c. We assume the data is normally distributed with
+unknown mean 𝜇 and variance 𝜎2.
+We have the number of data points 𝑛 = 12. We use the following R code:
+data = c(6.0, 6.4, 7.0, 5.8, 6.0, 5.8, 5.9, 6.7, 6.1, 6.5, 6.3, 5.8)
+∑(𝑥 − 𝑥)̄ 2
+s2 = var(data) # sample variance = 𝑠2 = 𝑖
+𝑛 − 1
+n = length(data)
+conf = 0.95
+alpha = 1-conf
+df = n - 1 # degrees of freedom
+c_alpha_2 = qchisq(1-alpha/2, df) # critical value
+c_1_minus_alpha_2 = qchisq(alpha/2, df) # critical value
+CI = c((n-1)*s2/c_alpha_2, (n-1)*s2/c_1_minus_alpha_2)
+cat('s2 =', s2, '\n')
+cat('c_alpha_2 =', c_alpha_2, ', c_1_minus_alpha_2 =', c_1_minus_alpha_2, '\n')
+cat(conf, 'CI = [', CI[1], ',', CI[2], ']','\n')
+The code outputs:
+s2 = 0.1535606
+18.05 Problem Set 10, Spring 2022 Solutions 3
+c_alpha_2 = 21.92005 , c_1_minus_alpha_2 = 3.815748
+0.95 CI = [ 0.07706035 , 0.4426829 ]
+So the 95% confidence interval is
+(𝑛−1) ⋅𝑠2 (𝑛−1) ⋅𝑠2
+[ , ] ≈ [0.077, 0.443].
+𝑐 𝑐
+0.025 0.975
+𝑠2 = 0.154 is our point estimate for 𝜎2 and the confidence interval is our range estimate
+with 95% confidence.
+(b) What assumptions did you make about the sample in order to make your estimate?
+Solution: We have assumed that the plasma cholesterol levels are independent and nor-
+mally distributed. This might not be a good assumption because, e.g. cholesterol for men
+and women might follow different distributions. We’d have to do further exploration to
+understand this.
+Problem 4. (10 pts.) (Candy)
+A candy manufacturer produces packs of candy targeted to weigh 52 grams. A quality control
+manager was concerned that the variation in the actual weights was larger than acceptable.
+That is, They were concerned that some packs weighed significantly less than 52-grams
+and some weighed significantly more than 52 grams. In order to estimate 𝜎, the standard
+deviation of the weights of the nominal 52-gram packs, they took a random sample of n = 10
+packs off of the factory line. The random sample yielded a sample variance of 4.2 grams2.
+(a) Use the random sample to derive a 95% confidence interval for 𝜎. Note: the interval is
+for 𝜎 not 𝜎2.
+Solution: We have 𝑛 = 10 and 𝑠2 = 4.2. Assuming that the weights are normally dis-
+tributed with variance 𝜎2, we know that (𝑛−1)𝑠2 ∼ 𝜒2. We have
+𝜎2 9
+𝑐 = qchisq(0.975, 9) = 19.023
+0.025
+𝑐 = qchisq(0.025, 9) = 2.7004
+0.975
+The 95% confidence interval for 𝜎 is given by
+𝑠2(𝑛 − 1) 𝑠2(𝑛 − 1)
+[√ ,√ ] ≈ [1.4096, 3.7414]
+𝑐 𝑐
+0.975 0.025
+(b) What assumptions did you make about the sample in order to make your estimate.
+Solution: In order to use a 𝜒2 confidence interval we assumed that the weights of the packs
+of candy are independent and normally distributed with variance 𝜎2.
+Problem 5. (33: 5,10,18 pts.) Probabilities for hypotheses
+When given a 95% confidence interval many people often mistake this to mean that there is
+a 95% probablility that the true value of the parameter is in the confidence interval. This
+violates the maxim that frequentists don’t give probabilities for hypotheses, but the reasoning
+is subtle. This problem is aimed at understanding the subtlety.
+(a) What 95% does mean. Imagine running the following experiment.
+18.05 Problem Set 10, Spring 2022 Solutions 4
+• Pick a value 𝜇.
+• Draw a sample of size 𝑛 from a N(𝜇, 52) distribution.
+• Compute the 95% 𝑧-confidence interval for 𝜇.
+• Check if 𝜇 is in the confidence interval.
+• Record the result.
+If you repeat this experiment many times, what percentage of the time will the chosen 𝜇 be
+in the confidence interval? (Hint, this is not a question about the probability of hypothesized
+values of 𝜇. It’s about the probability of random intervals.)
+Solution: Approximately 95%. This is exactly the definition of confidence: the probability
+that a randomly generated interval will contain the value of 𝜃 that was used to generate it.
+(b) What 95% doesn’t mean. Now let’s modify this a bit. Suppose we have the following
+choices and prior probabilities for 𝜇
+𝜇 0 1 2 3
+𝑝(𝜇) 0.94 0.02 0.02 0.02
+Suppose I pick a random 𝜇 from this prior distribution and draw a sample of size 64 from
+a N(𝜇, 5) distribution. I do not tell you the value of 𝜇, but I do tell you that the sample
+mean is 𝑥 = 1.6.
+We both know the sample size (𝑛 = 64) and the variance used in drawing the sample
+(𝜎2 = 52). So we both know that the 95% confidence interval for 𝜇 is
+𝜎 5
+𝑥 ± 𝑧 ⋅ √ ≈ 1.6 ± 1.96 ⋅ ≈ [0.375, 2.825].
+0.025 𝑛 8
+(i) Compute the prior probability that 𝜇 is in the above confidence interval.
+(ii) Update the probabilities for 𝜇 based on the data and compute the posterior probability
+that 𝜇 is in the above confidence interval.
+Are either of these probabilities close to 95%? Why is this not surprising?
+Solution: (i) The given interval is [0.375, 2.825]. From the possible choices of 𝜇, i.e. 0, 1,
+2, 3, this interval contains 𝜇 = 1 and 𝜇 = 2. Using the prior probability table we get
+𝑃 (𝜇 is in [0.375, 2.825] ) = 𝑃 (𝜇 = 1 or 𝜇 = 2) = 0.04 .
+(ii) We do the usual Bayesian update:
+The prior is given above. The sample mean has distribution 𝑥 ∼ N(𝜇, 𝜎2/𝑛) = N(𝜇, (5/8)2).
+So, the likelihood is
+1
+𝑓(𝑥|𝜇) = √ e−(𝑥−𝜇)2/(50/64).
+2𝜋 ⋅(5/8)
+We used dnorm(1.6, 𝜇, 5/8) to compute the likelihood column in the Bayesian update
+table below. The posterior was computed as usual:
+posterior = (prior × likelihood)/sum(prior × likelihood)
+18.05 Problem Set 10, Spring 2022 Solutions 5
+Here is the Bayesian update table. (The table is rounded to 3 decimal points of precision.
+Each of the values was computed in R to higher precision.)
+Hypothesis prior likelihood Bayes numerator posterior
+𝜇 𝑝(𝜇) 𝑓(1.6 | 𝜇) prior × likelihood 𝑝(𝜇 | 𝑥 = 1.6)
+𝜇 = 0 0.94 0.024 0.023 0.537
+𝜇 = 1 0.02 0.403 0.008 0.191
+𝜇 = 2 0.02 0.520 0.010 0.247
+𝜇 = 3 0.02 0.052 0.001 0.025
+1.0 0.042 1.0
+Now using the posterior probability column we get the posterior probability 𝜇 is in the 95%
+confidence interval [0.375, 2.825] is
+𝑃(𝜇 = 1 or 𝜇 = 2|𝑥 = 1.6) ≈ 0.438 .
+Neither prior or posterior probability is close to 0.95. This is not surprising since frequentist
+confidence intervals makes no use of the prior. So, they can’t tell us the probabilities that
+hypothetical values of 𝜇 are in any given interval. The fact that both confidence intervals and
+Bayesian updating use the likelihood is reflected in the fact that the posterior probability
+just computed is much greater than the prior probability.
+(c) A medical study shows that patients receiving a new cancer treatment survived an average
+of 15 months longer than patients receiving the conventional treatment. The study also found
+that the 95% confidence interval for this average was 10 to 20 months.
+Say whether each of the following statements is true or false. False means that the statement
+does not follow logically from the confidence-interval result.
+(i) There is a 95% probability that the true increase in survival time lies between 10 and 20
+months.
+(ii) The probability that the new treatment increases survival time is at least 95%.
+(iii) The confidence interval provides an estimate of the true value of the average increase
+in survival time.
+(iv) The null hypothesis that there is no change in survival time due to the new treatment
+is likely to be incorrect.
+(v) If we ran the same study 100 times, then in approximately 95 of the studies the 95%
+confidence intervals would contain the true value of the change in survival time.
+(vi) We would reject the null hypothesis of no improvement in survival time at the 5%
+significance level.
+Solution: (i) This statement is a posterior probability of a hypothesis, which is not provided
+by a confidence interval. So, it does not follow logically and therefore should be marked as
+false.
+(ii) Again, this is a probability of a hypothesis, which confidence intervals don’t give us.
+(iii) This statement is true. This is the basic point of confidence intervals.
+(iv) This statement is again a posterior probability of a hypothesis, so it does not follow
+logically and therefore should be marked as false.
+18.05 Problem Set 10, Spring 2022 Solutions 6
+(v) This statement is true. It recognizes that the confidence interval is random and the
+confidence level refers to probabilities about this randomness.
+(Of course, this assumes that our model of the distributions involved is accurate.)
+(vi) This statement is true. Let 𝑥 be the experimental average increase in survival time and
+let 𝜇 be the true average. The 95% confidence interval consists of all values 𝜇 for which
+0
+this experimental average would not cause us to reject the null hypothesis 𝐻 : 𝜇 = 𝜇 . So,
+0 0
+since 0 is outside the interval, we would reject the null hypothesis 𝜇 = 0.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

@@ -1,0 +1,16 @@
+Confidence intervals for the mean when o is unknown
+
+ae RG ews Loe
+©, = sample mean = M,, = Xa to + Xn
+n
+-~ 1.960 ~ 1.960
+P =— <0< 90 = 0.95
+
+e Option 1: use upper bound ona
+
+— if X; Bernoulli: o < 1/2
+
+tion 2: use ad hoc estimate of \ |
+e Op u o o- re a ED)
+
+— if X; Bernoulli: ¢ = /On(1 — Gn)

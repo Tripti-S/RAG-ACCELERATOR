@@ -1,0 +1,201 @@
+Class 18 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. NHST
+You collect data from an experiment and do a left-sided 𝑧-test with significance 0.1. You
+find the 𝑧-value is 1.8
+(i) Which of the following computes the critical value for the rejection region?
+(a) pnorm(0.1, 0, 1) (b) pnorm(0.9, 0, 1)
+(c) pnorm(0.95, 0, 1) (d) pnorm(1.8, 0, 1)
+(e) 1 - pnorm(1.8, 0, 1) (f) qnorm(0.05, 0, 1)
+(g) qnorm(0.1, 0, 1) (h) qnorm(0.9, 0, 1)
+(i) qnorm(0.95, 0, 1)
+(ii) Which of the above computes the 𝑝-value for this experiment?
+(iii) Should you reject the null hypothesis?
+Solution: (i) g. (ii) d. (iii) No. (Draw a picture!)
+Concept question 2. Power
+The power of the test in the graph is given by the area of
+𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 )
+𝐴 0
+𝑅
+𝑅 3
+2
+𝑅 𝑅
+1 4
+𝑥
+reject𝐻 region . non-reject𝐻 region
+0 0
+(a) 𝑅 (b) 𝑅 (c) 𝑅 + 𝑅 (d) 𝑅 +𝑅 +𝑅
+1 2 1 2 1 2 3
+Solution: (c) 𝑅 + 𝑅 . Power = 𝑃 (rejection region | 𝐻 ) = area 𝑅 + 𝑅 .
+1 2 𝐴 1 2
+Concept question 3. Higher power
+Which of the tests below has higher power?
+𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 )
+𝐴 0
+𝑥
+reject𝐻 region . non-reject𝐻 region
+0 0
+𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 )
+𝐴 0
+𝑥
+reject𝐻 region . non-reject𝐻 region
+0 0
+1
+18.05 class 18 problems, Spring 2022 2
+(1) Top graph (2) Bottom graph
+Solution: (2) The bottom graph.
+Power = 𝑃 (𝑥 in rejection region | 𝐻 ). In the bottom graph almost all the probability of
+𝐴
+𝐻 is in the rejection region, so the power is close to 1.
+𝐴
+Board questions
+Problem 1. Significance level and power
+Our data 𝑥 follows a binomial(𝜃, 10) distribution with 𝜃 unknown.
+The rejection region is boxed in orange. The corresponding probabilities for different hy-
+potheses are shaded below it.
+𝑥 0 1 2 3 4 5 6 7 8 9 10
+𝐻 ∶ 𝑝(𝑥|𝜃=0.5) 0.001 0.010 0.044 0.117 0.205 0.246 0.205 0.117 0.044 0.010 .001
+0
+𝐻 ∶ 𝑝(𝑥|𝜃=0.6) 0.000 0.002 0.011 0.042 0.111 0.201 0.251 0.215 0.121 0.040 0.006
+𝐴
+𝐻 ∶ 𝑝(𝑥|𝜃=0.7) 0.000 0.000 0.001 0.009 0.037 0.103 0.200 0.267 0.233 0.121 0.028
+𝐴
+(a) Find the significance level of the test.
+(b) Find the power of the test for each of the two alternative hypotheses.
+(c) What is the probability of a type I error? type II?
+Solution: (a) Significance level = 𝑃 (𝑥 in rejection region | 𝐻 ) = 0.11
+0
+(b) 𝜃 = 0.6: power = 𝑃 (𝑥 in rejection region | 𝐻 ) = 0.18
+𝐴
+𝜃 = 0.7: power = 𝑃 (𝑥 in rejection region | 𝐻 ) = 0.383
+𝐴
+(c) The probability of a type I error is the significance: 0.11.
+The probability of a type II error depends on 𝐻 , it is 1 - power computed in problem 2.
+𝐴
+Problem 2. 𝑧 and one-sample 𝑡-test
+For both problems use significance level 𝛼 = 0.05.
+Assume the data 2, 4, 4, 10 are independently drawn from a 𝑁(𝜇, 𝜎2).
+The hypotheses are: 𝐻 : 𝜇 = 0 and 𝐻 : 𝜇 ≠ 0.
+0 𝐴
+(a) Is the test one or two-sided? If one-sided, which side?
+(b) Assume 𝜎2 = 16 is known and test 𝐻 against 𝐻 .
+0 𝐴
+(c) Now assume 𝜎2 is unknown and test 𝐻 against 𝐻 .
+0 𝐴
+Solution: We have 𝑥̄= 5, 𝑠2 = 9+1+1+25 = 12
+3
+(a) Two-sided. A standardized sample mean far above or below 0 is evidence against 𝐻 ,
+0
+and consistent with 𝐻 .
+𝐴
+(b) We’ll use the standardized mean 𝑧 for the test statistic (we could also use 𝑥)̄ . The null
+distribution for 𝑧 is N(0, 1). This is a two-sided test so the rejection region is
+(𝑧 ≤ 𝑧 or 𝑧 ≥ 𝑧 ) = (−∞, −1.96] ∪ [1.96, ∞)
+0.975 0.025
+Since 𝑧 = ( 𝑥 ̄− 0)/(4/2) = 2.5 is in the rejection region we reject 𝐻 in favor of 𝐻 .
+0 𝐴
+18.05 class 18 problems, Spring 2022 3
+Repeating the test using a 𝑝-value. Since 𝑧 > 0 and the test is two-sided:
+𝑝 = 2𝑃(𝑍 ≥ 2.5 | 𝐻 ) = 2 ∗(1 − pnorm(2.5)) ≈ 0.012
+0
+Since 𝑝 < 𝛼 we reject 𝐻 in favor of 𝐻 .
+0 𝐴
+(c) We’ll use the Studentized 𝑡 = 𝑥̄− √ 𝜇 for the test statistic. The null distribution for 𝑡 is
+√ 𝑠/ 𝑛
+𝑡 . For the data we have 𝑡 = 5/ 3. This is a two-sided test and 𝑡 is positive, so the 𝑝-value
+3
+is
+√
+𝑝 = 2𝑃 (𝑇 ≥ 5/ 3 | 𝐻 ) = 2 ∗ (1 − 𝑝𝑡(5/𝑠𝑞𝑟𝑡(3), 3)) ≈ 0.06318
+0
+Since 𝑝 > 𝛼 we do not reject 𝐻 .
+0
+Problem 3. Two-sample 𝑡-test
+Real data from 1408 women admitted to a maternity hospital for (i) medical reasons or
+through (ii) unbooked emergency admission. The duration of pregnancy is measured in
+complete weeks from the beginning of the last menstrual period.
+Medical: 775 obs. with 𝑥̄ = 39.08 and 𝑠2 = 7.77.
+Emergency: 633 obs. with 𝑥̄ = 39.60 and 𝑠2 = 4.95
+(a) Set up and run a two-sample 𝑡-test to investigate whether the duration differs for the
+two groups.
+(b) What assumptions did you make?
+Solution: (a) The pooled variance for this data is
+774(7.77) + 632(4.95) 1 1
+𝑠2 = ( + ) = 0.0187
+𝑝 1406 775 633
+The 𝑡 statistic for the null distribution is
+𝑥 ̄ − 𝑦̄
+= −3.8064
+𝑠
+𝑝
+Rather than compute the two-sided 𝑝-value using 2*tcdf(-3.8064,1406) we simply note
+that with 1406 degrees of freedom the 𝑡 distribution is essentially standard normal and
+3.8064 is almost 4 standard deviations. So
+𝑃 (|𝑡| ≥ 3.8064) ≈ 𝑃 (|𝑧| ≥ 3.8064)
+which is very small, much smaller than 𝛼 = 0.05 or 𝛼 = 0.01. Therefore we reject the null
+hypothesis in favor of the alternative that there is a difference in the mean durations.
+(b) We assumed the data was normal, independent and that the two groups had equal
+variances. Given the big difference in the sample variances this assumption might not be
+warranted.
+Note: there are significance tests to see if the data is normal and to see if the two groups
+have the same variance.
+18.05 class 18 problems, Spring 2022 4
+Discussion questions
+1. Significance and power
+The null distribution for test statistic 𝑥 is 𝑁(4, 82). The rejection region is {𝑥 ≥ 20}.
+What is the significance level and power of this test?
+Solution: 20 is two standard deviations above the mean of 4. Thus,
+significance = 𝑃 (𝑥 ≥ 20|𝐻 ) ≈ 0.025
+0
+Trick question: we can’t compute the power without an alternative distribution.
+2. Type I errors Q1
+Suppose a journal will only publish results that are statistically significant at the 0.05 level.
+What percentage of the papers it publishes contain type I errors?
+Solution: This is asking for 𝑃 (𝐻 |rejected 𝐻 ). This is the probabilitiy of a hypothesis.
+0 0
+Since we are not given a prior (baserates), we can’t know this. The percentage could be
+anywhere from 0 to 100!
+Remember: signifcance is the false positive rate, i.e 𝑃 (rejection|𝐻 ). You need the base
+0
+rate (prior) to know how often the test as a whole is wrong
+3. Type I errors Q2
+Jerry desperately wants to cure diseases but he is terrible at designing effective treatments.
+He is however a careful scientist and statistician, so he randomly divides his patients into
+control and treatment groups. The control group gets a placebo and the treatment group
+gets the experimental treatment. His null hypothesis 𝐻 is that the treatment is no better
+0
+than the placebo. He uses a significance level of 𝛼 = 0.05. If his 𝑝-value is less than 𝛼 he
+publishes a paper claiming the treatment is significantly better than a placebo.
+(a) Since his treatments are never, in fact, effective what percentage of his experiments
+result in published papers?
+(b) What percentage of his published papers contain type I errors, i.e. describe treatments
+that are no better than placebo?
+Solution: (a) Since in all of his experiments 𝐻 is true, roughly 5%, i.e. the significance
+0
+level, of his experiments will have 𝑝 < 0.05 and be published.
+(b) This is asking for 𝑃 (𝐻 |rejected 𝐻 ). This is the probabilitiy of a hypothesis. Since we
+0 0
+are given the prior (baserate), that is, since all his treatments are no better than placebo,
+we can answer this: All of his published papers contain type I errors.
+4. Type I errors Q3
+Jen is a genius at designing treatments, so all of her proposed treatments are effective. She
+is also a careful scientist and statistician, so she too runs double-blind, placebo controlled,
+randomized studies. Her null hypothesis is always that the new treatment is no better than
+the placebo. She also uses a significance level of 𝛼 = 0.05 and publishes a paper if 𝑝 < 𝛼.
+(a) How could you determine what percentage of her experiments result in publications?
+18.05 class 18 problems, Spring 2022 5
+(b) What percentage of her published papers contain type I errors, i.e. describe treatments
+that are, in fact, no better than placebo?
+Solution: (a) The percentage that get published depends on the power of her treatments.
+If they are only a tiny bit more effective than placebo then roughly 5% of her experiments
+will yield a publication. If they are a lot more effective than placebo then as many as 100%
+could be published.
+(b) This is asking for 𝑃 (𝐻 |rejected). Since we are given the prior (baserate), that is,
+0
+since all her treatments are better than placebo, we can answer this: None of her published
+papers contain type I errors.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

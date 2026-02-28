@@ -1,0 +1,19 @@
+What exactly does the CLT say? — Practice
+
+S ra
+Sn = Xp +: + Xn go See Zire NCO; 2)
+Jno
+
+[ central Limit Theorem: For every 2: lim. P(Zn< 2) =PC <2) ]
+
+e The practice of normal approximations:
+— treat Zp as if it were normal >, = VunoZ a iY
+
+— hence treat S$, as if normal: M(np, no?)
+
+e Can we use the CLT when n is “moderate”? n=30 ?
+
+— usually, yes
+
+— symmetry and unimodality help
+.

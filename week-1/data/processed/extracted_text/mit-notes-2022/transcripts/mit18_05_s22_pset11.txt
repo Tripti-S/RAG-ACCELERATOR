@@ -1,0 +1,71 @@
+18.05 Problem Set 11, Spring 2022
+Problem 1. (20: 10,5,5 pts.) (Height)
+Suppose 𝜇 is the average height of a college male. You measure the heights (in inches) of
+twenty college men, getting data 𝑥 , … , 𝑥 , with sample mean 𝑥 = 69.55 in. and sample
+1 20
+variance 𝑠2 = 14.26 in2. Suppose that the 𝑥 are drawn from a normal distribution with
+𝑖
+unknown mean 𝜇 and unknown variance 𝜎2.
+(a) Using 𝑥 and 𝑠2, construct a 90% 𝑡–confidence interval for 𝜇.
+(b) Now suppose you are told that the height of a college male is normally distributed with
+standard deviation 3.77 in. Using the same data as in part (a), construct a 90% 𝑧–confidence
+interval for 𝜇.
+(c) In (b), how many people in total would you need to measure to bring the width of the
+90% z–confidence interval down to 1 inch?
+Problem 2. (10 pts.) Confidence intervals from standardized statistics
+The Beta distribution arises in a surprising way: draw a sample of size 𝑛 from a uniform(0,1)
+distribution and let 𝑤 be the second smallest value. Then it turns out that
+2
+𝑤 ∼ Beta(2,𝑛 − 1).
+2
+Now suppose you draw a sample of size 𝑛 from a uniform(0, 𝑎) distribution, where 𝑎 is
+unknown. If we let 𝑦 be the second smallest data value then the standardized order
+2
+statistic
+𝑦 /𝑎 ∼ Beta(2,𝑛 − 1).
+2
+Use 𝑦 and qbeta in R, to define a 95% confidence interval for 𝑎. (Because 𝑛 and 𝑦 are
+2 2
+not given this will be a general formula not numbers.)
+Finally, supposing 𝑛 = 9 and 𝑦 = 1.5, give the 95% confidence interval for 𝑎.
+2
+Problem 3. (35: 15,10,10 pts.) Various variances
+Consider a sample of size 𝑛 drawn from a Bernoulli(𝜃) distribution. (That is, a draw from a
+binomial(𝑛, 𝜃) distribution.) In constructing a confidence interval the conservative estimate
+is that the variance of the underlying Bernoulli distribution is 𝜎2 = 1/4 –this is conservative
+because for any 𝜃 we know that 𝜎2 ≤ 1/4.
+(a) In this problem we want to compare how well normal distribution using the conservative
+estimate matches the one using the true variance
+(i) Let 𝜃 = 0.5 and 𝑛 = 250. Make a plot that includes
+• the pmf 𝑝(𝑥|𝜃) of the binomial(𝑛, 𝜃) distribution.
+• the pdf of the normal distribution with the same mean and variance as the binomial((𝑛, 𝜃))
+distribution
+• the normal distribution with the same mean (as the binomial distribution) and conserva-
+tive variance to your plot.
+Note: The conservative variance for a Bernoulli(𝜃) distribution is 1/4. So the conservative
+variance for a binomial(𝑛, 𝜃) is 𝑛/4.
+1
+18.05 Problem Set 11, Spring 2022 2
+Note. It is not reasonable to compare the probabilities in a pmf to the densities in a pdf.
+In order to make them comparable, but also to make the graphs readable, you should plot
+the pmf as points, but think of them as the top of a density histogram with bin width 1
+and breaks on the half integers.
+(ii) Make a similar plot for 𝜃 = 0.3 and 𝑛 = 250.
+(iii) Make a similar plot for 𝜃 = 0.1 and 𝑛 = 250.
+In each case, how close are each of the normal distributions to the binomial distribution?
+How do the two normal distributions differ? Based on your plots, for what range of 𝜃 do you
+think the conservative normal distribution is a reasonable approximation for binomial(𝑛, 𝜃)
+with large 𝑛?
+(b) Suppose 𝜃 is the probability of success, and that the result of an experiment was
+140 successes out of 250 trials. Find 80% and 95% confidence intervals for 𝜃 using the
+conservative variance. (For the 95% interval use the rule-of-thumb that 𝑧 = 2.)
+0.025
+(c) Using the same data as in part (b), find an 80% posterior probability interval for 𝜃
+using a flat prior, i.e. Beta(1, 1). Center your interval between the 0.1 and 0.9 quantiles.
+Compare this with the 80% confidence interval in part (b).
+Hint: Use qbeta(p, a, b) to do the computation.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

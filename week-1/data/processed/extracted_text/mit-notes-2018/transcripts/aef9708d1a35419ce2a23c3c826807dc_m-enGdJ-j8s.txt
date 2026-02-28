@@ -1,0 +1,82 @@
+MITOCW | MITRES6_012S18_L21-07_300k
+An interesting random variable associated with the Bernoulli process is the time of the kth success or the time of
+the kth arrival, depending on what kind of context we have in mind.
+So the picture is as follows.
+The process starts and we wait until the first arrival occurs, and the time that it occurs, we call that time Y1.
+Then we keep observing the process, and there's a time at which a second arrival comes.
+We call that time Y2.
+The process continues, and there is a certain time that the third arrival comes.
+We call that time Y3.
+Now, the time that the first arrival comes, this is also what we called T1.
+T1 is this length.
+It's the time until the first arrival.
+Let us give a name to the time it takes from the first to the second arrival, and we call that time T2, which is the
+second inter-arrival time.
+And similarly, we will call T3 the time between the second and the third arrival.
+So we define in general Tk to be the difference between two consecutive arrival times.
+And of course, the time of the third arrival is the sum of T1 plus T2 plus T3, the first three inter-arrival times.
+And more generally, Yk is going to be the sum of these k inter-arrival times.
+So in order to study the random variable Yk and its properties, the way that we can proceed is to understand first
+the random variables Ti.
+What kind of random variables are they?
+Well, we know that T1, the time until the first arrival, has a geometric distribution with parameter p.
+Now, at the time of the first arrival, the process starts fresh.
+So after this time, there will be a sequence of independent Bernoulli trials, and T2 will be the number of Bernoulli
+trials it takes until an arrival.
+So T2 will also be geometric with the same parameter, p.
+Furthermore, because the process starts fresh, whatever happens in the future after this time is independent from
+whatever happened in the past, and so the random variable T2 will be independent from T1.
+And then by a similar argument, T3 will be independent from T1 and T2 and will also have the same geometric
+distribution.
+Based on these properties, we can now go ahead and calculate properties of Yk.
+Yk is the sum of random variables.
+The expected value of Yk is the sum of the expected values of the Ts.
+Each one of the Ts has a geometric distribution with parameter p, and in particular has a mean of 1 over p.
+By adding those means, we obtain that the mean of Yk is k over p.
+Similarly, the variance of Yk will be equal to the sum of the variances of the Tis, the reason being that the Tis are
+independent, and so to find the variance of the sum, it's enough to just add the variances.
+And we have a formula for the variance of a geometric, and using that formula and multiplying it by k, we obtain
+the variance of Yk.
+Finally, we would like to calculate the PMF of Yk.
+So we would like to find this probability here, the probability that Yk takes on a specific value equal to t.
+Notice that in this argument, we're thinking of k as a fixed, given number.
+For example, we're interested in the time of the fifth arrival.
+This is a random variable that can take different values, t, and we want to find the probabilities of those different
+values, t.
+So think of k as being fixed and t as a parameter that varies, and we want to carry out this calculation for all
+possible choices of t.
+Now, what is this event here?
+This is the event that the kth arrival occurs at time t.
+So this means that at time t, we have an arrival.
+But for this to be the kth arrival, we must have k minus 1 arrivals in the previous time slots, of which there's t
+minus 1 of them.
+The probability that Yk is equal to t is the probability that these two events happen, k minus 1 arrivals in t minus 1
+slots and one arrival at slot number t.
+So we are looking at the probability that these two events occur.
+Now this event, k minus 1 arrivals in t minus 1 slots, is an event that's completely determined by whatever
+happens in the first t minus 1 time slots, whereas the event of an arrival at slot time t refers to whatever happens
+during slot time t.
+Because of our assumptions on the Bernoulli process, whatever happens during these t minus 1 time slots is
+independent from what happens in slot number t.
+So the probability of these two events happening, because of independence, will be the probability of the first
+event happening, k minus 1 arrivals in time t minus 1, times the probability of an arrival at time t.
+Now, the first probability is given by the binomial formula.
+In t minus 1 time slots, we want to have k minus 1 arrivals.
+And the binomial formula gives us an exponent, p to this power times 1 minus p to the power that's the difference
+of these two numbers, which is t minus k.
+And then finally, we multiply with the probability of an arrival at time t, which is equal to p.
+This p will cancel the exponent of minus 1 up here and leads us to this formula for the probability that the kth
+arrival happens at time t.
+Notice the range of the random variable Yk.
+The kth arrival cannot happen before time k.
+You need at least k time slots to obtain k arrivals, so this probability will be positive only starting at time k and for
+future times.
+So this random variable Yk, in general, will have a PMF of this form.
+It's zero for ts smaller than k, and then at time k, in general, it's going to be a positive entry.
+And for future values of t, it will also have positive entries.
+And this PMF extends all the way to infinity because it is possible that the kth arrival takes an arbitrarily long time
+to occur.
+If we consider different values of k, of course we will get a different PMF.
+The PMF of Y3 is different than the PMF of Y2.
+And the PMF of Y3 will generally sit to the right of the PMF of Y2 because the third arrival generally will take
+longer to occur than the second arrival.

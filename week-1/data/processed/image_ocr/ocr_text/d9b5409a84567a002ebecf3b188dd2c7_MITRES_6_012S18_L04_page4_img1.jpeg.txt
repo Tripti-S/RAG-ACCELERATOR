@@ -1,0 +1,6 @@
+Example
+
+e Find the probability that:
+six rolls of a (six-sided) die all give different numbers.
+
+(Assume all outcomes equally likely.)

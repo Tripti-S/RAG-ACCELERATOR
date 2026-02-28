@@ -1,0 +1,70 @@
+MITOCW | MITRES6_012S18_L13-10_300k
+We now study a model that involves the sum of independent random variables, but with a twist.
+It's going to be the sum of a random number of independent random variables, as opposed to a fixed number.
+This is a model that shows up in a variety of applications, but it will also help us fine tune our command of the law
+of iterated expectations, and the law of total variance.
+The story goes as follows-- you go shopping and you visit a number of stores, except that the number of stores
+that you will visit, is itself a random variable.
+At each one of the stores, you spend a certain amount of money.
+We denote it by Xi.
+And we make the assumption that the Xi's are drawn from a certain distribution.
+They're identically distributed.
+And they're independent of each other.
+We also make the assumption that the Xi's are independent of capital N. This means that no matter how many
+stores you visit, the Xi, the amount of money you spend in each one of the stores that you visit, is a random
+variable that's drawn from a common distribution, which does not change, no matter what capital N is.
+With these assumptions in place, let us now focus on the total amount of money that you're spending.
+This is the sum of random variables, but with the extra twist that the index goes up to capital N, which is itself a
+random variable.
+How do we deal with this situation?
+One approach that's always worth trying when faced with a complicated problem is to try to condition on some
+information that will make the problem easier.
+In this case, we can condition on the value of capital N taking a fixed specific value because in that case, we will
+be dealing with the sum of a finite number of random variables where that number is a fixed, specific number.
+And this is a situation we have encountered before and know how to deal with it.
+So let us get started.
+Let us calculate the expected value of Y, if we condition on the number of stores.
+Let's say, for example, someone tells us that we visited five stores.
+Then, the expected value of Y is going to be the expected value of the sum of the amount of money you spent in
+each one of those five stores.
+In our instance, it's that random variable, capital N.
+But since I told you that capital N takes a specific numerical value, this means that this instance of capital N, in the
+index of the summation, can be replaced by little n.
+If I tell you that capital N is equal to little n, then this number here, capital N, becomes the same as little n.
+Here we use now the assumption that capital N is independent from the Xi's.
+Here we have the sum of a fixed number of random variables.
+All of them are independent of capital N.
+If I give you some information on capital N, this does not change the distribution of the Xi's, so the conditioning
+does not affect the answer.
+The conditional expectation is going to be the same as the unconditional expectation.
+And now we have the expected value of a sum of random variables.
+Each one of them has a common expectation that's denoted with this notation.
+This is the common expected value of all the Xi's, and we're adding n of them, so we obtain n times this
+expectation.
+Now let us apply the total expectation theorem.
+We take the familiar form of the total expectation theorem, and in here, ' we can plug in the expression that we
+have just found, which is n times expected value of X. Now the expected value of X is just a number.
+And then we have this summation here, which we recognize to be just the definition of the expected value of N.
+And so we come to the conclusion that the expected amount of money that you will be spending is equal to the
+following product-- the expected number of stores that you visit times the expected amount of money that you will
+be spending in each store.
+This is a quite plausible answer.
+It makes sense.
+On the average, the amount of money you spend is equal to the average number of stores times the average
+amount of money in each store.
+So it is intuitively what you might expect.
+On the other hand, we know that reasoning "on the average" does not always give us the right answers.
+So it's important to corroborate this particular formula by working out a mathematical derivation.
+Now let us carry out a second mathematical derivation using the law of iterated expectations.
+To use the law of iterated expectations, we need to put our hands on this random variable-- the abstract
+conditional expectation.
+What is this object?
+It's a random variable that takes this value whenever capital N is equal to little n.
+So it's an object that takes this value whenever capital N is equal to little n.
+But that object is the same as this random variable because this is the random variable that takes the value here
+when capital N is equal to little n.
+Therefore, the abstract conditional expectation takes this particular form here, which we can substitute inside this
+expectation here.
+And now notice that the expected value of X is a constant, so it can be pulled outside this expectation.
+And we're left with a product of the expected value of N times the expected value of X. So this completes the
+derivation of the expected value of the sum of a random number of random variables.

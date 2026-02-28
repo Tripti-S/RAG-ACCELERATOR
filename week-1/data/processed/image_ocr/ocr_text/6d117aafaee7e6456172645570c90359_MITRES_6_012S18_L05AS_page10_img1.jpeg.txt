@@ -1,0 +1,18 @@
+Geometric random variable; parameter p: O<p<1
+e Experiment: infinitely many independent tosses of a coin; P(Heads) = p
+e Sample space: Set of infinite sequences of H and T a ELE 8 HH Ts $2
+
+e Random variable X: number of tosses until the first Heads Kes
+
+e Model of: waiting times; number of trials until a success
+K-! _
+yx = 2 (XFK) AR (TegeT He Oe Pb BL
+Kr
+
+px(k) p
+o P(no Heads ever) <f( es eae re.) e (~ p)* 6-OP ,
+
+i 2 d k wwe cere
+
+p=1/3
+

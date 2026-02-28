@@ -1,0 +1,13 @@
+Understanding convergence “in probability”
+
+e Ordinary convergence e Convergence in probability
+— Sequence an; number a — Sequence Y¥;; number a
+ana Yn +a
+
+“an eventually gets and stays
+
+(arbitrarily) close to a” ° for any «> 0, P(|¥n —al > c) +0
+
+e For every «> 0, there exists no, “(almost all) of the PMF/PDF of Y,
+such that for every n> no, eventually gets concentrated
+we have |an —a| <e (arbitrarily) close to a”

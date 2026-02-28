@@ -1,0 +1,17 @@
+Conditional PDFs, given another r.v.
+
+fxy(@,y)
+fxja(2)
+fxyy(@ | y)
+
+pxy(a,y)
+; pxy(@y) , px|a(x)
+pxy(@ly) = P(X =2|Y=y)= py)” if py(y) > 0 px ly)
+Definition: — fyjy(«| y) = fay) if fy(y) >0
+Pla < X <x+6/A) & fxja(x) - 4, where P(A) > 0
+
+Y=7 Pay 5
+Pe<X<etslysv<yte 2 Savor | § (ely) 5
+5x SK
+
+Definition: P(X e€A|Y¥=y)= [\fxiv@ | y) da

@@ -1,0 +1,15 @@
+Convergence “in probability”
+
+WLLN: For any e>0, P(|Mn—p| >«) +0, as noo
+
+cP
+e Would like to say that “Mn, converges to py” M u % aa ld
+
+e Need to define the word “converges”
+
+e Sequence of random variables Yn; not necessarily independent
+
+Definition: A sequence Y, converges in probability to a number a if:
+
+for anye>0, lim P(|Yn—a|>«) =0
+

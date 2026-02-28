@@ -1,0 +1,15 @@
+Convergence in probability examples
+
+py, (y)
+1—(1/n)
+1/n ,
+n2 y G Fo,
+m7 00
+£70 PC lt.- olze) = fm —» 0
+m0
+
+!
+E[fn] = 2s - n 900
+“ "30
+
+e convergence in probability does not imply convergence of expectations

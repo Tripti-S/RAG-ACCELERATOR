@@ -1,0 +1,16 @@
+Covariance properties
+cov(X, X) = El (x- é€[*}) ipl [ cow X¥) = BK ELD <P] ]
+svar(x) = EL x*] - -(efe})* -E[ x1] - Efxelr)]
+-ELelx)y) ELE DIET DL
+
+cov(aX Y
+var = Efrr] - eSeJEle3
+
+(assume O weans)
+=Eftaxsh)]=agfer) beh)  - Eb deTx) + EDseT 1
+=A. cov (x, y)
+cou(X,¥ + Z) = E]x (v+2))
+
+=G[xY)+E[x2)= cov(n,4) + [cover = E[XY] - pixIE0]
+cov(x,2)
+

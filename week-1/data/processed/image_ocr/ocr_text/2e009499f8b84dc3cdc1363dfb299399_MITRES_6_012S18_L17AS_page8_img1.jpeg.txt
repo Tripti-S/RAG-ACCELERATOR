@@ -1,0 +1,15 @@
+LLMS for inferring the parameter of a coin
+
+Cov(O, X)
+var(X)
+
+Sims = E[O] + (X — E[X])
+
+n(n + 2)
+2
+
+cov(©, XxX) = a var(X) = a E[X] = a
+
+aA
+4 X41 _
+S._ms = oto” Gis

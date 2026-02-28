@@ -1,0 +1,47 @@
+🚀 Week 2: Single Strategy Indexing
+==================================================
+🎯 Strategy: semantic
+🧠 Embedder: voyage
+🧪 Mode: FULL (all files)
+📋 Loading deduplication manifest...
+   Total files in manifest: 184
+   Deduplication reduction: 25.81%
+🚀 FULL MODE: Processing all deduplicated files
+📁 Files to process: 184
+
+======================================================================
+📊 INDEXING STRATEGY: Semantic (Adaptive)
+🧠 EMBEDDER: Voyage-4-lite (API)
+======================================================================
+🚀 Using Voyage embedder: voyage-4-lite (2048d, 32000 max tokens)
+🔧 Creating Chunking Pipeline...
+📊 Strategy: Semantic (Adaptive)
+🧠 Embedder: Voyage-4-lite (API)
+🔢 Dimensions: 2048
+📊 Collection: week2_semantic_voyage
+⚡ Batch Size: 32
+⏱️  Qdrant Timeout: 120s
+🔧 Creating Qdrant collection: week2_semantic_voyage...
+✅ Qdrant collection created: week2_semantic_voyage
+🔗 Connecting pipeline components...
+✅ Pipeline created for strategy: Semantic (Adaptive)
+🚀 Ready to index documents!
+
+🚀 Starting indexing...
+📁 Files to process: 184
+Converting markdown files to Documents:   0%|          | 0/71 [00:00<?, ?it/s]Converting markdown files to Documents:  28%|██▊       | 20/71 [00:00<00:00, 198.63it/s]Converting markdown files to Documents:  66%|██████▌   | 47/71 [00:00<00:00, 219.51it/s]Converting markdown files to Documents: 100%|██████████| 71/71 [00:00<00:00, 270.37it/s]
+Calculating embeddings:   0%|          | 0/12 [00:00<?, ?it/s]Calculating embeddings:   8%|▊         | 1/12 [00:01<00:14,  1.31s/it]Calculating embeddings:  17%|█▋        | 2/12 [00:04<00:24,  2.41s/it]Calculating embeddings:  25%|██▌       | 3/12 [00:05<00:14,  1.57s/it]Calculating embeddings:  33%|███▎      | 4/12 [00:06<00:11,  1.42s/it]Calculating embeddings:  42%|████▏     | 5/12 [00:06<00:08,  1.15s/it]Calculating embeddings:  50%|█████     | 6/12 [00:07<00:06,  1.09s/it]Calculating embeddings:  58%|█████▊    | 7/12 [00:08<00:04,  1.02it/s]Calculating embeddings:  67%|██████▋   | 8/12 [00:09<00:03,  1.14it/s]Calculating embeddings:  75%|███████▌  | 9/12 [00:09<00:02,  1.27it/s]Calculating embeddings:  83%|████████▎ | 10/12 [00:10<00:01,  1.34it/s]Calculating embeddings:  92%|█████████▏| 11/12 [00:11<00:00,  1.39it/s]Calculating embeddings: 100%|██████████| 12/12 [00:11<00:00,  1.44it/s]Calculating embeddings: 100%|██████████| 12/12 [00:11<00:00,  1.01it/s]
+  0%|          | 0/383 [00:00<?, ?it/s] 26%|██▌       | 100/383 [00:04<00:12, 22.62it/s] 52%|█████▏    | 200/383 [00:10<00:10, 17.59it/s] 78%|███████▊  | 300/383 [00:14<00:03, 20.85it/s]400it [00:17, 24.31it/s]                         400it [00:17, 22.47it/s]
+
+✅ Token Limit Check: All 383 chunks within 32000 token limit
+   Max chunk: 7498 tokens | Avg: 541 tokens
+
+✅ Indexing completed!
+⏱️  Processing time: 52.40 seconds
+📝 Documents written: 383
+⚡ Avg time per file: 0.28 seconds
+
+🎯 Collection created: week2_semantic_voyage
+   Ready for RAG queries!
+
+🎉 Strategy indexed successfully!

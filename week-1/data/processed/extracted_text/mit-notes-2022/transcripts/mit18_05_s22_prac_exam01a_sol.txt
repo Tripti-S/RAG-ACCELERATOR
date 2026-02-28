@@ -1,0 +1,379 @@
+Exam 1 Practice Questions I –solutions, 18.05, Spring 2022
+Notes.
+Not every possible problem can be covered in 13 problems. Look at the other review
+problems as well as the readings, psets and class problems.
+Even the first 13 problems are much longer than the actual test will be,
+Problem 1. In a ballroom dancing class the students are divided into group 𝐴 and group
+𝐵. There are six people in group 𝐴 and seven in group 𝐵. If four 𝐴s and four 𝐵s are
+chosen and paired off, how many pairings are possible?
+Solution: Build the pairings in stages and count the ways to build each stage:
+6
+Stage 1: Choose the 4 from group 𝐴: ( ).
+4
+7
+Stage 2: Choose the 4 from group 𝐵: ( )
+4
+We need to be careful because we don’t want to build the same 4 couples in multiple ways.
+Line up the 4 𝐴’s 𝐴 , 𝐴 , 𝐴 , 𝐴
+1 2 3 4
+Stage 3: Choose a partner from the 4 𝐵s for 𝐴 : 4.
+1
+Stage 4: Choose a partner from the remaining 3 𝐵s for 𝐴 : 3
+2
+Stage 5: Choose a partner from the remaining 2 𝐵s for 𝐴 : 2
+3
+Stage 6: Pair the last 𝐵 with 𝐴 : 1
+4
+6 7
+Number of possible pairings: ( )( )4!.
+4 4
+Note: we could have done stages 3-6 in one go as: Stages 3-6: Arrange the 4 𝐵s opposite
+the 4 𝐴s: 4! ways.
+Problem 2. Let 𝐴 and 𝐵 be two events. Suppose the probability that neither 𝐴 or 𝐵 occurs
+is 2/3. What is the probability that one or both occur?
+Solution: We are given 𝑃(𝐴𝑐 ∩ 𝐵𝑐) = 2/3 and asked to find 𝑃(𝐴 ∪ 𝐵).
+𝐴𝑐 ∩ 𝐵𝑐 = (𝐴 ∪ 𝐵)𝑐 ⇒ 𝑃(𝐴 ∪ 𝐵) = 1−𝑃(𝐴𝑐 ∩ 𝐵𝑐) = 1/3.
+Problem 3. Suppose you are taking a multiple-choice test with 𝑐 choices for each question.
+In answering a question on this test, the probability that you know the answer is 𝑝. If you
+don’t know the answer, you choose one at random. What is the probability that you knew
+the answer to a question, given that you answered it correctly?
+Solution: The following tree shows the setting
+𝑝 1−𝑝
+Know Guess
+1 0 1/𝑐 1−1/𝑐
+Correct Wrong Correct Wrong
+Let 𝐶 be the event that you answer the question correctly. Let 𝐾 be the event that you
+actually know the answer. The left circled node shows 𝑃(𝐾 ∩𝐶) = 𝑝. Both circled nodes
+1
+Exam 1 Practice I, Spring 2022 2
+together show 𝑃(𝐶) = 𝑝 +(1−𝑝)/𝑐. So,
+𝑃(𝐾 ∩𝐶) 𝑝
+𝑃(𝐾|𝐶) = =
+𝑃(𝐶) 𝑝+(1−𝑝)/𝑐
+Or we could use the algebraic form of Bayes’ theorem and the law of total probability: Let
+𝐺 stand for the event that you’re guessing. Then we have,
+𝑃(𝐶|𝐾) = 1, 𝑃(𝐾) = 𝑝, 𝑃(𝐶) = 𝑃(𝐶|𝐾)𝑃(𝐾)+𝑃(𝐶|𝐺)𝑃(𝐺) = 𝑝+(1−𝑝)/𝑐. So,
+𝑃(𝐶|𝐾)𝑃(𝐾) 𝑝
+𝑃(𝐾|𝐶) = =
+𝑃(𝐶) 𝑝+(1−𝑝)/𝑐
+Problem 4. Two dice are rolled.
+𝐴 = ‘sum of two dice equals 3’
+𝐵 = ‘sum of two dice equals 7’
+𝐶 = ‘at least one of the dice shows a 1’
+(a) What is 𝑃 (𝐴|𝐶)?
+(b) What is 𝑃 (𝐵|𝐶)?
+(c) Are 𝐴 and 𝐶 independent? What about 𝐵 and 𝐶?
+Solution: Sample space =
+Ω = {(1,1), (1,2), (1,3), …, (6,6)} = {(𝑖,𝑗) |𝑖,𝑗 = 1, 2, 3, 4, 5, 6}.
+(Each outcome is equally likely, with probability 1/36.)
+𝐴 = {(1, 2), (2, 1)},
+𝐵 = {(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)}
+𝐶 = {(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 1), (3, 1), (4, 1), (5, 1), (6, 1)}
+𝑃(𝐴 ∩ 𝐶) 2/36 2
+(a) 𝑃(𝐴|𝐶) = = = ..
+𝑃(𝐶) 11/36 11
+𝑃(𝐵 ∩ 𝐶) 2/36 2
+(b) 𝑃(𝐵|𝐶) = = = ..
+𝑃(𝐶) 11/36 11
+(c) 𝑃(𝐴) = 2/36 ≠ 𝑃(𝐴|𝐶), so they are not independent. Similarly, 𝑃 (𝐵) = 6/36 ≠
+𝑃 (𝐵|𝐶), so they are not independent.
+Problem 5. Suppose that 𝑃 (𝐴) = 0.4, 𝑃 (𝐵) = 0.3 and 𝑃((𝐴∪𝐵)𝐶) = 0.42. Are 𝐴 and 𝐵
+independent?
+Solution: We have 𝑃(𝐴∪𝐵) = 1−0.42 = 0.58 and we know because of the inclusion-
+exclusion principle that
+𝑃(𝐴∪𝐵) = 𝑃(𝐴)+𝑃(𝐵)−𝑃(𝐴∩𝐵).
+Thus,
+𝑃 (𝐴 ∩ 𝐵) = 𝑃 (𝐴) + 𝑃 (𝐵) − 𝑃 (𝐴 ∪ 𝐵) = 0.4 + 0.3 − 0.58 = 0.12 = (0.4)(0.3) = 𝑃 (𝐴)𝑃 (𝐵).
+Exam 1 Practice I, Spring 2022 3
+So, 𝐴 and 𝐵 are independent.
+Problem 6. Suppose that 𝑋 takes values between 0 and 1 and has probability density
+function 2𝑥. Compute Var(𝑋) and Var(𝑋2).
+Solution: We will make use of the formula Var(𝑌 ) = 𝐸[𝑌 2] − 𝐸[𝑌 ]2. First we compute
+1 2
+𝐸[𝑋] = ∫ 𝑥 ⋅ 2𝑥𝑑𝑥 =
+3
+0
+1 1
+𝐸[𝑋2] = ∫ 𝑥2 ⋅ 2𝑥𝑑𝑥 =
+2
+0
+1 1
+𝐸[𝑋4] = ∫ 𝑥4 ⋅ 2𝑥𝑑𝑥 = .
+3
+0
+Thus,
+1 4 1
+Var(𝑋) = 𝐸[𝑋2] − (𝐸[𝑋]) 2 = − =
+2 9 18
+and
+Var(𝑋2) = 𝐸[𝑋4] − (𝐸[𝑋2])
+2
+=
+1
+−
+1
+=
+1
+.
+3 4 12
+Problem 7. Suppose 100 people all toss a hat into a box and then proceed to randomly
+pick out of a hat. What is the expected number of people to get their own hat back.
+Hint: express the number of people who get their own hat as a sum of random variables
+whose expected value is easy to compute.
+Solution: Let 𝑋 be the number of people who get their own hat.
+Following the hint: let 𝑋 represent whether person 𝑗 gets their own hat. That is, 𝑋 = 1
+𝑗 𝑗
+if person 𝑗 gets their hat and 0 if not.
+100 100
+We have, 𝑋 = ∑𝑋 , so 𝐸[𝑋] = ∑𝐸[𝑋 ].
+𝑗 𝑗
+𝑗=1 𝑗=1
+Since person 𝑗 is equally likely to get any hat, we have 𝑃 (𝑋 = 1) = 1/100. Thus, 𝑋 ∼
+𝑗 𝑗
+Bernoulli(1/100) ⇒ 𝐸[𝑋 ] = 1/100 ⇒ 𝐸[𝑋] = 1.
+𝑗
+Problem 8. Let 𝑇 be the waiting time for customers in a queue. Suppose that 𝑇 is
+exponential with pdf 𝑓(𝑡) = 2e−2𝑡 on [0, ∞).
+Find the pdf of the rate at which customers are served 𝑅 = 1/𝑇 .
+Solution: The CDF for 𝑇 is
+𝑡
+𝑡
+𝐹 (𝑡) = 𝑃(𝑇 ≤ 𝑡) = ∫ 2e−2𝑢 𝑑𝑢 = −e−2𝑢∣ = 1 − e−2𝑡.
+𝑇 0
+0
+Next, we find the CDF of 𝑅. 𝑅 takes values in (0, ∞).
+For 0 < 𝑟,
+𝐹 (𝑟) = 𝑃(𝑅 ≤ 𝑟) = 𝑃(1/𝑇 < 𝑟) = 𝑃(𝑇 > 1/𝑟) = 1−𝐹 (1/𝑟) = e−2/𝑟.
+𝑅 𝑇
+Exam 1 Practice I, Spring 2022 4
+𝑑 2
+We differentiate to get 𝑓 (𝑟) = (e−2/𝑟) = e−2/𝑟.
+𝑅 𝑑𝑟 𝑟2
+Problem 9. Suppose that the cdf of 𝑋 is given by:
+⎧ 0 for 𝑎 < 0
+{
+{ 1 for 0 ≤ 𝑎 < 2
+𝐹(𝑎) = 5
+⎨ 2 for 2 ≤ 𝑎 < 4
+{ { 5
+⎩ 1 for 𝑎 ≥ 4.
+Determine the pmf of 𝑋.
+Solution: The jumps in the distribution function are at 0, 2, 4. The value of 𝑝(𝑎) at a
+jump is the height of the jump:
+𝑎 0 2 4
+𝑝(𝑎) 1/5 1/5 3/5
+Problem 10. Exponential Distribution
+Suppose that buses arrive are scheduled to arrive at a bus stop at noon but are always 𝑋
+minutes late, where 𝑋 is an exponential random variable with probability density function
+𝑓 (𝑥) = 𝜆e−𝜆𝑥. Suppose that you arrive at the bus stop precisely at noon.
+𝑋
+(a) Compute the probability that you have to wait for more than five minutes for the bus
+to arrive.
+Solution: We compute
+5
+𝑃(𝑋 ≥ 5) = 1−𝑃(𝑋 < 5) = 1−∫ 𝜆e−𝜆𝑥𝑑𝑥 = 1 − (1 − e−5𝜆) = e−5𝜆.
+0
+(b) Suppose that you have already waiting for 10 minutes. Compute the probability that you
+have to wait an additional five minutes or more.
+Solution: We want 𝑃 (𝑋 ≥ 15|𝑋 ≥ 10). First observe that 𝑃(𝑋 ≥ 15,𝑋 ≥ 10) = 𝑃(𝑋 ≥
+15). From similar computations in (a), we know
+𝑃(𝑋 ≥ 15) = e−15𝜆 𝑃 (𝑋 ≥ 10) = e−10𝜆.
+From the definition of conditional probability,
+𝑃(𝑋 ≥ 15,𝑋 ≥ 10) 𝑃(𝑋 ≥ 15)
+𝑃(𝑋 ≥ 15|𝑋 ≥ 10) = = = e−5𝜆
+𝑃(𝑋 ≥ 10) 𝑃(𝑋 ≥ 10)
+Note: This is an illustration of the memorylessness property of the exponential distribu-
+tion.
+Problem 11. Let 𝑋 and 𝑌 be two continuous random variables with joint pdf
+𝑓(𝑥,𝑦) = 𝑐𝑥2𝑦(1+𝑦) for 0 ≤ 𝑥 ≤ 3 and 0 ≤ 𝑦 ≤ 3,
+and 𝑓(𝑥,𝑦) = 0 otherwise.
+Exam 1 Practice I, Spring 2022 5
+(a) Find the value of 𝑐.
+(b) Find the probability 𝑃(1 ≤ 𝑋 ≤ 2, 0 ≤ 𝑌 ≤ 1).
+(c) Determine the joint cdf, 𝐹 (𝑎, 𝑏), of 𝑋 and 𝑌 for 𝑎 and 𝑏 between 0 and 3.
+(d) Find marginal cdf 𝐹 (𝑎) for 𝑎 between 0 and 3.
+𝑋
+(e) Find the marginal pdf 𝑓 (𝑥) directly from 𝑓(𝑥, 𝑦) and check that it is the derivative of
+𝑋
+𝐹 (𝑥).
+𝑋
+(f) Are 𝑋 and 𝑌 independent?
+Solution: (a) Total probability must be 1, so
+3 3 3 3 243
+1 = ∫ ∫ 𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥 = ∫ ∫ 𝑐(𝑥2𝑦+𝑥2𝑦2)𝑑𝑦𝑑𝑥 = 𝑐⋅ ,
+2
+0 0 0 0
+2
+(Here we skipped showing the arithmetic of the integration) Therefore, 𝑐 = .
+243
+(b)
+2 1
+𝑃(1 ≤ 𝑋 ≤ 2, 0 ≤ 𝑌 ≤ 1) = ∫ ∫ 𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥
+1 0
+2 1
+= ∫ ∫ 𝑐(𝑥2𝑦 + 𝑥2𝑦2) 𝑑𝑦 𝑑𝑥
+1 0
+35
+= 𝑐 ⋅
+18
+70
+= ≈ 0.016
+4374
+(c) For 0 ≤ 𝑎 ≤ 3 and 0 ≤ 𝑏 ≤ 3. we have
+𝑎 𝑏 𝑎3𝑏2 𝑎3𝑏3
+𝐹(𝑎,𝑏) = ∫ ∫ 𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥 = 𝑐( + )
+6 9
+0 0
+(d) Since 𝑦 = 3 is the maximum value for 𝑌 , we have
+9𝑎3 9 𝑎3
+𝐹 (𝑎) = 𝐹(𝑎,3) = 𝑐( +3𝑎3) = 𝑐𝑎3 =
+𝑋 6 2 27
+(e) For 0 ≤ 𝑥 ≤ 3, we have, by integrating over the entire range for 𝑦,
+3 32 33 27 1
+𝑓 (𝑥) = ∫ 𝑓(𝑥,𝑦)𝑑𝑦 = 𝑐𝑥2( + ) = 𝑐 𝑥2 = 𝑥2.
+𝑋 2 3 2 9
+0
+This is consistent with (c) because 𝑑 (𝑥3/27) = 𝑥2/9.
+𝑑𝑥
+(f) Since 𝑓(𝑥, 𝑦) separates into a product as a function of 𝑥 times a function of 𝑦 we know
+𝑋 and 𝑌 are independent.
+Problem 12. (Table of normal probabilities)
+Use the table of standard normal probabilities to compute the following. (𝑍 is the standard
+normal.)
+Exam 1 Practice I, Spring 2022 6
+(a) (i) 𝑃 (𝑍 ≤ 1.5) (ii) 𝑃 (−1.5 < 𝑍 < 1.5) 𝑃 (𝑍 > −0.75).
+(b) Suppose 𝑋 ∼ N(2, (0.5)2). Find (i) 𝑃(𝑋 ≤ 2) (ii) 𝑃(1 < 𝑋 ≤ 1.75).
+Solution: (a) (i) 0.9332 (ii) 0.9332 - 0.0668 = 0.8664
+(iii) By symmetry = 𝑃 (𝑍 < 0.75) = 0.7734. (Or we could have used 1 − 𝑃 (𝑍 > −0.75.))
+(b) (i) Since 2 is the mean of the normal distribution, 𝑃(𝑋 ≤ 2) = 0.5.
+(ii) Standardizing,
+1−2 1.75−2
+𝑃(1 < 𝑋 ≤ 1.75) = 𝑃 ( < 𝑍 ≤ ) = 𝑃(−2 < 𝑍 < −0.5) = 0.3085−0.0228 = 0.2857 .
+0.5 0.5
+Problem 13. (Central Limit Theorem)
+Let 𝑋 , 𝑋 , … , 𝑋 be i.i.d., each with expected value 𝜇 = 𝐸[𝑋 ] = 5, and variance 𝜎2 =
+1 2 81 𝑖
+Var(𝑋 ) = 4. Approximate 𝑃(𝑋 +𝑋 +⋯𝑋 > 369), using the central limit theorem.
+𝑖 1 2 81
+Solution: Let 𝑇 = 𝑋 +𝑋 +…+𝑋 . The central limit theorem says that
+1 2 81
+𝑇 ≈ N(81∗5,81∗4) = N(405, 182)
+Standardizing we have
+𝑇 −405 369 − 405
+𝑃(𝑇 > 369) = 𝑃 ( > )
+18 18
+≈ 𝑃 (𝑍 > −2)
+≈ 0.975
+The value of 0.975 comes from the rule-of-thumb that 𝑃(|𝑍| < 2) ≈ 0.95. A more exact
+value (using R) is 𝑃 (𝑍 > −2) ≈ 0.9772.
+More problems
+Problem 14. There are 3 arrangements of the word DAD, namely DAD, ADD, and DDA.
+How many arrangements are there of the word PROBABILITY?
+Solution: Sort the letters: A BB II L O P R T Y. There are 11 letters in all. We build
+arrangements by starting with 11 ‘slots’ and placing the letters in these slots, e.g
+A B I B I L O P R T Y
+Create an arrangement in stages and count the number of possibilities at each stage:
+11
+Stage 1: Choose one of the 11 slots to put the A: ( )
+1
+10
+Stage 2: Choose two of the remaining 10 slots to put the B’s: ( )
+2
+8
+Stage 3: Choose two of the remaining 8 slots to put the I’s: ( )
+2
+6
+Stage 4: Choose one of the remaining 6 slots to put the L: ( )
+1
+Exam 1 Practice I, Spring 2022 7
+5
+Stage 5: Choose one of the remaining 5 slots to put the O: ( )
+1
+4
+Stage 6: Choose one of the remaining 4 slots to put the P: ( )
+1
+3
+Stage 7: Choose one of the remaining 3 slots to put the R: ( )
+1
+2
+Stage 8: Choose one of the remaining 2 slots to put the T: ( )
+1
+1
+Stage 9: Use the last slot for the Y: ( )
+1
+Number of arrangements:
+11 10 8 6 5 4 3 2 1 10⋅9 8⋅7
+( )( )( )( )( )( )( )( )( ) = 11 ⋅ ⋅ ⋅ 6 ⋅ 5 ⋅ 4 ⋅ 3 ⋅ 2 ⋅ 1 = 9979200
+1 2 2 1 1 1 1 1 1 2 2
+Note: choosing 11 out of 1 is so simple we could have immediately written 11 instead of
+11
+belaboring the issue by writing ( ). We wrote it this way to show one systematic way to
+1
+think about problems like this.
+Problem 15. A multiple choice exam has 4 choices for each question. A student has
+studied enough so that the probability they will know the answer to a question is 0.5, the
+probability that they will be able to eliminate one choice is 0.25, otherwise all 4 choices seem
+equally plausible. If they know the answer they will get the question right. If not they have
+to guess from the 3 or 4 choices.
+As the teacher you want the test to measure what the student knows. If the student answers
+a question correctly what’s the probability they knew the answer?
+Solution: We show the probabilities in a tree:
+1/2 1/4
+1/4
+Know Eliminate 1 Total guess
+1 0 1/3 2/3 1/4 3/4
+Correct Wrong Correct Wrong Correct Wrong
+For a given problem let 𝐶 be the event the student gets the problem correct and 𝐾 the
+event the student knows the answer.
+The question asks for 𝑃 (𝐾|𝐶).
+We’ll compute this using Bayes’ rule:
+𝑃(𝐶|𝐾)𝑃(𝐾) 1⋅1/2 24
+𝑃(𝐾|𝐶) = = = ≈ 0.774 = 77.4%
+𝑃(𝐶) 1/2+1/12+1/16 31
+Problem 16. Compute the expectation and variance of a Bernoulli(𝑝) random variable.
+Solution: Make a table:
+Exam 1 Practice I, Spring 2022 8
+𝑋: 0 1
+prob: (1-p) p
+𝑋2 0 1.
+From the table, 𝐸[𝑋] = 0⋅(1−𝑝)+1 ⋅𝑝 = 𝑝.
+Since 𝑋 and 𝑋2 have the same table 𝐸[𝑋2] = 𝐸[𝑋] = 𝑝.
+Therefore, Var(𝑋) = 𝑝−𝑝2 = 𝑝(1−𝑝).
+Problem 17. Transforming Normal Distributions
+Suppose 𝑍 ∼ N(0,1) and 𝑌 = e𝑍 .
+(a) Find the cdf 𝐹 (𝑎) and pdf 𝑓 (𝑦) for 𝑌 . (For the CDF, the best you can do is write it
+𝑌 𝑌
+in terms of Φ the standard normal cdf.)
+Solution: Note, 𝑌 follows what is called a log-normal distribution.
+𝐹 (𝑎) = 𝑃(𝑌 ≤ 𝑎) = 𝑃(𝑒𝑍 ≤ 𝑎) = 𝑃(𝑍 ≤ ln(𝑎)) = Φ(ln(𝑎)).
+𝑌
+Differentiating using the chain rule:
+𝑑 𝑑 1 1
+𝑓 (𝑎) = 𝐹 (𝑎) = Φ(ln(𝑎)) = 𝜙(ln(𝑎)) = √ e−(ln(𝑎))2/2.
+𝑦 𝑑𝑎 𝑌 𝑑𝑎 𝑎 2𝜋 𝑎
+(b) We don’t have a formula for Φ(𝑧) so we don’t have a formula for quantiles. So we have
+to write quantiles in terms of Φ−1.
+(i) Write the 0.33 quantile of 𝑍 in terms of Φ−1
+(ii) Write the 0.9 quantile of 𝑌 in terms of Φ−1.
+(iii) Find the median of 𝑌 .
+Solution: (i) The 0.33 quantile for 𝑍 is the value 𝑞 such that 𝑃 (𝑍 ≤ 𝑞 ) = 0.33.
+0.33 0.33
+That is, we want
+Φ(𝑞 ) = 0.33 ⇔ 𝑞 = Φ−1(0.33) .
+0.33 0.33
+(ii) We want to find 𝑞 where
+0.9
+𝐹 (𝑞 ) = 0.9 ⇔ Φ(ln(𝑞 )) = 0.9 ⇔ 𝑞 = eΦ−1(0.9) .
+𝑌 0.9 0.9 0.9
+(iii) As in (ii) 𝑞 = eΦ−1(0.5) = e0 = 1 .
+0.5
+Problem 18. Suppose that 𝑋 ∼ Bin(𝑛, 0.5). Find the probability mass function of 𝑌 = 2𝑋.
+Solution: For 𝑦 = 0,2,4,…,2𝑛,
+𝑦 𝑛 1 𝑛
+𝑃(𝑌 = 𝑦) = 𝑃(𝑋 = ) = ( ) ( ) .
+2 𝑦/2 2
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

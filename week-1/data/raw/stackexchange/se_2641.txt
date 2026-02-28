@@ -1,0 +1,1192 @@
+terminology - What is the difference between "likelihood" and "probability"? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+What is the difference between "likelihood" and "probability"?
+Ask Question
+Asked
+15 years, 5 months ago
+Modified
+1 year ago
+Viewed
+518k times
+690
+$\begingroup$
+The
+wikipedia page
+claims that likelihood and probability are distinct concepts.
+In non-technical parlance, "likelihood" is usually a synonym for "probability," but in statistical usage there is a clear distinction in perspective: the number that is the probability of some observed outcomes given a set of parameter values is regarded as the likelihood of the set of parameter values given the observed outcomes.
+Can someone give a more down-to-earth description of what this means?  In addition, some examples of how "probability" and "likelihood" disagree would be nice.
+probability
+terminology
+likelihood
+intuition
+Share
+Cite
+Improve this question
+Follow
+edited
+Aug 22, 2021 at 20:05
+hippietrail
+111
+5
+5 bronze badges
+asked
+Sep 14, 2010 at 3:24
+Douglas S. Stones
+7,771
+4
+4 gold badges
+20
+20 silver badges
+18
+18 bronze badges
+$\endgroup$
+6
+29
+$\begingroup$
+Great question. I would add "odds" and "chance" in there too :)
+$\endgroup$
+Neil McGuigan
+–
+Neil McGuigan
+2010-09-14 05:28:41 +00:00
+Commented
+Sep 14, 2010 at 5:28
+8
+$\begingroup$
+I think you should take a look at this question
+stats.stackexchange.com/questions/665/…
+because Likelihood is for statistic purpose and probability for probability.
+$\endgroup$
+robin girard
+–
+robin girard
+2010-09-14 06:04:20 +00:00
+Commented
+Sep 14, 2010 at 6:04
+5
+$\begingroup$
+Wow, these are some
+really
+good answers.  So a big thanks for that!  Some point soon, I'll pick one I particularly like as the "accepted" answer (although there are several that I think are equally deserved).
+$\endgroup$
+Douglas S. Stones
+–
+Douglas S. Stones
+2010-09-15 01:13:24 +00:00
+Commented
+Sep 15, 2010 at 1:13
+1
+$\begingroup$
+Also note that the "likelihood ratio" is actually a "probability ratio" since is a function of the observations.
+$\endgroup$
+JohnRos
+–
+JohnRos
+2011-11-02 10:29:15 +00:00
+Commented
+Nov 2, 2011 at 10:29
+1
+$\begingroup$
+Here is an explanation in pictures from StatQuest Youtube channel:
+youtu.be/pYxNSUDSFH4
+$\endgroup$
+Mariusz
+–
+Mariusz
+2022-06-03 08:56:23 +00:00
+Commented
+Jun 3, 2022 at 8:56
+|
+Show
+1
+more comment
+12 Answers
+12
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+496
+$\begingroup$
+The answer depends on whether you are dealing with discrete or continuous random variables. So, I will split my answer accordingly. I will assume that you want some technical details and not necessarily an explanation in plain English.
+Discrete Random Variables
+Suppose that you have a stochastic process that takes discrete values (e.g., outcomes of tossing a coin 10 times, number of customers who arrive at a store in 10 minutes etc). In such cases, we can calculate the probability of observing a particular set of outcomes by making suitable assumptions about the underlying stochastic process (e.g., probability of coin landing heads is
+$p$
+and that coin tosses are independent).
+Denote the observed outcomes by
+$O$
+and the set of parameters that describe the stochastic process as
+$\theta$
+. Thus, when we speak of probability we want to calculate
+$P(O|\theta)$
+. In other words, given specific values for
+$\theta$
+,
+$P(O|\theta)$
+is the probability that we would observe the outcomes represented by
+$O$
+.
+However, when we model a real life stochastic process, we often do not know
+$\theta$
+. We simply observe
+$O$
+and the goal then is to arrive at an estimate for
+$\theta$
+that would be a plausible choice given the observed outcomes
+$O$
+. We know that given a value of
+$\theta$
+the probability of observing
+$O$
+is
+$P(O|\theta)$
+. Thus, a 'natural' estimation process is to choose that value of
+$\theta$
+that would maximize the probability that we would actually observe
+$O$
+. In other words, we find the parameter values
+$\theta$
+that maximize the following function:
+$L(\theta|O) = P(O|\theta)$
+$L(\theta|O)$
+is called the likelihood function. Notice that by definition the likelihood function is conditioned on the observed
+$O$
+and that it is a function of the unknown parameters
+$\theta$
+.
+Continuous Random Variables
+In the continuous case the situation is similar with one important difference. We can no longer talk about the probability that we observed
+$O$
+given
+$\theta$
+because in the continuous case
+$P(O|\theta) = 0$
+. Without getting into technicalities, the basic idea is as follows:
+Denote the probability density function (pdf) associated with the outcomes
+$O$
+as:
+$f(O|\theta)$
+. Thus, in the continuous case we estimate
+$\theta$
+given observed outcomes
+$O$
+by maximizing the following function:
+$L(\theta|O) = f(O|\theta)$
+In this situation, we cannot technically assert that we are finding the parameter value that maximizes the probability that we observe
+$O$
+as we maximize the PDF associated with the observed outcomes
+$O$
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Mar 24, 2019 at 14:27
+answered
+Sep 14, 2010 at 6:08
+user28
+$\endgroup$
+15
+63
+$\begingroup$
+The distinction between discrete and continuous variables disappears from the point of view of measure theory.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2010-09-14 15:48:30 +00:00
+Commented
+Sep 14, 2010 at 15:48
+42
+$\begingroup$
+@whuber yes but an answer using measure theory is not that accessible to everyone.
+$\endgroup$
+user28
+–
+user28
+2010-09-14 20:09:06 +00:00
+Commented
+Sep 14, 2010 at 20:09
+27
+$\begingroup$
+@Srikant: Agreed.  The comment was for the benefit of the OP, who is a mathematician (but perhaps not a statistician) to avoid being misled into thinking there is something fundamental about the distinction.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2010-09-14 20:36:32 +00:00
+Commented
+Sep 14, 2010 at 20:36
+14
+$\begingroup$
+You can interpret a continuous density the same as the discrete case if $O$ is replaced by $dO$, in the sense that if we ask for $Pr(O\in(O',O'+dO') |\theta)$ (i.e. probability that the data $O$ is contained in an infinintesimal region about $O'$) and the answer is $f(O'|\theta)dO'$ (the $dO'$ makes this clear that we are calculating the area of an infinintesimaly thin "bin" of a histogram).
+$\endgroup$
+probabilityislogic
+–
+probabilityislogic
+2011-01-28 13:40:08 +00:00
+Commented
+Jan 28, 2011 at 13:40
+18
+$\begingroup$
+I am over 5 years late to the party, but I think that a very crucial follow-up to this answer would be
+stats.stackexchange.com/questions/31238/…
+which stresses upon the fact that likelihood function $L(\theta)$ is not a pdf with respect to $\theta$. $L(\theta$) is indeed a pdf of data given the parameter value, but since the since $L$ is a function of $\theta$ alone (with data held as a constant), it is irrelevant that $L(\theta)$ is a pdf of data given $\theta$.
+$\endgroup$
+Shobhit
+–
+Shobhit
+2016-01-08 16:04:49 +00:00
+Commented
+Jan 8, 2016 at 16:04
+|
+Show
+10
+more comments
+224
+$\begingroup$
+This is the kind of question that just about everybody is going to answer and I would expect all the answers to be good.  But you're a mathematician, Douglas, so let me offer a mathematical reply.
+A statistical model has to connect two distinct conceptual entities:
+data
+, which are elements
+$x$
+of some set (such as a vector space), and a possible quantitative
+model
+of the data behavior.  Models are usually represented by points
+$\theta$
+on a finite dimensional manifold, a manifold with boundary, or a function space (the latter is termed a "non-parametric" problem).
+The data
+$x$
+are connected to the possible models
+$\theta$
+by means of a function
+$\Lambda(x, \theta)$
+.  For any given
+$\theta$
+,
+$\Lambda(x, \theta)$
+is intended to be the probability (or probability density) of
+$x$
+.  For any given
+$x$
+, on the other hand,
+$\Lambda(x, \theta)$
+can be viewed as a function of
+$\theta$
+and is usually assumed to have certain nice properties, such as being continuously second differentiable.  The intention to view
+$\Lambda$
+in this way and to invoke these assumptions is announced by calling
+$\Lambda$
+the "likelihood."
+It's quite like the distinction between variables and parameters in a differential equation: sometimes we want to study the solution (i.e., we focus on the variables as the argument) and sometimes we want to study how the solution varies with the parameters.  The main distinction is that in statistics we rarely need to study the simultaneous variation of both sets of arguments; there is no statistical object that naturally corresponds to changing both the data
+$x$
+and the model parameters
+$\theta$
+.  That's why you hear more about this dichotomy than you would in analogous mathematical settings.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 30, 2019 at 12:19
+answered
+Sep 14, 2010 at 15:45
+whuber
+♦
+345k
+67
+67 gold badges
+832
+832 silver badges
+1.4k
+1.4k bronze badges
+$\endgroup$
+13
+10
+$\begingroup$
++1, what a cool answer. Analogy with differential equations seems very apropriate.
+$\endgroup$
+mpiktas
+–
+mpiktas
+2012-03-05 20:15:59 +00:00
+Commented
+Mar 5, 2012 at 20:15
+3
+$\begingroup$
+As an economist, although this answer does not relate as closely as the previous to the concepts I've learnt, it was the most informative one in an intuitive sense. Many thanks.
+$\endgroup$
+Robson
+–
+Robson
+2016-01-20 14:25:51 +00:00
+Commented
+Jan 20, 2016 at 14:25
+2
+$\begingroup$
+Actually, this statement is not really true "there is no statistical object that naturally corresponds to changing both the data x and the model parameters θ.". There is, it's called "smoothing, filtering, and prediction", in linear models its the Kalman filter, in nonlinear models, they have the full nonlinear filters,
+en.wikipedia.org/wiki/Kushner_equation
+etc
+$\endgroup$
+crow
+–
+crow
+2017-11-17 18:26:10 +00:00
+Commented
+Nov 17, 2017 at 18:26
+4
+$\begingroup$
+Yes, great answer! As lame as this sounds, by choosing $\Lambda\left(x, \theta\right)$ instead of the standard notation of $P\left(x, \theta\right)$, it made it easier for me to see that we're starting off with a joint probability that can be defined as either a likelihood or a conditional probability. Plus, the "certain nice properties" comment helped.  Thanks!
+$\endgroup$
+Mike Williamson
+–
+Mike Williamson
+2018-08-18 19:20:52 +00:00
+Commented
+Aug 18, 2018 at 19:20
+6
+$\begingroup$
+@whuber Yes, I know $\Lambda$ isn't the usual notation.  That's exactly why it helped!  I stopped thinking that it must have a particular meaning and instead just followed the logic. ;-p
+$\endgroup$
+Mike Williamson
+–
+Mike Williamson
+2018-08-19 15:14:17 +00:00
+Commented
+Aug 19, 2018 at 15:14
+|
+Show
+8
+more comments
+172
+$\begingroup$
+I'll try and minimise the mathematics in my explanation as there are some good mathematical explanations already.
+As Robin Girard comments, the difference between probability and likelihood is closely related to the
+difference between probability and statistics
+. In a sense probability and statistics concern themselves with problems that are opposite or inverse to one another.
+Consider a coin toss. (My answer will be similar to
+Example 1 on Wikipedia
+.) If we know the coin is fair (
+$p=0.5$
+) a typical probability question is: What is the probability of getting two heads in a row. The answer is
+$P(HH) = P(H)\times P(H) = 0.5\times0.5 = 0.25$
+.
+A typical statistical question is: Is the coin fair? To answer this we need to ask: To what extent does our sample support the our hypothesis that
+$P(H) = P(T) = 0.5$
+?
+The first point to note is that the direction of the question has reversed. In probability we start with an assumed parameter (
+$P(head)$
+) and estimate the probability of a given sample (two heads in a row). In statistics we start with the observation (two heads in a row) and make INFERENCE about our parameter (
+$p = P(H) = 1- P(T) = 1 - q$
+).
+Example 1 on Wikipedia
+shows us that the maximum likelihood estimate of
+$P(H)$
+after 2 heads in a row is
+$p_{MLE} = 1$
+. But the data in no way rule out the the true parameter value
+$p(H) = 0.5$
+(let's not concern ourselves with the details at the moment). Indeed only very small values of
+$p(H)$
+and particularly
+$p(H)=0$
+can be reasonably eliminated after
+$n = 2$
+(two throws of the coin). After the
+third throw
+comes up tails we can now eliminate the possibility that
+$P(H) = 1.0$
+(i.e. it is not a two-headed coin), but most values in between can be
+reasonably supported by the data
+. (An exact binomial 95% confidence interval for
+$p(H)$
+is 0.094 to 0.992.
+After 100 coin tosses and (say) 70 heads, we now have a reasonable basis for the suspicion that the coin is not in fact fair. An exact 95% CI on
+$p(H)$
+is now 0.600 to 0.787 and the probability of observing a result as extreme as  70 or more heads (or tails) from 100 tosses given
+$p(H) = 0.5$
+is 0.0000785.
+Although I have not explicitly used likelihood calculations this example captures the concept of likelihood:
+Likelihood is a measure of the extent to which a sample provides support for particular values of a parameter in a parametric model
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 28, 2020 at 9:27
+Joffer
+103
+3
+3 bronze badges
+answered
+Sep 14, 2010 at 8:45
+Thylacoleo
+5,547
+5
+5 gold badges
+28
+28 silver badges
+33
+33 bronze badges
+$\endgroup$
+2
+3
+$\begingroup$
+Great answer! Especially the three last paragraphs are very useful. How would you extend this to describe the continuous case?
+$\endgroup$
+Demetris
+–
+Demetris
+2014-09-02 11:53:34 +00:00
+Commented
+Sep 2, 2014 at 11:53
+10
+$\begingroup$
+For me, best answer. I don't mind math at all, but
+for me
+math is a
+tool
+ruled by what I want (I don't enjoy math for its own sake, but for what it helps me do). Only with this answer do I know the latter.
+$\endgroup$
+Mörre
+–
+Mörre
+2015-04-20 13:28:25 +00:00
+Commented
+Apr 20, 2015 at 13:28
+Add a comment
+|
+106
+$\begingroup$
+Given all the fine technical answers above, let me take it back to language: Probability quantifies anticipation (of outcome), likelihood quantifies trust (in model).
+Suppose somebody challenges us to a 'profitable gambling game'. Then, probabilities will serve us to compute things like the expected profile of your gains and loses (mean, mode, median, variance, information ratio, value at risk, gamblers ruin, and so on). In contrast, likelihood will serve us to quantify whether we trust those probabilities in the first place; or whether we 'smell a rat'.
+Incidentally -- since somebody above mentioned the religions of statistics -- I believe likelihood ratio to be an integral part of the Bayesian world as well as of the frequentist one:  In the Bayesian world, Bayes formula just combines prior with likelihood to produce posterior.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Apr 13, 2013 at 20:49
+Gypsy
+1,069
+1
+1 gold badge
+7
+7 silver badges
+2
+2 bronze badges
+$\endgroup$
+4
+5
+$\begingroup$
+This answer sums it up for me. I had to think through what it meant when I read that likelihood is not probability, but the following case occurred to me. What is the likelihood that a coin is fair, given that we see four heads in a row? We can't really say anything about probability here, but the word "trust" seems apt. Do we feel we can trust the coin?
+$\endgroup$
+dnuttle
+–
+dnuttle
+2018-07-23 12:21:13 +00:00
+Commented
+Jul 23, 2018 at 12:21
+2
+$\begingroup$
+Initially this might have been the historically intended purpose of likelihoods, but nowadays likelihoods are every bayesian calculation, and it's known that probabilities can amalgamate beliefs and plausibility, which is why the Dempster-Shafer theory was created, to disambiguate both interpretations.
+$\endgroup$
+gaborous
+–
+gaborous
+2019-09-03 08:39:08 +00:00
+Commented
+Sep 3, 2019 at 8:39
+1
+$\begingroup$
+Great answer!! Thank you so much!
+$\endgroup$
+coderina
+–
+coderina
+2021-06-11 04:35:41 +00:00
+Commented
+Jun 11, 2021 at 4:35
+$\begingroup$
+The answer has an impression on me that probability is like a mean and the likelihood is like a standard deviation. Does my feeling mean something right or not?
+$\endgroup$
+Leonid Ganeline
+–
+Leonid Ganeline
+2023-08-17 16:50:59 +00:00
+Commented
+Aug 17, 2023 at 16:50
+Add a comment
+|
+83
+$\begingroup$
+I will give you the perspective from the view of Likelihood Theory which originated with
+Fisher
+-- and is the basis for the statistical definition in the cited Wikipedia article.
+Suppose you have random variates $X$ which arise from a parameterized distribution $F(X; \theta)$, where $\theta$ is the parameter characterizing $F$.  Then the probability of $X = x$ would be: $P(X = x) = F(x; \theta)$, with known $\theta$.
+More often, you have data $X$ and $\theta$ is unknown.  Given the assumed model $F$, the likelihood is defined as the probability of observed data as a function of $\theta$: $L(\theta) = P(\theta; X = x)$.  Note that $X$ is known, but $\theta$ is unknown; in fact the motivation for defining the likelihood is to determine the parameter of the distribution.
+Although it seems like we have simply re-written the probability function, a key consequence of this is that the likelihood function does
+not
+obey the laws of probability (for example, it's not bound to the [0, 1] interval).  However, the likelihood function is proportional to the probability of the observed data.
+This concept of likelihood actually leads to a different school of thought, "likelihoodists" (distinct from frequentist and bayesian) and you can google to search for all the various historical debates.  The cornerstone is the
+Likelihood Principle
+which essentially says that we can perform inference directly from the likelihood function (neither Bayesians nor frequentists accept this since it is not probability based inference).  These days a lot of what is taught as "frequentist" in schools is actually an amalgam of frequentist and likelihood thinking.
+For deeper insight, a nice start and historical reference is Edwards'
+Likelihood
+.  For a modern take, I'd recommend Richard Royall's wonderful monograph,
+Statistical Evidence: A Likelihood Paradigm
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 23, 2015 at 10:09
+hello_there_andy
+175
+8
+8 bronze badges
+answered
+Sep 14, 2010 at 5:16
+ars
+13.1k
+1
+1 gold badge
+47
+47 silver badges
+56
+56 bronze badges
+$\endgroup$
+5
+3
+$\begingroup$
+Interesting answer, I actually thought that the "likelihood school" was basically the "frequentists who don't design samples school", while the "design school" was the rest of the frequentists.  I actually find it hard myself to say which "school" I am, as I have a bit of knowledge from every school.  The "Probability as extended logic" school is my favourite (duh), but I don't have enough practical experience in applying it to real problems to be dogmatic about it.
+$\endgroup$
+probabilityislogic
+–
+probabilityislogic
+2011-01-28 13:53:58 +00:00
+Commented
+Jan 28, 2011 at 13:53
+5
+$\begingroup$
++1 for "the likelihood function does not obey the laws of probability (for example, it's not bound to the [0, 1] interval). However, the likelihood function is proportional to the probabiilty of the observed data."
+$\endgroup$
+Walrus the Cat
+–
+Walrus the Cat
+2014-06-13 22:27:36 +00:00
+Commented
+Jun 13, 2014 at 22:27
+12
+$\begingroup$
+"the likelihood function does not obey the laws of probability" could use some further clarification, especialy since is was written as θ: L(θ)=P(θ;X=x), i.e. equated with a probability!
+$\endgroup$
+redcalx
+–
+redcalx
+2015-04-03 19:53:03 +00:00
+Commented
+Apr 3, 2015 at 19:53
+$\begingroup$
+Thanks for your answer. Could you please address the comment that @locster made?
+$\endgroup$
+Vivek Subramanian
+–
+Vivek Subramanian
+2015-07-01 11:48:34 +00:00
+Commented
+Jul 1, 2015 at 11:48
+4
+$\begingroup$
+To me as a not mathematician, this reads like religious mathematics, with different beliefs resulting in different values for chances of events to occur. Can you formulate it, so that it is easier to understand what the different beliefs are and why they all make sense, instead of one being simply incorrect and the other school / belief being correct? (assumption that there is
+one correct way
+of calculating chances for events to occur)
+$\endgroup$
+Zelphir Kaltstahl
+–
+Zelphir Kaltstahl
+2016-07-26 13:11:44 +00:00
+Commented
+Jul 26, 2016 at 13:11
+Add a comment
+|
+80
+$\begingroup$
+If I have a fair coin (parameter value) then the probability that it will come up heads is 0.5.  If I flip a coin 100 times and it comes up heads 52 times then it has a high likelihood of being fair (the numeric value of likelihood potentially taking a number of forms).
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 14, 2010 at 3:44
+John
+25k
+9
+9 gold badges
+60
+60 silver badges
+98
+98 bronze badges
+$\endgroup$
+6
+17
+$\begingroup$
+This and Gypsy's answer should be on top! Intuition and clarity above dry mathematical rigor, not to say something more derogatory.
+$\endgroup$
+Nemanja Radojković
+–
+Nemanja Radojković
+2018-06-05 22:33:27 +00:00
+Commented
+Jun 5, 2018 at 22:33
+1
+$\begingroup$
+is there an intuitive explanation for the formula for calculating likelihood, like we have for binomial distribution formula that calculates probability ?
+$\endgroup$
+d-_-b
+–
+d-_-b
+2020-07-18 05:28:57 +00:00
+Commented
+Jul 18, 2020 at 5:28
+2
+$\begingroup$
+That sounds like it should be posted as it's own question
+$\endgroup$
+John
+–
+John
+2020-07-18 22:56:28 +00:00
+Commented
+Jul 18, 2020 at 22:56
+$\begingroup$
+A great answer! Thank you so much!!
+$\endgroup$
+coderina
+–
+coderina
+2021-06-11 04:35:11 +00:00
+Commented
+Jun 11, 2021 at 4:35
+$\begingroup$
+Here
+is a Python gist displaying the binomial likelihoods for the experiment in John's answer.
+$\endgroup$
+Galen
+–
+Galen
+2022-10-16 00:46:36 +00:00
+Commented
+Oct 16, 2022 at 0:46
+|
+Show
+1
+more comment
+64
+$\begingroup$
+Suppose you have a coin with probability
+$p$
+to land heads and
+$(1-p)$
+to land tails. Let
+$x=1$
+indicate heads and
+$x=0$
+indicate tails. Define
+$f$
+as follows
+$$f(x,p)=p^x (1-p)^{1-x}$$
+$f(x,2/3)$
+is probability of x given
+$p=2/3$
+,
+$f(1,p)$
+is likelihood of
+$p$
+given
+$x=1$
+. Basically likelihood vs. probability tells you which parameter of density is considered to be the variable
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jan 10, 2019 at 12:08
+Glorfindel
+1,129
+2
+2 gold badges
+12
+12 silver badges
+20
+20 bronze badges
+answered
+Sep 14, 2010 at 6:04
+Yaroslav Bulatov
+6,467
+2
+2 gold badges
+32
+32 silver badges
+46
+46 bronze badges
+$\endgroup$
+7
+1
+$\begingroup$
+Nice complement to the theoretical definitions used above!
+$\endgroup$
+Frank Meulenaar
+–
+Frank Meulenaar
+2011-09-17 10:47:03 +00:00
+Commented
+Sep 17, 2011 at 10:47
+$\begingroup$
+I see that $C^n_kp^n(1-p)^{k-n}$ gives the probability of having $n$ heads in $k$ trials. Your $p^x(1-p)^{1-x}$ looks like $k$-th root of that: $x=n/k$. What does it mean?
+$\endgroup$
+Little Alien
+–
+Little Alien
+2016-09-01 13:29:06 +00:00
+Commented
+Sep 1, 2016 at 13:29
+$\begingroup$
+@LittleAlien what is $C_k^n$ in your equation?
+$\endgroup$
+GENIVI-LEARNER
+–
+GENIVI-LEARNER
+2020-01-25 01:02:57 +00:00
+Commented
+Jan 25, 2020 at 1:02
+1
+$\begingroup$
+@GENIVI-LEARNER $C^n_k$ is the binomial coefficient (see
+en.wikipedia.org/wiki/Binomial_coefficient
+). It allows you to calculate the probability of seeing different combinations of heads and tails (for example: $HTT$, $THT$, $TTH$ for $n=3$, $k=1$), instead of all heads or all tails using the simpler $f(x,p)=p^x(1-p)^{n-k}$ formula.
+$\endgroup$
+RobertF
+–
+RobertF
+2020-04-22 17:31:06 +00:00
+Commented
+Apr 22, 2020 at 17:31
+1
+$\begingroup$
+@Kirsten $f$ is the density (function), $x$ and $p$ are its parameters
+$\endgroup$
+Yaroslav Bulatov
+–
+Yaroslav Bulatov
+2022-10-13 20:23:50 +00:00
+Commented
+Oct 13, 2022 at 20:23
+|
+Show
+2
+more comments
+44
+$\begingroup$
+$P(x|\theta)$ can be seen from two points of view:
+As a function of $x$, treating $\theta$ as known/observed.
+If $\theta$ is not a random variable, then $P(x|\theta)$ is called the (
+parameterized
+) probability of $x$ given the model parameters $\theta$, which is sometimes also written as $P(x;\theta)$ or $P_{\theta}(x)$.
+If $\theta$ is a random variable, as in Bayesian statistics, then $P(x|\theta)$ is a
+conditional
+probability, defined as ${P(x\cap\theta)}/{P(\theta)}$.
+As a function of $\theta$, treating $x$ as observed.
+For example, when you try to find a certain assignment $\hat\theta$ for $\theta$ that maximizes $P(x|\theta)$, then $P(x|\hat\theta)$ is called the
+maximum likelihood
+of $\theta$ given the data $x$, sometimes written as $\mathcal L(\hat\theta|x)$. So, the term likelihood is just shorthand to refer to the probability $P(x|\theta)$ for some data $x$ that results from assigning different values to $\theta$ (e.g. as one traverses the search space of $\theta$ for a good solution). So, it is often used as an objective function, but also as a performance measure to compare two models as in
+Bayesian model comparison
+.
+Often, this expression is still a function of both its arguments, so it is rather a matter of emphasis.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 16, 2017 at 13:06
+answered
+Nov 27, 2015 at 13:41
+Lenar Hoyt
+1,083
+1
+1 gold badge
+11
+11 silver badges
+16
+16 bronze badges
+$\endgroup$
+6
+$\begingroup$
+For the second case, I thought people usually write P(theta|x).
+$\endgroup$
+yuqian
+–
+yuqian
+2016-01-04 20:40:34 +00:00
+Commented
+Jan 4, 2016 at 20:40
+1
+$\begingroup$
+Originally intuitively I already thought they're both words for the same with a difference in perspective or natural language formulation, so I feel like "What? I was right all along?!" But if this is the case, why is distinguishing them so important? English not being my mother tongue, I grew up with only one word for seemingly both of the terms (or have I simply never gotten a problem where I needed to distinguish the terms?) and never knew there was any difference. It's only now, that I know two English terms, that I begin to doubt my understanding of these things.
+$\endgroup$
+Zelphir Kaltstahl
+–
+Zelphir Kaltstahl
+2016-07-26 13:32:54 +00:00
+Commented
+Jul 26, 2016 at 13:32
+3
+$\begingroup$
+Your answer seems to be very comrphensive and is easy to understand. I wonder, why it got so few upvotes.
+$\endgroup$
+Funkwecker
+–
+Funkwecker
+2017-02-16 07:18:12 +00:00
+Commented
+Feb 16, 2017 at 7:18
+5
+$\begingroup$
+Note that P(x|$\theta$) is a
+conditional
+probability only if $\theta$ is a random variable, if $\theta$ is a parameter then it's simply the probability of  x parameterized by $\theta$.
+$\endgroup$
+Mircea Mironenco
+–
+Mircea Mironenco
+2017-05-09 19:49:39 +00:00
+Commented
+May 9, 2017 at 19:49
+2
+$\begingroup$
+i think this is the best answer amongst all
+$\endgroup$
+aerin
+–
+aerin
+2017-10-11 07:08:41 +00:00
+Commented
+Oct 11, 2017 at 7:08
+|
+Show
+1
+more comment
+21
+$\begingroup$
+do you know the pilot to the tv series "num3ers" in which the FBI tries to locate the home base of a serial criminal who seems to choose his victims at random?
+the FBI's mathematical advisor and brother of the agent in charge solves the problem with a maximum likelihood approach. first, he assumes some "gugelhupf shaped"
+probability
+$p(x|\theta)$
+that the crimes take place at locations
+$x$
+if the criminal lives at location
+$\theta$
+. (the gugelhupf assumption is that the criminal will neither commit a crime in his immediate neighbourhood nor travel extremely far to choose his next random victim.) this model describes the
+probabilities
+for different
+$x$
+given a fixed
+$\theta$
+. in other words,
+$p_{\theta}(x)=p(x|\theta)$
+is a function of
+$x$
+with a fixed parameter
+$\theta$
+.
+of course, the FBI doesn't know the criminal's domicile, nor does it want to predict the next crime scene. (they hope to find the criminal first!) it's the other way round, the FBI already knows the crime scenes
+$x$
+and wants to locate the criminal's domicile
+$\theta$
+.
+so the FBI agent's brilliant brother has to try and find the most
+likely
+$\theta$
+among all values possible, i.e. the
+$\theta$
+which maximises
+$p(x|\theta)$
+for the actually observed
+$x$
+. therefore, he now considers
+$l_x(\theta)=p(x|\theta)$
+as a function of
+$\theta$
+with a fixed parameter
+$x$
+. figuratively speaking, he shoves his gugelhupf around on the map until it optimally "fits" the known crime scenes
+$x$
+. the FBI then goes knocking on the door in the center
+$\hat{\theta}$
+of the gugelhupf.
+to stress this change of perspective,
+$l_x(\theta)$
+is called the
+likelihood
+(function) of
+$\theta$
+, whereas
+$p_{\theta}(x)$
+was the
+probability
+(function) of
+$x$
+. both are actually the same function
+$p(x|\theta)$
+but seen from different perspectives and with
+$x$
+and
+$\theta$
+switching their roles as variable and parameter, respectively.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 25, 2019 at 17:30
+answered
+Jun 27, 2019 at 22:37
+schotti
+620
+4
+4 silver badges
+13
+13 bronze badges
+$\endgroup$
+2
+1
+$\begingroup$
+phenomenally brilliant answer!!!
+$\endgroup$
+Niccola Tartaglia
+–
+Niccola Tartaglia
+2021-02-07 22:06:57 +00:00
+Commented
+Feb 7, 2021 at 22:06
+$\begingroup$
+This answer need lot more upvotes and attention.
+$\endgroup$
+Parseval
+–
+Parseval
+2022-06-14 12:25:05 +00:00
+Commented
+Jun 14, 2022 at 12:25
+Add a comment
+|
+5
+$\begingroup$
+As far as I'm concerned, the most important distinction is that likelihood is not a probability (of $\theta$).
+In an estimation problem, the X is given and the likelihood
+$P(X|\theta)$ describes a distribution of X rather than $\theta$. That is, $\int P(X|\theta) d\theta$ is meaningless, since likelihood is not a pdf of $\theta$, though it does characterize $\theta$ to some extent.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Nov 6, 2017 at 9:45
+T. Jiang
+157
+2
+2 silver badges
+4
+4 bronze badges
+$\endgroup$
+3
+1
+$\begingroup$
+As the answer from @Lenar Hoyt points out, if theta is a random variable (which it can be), then likelihood is a probability. So the real answer seems to be that the likelihood can be a probability, but is sometimes not.
+$\endgroup$
+Mike Wise
+–
+Mike Wise
+2017-12-05 17:47:54 +00:00
+Commented
+Dec 5, 2017 at 17:47
+$\begingroup$
+@MikeWise, I think theta could always be viewed as a "random" variable, while chances are that it is just not so "random"...
+$\endgroup$
+T. Jiang
+–
+T. Jiang
+2017-12-06 15:18:14 +00:00
+Commented
+Dec 6, 2017 at 15:18
+$\begingroup$
+Saying it's "not a probability" or "not a pdf" or "this integral is meaningless" is leaving me blank.  In cases where that integral is well defined, we can normalize by dividing by it, and then we do indeed get a probability space, and pdfs that sum/integrate to 1.  If we do that, does the "important distinction" of which you speak go away?
+$\endgroup$
+Don Hatch
+–
+Don Hatch
+2025-01-11 00:50:58 +00:00
+Commented
+Jan 11, 2025 at 0:50
+Add a comment
+|
+2
+$\begingroup$
+All of the answers offered so far are informative and many of them are very deep. Yet I think they all miss something simple about the distinction between probability and likelihood, at least as Fisher would have seen it, I think.
+Probability, for Fisher, was a purely deductive process. We know the "general" and deduce the particular. For example, we roll a six-sided die, what is the probability of a 2? We know the population, and, with certain assumptions about the possible outcomes, we can assign a
+probability
+to them. There is no room for opinion: All men are mortal. Plato is a man, therefore, Plato is mortal.
+Statistical inference, on the other hand, is entirely different. Here we do not know the general, only the particular. The process is inductive---we go from the particular to the general. Fisher did not accept that we could use classical probability theory in such a situation because deduction and induction are fundamentally different. He came up with the concept of
+likelihood
+for the strength of belief we have in what the sample is telling us about the underlying parameters of the process that gave rise to it. As a "strength of belief" concept, likelihood is not strictly bound by the rules of classical probability. More than that, it is fundamentally different in nature.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 7, 2025 at 6:43
+TonyK
+131
+4
+4 bronze badges
+$\endgroup$
+Add a comment
+|
+-3
+$\begingroup$
+Likelihood is bound to the statistical model that you have chosen. Let's take a discrete example, and assume you have a single observation. Hypothetically, you could always choose a statistical model that always produces one outcome, the observation that you have, with probability
+$1$
+, hence, the likelihood will also be
+$1$
+. This would be a bad model but it would fit your data perfectly. So, likelihood, in essence, is a subjective value because it depends on how you want to model your data.
+PS: Above is the case when you have a single observation. Similar example can be provided for the case when you have multiple observations, i.e. data. Again, hypothetically, you can restrict your model in such a way that it produces only from the observations that you have. For example, say your observations are the following coin flips, TTHH, TTHT, TTTH, TTTT, then you can restrict the model so that it always produces TT as the first two flips. This will be your assumption, hence it is subjective, and the likelihood you get will be higher than if you had not imposed that restriction.
+Share
+Cite
+Improve this answer
+Follow
+edited
+May 2, 2021 at 22:54
+answered
+May 2, 2021 at 22:13
+Sobir
+55
+4
+4 bronze badges
+$\endgroup$
+2
+$\begingroup$
+But given observed data which takes on values other than that single outcome, if your model places all probability mass on one observation, then its likelihood is zero. In what sense is likelihood subjective?
+$\endgroup$
+Arya McCarthy
+–
+Arya McCarthy
+2021-05-02 22:34:27 +00:00
+Commented
+May 2, 2021 at 22:34
+$\begingroup$
+Right, I had to clarify initially that I was dealing with the case of single observation, which is a very rare case. So, I provided example on the case of multiple observations.
+$\endgroup$
+Sobir
+–
+Sobir
+2021-05-02 22:57:44 +00:00
+Commented
+May 2, 2021 at 22:57
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+terminology
+likelihood
+intuition
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+5
+Bayes theorem confusion with likelihood
+8
+Meaning of Likelihood in layman's terms
+2
+how can I convert a negative log likelihood to likelihood?
+2
+The likelihood function: Why is it no pdf?
+2
+When can likelihood be interpreted as probability function?
+2
+Is the likelihood function $L(\theta|X)$ equal to or proportional to $p(X|\theta)$?
+1
+Lost in the introduction discussing probability/likelihood
+0
+Posterior and Likelihood probabilities meaning
+1
+Question about the calculation of likelihood function
+1
+In maximum likelihood estimation, can you maximize $p(x|\theta)$ rather than $L(\theta)$?
+See more linked questions
+Related
+8
+Confusion about concept of likelihood vs. probability
+36
+Wikipedia entry on likelihood seems ambiguous
+4
+Likelihood function and Fisher information of a coin experiment
+31
+Is there any difference between Frequentist and Bayesian on the definition of Likelihood?
+3
+A confusion about Bayes's theorem
+5
+Likelihood is not "proportional to" a single probability density?
+5
+Do likelihood functions require sigma-algebras as probability spaces do?
+15
+In the most basic sense, what is marginal likelihood?
+6
+Definition and Interpretation of Likelihood for non-PhD's
+Hot Network Questions
+Who's the first adult woman protagonist to involuntarily go to another universe / reality / world?
+Modeling a curved boombox body with clean topology for speaker holes
+Was "cope" as a single-word response commonly used to mean "deal with it" pre-internet?
+`reinterpret_cast` between unrelated structs with the same layout
+How do I encourage more interaction with Fate's mechanics?
+Sicilian Defense Yates Variation straight up hangs a piece
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+Why would an extraterrestrial ecosystem without predators have evolved?
+Some books recommendation by which I can know about what's happening in current mathematics research in Pure mathematics?
+Wake on LAN stopped working after upgrading packages
+Episode of an anime about a witch or magic girl in high school named Kurumi, who starts crying and herself turns into a baby
+What becomes of seized tankers and their oil cargo?
+When are Closure nodes necessary in Geometry Nodes compared to Node Groups?
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+What does "correlated data" mean?
+Identify this IC's manufacturer logo with stylised 'm'
+Holding notes and purpose of the arc
+Identify tv episode, everyone's got a brain chip - except one man who ultimately must destroy it
+Generate random, unique, nonzero integers
+Lightweight e-mail client for unsupported Windows versions
+Did George Boole invent boolean algebra to explain the Trinity?
+Giving prizes for not being late to school
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+Making code less scattered when crossing a pagebreak in lstlisting
+more hot questions
+Question feed

@@ -1,0 +1,13 @@
+Bernoulli/Poisson relation
+
+n=7/6,
+0 T time p=
+POISSON BERNOULLI
+Times of Arrival Continuous Discrete
+Arrival Rate A/unit time p/per trial
+°
+PMF of # of Arrivals Poisson Binomial
+Interarrival Time Distr. Exponential Geometric
+Time to k-th arrival Erlang Pascal
+
+np AT

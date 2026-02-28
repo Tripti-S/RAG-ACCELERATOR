@@ -1,0 +1,10 @@
+LECTURE 17: Linear least mean squares (LLMS) estimation
+e Conditional expectation E[©@ |X] may be hard to compute/implement
+
+e Restrict to estimators 6 = aX +b
+
+— minimize mean squared error
+e Simple solution
+e Mathematical properties
+
+e Example

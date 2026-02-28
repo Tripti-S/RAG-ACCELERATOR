@@ -1,0 +1,9 @@
+Expectation/mean of a continuous random variable
+
+px(z) PDF fy(r)
+P(a<X <b) —_
+x r ri
+B[X] =) apx(c) BX] = |" 2fx(2) ae
+e Interpretation: Average in large number Fine print:
+
+of independent repetitions of the experiment ms [lel fx(@) ae < 00

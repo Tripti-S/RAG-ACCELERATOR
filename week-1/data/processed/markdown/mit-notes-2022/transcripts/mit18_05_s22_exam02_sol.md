@@ -1,0 +1,239 @@
+# Mit18 05 S22 Exam02 Sol
+
+---
+
+18.05 Exam 2 Solutions
+Cheat Sheet
+Problem 0. (5 pts) Be sure to attach your cheat sheet to your test.
+Part I: Concept Questions
+Problem I.1. (10 pts: 2,2,2,2,2) Determine which of the following concepts/statements are
+Frequentist and which are Bayesian. Note: a concept can be either or both. Give a short
+explanation for each answer.
+(a) P-value
+(b) Prior distribution
+(c) Average of data
+(d) There is a 3% probability that the average weight is between 92.3 mg and 100 mg.
+(e) The odds in favor of 𝐻 against 𝐻 are 1 to 3.
+0 𝐴
+(a) Solution: Frequentist : p-values are used in NHST
+(b) Solution: Bayesian : Priors are used in Bayesian updating. Frequentists do not
+consider probabilities of hypotheses.
+(c) Solution: Both : the average of data is a statistic. All statisticians compute statistics!
+(d) Solution: Bayesian : To compute this probability requires knowing the probabilities
+of all the hypotheses.
+(e) Solution: Bayesian : Odds are a way of presenting probabilities. Frequentists do not
+consider the probabilities of hypotheses.
+Problem I.2. (6 pts: 3,3) Suppose you run a significance test at significance level 0.025,
+and that the test has a power of 95%.
+For each part of this problem, give your answer and a short explanation.
+(a) Assuming the null hypothesis, what is the probability of a type I error?
+(i) 0.025 (ii) 0.05 (iii) 0.95 (iv) 0.975 (v) cannot be determined from the information given.
+(b) Assuming the alternative hypothesis, what is the probability of a type II error?
+(i) 0.025 (ii) 0.05 (iii) 0.95 (iv) 0.975 (v) cannot be determined from the information given.
+(a) Solution: (i) 0.025 : By definition 𝑃 (type I error) = 𝑃(reject | 𝐻 ) = significance.
+0
+(b) Solution: (ii) 0.05 = 1−0.95 : By definition 𝑃 (type II error) = 𝑃(non-rejection | 𝐻 ) =
+𝐴
+1 − 𝑃(reject | 𝐻 ) = 1 - power.
+𝐴
+Problem I.3. (3 pts) The following graphs show the rejection regions and pdfs of the null
+and alternative hypotheses for two different hypothesis tests. Which graph shows the test
+with the higher power?
+1
+18.05 Exam 2 Solutions 2
+Your answer should be ‘left graph’ or ‘right graph’. Give a short explanation.
+𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 )𝜙(𝑥|𝐻 )
+𝐴 0 𝐴 0
+𝑥 𝑥
+reject𝐻 region . donotreject𝐻 region reject𝐻 region . donotreject𝐻 region
+0 0 0 0
+Solution: Left graph : power = 𝑃 (reject|𝐻 ). The left hand graph has much more area
+𝐴
+under 𝜙(𝑥|𝐻 ) and above the rejection region than the right hand graph.
+𝐴
+Problem I.4. (3 pts) You find a coin on the street, with some unknown probability 𝜃 of
+landing heads when tossed. Circle the only reasonable prior for 𝜃. (No explanation needed.)
+(i) Uniform([0, 0.5]) (ii) Beta(2, 2) (iii) N(0.5, 0.25).
+Solution: Beta(2, 2) : It has the correct range and no bias towards heads or tails.
+Uniform([0, 0.5]) does not permit 𝜃 > 0.5.
+N(0.5, 0.52) has significant amount of probability for 𝜃 < 0 and 𝜃 > 1.0. This is not allowed.
+Problem I.5. (4 pts: 2,2) For each of the following: Is the prior conjugate to the given
+likelihood? In each case, 𝑎 and 𝑏 are parameters for the priors.
+hypothesis data prior likelihood
+(a) 𝜃 ∈ [0, 1] 𝑥 𝑐 𝜃𝑎(1 − 𝜃)𝑏 (10)𝜃𝑥(1 − 𝜃)10−𝑥
+1 𝑥
+(b) 𝜆 ∈ [0, ∞) 𝑥 𝑐 𝜆𝑎−1e−𝑏𝜆 𝜆e−𝜆𝑥
+1
+(a) Solution: Yes : the prior × likelihood has the form 𝑐𝜃𝑎+𝑥(1 − 𝜃)𝑏+10−𝑥. This is the
+same form as the prior, i.e. a constant times 𝜃 to a power times (1 − 𝜃) to a power. (In
+fact, a beta distribution.)
+(b) Solution: Yes : the prior × likelihood has the form 𝑐𝜆𝑎e−(𝑏+𝑥)𝜆. This is the same
+form as the prior.
+Part II: Problems
+Problem II.1. (12 pts.)
+The gamma distribution with shape parameter 3 and unknown rate parameter 𝛽 has range
+(0, ∞) and pdf
+𝛽3𝑥2
+𝑓(𝑥) = e−𝛽𝑥.
+2
+Suppose the data
+1, 1, 2, 3, 5
+was drawn independently from such a distribution. Find the maximum likelihood estimate
+(MLE) of 𝛽.
+(Note: we shouldn’t expect to get integer values for the data. So either our measurements
+were quite crude or we didn’t want you to have to do arithmetic with fractions.)
+18.05 Exam 2 Solutions 3
+Solution: Call the 5 data values: 𝑥 , 𝑥 , 𝑥 , 𝑥 , 𝑥 . We’ll use their numerical values when
+1 2 3 4 5
+needed. The likelihood of the given data is
+𝑥2⋅ 𝑥2⋅ 𝑥2⋅ 𝑥2⋅ 𝑥2
+𝑓(𝑥 )𝑓(𝑥 )𝑓(𝑥 )𝑓(𝑥 )𝑓(𝑥 ) = 𝛽15 ⋅ 1 2 3 4 5 ⋅ e−𝛽(𝑥 1 +𝑥 2 +𝑥 3 +𝑥 4 +𝑥 5 )
+1 2 3 4 5 25
+So the log likelihood is (𝛽) = 15 ln(𝛽)−𝛽(𝑥 +𝑥 +𝑥 +𝑥 +𝑥 )+𝑐, where 𝑐 is a constant.
+1 2 3 4 5
+Taking the derivative and setting it to 0, we get
+15
+𝑙′(𝛽) = − (𝑥 + 𝑥 + 𝑥 + 𝑥 + 𝑥 ) = 0.
+𝛽 1 2 3 4 5
+15 15 5
+Solving for 𝛽 gives 𝛽̂= = = , where in the last step, we used
+𝑥 +𝑥 +𝑥 +𝑥 +𝑥 12 4
+1 2 3 4 5
+the given numerical values of the data.
+Problem II.2. (15 pts)
+A random process produces outcomes labeled 𝐴, 𝐵 and 𝐶 with probabilities 𝜃/2, 𝜃/2, 1 − 𝜃
+respectively. Here 𝜃 is an unknown parameter with value between 0 and 1. You want to
+know the value of 𝜃.
+Before running any experiments you have a prior pdf for 𝜃 of 𝑓(𝜃) = 3𝜃2. You then run the
+process five times producing data 𝐴, 𝐵, 𝐶, 𝐴, 𝐵.
+Find the posterior probability density for 𝜃.
+Solution: As usual, we make a Bayesian update table. The data 𝐴𝐵𝐶𝐴𝐵 has probability
+4
+𝜃 𝜃 𝜃 𝜃 𝜃
+𝑝(𝐴𝐵𝐶𝐵𝐴 |𝜃) = ⋅ ⋅(1−𝜃) ⋅ ⋅ = ( ) (1−𝜃)
+2 2 2 2 2
+likelihood
+hypothesis prior P(data | hypoth.) BN posterior
+4
+𝜃 3
+𝜃 3𝜃2 𝑑𝜃 ( ) (1 − 𝜃) 𝜃6(1 − 𝜃) 𝑑𝜃 56 ⋅ 𝜃6(1 − 𝜃) 𝑑𝜃
+2 16
+3 1
+sum 1 𝑝(data) = ⋅ 1
+16 56
+Here, the total probability 𝑝(data) is computed by integrating the Bayes numerator column
+1 3 3 1
+𝑝(data) = ∫ 𝜃6(1−𝜃)𝑑𝜃 = ⋅ .
+16 16 56
+0
+So, the posterior pdf for 𝜃 is 𝑓(𝜃|data) = 56 ⋅ 𝜃6(1 − 𝜃).
+(We could also have found the normalizing factor by recognizing the posterior as a Beta(7, 2),
+8!
+so the factor is = 56.)
+6!1!
+Problem II.3. (12 pts.) It is the year 2122 and a small percentage of children are born
+with an array of superpowers. The usual super strength and ability to make bad jokes in
+the direst of dire situations won’t manifest themselves till puberty. The one superpower that
+18.05 Exam 2 Solutions 4
+manifests at age 7 is known as Bayesian intelligence. They can think clearly about statistics
+and can answer virtually any stats question.
+So, a screening test was developed that asks 7 year-olds to compute the posterior odds that a
+7 year-old who correctly answers the screening question has superpowers. The test is quite
+accurate, but some ordinary children do answer correctly
+Suppose the odds that a random 7 year-old has superpowers is 1/100. Suppose the screening
+test has a 100% true positive rate and a 10% false positive rate. If a randomly chosen child
+correctly answers the question, what are the posterior odds that they have superpowers?
+Solution: The easiest way to do this is to use the formula:
+posterior odds = prior odds × likelihood ratio.
+The prior odds are given as 1/100.
+𝑃 (correct answer | superpower) 1
+The likelihood ratio = = = 10.
+𝑃 (correct answer | no superpower) 1/10
+1 1
+So: posterior odds = ⋅10 = .
+100 10
+Problem II.4. (15 pts: 3,3,3,3,3)
+You collect data from an experiment and do a one-sided 𝑍-test with the rejection region in
+the right tail and significance level 0.1. You find the 𝑍-value is 2.
+(a) Which R code computes the critical value for the rejection region?
+(i) pnorm(0.1, 0, 1) (ii) pnorm(0.9, 0, 1) (iii) pnorm(0.95, 0, 1)
+(iv) pnorm(2.0, 0, 1) (v) 1 - pnorm(2.0, 0, 1) (vi) qnorm(0.05, 0, 1)
+(vii) qnorm(0.1, 0, 1) (viii) qnorm(0.9, 0, 1)
+(ix) qnorm(0.95, 0, 1)
+(b) Using the tables at the end of the exam, compute this critical value.
+(c) Which R code computes the 𝑝-value for this experiment?
+(i) pnorm(0.1, 0, 1) (ii) pnorm(0.9, 0, 1) (iii) pnorm(0.95, 0, 1)
+(iv) pnorm(2.0, 0, 1) (v) 1 - pnorm(2.0, 0, 1) (vi) qnorm(0.05, 0, 1)
+(vii) qnorm(0.1, 0, 1) (viii) qnorm(0.9, 0, 1)
+(ix) qnorm(0.95, 0, 1)
+(d) Using the tables at the end of the exam, compute the 𝑝-value.
+(e) Should you reject the null hypothesis?
+(a) Solution: (viii) qnorm(0.9, 0, 1): the critical value for the right-tail should have 0.1
+probability to the right, so 0.9 probability to the left.
+(b) Solution: 1.28: the place where the left tail of the normal is 0.9. The table says
+that’s between 𝑧 = 1.25 and 1.30; interpolation says that it’s about 1.28. (R says it’s about
+1.281552.)
+(c) Solution: (v)1 - pnorm(2.0, 0, 1): 𝑝 = 𝑃(𝑍 > 2|𝐻 ) = 1−𝑃(𝑍 < 2|𝐻 ). This is
+0 0
+exactly what the code in (v) computes.
+(d) Solution: 0.0228. This is the right tail of the standard normal at 2, or 1 minus the
+left tail; the table says the left tail is 0.9772.
+18.05 Exam 2 Solutions 5
+(e) Solution: Yes, we should reject: according to (b), the value 𝑧 = 2 is well inside the
+rejection region 𝑧 ≥ 1.28. Alternatively, the 𝑝-value computed in (d) is much smaller than
+the significance 0.1. Alternatively, the rule of thumb for 2 standard deviations above the
+mean for a normal distribution says 𝑝 = 𝑃 (𝑍 ≥ 2|𝐻 ) ≈ 0.025 < 0.1.
+0
+Problem II.5. (15 pts)
+Adult onset diabetes is known to be highly genetically determined. A study was done compar-
+ing frequencies of a particular allele in a sample of diabetics and a sample of nondiabetics.
+The data are shown in the following table. (We adjusted the data to make hand calculation
+easier.)
+Diabetic Normal
+Bb or bb 15 5
+BB 35 45
+Do a significance test for whether the frequencies of the alleles is different in the two groups
+at a significance level of 0.05.
+Solution: We will use a chi-square test for homogeneity. Remember we need to use all the
+data!. For hypotheses we have:
+𝐻 : the frequency of alleles is the same for both groups: diabetic and nondiabetic.
+0
+𝐻 : the frequency of alleles is different between the two groups.
+𝐴
+Here is the table of counts. The computation of the expected counts is explained below.
+Diabetic Nondiabetic
+observed expected observed expected
+Bb, bb 15 10 5 10 20
+BB 35 40 45 40 80
+50 50 100
+The expected counts are computed as follows. Under 𝐻 the frequency of alleles is the
+0
+same, call them 𝜃. To find the expected counts we find the MLE of 𝜃 using the combined
+data:
+total Bb and bb 20
+𝜃̂= = = 0.2.
+total subjects 100
+Then, for example, the expected number of Bb and bb alleles in the diabetic group is
+50⋅𝜃̂= 10. The other expected counts are computed in the same way.
+The chi-square test statistic is
+(observed - expected)2 52 52 52 52
+𝑋2 = ∑ = + + + ≈ 2.5 + 2.5 + 0.625 + 0.625 ≈ 6.25.
+expected 10 10 40 40
+Finally, we need the degrees of freedom: 𝑑𝑓 = 1. This is because we have a two-by-two
+table and (2−1) ⋅(2−1) = 1. (Or because we can freely fill in the count in one cell and still
+be consistent with the marginal counts 20, 80, 50, 50, 100, which are all used to compute
+the expected counts.)
+From the 𝜒2 table: 𝑝 = 𝑃(𝑋2 > 6.25|𝑑𝑓 = 1) < 0.05, in particular interpolated from the
+table, 0.01 < 𝑝 < 0.025, but we can also see this directly by noting that the critical value is
+3.84.
+18.05 Exam 2 Solutions 6
+Conclusion: Since 𝑝 < 𝛼, we reject 𝐻 in favor of 𝐻 , that the frequency of alleles is not
+0 𝐴
+the same between the diabetic and nondiabetic groups.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

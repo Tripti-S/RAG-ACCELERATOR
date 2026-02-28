@@ -1,0 +1,21 @@
+PME calculation
+
+e Two rolis of a tetrahedral die e Let every possible outcome have probability 1/16
+
+alelel?ls Z=X+Y Find pz(z) for a@@ 2
+Y=secon 3|4 15 | 6 |? e repeat for all z:
+= 2 ul5/6 — collect all possible outcomes for which Z is equal to z
+add their probabilities
+1 415
+poz 34 (a) =2C2=2) = '/e
+
+X = First roll
+
+pz(2) alic R03) = 2C2=3)
+P24) = P(a=4) = 27/16
+
+2/16
+
+1)
+
+T2345 678 9 7

@@ -1,0 +1,9 @@
+Some simple consequences of the axioms
+Axioms
+
+P(A) >0
+
+P(S2) = 1
+
+For disjoint events:
+P(AU B) = P(A) + P(B)

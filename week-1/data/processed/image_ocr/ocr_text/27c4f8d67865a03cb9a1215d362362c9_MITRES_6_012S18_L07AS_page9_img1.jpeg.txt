@@ -1,0 +1,15 @@
+Independence and variances
+e Always true: var(aX) = a2var(X) var(X + a) = var(X)
+
+e In general: var(X +Y) ¢var(X) + var(Y)
+
+var(x+y) =E[ (x+v)*] E ela axys y2) Efx4)]=EGIULIy=0
+% 27 - var (x) +vac(4)
+
+e Saree” EL[x J r a E[x) = ey l a (x)
+
+— If X=Y: var(X+Y)= van (2x) = 4Van(x)
+
+— If X=-Y: var(X+Y)=vagr(o) =O var (x)
+
+— If X, Y independent: var(X —3Y)=Var (x) + var(~3%) 7. 9Qvar(T)

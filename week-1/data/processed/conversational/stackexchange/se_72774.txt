@@ -1,0 +1,1088 @@
+regression - Numerical example to understand Expectation-Maximization - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Numerical example to understand Expectation-Maximization
+Ask Question
+Asked
+12 years, 4 months ago
+Modified
+8 years, 2 months ago
+Viewed
+104k times
+131
+$\begingroup$
+I am trying to get a good grasp on the EM algorithm, to be able to implement and use it. I spent a full day reading the theory and a paper where EM is used to track an aircraft using the position information coming from a radar. Honestly, I don't think I fully understand the underlying idea. Can someone point me to a numerical example showing a few iterations (3-4) of the EM for a simpler problem (like estimating the parameters of a Gaussian distribution or a sequence of a sinusoidal series or fitting a line).
+Even if someone can point me to a piece of code (with synthetic data), I can try to step through the code.
+regression
+probability
+mathematical-statistics
+intuition
+expectation-maximization
+Share
+Cite
+Improve this question
+Follow
+edited
+Oct 15, 2013 at 22:23
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+asked
+Oct 14, 2013 at 22:37
+arjsgh21
+2,703
+6
+6 gold badges
+19
+19 silver badges
+8
+8 bronze badges
+$\endgroup$
+5
+1
+$\begingroup$
+k-means is very em, but with constant variance, and is relatively simple.
+$\endgroup$
+EngrStudent
+–
+EngrStudent
+2016-02-08 11:09:31 +00:00
+Commented
+Feb 8, 2016 at 11:09
+2
+$\begingroup$
+@arjsgh21 can you please post mentioned paper about the aircraft? Sounds very interesting. Thank you
+$\endgroup$
+Wakan Tanka
+–
+Wakan Tanka
+2016-08-23 11:53:06 +00:00
+Commented
+Aug 23, 2016 at 11:53
+1
+$\begingroup$
+There is a tutorial online which claims to provide a very clear mathematical understanding of the Em algorithm "EM Demystified: An Expectation-Maximization Tutorial" However, the example is so bad it borderlines the incomprehensable.
+$\endgroup$
+Your neighbor Todorovich
+–
+Your neighbor Todorovich
+2017-12-08 22:24:56 +00:00
+Commented
+Dec 8, 2017 at 22:24
+$\begingroup$
+I provide a numerical example
+here
+.
+$\endgroup$
+Mahmoud
+–
+Mahmoud
+2021-12-27 14:47:29 +00:00
+Commented
+Dec 27, 2021 at 14:47
+$\begingroup$
+Consider the following example, taken from the MITx Statistics course:
+Link
+.
+$\endgroup$
+Venkata Karthik Bandaru
+–
+Venkata Karthik Bandaru
+2026-02-02 07:59:54 +00:00
+Commented
+Feb 2 at 7:59
+Add a comment
+|
+9 Answers
+9
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+111
+$\begingroup$
+This is a recipe to learn EM with a practical and (in my opinion) very intuitive 'Coin-Toss' example:
+Read this short
+EM tutorial paper
+by Do and Batzoglou. This is the schema where the coin toss example is explained:
+You may have question marks in your head, especially regarding where the probabilities in the Expectation step come from. Please have a look at the explanations on this maths stack exchange
+page
+.
+Look at/run this code that I wrote in Python that simulates the solution to the coin-toss problem in the EM tutorial paper of item 1:
+import numpy as np
+import math
+import matplotlib.pyplot as plt
+## E-M Coin Toss Example as given in the EM tutorial paper by Do and Batzoglou* ##
+def get_binomial_log_likelihood(obs,probs):
+""" Return the (log)likelihood of obs, given the probs"""
+# Binomial Distribution Log PDF
+# ln (pdf)      = Binomial Coeff * product of probabilities
+# ln[f(x|n, p)] =   comb(N,k)    * num_heads*ln(pH) + (N-num_heads) * ln(1-pH)
+N = sum(obs);#number of trials
+k = obs[0] # number of heads
+binomial_coeff = math.factorial(N) / (math.factorial(N-k) * math.factorial(k))
+prod_probs = obs[0]*math.log(probs[0]) + obs[1]*math.log(1-probs[0])
+log_lik = binomial_coeff + prod_probs
+return log_lik
+# 1st:  Coin B, {HTTTHHTHTH}, 5H,5T
+# 2nd:  Coin A, {HHHHTHHHHH}, 9H,1T
+# 3rd:  Coin A, {HTHHHHHTHH}, 8H,2T
+# 4th:  Coin B, {HTHTTTHHTT}, 4H,6T
+# 5th:  Coin A, {THHHTHHHTH}, 7H,3T
+# so, from MLE: pA(heads) = 0.80 and pB(heads)=0.45
+# represent the experiments
+head_counts = np.array([5,9,8,4,7])
+tail_counts = 10-head_counts
+experiments = zip(head_counts,tail_counts)
+# initialise the pA(heads) and pB(heads)
+pA_heads = np.zeros(100); pA_heads[0] = 0.60
+pB_heads = np.zeros(100); pB_heads[0] = 0.50
+# E-M begins!
+delta = 0.001
+j = 0 # iteration counter
+improvement = float('inf')
+while (improvement>delta):
+expectation_A = np.zeros((len(experiments),2), dtype=float)
+expectation_B = np.zeros((len(experiments),2), dtype=float)
+for i in range(0,len(experiments)):
+e = experiments[i] # i'th experiment
+# loglikelihood of e given coin A:
+ll_A = get_binomial_log_likelihood(e,np.array([pA_heads[j],1-pA_heads[j]]))
+# loglikelihood of e given coin B
+ll_B = get_binomial_log_likelihood(e,np.array([pB_heads[j],1-pB_heads[j]]))
+# corresponding weight of A proportional to likelihood of A
+weightA = math.exp(ll_A) / ( math.exp(ll_A) + math.exp(ll_B) )
+# corresponding weight of B proportional to likelihood of B
+weightB = math.exp(ll_B) / ( math.exp(ll_A) + math.exp(ll_B) )
+expectation_A[i] = np.dot(weightA, e)
+expectation_B[i] = np.dot(weightB, e)
+pA_heads[j+1] = sum(expectation_A)[0] / sum(sum(expectation_A));
+pB_heads[j+1] = sum(expectation_B)[0] / sum(sum(expectation_B));
+improvement = ( max( abs(np.array([pA_heads[j+1],pB_heads[j+1]]) -
+np.array([pA_heads[j],pB_heads[j]]) )) )
+j = j+1
+plt.figure();
+plt.plot(range(0,j),pA_heads[0:j], 'r--')
+plt.plot(range(0,j),pB_heads[0:j])
+plt.show()
+Share
+Cite
+Improve this answer
+Follow
+edited
+Dec 2, 2017 at 23:48
+Monty _s Flying Circus
+273
+2
+2 silver badges
+10
+10 bronze badges
+answered
+Oct 15, 2013 at 7:21
+Zhubarb
+8,837
+3
+3 gold badges
+37
+37 silver badges
+52
+52 bronze badges
+$\endgroup$
+10
+2
+$\begingroup$
+@Zhubarb: can you please explain the loop termination condition (i.e. to determine when the algorithm converges)? What does the "improvement" variable calculate?
+$\endgroup$
+stackoverflowuser2010
+–
+stackoverflowuser2010
+2014-10-24 21:31:08 +00:00
+Commented
+Oct 24, 2014 at 21:31
+$\begingroup$
+@stackoverflowuser2010, improvement looks at two deltas: 1) the change between
+pA_heads[j+1]
+and
+pA_heads[j]
+and 2) the change between
+pB_heads[j+1]
+and
+pB_heads[j]
+. And it takes the max of the two changes. For instance if
+Delta_A=0.001
+and
+Delta_B=0.02
+, improvement from step
+j
+to
+j+1
+will be
+0.02
+.
+$\endgroup$
+Zhubarb
+–
+Zhubarb
+2014-10-27 08:31:53 +00:00
+Commented
+Oct 27, 2014 at 8:31
+1
+$\begingroup$
+@Zhubarb: Is that a standard approach for computing convergence in EM, or is that something you came up with? If it's a standard approach, can you please cite a reference?
+$\endgroup$
+stackoverflowuser2010
+–
+stackoverflowuser2010
+2014-10-27 22:52:13 +00:00
+Commented
+Oct 27, 2014 at 22:52
+$\begingroup$
+Here
+is a reference on the convergence of EM. I wrote the code sometime ago so cannot remember too well. I believe what you see in the code is my convergence criterion for this particular case. The idea is to stop iterations when the max of improvements for A and B is less than
+delta
+.
+$\endgroup$
+Zhubarb
+–
+Zhubarb
+2014-10-28 10:05:47 +00:00
+Commented
+Oct 28, 2014 at 10:05
+1
+$\begingroup$
+Superb, there's nothing like some good code to clarify what paragraphs of text cannot
+$\endgroup$
+jon_simon
+–
+jon_simon
+2018-11-28 14:43:34 +00:00
+Commented
+Nov 28, 2018 at 14:43
+|
+Show
+5
+more comments
+70
+$\begingroup$
+It sounds like your question has two parts: the underlying idea and a concrete example.  I'll start with the underlying idea, then link to an example at the bottom.
+EM is useful in Catch-22 situations where it seems like you need to know
+$A$
+before you can calculate
+$B$
+and you need to know
+$B$
+before you can calculate
+$A$
+.
+The most common case people deal with is probably mixture distributions. For our example, let's look at a simple Gaussian mixture model:
+You have two different univariate Gaussian distributions with different means and unit variance.
+You have a bunch of data points, but you're not sure which points came from which distribution, and you're also not sure about the means of the two distributions.
+And now you're stuck:
+If you knew the true means, you could figure out which data points came from which Gaussian.  For example, if a data point had a very high value, it probably came from the distribution with the higher mean.  But you don't know what the means are, so this won't work.
+If you knew which distribution each point came from, then you could estimate the two distributions' means using the sample means of the relevant points.  But you don't actually know which points to assign to which distribution, so this won't work either.
+So neither approach seems like it works: you'd need to know the answer before you can find the answer, and you're stuck.
+What EM lets you do is alternate between these two tractable steps instead of tackling the whole process at once.
+You'll need to start with a guess about the two means (although your guess doesn't necessarily have to be very accurate, you do need to start somewhere).
+If your guess about the means was accurate, then you'd have enough information to carry out the step in my first bullet point above, and you could (probabilistically) assign each data point to one of the two Gaussians.  Even though we know our guess is wrong, let's try this anyway. And then, given each point's assigned distributions, you could get new estimates for the means using the second bullet point. It turns out that, each time you do loop through these two steps, you're improving a lower bound on the model's likelihood.
+That's already pretty cool: even though the two suggestions in the bullet points above didn't seem like they'd work individually, you can still use them together to improve the model.  The
+real
+magic of EM is that, after enough iterations, the lower bound will be so high that there won't be any space between it and the local maximum.  As a result, and you've locally optimized the likelihood.
+So you haven't just
+improved
+the model, you've found the
+best
+possible model one can find with incremental updates.
+This
+page from Wikipedia shows a slightly more complicated example (two-dimensional Gaussians and unknown covariance), but the basic idea is the same.  It also includes well-commented
+R
+code for implementing the example.
+In the code, the "Expectation" step (E-step) corresponds to my first bullet point: figuring out which Gaussian gets responsibility for each data point, given the current parameters for each Gaussian.  The "Maximization" step (M-step) updates the means and covariances, given these assignments, as in my second bullet point.
+As you can see in the animation, these updates quickly allow the algorithm to go from a set of terrible estimates to a set of very good ones: there really do seem to be two clouds of points centered on the two Gaussian distributions that EM finds.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jun 11, 2020 at 14:32
+Community
+Bot
+1
+answered
+Oct 15, 2013 at 5:25
+David J. Harris
+11.8k
+2
+2 gold badges
+36
+36 silver badges
+60
+60 bronze badges
+$\endgroup$
+0
+Add a comment
+|
+18
+$\begingroup$
+Here's an example of Expectation Maximisation (EM) used to estimate the mean and standard deviation. The code is in Python, but it should be easy to follow even if you're not familiar with the language.
+The motivation for EM
+The red and blue points shown below are drawn from two different normal distributions, each with a particular mean and standard deviation:
+To compute reasonable approximations of the "true" mean and standard deviation parameters for the red distribution, we could very easily look at the red points and record the position of each one, and then use the familiar formulae (and similarly for the blue group).
+Now consider the case where we know that there are two groups of points, but we cannot see which point belongs to which group. In other words, the colours are hidden:
+It's not at all obvious how to divide the points into two groups. We are now unable to just look at the positions and compute estimates for the parameters of the red distribution or the blue distribution.
+This is where EM can be used to solve the problem.
+Using EM to estimate parameters
+Here is the code used to generate the points shown above. You can see the actual means and standard deviations of the normal distributions that the points were drawn from. The variables
+red
+and
+blue
+hold the positions of each point in the red and blue groups respectively:
+import numpy as np
+from scipy import stats
+np.random.seed(110) # for reproducible random results
+# set parameters
+red_mean = 3
+red_std = 0.8
+blue_mean = 7
+blue_std = 2
+# draw 20 samples from normal distributions with red/blue parameters
+red = np.random.normal(red_mean, red_std, size=20)
+blue = np.random.normal(blue_mean, blue_std, size=20)
+both_colours = np.sort(np.concatenate((red, blue)))
+If we
+could
+see the colour of each point, we would try and recover means and standard deviations using library functions:
+>>> np.mean(red)
+2.802
+>>> np.std(red)
+0.871
+>>> np.mean(blue)
+6.932
+>>> np.std(blue)
+2.195
+But since the colours are hidden from us, we'll start the EM process...
+First, we just guess at the values for the parameters of each group (
+step 1
+). These guesses don't have to be good:
+# estimates for the mean
+red_mean_guess = 1.1
+blue_mean_guess = 9
+# estimates for the standard deviation
+red_std_guess = 2
+blue_std_guess = 1.7
+Pretty bad guesses - the means look like they are a long way from any "middle" of a group of points.
+To continue with EM and improve these guesses, we compute the likelihood of each data point (regardless of its secret colour) appearing under these guesses for the mean and standard deviation (
+step 2
+).
+The variable
+both_colours
+holds each data point. The function
+stats.norm
+computes the probability of the point under a normal distribution with the given parameters:
+likelihood_of_red = stats.norm(red_mean_guess, red_std_guess).pdf(both_colours)
+likelihood_of_blue = stats.norm(blue_mean_guess, blue_std_guess).pdf(both_colours)
+This tells us, for example, that with our current guesses the data point at 1.761 is much more likely to be red (0.189) than blue (0.00003).
+We can turn these two likelihood values into weights (
+step 3
+) so that they sum to 1 as follows:
+likelihood_total = likelihood_of_red + likelihood_of_blue
+red_weight = likelihood_of_red / likelihood_total
+blue_weight = likelihood_of_blue / likelihood_total
+With our current estimates and our newly-computed weights, we can now compute new, probably better, estimates for the parameters (
+step 4
+). We need a function for the mean and a function for the standard deviation:
+def estimate_mean(data, weight):
+return np.sum(data * weight) / np.sum(weight)
+def estimate_std(data, weight, mean):
+variance = np.sum(weight * (data - mean)**2) / np.sum(weight)
+return np.sqrt(variance)
+These look very similar to the usual functions to the mean and standard deviation of data. The difference is the use of a
+weight
+parameter which assigns a weight to each data point.
+This weighting is the key to EM. The greater the weight of a colour on a data point, the more the data point influences the next estimates for that colour's parameters. Ultimately, this has the effect of pulling each parameter in the right direction.
+The new guesses are computed with these functions:
+# new estimates for standard deviation
+blue_std_guess = estimate_std(both_colours, blue_weight, blue_mean_guess)
+red_std_guess = estimate_std(both_colours, red_weight, red_mean_guess)
+# new estimates for mean
+red_mean_guess = estimate_mean(both_colours, red_weight)
+blue_mean_guess = estimate_mean(both_colours, blue_weight)
+The EM process is then repeated with these new guesses from step 2 onward. We can repeat the steps for a given number of iterations (say 20), or until we see the parameters converge.
+After five iterations, we see our initial bad guesses start to get better:
+After 20 iterations, the EM process has more or less converged:
+For comparison, here are the results of the EM process compared with the values computed where colour information is not hidden:
+| EM guess | Actual
+----------+----------+--------
+Red mean  |    2.910 |   2.802
+Red std   |    0.854 |   0.871
+Blue mean |    6.838 |   6.932
+Blue std  |    2.227 |   2.195
+Note: this answer was adapted from my answer on Stack Overflow
+here
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 3, 2017 at 11:09
+answered
+Jul 28, 2017 at 20:13
+Alex Riley
+285
+3
+3 silver badges
+7
+7 bronze badges
+$\endgroup$
+Add a comment
+|
+11
+$\begingroup$
+Following Zhubarb's answer, I implemented the Do and Batzoglou "coin tossing" E-M example in GNU R. Note that I use the
+mle
+function of the
+stats4
+package - this helped me to understand more clearly how E-M and MLE are related.
+require("stats4");
+## sample data from Do and Batzoglou
+ds<-data.frame(heads=c(5,9,8,4,7),n=c(10,10,10,10,10),
+coin=c("B","A","A","B","A"),weight_A=1:5*0)
+## "baby likelihood" for a single observation
+llf <- function(heads, n, theta) {
+comb <- function(n, x) { #nCr function
+return(factorial(n) / (factorial(x) * factorial(n-x)))
+}
+if (theta<0 || theta >1) { # probabilities should be in [0,1]
+return(-Inf);
+}
+z<-comb(n,heads)* theta^heads * (1-theta)^(n-heads);
+return (log(z))
+}
+## the "E-M" likelihood function
+em <- function(theta_A,theta_B) {
+# expectation step: given current parameters, what is the likelihood
+# an observation is the result of tossing coin A (vs coin B)?
+ds$weight_A <<- by(ds, 1:nrow(ds), function(row) {
+llf_A <- llf(row$heads,row$n, theta_A);
+llf_B <- llf(row$heads,row$n, theta_B);
+return(exp(llf_A)/(exp(llf_A)+exp(llf_B)));
+})
+# maximisation step: given params and weights, calculate likelihood of the sample
+return(- sum(by(ds, 1:nrow(ds), function(row) {
+llf_A <- llf(row$heads,row$n, theta_A);
+llf_B <- llf(row$heads,row$n, theta_B);
+return(row$weight_A*llf_A + (1-row$weight_A)*llf_B);
+})))
+}
+est<-mle(em,start = list(theta_A=0.6,theta_B=0.5), nobs=NROW(ds))
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 26, 2017 at 1:48
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+answered
+Jan 6, 2015 at 21:15
+user3096626
+321
+3
+3 silver badges
+9
+9 bronze badges
+$\endgroup$
+1
+1
+$\begingroup$
+@user3096626 Can you please explain why in maximization step you multiply likelihood of an A coin (row$weight_A) by a log probability (llf_A)? Is there a special rule or reason we do it? I mean one would just multiply the likelihoods or loglikehoods but not mixing hem together. I also opened a new
+topic
+$\endgroup$
+Alina
+–
+Alina
+2016-09-21 17:16:46 +00:00
+Commented
+Sep 21, 2016 at 17:16
+Add a comment
+|
+9
+$\begingroup$
+All of the above look like great resources, but I must link to this great example.  It presents a very simple explanation for finding the parameters for two lines of a set of points.  The tutorial is by Yair Weiss while at MIT.
+http://www.cs.huji.ac.il/~yweiss/emTutorial.pdf
+http://www.cs.huji.ac.il/~yweiss/tutorials.html
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 16, 2013 at 12:43
+Paul
+311
+3
+3 silver badges
+3
+3 bronze badges
+$\endgroup$
+Add a comment
+|
+5
+$\begingroup$
+The answer given by Zhubarb is great, but unfortunately it is in Python. Below is a Java implementation of the EM algorithm executed on the same problem (posed in the article by Do and Batzoglou, 2008). I've added some printf's to the standard output to see how the parameters converge.
+thetaA = 0.71301, thetaB = 0.58134
+thetaA = 0.74529, thetaB = 0.56926
+thetaA = 0.76810, thetaB = 0.54954
+thetaA = 0.78316, thetaB = 0.53462
+thetaA = 0.79106, thetaB = 0.52628
+thetaA = 0.79453, thetaB = 0.52239
+thetaA = 0.79593, thetaB = 0.52073
+thetaA = 0.79647, thetaB = 0.52005
+thetaA = 0.79667, thetaB = 0.51977
+thetaA = 0.79674, thetaB = 0.51966
+thetaA = 0.79677, thetaB = 0.51961
+thetaA = 0.79678, thetaB = 0.51960
+thetaA = 0.79679, thetaB = 0.51959
+Final result:
+thetaA = 0.79678, thetaB = 0.51960
+Java code follows below:
+import java.util.*;
+/*****************************************************************************
+This class encapsulates the parameters of the problem. For this problem posed
+in the article by (Do and Batzoglou, 2008), the parameters are thetaA and
+thetaB, the probability of a coin coming up heads for the two coins A and B.
+*****************************************************************************/
+class Parameters
+{
+double _thetaA = 0.0; // Probability of heads for coin A.
+double _thetaB = 0.0; // Probability of heads for coin B.
+double _delta = 0.00001;
+public Parameters(double thetaA, double thetaB)
+{
+_thetaA = thetaA;
+_thetaB = thetaB;
+}
+/*************************************************************************
+Returns true if this parameter is close enough to another parameter
+(typically the estimated parameter coming from the maximization step).
+*************************************************************************/
+public boolean converged(Parameters other)
+{
+if (Math.abs(_thetaA - other._thetaA) < _delta &&
+Math.abs(_thetaB - other._thetaB) < _delta)
+{
+return true;
+}
+return false;
+}
+public double getThetaA()
+{
+return _thetaA;
+}
+public double getThetaB()
+{
+return _thetaB;
+}
+public String toString()
+{
+return String.format("thetaA = %.5f, thetaB = %.5f", _thetaA, _thetaB);
+}
+}
+/*****************************************************************************
+This class encapsulates an observation, that is the number of heads
+and tails in a trial. The observation can be either (1) one of the
+observed observations, or (2) an estimated observation resulting from
+the expectation step.
+*****************************************************************************/
+class Observation
+{
+double _numHeads = 0;
+double _numTails = 0;
+public Observation(String s)
+{
+for (int i = 0; i < s.length(); i++)
+{
+char c = s.charAt(i);
+if (c == 'H')
+{
+_numHeads++;
+}
+else if (c == 'T')
+{
+_numTails++;
+}
+else
+{
+throw new RuntimeException("Unknown character: " + c);
+}
+}
+}
+public Observation(double numHeads, double numTails)
+{
+_numHeads = numHeads;
+_numTails = numTails;
+}
+public double getNumHeads()
+{
+return _numHeads;
+}
+public double getNumTails()
+{
+return _numTails;
+}
+public String toString()
+{
+return String.format("heads: %.1f, tails: %.1f", _numHeads, _numTails);
+}
+}
+/*****************************************************************************
+This class runs expectation-maximization for the problem posed by the article
+from (Do and Batzoglou, 2008).
+*****************************************************************************/
+public class EM
+{
+// Current estimated parameters.
+private Parameters _parameters;
+// Observations from the trials. These observations are set once.
+private final List<Observation> _observations;
+// Estimated observations per coin. These observations are the output
+// of the expectation step.
+private List<Observation> _expectedObservationsForCoinA;
+private List<Observation> _expectedObservationsForCoinB;
+private static java.io.PrintStream o = System.out;
+/*************************************************************************
+Principal constructor.
+@param observations The observations from the trial.
+@param parameters The initial guessed parameters.
+*************************************************************************/
+public EM(List<Observation> observations, Parameters parameters)
+{
+_observations = observations;
+_parameters = parameters;
+}
+/*************************************************************************
+Run EM until parameters converge.
+*************************************************************************/
+public Parameters run()
+{
+while (true)
+{
+expectation();
+Parameters estimatedParameters = maximization();
+o.printf("%s\n", estimatedParameters);
+if (_parameters.converged(estimatedParameters)) {
+break;
+}
+_parameters = estimatedParameters;
+}
+return _parameters;
+}
+/*************************************************************************
+Given the observations and current estimated parameters, compute new
+estimated completions (distribution over the classes) and observations.
+*************************************************************************/
+private void expectation()
+{
+_expectedObservationsForCoinA = new ArrayList<Observation>();
+_expectedObservationsForCoinB = new ArrayList<Observation>();
+for (Observation observation : _observations)
+{
+int numHeads = (int)observation.getNumHeads();
+int numTails = (int)observation.getNumTails();
+double probabilityOfObservationForCoinA=
+binomialProbability(10, numHeads, _parameters.getThetaA());
+double probabilityOfObservationForCoinB=
+binomialProbability(10, numHeads, _parameters.getThetaB());
+double normalizer = probabilityOfObservationForCoinA +
+probabilityOfObservationForCoinB;
+// Compute the completions for coin A and B (i.e. the probability
+// distribution of the two classes, summed to 1.0).
+double completionCoinA = probabilityOfObservationForCoinA /
+normalizer;
+double completionCoinB = probabilityOfObservationForCoinB /
+normalizer;
+// Compute new expected observations for the two coins.
+Observation expectedObservationForCoinA =
+new Observation(numHeads * completionCoinA,
+numTails * completionCoinA);
+Observation expectedObservationForCoinB =
+new Observation(numHeads * completionCoinB,
+numTails * completionCoinB);
+_expectedObservationsForCoinA.add(expectedObservationForCoinA);
+_expectedObservationsForCoinB.add(expectedObservationForCoinB);
+}
+}
+/*************************************************************************
+Given new estimated observations, compute new estimated parameters.
+*************************************************************************/
+private Parameters maximization()
+{
+double sumCoinAHeads = 0.0;
+double sumCoinATails = 0.0;
+double sumCoinBHeads = 0.0;
+double sumCoinBTails = 0.0;
+for (Observation observation : _expectedObservationsForCoinA)
+{
+sumCoinAHeads += observation.getNumHeads();
+sumCoinATails += observation.getNumTails();
+}
+for (Observation observation : _expectedObservationsForCoinB)
+{
+sumCoinBHeads += observation.getNumHeads();
+sumCoinBTails += observation.getNumTails();
+}
+return new Parameters(sumCoinAHeads / (sumCoinAHeads + sumCoinATails),
+sumCoinBHeads / (sumCoinBHeads + sumCoinBTails));
+//o.printf("parameters: %s\n", _parameters);
+}
+/*************************************************************************
+Since the coin-toss experiment posed in this article is a Bernoulli trial,
+use a binomial probability Pr(X=k; n,p) = (n choose k) * p^k * (1-p)^(n-k).
+*************************************************************************/
+private static double binomialProbability(int n, int k, double p)
+{
+double q = 1.0 - p;
+return nChooseK(n, k) * Math.pow(p, k) * Math.pow(q, n-k);
+}
+private static long nChooseK(int n, int k)
+{
+long numerator = 1;
+for (int i = 0; i < k; i++)
+{
+numerator = numerator * n;
+n--;
+}
+long denominator = factorial(k);
+return (long)(numerator / denominator);
+}
+private static long factorial(int n)
+{
+long result = 1;
+for (; n >0; n--)
+{
+result = result * n;
+}
+return result;
+}
+/*************************************************************************
+Entry point into the program.
+*************************************************************************/
+public static void main(String argv[])
+{
+// Create the observations and initial parameter guess
+// from the (Do and Batzoglou, 2008) article.
+List<Observation> observations = new ArrayList<Observation>();
+observations.add(new Observation("HTTTHHTHTH"));
+observations.add(new Observation("HHHHTHHHHH"));
+observations.add(new Observation("HTHHHHHTHH"));
+observations.add(new Observation("HTHTTTHHTT"));
+observations.add(new Observation("THHHTHHHTH"));
+Parameters initialParameters = new Parameters(0.6, 0.5);
+EM em = new EM(observations, initialParameters);
+Parameters finalParameters = em.run();
+o.printf("Final result:\n%s\n", finalParameters);
+}
+}
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 18, 2016 at 4:13
+answered
+Nov 21, 2014 at 23:56
+stackoverflowuser2010
+3,720
+7
+7 gold badges
+33
+33 silver badges
+43
+43 bronze badges
+$\endgroup$
+Add a comment
+|
+5
+$\begingroup$
+% Implementation of the EM (Expectation-Maximization)algorithm example exposed on:
+% Motion Segmentation using EM - a short tutorial, Yair Weiss, %http://www.cs.huji.ac.il/~yweiss/emTutorial.pdf
+% Juan Andrade,
+[email protected]
+clear all
+clc
+%% Setup parameters
+m1 = 2;                 % slope line 1
+m2 = 6;                 % slope line 2
+b1 = 3;                 % vertical crossing line 1
+b2 = -2;                % vertical crossing line 2
+x = [-1:0.1:5];         % x axis values
+sigma1 = 1;             % Standard Deviation of Noise added to line 1
+sigma2 = 2;             % Standard Deviation of Noise added to line 2
+%% Clean lines
+l1 = m1*x+b1;           % line 1
+l2 = m2*x+b2;           % line 2
+%% Adding noise to lines
+p1 = l1 + sigma1*randn(size(l1));
+p2 = l2 + sigma2*randn(size(l2));
+%% showing ideal and noise values
+figure,plot(x,l1,'r'),hold,plot(x,l2,'b'), plot(x,p1,'r.'),plot(x,p2,'b.'),grid
+%% initial guess
+m11(1) = -1;            % slope line 1
+m22(1) = 1;             % slope line 2
+b11(1) = 2;             % vertical crossing line 1
+b22(1) = 2;             % vertical crossing line 2
+%% EM algorithm loop
+iterations = 10;        % number of iterations (a stop based on a threshold may used too)
+for i=1:iterations
+%% expectation step (equations 2 and 3)
+res1 = m11(i)*x + b11(i) - p1;
+res2 = m22(i)*x + b22(i) - p2;
+% line 1
+w1 = (exp((-res1.^2)./sigma1))./((exp((-res1.^2)./sigma1)) + (exp((-res2.^2)./sigma2)));
+% line 2
+w2 = (exp((-res2.^2)./sigma2))./((exp((-res1.^2)./sigma1)) + (exp((-res2.^2)./sigma2)));
+%% maximization step  (equation 4)
+% line 1
+A(1,1) = sum(w1.*(x.^2));
+A(1,2) = sum(w1.*x);
+A(2,1) = sum(w1.*x);
+A(2,2) = sum(w1);
+bb = [sum(w1.*x.*p1) ; sum(w1.*p1)];
+temp = A\bb;
+m11(i+1) = temp(1);
+b11(i+1) = temp(2);
+% line 2
+A(1,1) = sum(w2.*(x.^2));
+A(1,2) = sum(w2.*x);
+A(2,1) = sum(w2.*x);
+A(2,2) = sum(w2);
+bb = [sum(w2.*x.*p2) ; sum(w2.*p2)];
+temp = A\bb;
+m22(i+1) = temp(1);
+b22(i+1) = temp(2);
+%% plotting evolution of results
+l1temp = m11(i+1)*x+b11(i+1);
+l2temp = m22(i+1)*x+b22(i+1);
+figure,plot(x,l1temp,'r'),hold,plot(x,l2temp,'b'), plot(x,p1,'r.'),plot(x,p2,'b.'),grid
+end
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 26, 2017 at 1:47
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+answered
+Sep 24, 2014 at 7:42
+Juan Andrade
+51
+1
+1 silver badge
+1
+1 bronze badge
+$\endgroup$
+2
+4
+$\begingroup$
+Are you able to add some discussion or explanation to the raw code? It would be useful to many readers to at least mention the language you're writing in.
+$\endgroup$
+Glen_b
+–
+Glen_b
+2014-09-24 08:40:23 +00:00
+Commented
+Sep 24, 2014 at 8:40
+2
+$\begingroup$
+@Glen_b - this is MatLab.  I wonder how polite it is considered to more extensively annotate someones code in their answer.
+$\endgroup$
+EngrStudent
+–
+EngrStudent
+2016-02-08 11:12:04 +00:00
+Commented
+Feb 8, 2016 at 11:12
+Add a comment
+|
+4
+$\begingroup$
+Well, I would suggest you to go through a book on R by Maria L Rizzo. One of the chapters contain the use of EM algorithm with a numerical example. I remember going through the code for better understanding.
+Also, try to view it from a clustering point of view in the beginning. Work out by hand, a clustering problem where 10 observations are taken from two different normal densities. This should help.Take help from R :)
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 15, 2013 at 7:03
+Vani
+661
+1
+1 gold badge
+6
+6 silver badges
+13
+13 bronze badges
+$\endgroup$
+Add a comment
+|
+2
+$\begingroup$
+Just in case, I have written a Ruby
+implementation
+of the above mentioned coin toss example by
+Do & Batzoglou
+and it produces exactly the same numbers as they do w.r.t. the same input parameters $\theta_A = 0.6$ and $\theta_B = 0.5$.
+# gem install distribution
+require 'distribution'
+# error bound
+EPS = 10**-6
+# number of coin tosses
+N = 10
+# observations
+X = [5, 9, 8, 4, 7]
+# randomly initialized thetas
+theta_a, theta_b = 0.6, 0.5
+p [theta_a, theta_b]
+loop do
+expectation = X.map do |h|
+like_a = Distribution::Binomial.pdf(h, N, theta_a)
+like_b = Distribution::Binomial.pdf(h, N, theta_b)
+norm_a = like_a / (like_a + like_b)
+norm_b = like_b / (like_a + like_b)
+[norm_a, norm_b, h]
+end
+maximization = expectation.each_with_object([0.0, 0.0, 0.0, 0.0]) do |(norm_a, norm_b, h), r|
+r[0] += norm_a * h; r[1] += norm_a * (N - h)
+r[2] += norm_b * h; r[3] += norm_b * (N - h)
+end
+theta_a_hat = maximization[0] / (maximization[0] + maximization[1])
+theta_b_hat = maximization[2] / (maximization[2] + maximization[3])
+error_a = (theta_a_hat - theta_a).abs / theta_a
+error_b = (theta_b_hat - theta_b).abs / theta_b
+theta_a, theta_b = theta_a_hat, theta_b_hat
+p [theta_a, theta_b]
+break if error_a < EPS && error_b < EPS
+end
+Share
+Cite
+Improve this answer
+Follow
+edited
+Aug 26, 2017 at 1:49
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+answered
+May 17, 2015 at 12:07
+user77351
+$\endgroup$
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+regression
+probability
+mathematical-statistics
+intuition
+expectation-maximization
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+18
+Relation between MAP, EM, and MLE
+6
+How can I derive the EM algorithm for a mixture of two Bernoulli distributions?
+4
+Are there any clustering algorithms that do not exclude/impute missing data?
+5
+EM-algorithm and missing data
+5
+Linear regression where some known records have a measurement error in dependent variable
+2
+Expectation-Maximization Algorithm for Binomial
+4
+Expectation-Maximization with a MLE package in R
+2
+Substituting per-trial missing data for all missing data in the two-coin expectation-maximation example
+2
+EM algorithm on a mixture of two uniforms?
+2
+Understanding numerical example of expectation maximization
+See more linked questions
+Related
+7
+Expectation Maximization clarification questions
+3
+Coursera Linear Regression with gradient descent with R
+4
+Machine Learning: Trying to understand an example of Expectation Maximization
+7
+Expectation Maximization intuitive explanation
+3
+Expectation Maximization (EM) stopping criterion
+2
+Understanding numerical example of expectation maximization
+Hot Network Questions
+Writing your own Wikipedia biography?
+Does the Airbus really lack control feel?
+Identify this IC's manufacturer logo with stylised 'm'
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+PTIJ: Serving With Oy
+Generate random, unique, nonzero integers
+Are US passport holders required to keep passports on their person, when in Canada?
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+Is "Spider-Man is a good movie" an unfalsifiable statement?
+Is it legal for the military to send a soldier on a mission that will lead almost surely to their death?
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+Select clients where they have one feature type but not another - ArcGIS Pro
+What to do when there are multiple descriptions or definitions of the same mathematical object?
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+What does "correlated data" mean?
+PTIJ: 6-7 - Mi Yodeya?
+A Holiday to Remember... #05: Whatever Floats Your Boat
+Why is there a strange removal of mortar right behind my water heater?
+Interpreting Adjective + Noun Phrases Where the Adjective Doesn’t Directly Describe the Noun
+Guess the PIN. You only got one shot!
+What becomes of seized tankers and their oil cargo?
+Refusing authorship on a paper I consider scientifically unsound
+Can a coin be 'completely' unclippable?
+Identify tv episode, everyone's got a brain chip - except one man who ultimately must destroy it
+more hot questions
+Question feed

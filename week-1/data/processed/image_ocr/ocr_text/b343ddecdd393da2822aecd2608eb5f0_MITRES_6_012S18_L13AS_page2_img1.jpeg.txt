@@ -1,0 +1,22 @@
+Conditional expectation as a random variable
+
+e Random variable X; what is h(X)?
+2xe
+
+, h(x) = «?, for all x © h(X) is the r.v. that takes the value x,
+
+if X happens to take the value x
+
+e Function h
+
+¢ gy) = EX |Y=y] = Lennie ly)
+= (integral in continuous case) 9 (y)
+e g(Y): is the r.v. that takes the value ELX | Y = y],
+if Y happens to take the value y
+
+e Remarks:
+— Tt i€ 4 function ory [ Definition: E[X|¥] =a) |
+
+— It is a random variable
+
+— Has a distribution, mean, variance, etc.

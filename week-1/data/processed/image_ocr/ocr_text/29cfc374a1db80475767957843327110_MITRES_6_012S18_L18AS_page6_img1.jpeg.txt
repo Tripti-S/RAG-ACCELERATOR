@@ -1,0 +1,16 @@
+The Weak Law of Large Numbers (WLLN)
+
+e X1,X,... iid.; finite mean p and variance o?
+
+Sample mean: My, = “tt +*» Pp = E(x-)
+n
+
+e EM] = phe tea
+nu
+
+© Var(Mn) = Van (X ++ +2+%~) . ce _o*
+ut m
+P(|Mn—u|>e) < vorCMu) | o ® 50 (fleeol ¢>0)
+s? meh m-p0o
+[wen: For e>0, P(|Mn — 11| > €) = (a tan u| =e) +0, asn |
+

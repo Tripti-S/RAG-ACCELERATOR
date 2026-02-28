@@ -1,0 +1,16 @@
+Discrete uniform random variable; parameters a, b
+e Parameters: integers a, b} a<b
+e Experiment: Pick one of a,a+1,...,b at random; all equally likely
+
+e Sample space: {a,a+1,...,b} b-atd poss ble values
+
+e Random variable X: X(w) =w j ve ee 226 Oe pee 0, 592
+
+e Model of: complete ignorance Special case: a=b
+
+constant/deterministic r.v.
+
+px(«) px (a)
+
+b-a+1
+

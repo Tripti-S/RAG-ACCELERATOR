@@ -1,0 +1,80 @@
+# Be33F429D9B97B2C65F1E82B8F8D937F Jyi5Xklh Mu
+
+---
+
+MITOCW | MITRES6_012S18_L21-03_300k
+We have said that the Bernoulli process is the simplest stochastic processes there is.
+But what is a stochastic process anyway?
+A stochastic process can be thought of as a sequence of random variables.
+Now, how is this different from what we have doing before, where we have dealt with multiple random variables?
+Well, one difference is that here we're talking about an infinite sequence of random variables.
+And that complicates things to a certain extent.
+Now, what does it take to describe a stochastic process?
+We should specify the properties of each one of those random variables.
+For example, we might be interested in the mean, variance, or PMF of those random variables.
+For the case of the Bernoulli process, this would be easy to do.
+We know what the expected value is.
+We have a formula for the variance.
+And we have a fairly simple PMF.
+There's probability p that X is equal to 1 and probability 1 minus p that X equals to 0.
+But this is not enough.
+We also need to know how the different random variables are related to each other.
+And this is done by specifying, directly or indirectly, the joint distribution, the joint PMF or PDF, of the random
+variables involved.
+And because we have an infinite number of random variables, it's not enough to do this, let's say, for the first n of
+them.
+We need to be able to specify this joint distribution no matter what the number n is.
+For the case of the Bernoulli process, we have specified this joint PMF in an indirect way, because we have said
+that the random variables are independent of each other.
+So the joint factors as a product of the marginals.
+And we already know what the marginals are.
+So we do, indeed, have a specification of the joint PMF, and we have that for all values of n.
+Of course, for more complicated stochastic processes, this calculation might be somewhat more difficult.
+Now, there is a second view of a stochastic process which rests on the following.
+It's not just a collection of random variables, but they are a collection that's indexed by an index that keeps
+increasing.
+And quite often, we think of this index as corresponding to time.
+And so we have a mental picture that involves a process that keeps evolving in time.
+What is this picture?
+This picture is best developed if we think in terms of the sample space.
+Although we have an infinite sequence of random variables, we are dealing with a single experiment.
+And that single experiment runs in time.
+And when we carry out the experiment, we might to get an outcome such as the following.
+For the Bernoulli process, we might get a 0, 0, 1, 0, 1, 1, 0, and so on.
+And we continue.
+So an infinite sequence of that kind is one possible outcome of this infinitely long experiment, one particular
+outcome of the stochastic process.
+If we carry out the process once more, we might get a different outcome.
+For example, we might get a 0, 1, 1, 0, 0, 0, 1, 1, and so on, and continuing.
+And in general, any time function of this kind is one possible outcome of the experiment.
+Overall, the sample space that we're dealing with is the set of all infinite sequences of 0s and 1s.
+This point of view emphasizes the fact that we have a phenomenon that evolves over time and can be used to
+answer questions that have to do with the long-term evolution of this process.
+Here's one particular kind of question we might want one answer.
+What is the probability that all of the Xi's turn out to be 1?
+Notice that this is an event that involves all of the Xi's not just a finite number of them.
+So this is not a probability that we can calculate right away by using this joint pmf.
+We need to do a little more work.
+What is the work that we want to do?
+Instead of calculating this quantity, we will calculate a somewhat related quantity.
+Let us look at the event that the first n results were equal to 1.
+How is this event related to this event?
+Well, this event here implies that this event has happened.
+So this is a smaller event.
+This is more difficult to obtain than this one.
+And this gives us an inequality for the probabilities that go this way.
+Now, we know that this probability is equal to p to the n.
+And this inequality here is true for all n.
+No matter how large n we take, this quantity is smaller than that.
+But now, since p has been assumed to be less than 1, when we take n larger and larger, this number becomes
+arbitrarily small.
+So this quantity is less than or equal to an arbitrarily small number.
+So this quantity can only be equal to 0.
+And this is a simple example of how we calculate properties of the stochastic process as it evolves over the infinite
+time horizon and how we can sometimes calculate them using these so-called finite dimensional joint probabilities
+that tell us what the process is doing over a finite amount of time.
+Throughout, we will sometimes view stochastic processes in this manner, in terms of probability distributions.
+But sometimes we will also want to reason in terms of the behavior of the stochastic process as a time function, as
+a process that evolves in time.
+
+---

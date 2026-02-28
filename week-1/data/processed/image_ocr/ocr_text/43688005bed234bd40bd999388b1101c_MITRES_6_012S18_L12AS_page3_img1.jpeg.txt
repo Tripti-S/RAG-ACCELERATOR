@@ -1,0 +1,14 @@
+Discrete convolution mechanics
+
+[e = Yi px(2) py(z - >]
+
+e To find pz(3):
+
+— Flip (horizontally) the PMF of Y
+— Put it underneath the PMF of X
+
+— Right-shift the flipped PMF by 3
+
+— Cross-multiply and add
+
+— Repeat for other values of z

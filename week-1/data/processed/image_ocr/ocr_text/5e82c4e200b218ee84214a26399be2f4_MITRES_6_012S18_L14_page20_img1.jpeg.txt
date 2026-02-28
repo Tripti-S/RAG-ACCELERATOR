@@ -1,0 +1,15 @@
+Summary
+
+e Problem data: pe(-), Pxje(- | -)
+e Given the value z of X: find, €.g., pox(- | x)
+
+— using appropriate version of the Bayes rule
+e Estimator © = g(X) Estimate 0 = g(x)
+— MAP: @yap = gmap(2) maximizes Pe|x (9 | x)
+
+— LMS: 6Lms = gims(2) = E[O | X = a]
+
+e Performance evaluation of an estimator ©
+P(OAC|X =z) E[(6 - ©)? | X =a]
+
+P(O #0) E|(6 — ©)?|

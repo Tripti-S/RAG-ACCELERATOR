@@ -1,0 +1,1259 @@
+probability - Do not vote, one vote will not reverse election results. What is wrong with this reasoning? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Do not vote, one vote will not reverse election results. What is wrong with this reasoning?
+Ask Question
+Asked
+5 years, 11 months ago
+Modified
+5 years, 11 months ago
+Viewed
+11k times
+80
+$\begingroup$
+Do not vote, one vote will not reverse the election result. What's
+more, the probability of injury in a traffic collision on the way to the
+ballot box is much higher than your vote reversing the election
+result. What is even more, the probability that you would win grand
+prize of lottery game is higher than that you would reverse election
+result.
+What is wrong with this reasoning, if anything? Is it possible to statistically prove that one vote matters?
+I know that there are some arguments like "if everybody thought like that, it would change the election result". But everybody will not think like that. Even if 20% of electorate copy you, always a great number of people will go, and the margin of victory of winning candidate will be counted in hundreds of thousands. Your vote would count only in case of a tie.
+Judging it with game theory gains and costs, it seems that more optimal strategy for Sunday is horse race gambling than going to the ballot box.
+Update, March 3.
+I am grateful for providing me with so much material and for keeping the answers related to statistical part of the question. Not attempting to solve the stated problem but rather to share and validate my thinking path I posted an
+answer
+. I have formulated there few assumptions.
+two candidates
+unknown number of voters
+each voter can cast a random vote on either candidate
+I have showed there a solution for 6 voters (could be a case in choosing a captain on a fishing boat). I would be interested in knowing what are the odds for each additional milion of voters.
+Update, March 5.
+I would like to make it clear that I am interested in more or less realistic assumptions to calculating the probability of a decisive vote. More or less because I do not want to sacrifice simplicity for precision. I have just understood that my update of March 3 formulated unrealistic assumptions. These assumptions probably formulate the highest possible probability of a decisive vote but I would be grateful if you could confirm it.
+Yet still unknown for me thing is what is meant by the number of voters in the provided formulas. Is it a maximum pool of voters or exact number of voters. Say we have 1 milion voters, so is the probability calculated for all the cases from 1 to milion voters taking part in election?
+Adding more fuel to the discussion heat
+In the USA, because president is elected indirectly, your vote would be decisive if only one vote, your vote, were to reverse the electors of your state, and then, owing to the votes of your electors, there was a tie at Electoral College. Of course, breaking this double tie condition hampers the chances that a single vote may reverse election result, even more than discussed here so far. I have opened a separate thread about that
+here
+.
+probability
+game-theory
+elections
+voting-system
+Share
+Cite
+Improve this question
+Follow
+edited
+Mar 6, 2020 at 8:08
+asked
+Feb 28, 2020 at 14:06
+Przemyslaw Remin
+1,188
+1
+1 gold badge
+10
+10 silver badges
+17
+17 bronze badges
+$\endgroup$
+21
+24
+$\begingroup$
+This is called the
+Paradox of voting
+. Since you mention optimal strategies, you may be interested to know that the so-called "pivot probability" (chance that all other votes are an exact tie so that your vote is the pivotal one) is central to the
+Myerson-Weber optimal voting strategy
+.
+$\endgroup$
+olooney
+–
+olooney
+2020-02-28 15:07:14 +00:00
+Commented
+Feb 28, 2020 at 15:07
+7
+$\begingroup$
+The fallacy is assuming you know the probability of something when you don't, as well as the "return" of an outcome.
+$\endgroup$
+AdamO
+–
+AdamO
+2020-02-28 17:08:21 +00:00
+Commented
+Feb 28, 2020 at 17:08
+3
+$\begingroup$
+Part of the 'truth' hidden in this reasoning may be found in its assumption that votes are
+uncorrelated
+. The most forceful attack on this anti-voting devil's advocacy is perhaps to be found in movement-building efforts that 'correlate' others' votes with your own.
+$\endgroup$
+David C. Norris
+–
+David C. Norris
+2020-02-28 19:55:43 +00:00
+Commented
+Feb 28, 2020 at 19:55
+6
+$\begingroup$
+Also, I don't think we should be jumping on "voter suppression" wagon here. It's unhealthy to drag the political sentiment into a statistical forum, especially, when the question of rationality of voting is far from settled in the domain of rational choice studies. It's a legitimate puzzle, and you're not helping resolve it by accusations of voter suppression intent. I suggest that we remove the politics from answers. Let's stick to what we know best - stats
+$\endgroup$
+Aksakal
+–
+Aksakal
+2020-02-28 20:25:08 +00:00
+Commented
+Feb 28, 2020 at 20:25
+6
+$\begingroup$
+@Sam, in USA, most of us know in advance which candidate will get ALL of our state’s electoral votes.  To me, that is an incentive to send a miniscule subliminal message by adding a vote to a third-party candidate.  Since almost half of us don’t bother to vote, not voting is probably perceived as just one more who doesn’t care.
+$\endgroup$
+WGroleau
+–
+WGroleau
+2020-02-28 22:46:07 +00:00
+Commented
+Feb 28, 2020 at 22:46
+|
+Show
+16
+more comments
+7 Answers
+7
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+104
+$\begingroup$
+It's wrong in part because it's based on a mathematical fallacy.
+(It's even more wrong because it's such blatant voter-suppression propaganda, but that's not a suitable topic for discussion here.)
+The implicit context is one in which an election looks like it's on the fence.  One reasonable model is that there will be
+$n$
+voters (not including you) of whom approximately
+$m_1\lt n/2$
+will definitely vote for one candidate and approximately
+$m_2\approx m_1$
+will vote for the other, leaving
+$n-(m_1+m_2)$
+"undecideds" who will make up their minds on the spot randomly, as if they were flipping coins.
+Most people--including those with strong mathematical backgrounds--will guess that the chance of a perfect tie in this model is astronomically small.  (I have tested this assertion by actually asking  undergraduate math majors.)  The correct answer is surprising.
+First, figure there's about a
+$1/2$
+chance
+$n$
+is odd, which means a tie is impossible.  To account for this, we'll throw in a factor of
+$1/2$
+in the end.
+Let's consider the remaining situation where
+$n=2k$
+is even.  The chance of a tie in this model is given by the Binomial distribution as
+$$\Pr(\text{Tie}) = \binom{n - m_1 - m_2}{k - m_1} 2^{m_1+m_2-n}.$$
+When
+$m_1\approx m_2,$
+let
+$m = (m_1+m_2)/2$
+(and round it if necessary).  The chances don't depend much on small deviations between the
+$m_i$
+and
+$m,$
+so writing
+$N=k-m,$
+an
+excellent
+approximation of the Binomial coefficient is
+$$\binom{n - m_1-m_2}{k - m_1} \approx \binom{2(k-m)}{k-m} = \binom{2N}{N} \approx \frac{2^{2N}}{\sqrt{N\pi}}.$$
+The last approximation, due to
+Stirling's Formula
+, works well even when
+$N$
+is small (larger than
+$10$
+will do).
+Putting these results together, and remembering to multiply by
+$1/2$
+at the outset, gives a good estimate of the chance of tie as
+$$\Pr(\text{Tie}) \approx \frac{1}{2\sqrt{N\pi}}.$$
+In such a case, your vote will tip the election.  What are the chances?  In the most extreme case, imagine a direct popular vote involving, say,
+$10^8$
+people (close to the number who vote in a US presidential election).  Typically about 90% of people's minds a clearly decided, so we might take
+$N$
+to be on the order of
+$10^7.$
+Now
+$$\frac{1}{2\sqrt{10^7\pi}} \approx 10^{-4}.$$
+That is, your participation in a close election involving
+one hundred million people
+still has about a
+$0.01\%$
+chance of changing the outcome!
+In practice, most elections involve between a few dozen and a few million voters.  Over this range, your chance of affecting the results (under the foregoing assumptions, of course) ranges from about
+$10\%$
+(with just ten undecided voters) to
+$1\%$
+(with a thousand undecided voters) to
+$0.1\%$
+(with a hundred thousand undecided voters).
+In summary,
+the chance that your vote swings a closely-contested election tends to be inversely proportional to the square root of the number of undecided voters.
+Consequently, voting is important even when the electorate is large.
+The history of US state and national elections supports this analysis.
+Remember, for just one recent example, how the 2000 US presidential election was decided by a plurality in the state of Florida (with several million voters) that could not have exceeded a few hundred--and probably, if it had been checked more closely, would have been even narrower.
+If (based on recent election outcomes) it appears there is, say, a few percent chance that an election involving a few million people will be decided by at most a few hundred votes, then the chance that the next such election is decided by just one vote (intuitively) must be at least a hundredth of one percent.  That is about one-tenth of what this inverse square root law predicts.  But that means
+the history of voting and this analysis are in good agreement,
+because this analysis applies
+only
+to close races--and most are not close.
+For more (anecdotal) examples of this type, across the world, see the
+Wikipedia article on close election results
+.  It includes a table of about 200 examples.  Unfortunately, it reports the margin of victory as a
+proportion of the total.
+As we have seen, regardless of whether all (or even most) assumptions of this analysis hold, a more meaningful measure of the closeness of an election would be the margin divided by the
+square root
+of the total.
+By the way, your chance of an injury due to driving to the ballot box (if you need to drive at all) can be estimated as the rate of injuries annually (about one percent) divided by the average number of trips (or distance-weighted trips) annually, which is several hundred.  We obtain a number well below
+$0.01\%.$
+Your chance of winning the lottery grand prize?  Depending on the lottery, one in a million or less.
+The quotation in the question is not only scurrilous, it is outright false.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 28, 2020 at 17:17
+answered
+Feb 28, 2020 at 14:38
+whuber
+♦
+345k
+67
+67 gold badges
+832
+832 silver badges
+1.4k
+1.4k bronze badges
+$\endgroup$
+54
+7
+$\begingroup$
+This is probably the most convincing reason to vote I've seen. Now, to paraphrase it in a way that laymen could follow...
+$\endgroup$
+Forgottenscience
+–
+Forgottenscience
+2020-02-28 15:13:20 +00:00
+Commented
+Feb 28, 2020 at 15:13
+23
+$\begingroup$
+This is not a proof, that the statement in the question is wrong, since it relies on very strong assumptions:   1) $m_1 \approx m_2$, which does not apply in most cases (except maybe U.S. presidency election).  2) Undecided voters choose with uniform probability across all possible choices. This does not apply empirically. Otherwise, small parties with few supporters would receive a large amount of undecided voters.  3) There is a random component, that only regards undecided voters. The adequacy of such a model is left to be proven.
+$\endgroup$
+ghlavin
+–
+ghlavin
+2020-02-28 16:02:47 +00:00
+Commented
+Feb 28, 2020 at 16:02
+28
+$\begingroup$
+@ghlavin You have unrealistic standards of "proof" in this setting. The question was not asking for a mathematical "proof," because no such thing is possible. I have not elaborated on the consequences of the assumptions I had to make, anticipating that most readers will immediately see how the results change when the assumptions change--especially when there is a large imbalance between $m_1$ and $m_2.$ Those expectations were implicit in my concluding remarks pointing out that not all elections are closely contested and adducing
+empirical support
+for the conclusion, contrary to your claim.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2020-02-28 16:09:32 +00:00
+Commented
+Feb 28, 2020 at 16:09
+23
+$\begingroup$
+@ghlavin I am not the one positing the fallacy!  The quotation states, in an unqualified manner, that the chance of one vote tipping an election are so tiny as to be negligible,
+no matter what.
+Logically, it suffices to exhibit just one example where that general statement is incorrect (and there are many trivial ones, such as elections with small numbers of voters).  As a matter of fairness and applicability, such an example should be realistic, plausible, and occur sufficiently often to be of general interest. I have met those standards.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2020-02-28 16:19:44 +00:00
+Commented
+Feb 28, 2020 at 16:19
+5
+$\begingroup$
+(Continued) A formal way to express the distinction is this: my answer analyzes a
+conditional
+probability of casting a deciding vote when an election looks close; the paper analyzes the
+unconditional
+chance that an election is decided by at most one vote.  Obviously the latter is much smaller than the former.  Which is relevant is worthy of discussion, and both provide insight, but bear in mind that voter suppression efforts (as exemplified by the question's opening quotation) tend to occur more frequently in elections that are perceived to be close.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2020-02-28 19:24:50 +00:00
+Commented
+Feb 28, 2020 at 19:24
+|
+Show
+49
+more comments
+36
+$\begingroup$
+I must disappoint you: current economic theory cannot explain why people keep showing up in elections, because it appears to be irrational. See a survey of literature on this subject on pages 16-35 of
+Geys, Benny (2006) - "‘Rational’ Theories of Voter Turnout: A Review"
+. The
+voter turnout
+is a percentage of voters that showed up at the poll of a total voting eligible pool. In layman's words it appears that indeed your vote won't make a difference.
+As in @whuber answer the analysis is closely related to the probability of casting a pivotal vote, i.e. making or breaking a tie. However, I think @whuber is making the question look simpler than it is, and also suggesting much higher probability of pivotal vote than US and European election data analysis suggests. A voter turnout is a paradox indeed. It must be zero according to theory, yet it's in close to 50% range in USA.
+The answer cannot be derived from pure statistics point of view in my opinion. It belongs to behavioral aspects of human actions, which rational choice models explore, albeit in unsatisfactory way because people keep voting while the theory says they shouldn't.
+Instrumental Voting
+The instrumental voting approach that I mentioned earlier (see earlier reference) is the idea that your vote becomes tie breaking, and thus deices whether you gain benefits from electinng your favorite candidate. It is described with an equation for the expected utility R:
+$$R=PB-C>0$$
+Here, P is the probability your vote is tie breaking, B benefits you get from you candidate and C associated with voting. The costs C vary and are split into roughly two categories: research of candidates and things dealing with voter registration, driving to polling stations etc. People looked at these components and came to conclusion that P is so low that any positive cost C outweighs the product PB.
+Probability P has been considered by many researchers, e,g, see the authorative treatment by Gelman
+here
+: Gelman, A., King, G. and Boscardin, J. W. (1998) ‘Estimating the Probability of Events That Have Never Occurred:When Is Your Vote Decisive?'
+You can find a calculation similar to the setup in @whuber's answer
+here
+in NBER paper: THE EMPIRICAL FREQUENCY OF A PIVOTAL VOTE, Casey B. Mulligan, Charles G. Hunter. Note, that this is the empirical research of voting bulletins. However, they have the independent binomial voter setup in theoretical part, see Eq.3. Their estimate is drastically different from @whuber, who came up with
+$\sim 1/\sqrt{n}$
+while this paper derives
+$P=O(\frac 1 n)$
+, which renders very low probabilities. The treatment of probabilities is very interesting, and takes into account many non obvious considerations such whether a voter realizes what are the tie probabilities or not
+A simple intuitive explanation follows, from Edlin, Aaron, Andrew Gelman, and Noah Kaplan. "
+Voting as a rational choice: Why and how people vote to improve the well-being of others
+." Rationality and society 19.3 (2007): 293-314.
+Let f(d) be the predictive or forecast uncertainty distribution of the
+vote differential d (the difference in the vote proportions received
+by the two leading candidates). If n is not tiny, f(d) can be written,
+in practice, as a continuous distribution (e.g., a normal distribution
+with mean 0.04 and standard deviation 0.03). The probability of a
+decisive vote is then half the probability that a single vote can make
+or break an exact tie, or f(0)/n.
+The assumption here is that an exact tie vote will be decided by a
+coin flip.
+Empirical results
+Empirical results suggest that for 20,000 voters, the probability of a tie is
+$\frac 1 {6000}$
+, which is significantly lower than @whuber's model results
+$\frac 1 {2\sqrt{20000\pi}}=\frac 1 {500}$
+Another empirical study is Gelman, Andrew, Katz, Jonathan and Bafumi, Joseph, (2004),
+Standard Voting Power Indexes Do Not Work: An Empirical Analysis, British Journal of Political Science
+, 34, issue 4, p. 657-674. Its main conclusion was first cited in @user76284's
+answer
+.
+Authors show that
+$O(1/\sqrt{n}$
+doesn't fit the reality. They analyzed a massive amount of electoral data, election held on many different levels in USA and outside.
+For instance, here's the plot from US presidential elections, 1960-2000, state vote data. They show the square root n fit vs. lowes (non-parametric) fit. It's clear that square root doesn't fit the data.
+Here's another plot which also includes European election data. Again square root of n relation doesn't fit the data.
+Section 2.2.2 in the paper explains the basic underlying assumption of square root result, which helps understand @whuber's approach. Section 5.1 has theoretical discussion.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Mar 2, 2020 at 0:32
+bruno
+103
+1
+1 bronze badge
+answered
+Feb 28, 2020 at 16:37
+Aksakal
+63.4k
+6
+6 gold badges
+109
+109 silver badges
+212
+212 bronze badges
+$\endgroup$
+12
+11
+$\begingroup$
+Please don't read overmuch into my reply: at no point do I claim or even insinuate that the simple model I have erected is how "it is."  My analysis is offered to show how certain reasonable assumptions about the qualitative characteristics of an election lead to answers diametrically opposite the claims in the original quotation.  That's all. The most important aspect of the analysis, in my view, is in laying out a clear set of assumptions that can be evaluated, criticized, and compared to what one believes about any particular election.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2020-02-28 16:48:09 +00:00
+Commented
+Feb 28, 2020 at 16:48
+1
+$\begingroup$
+@whuber, "Under a coin-flipping model of voting, the probability of decisiveness is proportional to $1/\sqrt{n}$, but this model once again implies elections that are much closer than actually occur (see Mulligan and Hunter, 2002, and Gelman, Katz, and Bafumi, 2004)." from Gelman et al,
+nber.org/papers/w13562.pdf
+$\endgroup$
+Aksakal
+–
+Aksakal
+2020-02-28 20:15:31 +00:00
+Commented
+Feb 28, 2020 at 20:15
+3
+$\begingroup$
+Please see my comment elsewhere in this thread about the distinction between probability and conditional probability in this application.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2020-02-28 23:40:56 +00:00
+Commented
+Feb 28, 2020 at 23:40
+3
+$\begingroup$
+It seems odd to claim that "current economic theory [...] cannot explain why people keep showing up in elections, because it appears to be irrational" while also citing (Edlin, Gelman, and Kaplan, 2007). That paper finds that voting can be rational for social voters. What am I missing?
+$\endgroup$
+Aaron Novstrup
+–
+Aaron Novstrup
+2020-02-29 01:59:17 +00:00
+Commented
+Feb 29, 2020 at 1:59
+4
+$\begingroup$
+No reason to multiply by 1/2. Even with an odd number of people, you can still influence the election. You can change the election from having a winner to being a tie, which sounds pretty significant to me.
+$\endgroup$
+David Schwartz
+–
+David Schwartz
+2020-03-01 00:28:58 +00:00
+Commented
+Mar 1, 2020 at 0:28
+|
+Show
+7
+more comments
+16
+$\begingroup$
+I'm going to take a different tack than the other answers, and argue both sides of the question.
+First, let's show that voting is a pointless waste of time.
+The function of an election is to derive a single outcome, called "the will of the electorate", from many samples of the individual wills of individual electors.  Presumably that number of electors is large; we're not concerned here with cases of dozens or hundreds of electors.
+When deciding whether you should vote, there are two possibilities. Either, as you note, there is a strong preference -- say, 51% or better -- in the electorate for one outcome. In such a scenario the probability that you will cast the "deciding" vote is minuscule, and so no matter which side of the issue you are on, you're better off staying home and not entailing all the costs of voting.
+Now suppose the other possibility: the electorate is so narrowly divided that even a small number of voters choosing to vote or not vote could completely change the outcome.
+But in this scenario, there is no "will of the electorate" at all!
+In this scenario you might as well call off the election and flip a coin, saving the expense of the election entirely.
+It seems like on rational grounds there is no reason to vote. Suppose a large fraction of the electorate reasons this way -- and, why shouldn't they?  I live in the 43rd district of Washington State, one of the most "blue" districts in the United States. No matter which candidate I support in the district election, I can tell you right now what the party affiliation of the winner will be in my district, so why should I vote?
+The reason to vote is to consider the strategic consequences of "a large fraction of the electorate considers it pointless and does not vote" upon small groups of ideologues.  This attitude hands power to comparatively small, well-organized blocs who may show up en masse when not expected; if the number of voters is greatly reduced by a large fraction "rationally" deciding to stay home and not vote, then the size of a bloc required to swing an election
+against
+the clear will of the majority is greatly reduced.
+Voting when "not rationally necessary" decreases the probability that an effort to swing the election by a relatively small group will succeed, and thereby increases the probability that the actual will of the majority can be determined.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 29, 2020 at 0:10
+Eric Lippert
+419
+2
+2 silver badges
+6
+6 bronze badges
+$\endgroup$
+14
+3
+$\begingroup$
+This is the most insightful answer. The fallacy of the original question is the binary/thresholded outcome of a single election, which means the marginal effects of one vote are, nearly almost always zero. But in the context of preserving the validity of the electoral process also in future elections, the marginal utility of one vote might be tiny but is present, and therefore the rational choice is to vote (at least for 'moral' individuals)
+$\endgroup$
+frederik
+–
+frederik
+2020-03-01 09:28:35 +00:00
+Commented
+Mar 1, 2020 at 9:28
+2
+$\begingroup$
+@Aksakal: There are many interesting questions one can pose about rationality of electors. The latter part of my answer hints at a sort of Kantian approach; should a rational person assume that if they arrive at a conclusion that is rational, that
+everyone else
+will also arrive at that conclusion?
+$\endgroup$
+Eric Lippert
+–
+Eric Lippert
+2020-03-01 16:25:27 +00:00
+Commented
+Mar 1, 2020 at 16:25
+2
+$\begingroup$
+@Aksakal It really depends on the framing. If you only consider a single election then I agree that the other answers are more pertinent. But if you consider the effect on future elections, then the argument Eric Lippert makes becomes important. There is now a marginal, if very tiny effect of even one vote, as not only the outcome matters, but also the percentage gained. There is still a 'free-rider' problem: as the effect is tiny, a selfish rational individual can still get away with non-voting. But the 'moral' choice to vote is not irrational based on the Kantian argument given by Eric.
+$\endgroup$
+frederik
+–
+frederik
+2020-03-01 20:29:45 +00:00
+Commented
+Mar 1, 2020 at 20:29
+2
+$\begingroup$
+@SextusEmpiricus: As a math major, I used to have the standard attitude that buying lottery tickets is "a tax on the innumerate" and so on. But then I got to thinking: can you name any other activity that could result in your children affording to go to a top college if you are in the bottom 10% of wealth and income in America that costs a dollar? I can't. A tiny chance at success vs the hopelessly stacked deck that is poverty in America seems like not such a bad choice.
+If you think people act against their interests, maybe you haven't understood their interests.
+$\endgroup$
+Eric Lippert
+–
+Eric Lippert
+2020-03-02 01:45:45 +00:00
+Commented
+Mar 2, 2020 at 1:45
+1
+$\begingroup$
+Personally I am not at all against buying lottery tickets. I consider this not as a fault of misunderstanding interests but as applying a simplistic expected utility computation instead of applying prospect theory. Buying lottery tickets can be understood, also from an utilitarian point of view (that's why I mentioned lotteries, it is an
+example
+how we can understand "illogical" behaviour).
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2020-03-02 01:51:04 +00:00
+Commented
+Mar 2, 2020 at 1:51
+|
+Show
+9
+more comments
+15
+$\begingroup$
+The analysis presented in
+whuber's answer
+reflects the
+Penrose square root law
+, which states that, under certain assumptions, the probability that a given vote is decisive scales like
+$1/\sqrt{N}$
+. The assumptions underlying that analysis, however, are
+too strong
+to be realistic in most real-world scenarios. In particular, it assumes that the fractions of decided voters for each outcome are
+virtually identical
+, as we'll see below.
+Below is a graph showing the probability of a tie against the fraction of decided voters for one outcome, given the fraction of decided voters for the other outcome (assuming the rest vote uniformly at random) and the total number of voters:
+The Mathematica code used to create the graph was
+fractionYes = 0.45;
+total = 1000000;
+Plot[
+With[
+{
+y = Round[fractionYes*total],
+n = Round[fractionNo*total],
+u = Round[(1 - fractionYes - fractionNo)*total]
+},
+NProbability[y + yu == n + u - yu,
+yu \[Distributed] BinomialDistribution[u, 1/2]]
+],
+{fractionNo, 0, 1 - fractionYes},
+AxesLabel -> {"fraction decided no", "probability of tie"},
+PlotLabel ->
+StringForm["total = ``, fraction decided yes = ``", total,
+fractionYes],
+PlotRange -> All,
+ImageSize -> Large
+]
+As the graph shows, whuber's analysis (like the Penrose square root law) is a
+knife-edge phenomenon
+: In the limit of growing population size, it requires the fractions of decided voters for each outcome to be
+exactly
+equal. Even tiny deviations from this assumption make the probability of a tie very close to zero.
+This might explain its discrepancy with the empirical results presented in
+Aksakal's answer
+. For example,
+Standard voting power indexes do not work: An empirical analysis
+(Cambridge University Press, 2004) by Gelman, Katz, and Bafumi says:
+Voting power indexes such as that of Banzhaf are derived, explicitly
+or implicitly, from the assumption that all votes are equally likely
+(i.e., random voting). That assumption implies that the probability of
+a vote being decisive in a jurisdiction with
+$n$
+voters is proportional
+to
+$1/\sqrt{n}$
+. In this article the authors show how this hypothesis
+has been empirically tested and rejected using data from various US
+and European elections. They find that the probability of a decisive
+vote is approximately proportional to
+$1/n$
+. The random voting model
+(and, more generally, the square-root rule) overestimates the
+probability of close elections in larger jurisdictions. As a result,
+classical voting power indexes make voters in large jurisdictions
+appear more powerful than they really are. The most important
+political implication of their result is that proportionally weighted
+voting systems (that is, each jurisdiction gets a number of votes
+proportional to
+$n$
+) are basically fair. This contradicts the claim in
+the voting power literature that weights should be approximately
+proportional to
+$\sqrt{n}$
+.
+See also
+Why the square-root rule for vote allocation is a bad idea
+by Gelman.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 29, 2020 at 22:08
+answered
+Feb 29, 2020 at 21:47
+user76284
+1,063
+5
+5 silver badges
+23
+23 bronze badges
+$\endgroup$
+1
+2
+$\begingroup$
+Another way to demonstrate the discrepancy is by plotting the middle term of a binomial distribution and the middle term of a betabinomial distribution as a function of $n$. For the betabinomial the probability will be lower and it will in general shift from a $\frac{1}{\sqrt{n}}$ dependency to a $\frac{1}{n}$ dependency (like
+this image
+). The binomial distribution sounds like a nice model but there is no good reason to choose it over a betabinomial distribution when the emperical analysis does not support it.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2020-03-01 21:01:41 +00:00
+Commented
+Mar 1, 2020 at 21:01
+Add a comment
+|
+5
+$\begingroup$
+It is easy to construct situations, where voting matters, e.g. the population consists of 3 people (including myself), one votes red, one votes blue, then clearly my vote matters.
+Of course in your quote, not such trivial quotes are meant, but real-life situations with maybe millions of voters.
+So let us extend my trivial example:
+Let
+$X=1$
+indicates, if the count of every other voter results in a tie (thus
+$X=0$
+means no tie ).
+$Y=1$
+indicates, if my vote "matters". My vote only matters all the other votes result in a tie. Otherwise it does not matter.
+Therefore
+$P\left(Y=1 \vert X = 1\right) = 1$
+and
+$P\left(Y=1 \vert X = 0\right) = 0$
+.
+This means, there is no universal answer. If your vote "matters", completely depends on the actions of all other voters.
+Your question is already solved (with the answer: it depends how the others act), but you can ask follow-up questions: Across different elections, how often does my vote matter on average?
+Or in mathematical terms:
+$P\left(Y=1 \right) = ?$
+$P\left(Y=1 \right) = P\left(Y=1 \vert X = 1\right) P\left( X = 1\right)  + P\left(Y=1 \vert X = 0\right) P\left( X = 0\right) = P\left( X= 1\right)$
+.
+$P\left( X= 1\right)$
+depends on the election and the situation, which I denote as
+$\theta$
+:
+$P\left( X= 1\right) = \int P\left( X= 1 \vert \Theta = \theta \right) f \left(\theta\right)\,d\theta$
+, where
+$f$
+is the sampling distribution of the election. Realistically, for the overwhelming majority of
+$\theta$
+,
+$P\left( X= 1 \vert \Theta = \theta \right)$
+will be very close to zero.
+Now comes my critique to whuber's solution:
+$f$
+represents the votes, you might participate in your whole lifetime. It will include elections on different candidates, different years different topics and so on. This variability is underrepresented in whuber's solution because it implicitely assumes, there are only elections with a supporters tie (meaning
+$f$
+is a point mass on an unbelievebly improbable event) and
+$P\left( X= 1 \vert \theta \right)$
+is simply a binomial probability of a tie from voters, that are undecided.
+$f$
+should reflect the whole election variability. To say it is deterministic at the particular situation of equality between the parties is clearly an under-complex representation of reality, and even in this artificial case the probability is
+$\frac{1}{10000}$
+. If I vote 10 times in a lifetime, I need 1000 lifes, that finally my vote matters.
+PS: I strongly believe, that voting matters, but not in a statistically describable way. It is a different discussions on a philosophical topic, not a statistical one.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 28, 2020 at 20:58
+answered
+Feb 28, 2020 at 16:15
+ghlavin
+477
+2
+2 silver badges
+6
+6 bronze badges
+$\endgroup$
+4
+4
+$\begingroup$
+I don't believe your critique of whuber's answer is informed. It isn't that their answer under-represents the variability, it is that it
+explicitely
+excludes the trivial case of lopsided elections (X=0 and Y=0). In contrast, when an election is close, by definition m1 and m2 are close. Which type of election you are participating in determines the answer to the OP's question - not an amalgamation of all elections one participates in. If it is a well known or high probability outcome election - your vote probably doesn't matter. If it is unknown, it
+can
+matter.
+$\endgroup$
+CramerTV
+–
+CramerTV
+2020-02-28 23:43:15 +00:00
+Commented
+Feb 28, 2020 at 23:43
+$\begingroup$
+It does not exclude X=0 and Y=0, in fact these are extremly probable result, even in the artificial scenario in whuber's solution. With your last statement I agreed,  as I wrote"there is no universal answer. If your vote "matters", completely depends on the actions of all other voters."
+$\endgroup$
+ghlavin
+–
+ghlavin
+2020-02-29 00:05:48 +00:00
+Commented
+Feb 29, 2020 at 0:05
+$\begingroup$
+@CramerTV The "closeness" required is a lot stronger than you might think. See
+my answer
+.
+$\endgroup$
+user76284
+–
+user76284
+2020-02-29 22:13:59 +00:00
+Commented
+Feb 29, 2020 at 22:13
+$\begingroup$
+Not many elections depend on millions of voters.  In district-based systems, most districts for most elections have far fewer voters.  In proportional systems, the number of votes per seat also tends to be much smaller than a million.
+$\endgroup$
+gerrit
+–
+gerrit
+2020-02-29 22:55:52 +00:00
+Commented
+Feb 29, 2020 at 22:55
+Add a comment
+|
+5
+$\begingroup$
+You can consider the probability that the voting result is a tie when there are an even number of total voters (in which case the vote of an individual matters). We consider for simplicity even values of
+$n$
+but this can be extended to odd values of
+$n$
+.
+Assumption case 1
+Let's consider the vote
+$X_i$
+of each voter
+$i$
+as a Bernoulli distributed variable (where
+$X_i$
+is either
+$1$
+or
+$-1$
+):
+$$P(X_i = x_i) \begin{cases}
+p & \quad \text{if $x_i = -1$}\\
+1-p & \quad\text{if $x_i = 1$}
+\end{cases}$$
+and the sum for
+$n$
+people,
+$Y = \sum_{i=1}^n X_i$
+, relates to the election result. Note that
+$Y=0$
+means that the result is a tie (the same amount of +1 and -1 votes).
+Approximate solution case 1
+This sum can be
+approximated with a normal distribution
+:
+$ P(Y_n = y) \to \frac{1}{\sqrt{n}} \frac{1}{\sqrt{2 \pi p (1-p) }} e^{-\frac{1}{2} \frac{(y-(p-0.5)n)^2}{p(1-p)n}}$
+and the probability for a tie is:
+$P(Y_n = 0) \to \frac{1}{\sqrt{n}} \frac{1}{\sqrt{2 \pi p (1-p) }} e^{-\frac{1}{2} \frac{(p-0.5))^2}{p(1-p)}n}$
+This simplifies for
+$p=0.5$
+to the results shown in other answers (the exponential term will be equal to one):
+$ P(Y_n = 0 \vert p = 0.5) \to \sqrt{\frac{2}{n\pi}} $
+But for other probabilities,
+$p \neq 0.5$
+the function will behave similar to a function like
+$\frac{e^{-x}}{\sqrt{x}}$
+and the drop due to the exponential term will become dominant at some point.
+Assumption case 2
+You can also consider a problem like case 1 but now the probability for the votes
+$X_i$
+is not a constant value
+$p$
+but it is itself some variable drawn from a distribution (this expresses sort of mathematically that the random vote for each voter is not fifty-fifty each election and we do not really know what it is, hence we model
+$p$
+as a variable).
+Let's for simplicity say that
+$p$
+follows some distribution
+$f(p)$
+between 0 and 1. For each election the odds will be different for a candidate.
+What is happening here is that with growing
+$n$
+the random behaviour of the different
+$X_i$
+will even out and the distribution of the sum
+$Y_n$
+will be more and more resembling the distribution of the value
+$p$
+.
+$\begin{array}{}
+P(Y_n = y) \to P(\frac{y+n-1}{2n} < p < \frac{y+n+1}{2n}) &=& \int_{\frac{y+n-1}{2n}}^{\frac{y+n+1}{2n}} f(p) dp \\
+&\approx& f(\frac{y+n}{2n}) \frac{1}{n}
+\end{array}$
+and for the probability of a tie you get
+$P(Y_n=0) \to \frac{f(0.5)}{n}$
+this expresses better the experimental results and the
+$\frac{1}{n}$
+relationship that Aksakal mentions in his answer.
+So, this relationship
+$\frac{1}{n}$
+does not stem from the randomness in the Binomial distribution and the probabilities that the different voters
+$X_i$
+, who are considered behaving randomly, sum up to a tie. But instead it is derived from the distribution in the parameter
+$p$
+which describes the voting behavior from election to election, and the
+$\frac{1}{n}$
+term is derived from the probability,
+$0.5 - \frac{1}{2n} < p < 0.5 + \frac{1}{2n}$
+, that
+$p$
+is very close to fifty-fifty.
+Example plot
+The different cases are plotted in the graph below. For the case 1 there is a variation depending on whether
+$p=0.5$
+or
+$p\neq 0.5$
+. In the example we plotted
+$p=0.52$
+along with
+$p=0.5$
+. You can see that this already makes a large difference.
+You could say that for a
+$p \neq 0.5$
+the probability that the vote matters is very tiny and drops dramatically for already
+$n>100$
+. In the plot you see the example with
+$p=0.52$
+. However, it is not realistic that this probability is fixed. Consider for instance swing states in the US presidential elections. From year to year you see a variation in the tendencies how states vote. That variation is not due to the random behaviour of the
+$X_i$
+according to some Bernoulli distribution, but instead it is due to the random behaviour of
+$p$
+(ie. the changes in the political climate). In the plot you can see what would happen for a beta-binomial distributed variable where the mean of
+$p$
+is equal to 0.52. Now you can see that, for higher values of
+$n$
+, the probability for a tie is a bit higher. Also the actual value of the mean of
+$p$
+is not so much important, but instead much more important is how much it is dispersed.
+R-Code to replicate the image:
+p = 0.52
+q = 1-p
+## compute probability of a tie
+n  <- 2 ^ c(1:16)
+y  <- dbinom(n/2,n,0.5)
+y2 <- dbinom(n/2,n,p)
+y3 <- dbetabinom(n/2,n,0.5,1000)
+y4 <- dbetabinom(n/2,n,0.52,1000)
+# plotting
+plot(n,y, ylim = c(0.0001,1), xlim=c(1,max(n)), log = "xy", yaxt="n", xaxt = "n",
+ylab = bquote(P(X[n]==0)),cex.lab=0.9,cex.axis=0.7,
+cex=0.8)
+axis(1      ,c(1,10,100,1000,10000),cex.axis=0.7)
+axis(2,las=2,c(1,0.1,0.01,0.001),cex.axis=0.7)
+points(n,y2, col=2,  cex = 0.8)
+points(n,y3, col=1, pch=2, cex = 0.8)
+points(n,y4, col=2, pch=2, cex = 0.8)
+x <- seq(1,max(n),1)
+## compare with estimates
+# binomial distribution with equal probability
+lines(x,sqrt(2/pi/x) ,col=1,lty=2)
+# binomial distribution with probability p
+lines(x,1/sqrt(2*pi*p*q)/sqrt(x) * exp(-0.5*(p-0.5)^2/(p*q)*x),col=2,lty=2)
+# betabinomial distribution with dispersion parameter 1000
+lines(x, dbeta(0.5,0.5*1000,0.5*1000)/x ,col=1)
+# betabinomial distribution with dispersion parameter 1000
+lines(x, dbeta(0.5,0.52*1000,0.48*1000)/x ,col=2)
+legend(1,10^-2, c("p=0.5", "p=0.52", "betabinomial with mu=0.5",  "betabinomial with mu=0.52"), col=c(1,2,1,2), lty=c(2,2,1,1), pch=c(1,1,2,2),
+box.col=0, cex= 0.7)
+Assumption case 3
+A different way to look at it is to consider that you have two pools of voters (with fixed or variable size) out of which the voters randomly decide to show up for the election or not. Then the difference of these two variables is a binomial distributed variable and you can handle the situation like the problems above. You get something like case 1 if the probabilities to show up are considered fixed and you get something like case 2 if the probabilities to show up are not fixed. The expression will be a bit more difficult now (the difference between two binomial distributed variables is not easy to express) but you could use the normal approximation to solve this.
+Assumption case 4
+You consider the case that the number of voters is not known ("unknown number of voters"). If this is relevant then you could integrate/average the above solutions over some distribution of the number of voters that are expected. If this distribution is narrow then the result will not be much different.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jun 11, 2020 at 14:32
+Community
+Bot
+1
+answered
+Mar 5, 2020 at 14:37
+Sextus Empiricus
+95.8k
+6
+6 gold badges
+129
+129 silver badges
+347
+347 bronze badges
+$\endgroup$
+3
+$\begingroup$
+Small sidenote: here I derived the $\frac{1}{\sqrt{n}}$ relationship using the normal distribution approximation to a binomial distributed variable. Under the hood this relates to the use of Stirling's formula in whuber's answer (because the normal distribution approximation can be derived using Stirling's formula).
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2020-03-05 14:44:19 +00:00
+Commented
+Mar 5, 2020 at 14:44
+$\begingroup$
+@Aksakal I am portraying
+both
+situations $\frac{1}{\sqrt{n}} \exp(-an)$ and  $\frac{1}{n}$. In the second case I show why you get $\frac{1}{n}$. The $\frac{1}{\sqrt{n}}$ is not due to 'the vote is close' but due to 'the vote probability is fixed'. Note that I also plotted the result for a betabinomial distribution where the mean of the results is fifty-fifty. The deviation from $\frac{1}{\sqrt{n}}$ and change into $\frac{1}{n}$ is due to the dispersion.
+$\endgroup$
+Sextus Empiricus
+–
+Sextus Empiricus
+2020-03-05 15:37:33 +00:00
+Commented
+Mar 5, 2020 at 15:37
+1
+$\begingroup$
+Ok, I removed my comment, thanks for clarification. we do not know $p$ in advance, and it varies as empirical results show. your demonstration explains this part well. it's the best direct demo of what's wrong with @whuber answer. I hoped that OP would figure it too with his simulation iterations, but he went wayward at some point
+$\endgroup$
+Aksakal
+–
+Aksakal
+2020-03-05 15:42:59 +00:00
+Commented
+Mar 5, 2020 at 15:42
+Add a comment
+|
+2
+$\begingroup$
+A simple model. New captain has to be chosen on a ship. There are 6 voters. Two candidates agreed to compete for the office - audacious Mr. Zero and brilliant Mr. One. Nobody on the deck is obliged to vote. We don't know how many voters will take part in the election.
+Simulation
+The number of voters participating in the voting will be indicated by the dice roll {1,2,3,4,5,6}
+The choice of candidate by each voter will be indicated by a coin flip {0,1}
+The
+strong decisive vote
+is that our candidate receives one more vote from a competitor - this is only possible if an odd number of voters take part in the election.
+The
+weak decisive vote
+is that our candidate receives one more vote (odd number of voters) or leads to a tie (even number of voters).
+We calculate decisive vote in favor of Mr. One. So we have the following potential events.
++-----+------+----------+------------+---------+---------+------------+------------+
+|     | sub  | election |   number   |  votes  |  votes  |   strong   |    week    |
+| #   | case |  result  | of voters  |  for 1  |  for 0  |  decisive  |  decisive  |
++-----+------+----------+------------+---------+---------+------------+------------+
++-----+------+----------+------------+---------+---------+------------+------------+
+| 1   | 1    | 0        | 1          | 0       | 1       | 0          | 0          |
+| 2   | 2    | 1        | 1          | 1       | 0       | 1          | 1          |
++-----+------+----------+------------+---------+---------+------------+------------+
+| 3   | 1    | 00       | 2          | 0       | 2       | 0          | 0          |
+| 4   | 2    | 01       | 2          | 1       | 1       | 0          | 1          |
+| 5   | 3    | 10       | 2          | 1       | 1       | 0          | 1          |
+| 6   | 4    | 11       | 2          | 2       | 0       | 0          | 0          |
++-----+------+----------+------------+---------+---------+------------+------------+
+| 7   | 1    | 000      | 3          | 0       | 3       | 0          | 0          |
+| 8   | 2    | 001      | 3          | 1       | 2       | 0          | 0          |
+| 9   | 3    | 010      | 3          | 1       | 2       | 0          | 0          |
+| 10  | 4    | 011      | 3          | 2       | 1       | 1          | 1          |
+| 11  | 5    | 100      | 3          | 1       | 2       | 0          | 0          |
+| 12  | 6    | 101      | 3          | 2       | 1       | 1          | 1          |
+| 13  | 7    | 110      | 3          | 2       | 1       | 1          | 1          |
+| 14  | 8    | 111      | 3          | 3       | 0       | 0          | 0          |
++-----+------+----------+------------+---------+---------+------------+------------+
+| 15  | 1    | 0000     | 4          | 0       | 4       | 0          | 0          |
+| 16  | 2    | 0001     | 4          | 1       | 3       | 0          | 0          |
+| 17  | 3    | 0010     | 4          | 1       | 3       | 0          | 0          |
+| 18  | 4    | 0011     | 4          | 2       | 2       | 0          | 1          |
+| 19  | 5    | 0100     | 4          | 1       | 3       | 0          | 0          |
+| 20  | 6    | 0101     | 4          | 2       | 2       | 0          | 1          |
+| 21  | 7    | 0110     | 4          | 2       | 2       | 0          | 1          |
+| 22  | 8    | 0111     | 4          | 3       | 1       | 0          | 0          |
+| 23  | 9    | 1000     | 4          | 1       | 3       | 0          | 0          |
+| 24  | 10   | 1001     | 4          | 2       | 2       | 0          | 1          |
+| 25  | 11   | 1010     | 4          | 2       | 2       | 0          | 1          |
+| 26  | 12   | 1011     | 4          | 3       | 1       | 0          | 0          |
+| 27  | 13   | 1100     | 4          | 2       | 2       | 0          | 1          |
+| 28  | 14   | 1101     | 4          | 3       | 1       | 0          | 0          |
+| 29  | 15   | 1110     | 4          | 3       | 1       | 0          | 0          |
+| 30  | 16   | 1111     | 4          | 4       | 0       | 0          | 0          |
++-----+------+----------+------------+---------+---------+------------+------------+
+| 31  | 1    | 00000    | 5          | 0       | 5       | 0          | 0          |
+| 32  | 2    | 00001    | 5          | 1       | 4       | 0          | 0          |
+| 33  | 3    | 00010    | 5          | 1       | 4       | 0          | 0          |
+| 34  | 4    | 00011    | 5          | 2       | 3       | 0          | 0          |
+| 35  | 5    | 00100    | 5          | 1       | 4       | 0          | 0          |
+| 36  | 6    | 00101    | 5          | 2       | 3       | 0          | 0          |
+| 37  | 7    | 00110    | 5          | 2       | 3       | 0          | 0          |
+| 38  | 8    | 00111    | 5          | 3       | 2       | 1          | 1          |
+| 39  | 9    | 01000    | 5          | 1       | 4       | 0          | 0          |
+| 40  | 10   | 01001    | 5          | 2       | 3       | 0          | 0          |
+| 41  | 11   | 01010    | 5          | 2       | 3       | 0          | 0          |
+| 42  | 12   | 01011    | 5          | 3       | 2       | 1          | 1          |
+| 43  | 13   | 01100    | 5          | 2       | 3       | 0          | 0          |
+| 44  | 14   | 01101    | 5          | 3       | 2       | 1          | 1          |
+| 45  | 15   | 01110    | 5          | 3       | 2       | 1          | 1          |
+| 46  | 16   | 01111    | 5          | 4       | 1       | 0          | 0          |
+| 47  | 17   | 10000    | 5          | 1       | 4       | 0          | 0          |
+| 48  | 18   | 10001    | 5          | 2       | 3       | 0          | 0          |
+| 49  | 19   | 10010    | 5          | 2       | 3       | 0          | 0          |
+| 50  | 20   | 10011    | 5          | 3       | 2       | 1          | 1          |
+| 51  | 21   | 10100    | 5          | 2       | 3       | 0          | 0          |
+| 52  | 22   | 10101    | 5          | 3       | 2       | 1          | 1          |
+| 53  | 23   | 10110    | 5          | 3       | 2       | 1          | 1          |
+| 54  | 24   | 10111    | 5          | 4       | 1       | 0          | 0          |
+| 55  | 25   | 11000    | 5          | 2       | 3       | 0          | 0          |
+| 56  | 26   | 11001    | 5          | 3       | 2       | 1          | 1          |
+| 57  | 27   | 11010    | 5          | 3       | 2       | 1          | 1          |
+| 58  | 28   | 11011    | 5          | 4       | 1       | 0          | 0          |
+| 59  | 29   | 11100    | 5          | 3       | 2       | 1          | 1          |
+| 60  | 30   | 11101    | 5          | 4       | 1       | 0          | 0          |
+| 61  | 31   | 11110    | 5          | 4       | 1       | 0          | 0          |
+| 62  | 32   | 11111    | 5          | 5       | 0       | 0          | 0          |
++-----+------+----------+------------+---------+---------+------------+------------+
+| 63  | 1    | 000000   | 6          | 0       | 6       | 0          | 0          |
+| 64  | 2    | 000001   | 6          | 1       | 5       | 0          | 0          |
+| 65  | 3    | 000010   | 6          | 1       | 5       | 0          | 0          |
+| 66  | 4    | 000011   | 6          | 2       | 4       | 0          | 0          |
+| 67  | 5    | 000100   | 6          | 1       | 5       | 0          | 0          |
+| 68  | 6    | 000101   | 6          | 2       | 4       | 0          | 0          |
+| 69  | 7    | 000110   | 6          | 2       | 4       | 0          | 0          |
+| 70  | 8    | 000111   | 6          | 3       | 3       | 0          | 1          |
+| 71  | 9    | 001000   | 6          | 1       | 5       | 0          | 0          |
+| 72  | 10   | 001001   | 6          | 2       | 4       | 0          | 0          |
+| 73  | 11   | 001010   | 6          | 2       | 4       | 0          | 0          |
+| 74  | 12   | 001011   | 6          | 3       | 3       | 0          | 1          |
+| 75  | 13   | 001100   | 6          | 2       | 4       | 0          | 0          |
+| 76  | 14   | 001101   | 6          | 3       | 3       | 0          | 1          |
+| 77  | 15   | 001110   | 6          | 3       | 3       | 0          | 1          |
+| 78  | 16   | 001111   | 6          | 4       | 2       | 0          | 0          |
+| 79  | 17   | 010000   | 6          | 1       | 5       | 0          | 0          |
+| 80  | 18   | 010001   | 6          | 2       | 4       | 0          | 0          |
+| 81  | 19   | 010010   | 6          | 2       | 4       | 0          | 0          |
+| 82  | 20   | 010011   | 6          | 3       | 3       | 0          | 1          |
+| 83  | 21   | 010100   | 6          | 2       | 4       | 0          | 0          |
+| 84  | 22   | 010101   | 6          | 3       | 3       | 0          | 1          |
+| 85  | 23   | 010110   | 6          | 3       | 3       | 0          | 1          |
+| 86  | 24   | 010111   | 6          | 4       | 2       | 0          | 0          |
+| 87  | 25   | 011000   | 6          | 2       | 4       | 0          | 0          |
+| 88  | 26   | 011001   | 6          | 3       | 3       | 0          | 1          |
+| 89  | 27   | 011010   | 6          | 3       | 3       | 0          | 1          |
+| 90  | 28   | 011011   | 6          | 4       | 2       | 0          | 0          |
+| 91  | 29   | 011100   | 6          | 3       | 3       | 0          | 1          |
+| 92  | 30   | 011101   | 6          | 4       | 2       | 0          | 0          |
+| 93  | 31   | 011110   | 6          | 4       | 2       | 0          | 0          |
+| 94  | 32   | 011111   | 6          | 5       | 1       | 0          | 0          |
+| 95  | 33   | 100000   | 6          | 1       | 5       | 0          | 0          |
+| 96  | 34   | 100001   | 6          | 2       | 4       | 0          | 0          |
+| 97  | 35   | 100010   | 6          | 2       | 4       | 0          | 0          |
+| 98  | 36   | 100011   | 6          | 3       | 3       | 0          | 1          |
+| 99  | 37   | 100100   | 6          | 2       | 4       | 0          | 0          |
+| 100 | 38   | 100101   | 6          | 3       | 3       | 0          | 1          |
+| 101 | 39   | 100110   | 6          | 3       | 3       | 0          | 1          |
+| 102 | 40   | 100111   | 6          | 4       | 2       | 0          | 0          |
+| 103 | 41   | 101000   | 6          | 2       | 4       | 0          | 0          |
+| 104 | 42   | 101001   | 6          | 3       | 3       | 0          | 1          |
+| 105 | 43   | 101010   | 6          | 3       | 3       | 0          | 1          |
+| 106 | 44   | 101011   | 6          | 4       | 2       | 0          | 0          |
+| 107 | 45   | 101100   | 6          | 3       | 3       | 0          | 1          |
+| 108 | 46   | 101101   | 6          | 4       | 2       | 0          | 0          |
+| 109 | 47   | 101110   | 6          | 4       | 2       | 0          | 0          |
+| 110 | 48   | 101111   | 6          | 5       | 1       | 0          | 0          |
+| 111 | 49   | 110000   | 6          | 2       | 4       | 0          | 0          |
+| 112 | 50   | 110001   | 6          | 3       | 3       | 0          | 1          |
+| 113 | 51   | 110010   | 6          | 3       | 3       | 0          | 1          |
+| 114 | 52   | 110011   | 6          | 4       | 2       | 0          | 0          |
+| 115 | 53   | 110100   | 6          | 3       | 3       | 0          | 1          |
+| 116 | 54   | 110101   | 6          | 4       | 2       | 0          | 0          |
+| 117 | 55   | 110110   | 6          | 4       | 2       | 0          | 0          |
+| 118 | 56   | 110111   | 6          | 5       | 1       | 0          | 0          |
+| 119 | 57   | 111000   | 6          | 3       | 3       | 0          | 1          |
+| 120 | 58   | 111001   | 6          | 4       | 2       | 0          | 0          |
+| 121 | 59   | 111010   | 6          | 4       | 2       | 0          | 0          |
+| 122 | 60   | 111011   | 6          | 5       | 1       | 0          | 0          |
+| 123 | 61   | 111100   | 6          | 4       | 2       | 0          | 0          |
+| 124 | 62   | 111101   | 6          | 5       | 1       | 0          | 0          |
+| 125 | 63   | 111110   | 6          | 5       | 1       | 0          | 0          |
+| 126 | 64   | 111111   | 6          | 6       | 0       | 0          | 0          |
++-----+------+----------+------------+---------+---------+------------+------------+
+|     |      |          |            |         |         | 14         | 42         |
++-----+------+----------+------------+---------+---------+------------+------------+
+So for 126 possible cases of election result. There are 14 cases when we cast a strong decisive vote and 42 cases when we cast a week decisive vote. So the probability that we cast a decisive vote is:
+14/126=11.11% (strong decisive vote)
+42/126=33.33% (week decisive vote)
+Here is a summary table:
++--------+-------+--------+------+--------+-------+--------+-------+--------+
+|  # of  |       |       sum     | cumulative sum |   probability  |        |
+| voters | cases | strong | weak | strong | weak  | strong | weak  | approx |
++--------+-------+--------+------+--------+-------+--------+-------+--------+
+| 1      | 2     | 1      | 1    | 1      | 1     | 50.0%  | 50.0% | 28.2%  |
+| 2      | 4     | 0      | 2    | 1      | 3     | 16.7%  | 50.0% | 19.9%  |
+| 3      | 8     | 3      | 3    | 4      | 6     | 28.6%  | 42.9% | 16.3%  |
+| 4      | 16    | 0      | 6    | 4      | 12    | 13.3%  | 40.0% | 14.1%  |
+| 5      | 32    | 10     | 10   | 14     | 22    | 22.6%  | 35.5% | 12.6%  |
+| 6      | 64    | 0      | 20   | 14     | 42    | 11.1%  | 33.3% | 11.5%  |
++--------+-------+--------+------+--------+-------+--------+-------+--------+
+approx has been calculated according to the formula suggested by whuber:
+$\displaystyle{P}{\left({t}{i}{e}\right)}=\frac{1}{{{2}\sqrt{{{n}\cdot\pi}}}}$
+Maybe this approximation works for higher number of voters, but I am not sure yet. For small number of voters this approximation is far from theoretical truth.
+Please consider this answer as the extension to the question. I would be grateful if anybody could post an equation for decisive vote probability as a function of unknown voters taking part in the election.
+For larger numbers already >10 voters we see that the probability of a difference equal to 1 or less is already approaching the theoretical value (based on the binomial distribution with
+$p=0.5$
+) very quickly. But we need to use
+$\sqrt{\frac{2}{\pi n}}$
+The image below demonstrates this.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Mar 5, 2020 at 11:08
+Sextus Empiricus
+95.8k
+6
+6 gold badges
+129
+129 silver badges
+347
+347 bronze badges
+answered
+Mar 2, 2020 at 11:18
+Przemyslaw Remin
+1,188
+1
+1 gold badge
+10
+10 silver badges
+17
+17 bronze badges
+$\endgroup$
+16
+$\begingroup$
+there are two answers already, @whuber answer is $O(1/\sqrt{n})$ and mine is $O(1/n)$. I believe mine fits the empirical data and simulation done by researchers in the field. it's actually not my answer in this regard, but I refer to an established result. your simple model is grossly unrealistic, it's not like we go to a polling station and flip a coin. many people have very clear idea who they want, it's just the question of whether they show up at the polling station to actually cast a vote. also the challenge with "simple" models it's easy to critique them, e.g. delegate system in USA etc
+$\endgroup$
+Aksakal
+–
+Aksakal
+2020-03-02 14:32:52 +00:00
+Commented
+Mar 2, 2020 at 14:32
+$\begingroup$
+with a coin flip model of yours you should get to a result similar to @whuber because it's a very similar assumption of 50% split in preferences, maybe be expressed differently but effectively the same. you should get $O(1/\sqrt{n})$ answer or even much stronger, i.e. overestimate the probability grossly. the empirical research contradicts this result, and the main reason is that the dispersion of the split is much wider than what this type of model assumes around 50%
+$\endgroup$
+Aksakal
+–
+Aksakal
+2020-03-02 14:38:16 +00:00
+Commented
+Mar 2, 2020 at 14:38
+$\begingroup$
+What is O in the formula?
+$\endgroup$
+Przemyslaw Remin
+–
+Przemyslaw Remin
+2020-03-02 14:40:07 +00:00
+Commented
+Mar 2, 2020 at 14:40
+$\begingroup$
+I'm saying proportional to $1/n$, where $n$ is number of voters. So, it's not exactly $1/n$ but can be a number of that magnitude, say $2/n$ etc. See e.g.
+en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions
+$\endgroup$
+Aksakal
+–
+Aksakal
+2020-03-02 14:41:28 +00:00
+Commented
+Mar 2, 2020 at 14:41
+2
+$\begingroup$
+@PrzemyslawRemin, now tweak your simulation to allow for probability of voting one way or another to vary, i.e. not be exactly 1/2, and see what happens. Play with different dispersions of a split, e.g. Normal distribution $\mathcal N(0.5,\sigma^2)$, where your variance small or large. you already saw what happens in this model of exactly 1/2, where the square root type of relationship to $n$ arises, once you allow for variation of the split, you'll see how the decline speeds up
+$\endgroup$
+Aksakal
+–
+Aksakal
+2020-03-02 17:19:13 +00:00
+Commented
+Mar 2, 2020 at 17:19
+|
+Show
+11
+more comments
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+game-theory
+elections
+voting-system
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+0
+The probability of a vote ending in a tie
+2
+Counting Biased Coins 2: Estimating Bias Imbalance
+2
+How would a statistician decide whether to go voting?
+1
+Can an Election be Modelled with a Binomial Distribution
+0
+Probability of decisive vote in USA presidential election
+Related
+10
+How is election fraud by ballot stuffing possible?
+2
+Probability that a random voter voted for the same candidate twice
+3
+Probability of candidate voting tie
+1
+Correct Distribution to Calculate Probability of Ballot Measure Success
+5
+How many samples do I need to decide if there is a tie?
+Hot Network Questions
+Authorship decision for substantial writing assistance
+Line of Sight function for a hex-based wargame
+How do I encourage more interaction with Fate's mechanics?
+Why is there a strange removal of mortar right behind my water heater?
+Select clients where they have one feature type but not another - ArcGIS Pro
+Generate random, unique, nonzero integers
+Making code less scattered when crossing a pagebreak in lstlisting
+Modeling a curved boombox body with clean topology for speaker holes
+Supporting via direct payments vs. via subsidies
+Does a corpse keep its damage immunities?
+Did George Boole invent boolean algebra to explain the Trinity?
+Identify tv episode, everyone's got a brain chip - except one man who ultimately must destroy it
+Who's the first adult woman protagonist to involuntarily go to another universe / reality / world?
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+The Animation Story
+Guess the PIN. You only got one shot!
+Does the Airbus really lack control feel?
+A Holiday to Remember... #05: Whatever Floats Your Boat
+Can the beat frequency of two slightly different tones cause a room to resonate?
+Why can we add up the internal energy of a moving gas and its kinetic energy due to flow velocity?
+Issue attempting "fullwidth" image on document
+Is "naturalism of the gaps" a fallacy acknowledged by philosophers, just like "God of the gaps" usually is?
+PTIJ: 6-7 - Mi Yodeya?
+How to use -dialect sqlite -sql so empty array values aren't dropped from properties?
+more hot questions
+Question feed

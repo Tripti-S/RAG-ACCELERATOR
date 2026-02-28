@@ -1,0 +1,22 @@
+Inferring the unknown bias of a coin and the Beta distribution
+e Standard example:
+
+. fo(®) prjo(k | 9)
+— coin with bias ©; prior fo(-) fojx(9|k) = a
+
+— fix n; K =number of heads
+
+p(k) = | fol pre Ck | 6) 40"
+
+e Assume foe(-) is uniform in [0, 1]
+
+fojx(@|k) =
+
+|
+= dn, k) 6*(1 —6)** “Beta distribution, with parameters (k+1,n—k-+ 1)”
+n,
+
+1
+e If prior is Beta: foe (@)= "(1 — 9/8
+
+fox(@|k) =

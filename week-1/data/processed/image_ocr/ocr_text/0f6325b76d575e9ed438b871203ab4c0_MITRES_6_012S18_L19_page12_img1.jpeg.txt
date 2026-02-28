@@ -1,0 +1,9 @@
+Example 4
+e P(S, <a) xb given two parameters, find the third — Sn — My
+e Package weights X;, i.i.d. exponential, A = 1/2;
+
+e Load container until weight exceeds 210
+N: number of packages loaded
+
+e P(N > 100)
+

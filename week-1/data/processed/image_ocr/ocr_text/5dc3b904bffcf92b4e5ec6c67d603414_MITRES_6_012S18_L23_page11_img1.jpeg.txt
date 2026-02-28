@@ -1,0 +1,13 @@
+Different sampling methods can give different results
+
+e Average family size?
+— look ata “random” family (uniformly chosen)
+
+— look at a “random” person's (uniformly chosen) family
+
+e Average bus occupancy?
+
+— look at a “random” bus (uniformly chosen)
+— look ata “random” passenger’s bus
+
+e Average class size?

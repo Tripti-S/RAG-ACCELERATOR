@@ -1,0 +1,14 @@
+Conditional mean squared error
+fxje(« | 4)
+fo(9)
+1/2
+
+1/6
+
+4 10 «6 @-1 6+4+1
+
+e E[(O—E[O | X =2])2| X =a]
+
+— same as Var(© | X = 2): variance of Var(© | X = =)
+conditional distribution of ©
+

@@ -1,0 +1,15 @@
+LECTURE 18: Inequalities, convergence, and the Weak Law of Large Numbers
+
+e Inequalities
+
+— bound P(X > a) based on limited information about a distribution
+— Markov inequality (based on the mean)
+
+— Chebyshev inequality (based on the mean and variance)
+
+e WLLN: X, Xj,...,Xn i.i.d.
+TL
+— application to polling
+e Precise defn. of convergence
+
+— convergence “in probability”

@@ -1,0 +1,14 @@
+ML estimation example: parameter of binomial
+
+e kK: binomial with parameters n (known), and @ (unknown) k
+
+pK(k; 0) = (ae! — ork
+O += = A= =0 => k- 0 =n 0 - VO
+
+{=
+* k es K
+OM = Om. = —
+nm
+
+e same as MAP estimator with uniform prior on 0
+.

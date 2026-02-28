@@ -1,0 +1,12 @@
+A simple example var(X) = E[var(X | Y)| fe var (E[X | Y])
+
+var(xX | Y=1)=
+var(X |Y) -{
+var(X | Y = 2) =
+
+E[var(X | Y)] =
+
+E[X | Y =1]= E[E[X | ¥]| =
+nexin=y
+
+E[X | ¥ = 2] = var(E[X | Y]) =

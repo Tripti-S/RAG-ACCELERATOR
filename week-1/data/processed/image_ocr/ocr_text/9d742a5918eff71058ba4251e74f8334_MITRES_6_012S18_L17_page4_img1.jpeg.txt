@@ -1,0 +1,18 @@
+Remarks on the solution and on the error variance
+
+Cov(9, X)
+var(Xx)
+
+6, =E[S]+
+
+(X —E[X]) = E[©] + p> (X —E[X])
+
+o
+oX
+
+e Only means, variances, covariances matter
+e p>od:
+
+e p=0:
+
+E[(6, — ©)?] = (1 — 6) var(@) e |p| =1:

@@ -1,0 +1,24 @@
+The mean squared error
+X2=Orw;
+
+fo|x(@|) = ¢- exp { — quad(a)}
+
+(9-20)? | (@-«1)? | | (@-an)?
+206 + 2a? + + 202
+
+e Performance measures:
+n
+1
+E[(© -6)?| x =2] = E[(@-8)2|x =a] = we 1x=2)=f/5 |
+=0%%
+fa
+
+E[(© - 6)?] j=fel(o-6)" [x=] $ @)dx
+
+[ fx(a) = c-e (or? +8247) a >0 Normal with mean —3/2a and variance 1/2a ]
+
+quad(@) =
+
+ahead ( Some On? small MSE smull
+——"_ - #66 + —
+Ao3 20,2 all a Cange — MSE Cage

@@ -1,0 +1,10 @@
+Convergence in probability examples
+
+py,,(y)
+1 —(1/n)
+
+1/n
+
+E[Yn] =
+
+e convergence in probability does not imply convergence of expectations

@@ -1,0 +1,1 @@
+Discrete uniform random variable; parameters a, 6

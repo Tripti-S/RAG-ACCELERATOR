@@ -1,0 +1,214 @@
+18.05 Exam 2 in-class review problems
+Spring 2022
+1 Summary
+• Data: 𝑥 , … , 𝑥
+1 𝑛
+• Basic statistics: sample mean, sample variance, sample median
+• Likelihood, maximum likelihood estimate (MLE)
+• Bayesian updating: prior, likelihood, posterior, predictive probability, probability in-
+tervals; prior and likelihood can be discrete or continuous
+• NHST: 𝐻 , 𝐻 , significance level, rejection region, power, type 1 and type 2 errors,
+0 𝐴
+𝑝-values.
+2 Short review
+2.1 Basic statistics
+Data: 𝑥 , … , 𝑥 .
+1 𝑛
+𝑥 +…+𝑥
+sample mean = 𝑥 = 1 𝑛
+𝑛
+∑ 𝑛 (𝑥 − 𝑥)2
+sample variance = 𝑠2 = 𝑖=1 𝑖
+𝑛 − 1
+sample median = middle value
+Example. Data: 1, 2, 3, 6, 8.
+𝑥 = 4, 𝑠2 = 4+1+16+9+4 = 8.5, median = 3.
+4
+2.2 Likelihood
+𝑥 = data
+𝜃 = parameter of interest or hypotheses of interest
+Likelihood:
+For a discrete distribution: Likelihood = probability of data given hypothesis i.e.
+𝐿(𝜃) = 𝑝(𝑥 | 𝜃).
+For a continuous distribution: Likelihood = density of data given hypothesis i.e.
+𝐿(𝜃) = 𝑓(𝑥 |𝜃)
+Log likelihood : ln(𝑝(𝑥 | 𝜃)) ln(𝑓(𝑥 | 𝜃)).
+1
+18.05 Exam 2 in-class review problems Spring 2022 2
+2.3 Maximum likelihood estimates (MLE)
+Methods for finding the maximum likelihood estimate (MLE).
+• Discrete hypotheses: compute each likelihood
+• Discrete hypotheses: maximum is obvious
+• Continuous parameter: compute derivative (often use log likelihood)
+• Continuous parameter: maximum is obvious
+2.4 Bayesian updating: conjugate priors.
+Beta prior, binomial likelihood
+Data: 𝑥 ∼ binomial(𝑛, 𝜃). 𝜃 is unknown.
+Prior: 𝑓(𝜃) ∼ Beta(𝑎, 𝑏)
+Posterior: 𝑓(𝜃 |𝑥) ∼ Beta(𝑎+𝑥, 𝑏+𝑛−𝑥)
+Normal prior, normal likelihood
+1 𝑛
+𝑎 = 𝑏 =
+𝜎2 𝜎2
+prior
+𝑎𝜇 + 𝑏𝑥 1
+𝜇 = prior , 𝜎2 = .
+post 𝑎+𝑏 post 𝑎+𝑏
+Notice: 𝜇 is between 𝜇 and 𝑥; 𝜎2 smaller than 𝜎2 .
+post prior post prior
+2.5 Null hypothesis significance testing (NHST)
+2.5.1 NHST: Steps
+1. Specify 𝐻 and 𝐻 .
+0 𝐴
+2. Choose a significance level 𝛼.
+3. Choose a test statistic and determine the null distribution.
+4. Determine how to compute a 𝑝-value and/or the rejection region.
+5. Collect data.
+6. Compute 𝑝-value or check if test statistic is in the rejection region.
+7. Reject or fail to reject 𝐻 .
+0
+Make sure you can use the probability tables.
+18.05 Exam 2 in-class review problems Spring 2022 3
+2.5.2 NHST: One-sample 𝑡-test
+• Data: we assume normal data with both 𝜇 and 𝜎 unknown:
+𝑥 ,𝑥 ,…,𝑥 ∼ 𝑁(𝜇,𝜎2).
+1 2 𝑛
+• Null hypothesis: 𝜇 = 𝜇 for some specific value 𝜇 .
+0 0
+• Test statistic:
+𝑥 − 𝜇
+𝑡 = √ 0
+𝑠/ 𝑛
+where
+1 𝑛
+𝑠2 = ∑(𝑥 − 𝑥)2.
+𝑛 − 1 𝑖
+𝑖=1
+• Null distribution: 𝑡(𝑛 − 1), Student 𝑡 with 𝑛 − 1 degs of freedom.
+• Student 𝑡 is symmetric around 0, like standard normal.
+2.5.3 Two-sample 𝑡-test: equal variances
+Data: we assume normal data with 𝜇 , 𝜇 and (same) 𝜎 unknown:
+𝑥 𝑦
+𝑥 ,…,𝑥 ∼ N(𝜇 , 𝜎2), 𝑦 , … , 𝑦 ∼ N(𝜇 , 𝜎2)
+1 𝑛 𝑥 1 𝑚 𝑦
+Null hypothesis 𝐻 : 𝜇 = 𝜇 .
+0 𝑥 𝑦
+(𝑛 − 1)𝑠2 + (𝑚 − 1)𝑠2 1 1
+Pooled variance: 𝑠2 = 𝑥 𝑦 ( + ).
+𝑝 𝑛+𝑚−2 𝑛 𝑚
+𝑥 ̄ − 𝑦̄
+Test statistic: 𝑡 =
+𝑠
+𝑝
+Null distribution: 𝜙(𝑡 | 𝐻 ) is drawn from ∼ 𝑡(𝑛 + 𝑚 − 2).
+0
+𝑥− 𝑦 ̄−𝜇
+(More generally we can test 𝐻 : 𝜇 − 𝜇 = Δ𝜇 using 𝑡 = 0)
+0 𝑥 𝑦 𝑠
+𝑝
+2.5.4 𝐹 -test = one-way ANOVA
+Like 𝑡-test but for 𝑛 groups of data with 𝑚 data points each.
+𝑦 ∼ 𝑁(𝜇 ,𝜎2), 𝑦 = 𝑗th point in ith group
+𝑖,𝑗 𝑖 𝑖,𝑗
+Assumptions: data for each group is an independent normal sample with (possibly) different
+means but the same variance.
+Null hypothesis is: the means are all equal: 𝜇 = ⋯ = 𝜇
+1 𝑛
+Test statistic is MS 𝐵 where:
+MS
+𝑊
+𝑚
+MS = between group variance = ∑( 𝑦̄ − 𝑦)̄ 2
+𝐵 𝑛−1 𝑖
+18.05 Exam 2 in-class review problems Spring 2022 4
+MS = within group variance = sample mean of 𝑠2, … , 𝑠2
+𝑊 1 𝑛
+Idea: If 𝜇 are equal, this ratio should be near 1.
+𝑖
+Null distribution is F-statistic with 𝑛 − 1 and 𝑛(𝑚 − 1) d.o.f.:
+MS
+𝐵 ∼ 𝐹 .
+MS 𝑛−1, 𝑛(𝑚−1)
+𝑊
+2.5.5 NHST: some key points
+1. The significance level 𝛼 is not the probability of being wrong. It’s the probability of
+being wrong if the null hypothesis is true.
+2. Likewise, power is not the probability of being right. It’s the probability of being right
+if a particular alternate hypothesis is true.
+18.05 Exam 2 in-class review problems Spring 2022 5
+Problem 1. The following data is from a random sample:
+1, 1, 1, 2, 3, 5, 5, 8, 12, 13, 14, 14, 14, 14, 18, 100.
+Find the first, second and third quartiles.
+Problem 2. MLE examples. For each of the following, there is an unknown parameter
+and some data. Give the likelihood function and find the MLE.
+(a) We have a coin with probability of heads 𝜃. We toss it 10 times and get 3 heads.
+(b) Wait time follows exp(𝜆). In 5 independent trials wait 3, 5, 4, 5, 2
+(c) We have 4, 6, 8, 12 and 20-sided dice. One is chosen at random and rolled twice giving
+resulting in a 9 and a 5.
+Problem 3. MLE examples
+For each of the following, there is an unknown parameter and some data. Give the likelhood
+function and find the MLE.
+(a) In this problem there are two unknown parameters 𝜇 and 𝜎.
+Independent samples 𝑥 , … , 𝑥 are drawn from a N(𝜇, 𝜎2) distribution.
+1 𝑛
+(b) One sample 𝑥 = 6 drawn from a uniform(0, 𝜃) distribution.
+(c) One sample 𝑥 drawn from a uniform(0, 𝜃) distribution.
+Problem 4. Discrete prior-discrete likelihood.
+Jon has 1 four-sided, 2 six-sided, 2 eight-sided, 2 twelve sided, and 1 twenty-sided dice. He
+picks one at random and rolls a 7.
+(a) For each type of die, find the posterior probability Jon chose that type.
+(b) What are the posterior odds Jon chose the 20-sided die?
+(c) Compute the prior predictive probability of rolling a 7 on the first roll.
+(d) Compute the posterior predictive probability of rolling an 8 on the second roll.
+Problem 5. Suppose 𝑥 ∼ binomial(30, 𝜃), 𝑥 = 12. If we have a prior 𝑓(𝜃) ∼ Beta(1, 1)
+find the posterior for 𝜃.
+Problem 6. Suppose 𝑥 ∼ geometric(𝜃), 𝑥 = 6. If we have a prior 𝑓(𝜃) ∼ Beta(4, 2) find
+the posterior for 𝜃.
+Problem 7. In the population IQ is normally distributed: 𝜃 ∼ N(100, 152). An IQ test
+finds a person’s ‘true’ IQ + random error ∼ 𝑁(0,102). Someone takes the test and scores
+120.
+Find the posterior pdf for this person’s IQ.
+Problem 8. 𝑧 and one-sample 𝑡-test. For both problems use significance level 𝛼 = 0.05.
+Assume the data 2, 4, 4, 10 are independent draws from a 𝑁(𝜇, 𝜎2) distribution.
+Take 𝐻 : 𝜇 = 0; 𝐻 : 𝜇 ≠ 0.
+0 𝐴
+18.05 Exam 2 in-class review problems Spring 2022 6
+(a) Assume 𝜎2 = 16 is known and test 𝐻 against 𝐻 .
+0 𝐴
+(b) Now assume 𝜎2 is unknown and test 𝐻 against 𝐻 .
+0 𝐴
+Problem 9.
+Two-sample 𝑡-test Suppose that we have data from 1408 women admitted to a maternity
+hospital for (i) medical reasons or through (ii) unbooked emergency admission. The duration
+of pregnancy is measured in complete weeks from the beginning of the last menstrual period.
+(i) Medical: 775 observations with 𝑥̄ = 39.08 and 𝑠2 = 7.77.
+(ii) Emergency: 633 observations with 𝑥̄ = 39.60 and 𝑠2 = 4.95.
+(a) Set up and run a two-sample 𝑡-test to investigate whether the duration differs for the
+two groups.
+(b) What assumptions did you make?
+Problem 10. Three treatments for a disease are compared in a clinical trial, yielding the
+following data:
+Treatment 1 Treatment 2 Treatment 3
+Cured 50 30 12
+Not cured 100 80 18
+Use a chi-square test to compare the cure rates for the three treatments
+Problem 11. ANOVA. The table shows recovery time in days for three medical treat-
+ments.
+𝑇 𝑇 𝑇
+1 2 3
+6 8 13
+8 12 9
+4 9 11
+5 11 8
+3 6 7
+4 8 12
+Note: For 𝛼 = 0.05, the critical value of 𝐹 is 3.68.
+2,15
+(a) Set up and run an F-test for 𝐻 vs. 𝐻 .
+0 𝐴
+(b) Based on the test, what might you conclude about the treatments?
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

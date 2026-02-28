@@ -1,0 +1,18 @@
+The variance in the hat problem
+
+e X: number of people who get their own hat
+— Find var(x)
+
+X=Xy+Xote--+Xn
+
+x= 1, if « selects own hat
+‘ 0, otherwise.
+
+var(X) = E[X2] — (B[X])? XPS EET LX
+a 1, Jil
+
+E[X?] =
+
+For i # j: E[X;Xj] =
+
+E[X2] =

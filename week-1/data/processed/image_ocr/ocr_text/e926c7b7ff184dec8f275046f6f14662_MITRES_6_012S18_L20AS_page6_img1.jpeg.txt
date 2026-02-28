@@ -1,0 +1,19 @@
+Confidence intervals (CIs)
+
+e The value of an estimator © may not be informative enough
+
+95%
+
+e An 1—a confidence interval is an interval [O-,©O+],
+
+s.t. P(O- <0< 6+) >1-a,
+
+for all 0
+— often a= 0.05, or 0.025, or 0.01 E ; E 2
+— interpretation is subtle
+6
+
+SN Ee ae P (0.3<0 <oee)r.95
+0.3 ©,41368
+
+9.52

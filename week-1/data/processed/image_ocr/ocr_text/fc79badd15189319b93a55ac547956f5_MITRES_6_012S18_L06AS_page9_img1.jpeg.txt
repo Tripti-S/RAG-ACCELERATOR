@@ -1,0 +1,16 @@
+Total expectation theorem
+
+AL N{X = 2}
+
+Ay P(B) = P(A1) P(B | Ai) + +--+ P(An) P(B| An)
+Ao AgN{X =a} B=gxrxg
+px (x) = P(A1) px}a, (@) +++» + P(An) pxy4,,()
+a Aa ities Sor al@ x
+Zick ZR) = BA) So Bay, (x) pews
+ELX | 41] a es
+P(Ad) efn) EL*)A,)
+2) ELX | Ag]
+‘ [ex = P(Ay) B[X | Ay] +--- + P(An) E[X | Aa
+P(A3)
+
+E[X | A3]

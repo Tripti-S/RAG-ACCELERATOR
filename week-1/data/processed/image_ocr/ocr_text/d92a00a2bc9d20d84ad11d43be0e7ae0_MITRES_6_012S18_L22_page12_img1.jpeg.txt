@@ -1,0 +1,16 @@
+Example: Poisson fishing
+
+e Fish are caught as a Poisson process, A = 0.6/hour
+
+— fish for two hours; | _p____________.
+
+— if you caught at least one fish, stop
+— else continue until first fish is caught time
+
+P(fish for more than two hours)=
+
+P(fish for more than two and less than five hours)= E[N-] = Ar
+
+eyk—-Le—Ay
+fy.) = (k- 1)!
+

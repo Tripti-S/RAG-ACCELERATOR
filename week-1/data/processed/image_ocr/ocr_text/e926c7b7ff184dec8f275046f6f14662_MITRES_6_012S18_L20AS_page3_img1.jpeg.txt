@@ -1,0 +1,14 @@
+Problem types in classical statistics
+
+Classical statistics: unknown constant 6
+
+0 x 6
+— px (2; 9) — Estimator ———>
+
+Hypothesis testing: Hp :0=1/2 versus H, :0=3/4
+
+Composite hypotheses: Ho :@=1/2 versus Hy :0 41/2
+
+Estimation: design an estimator ©, to “keep estimation error © — 6 small”
+
+Art! -

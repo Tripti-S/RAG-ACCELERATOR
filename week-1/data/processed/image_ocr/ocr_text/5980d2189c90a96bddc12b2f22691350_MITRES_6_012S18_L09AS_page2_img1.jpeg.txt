@@ -1,0 +1,10 @@
+Conditional PDF, given an event P(A)>O
+
+px(z) = P(X = 2) fx (x) -5 2 P(x < X <a4+6)
+px|4(®) = P(X =2| A) fxja(z) 6% P(@ < X <e+6| A)
+P(X €B)= x =
+de Px@ P(X € B)= | fx(a)de
+P(X € B| A)= é xf
+a Dy pxial ) P(X e€B|A)= |, fxia@ dx Def
+
+Lpxia) =1 / fxja(z) dz = 1

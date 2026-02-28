@@ -1,0 +1,12 @@
+LMS estimation of © based on X Lo | 0=9(=)
+x @=9(X)
+
+ E[O] minimizes E[(© — 6)?|
+Ef (@-€fe1)*] « EL (@-c)*] , for 202 «
+e E[O|X = 2] minimizes E[(O —6)2|x =a
+E} (@-Efplx=*])*] xe] Ef (0-9@))*) x=] foe ale
+E[(0-ELelx2)* |x} < EL (8- g(x)" lx]
+E [(@-efex))*] < EL (B-960)"]
+
+[ O_ms = E[O| X) minimizes E[(©-9(X))?], over all estimators © = g(X) ]
+

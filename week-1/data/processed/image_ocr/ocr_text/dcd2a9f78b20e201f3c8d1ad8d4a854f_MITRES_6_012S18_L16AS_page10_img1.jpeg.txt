@@ -1,0 +1,16 @@
+LMS estimation with multiple observations or unknowns
+e unknown ©; prior pe(A)
+— interested in a point estimate a
+
+e observations X = (Xj, Xo,
+
+..+,Xn); model pxjo(2| 6)
+— observe that X =a
+
+new universe: condition on X =a
+
+e LMS estimate: E[O |X, =21,...,Xn=2n]
+
+If © is a vector, apply to each component separately
+
+0=(8,...,9,.) O, = EL Oy 1%yo 0-2 Xu2%u]

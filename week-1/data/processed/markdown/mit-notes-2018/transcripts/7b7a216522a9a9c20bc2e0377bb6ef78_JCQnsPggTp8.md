@@ -1,0 +1,45 @@
+# 7B7A216522A9A9C20Bc2E0377Bb6Ef78 Jcqnspggtp8
+
+---
+
+MITOCW | MITRES6_012S18_L10-05_300k
+Independence is one of the central concepts of probability theory, because it allows us to build large models from
+simpler ones.
+How should we define independence in the continuous case?
+Our guide comes from the discrete definition.
+By analogy with the discrete case, we will say that two jointly continuous random variables are independent if the
+joint PDF is equal to the product of the marginal PDFs.
+We can now compare with the multiplication rule, which is always true as long as the density of Y is positive.
+So this is always true.
+In the case of independence, this is true.
+So in the case of independence, we must have that this term is equal to that term, at least whenever this quantity-
+- the marginal of Y-- is positive.
+So to restate it, independence is equivalent to having the conditional, given Y, be the same as the unconditional
+PDF of X. And this has to be true whenever Y has a positive density so that this quantity is well defined, and it also
+has to be true for all xs.
+Now, what does this really mean?
+The conditional PDF, as we have discussed, in terms of pictures, is a slice of the joint PDF.
+Therefore, independence is the same as requiring that all of the slices of the joint have the same shape, and it is
+the shape of the marginal PDF.
+For a more intuitive interpretation, no matter what value of Y you observe, the distribution of X does not change.
+In this sense, Y does not convey any information about X. Notice also that this definition is symmetric as far as X
+and Y are concerned.
+So by symmetry, when we have independence, it also means that X does not convey any information about Y,
+and that the conditional density of Y, given X, has to be the same as the unconditional density of Y.
+We can also define independence of multiple random variables.
+The definition is the obvious one.
+The joint PDF of all the random variables involved must be equal to the product of the marginal PDFs.
+Intuitively, what that means is that knowing the values of some of the random variables does not affect our beliefs
+about the remaining random variables.
+Finally, let us note some consequences of independence, which are identical to the corresponding properties that
+we had in the discrete case, and the proofs are also exactly the same.
+So the expectation of the product of independent random variables is the product of the expectations, the
+variance of the sum of independent random variables is the sum of the variances, and functions of independent
+random variables are also independent, which, in particular, implies, using the previous rule, that the expected
+value of a product of this kind is going to be the product of these expectations.
+So independence of continuous random variables is pretty much the same as independence of discrete random
+variables as far as mathematics are concerned, and the intuitive content of the independence assumption is the
+same as in the discrete case.
+One random variable does not provide any information about the other.
+
+---

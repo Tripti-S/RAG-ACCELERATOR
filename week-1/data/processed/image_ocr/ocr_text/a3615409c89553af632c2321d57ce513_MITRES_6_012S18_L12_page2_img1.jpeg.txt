@@ -1,0 +1,8 @@
+The distribution of X + Y: the discrete case
+* pz(z) = > px(2) py(z — 2)
+e Z=X+Y; X,Y independent, discrete =
+
+known PMEFs
+
+pz(3) =
+

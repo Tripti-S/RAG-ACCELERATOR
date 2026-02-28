@@ -1,0 +1,18 @@
+LLMS for inferring the parameter of a coin
+
+e Standard example:
+— coin with bias ©; _ prior fe(-)
+— fix n; X =number of heads
+
+e Assume fe(-) is uniform in [0,1]
+
+= O_Lms
+
+" z
+©_ms = no
+
+Cov(9, X)
+
+SO_ims = E[9] + ~var(X)
+
+(x - E[X])

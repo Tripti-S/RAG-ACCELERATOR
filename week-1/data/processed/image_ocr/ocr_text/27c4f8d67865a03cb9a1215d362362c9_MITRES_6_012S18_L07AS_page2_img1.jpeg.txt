@@ -1,0 +1,61 @@
+y
+
+Conditional PMFs
+
+pxja(z@|A)=P(X=2| A) pxyy(z@ly)=P(X=2|/Y=y) =
+
+A=9¥=y3
+2 (x=%, fey)
+£ r= y)
+
+[ave
+
+i
+
+He pxy(2,y)
+
+defined for y such that py(y) > 0 y)=1
+py(y) Lexi(e|v)
+
+4
+
+Yer P,(2) = 8/20
+
+1/20
+
+2/20
+
+2/20
+
+2/20
+
+4/20
+
+1/20
+
+1/20
+
+1/20
+
+3/20
+
+2/20
+
+1/20
+
+Rag (tl2=o
+Cae (412) = 15
+VS
+°{2
+bal oe os pxy (0,9) = py (uy) pxiy@ |v)
+
+1
+
+2
+
+3
+
+4
+
+9 i Pxy(%,y) = px() py|x(y | 2)
+' 3

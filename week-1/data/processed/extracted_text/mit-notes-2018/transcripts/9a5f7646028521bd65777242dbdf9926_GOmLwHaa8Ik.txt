@@ -1,0 +1,71 @@
+MITOCW | MITRES6_012S18_S07-03_300k
+By now, we have defined the notion of independence of events and also the notion of independence of random
+variables.
+The two definitions look fairly similar, but the details are not exactly the same, because the two definitions refer to
+different situations.
+For two events, we know what it means for them to be independent.
+The probability of their intersection is the product of their individual probabilities.
+Now, to make a relation with random variables, we introduce the so-called indicator random variables.
+So for example, the random variable X is defined to be equal to 1 if event A occurs and to be equal to 0 if event
+[A] does not occur.
+And there is a similar definition for random variable Y.
+In particular, the probability that random variable X takes the value of 1, this is the probability that event A occurs.
+It turns out that the independence of the two events, A and B, is equivalent to the independence of the two
+indicator random variables.
+And there is a similar statement, which is true more generally.
+That is, n events are independent if and only if the associated n indicator random variables are independent.
+This is a useful statement, because it allows us to sometimes, instead of manipulating events, to manipulate
+random variables, and vice versa.
+And depending on the context, one maybe easier than the other.
+Now, the intuitive content is that events A and B are independent if the occurrence of event A does not change
+your beliefs about B. And in terms of random variables, one random variable taking a certain value, which
+indicates whether event A has occurred or not does not give you any information about the other random variable,
+which would tell you whether event B has occurred or not.
+It is instructive now to go through the derivation of this fact, at least for the case of two events, because it gives us
+perhaps some additional understanding about the precise content of the definitions we have introduced.
+So let us suppose that random variables X and Y are independent.
+What does that mean?
+Independence means that the joint PMF of the two random variables, X and Y, factors as a product of the
+corresponding marginal PMFs.
+And this factorization must be true no matter what arguments we use inside the joint PMF.
+And the combination of X and Y in this instance have a total of four possible values.
+These are the combinations of zeroes and ones that we can form.
+And for this reason, we have a total of four equations.
+These four equalities are what is required for X and Y to be independent.
+So suppose that this is true, that the random variables are independent.
+Let us take this first relation and write it in probability notation.
+The random variable X taking the value of 1, that's the same as event A occurring.
+And random variable Y taking the value of 1, that's the same as event B occurring.
+So the joint PMF evaluated at 1, 1 is the probability that events A and B both occur.
+On the other side of the equation, we have the probability that X is equal to 1, which is the probability that A
+occurs, and similarly, the probability that B occurs.
+But if this is true, then by definition, A and B are independent events.
+So we have verified one direction of this statement.
+If the random variables are independent, then events A and B are independent.
+Now, we would like to verify the reverse statement.
+So suppose that events A and B are independent.
+In that case, this relation is true.
+And as we just argued, this relation is the same as this relation but just written in different notation.
+So we have shown that if A and B are independent, this relation will be true.
+But how about the remaining three relations?
+We have more work to do.
+Here's how we can proceed.
+If A and B are independent, we have shown some time ago that events A and B complement will also be
+independent.
+Intuitively, A doesn't tell you anything about B occuring or not.
+So A does not tell you anything about whether B complement will occur or not.
+Now, these two events being independent, by the definition of independence, we have that the probability of A
+intersection with B complement is the product of the probabilities of A and of B complement.
+And then we realize that this equality, if written in PMF notation, corresponds exactly to this equation here.
+Event A corresponds to X taking the value of 1, event B complement corresponds to the event that Y takes the
+value of 0.
+By a similar argument, B and A complement will be independent.
+And we translate that into probability notation.
+And then we translate this equality into PMF notation.
+And we get this relation.
+Finally, using the same property that we used to do the first step here, we have that A complement and B
+complement are also independent.
+And by following the same line of reasoning, this implies the fourth relation as well.
+So we have verified that if events A and B are independent, then we can argue that all of these four equations will
+be true.
+And therefore, random variables X and Y will also be independent.

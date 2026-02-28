@@ -1,0 +1,5 @@
+Convergence in probability examples
+
+e X;: _ i.i.d., uniform on [0,1]
+
+P(|¥n — 0| > «)

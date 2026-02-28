@@ -1,0 +1,12 @@
+On the mean squared error of an estimator
+e For any estimator, using E[Z?] = var(Z) + (E[Z])?: Zz =9 . 7
+
+E[(6 - 6)7] = var(@ — 6) + (E[6—6])” = var(S) + (bias)?
+
+bias
+MSE
+
+Q.>M,, : MSE: 0%, +O et
+6 =0% mseE=O+8
+
+e ,/var(©) is called the standard error

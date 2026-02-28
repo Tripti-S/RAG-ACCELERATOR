@@ -1,0 +1,14 @@
+Example: independence and conditional independence
+
+1/20 220 fa20 |
+2/20 1/20 | 2/20
+
+e Independent? No
+
+P, (1) = 3/20
+
+Pig (t li) =O
+
+Pp ea? © What if we condition on X <2 and Y > 3?
+13 \'/o Yes F
+ds, 2/ 9

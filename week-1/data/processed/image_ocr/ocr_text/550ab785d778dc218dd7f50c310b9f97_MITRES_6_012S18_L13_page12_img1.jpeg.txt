@@ -1,0 +1,13 @@
+Variance of sum of a random number of independent r.v.’s
+
+Y=X,;+---+Xy var(y’) = E[var(y | N)| + var(E[Y | NJ)
+
+var(Y) = E[N]var(X) + (E[X])? var(N)
+e E[Y|N] = NE[X]
+
+var (E[Y | N]) =
+
+e var(Y|N=n) =
+var(Y|N) =
+
+Elvar(Y|N)| =

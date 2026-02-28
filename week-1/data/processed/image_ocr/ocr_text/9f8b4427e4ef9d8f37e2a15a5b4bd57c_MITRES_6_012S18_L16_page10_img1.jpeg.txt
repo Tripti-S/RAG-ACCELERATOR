@@ -1,0 +1,13 @@
+LMS estimation with multiple observations or unknowns
+
+e unknown ©; prior po()
+
+— interested in a point estimate @
+
+e observations X = (Xj, Xo,..., Xn); model Px\e(x| 9)
+— observe that X =a
+— new universe: condition on X =z
+
+e LMS estimate: E[©O |X, =7},...,Xn =n]
+
+e If © is a vector, apply to each component separately

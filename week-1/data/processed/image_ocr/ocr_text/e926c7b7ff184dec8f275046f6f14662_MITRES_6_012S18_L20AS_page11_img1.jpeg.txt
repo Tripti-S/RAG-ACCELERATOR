@@ -1,0 +1,13 @@
+Maximum Likelihood (ML) estimation
+
+Pick @ that ‘makes data most likely”
+
+— also applies when 2, @ are vectors or x is continuous
+
+comstaut
+
+It
+e compare to Bayesian posterior: Pp (0|2) = Pxjo(e | pe (9)
+: O|xX = (x)
+
+— interpretation is very different

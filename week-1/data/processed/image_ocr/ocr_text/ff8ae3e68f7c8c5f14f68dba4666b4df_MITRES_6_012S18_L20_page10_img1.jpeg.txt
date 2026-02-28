@@ -1,0 +1,10 @@
+Other natural estimators
+
+© by = EX] c= 3% © 6 =Elg(X)] 6=1y° g(x,
+4=1 isl
+e vx =var(x)= E(x -- 6x)? 0x = * » (X; — 6x)?
+e cov(xX,Y) = B|(x —Ox)(Y - ey)| éov(X,Y) = z > (Xj — Sx) (¥; = Sy)
+i=1
+° p= cov(x,Y) .__ COv(X,Y)
+
+e next steps: find the distribution of S, MSE, confidence intervals,...

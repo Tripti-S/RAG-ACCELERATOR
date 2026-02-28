@@ -1,0 +1,15 @@
+Probability calculation: discrete/finite example
+
+e Two rolls of a tetrahedral die e Let every possible outcome have probability 1/16
+
+I
+= deg ae Se
+PRX =HN=4 16 5
+4 Let Z = min(X,Y)
+Y = Second es = % ? f= 2
+roll 5 — = IG
+
+e P(Z=2)= Sa. ”
+16
+
+X = First roll

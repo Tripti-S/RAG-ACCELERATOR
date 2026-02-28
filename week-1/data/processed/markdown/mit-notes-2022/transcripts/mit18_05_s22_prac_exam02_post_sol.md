@@ -1,0 +1,502 @@
+# Mit18 05 S22 Prac Exam02 Post Sol
+
+---
+
+Post Exam 2 Practice Questions –solutions, 18.05,
+Spring 2022
+1 Confidence intervals
+To practice for the exam use the 𝑡 and 𝑧-tables supplied at the end of this file. Be sure to
+learn to use these tables. Note the 𝑡 and 𝑧-tables give left tail probabilities and the 𝜒2-table
+gives right tail critical values.
+Problem 1. Basketball
+Suppose that against a certain opponent the number of points the MIT basketball team scores
+is normally distributed with unknown mean 𝜃 and unknown variance, 𝜎2.
+Suppose that over the course of the last 10 games between the two teams MIT scored the
+following points:
+59, 62, 59, 74, 70, 61, 62, 66, 62, 75
+(a) Compute a 95% 𝑡–confidence interval for 𝜃. Does 95% confidence mean that the proba-
+bility 𝜃 is in the interval you just found is 95%?
+Solution: We compute the data mean and variance 𝑥̄ = 65, 𝑠2 = 35.778. The number of
+degrees of freedom is 9. We look up the critical value 𝑡 = 2.262 in the 𝑡-table The
+9,0.025
+95% confidence interval is
+𝑡 𝑠 𝑡 𝑠 √ √
+[ 𝑥 ̄ −
+9,√0.025
+, 𝑥 ̄ +
+9,√0.025
+] = [65 − 2.262 3.5778, 65 + 2.262 3.5778] = [60.721, 69.279]
+𝑛 𝑛
+On the exam you will be expected to be able to use the 𝑡-table. We won’t ask you to
+compute by hand the mean and variance of 10 numbers.
+95% confidence means that in 95% of experiments the random interval will contain the
+true 𝜃. It is not the probability that 𝜃 is in the given interval. That depends on the prior
+distribution for 𝜃, which we don’t know.
+(b) Now suppose that you learn that 𝜎2 = 25. Compute a 95% 𝑧–confidence interval for 𝜃.
+How does this compare to the interval in (a)?
+Solution: We can look in the 𝑧-table or simply remember that 𝑧 = 1.96. The 95%
+0.025
+confidence interval is
+𝑧 𝜎 𝑧 𝜎 1.96⋅5 1.96 ⋅5
+[𝑥 ̄ − 0√.025 , 𝑥 ̄ + 0√.025 ] = [65 − √ , 65 + √ ] = [61.901, 68.099]
+𝑛 𝑛 10 10
+This is a narrower interval than in part (a). There are two reasons for this, first the true
+variance 25 is smaller than the sample variance 35.8 and second, the normal distribution
+has narrower tails than the 𝑡 distribution.
+(c) Let 𝑋 be the number of points scored in a game. Suppose that your friend is a confirmed
+Bayesian with a priori belief 𝜃 ∼ 𝑁(60,16) and that 𝑋 ∼ 𝑁(𝜃,25). He computes a 95%
+probability interval for 𝜃, given the data in part (a). How does this interval compare to the
+intervals in (a) and (b)?
+1
+Post Exam 2 Practice, Spring 2022 2
+Solution: We use the normal-normal update formulas to find the posterior pdf for 𝜃.
+1 10 𝑎60 + 𝑏65 1
+𝑎 = , 𝑏 = , 𝜇 = = 64.3, 𝜎2 = = 2.16.
+16 25 post 𝑎+𝑏 post 𝑎+𝑏
+The posterior pdf is 𝑓(𝜃|data) = N(64.3, 2.16). The posterior 95% probability interval for 𝜃
+is
+√ √
+[64.3 − 𝑧 2.16, 64.3 + 𝑧 2.16] = [61.442, 67.206]
+0.025 0.025
+(d) Which of the three intervals constructed above do you prefer? Why?
+Solution: There’s no one correct answer; each method has its own advantages and disad-
+vantages. In this problem they all give similar answers.
+Problem 2. Confidence interval 2
+The volume in a set of wine bottles is known to follow a N(𝜇, 25) distribution. You take a
+sample of the bottles and measure their volumes. How many bottles do you have to sample
+to have a 95% confidence interval for 𝜇 with width 1?
+Solution: Suppose we have taken data 𝑥 , … , 𝑥 with mean 𝑥.̄ The 95% confidence interval
+𝜎
+1 𝑛
+𝜎
+for the mean is 𝑥 ± 𝑧 √ . This has width 2 𝑧 √ . Setting the width equal to 1 and
+0.025 𝑛 0.025 𝑛
+substitituting values 𝑧 = 1.96 and 𝜎 = 5 we get
+0.025
+5 √
+2 ⋅ 1.96√ = 1 ⇒ 𝑛 = 19.6.
+𝑛
+So, 𝑛 = (19.6)2 = 384. .
+√
+If we use our rule of thumb that 𝑧 = 2 we have 𝑛/10 = 2 ⇒ 𝑛 = 400.
+0.025
+Problem 3. Suppose data 𝑥 , … , 𝑥 are i.i.d. and drawn from N(𝜇, 𝜎2), where 𝜇 and 𝜎
+1 𝑛
+are unknown.
+Suppose a data set is taken and we have 𝑛 = 49, sample mean 𝑥̄= 92 and sample standard
+deviation 𝑠 = 0.75.
+Find a 90% confidence interval for 𝜇.
+𝑥 ̄ − 𝜇
+Solution: We need to use the studentized mean 𝑡 = √ ..
+𝑠/ 𝑛
+We know 𝑡 ∼ 𝑡(𝑛−1) = 𝑡(48). So we use the 𝑚 = 48 line of the 𝑡 table and find 𝑡 = 1.677.
+0.05
+Thus,
+𝑥 ̄ − 𝜇
+𝑃 (−1.677 < √ < 1.677 | 𝜇) = 0.90.
+𝑠/ 𝑛
+Unwinding this, we get the 90% confidence interval for 𝜇 is
+𝑠 𝑠 0.75 0.75
+[ 𝑥 ̄ − √ ⋅ 1.677, 𝑥 ̄ + √ ⋅ 1.677] = [92 − ⋅ 1.677, 92 + ⋅ 1.677] = [91.82, 92.18].
+𝑛 𝑛 7 7
+Problem 4. Polling confidence intervals
+You do a poll to see what fraction 𝑝 of the population supports candidate A over candidate
+B.
+Post Exam 2 Practice, Spring 2022 3
+(a) How many people do you need to poll to know 𝑝 to within 1% with 95% confidence.
+√
+Solution: The rule-of-thumb is that a 95% confidence interval is 𝑥 ̄ ± 1/ 𝑛. To be within
+1% we need
+1
+√ = 0.01 ⇒ 𝑛 = 10000.
+𝑛
+Using 𝑧 = 1.96 instead the 95% confidence interval is
+0.025
+𝑧
+𝑥 ̄ ± 0√.025.
+2 𝑛
+To be within 1% we need
+𝑧
+0√.025 = 0.01 ⇒ 𝑛 = 9604.
+2 𝑛
+Note, we are still using the standard Bernoulli approximation 𝜎 ≤ 1/2.
+(b) Let 𝑝 be the fraction of the population who prefer candidate A. If you poll 400 people,
+how many have to prefer candidate A so that the 90% confidence interval is entirely above
+𝑝 = 0.5.
+Solution: The 90% confidence interval is 𝑥 ± 𝑧 ⋅ √1 . Since 𝑧 = 1.64 and 𝑛 = 400
+0.05 2 𝑛 0.05
+our confidence interval is
+1
+𝑥±1.64 ⋅ = 𝑥±0.041
+40
+If this is entirely above 0.5 we have 𝑥 − 0.041 > 0.5, so 𝑥 > 0.541. Let 𝑇 be the number
+out of 400 who prefer A. We have 𝑥 = 𝑇 > 0.541, so 𝑇 > 216 .
+400
+Problem 5. Confidence intervals 3
+Suppose you made 40 confidence intervals with confidence level 95%. About how many of
+them would you expect to be “wrong’? That is, how many would not actually contain the
+parameter being estimated? Should you be surprised if 10 of them are wrong?
+Solution: A 95% confidence means about 5% = 1/20 will be wrong. You’d expect about
+2 to be wrong.
+With a probability 𝑝 = 0.05 of being wrong, the number wrong follows a Binomial(40, 𝑝)
+distribution. This has expected value 2, and standard deviation √40(0.05)(0.95) = 1.38. 10
+wrong is (10-2)/1.38 = 5.8 standard deviations from the mean. This would be surprising.
+2 Chi-square confidence interval
+Problem 6. Hotel
+A statistician chooses 27 randomly selected dates, and when examining the occupancy records
+of a particular motel for those dates, finds a standard deviation of 5.86 rooms rented. If
+the number of rooms rented is normally distributed, find the 95% confidence interval for the
+population standard deviation of the number of rooms rented.
+Solution: We have 𝑛 = 27 and 𝑠2 = 5.862. If we fix a hypothesis for 𝜎2 we know
+(𝑛 − 1)𝑠2
+∼ 𝜒2
+𝜎2 𝑛−1
+Post Exam 2 Practice, Spring 2022 4
+We used R to find the critical values. (Or use the 𝜒2 table at the end of this file.)
+c025 = qchisq(0.975,26) = 41.923
+c975 = qchisq(0.025,26) = 13.844
+The 95% confidence interval for 𝜎2 is
+(𝑛−1) ⋅𝑠2 (𝑛−1) ⋅𝑠2 26⋅5.862 26⋅5.862
+[ , ] = [ , ] = [21.2968, 64.4926]
+𝑐 𝑐 41.923 13.844
+0.025 0.975
+We can take square roots to find the 95% confidence interval for 𝜎
+[4.6148, 8.0307]
+On the exam we will give you enough of a table to compute the critical values you need for
+𝜒2 distributions.
+3 Bootstrapping
+Problem 7. Parametric bootstrap
+Suppose we have a sample of size 100 drawn from a geom(𝑝) distribution with unknown
+𝑝. The MLE estimate for 𝑝 is given by by 𝑝̂ = 1/𝑥.̄ Assume for our data 𝑥̄ = 3.30, so
+𝑝̂ = 1/𝑥̄ = 0.30303.
+(a) Outline the steps needed to generate a parametric basic bootstrap 90% confidence interval.
+Solution: Step 1. We have the point estimate 𝑝 ≈ 𝑝̂ = 0.30303.
+Step 2. Use the computer to generate many (say 10000) size 100 samples. (These are called
+the bootstrap samples.)
+Step 3. For each sample compute 𝑝∗ = 1/𝑥∗̄ and 𝛿∗ = 𝑝∗−𝑝̂ .
+Step 4. Sort the 𝛿∗ and find the critical values 𝛿 and 𝛿 . (Remember 𝛿 is the 5th
+0.95 0.05 0.95
+percentile etc.)
+Step 5. The 90% bootstrap confidence interval for 𝑝 is
+[𝑝 ̂ − 𝛿 , 𝑝 ̂− 𝛿 ]
+0.05 0.95
+(b) Suppose the following sorted list consists of 200 bootstrap means computed from a sample
+of size 100 drawn from a geometric(0.30303) distribution. Use the list to construct a 90%
+basic CI for 𝑝.
+2.68 2.77 2.79 2.81 2.82 2.84 2.84 2.85 2.88 2.89
+2.91 2.91 2.91 2.92 2.94 2.94 2.95 2.97 2.97 2.99
+3.00 3.00 3.01 3.01 3.01 3.03 3.04 3.04 3.04 3.04
+3.04 3.05 3.06 3.06 3.07 3.07 3.07 3.08 3.08 3.08
+3.08 3.09 3.09 3.10 3.11 3.11 3.12 3.13 3.13 3.13
+3.13 3.15 3.15 3.15 3.16 3.16 3.16 3.16 3.17 3.17
+3.17 3.18 3.20 3.20 3.20 3.21 3.21 3.22 3.23 3.23
+3.23 3.23 3.23 3.24 3.24 3.24 3.24 3.25 3.25 3.25
+3.25 3.25 3.25 3.26 3.26 3.26 3.26 3.27 3.27 3.27
+Post Exam 2 Practice, Spring 2022 5
+3.28 3.29 3.29 3.30 3.30 3.30 3.30 3.30 3.30 3.31
+3.31 3.32 3.32 3.34 3.34 3.34 3.34 3.35 3.35 3.35
+3.35 3.35 3.36 3.36 3.37 3.37 3.37 3.37 3.37 3.37
+3.38 3.38 3.39 3.39 3.40 3.40 3.40 3.40 3.41 3.42
+3.42 3.42 3.43 3.43 3.43 3.43 3.44 3.44 3.44 3.44
+3.44 3.45 3.45 3.45 3.45 3.45 3.45 3.45 3.46 3.46
+3.46 3.46 3.47 3.47 3.49 3.49 3.49 3.49 3.49 3.50
+3.50 3.50 3.52 3.52 3.52 3.52 3.53 3.54 3.54 3.54
+3.55 3.56 3.57 3.58 3.59 3.59 3.60 3.61 3.61 3.61
+3.62 3.63 3.65 3.65 3.67 3.67 3.68 3.70 3.72 3.72
+3.73 3.73 3.74 3.76 3.78 3.79 3.80 3.86 3.89 3.91
+Solution: The basic interval requires an algebraic pivot, so it’s tricky to keep the sides
+straight here. We work slowly and carefully:
+The 5th and 95th percentiles for 𝑥∗̄ are the 10th and 190th entries
+2.89, 3.72
+(Here again there is some ambiguity on which entries to use. We will accept using the 11th
+or the 191st entries or some interpolation between these entries.)
+So the 5th and 95th percentiles for 𝑝∗ are
+1/3.72 = 0.26882, 1/2.89 = 0.34602
+So the 5th and 95th percentiles for 𝛿∗ = 𝑝∗−𝑝̂ are
+−0.034213, 0.042990
+These are also the 0.95 and 0.05 critical values.
+So the 90% basic CI for 𝑝 is
+[0.30303 − 0.042990, 0.30303 + 0.034213] = [0.26004, 0.33724]
+Problem 8. Empirical bootstrap
+Suppose we had 100 data points 𝑥 , … 𝑥 with sample median 𝑞 ̂ = 3.3.
+1 100 0.5
+(a) Outline the steps needed to generate an empirical percentile bootstrap 90% confidence
+interval for the median 𝑞 .
+0.5
+Solution: For the percentile bootstrap, we don’t have to pivot, so the algebra is a little
+shorter.
+Step 1. We have the point estimate 𝑞 ≈ 𝑞̂ = 3.3.
+0.5 0.5
+Step 2. Use the computer to generate many (say 10000) size 100 resamples of the original
+data.
+Step 3. For each bootstrap sample compute and save the bootstrap median 𝑞∗ .
+0.5
+Step 4. Find the quantiles 𝑐 and 𝑐 . (Remember 𝑐 is the 5th percentile in the list
+0.05 0.95 0.05
+of bootstrap medians, etc.)
+Post Exam 2 Practice, Spring 2022 6
+Step 5. The 90% percentile bootstrap confidence interval for 𝑞 is
+0.5
+[𝑐 , 𝑐 ]
+0.05 0.95
+(b) Suppose now that the sorted list in the previous problem consists of 200 empirical
+bootstrap medians computed from resamples of size 100 drawn from the original data. Use
+the list to construct a 90% precentile CI for 𝑞 .
+0.5
+Solution: The list covers steps 1-3 in part (a). Since it is sorted, step 4 is straightforward.
+The 5th and 95th percentiles for 𝑞∗ are
+0.5
+2.89, 3.72
+(Here we just took the 10th and 190th values. We could have interpolated between the
+9th and 10th, and 190th and 191st entries, but this would not change our answer to two
+decimal places.)
+The above interval is our empirical percentile bootstrap confidence interval for the median.
+4 Linear regression/Least squares
+Problem 9. In this problem we will use maximum likelihood estimates to develop Gauss’
+method of least squares for fitting lines to data.
+Suppose you have bivariate data, that is, a sequence of pairs (𝑥 , 𝑦 ), … , (𝑥 , 𝑦 ). A common
+1 1 𝑛 𝑛
+model is that there is a linear relationship between 𝑥 and 𝑦, so in principle the data should
+lie exactly along a line. However, since data has random noise this will not be the case.
+What we can do is look for the line that best fits the data. To do this we will use a model
+called simple linear regression.
+For bivariate data the simple linear regression model assumes that the 𝑥 are not random
+𝑖
+and that, for some values of the parameters 𝑎 and 𝑏, we have
+𝑦 = 𝑎𝑥 + 𝑏 + random noise
+𝑖 𝑖
+To be more precise, we will assume that the value 𝑦 is drawn from a random variable of
+𝑖
+the form
+𝑌 ∼ 𝑎𝑥 + 𝑏 + 𝜀
+𝑖 𝑖 𝑖
+where 𝜀 is a normal random variable with mean 0 and variance 𝜎2. We assume all of the
+𝑖
+random variables 𝜀 are independent and that 𝜎 is the same for all 𝑖.
+𝑖
+Notes. 1. The goal in simple linear regression is to find the line, i.e. the values of 𝑎 and
+𝑏 that best fit the data.
+2. We think of 𝜀 as the random measurement error.
+𝑖
+3. Remember that (𝑥 , 𝑦 ) are not variables. They are data values.
+𝑖 𝑖
+(a) The distribution of 𝑌 depends on 𝑎, 𝑏, 𝜎 and 𝑥 . So we write its pdf as
+𝑖 𝑖
+𝑓(𝑦 |𝑎,𝑏,𝑥 ,𝜎).
+𝑖 𝑖
+Post Exam 2 Practice, Spring 2022 7
+Give the formula for the likelihood function corresponding to one random value 𝑦 . (Hint:
+𝑖
+𝑦 − 𝑎𝑥 − 𝑏 ∼ N(0, 𝜎2).)
+𝑖 𝑖
+Solution: We know that 𝑦 − 𝑎𝑥 − 𝑏 = 𝜀 ∼ N(0, 𝜎2). Therefore,
+𝑖 𝑖 𝑖
+𝑓(𝑦 𝑖 |𝑎,𝑏,𝑥 𝑖 ,𝜎) = √ 1 e− (𝑦𝑖− 2 𝑎 𝜎 𝑥 2 𝑖−𝑏)2 .
+𝜎 2𝜋
+(b) For general data (𝑥 ,𝑦 ), …,(𝑥 ,𝑦 ) give the likelihood and log likelihood functions
+1 1 𝑛 𝑛
+(again as functions of 𝑎, 𝑏, and 𝜎).
+Solution: The likelihood function is just the product of the likelihoods found in part (a).
+We’ll let 𝐿(𝑎, 𝑏, 𝜎) be the likelihood of the data and 𝑙(𝑎, 𝑏, 𝜎) be the log likelihood.
+𝑛
+𝐿(𝑎, 𝑏, 𝜎) = ( √
+1
+) e− ∑ 𝑖 𝑛 = 1 (𝑦 𝑖 −𝑎𝑥 𝑖 −𝑏)2/2𝜎2
+𝜎 2𝜋
+√ 𝑛 (𝑦 − 𝑎𝑥 − 𝑏)2
+𝑙(𝑎, 𝑏, 𝜎) = −𝑛 ln( 2𝜋) − 𝑛 ln(𝜎)− ∑ 𝑖 𝑖 .
+2𝜎2
+𝑖=1
+(c) Find the maximum likelihood estimate for 𝑎 and 𝑏 by taking partial derivatives of the
+log likelihood function and setting them equal to 0.
+Solution: The partial derivatives of 𝑙(𝑎, 𝑏, 𝜎) are
+𝜕𝑙 𝑛
+= ∑ 2𝑥 (𝑦 − 𝑎𝑥 − 𝑏)
+𝜕𝑎 𝑖 𝑖 𝑖
+𝑖=1
+𝜕𝑙 𝑛
+= ∑ 2(𝑦 − 𝑎𝑥 − 𝑏)
+𝜕𝑏 𝑖 𝑖
+𝑖=1
+Here is the algebra use in setting these to 0 and solving for 𝑎 and 𝑏:
+𝑛
+∑ 2𝑥 (𝑦 − 𝑎𝑥 − 𝑏) = 0 ⇒ 𝑎 ∑ 𝑥2+ 𝑏 ∑ 𝑥 = ∑ 𝑥 𝑦
+𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖
+𝑖=1
+𝑛
+∑2(𝑦 −𝑎𝑥 −𝑏) = 0 ⇒ 𝑎∑𝑥 +𝑏𝑛 = ∑𝑦
+𝑖 𝑖 𝑖 𝑖
+𝑖=1
+It will be convenient to use the following notations:
+𝑛 𝑛 𝑆 𝑆
+𝑆 = ∑𝑥 𝑆 = ∑𝑦 𝑥̄= 𝑥 𝑦̄= 𝑦
+𝑥 𝑖 𝑦 𝑖 𝑛 𝑛
+𝑖=1 𝑖=1
+𝑛 𝑛
+𝑆 = ∑𝑥2 𝑆 = ∑𝑥 𝑦
+𝑥𝑥 𝑖 𝑥𝑦 𝑖 𝑖
+𝑖=1 𝑖=1
+With this notation our equations become
+𝑎𝑆 + 𝑏𝑆 = 𝑆 , 𝑎𝑆 + 𝑏𝑛 = 𝑆 .
+𝑥𝑥 𝑥 𝑥𝑦 𝑥 𝑦
+Solving the second equation for 𝑏 gives
+𝑆 − 𝑎𝑆
+𝑏 =
+𝑦 𝑥
+= 𝑦 ̄ −𝑎 𝑥̄
+𝑛
+Post Exam 2 Practice, Spring 2022 8
+Putting this into the first equation and solving for 𝑎 gives
+𝑆 − 𝑦𝑆̄ 𝑆 /𝑛 − 𝑥𝑦̄ ̄
+𝑎 =
+𝑥𝑦 𝑥
+=
+𝑥𝑦
+.
+𝑆 − 𝑆 𝑥̄ 𝑆 /𝑛 − 𝑥2̄
+𝑥𝑥 𝑥 𝑥𝑥
+(The last expression came by dividing both numerator and denominator of the middle
+expression by 𝑛.)
+Note: We could also find the MLE for 𝜎, but, since we don’t need it for fitting the line, we
+don’t bother.
+(d) Suppose we have data (1, 8), (3, 2), (5, 1). Use your answer in part (b) to find the value
+of 𝑎 and 𝑏 which gives the MLE for the best fitting line to the data.
+We have 𝑛 = 3 points. First we compute:
+𝑆 = ∑𝑥 = 9, 𝑥̄= 3, 𝑆 = ∑𝑦 = 11, 𝑦̄= 11/3.
+𝑥 𝑖 𝑦 𝑖
+𝑆 = ∑ 𝑥2 = 35, 𝑆 = ∑ 𝑥 𝑦 = 19
+𝑥𝑥 𝑖 𝑥𝑦 𝑖 𝑖
+So,
+𝑆 /𝑛 − 𝑥𝑦̄ ̄ 19/3 − 3 ⋅ 11/3 7
+𝑥𝑦
+𝑎 = = = −
+𝑆 /𝑛 − 𝑥2̄ 35/3 − 9 4
+𝑥𝑥
+11 21 107
+𝑏 = 𝑦̄ −𝑎 𝑥̄= + =
+3 4 12
+(e) Use R to plot the data and the regression line you found in problem (1c). The commands
+plot(x, y, pch=19) and abline() will come in handy.
+Print the plot and turn it in.
+Solution: Here’s the R code I used to make the plot
+1 2 3 4 5
+8
+7
+6
+5
+4
+3
+2
+1
+x
+y
+x = c(1, 3, 5)
+y = c(8, 2, 1)
+a = -7/4
+b = 107/12
+plot(x, y, pch=19, col="blue")
+abline(a=b, b=a, col="orange")
+Problem 10. What is the relationship between correlation and least squares fit line?
+Solution: The correlation between 𝑥 and 𝑦 is the same as the coeﬀicient 𝑏 of the best fit
+1
+line to the standardized data
+𝑥 − 𝑥̄ 𝑦 − 𝑦̄
+𝑢 = √ 𝑖 , 𝑣 = √ 𝑖
+𝑖 𝑠 𝑖 𝑠
+𝑥𝑥 𝑦𝑦
+Post Exam 2 Practice, Spring 2022 9
+Problem 11. You have bivariate data (𝑥 , 𝑦 ). You have reason to suspect the data is
+𝑖 𝑖
+related by 𝑦 = 𝑎/𝑥 + 𝑈 where 𝑈 is a random variable with mean 0 and variance 𝜎2 (the
+𝑖 𝑖 𝑖 𝑖
+same for all 𝑖).
+Find the least squares estimate of 𝑎.
+Solution: The total squared error is
+2
+𝑎
+𝑆(𝑎) = ∑ (𝑦 − ) .
+𝑖 𝑥
+𝑖
+Taking the derivative and setting it to 0 gives
+2 𝑎
+𝑆′(𝑎) = ∑− (𝑦 − ) = 0
+𝑥 𝑖 𝑥
+𝑖 𝑖
+This implies
+1 𝑦 ∑ 𝑦 /𝑥
+𝑎∑ = ∑ 𝑖 ⇒ 𝑎̂= 𝑖 𝑖 .
+𝑥2 𝑥 ∑ 1/𝑥2
+𝑖 𝑖 𝑖
+Problem 12. Least Squares and MLE
+In this problem we will see that the least squares fit of a line is just the MLE assuming the
+error terms are normally distributed.
+For bivariate data (𝑥 , 𝑦 ), … , (𝑥 , 𝑦 ), the simple linear regression model says that 𝑦 is a
+1 1 𝑛 𝑛 𝑖
+random value generated by a random variable
+𝑌 = 𝑎𝑥 + 𝑏 + 𝜀
+𝑖 𝑖 𝑖
+where 𝑎, 𝑏, 𝑥 are fixed (not random) values, and 𝜀 is a random variable with mean 0 and
+𝑖 𝑖
+variance 𝜎2.
+(a) Suppose that each 𝜀 ∼ N(0, 𝜎2). Show that 𝑌 ∼ N(𝑎𝑥 + 𝑏, 𝜎2).
+𝑖 𝑖 𝑖
+(b) Give the formula for the pdf 𝑓 (𝑦 ) of 𝑌 .
+𝑌 𝑖 𝑖
+𝑖
+(c) Write down the likelihood of the data as a function of 𝑎, 𝑏, and 𝜎.
+(a) Solution: We’re given 𝜀 ∼ N(0, 𝜎2). Since 𝑎𝑥 + 𝑏 is a constant, 𝑌 is simply a shift of
+𝑖 𝑖 𝑖
+𝜀 . Thus
+𝑖
+𝐸[𝑌 ] = 𝑎𝑥 + 𝑏 + 𝐸[𝜀 ] = 𝑎𝑥 + 𝑏
+𝑖 𝑖 𝑖 𝑖
+Var(𝑌 ) = Var(𝜀 ) = 𝜎2.
+𝑖 𝑖
+Since a shifted normal random variable is still normal (you should be able to show this by
+transforming cdf’s) we have
+𝑌 ∼ N(𝑎𝑥 + 𝑏, 𝜎2).
+𝑖 𝑖
+(b) Solution: The density for a normal distribution is known
+𝑓 𝑌 (𝑦 𝑖 ) = √ 1 e − (𝑦𝑖− 2 𝑎 𝜎 𝑥 2 𝑖−𝑏)2 .
+𝑖 2𝜋 𝜎
+Post Exam 2 Practice, Spring 2022 10
+(c) Solution:
+𝑓(data |𝜎,𝑎,𝑏) = 𝑓 (𝑦 )𝑓 (𝑦 )⋯𝑓 (𝑦 )
+𝑌 1 𝑌 2 𝑌 𝑛
+1 2 𝑛
+1 𝑛
+= (2𝜋)− 𝑛
+2
+𝜎−𝑛 exp (−
+2𝜎2
+∑(𝑦
+𝑖
+−𝑎𝑥
+𝑖
+−𝑏)2).
+𝑖=1
+(d) Solution: The log likelihood is
+𝑛 1 𝑛
+ln(𝑓(data |𝜎,𝑎,𝑏)) = − log 2𝜋 −𝑛 log 𝜎 − ∑ (𝑦 − 𝑎𝑥 − 𝑏)2
+2 2𝜎2 𝑖 𝑖
+𝑖=1
+If 𝜎 is constant then the only part of the log likelihood that varies is the sum in the last
+term. So, the maximum likelihood is found by maximizing this sum:
+𝑛
+− ∑ (𝑦 − 𝑎𝑥 − 𝑏)2.
+𝑖 𝑖
+𝑖=1
+Notice the minus sign out front. This is exactly the same as minimizing
+𝑛
+∑ (𝑦 − 𝑎𝑥 − 𝑏)2.
+𝑖 𝑖
+𝑖=1
+This last expression is the expression minimized by least squares. Therefore, under our
+normality assumptions, the values of 𝑎 and 𝑏 are the same for MLE and least squares.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

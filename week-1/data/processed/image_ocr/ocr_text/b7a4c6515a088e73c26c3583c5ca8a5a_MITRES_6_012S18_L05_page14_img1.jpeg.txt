@@ -1,0 +1,14 @@
+Expectation as a population average
+
+e n students
+
+e Weight of ith student: 2;
+e Experiment: pick a student at random, all equally likely
+
+e Random variable X: weight of selected student
+
+— assume the a; are distinct
+
+px(2j) =
+
+E[X] =

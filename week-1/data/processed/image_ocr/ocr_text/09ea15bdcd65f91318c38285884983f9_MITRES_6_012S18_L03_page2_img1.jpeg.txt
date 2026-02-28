@@ -1,0 +1,12 @@
+A model based on conditional probabilities
+
+e 3 tosses of a biased coin: P(H) =p, P(T)=1-p
+
+e Multiplication rule: P(THT) =
+
+e Total probability:
+P(1 head) =
+e Bayes rule:
+
+P(first toss is H| 1 head) =
+

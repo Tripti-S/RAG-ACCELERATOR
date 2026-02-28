@@ -1,0 +1,12 @@
+Functions of multiple random variables
+
+Z= eX, ¥)
+
+PMF: pz(z) = P(Z =z) = P(X Y) = 2) = s Pry (7)
+(yds 9% y)= 2
+
+[ exvectes value rule: E[g(X,Y)] = >> > (2, y) xr ]
+zy —
+
+EL g(x)
+

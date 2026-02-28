@@ -1,0 +1,127 @@
+# B32Dad0771Ec6Aa63C696C9A1A24Ae25 Xdn5Onmu0Mk
+
+---
+
+MITOCW | MITRES6_012S18_L23-05_300k
+We will now go through a beautiful example, in which we approach the same question in a number of different
+ways and see that by reasoning based on the intuitive properties of a Poisson process, we can arrive quickly to
+the right answer.
+The problem is as follows.
+We have three lightbulbs, and each light bulb is being lit at time zero, it starts working, and the light bulb lasts for a
+certain amount of time, which is random.
+So this light bulb lasts so long, this one lasts so long, this one lasts that long.
+The lifetime of a light bulb, the time until it burns out, will be a random variable, and we make the following
+assumptions.
+The lifetimes of the three light bulbs, which we denote by X, Y, and Z, will be independent random variables, each
+of which is an exponential random variable with the parameter lambda.
+We're interested in the question of calculating the expected time until a light bulb burns out for the first time.
+So in this picture, the light bulb that burned out first is the second light bulb, and this quantity is the time until the
+first burnout.
+How do we calculate this quantity?
+The time until a first light bulb burns out is the minimum of the times at which each one of them burns out.
+So we're interested in the expected value of this quantity.
+It's a random variable, which is a function of three random variables.
+How do we calculate the expected value of a function of random variables?
+We can use the expected value rule.
+Let us take the function of interest, which is the minimum of three numbers.
+Then we need to multiply by the joint PDF or these three random variables X, Y and Z. Now, because these three
+random variables are independent, the joint PDF is the product of their individual PDFs, which are all exponential.
+And so we obtain this expression for the joint PDF.
+And we need to integrate this over all x's, y's, and z's.
+So it's going to be an integral that goes for each one of the three variables from 0 to infinity.
+And here we have dx, dy, dz.
+So this is one approach that can give us the answer if you're able to manipulate and keep track of everything that
+happens in this three-dimensional integral.
+But this is too tedious and this is not a good way to go.
+Let us try to think of an alternative way.
+Can we figure out the distribution of this random variable?
+It's a function of three random variables, so in some sense, it's a derived distribution problem, so we can try to
+calculate the cumulative distribution function of the minimum of the three.
+So for the cumulative, we would be looking at the probability that the minimum of these three random variables is
+less than or equal to a certain number.
+It turns out that the calculations are a little faster if we look at the probability that this is larger than or equal to a
+certain number.
+What is this event?
+The minimum is larger than or equal to t, if, and only if, all three of them are larger than or equal to t.
+So the probability of this event is the same as the probability that X is larger than or equal to t, Y larger than or
+equal to t, and Z larger than or equal to t.
+But now X, Y, and Z are independent, so we need to multiply the probability that X is larger than or equal to t,
+which for an exponential random variable is e to the minus lambda t, then the probability of the second event
+which is again e to the minus lambda t, and, finally, the probability of the third event, which is, again, e to the
+minus lambda t, which is e to the minus 3 lambda t.
+Now, we look at this expression for the probability that the random variable is larger than or equal to t and
+recognize that this is the expression that we have when we have an exponential random variable with parameter
+equal to 3 lambda.
+If you want to do it formally, subtract this quantity from 1 to find the CDF, take the derivative, and you will find an
+exponential PDF.
+So the conclusion is that this random variable is exponential with parameter 3 lambda.
+And since it's an exponential with parameter 3 lambda, then we know what the expected value is.
+It is going to be 1 over 3 lambda.
+And this is the answer to the question that we were interested in.
+Now, the fact that this is an exponential random variable, but with a different parameter, is a pretty clean fact, and
+so it should have a good explanation.
+Let us now try to think about a good explanation for this fact.
+Whenever we deal with an exponential random variable, one way of thinking about it is that this exponential
+random variable is the first time in a Poisson process.
+So imagine that there's a Poisson process that runs forever, and X is the first arrival time.
+For this light bulb, we can think the same way, and since X and Y are assumed to be independent, we can
+assume that here we have an independent Poisson process, independent from the first one, it has its own arrival
+times, and Y is the first arrival time in this Poisson process.
+And finally, we have a third independent Poisson process, and the random variable Z is the first arrival time in that
+Poisson process.
+So X, Y and Z are interpreted as first arrivals in three independent Poisson processes.
+Now, let us take these three Poisson processes and merge them.
+If we merge these three processes, what we obtain is a merged process, which is Poisson with parameter equal to
+the sum of the rates or parameters of each one of the processes, so it's a Poisson process with parameter 3
+lambda.
+Now, how can we interpret the random variable of interest, the first burnout time, in terms of the merged process?
+So the merged process has an arrival whenever one of those three processes has an arrival.
+The first arrival in the merged process will happen the first time that one of these three processes is going to have
+an arrival.
+Therefore, we can interpret the random variable of interest, the first burnout time, as the first arrival time in a
+merged process.
+But now the merged process is Poisson with parameter 3 lambda, therefore, this random variable is going to be
+an exponential random variable with parameter 3 lambda.
+And from this, we also obtain the expected value of that random variable.
+The beauty of this last approach for coming up with the answer by reasoning in terms of merged Poisson
+processes is that we didn't have to do any calculations at all, just use the intuitive understanding of Poisson
+processes and, especially, the interpretation of an exponential random variable as the first arrival time in a
+Poisson process.
+Let us now try to solve a somewhat harder problem.
+Let us try to calculate the expected time until all the light bulbs burn out.
+So one light bulb will burn out, then another one will burn out, and, finally, the third one will burn out.
+We want to find the expected time until this happens.
+Once more, we will be thinking of these burnout times as the first arrival times in Poisson processes.
+The total time until the third burnout can be split into different periods.
+There's a time until one light bulb burns out.
+And the expected value of this period here is going to be 1 over 3 lambda.
+What happens at this time?
+The second light bulb has burned out, so we can forget about it, take it out of the picture.
+We have two lightbulbs.
+Let us look at the time it will take until one of these two light bulbs burns out.
+So we're interested in this period of time.
+Now, the Poisson process starts fresh at this time.
+After this time, whatever happens is just an ordinary Poisson process as if it were starting at this time.
+So this is going to be an exponential random variable starting from this time.
+And this is going to be another exponential random variable.
+So the time until the next light bulb burns out in this case is going to be the minimum of two exponential random
+variables.
+We can think again about merging these two Poisson processes to obtain a Poisson process with total rate 2
+lambda, and the time until one of these two turns out is going to be the first arrival time in that merged process.
+And so the expected time until the first arrival of the merged process is going to be 1 over 2 lambda.
+And finally, once this burnout has happened, we can forget about this light bulb.
+We're left just with one light bulb, and starting from here, we wait until that light bulb burns out.
+Once more, because of the fresh start property of the Poisson process, starting from here until it burns out is
+going to be a random variable, which is an exponential random variable.
+And in this case, an exponential random variable with rate just lambda.
+And by adding these three quantities, we get the expected time until all three have burned out.
+This is a problem that would have been quite hard to solve in a more analytical way.
+We're dealing with a random variable, which is now the maximum of X, Y, and Z. And the distribution of this
+random variable is not so simple to write down.
+So that would not be a very good approach for going about this problem.
+But we managed to find the expected value of this random variable without having to write down its distribution, by
+breaking this random variable into a sum of three particular random variables, each of which had a nice intuitive
+interpretation.
+And that was the key to the solution of this problem.
+
+---

@@ -1,0 +1,32 @@
+Confidence intervals for the mean when o is unknown
+
+Start from o2 = E[(X; — 6)?]
+e Option 3: Use sample mean estimate
+
+of the variance
+
+sie
+
+2.
+iMs
+
+(X;-0)? = o?
+
+(but do not know @)
+e Two approximations involved here:
+
+— CLT: approximately normal
+
+Ma
+
+1 wi
+= 3*(X;-6n)?2 > o?
+
+m1:
+— using estimate of o ‘
+
+1
+
+e correction for second approximation (¢-tables)
+used when n is small
+

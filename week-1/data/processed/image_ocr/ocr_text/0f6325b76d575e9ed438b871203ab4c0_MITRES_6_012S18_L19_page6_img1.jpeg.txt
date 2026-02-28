@@ -1,0 +1,18 @@
+What exactly does the CLT say? — Practice
+
+Sn — nH Z ~ N(0,1)
+
+Sn = Xp +--+ Xn ln = =
+
+Central Limit Theorem: For every z: lim. P( 2, = 2) = PC < 2)
+
+e The practice of normal approximations:
+— treat Zn, as if it were normal
+
+— hence treat S,, as if normal: N(np, no?)
+
+e Can we use the CLT when n is “moderate” ?
+
+— usually, yes
+
+— symmetry and unimodality help

@@ -1,0 +1,13 @@
+Maximum Likelihood (ML) estimation
+
+¢ 6=Elg(X)] o= “ y 9(Xi)
+
+e Pick @ that “makes data most likely”
+Ou_ = argmax px(z; 8)
+
+— also applies when z, @ are vectors or zx is continuous
+
+p x|0)pe(0
+e compare to Bayesian posterior: Pex (9 |x) = pxje(t |) pe(9)
+px(2)
+— interpretation is very different

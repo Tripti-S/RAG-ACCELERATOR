@@ -1,0 +1,25 @@
+The simplest LLMS example with multiple observations
+
+x1 =9O7Wi1 © ~ zo, a8 W; ~ O, of
+Xn — C+Wn ©,Wj,...,Wn uncorrelated
+e Suppose O,Wj,...,Wn are independent normal
+Tm
+vi ze) “Xj
+dD S+>3
+O.ms = B[O|X = 2] = = 2% 5 a 20? a
+LMS O_ms = E[O|X] = = SL__ms
+
+0
+
+e Suppose general (not normal) distributions,
+but same means, variances, as in normal example
+
+s.
+I
+
+Mel
+Sea
+
+— all covariances also the same
+
+— solution must be the same

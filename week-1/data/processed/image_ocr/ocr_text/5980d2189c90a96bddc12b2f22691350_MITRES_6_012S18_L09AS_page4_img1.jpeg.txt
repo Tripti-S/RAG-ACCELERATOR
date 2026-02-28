@@ -1,0 +1,19 @@
+Conditional expectation of X, given an event
+
+ELX] = Yepx(«)
+
+E[X | A] = LV epxia(e)
+
+Expected value rule:
+
+Bl9(X)] =D 9(e)px(e)
+
+Blg(X) | A] = Yi 9(@)pxja@)
+
+E[X] = [efx(a) de
+
+B[X|A] = frfyja(e)de Def
+
+Blo(X)] = | g(x) fx(@) de
+
+Bla(X)| A] = | 9(e)fyyaCe) de

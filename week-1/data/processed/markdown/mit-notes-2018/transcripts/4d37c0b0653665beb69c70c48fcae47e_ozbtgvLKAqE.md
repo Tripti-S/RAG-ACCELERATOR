@@ -1,0 +1,70 @@
+# 4D37C0B0653665Beb69C70C48Fcae47E Ozbtgvlkaqe
+
+---
+
+MITOCW | MITRES6_012S18_L21-09_300k
+We will now consider an operation that is, in some sense, the opposite of merging.
+We have a node, and traffic arrives to that node.
+And each time that we have an arrival, we flip a coin.
+And with probability q, we send that arrival to one particular stream.
+And with probability 1 minus q, we send the arrival to another stream.
+So we get two streams that are formed by taking the original stream and splitting it into two pieces.
+And as an example, these might be arrivals at a department store.
+And one stream corresponds to the people who go to the clothes section of the department store, whereas the
+other stream corresponds to the people that go to all of the other sections of the store.
+So let us now make our model a little more precise.
+We have a Bernoulli process, which is independent across time.
+We also use an independent coin flip to deal with each one of the arrivals.
+But we will also make one additional assumption, namely that the Bernoulli process is also independent from the
+process of coin flips.
+With this assumption in place, let us now continue, and let us draw a picture.
+We have a Bernoulli process with parameter p, and arrivals get recorded at certain times.
+Each time that there is an arrival, we will flip a coin.
+And with probability q, the arrival will be sent to that stream.
+With probability 1 minus q, the arrival will be sent to the other stream.
+So one possible outcome of the experiment might be this one, where these two arrivals were sent to this stream
+and these two arrivals were sent to the top stream.
+And we have these probabilities q and 1 minus q of sending the arrivals to one or the other stream.
+What kind of process is this one?
+We argue it is a Bernoulli process.
+First, we need to check independence.
+Here, the argument is more or less the same as in the case when we studied the merging of processes.
+For example, if we look at two different slots and we ask, how is the event at that slot and at that slot determined?
+Well, what happens in this slot is determined by whether we had an arrival here and what happened to the
+outcome of the coin flip at that time.
+What happens in this slot is determined by whether we had an arrival here and what happened to the coin flip at
+that time.
+Now, the coin flips are independent from the original Bernoulli process.
+And for either the coin flips or the Bernoulli process, we have independence across time.
+So all of the four random variables involved here that determine what happens in these two slots are independent
+of each other.
+So what happens in this slot is a function of two random variables here, which are independent from the two
+random variables that determined what happens in that slot.
+So what happens in these two slots are independent events.
+And this argument goes through more generally when we consider multiple distinct slots.
+So this is the argument for the independence of the different slots in this particular process.
+And then during each slot, what happens is that we will have an arrival if and only if this process records an
+arrival, which happens with probability p, and the corresponding coin flip happens to send the arrival in this
+direction, which happens with probability q.
+And so the conclusion is that this process is a Bernoulli process with parameter p times q.
+By a similar argument, the other process that we obtain will also be Bernoulli but with probability p times 1 minus
+q.
+And a final question-- are these two processes that we get after the splitting independent of each other?
+This is a question that we can answer by reasoning intuitively.
+If I tell you that there was an arrival in this slot, what can you infer from this?
+Well, it tells me that there was an arrival in the original stream, which was sent here.
+But since it was sent in this direction, it means that it was not sent in the other direction.
+And so we do not have an arrival in this slot.
+Knowing that we have an arrival here means that we do not have an arrival there.
+So information about one of the streams gives us information about what happened in the other stream.
+And therefore, we do not have independence.
+So this is what happens when we split two Bernoulli processes.
+And earlier we saw what happens when we merge two independent Bernoulli processes.
+These two operations of merging and splitting are quite common in constructing more complex models using
+Bernoulli processes as the elements of those models.
+They are often useful models either in transportation systems, where you have streams of traffic that merge or
+split, also in models of computer networks or any other kind of queueing system.
+And these same operations of merging and splitting will also show up when we study the continuous time analog
+of the Bernoulli process, namely the Poisson process.
+
+---

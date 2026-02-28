@@ -1,0 +1,13 @@
+CI for the estimation of the mean
+
+©,» = sample mean = Mn = Aa ts + Xe o7,
+n
+° ~9 a
+2A serine tablex: (1.96) =0.975=1-0.025 | as 2,37
+SY
+407, @ (1.645) =0.95 °
+
+p(s = 4 < 1.96) ~0.95 (CLT)
+
+a/vn
+

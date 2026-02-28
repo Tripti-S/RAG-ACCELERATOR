@@ -1,0 +1,20 @@
+Conditional PMFs
+
+pxjaA(z@|A)=P(X=2|A) pxyy(@|y)=P(X=2|Y=y)
+
+px y(2,y)
+
+ex |=")
+
+defined for y such that py(y)>0) SC pyiy(e|y) =1
+zt
+
+|i]
+ea io
+fis ei
+cee
+1 2 3 4
+
+px,y(a,y) = py(y) pxjy(@ | y)
+
+x pxy (x,y) = px (x) py|x(y | x)

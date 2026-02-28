@@ -1,0 +1,476 @@
+probability - What is so cool about de Finetti's representation theorem? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+What is so cool about de Finetti's representation theorem?
+Ask Question
+Asked
+13 years, 6 months ago
+Modified
+2 years ago
+Viewed
+25k times
+75
+$\begingroup$
+From
+Theory of Statistics
+by Mark J. Schervish (page 12):
+Although DeFinetti's representation theorem 1.49 is central to motivating parametric models, it is not actually used in their implementation.
+How is the theorem central to parametric models?
+probability
+mathematical-statistics
+modeling
+exchangeability
+Share
+Cite
+Improve this question
+Follow
+edited
+Oct 17, 2021 at 16:16
+kjetil b halvorsen
+♦
+86k
+32
+32 gold badges
+217
+217 silver badges
+699
+699 bronze badges
+asked
+Aug 16, 2012 at 17:40
+gui11aume
+15.1k
+2
+2 gold badges
+55
+55 silver badges
+96
+96 bronze badges
+$\endgroup$
+5
+2
+$\begingroup$
+I think it is central to Bayesian models. I was just discussing this with singleton. It's importance in Bayesian statistics gets overlooked except by those Bayesians who were followers of deFinetti. See this reference of
+Diaconis and Freedman from 1980
+$\endgroup$
+Michael R. Chernick
+–
+Michael R. Chernick
+2012-08-16 17:46:08 +00:00
+Commented
+Aug 16, 2012 at 17:46
+3
+$\begingroup$
+Note that Schervish said "... central to $\textbf{motivating}$  parametric models...".
+$\endgroup$
+Zen
+–
+Zen
+2012-08-16 19:45:37 +00:00
+Commented
+Aug 16, 2012 at 19:45
+1
+$\begingroup$
+I've often wondered how much of the representation  is "real" and how much is based on particular interpretations of the theorem.  It can be just as easily used for describing a prior distribution as for describing a model.
+$\endgroup$
+probabilityislogic
+–
+probabilityislogic
+2012-09-01 23:49:17 +00:00
+Commented
+Sep 1, 2012 at 23:49
+2
+$\begingroup$
+Maybe central to modeling situations where reporting numbers are symmetric functions. Some thoughts on COVID-19 modeling as an example:
+linkedin.com/pulse/…
+$\endgroup$
+Peter Cotton
+–
+Peter Cotton
+2020-05-28 17:24:36 +00:00
+Commented
+May 28, 2020 at 17:24
+1
+$\begingroup$
+Just to make it topical, I wrote an article recently that may interest you where I suggest that de Finetti's theorem inspires practical epidemic modeling, so not sure I agree with the premise.
+microprediction.com/blog/a-fundamental-theorem-for-epidemiology
+$\endgroup$
+Peter Cotton
+–
+Peter Cotton
+2021-10-17 15:31:35 +00:00
+Commented
+Oct 17, 2021 at 15:31
+Add a comment
+|
+5 Answers
+5
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+103
+$\begingroup$
+De Finetti's Representation Theorem gives in a single take, within the subjectivistic interpretation of probabilities, the
+raison d'être
+of statistical models and the meaning of parameters and their prior distributions.
+Suppose that the random variables $X_1,\dots,X_n$ represent the results of successive tosses of a coin, with values $1$ and $0$ corresponding to the results "Heads" and "Tails", respectively. Analyzing, within the context of a subjectivistic interpretation of the probability calculus, the meaning of the usual frequentist model under which the $X_i$'s are independent and identically distributed, De Finetti observed that the condition of independence would imply, for example, that
+$$
+P\{X_n=x_n\mid X_1=x_1,\dots,X_{n-1}=x_{n-1}\} = P\{X_n=x_n\} \, ,
+$$
+and, therefore, the results of the first $n-1$ tosses would not change my uncertainty about the result of $n$-th toss. For example, if I believe $\textit{a priori}$ that this is a balanced coin, then, after getting the information that the first $999$ tosses turned out to be "Heads", I would still believe, conditionally on that information, that the probability of getting "Heads" on toss 1000 is equal to  $1/2$. Effectively, the hypothesis of independence of the $X_i$'s would imply that it is impossible to learn anything about the coin by observing the results of its tosses.
+This observation led De Finetti to the introduction of a condition weaker than independence that resolves this apparent contradiction. The key to De Finetti's solution is a kind of distributional symmetry known as exchangeability.
+$\textbf{Definition.}$ For a given finite set $\{X_i\}_{i=1}^n$ of random objects, let $\mu_{X_1,\dots,X_n}$ denote their joint distribution. This finite set is exchangeable if $\mu_{X_1,\dots,X_n} = \mu_{X_{\pi(1)},\dots,X_{\pi(n)}}$, for every permutation $\pi:\{1,\dots,n\}\to\{1,\dots,n\}$. A sequence $\{X_i\}_{i=1}^\infty$ of random objects is exchangeable if each of its finite subsets are exchangeable.
+Supposing only that the sequence of random variables $\{X_i\}_{i=1}^\infty$ is exchangeable, De Finetti proved a notable theorem that sheds light on the meaning of commonly used statistical models. In the particular case when the $X_i$'s take the values $0$ and $1$, De Finetti's Representation Theorem says that $\{X_i\}_{i=1}^\infty$ is exchangeable if and only if there is a random variable $\Theta:\Omega\to[0,1]$, with distribution $\mu_\Theta$, such that
+$$
+P\{X_1=x_1,\dots,X_n=x_n\} = \int_{[0,1]} \theta^s(1-\theta)^{n-s}\,d\mu_\Theta(\theta) \, ,
+$$
+in which $s=\sum_{i=1}^n x_i$. Moreover, we have that
+$$
+\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i \xrightarrow[n\to\infty]{} \Theta \qquad \textrm{almost surely},
+$$
+which is known as De Finetti's Strong Law of Large Numbers.
+This Representation Theorem shows how statistical models emerge in a Bayesian context: under the hypothesis of exchangeability of the observables $\{X_i\}_{i=1}^\infty$, $\textbf{there is}$ a $\textit{parameter}$ $\Theta$ such that, given the value of $\Theta$, the observables are $\textit{conditionally}$ independent and identically distributed. Moreover, De Finetti's Strong law shows that our prior opinion about the unobservable $\Theta$, represented by the distribution $\mu_\Theta$, is the opinion about the limit of $\bar{X}_n$, before we have information about the values of the realizations of any of the $X_i$'s. The parameter $\Theta$ plays the role of a useful subsidiary construction, which allows us to obtain conditional probabilities involving only observables through relations like
+$$
+P\{X_n=1\mid X_1=x_1,\dots,X_{n-1}=x_{n-1}\} = \mathrm{E}\left[\Theta\mid X_1=x_1,\dots,X_{n-1}=x_{n-1}\right] \, .
+$$
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jan 6, 2016 at 4:19
+answered
+Aug 16, 2012 at 19:40
+Zen
+25.5k
+5
+5 gold badges
+91
+91 silver badges
+126
+126 bronze badges
+$\endgroup$
+10
+2
+$\begingroup$
+Thank you for this insightful answer! Your point about independence is a very important one that I realize for the first time.
+$\endgroup$
+gui11aume
+–
+gui11aume
+2012-08-16 23:14:27 +00:00
+Commented
+Aug 16, 2012 at 23:14
+1
+$\begingroup$
+I'm having a hard time understanding the statement "there exists parameter $\Theta$ so that (given $\Theta$) $X_i$ are iid." From the representation theorem, it seems that all we can derive is that $E [\theta^s (1-\theta)^s] = E[P(X_i = x_i \, \forall \, i | \theta) ]$. That is, the expected value of the true density is the same as the expected value of the iid bernoulli density with parameter $\theta$. Could you clarify for me how we can drop the expected value so that we make a claim about the true density itself?
+$\endgroup$
+user795305
+–
+user795305
+2017-07-26 19:52:53 +00:00
+Commented
+Jul 26, 2017 at 19:52
+$\begingroup$
+The integrand is $\Pr\{X_1=x_1,\dots,X_n=x_n\mid\Theta=\theta\}$. Since it factors as $\prod_{i=1}^n \Pr\{X_i=x_i\mid\Theta=\theta\}=\prod_{i=1}^n \theta^{x_i}(1-\theta)^{1-x_i}$, the $X_i$'s are conditionally iid given $\Theta=\theta$.
+$\endgroup$
+Zen
+–
+Zen
+2017-07-27 00:36:02 +00:00
+Commented
+Jul 27, 2017 at 0:36
+$\begingroup$
+@Zen Thanks! I understand the first sentence, however the part "since it factors as $\prod_{i=1}^n \Pr\{X_i=x_i\mid\Theta=\theta\}=\prod_{i=1}^n \theta^{x_i}(1-\theta)^{1-x_i}$" is still unclear to me. How do you know it factors that way? It seems like you're dropping the expected value from the identity I wrote in my previous comment, but I'm not sure how that's justified.
+$\endgroup$
+user795305
+–
+user795305
+2017-07-28 02:49:02 +00:00
+Commented
+Jul 28, 2017 at 2:49
+$\begingroup$
+According to which measure / probability measure does the equivalence $\overline{X}_n \to \Theta$ hold almost surely?
+$\endgroup$
+Sebastian
+–
+Sebastian
+2018-09-17 18:22:55 +00:00
+Commented
+Sep 17, 2018 at 18:22
+|
+Show
+5
+more comments
+19
+$\begingroup$
+Everything is mathematically correct in Zen's answer. However I disagree on some points. Please be aware that I don't claim/believe my point of view is the good one; on the contrary I feel these points are not entirely clear for me yet. These are somewhat philosophical questions about which I like to discuss (and a good English exercise for me),  and I am also interested in any advice.
+About the example with $999$ "Heads", Zen comment:
+"the hypothesis of independence of the $X_i$'s would imply that it is impossible to learn anything about the coin by observing the results of its tosses."
+This is not true from the frequentist perspective: learning about the coin means learning about $\theta$, which is possible by estimating (point-estimate or confidence interval) $\theta$ from the previous $999$ results. If the frequentist observe $999$ "Heads" then he/she concludes that $\theta$ is likely close to $1$, and so is $\Pr(X_n=1)$ consequently.
+By the way, in this coin-tossing example, what is the random $\Theta$ ? Imagining each of two people play a coin-tossing game an infinite number of times with the same coin, why would they find a different $\theta = \bar X_\infty$ ? I have in mind that the characteristic of the coin-tossing is the fixed $\theta$ which is the common value of $\bar X_\infty$ for any gamer ("almost any gamer" for technical mathemathical reasons). A more concrete example for which there's no interpretable random $\Theta$ is the case of a random sampling with replacment in a finite population of $0$ and $1$.
+About Schervish's book and the question raised by the OP I think (quickly speaking) Schervish means that exchangeability is a "cool" assumption and then deFinetti's theorem is "cool" because it says that every exchangeable model has a parametric representation. Of course I totally agree. However if I assume an exchangeable model such as $(X_i\mid\Theta=\theta)\sim_\text{iid} \text{Bernoulli}(\theta)$ and $\Theta \sim \text{Beta}(a,b)$ then I would be interested in performing inference about $a$ and $b$, not about the realization of $\Theta$. If I am only interested in the realization of $\Theta$ then I don't see any interest in assuming exchangeability.
+It's late...
+Share
+Cite
+Improve this answer
+Follow
+answered
+Aug 16, 2012 at 22:04
+Stéphane Laurent
+20.7k
+5
+5 gold badges
+80
+80 silver badges
+113
+113 bronze badges
+$\endgroup$
+7
+6
+$\begingroup$
+Hi Stéphane! Thank you for your comments on my answer. About your first point that $\textbf{"this is not true from the frequentist perspective"}$, in my answer everything is stated in a Bayesian context. There is no real attempt to establish a contrast with other inference paradigms. In short, I've tried to express what De Finetti's theorem means for me, as a Bayesian.
+$\endgroup$
+Zen
+–
+Zen
+2012-08-16 23:39:47 +00:00
+Commented
+Aug 16, 2012 at 23:39
+5
+$\begingroup$
+About your second bullet: the random $\Theta$ is (a.s.) the limit of $\bar{X}_n$, as stated in De Finetti's LLN. So, when some Bayesian says that my prior for $\Theta$ is $\mu_\Theta$, he means that this distribution represents his uncertainty about this limit, before having access to data. Different Bayesians may have different priors, but, with suitable regularity conditions, they will have $\textit{a posteriori}$ agreement about $\Theta$ (similar posteriors), as they get more and more information about results of the tosses.
+$\endgroup$
+Zen
+–
+Zen
+2012-08-16 23:51:21 +00:00
+Commented
+Aug 16, 2012 at 23:51
+$\begingroup$
+The fixed but unknown $\theta$ is not a Bayesian concept.
+$\endgroup$
+Zen
+–
+Zen
+2012-08-16 23:58:33 +00:00
+Commented
+Aug 16, 2012 at 23:58
+1
+$\begingroup$
+About your third bullet, given: 1) That Schervish is a Bayesian statistician; 2) The ammount of time and energy he spends discussing exchangeability in his book; I believe that to him the role of De Finetti's theorem is very deep, going well beyond coolness. But I agree that it is very cool, anyway!
+$\endgroup$
+Zen
+–
+Zen
+2012-08-17 00:03:37 +00:00
+Commented
+Aug 17, 2012 at 0:03
+2
+$\begingroup$
+To clarify my point of view: I don't believe there is a random $\theta$ in a "basic" (non hierarchical) Bayesian model. There is a fixed unknown $\theta$, and the prior distribution describes the belief about it. The role of the random variable $\Theta$ is just the mathematical treatment of the Bayesian inference, it does not have any interpretation in the experiment. If you really assume exchangeable but not independent observations, such as the example of my third bullet, then you have to put hyperpriors on $a$ and $b$.
+$\endgroup$
+Stéphane Laurent
+–
+Stéphane Laurent
+2012-08-17 09:07:57 +00:00
+Commented
+Aug 17, 2012 at 9:07
+|
+Show
+2
+more comments
+14
+$\begingroup$
+You guys might be interested in a paper on this subject (journal subscription required for access - try accessing it from your university):
+O'Neill, B. (2011) Exchangeability, correlation and Bayes' Effect. International Statistical Review 77(2), pp. 241-250.
+This paper discusses the representation theorem as the basis for both Bayesian and frequentist IID models, and also applies it to a coin-tossing example.  It should clear up the discussion of the assumptions of the frequentist paradigm.  It actually uses a broader extension to the representation theorem going beyond the binomial model, but it should still be useful.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Dec 11, 2012 at 2:29
+Stats
+141
+1
+1 silver badge
+2
+2 bronze badges
+$\endgroup$
+3
+$\begingroup$
+Is there maybe a working paper version of this you have? I don't have access atm :-(
+$\endgroup$
+IMA
+–
+IMA
+2013-06-09 20:46:32 +00:00
+Commented
+Jun 9, 2013 at 20:46
+1
+$\begingroup$
+@Stats  I've read that paper after see your answer. I have to say, that is the best paper illustrating Bayesian and Frequentist on that issue I have ever seen. I wish I would have read this paper much earlier. (+1)
+$\endgroup$
+KevinKim
+–
+KevinKim
+2017-05-28 13:18:23 +00:00
+Commented
+May 28, 2017 at 13:18
+$\begingroup$
+@IMA: The author is a frequent contributor here
+stats.stackexchange.com/users/173082/ben?tab=profile
+so if you cannot find the paper, maybe write him?
+$\endgroup$
+kjetil b halvorsen
+–
+kjetil b halvorsen
+♦
+2021-10-17 16:25:20 +00:00
+Commented
+Oct 17, 2021 at 16:25
+Add a comment
+|
+4
+$\begingroup$
+I'll try to counter the assertion that the theorem isn't directly useful, with a topical example: COVID modeling.
+I think we're seen that models that try to replicate reality in all its detail have proven hard to steer during this crisis, leading to poor predictions despite noble and urgent efforts to recalibrate them. On the other hand, overly stylized compartmental models have run headlong into paradoxes, such as Sweden's herd immunity. The theorem of de Finetti inspires a different approach.
+We identify orbits in the space of models that leave unchanged the key decision-making quantities we care about. We use mixtures of IID models to span the orbits. The question then becomes: can we find the right orbit? That's a lot easier than finding the "right" model.
+The orbit can be located using convexity adjustments. For more details I'll refer you to the
+blog article
+or
+working paper
+.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 17, 2021 at 15:37
+Peter Cotton
+151
+4
+4 bronze badges
+$\endgroup$
+Add a comment
+|
+-3
+$\begingroup$
+I had a student who asked me:
+" isn't de Finetti Theorem an asymptotic result? Who cares ? "  ( as you know, young Bayesians tend to be more bayesian than Bayes himself. Lol)
+This made me think that perhaps De Finetti's aim when proving his theorem was just to show freak[wentists] what relative
+frequencies were all about. And to stop
+calling them probabilities. And give him a
+break. He had enough
+Share
+Cite
+Improve this answer
+Follow
+answered
+Feb 12, 2024 at 10:26
+Quarentinha
+11
+1
+1 bronze badge
+$\endgroup$
+1
+1
+$\begingroup$
+Bayes was indeed very bayesian. And a deFinettian bayesian. See Stigler's paper
+$\endgroup$
+Quarentinha
+–
+Quarentinha
+2024-02-12 10:28:20 +00:00
+Commented
+Feb 12, 2024 at 10:28
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+mathematical-statistics
+modeling
+exchangeability
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+11
+Suppose $X_1, X_2, \dotsc, X_n$ are i.i.d. random variables. When is the sequence expected to decrease for the first time?
+10
+How would a Bayesian define a fair coin?
+8
+Is " independent and identically distributed" an assumption or a fact ?
+11
+Where can I read about the justification for the use of parametric probability distributions?
+9
+How is $P(D;\theta) = P(D|\theta)$?
+7
+Correct understanding of De Finetti`s representation theorem
+6
+Are two coin flips conditionally independent if we know that the coin is biased towards heads?
+5
+Why are words in a document for bag-of-words model exchangeable but not independent?
+4
+De Finetti: equivalence a.s. according to which measure
+5
+Do the parameters that arise in de Finetti`s representation theorem follow the rules of probability?
+See more linked questions
+Related
+10
+A random variable that induces a $\sigma$-algebra the same as the one in the sample space
+6
+What are some good references on how probability theory got mathematically rigorous?
+3
+Can we switch integral and expectation by Fubini's theorem?
+7
+How to find the prior distribution in De Finetti Representation Theorem?
+1
+spectral representation theorem
+46
+Are there any examples of where the central limit theorem does not hold?
+1
+What does it mean "a conditional expectation given a stochastic process"?
+Hot Network Questions
+Lightweight e-mail client for unsupported Windows versions
+What are the meanings of the columns in the output of lsinitrd?
+PTIJ: Serving With Oy
+Does a corpse keep its damage immunities?
+How can I generate sequential numbers per group safely under concurrent inserts in SQL Server?
+Why is the asymptotic variance of true errors and residuals the same
+Open-web truss sagging
+Select clients where they have one feature type but not another - ArcGIS Pro
+What becomes of seized tankers and their oil cargo?
+Did George Boole invent boolean algebra to explain the Trinity?
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+Why is there a strange removal of mortar right behind my water heater?
+What do philosophers consider to be natural?
+How do I encourage more interaction with Fate's mechanics?
+What are the consequences of mass murder?
+Interpreting Adjective + Noun Phrases Where the Adjective Doesn’t Directly Describe the Noun
+Episode of an anime about a witch or magic girl in high school named Kurumi, who starts crying and herself turns into a baby
+Should we use have or has in this case?
+Was "cope" as a single-word response commonly used to mean "deal with it" pre-internet?
+How do we incentivize breadth in mathematics? Should we?
+Is it legal for the military to send a soldier on a mission that will lead almost surely to their death?
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+Why would an extraterrestrial ecosystem without predators have evolved?
+Can the beat frequency of two slightly different tones cause a room to resonate?
+more hot questions
+Question feed

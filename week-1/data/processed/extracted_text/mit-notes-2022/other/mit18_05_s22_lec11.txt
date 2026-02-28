@@ -1,0 +1,276 @@
+Bayesian Updating: Discrete Priors:
+18.05 Spring 2022
+Image courtesy of xkcd. License: CC BY-NC.
+https://xkcd.com/1236/
+1/18
+Announcements/Agenda
+Announcements
+• Pset 6 is due tomorrow. Pset 7 will be due on Monday April 4.
+• R Studio 4 is graded. Good job overall.
+- A few people used the sample mean and variance to draw the normal
+curve – the instructions asked for the theoretical values.
+- Coding hint: Don’t keep retyping values like 18/38 and 20/38. Put
+them in a variable and use that.
+Agenda
+• Bayesian updating from prior to posterior probabilities.
+• Organizing the computation in tables.
+• Today: Known priors (base rates) –not like in real science.
+2/18
+(b) Which treatment would you choose?
+1. Treatment 1: cured 3 out of 3 patients in a trial.
+2. Treatment 2: cured 19 out of 20 patients treated in a trial.
+3. Standard treatment: cured 90000 out of 100000 patients in clinical
+practice.
+Concept question: Learning from experience
+(a) Which treatment would you choose?
+1. Treatment 1: cured 100% of patients in a trial.
+2. Treatment 2: cured 95% of patients in a trial.
+3. Treatment 3: cured 90% of patients in a trial.
+3/18
+Concept question: Learning from experience
+(a) Which treatment would you choose?
+1. Treatment 1: cured 100% of patients in a trial.
+2. Treatment 2: cured 95% of patients in a trial.
+3. Treatment 3: cured 90% of patients in a trial.
+(b) Which treatment would you choose?
+1. Treatment 1: cured 3 out of 3 patients in a trial.
+2. Treatment 2: cured 19 out of 20 patients treated in a trial.
+3. Standard treatment: cured 90000 out of 100000 patients in clinical
+practice.
+3/18
+• Suppose you find out that the bag contained one 4-sided die and
+999 6-sided dice. Does this change your guess?
+Which die is it?
+• I have a bag containing dice of two types: 4-sided and 6-sided.
+• Suppose I pick a die at random.
+• What are the hypotheses for which die I chose?
+• I’ll roll the die.
+• Based on what I rolled which type would you guess I picked?
+4/18
+Which die is it?
+• I have a bag containing dice of two types: 4-sided and 6-sided.
+• Suppose I pick a die at random.
+• What are the hypotheses for which die I chose?
+• I’ll roll the die.
+• Based on what I rolled which type would you guess I picked?
+• Suppose you find out that the bag contained one 4-sided die and
+999 6-sided dice. Does this change your guess?
+4/18
+Bayesian updating terminology, trees, tables
+Example. Bag with one 4-sided die and 999 6-sided dice. Pick one
+at random and roll it. Suppose I get a 3.
+For this example, all of the following are given in the posted solutions
+to today’s problems.
+Terminology: data, hypotheses, likelihoods, prior probabilities,
+posterior probabilities.
+Posterior Likelihood Prior
+𝑃(𝑅 =3|ℋ )⋅𝑃(ℋ )
+𝑃(ℋ |𝑅 =3) = 4 4
+4 𝑃(𝑅=3)
+Total probability of the data
+Updating using trees and tables.
+5/18
+Board Question: Updating from data
+• A certain disease has a prevalence of 0.005.
+• A screening test has 2% false positives an 1% false negatives.
+Suppose a random patient is screened and has a positive test.
+(a) Represent this information with a tree and use Bayes’ theorem to
+compute the probabilities the patient does and doesn’t have the
+disease.
+(b) Identify the data, hypotheses, likelihoods, prior probabilities and
+posterior probabilities.
+(c) Make a full likelihood table containing all hypotheses and possible
+test data.
+(d) Redo the computation using a Bayesian update table. Match the
+terms in your table to the terms in your previous calculation.
+6/18
+Board Question: Dice
+Five dice: 4-sided, 6-sided, 8-sided, 12-sided, 20-sided.
+I pick one at random, roll it and report that the roll was a 13.
+Goal: Find the probabilities the die is 4, 6, 8, 12 or 20 sided.
+(a) Identify the hypotheses.
+(b) Make a likelihood table with columns for the data ‘rolled a 13’,
+‘rolled a 5’ and ‘rolled a 9’.
+(c) Make a Bayesian update table and compute the posterior
+probabilities that the chosen die is each of the five dice.
+(d) Same question if I had reported a 5.
+(e) Same question if I had reported a 9.
+(Keep the tables for 5 and 9 handy for the next problem!)
+7/18
+Tabular solution
+𝒟 = ‘rolled a 13’
+Bayes
+hypothesis prior likelihood numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (𝒟|ℋ) 𝑃 (𝒟|ℋ)𝑃 (ℋ) 𝑃 (ℋ|𝒟)
+ℋ 1/5 0 0 0
+4
+ℋ 1/5 0 0 0
+6
+ℋ 1/5 0 0 0
+8
+ℋ 1/5 0 0 0
+12
+ℋ 1/5 1/20 1/100 1
+20
+total 1 1/100 1
+8/18
+Tabular solution
+𝒟 = ‘rolled a 5’
+Bayes
+hypothesis prior likelihood numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (𝒟|ℋ) 𝑃 (𝒟|ℋ)𝑃 (ℋ) 𝑃 (ℋ|𝒟)
+ℋ 1/5 0 0 0
+4
+ℋ 1/5 1/6 1/30 0.392
+6
+ℋ 1/5 1/8 1/40 0.294
+8
+ℋ 1/5 1/12 1/60 0.196
+12
+ℋ 1/5 1/20 1/100 0.118
+20
+total 1 0.085 1
+9/18
+Tabular solution
+𝒟 = ‘rolled a 9’
+Bayes
+hypothesis prior likelihood numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (𝒟|ℋ) 𝑃 (𝒟|ℋ)𝑃 (ℋ) 𝑃 (ℋ|𝒟)
+ℋ 1/5 0 0 0
+4
+ℋ 1/5 0 0 0
+6
+ℋ 1/5 0 0 0
+8
+ℋ 1/5 1/12 1/60 0.625
+12
+ℋ 1/5 1/20 1/100 0.375
+20
+total 1 0.0267 1
+10/18
+Iterated Updates
+Suppose I rolled a 5 and then a 9.
+Update in two steps:
+First for the 5
+Then update the update for the 9.
+11/18
+Tabular solution
+𝒟 = ‘rolled a 5’
+1
+𝒟 = ‘rolled a 9’
+2
+Bayes numerator = likelihood × prior.
+1 1
+Bayes numerator = likelihood × Bayes numerator
+2 2 1
+Bayes Bayes
+hyp. prior likel. 1 num. 1 likel. 2 num. 2 posterior
+ℋ 𝑃 (ℋ) 𝑃 (𝒟 |ℋ) ∗ ∗ ∗ 𝑃 (𝒟 |ℋ) ∗ ∗ ∗ 𝑃 (ℋ|𝒟 , 𝒟 )
+1 2 1 2
+ℋ 1/5 0 0 0 0 0
+4
+ℋ 1/5 1/6 1/30 0 0 0
+6
+ℋ 1/5 1/8 1/40 0 0 0
+8
+ℋ 1/5 1/12 1/60 1/12 1/720 0.735
+12
+ℋ 1/5 1/20 1/100 1/20 1/2000 0.265
+20
+total 1 0.0019 1
+12/18
+Board Question: Iterated updates
+Suppose I rolled a 9 and then a 5.
+(a) Do the Bayesian update in two steps:
+Step 1: First update for the 9.
+Step 2: Then update the update for the 5.
+(b) Do the Bayesian update in one step.
+That is, the data is 𝒟 = ‘9 followed by 5’
+13/18
+Tabular solution: two steps
+𝒟 = ‘rolled a 9’
+1
+𝒟 = ‘rolled a 5’
+2
+Bayes numerator = likelihood × prior.
+1 1
+Bayes numerator = likelihood × Bayes numerator
+2 2 1
+Bayes Bayes
+hyp. prior likel. 1 num. 1 likel. 2 num. 2 posterior
+ℋ 𝑃 (ℋ) 𝑃 (𝒟 |ℋ) ∗ ∗ ∗ 𝑃 (𝒟 |ℋ) ∗ ∗ ∗ 𝑃 (ℋ|𝒟 , 𝒟 )
+1 2 1 2
+ℋ 1/5 0 0 0 0 0
+4
+ℋ 1/5 0 0 1/6 0 0
+6
+ℋ 1/5 0 0 1/8 0 0
+8
+ℋ 1/5 1/12 1/60 1/12 1/720 0.735
+12
+ℋ 1/5 1/20 1/100 1/20 1/2000 0.265
+20
+total 1 0.0019 1
+14/18
+Tabular solution: one step
+𝒟 = ‘rolled a 9 then a 5’
+Bayes
+hypothesis prior likelihood numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (𝒟|ℋ) 𝑃 (𝒟|ℋ)𝑃 (ℋ) 𝑃 (ℋ|𝒟)
+ℋ 1/5 0 0 0
+4
+ℋ 1/5 0 0 0
+6
+ℋ 1/5 0 0 0
+8
+ℋ 1/5 1/144 1/720 0.735
+12
+ℋ 1/5 1/400 1/2000 0.265
+20
+total 1 0.0019 1
+15/18
+Board Question: probabilistic prediction
+Along with finding posterior probabilities of hypotheses. We might
+want to make posterior predictions about the next roll.
+With the same setup as before let:
+𝒟 = result of first roll, 𝒟 = result of second roll
+1 2
+(a) Find 𝑃(𝒟 = 5).
+1
+(b) Find 𝑃 (𝒟 = 4|𝒟 = 5).
+2 1
+16/18
+Solution
+𝒟 = ‘rolled a 5’, 𝒟 = ‘rolled a 4’
+1 2
+Bayes
+hyp. prior likel. 1 num. 1 post. 1 likel. 2 post. 1 × likel. 2
+ℋ 𝑃 (ℋ) 𝑃 (𝒟 |ℋ) ∗ ∗ ∗ 𝑃 (ℋ|𝒟 ) 𝑃 (𝒟 |ℋ, 𝒟 ) 𝑃 (𝒟 |ℋ, 𝒟 )𝑃 (ℋ|𝒟 )
+1 1 2 1 2 1 1
+ℋ 1/5 0 0 0 ∗ 0
+4
+ℋ 1/5 1/6 1/30 0.392 1/6 0.392 ⋅ 1/6
+6
+ℋ 1/5 1/8 1/40 0.294 1/8 0.294 ⋅ 1/40
+8
+ℋ 1/5 1/12 1/60 0.196 1/12 0.196 ⋅ 1/12
+12
+ℋ 1/5 1/20 1/100 0.118 1/20 0.118 ⋅ 1/20
+20
+total 1 0.085 1 0.124
+The law of total probability tells us 𝑃 (𝒟 ) is the sum of the Bayes
+1
+numerator 1 column in the table: 𝑃 (𝒟 ) = 0.085 .
+1
+The law of total probability tells us 𝑃 (𝒟 |𝒟 ) is the sum of the last
+2 1
+column in the table: 𝑃 (𝒟 |𝒟 ) = 0.124
+2 1
+17/18
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+18/18

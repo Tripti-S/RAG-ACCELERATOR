@@ -1,0 +1,916 @@
+intuition - Why do we need sigma-algebras to define probability spaces? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Why do we need sigma-algebras to define probability spaces?
+Ask Question
+Asked
+9 years, 11 months ago
+Modified
+2 years, 3 months ago
+Viewed
+60k times
+204
+$\begingroup$
+We have a
+random experiment
+with different
+outcomes
+forming the
+sample space
+$\Omega,$
+on which we look with interest at certain patterns, called
+events
+$\mathscr{F}.$
+Sigma-algebras (or sigma-fields)
+are made up of events to which a probability measure
+$\mathbb{P}$
+can be assigned. Certain properties are fulfilled, including the inclusion of the null set
+$\varnothing$
+and the entire sample space, and an algebra that describes unions and intersections with Venn diagrams.
+Probability is defined as a function between the
+$\sigma$
+-algebra and the interval
+$[0,1]$
+.
+Altogether, the triple
+$(\Omega, \mathscr{F}, \mathbb{P})$
+forms a
+probability space
+.
+Could someone explain in plain English why the probability edifice would collapse if we didn't have a
+$\sigma$
+-algebra? They are just wedged in the middle with that impossibly calligraphic "F". I trust they are necessary; I see that an event is different from an outcome, but what would go awry without a
+$\sigma$
+-algebras?
+The question is:
+In what type of probability problems the definition of a probability space including a
+$\sigma$
+-algebra becomes a necessity?
+This online document on the Dartmouth University website
+provides a plain English accessible explanation. The idea is a spinning pointer rotating counterclockwise on a circle of
+unit
+perimeter:
+We begin by constructing a spinner, which consists of a circle of unit
+circumference and a pointer as shown in [the] Figure. We pick a point
+on the circle and label it
+$0$
+, and then label every other point on the
+circle with the distance, say
+$x$
+, from
+$0$
+to that point, measured
+counterclockwise. The  experiment  consists  of spinning the pointer and
+recording the label of the point at the tip of the pointer. We let the random
+variable
+$X$
+denote the value of this outcome.  The sample space is
+clearly the interval
+$[0,1)$
+.  We would like to construct a
+probability model in which each outcome is equally likely to occur. If
+we proceed as we did [...] for experiments with a finite number of
+possible outcomes,  then we must assign the probability
+$0$
+to each
+outcome,  since otherwise,  the  sum  of  the  probabilities,  over
+all  of  the  possible  outcomes,  would not equal 1.  (In fact,
+summing an uncountable number of real numbers is a tricky business;
+in  particular,  in  order  for  such  a  sum  to  have  any  meaning,
+at  most countably many of the summands can be different than
+$0$
+.)
+However, if all of the assigned probabilities are
+$0$
+, then the sum is
+$0$
+, not
+$1$
+, as it should be.
+So if we assigned to each point any probability, and given that there is an (uncountably) infinity number of points, their sum would add up to
+$> 1$
+.
+probability
+intuition
+measure-theory
+sigma-algebra
+Share
+Cite
+Improve this question
+Follow
+edited
+Nov 21, 2018 at 23:15
+asked
+Mar 1, 2016 at 9:44
+Antoni Parellada
+27.3k
+18
+18 gold badges
+127
+127 silver badges
+239
+239 bronze badges
+$\endgroup$
+14
+9
+$\begingroup$
+It seems self-defeating to ask for answers about $\sigma$-fields that do not mention measure theory!
+$\endgroup$
+Xi'an
+–
+Xi'an
+2016-03-01 11:06:20 +00:00
+Commented
+Mar 1, 2016 at 11:06
+8
+$\begingroup$
+I did, though... I am not sure I understand your comment.
+$\endgroup$
+Antoni Parellada
+–
+Antoni Parellada
+2016-03-01 11:38:07 +00:00
+Commented
+Mar 1, 2016 at 11:38
+9
+$\begingroup$
+Surely the need for sigma fields isn't just a matter of opinion... I think this can be considered on topic here (in my opinion).
+$\endgroup$
+gung - Reinstate Monica
+–
+gung - Reinstate Monica
+2016-03-01 12:37:29 +00:00
+Commented
+Mar 1, 2016 at 12:37
+9
+$\begingroup$
+If your need for probability theory is limited to "heads" and "tails" then clearly there is no need for $\sigma$-fields!
+$\endgroup$
+Xi'an
+–
+Xi'an
+2016-03-01 12:54:55 +00:00
+Commented
+Mar 1, 2016 at 12:54
+44
+$\begingroup$
+I think this is a good question.  So often you see in textbooks completely superfluous references to probability triples $(\Omega, \mathcal{F}, P)$ which the author then goes on to completely ignore thereafter.
+$\endgroup$
+dsaxton
+–
+dsaxton
+2016-03-01 14:30:19 +00:00
+Commented
+Mar 1, 2016 at 14:30
+|
+Show
+9
+more comments
+5 Answers
+5
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+210
++100
+$\begingroup$
+To Xi'an's first point: When you're talking about
+$\sigma$
+-algebras, you're asking about measurable sets, so unfortunately any answer must focus on measure theory. I'll try to build up to that gently, though.
+A theory of probability admitting all subsets of uncountable sets will break mathematics
+Consider this example. Suppose you have a unit square in
+$\mathbb{R}^2$
+, and you're interested in the probability of randomly selecting a point that is a member of a specific set in the unit square. In lots of circumstances, this can be readily answered based on a comparison of areas of the different sets. For example, we can draw some circles, measure their areas, and then take the probability as the fraction of the square falling in the circle. Very simple.
+But what if the area of the set of interest is not well-defined?
+If the area is not well-defined, then we can reason to two different but completely valid (in some sense) conclusions about what the area is. So we could have
+$P(A)=1$
+on the one hand and
+$P(A)=0$
+on the other hand, which implies
+$0=1$
+. This breaks all of math beyond repair. You can now prove
+$5<0$
+and a number of other preposterous things. Clearly this isn't too useful.
+$\boldsymbol{\sigma}$
+-algebras are the patch that fixes math
+What is a
+$\sigma$
+-algebra, precisely? It's actually not that frightening. It's just a definition of which sets may be considered as events. Elements not in
+$\mathscr{F}$
+simply have no defined probability measure. Basically,
+$\sigma$
+-algebras are the "patch" that lets us avoid some pathological behaviors of mathematics, namely non-measurable sets.
+The three requirements of a
+$\sigma$
+-field can be considered as consequences of what we would like to do with probability:
+A
+$\sigma$
+-field is a set that has three properties:
+Closure under countable unions.
+Closure under countable intersections.
+Closure under complements.
+The countable unions and countable intersections components are direct consequences of the non-measurable set issue. Closure under complements is a consequence of the Kolmogorov axioms: if
+$P(A)=2/3$
+,
+$P(A^c)$
+ought to be
+$1/3$
+. But without (3), it could happen that
+$P(A^c)$
+is undefined. That would be strange. Closure under complements and the Kolmogorov axioms let us to say things like
+$P(A\cup A^c)=P(A)+1-P(A)=1$
+.
+Finally, We are considering events in relation to
+$\Omega$
+, so we further require that
+$\Omega\in\mathscr{F}$
+Good news:
+$\boldsymbol{\sigma}$
+-algebras are only strictly necessary for uncountable sets
+But! There's good news here, also. Or, at least, a way to skirt the issue. We only need
+$\sigma$
+-algebras if we're working in a set with uncountable cardinality. If we restrict ourselves to countable sets, then we can take
+$\mathscr{F}=2^\Omega$
+the power set of
+$\Omega$
+and we won't have any of these problems because for countable
+$\Omega$
+,
+$2^\Omega$
+consists only of measurable sets. (This is alluded to in Xi'an's second comment.) You'll notice that some textbooks will actually commit a subtle sleight-of-hand here, and only consider countable sets when discussing probability spaces.
+Additionally, in geometric problems in
+$\mathbb{R}^n$
+, it's perfectly sufficient to only consider
+$\sigma$
+-algebras composed of sets for which the
+$\mathcal{L}^n$
+measure is defined. To ground this somewhat more firmly,
+$\mathcal{L}^n$
+for
+$n=1,2,3$
+corresponds to the usual notions of length, area and volume. So what I'm saying in the previous example is that the set needs to have a well-defined area for it to have a geometric probability assigned to it. And the reason is this: if we admit non-measureable sets, then we can end up in situations where we can assign probability 1 to some event based on some proof, and probability 0 to
+the same event
+event based on some other proof.
+But don't let the connection to uncountable sets confuse you! A common misconception that
+$\sigma$
+-algebras are countable sets. In fact, they may be countable or uncountable. Consider this illustration: as before, we have a unit square. Define
+$$\mathscr{F}=\text{All subsets of the unit square with defined $\mathcal{L}^2$ measure}.$$
+You can draw a square
+$B$
+with side length
+$s$
+for all
+$s \in (0,1)$
+, and with one corner at
+$(0,0)$
+. It should be clear that this square is a subset of the unit square. Moreover, all of these squares have defined area, so these squares are elements of
+$\mathscr{F}$
+. But it should also be clear that there are uncountably many squares
+$B$
+: the number of such squares is uncountable, and each square has defined Lebesgue measure.
+So as a practical matter, simply making that observation is often enough to make the observation that you only consider Lebesgue-measurable sets to gain headway against the problem of interest.
+But wait, what's a non-measurable set?
+I'm afraid I can only shed a little bit of light on this myself. But the
+Banach-Tarski paradox
+(sometimes the "sun and pea" paradox) can help us some:
+Given a solid ball in 3‑dimensional space, there exists a decomposition of the ball into a finite number of disjoint subsets, which can then be put back together in a different way to yield two identical copies of the original ball. Indeed, the reassembly process involves only moving the pieces around and rotating them, without changing their shape. However, the pieces themselves are not "solids" in the usual sense, but infinite scatterings of points. The reconstruction can work with as few as five pieces.
+A stronger form of the theorem implies that given any two "reasonable" solid objects (such as a small ball and a huge ball), either one can be reassembled into the other. This is often stated informally as "a pea can be chopped up and reassembled into the Sun" and called the "pea and the Sun paradox".
+1
+So if you're working with probabilities in
+$\mathbb{R}^3$
+and you're using the geometric probability measure (the ratio of volumes), you want to work out the probability of some event. But you'll struggle to define that probability precisely, because you can rearrange the sets of your space to change volumes!
+If probability depends on volume, and you can change the volume of the set to be the size of the sun or the size of a pea, then the probability will also change. So no event will have a single probability ascribed to it. Even worse, you can rearrange
+$S\in\Omega$
+such that the volume of
+$S$
+has
+$V(S)>V(\Omega)$
+, which implies that the geometric probability measure reports a probability
+$P(S)>1$
+, in flagrant violation of the Kolmogorov axioms which require that probability has measure 1.
+To resolve this paradox, one could make one of four concessions:
+The volume of a set might change when it is rotated.
+The volume of the union of two disjoint sets might be different from the sum of their volumes.
+The axioms of Zermelo–Fraenkel set theory with the axiom of Choice (ZFC) might have to be altered.
+Some sets might be tagged "non-measurable", and one would need to check whether a set is "measurable" before talking about its volume.
+Option (1) doesn't help use define probabilities, so it's out. Option (2) violates the second Kolmogorov axiom, so it's out. Option (3) seems like a terrible idea because ZFC fixes so many more problems than it creates. But option (4) seems attractive: if we develop a theory of what is and is not measurable, then we will have well-defined probabilities in this problem! This brings us back to measure theory, and our friend the
+$\sigma$
+-algebra.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jun 11, 2020 at 14:32
+Community
+Bot
+1
+answered
+Mar 1, 2016 at 14:14
+Sycorax
+♦
+96.1k
+23
+23 gold badges
+247
+247 silver badges
+406
+406 bronze badges
+$\endgroup$
+33
+8
+$\begingroup$
+Thank you for your answer. $\mathcal{L}$ stands for Lebesque measurable? I'll +1 your answer on faith, but I'd really appreciate it if you could bring down the math level several notches... :-)
+$\endgroup$
+Antoni Parellada
+–
+Antoni Parellada
+2016-03-01 14:18:10 +00:00
+Commented
+Mar 1, 2016 at 14:18
+10
+$\begingroup$
+(+1) Good points! I would also add that without measure and $\sigma$ algebras, conditioning and deriving conditional distributions on uncountable spaces get quite hairy, as shown by the
+Borel-Kolmogorov paradox
+.
+$\endgroup$
+Xi'an
+–
+Xi'an
+2016-03-01 16:18:06 +00:00
+Commented
+Mar 1, 2016 at 16:18
+3
+$\begingroup$
+@Xi'an Thanks for kind words! It really means a lot, coming from you. I was not familiar with the Borel-Kolmogorov paradox as of this writing, but I'll do some reading and see if I can manage to make a useful addition of my findings.
+$\endgroup$
+Sycorax
+–
+Sycorax
+♦
+2016-03-01 16:58:27 +00:00
+Commented
+Mar 1, 2016 at 16:58
+3
+$\begingroup$
+@Student001: I think we are splitting hairs here. You are right that the general definition of "measure" (any measure) is given using the concept of sigma-algebras. My point, however, is that there is no word or concept of "sigma-algebra" in the definition of the Lebesgue measure provided in my first link. In other words, one can
+define
+Lebesgue measure as per my first link but then one needs to show that it is a
+measure
+and that's the hard part. I agree that we should stop this discussion though.
+$\endgroup$
+amoeba
+–
+amoeba
+2016-03-02 12:46:44 +00:00
+Commented
+Mar 2, 2016 at 12:46
+4
+$\begingroup$
+I really enjoyed reading your answer. I don't know how to thank you, but you've clarified things a lot!  I've never studied real analysis nor had a proper introduction to mathematics. Came from an Electrical Engineering background that focused a lot on practical implementation. You've written that in so simple terms that a bloke like me could understand it. I really appreciate your answer and the simplicity you've provided. Also thanks to @Xi'an for his packed comments!
+$\endgroup$
+Theo
+–
+Theo
+2018-09-29 22:47:27 +00:00
+Commented
+Sep 29, 2018 at 22:47
+|
+Show
+28
+more comments
+30
+$\begingroup$
+The underlying idea (in very practical terms) is simple. Suppose you are a statistician working with some survey. Lets suppose the survey has some questions about age, but only ask the respondent to identify his age in some given intervals, like $[0,18), [18, 25), [25,34), \dots $. Lets forget the other questions. This questionnaire defines an "event space", your $(\Omega,F)$. The sigma algebra $F$ codifies all information which can be obtained from the questionnaire, so, for the age question (and for now we ignore all other questions), it will contain the interval $[18,25)$ but not other intervals like $[20,30)$, since from the information obtained by the questionnaire we cannot answer question like: do the respondents age belong to $[20,30)$ or not? More generally, a set is an event (belongs to $F$) if and only if we can decide if a sample point belongs to that set or not.
+Now, let us define random variables with values in the second event space, $(\Omega', F')$. As an example, take this to be the real line with the usual (Borel) sigma-algebra. Then, an (un-interesting) function which is not a random variable is $f: $"respondents age is a prime number", coding this as 1 if age is prime, 0 else. No, $f^{-1}(1)$ do not belong to $F$, so $f$ is not a random variable. The reason is simple, we cannot decide from the information in the questionnaire if the respondent's age is prime or not!  Now you can make more interesting examples yourself.
+Why do we require $F$ to be a sigma algebra? Let us say we want to ask two questions of the data, 'is respondent number 3 18 years or older', 'is respondent 3 a female'. Let the questions define two events (sets in $F$) $A$ and $B$, the sets of sample points giving a "yes" answer to that question. Now let us ask the conjunction of the two questions 'is responent 3 a female o18 years or older'. Now that question is represented by the set intersection $A \cap B$. In a similar manner, disjunctions are represented by set union $A \cup B$.  Now, requiring closedness for countable intersections and unions lets us ask countable conjunctions or disjunctions. And, negating a question is represented by the complementary set. That gives us a sigma-algebra.
+I saw this kind of introduction first in the very good book by Peter Whittle "Probability via expectation" (Springer).
+EDIT
+Trying to answer whubers question in a comment: "I was a little taken aback at the end, though, when I encountered this asssertion: 'requiring closedness for countable intersections and unions lets us ask countable conjunctions or disjunctions.' This seems to get at the heart of the issue: why would anyone want to construct such an infinitely complicated event? "
+well, why?  Restrict ourselves now to discrete probability, let's say, for convenience, coin tossing.  Throwing the coin a finite number of times, all events we can describe using the coin can be expressed via events of the type "head on throw $i$", "tails on throw $i$, and a finite number of "and" or "or". So, in this situation, we do not need $\sigma$-algebras, algebras of sets is enough. So, is there any situation, in this context, where $\sigma$-algebras arise? In practice, even if we can only throw the dice a finite number of times, we develop approximations to probabilities via limit theorems when $n$, the number of throws, grows without bound.  So have a look at the proof of the central limit theorem for this case, the Laplace-de Moivre theorem. We can prove via approximations using only algebras, no $\sigma$-algebra should be needed. The weak law of large numbers can be proved via the Chebyshev's inequality, and for that we need only compute variance for finite $n$ cases. But, for the
+strong law of large numbers
+, the event we prove has probability one can only be expressed via a countably infinite number of "and" and "or"'s, so for the strong law of large numbers we need $\sigma$-algebras.
+But do we really need the strong law of large numbers? According to
+one answer here
+, maybe not.
+In a way, this points to a very big conceptual difference between the strong and the weak law of large numbers: The strong law is not directly empirically meaningful, since it is about actual convergence, which can never be empirically verified. The weak law, on the other hand, is about the quality of approximation increasing with $n$, with numerical bounds for finite $n$, so is more empirically meaningful.
+So, all practical use of discrete probability could do without $\sigma$-algebras.  For the continuous case, I am not so sure.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 13, 2017 at 12:44
+Community
+Bot
+1
+answered
+Mar 1, 2016 at 14:42
+kjetil b halvorsen
+♦
+86k
+32
+32 gold badges
+217
+217 silver badges
+699
+699 bronze badges
+$\endgroup$
+15
+4
+$\begingroup$
+I don't think this answer demonstrates why $\sigma$-fields are necessary. The convenience of being able to answer $P(A)\in[20,30)$ isn't mandated by math. Somewhat puckishly, one might say that math doesn't care about what's convenient for statisticians. Actually, we know that $P(A)\in[20,30)\le P(A)\in[18,34)$, which
+is
+well defined, so it's not even clear that this example illustrates what you want it to.
+$\endgroup$
+Sycorax
+–
+Sycorax
+♦
+2016-03-01 14:54:02 +00:00
+Commented
+Mar 1, 2016 at 14:54
+8
+$\begingroup$
+We don't need the "$\sigma$" part of "$\sigma$-algebra" for any of this answer, Kjetil. In fact, for basic modeling and reasoning about probability, it appears that a working statistician could get by just fine with set algebras that are closed only under
+finite
+, not countable, unions.  The hard part of Antoni's question concerns why we need closure under countably
+infinite
+unions: this is the point at which the subject becomes measure theory instead of elementary combinatorics. (I see that Aksakal also made that point in a recently deleted answer.)
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-03-01 17:02:03 +00:00
+Commented
+Mar 1, 2016 at 17:02
+3
+$\begingroup$
+@whuber: you are of course right, but in my answer I try to give some motivation as for why algebras (or $\sigma$-algebras) can convey information.  It is a way of understanding why that algebraic structure enters probability and not something else.  Of course, in addition there are the technical reasons explained in the answer of user777.  And, of course, if we could do probability in a simpler way everybody would be happy ...
+$\endgroup$
+kjetil b halvorsen
+–
+kjetil b halvorsen
+♦
+2016-03-01 17:10:33 +00:00
+Commented
+Mar 1, 2016 at 17:10
+3
+$\begingroup$
+I think your argument is sound.  I was a little taken aback at the end, though, when I encountered this asssertion: "requiring closedness for countable intersections and unions lets us ask countable conjunctions or disjunctions." This seems to get at the heart of the issue: why would anyone want to construct such an infinitely complicated event?  A good answer to that would make the rest of your post more persuasive.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-03-01 19:30:25 +00:00
+Commented
+Mar 1, 2016 at 19:30
+3
+$\begingroup$
+Re practical uses: the probability and measure theory used in the mathematics of finance (including stochastic differential equations, Ito integrals, filtrations of algebras, etc.) looks like it would be impossible without sigma algebras.  (I can't upvote the edits because I already voted on your answer!)
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-03-02 18:40:14 +00:00
+Commented
+Mar 2, 2016 at 18:40
+|
+Show
+10
+more comments
+6
+$\begingroup$
+Why do probabilists need
+$\boldsymbol{\sigma}$
+-algebra?
+The axioms of
+$\sigma$
+-algebras are pretty naturally motivated by probability. You want to be able to measure all Venn diagram regions, e.g.,
+$A \cup B$
+,
+$(A\cup B)\cap C$
+.  To quote from
+this memorable answer
+:
+The first axiom is that
+$\oslash,X\in \sigma$
+. Well you ALWAYS know the probability of nothing happening (
+$0$
+) or something happening (
+$1$
+).
+The second axiom is closed under complements. Let me offer a stupid example. Again, consider a coin flip, with
+$X=\{H,T\}$
+. Pretend I tell you that the
+$\sigma$
+algebra for this flip is
+$\{\oslash,X,\{H\}\}$
+. That is, I know the probability of NOTHING happening, of SOMETHING happening, and of a heads but I DON'T know the probability of a tails. You would rightly call me a moron. Because if you know the probability of a heads, you automatically know the probability of a tails! If you know the probability of something happening, you know the probability of it NOT happening (the complement)!
+The last axiom is closed under countable unions. Let me give you another stupid example. Consider the roll of a die, or
+$X=\{1,2,3,4,5,6\}$
+. What if I were to tell you the
+$\sigma$
+algebra for this is
+$\{\oslash,X,\{1\},\{2\}\}$
+. That is, I know the probability of rolling a
+$1$
+or rolling a
+$2$
+, but I don't know the probability of rolling a
+$1$
+or a
+$2$
+. Again, you would justifiably call me an idiot (I hope the reason is clear). What happens when the sets are not disjoint, and what happens with uncountable unions is a little messier but I hope you can try to think of some examples.
+Why do you need countable instead of just finite
+$\boldsymbol{\sigma}$
+-additivity though?
+Well, it’s not an entirely clean-cut case, but there are some solid
+reasons why
+.
+Why do probabilists need measures?
+At this point, you already have all the axioms for a measure. From
+$\sigma$
+-additivity, non-negativity, null empty set, and the domain of
+$\sigma$
+-algebra. You might as well require
+$P$
+to be a measure. Measure theory is
+already justified
+.
+People bring in Vitali’s set and Banach-Tarski to explain why you need measure theory, but I think that’s
+misleading
+. Vitali’s set only goes away for (non-trivial) measures that are translation-invariant, which probability spaces do not require. And Banach-Tarski requires rotation-invariance. Analysis people care about them, but probabilists actually
+don’t
+.
+The
+raison d’être
+of measure theory in probability theory is to unify the treatment of discrete and continuous RVs, and moreover, allow for RVs that are mixed and RVs that are simply neither.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jun 11, 2020 at 14:32
+Community
+Bot
+1
+answered
+Mar 13, 2019 at 2:38
+Yatharth Agarwal
+399
+2
+2 silver badges
+10
+10 bronze badges
+$\endgroup$
+2
+3
+$\begingroup$
+I think that this answer could make a great addition to this thread if you re-work it a bit. As it stands, it's hard to follow because large portions of it depend on links to other comment threads. I think if you laid it out as a bottom-to-top explanation of how measures, finite $\sigma$-additivity and $\sigma$-algebra fit together as necessary features of probability spaces, it would be much stronger. You're very close, because you've already broken the answer into different segments, but I think the segments need more justification and reasoning to be fully supported.
+$\endgroup$
+Sycorax
+–
+Sycorax
+♦
+2019-03-14 18:11:40 +00:00
+Commented
+Mar 14, 2019 at 18:11
+3
+$\begingroup$
+The link to the “solid
+reasons why
+” is broken :( Does anybody have a working link, or a summary of it?
+$\endgroup$
+a pfp with melon
+–
+a pfp with melon
+2021-08-13 19:43:42 +00:00
+Commented
+Aug 13, 2021 at 19:43
+Add a comment
+|
+5
+$\begingroup$
+I've always understood the whole story like this:
+We start off with a space, such as the real line
+$\mathbb{R}$
+. We would like to apply our measure to subsets of this space, such as by applying the Lebesgue measure, which measures length. An example would be to measure the length of the subset
+$[0, 0.5] \cup [0.75, 1]$
+. For this example the answer is simply
+$0.5 + 0.25 = 0.75$
+, which we can obtain fairly easily. We start to wonder whether we can apply the Lebesgue measure to
+all
+subsets of the real line.
+Unfortunately it doesn't work. There are these pathological sets that simply break down mathematics. If you apply the Lebesgue measure to these sets, you will get inconsistent results. An example of one of these pathological sets, also known as non-measurable sets because they literally can't be measured, are the Vitali Sets.
+In order to avoid these crazy sets, we define the measure to only work for a smaller group of subsets, called measurable sets. These are the sets that behave consistently when we apply measures to them. In order to allow us to perform operations with these sets, such as by combining them with unions or taking their complements, we require these measurable sets to form a sigma-algebra amongst themselves. By forming a sigma-algebra, we have formed a sort of
+safe haven
+for our measures to operate within, while also allowing us to make reasonable manipulations to get what we want, such as taking unions and complements. This is why we need a sigma-algebra, so that we could draw out a region for the measure to work within, while avoiding non-measurable sets. Notice that if it weren't for these pathological subsets, I can easily define the measure to operate within the power set of the topological space. However, the power set contains all sorts of non-measurable sets, and that's why we have to pick out the measurable ones and make them form a sigma-algebra among themselves.
+As you can see, since sigma-algebras are used to avoid non-measurable sets, sets that are finite in size don't actually need a sigma algebra. Let's say you're dealing with a sample space
+$\Omega = \{1, 2, 3\}$
+(this could be all the possible result of a random number generated by a computer). You can see it's pretty much impossible to come up with non-measurable sets with such a sample space. The measure (in this case a probability measure) is well-defined for whatever subset of
+$\Omega$
+you can think of. But we
+do
+need to define sigma-algebras for larger sample spaces, such as the real line, so that we can avoid pathological subsets that break down our measures. In order to achieve consistency in the theoretical framework of probability, we require that finite sample spaces
+also
+form sigma algebras, where only in which is the probability measure defined. Sigma-algebras in finite sample spaces is a technicality, while sigma-algebras in larger sample spaces such as the real line is a
+necessity
+.
+One common sigma-algebra we use for the real line is the Borel sigma-algebra. It is formed by all possible open sets, and then taking the complements and unions until the three conditions of a sigma-algebra is achieved. Say if you're constructing the Borel sigma-algebra for
+$\mathbb{R}[0, 1]$
+, you do that by listing all possible open sets, such as
+$(0.5, 0.7), (0.03, 0.05), (0.2, 0.7), ...$
+and so on, and as you can imagine there are infinitely many possibilities you can list, and then you take the complements and unions until a sigma-algebra is generated. As you can imagine this sigma algebra is a BEAST. It is unimaginably huge. But the lovely thing about it is that it excludes all the crazy pathological sets that broke down mathematics. Those crazy sets are
+not
+in the Borel sigma-algebra. Also, this set is comprehensive enough to include almost every subset that we need. It is hard to think of a subset that is not contained within the Borel sigma-algebra.
+And so that is the story of why we need sigma-algebras and Borel sigma-algebras are a common way to implement this idea.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 15, 2020 at 7:59
+answered
+Apr 15, 2020 at 6:48
+ghost
+151
+1
+1 silver badge
+3
+3 bronze badges
+$\endgroup$
+2
+2
+$\begingroup$
+'+1' very readable. However you seem to contradicting the answer by @Yatharth Agarwal who says  "People bring in Vitali’s set and Banach-Tarski to explain why you need measure theory, but I think that’s misleading. Vitali’s set only goes away for (non-trivial) measures that are translation-invariant, which probability spaces do not require. And Banach-Tarski requires rotation-invariance. Analysis people care about them, but probabilists actually don’t.". Perhaps you have some thoughts on that?
+$\endgroup$
+Jesper for President
+–
+Jesper for President
+2020-04-15 08:26:13 +00:00
+Commented
+Apr 15, 2020 at 8:26
+2
+$\begingroup$
++1 (especially for the "safe haven" metaphor!). @Stop Given that the answer you reference has little actual content--it voices a few opinions only--it's not worth much consideration or debate, IMHO.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2020-04-15 12:56:43 +00:00
+Commented
+Apr 15, 2020 at 12:56
+Add a comment
+|
+0
+$\begingroup$
+More clarification on the first 2 properties
+One quick note on
+@Sycorax
+'s answer. I'd like to bring more clarity on the term '
+uncountable
+' he/she is using in his/her answer.
+Although his/her example on why a σ-algebra can also be '
+uncountable
+' makes a lot of sense, it seems to somehow contradict the first 2 properties of a σ-algebra.
+@Sycorax
+has 'shown' that
+$\mathscr{F}$
+can be a σ-algebra composed of an '
+uncountable
+' number of sets
+B
+(squares with an area a ∈ (0,1)).
+But wait a minute
+, if there are an '
+uncountable
+' amount of
+B
+squares in
+$\mathscr{F}$
+, then
+$\mathscr{F}$
+can potentially
+have an 'uncountable' amount of unions and intersections, meaning that properties 1. and 2. would be violated, or at least do not apply... So is
+$\mathscr{F}$
+an actual σ-algebra in that case?
+That's where the slight clarification of the term
+'uncountable'
+comes into play! In fact, you should read
+countably infinite
+instead of
+'uncountable'
+.
+Although this might be rather obvious for most of us, I believe it is relevant to highlight the distinction. You can have an
+infinite
+number of subsets in your sample space
+$Ω$
+, with an infinite number of unions and intersections, but as long as they are
+countable
+-
+even if they are an infinite!
+(meaning that
+there exists an
+injective
+function from it into the natural numbers
+*) - and these subsets are
+closed
+under unions and intersections (meaning that each union and intersection lands back in
+$Ω$
+, so no 'weird' behavior), you're good to go! It is basically what the first two properties mean. You'd of course also need the 3rd property as we're dealing with probabilities, but this was already clearly explained.
+And it makes intuitive sense as well!
+If at some point you've
+can't count
+the number of subsets for whatever reason (like a not well-defined area to restate
+@Sycorax
+'s example) or when the union/intersection of some subsets does not land back in
+$Ω$
+, it does imply that
+you can't measure your sample space
+, right?
+To go a little further, we can write the following
+$\begin{array}{ccccccccc} Ω & \xrightarrow{\mathbb{P}} & [0,1]\end{array}$
+only if
+$Ω$
+is a σ-algebra. Otherwise,
+$\mathbb{P}$
+would
+not be probability measure
+- you won't be able to assign a value of 1 to the entire probability space because some interactions (union & intersection) between subsets of
+$Ω$
+would not land back in
+$Ω$
+... In fact,
+$\mathbb{P}$
+would not even be a function
+because you would then be free to assign multiple probability values to the exact same sample  (i.e.
+$\mathbb{P}(x)=y1 =y2$
+with
+$x$
+∈
+$Ω$
+;
+$y1,y2$
+∈
+$[0,1]$
+;
+$y1 \neq y2$
+), which of course does not make 'any' physical sense and is a great illustration of why you would not be able to correctly measure
+$Ω$
+!
+Note that
+$\mathbb{P}$
+being an injective function is sufficient here because
+$\mathbb{P}(x)$
+with
+$x$
+∈
+$Ω$
+does
+not
+have to 'fully cover'
+$[0,1]$
+.
+*
+The function mapping the count of unions and intersections of all the subsets of
+$Ω$
+to
+$\mathbb{N^*}$
+is injective because it does not have to 'fully cover'
+$\mathbb{N^*}$
+.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 11, 2023 at 1:24
+answered
+Nov 10, 2023 at 22:07
+Padi
+1
+1
+1 bronze badge
+$\endgroup$
+Add a comment
+|
+Your Answer
+Draft saved
+Draft discarded
+Sign up or
+log in
+Sign up using Google
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+By clicking “Post Your Answer”, you agree to our
+terms of service
+and acknowledge you have read our
+privacy policy
+.
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+intuition
+measure-theory
+sigma-algebra
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+0
+What is the importance of the concept of probability space?
+0
+Why is the probability measure P not defined on the power set of $\Omega$, but on it's sigma algebra?
+1
+Understanding Countability in Sample Spaces
+1
+General Questions on Measure Theory
+1
+Continuous vs Discrete Distributions
+41
+Can anyone clarify the concept of a "sum of random variables"
+10
+Why is the sum of probabilities in a continuous uniform distribution not infinity?
+12
+Definition of sample space
+14
+What is the connection between measure theory and statistics?
+31
+Is there a statistical application that requires strong consistency?
+See more linked questions
+Related
+2
+Intuition behind $P(\{\omega\})=0$ in uncountable sample spaces with continuous distributions
+4
+Rationale behind notation of probability spaces
+46
+Intuition for Conditional Expectation of $\sigma$-algebra
+16
+Visualizing of $\sigma$-algebras as "information"
+10
+Computation of Conditional Expectation on $\sigma$-algebras
+4
+Understanding SMC as approximations to a sequence of measures
+12
+Definition of sample space
+14
+What is the connection between measure theory and statistics?
+7
+Why do we need sample spaces in probability theory?
+Hot Network Questions
+Identify this IC's manufacturer logo with stylised 'm'
+What's the purpose of the output circuitry the LM2596 typical application schematics?
+What are the visual tells of wands?
+Is it legal for the military to send a soldier on a mission that will lead almost surely to their death?
+What model of minicomputers appears in “Magnum cop” (1978)?
+Lightweight e-mail client for unsupported Windows versions
+What do philosophers consider to be natural?
+When was Spider-Man first depicted using a bulky external web fluid tank as seen in Your Friendly Neighborhood Spider-Man?
+Select clients where they have one feature type but not another - ArcGIS Pro
+Can the beat frequency of two slightly different tones cause a room to resonate?
+Wrap a leafy plant onto a dodecahedron
+The Animation Story
+How do I encourage more interaction with Fate's mechanics?
+PTIJ: 6-7 - Mi Yodeya?
+What does "correlated data" mean?
+How can I traverse to the bottom of a folder structure that repeated 23k times?
+Guess the PIN. You only got one shot!
+PTIJ: Need help picking a topic for a halacha shiur
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+When are Closure nodes necessary in Geometry Nodes compared to Node Groups?
+Wake on LAN stopped working after upgrading packages
+Is there such thing as "Fundamental Theorem of Markov Processes"?
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+Should we use have or has in this case?
+more hot questions
+Question feed

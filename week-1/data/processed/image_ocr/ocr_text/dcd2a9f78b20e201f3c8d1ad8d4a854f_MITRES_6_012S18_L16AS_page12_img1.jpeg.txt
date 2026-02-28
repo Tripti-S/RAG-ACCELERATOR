@@ -1,0 +1,12 @@
+Properties of the estimation error in LMS estimation
+= a dis ))
+e Estimator: © = E[©| X] e Error: O=O-9O elo)-e[@
+EL@}]=0
+
+E[6- 6 |x] - 6 - € [olx-=J=0
+
+¢[66)-FL6}el6] ©
+E[6 6|x=2) = OE[6|x=%]=0
+
+“a ~
+var(©) = var(©) + var(©) | « O = @ ~ 6

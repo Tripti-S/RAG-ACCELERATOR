@@ -1,0 +1,13 @@
+LLMS formulation
+
+e Unknown ©; observation X
+
+Minimize E|(6 — ©)?!
+Estimators 6 = 9(X) —>+> O.ms =E[O | X]
+
+Consider estimators of 9,
+of the form © = aX +b
+
+Minimize E |(© — aX —b)?|, w.r.t. a,
+
+If E[@ | X] is linear in X, then O_ms = ©_ums

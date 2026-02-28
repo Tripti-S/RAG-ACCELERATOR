@@ -1,0 +1,297 @@
+LECTURE 4: Counting
+n • •
+•
+Discrete uniform law • A'
+/ .
+•
+n
+- Assume consists of n equally likely elements
+• " J..
+• /
+•
+- Assume A consists of k elements
+' ",- 7
+Then : peA) = number of elements of A = k v
+1
+prob = ­
+n
+number of elements of n
+n
+• Basic counting principle
+• Applications
+permutations number of subsets
+combinations bi nom ia I proba bi lities
+partitions
+1
+·3
+2 =-
+Basic counting principle \'2 Lj Lj .2.
+1"=3
+4 shirts
+3 ties
+, - ,
+fV\ _11
+2 j ackets
+'Vl
+;:~
+t
+Number of possible attires?
+'V1;=-2
+• r stages
+choices at stage i
+• ni
+1Yl,' 'Yl2 ••• 1)'))-.
+Number of choices is:
+2
+Basic counting principle examples
+• Number of license plates w ith 2 letters followed by 3 digits:
+'26
+·'LG· \0-10-10
+'3
+26 '25 • , 0 . .
+• ... if repetition is prohibited: ~
+• Permutations: Num ber of ways of ordering n elements:
+..
+,
+1.
+"1.-1
+~-'2
+.
+• Number of subsets of {I , ... ,n}:
+"
+2·2 ,··1
+.
+-
+-
+"
+3
+Example
+A
+• F ind the probabil it y th at : /
+six rolls of a (six-sided) die al l give differe nt numbers.
+! I I
+I
+(A ssum e all o utco m es equ ally likely.)
+.£
+~
+1 Q
+-+ i e (2) 'S ) ,1" ) b, 2) -:::
+c 0 0 Jet)"", 1-)
+II
+o
+-
+-
+•
+4
+n ) ..
+Combinations • Definition: num ber of k-elem ent subset s n !
+(
+k
+/'''1. .'-.
+- of a g iven n - elem ent set k !(n - k )!
+L................2;::::i': '/
+"1\:0)1/1.., ••
+• Two ways of constructing an ordered sequence of k distinct items: 1c:.;O}I)~ ... )'"
+•
+Choose the k items one at a time
+Choose k items, then order them
+1
+I
+,
+• •
+Ih.(<>t - I)(on_Z) • -
+-('Yl-Ktl) '11 "
+• •
+~
+("",-Ic)~
+')J
+-
+-
+I<~
+M
+KI
+•
+iC
+5
+n) n !
+=
+(k k!(n - k)!
+1
+C)=
+=
+--1
+M
++ .. ' •
+o
+-t
+I
+•
+6
+G)
+Binomial coefficient ---+) Binomial probabilities
+G)pk (l _
+• n > 1 ind epend ent coin t osses; P(H) = p P( k heads) = p)n- k
+'1\: 6
+P PJ P?Y : pY (\ -
+P)(I - p)
+(1- •
+• P(HTT HHH ) =
+K(
+p \ _p)
+'h.-I<
+• P(particul ar k - hea d sequ ence) ::
+Cit
+((I-prJ<'· ~- heor} se?ue""ccs)
+P (k hea ds) =
+"l
+\<
+H
+7
+A coin tossing problem
+Assumpti o ns:
+• Given that there were 3 heads in 10 tosses,
+• ind epend ence
+what is the probability that the first two tosses were heads?
+• P (H) = p
+event A : the fi rst 2 tosses were heads
+P (k hea ds) = C)pk( 1 _ p)n- k
+event B : 3 out of 10 tosses were heads
+E(H I_I
+» ___
+• First solution: .1 I
+I )
+1
+P(A n B) 2 0..""ll o""C" L""to>~> /)D
+1
+I
+peA B) = = -' ~---:-:-7-'-----~~--
+.p
+(g,')
+PCB)
+)t
+8
+p1. •
+(8
+PI .(I-?
+8
+- - I - -
+- 1 ­
+:., -
+•
+10
+~
+8
+A coin tossing problem
+Assumpti o ns:
+• Given that there were 3 heads in 10 tosses,
+• ind epend ence
+what is the probability that the first two tosses were heads?
+• P (H) = p
+event A : the fi rst 2 tosses were heads
+P (k hea ds) = C)pk( 1 _ p)n- k
+event B : 3 out of 10 tosses were heads
+• Second solution: Conditional probability law (on B) is uniform
+ee'\~tQ 10 5e9.
+SL
+•
+•
+• :#= i... (11 B)
+8
+(I
+• -
+0 -
+d.
+•
+3-t/eo. se9
+5 #' i'l1 13
+10
+3>
+•
+p~(\ _P)1­
+9
+"'l
+Partitions
+f
+'\
+> >
+• n 1 distinct items; r 1 persons
+c
+-'
+give n i items to person i
+• •
+•
+here nt , ... , n r are given nonnegative integers
+M, "'l "­
++ ... +
+with nl n r = n '\. 'VIr
+• Ordering n items: /)'(1
+•
+Deal n i to each person i . and then order t
+I, I I I I I I I I I i , I J
+I , I I
+= I
+C tn,. IYl.
+' I •
+•
+"1.,
+'Yl _ l­
+I - I"­
+n !
+numb er of partitio ns = - - - - - ­ (multinomial coefficient)
+n l! n2 ! ···nT !
+•
+10
+Example: 52-card deck, dealt (fairly) to four players.
+Find P(each player gets an ace)
+\ e..'rd!y
+i e
+fQ~+ ~ DM ~U.CleOy
+• Outcomes are:
+2 ,
+?
+- number of outcomes: ~
+"I .
+,,,,),,1
+'11,'
+• Constructing an outcome witll ·one a ce tor each person:
+distribute the aces
+distribute the remaining 48 cards
+\2.:1'Z.:12~12~
+48!
+4·3·2· ~~~~~
+12! 12! 12! 12!
+• Answer:
+52!
+13! 13! 13! 13!
+11
+Example: 52-card deck, dealt (fairly) to four players. A sm art sol uti o n
+Find P(each player gets an ace)
+Stack th e deck, aces o n top
+A ·
+A .
+- - ~ - -
+•
+•
+•
+'3~ - ­
+I,
+• ~b
+,
+•
+•
+'"
+• •
+'il 50
+Lj~ - -
+I"I
+=
+.\05"
+-- ~
+-"--"--"j
+12
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

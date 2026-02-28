@@ -1,0 +1,12 @@
+A sample of application domains
+
+e Signal processing
+
+— communication systems (noisy ...)
+— speech processing and understanding
+— image processing and understanding
+— tracking of objects
+
+— positioning systems (e.g., GPS)
+
+— detection of abnormal events

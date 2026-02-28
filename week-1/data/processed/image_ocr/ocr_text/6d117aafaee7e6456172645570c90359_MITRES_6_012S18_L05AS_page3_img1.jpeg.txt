@@ -1,0 +1,19 @@
+Random variables: the formalism
+
+e A random variable (‘“r.v.") associates a value (a number)
+to every possible outcome
+
+e Mathematically: A function from the sample space Q to the real numbers
+
+e It can take discrete or continuous values
+
+[ Notation: random variable X numerical value x |
+
+e Wecan have several random variables defined on the same sample space
+e A function of one or several random variables is also a random variable
+
+ru takes velue K+y,
+
+wllew: °X toles value «, ¥ t okes va Cue y
+
+— meaning of X+Y:

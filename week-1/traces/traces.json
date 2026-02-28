@@ -1,0 +1,72 @@
+[
+    {
+        "query": "Explain Bayes theorem.",
+        "latency_seconds": 10.41,
+        "retrieved_sources": [
+            "mit18_05_s22_statistics.md",
+            "mit18_05_s22_statistics.md",
+            "mit18_05_s22_statistics.md",
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_distributions.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 2835,
+        "answer_preview": "Bayes' theorem is a fundamental concept in inferential statistics that allows us to \"invert\" conditional probabilities. It provides a way to update the probability of a hypothesis being true *after* observing new data.\n\nThe theorem is expressed by the formula:\n\n**P(H|D) = [P(D|H) * P(H)] / P(D)**\n\nLet's break down each component:\n\n*   **P(H|D)**: This is the **posterior probability**. It's the probability that our **H**ypothesis is true *given* the **D**ata we have collected. This is precisely what we often want to know.\n*   **P(D|H)**: This is the **likelihood**. It's the probability of observing the **D**ata *given* that our **H**ypothesis is true. The context notes that this is the same \"likelihood function\" used for Maximum Likelihood Estimates (MLE).\n*   **P(H)**: This is the **prior "
+    },
+    {
+        "query": "Give an example of conditional probability with solution.",
+        "latency_seconds": 6.71,
+        "retrieved_sources": [
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_distributions.md",
+            "Week2-TA_Session2.md",
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_random_variables.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 300,
+        "answer_preview": "Here's an example of conditional probability with its solution, taken directly from the context:\n\n**Question:**\nA die is thrown. Find P(Even | Number > 3).\n\n**Solution:**\nS1. Numbers > 3 = {4,5,6}.\nEven numbers within this reduced sample space = {4,6}.\nSo, the probability P(Even | Number > 3) = 2/3."
+    },
+    {
+        "query": "Explain independence of events with formula.",
+        "latency_seconds": 7.97,
+        "retrieved_sources": [
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md",
+            "mit18_05_s22_probability.md",
+            "openintro_chapter_random_variables.md",
+            "mit18_05_s22_probability.md",
+            "mit18_05_s22_probability.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 1134,
+        "answer_preview": "According to the context, two events $A$ and $B$ are independent if the probability of both events occurring ($A \\cap B$) is equal to the product of their individual probabilities.\n\nThe formal definition of independence is given by:\n**$P(A \\cap B) = P(A) \\cdot P(B)$** (Equation 6 in the context)\n\nThis means that the occurrence of one event does not influence the probability of the other event occurring.\n\nEquivalently, if $P(B) \\neq 0$, $A$ and $B$ are independent if and only if:\n**$P(A|B) = P(A)$** (Equation 5 in the context)\nThis implies that knowing that event $B$ occurred does not change the probability that event $A$ occurred. Similarly, if $P(A) \\neq 0$, then $A$ and $B$ are independent if and only if $P(B|A) = P(B)$.\n\n**Example from the context:**\nIf you toss a fair coin twice, let $"
+    },
+    {
+        "query": "What is the central limit theorem?",
+        "latency_seconds": 9.39,
+        "retrieved_sources": [
+            "mit18_05_s22_probability.md",
+            "mit18_05_s22_probability.md",
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md",
+            "Lec1-Introduction.md",
+            "mit18_05_s22_probability.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 1579,
+        "answer_preview": "The Central Limit Theorem (CLT) states that the sum or average of many independent and identically distributed (i.i.d) random variables is approximately a normal random variable.\n\nKey aspects of the CLT from the context:\n1.  **Approximation to Normal Distribution:** For a large number of independent samples ($n$) from the same distribution, their sum or average will approximate a normal random variable.\n2.  **Specifics for Average and Sum:**\n    *   The sample average ($\\bar{X}_n$) is approximately a normal distribution with the same mean as the individual random variable ($\\mu$) but a smaller variance ($\\sigma^2/n$).\n    *   The sum ($S_n$) is approximately normal with mean $n\\mu$ and variance $n\\sigma^2$.\n    *   The standardized version ($Z_n = (S_n - n\\mu) / (\\sigma\\sqrt{n})$ or $Z_n ="
+    },
+    {
+        "query": "Define expectation of a random variable.",
+        "latency_seconds": 7.86,
+        "retrieved_sources": [
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md",
+            "openintro_chapter_distributions.md",
+            "mit18_05_s22_probability.md",
+            "mit18_05_s22_probability.md",
+            "d973b10c2587781f86ca4f2aff49098f_MITRES_6_012S18_Textbook.md"
+        ],
+        "retrieval_count": 5,
+        "answer_length": 859,
+        "answer_preview": "The **expected value** (also called the **expectation** or the **mean**) of a random variable X is a measure of its average outcome or central tendency. It is denoted by **E[X]** or **\u00b5**.\n\nFor a **discrete random variable X** with a Probability Mass Function (PMF) `pX(x)`, the expected value is defined as the sum of each possible outcome multiplied by its corresponding probability:\n\n`E[X] = \u03a3 x * pX(x)`\n\nThis can be written as:\n`E(X) = x1 * P(X = x1) + ... + xk * P(X = xk)`\n\nIt represents a weighted average of the possible values and can be thought of as the \"center of mass\" or balancing point of the distribution. The expected value need not be a possible value of the random variable itself.\n\nFor a **continuous random variable X** with a probability density function `fX(x)`, the expected "
+    }
+]

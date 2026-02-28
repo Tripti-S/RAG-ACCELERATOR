@@ -1,0 +1,10 @@
+Inference: the big picture
+
+Predictions Probability theory
+
+(Analysis)
+
+Real world —
+Decisions
+
+Models

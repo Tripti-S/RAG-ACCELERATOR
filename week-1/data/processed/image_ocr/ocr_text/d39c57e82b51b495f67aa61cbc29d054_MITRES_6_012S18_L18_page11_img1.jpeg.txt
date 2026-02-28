@@ -1,0 +1,7 @@
+Some properties
+
+Suppose that Xn — a, Yn — 6, in probability
+
+If g is continuous, then g(Xn) — g(a)
+
+But: E[X,] need not converge to a

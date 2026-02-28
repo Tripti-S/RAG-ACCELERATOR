@@ -1,0 +1,134 @@
+# 8Aa6B8C7B54E1F15A7Ecf77235C3132A Vcyjgp6Enxg
+
+---
+
+MITOCW | MITRES6_012S18_L24-03_300k
+So let us start with our example.
+Suppose that you go to a supermarket, and start observing customers arriving and leaving from a given checkout
+counter.
+Assume that there are two customers in the queue when you arrive.
+For simplicity, assume also the customers come one at a time, that there is a single queue, and that the customer
+in front of the queue is the one getting served by the clerk.
+So what events of interest could happen then?
+A new customer could join the queue, which is an arrival.
+Or the customer currently being served is done, and leaves-- departure.
+Or both events could happen.
+Now for making our model more precise, we need to specify the processes of the customer arrivals and
+departures.
+And for that, let's use some simple discrete time stochastic processes, which we have introduced before.
+So as usual, we first divide time into discrete time steps, say in seconds.
+Here n equals 0 would correspond to the time when you arrived.
+For arrivals, let's assume that customers arrive according to a Bernoulli process with parameter p.
+And at that time, steps here, there is an arrival, perhaps this customer here.
+At 6, there is another customer.
+So during each time interval, independently of what happened in the past, with probability p a new customer
+arrives.
+And with probability 1 minus p, no one comes.
+It may be useful to think about the following imaginary experiment.
+Imagine that during each time interval, nature independently flips a biased coin, which has a probability p of
+resulting in Heads, and 1 minus p in Tails.
+And whenever Heads is the result, then a new customer joins the queue.
+So in our example here, here you obtain Tails, Heads, Tails, Tails, Tails, Heads, Tails, et cetera.
+From the lecture on Bernoulli process, remember that this implies that the time duration-- that means the number
+of time steps between two consecutive arrivals-- follows a geometric random variable with parameter p.
+So here in our example, that time duration of 4 is the result of a geometric random variable with parameter p.
+So again, once in the queue, customers wait their turn until they start being served by the clerk.
+And typically, when a customer starts to check out, the number of times steps it takes to go through the entire
+process will depend on many factors, such as the total number of items selected, the speed or the mood of the
+clerk, and so on, so forth.
+We will model this variation by assuming that the service duration of any customer is the outcome of a random
+variable.
+In particular, we will assume that the number of time steps it takes for any customer to check out is a geometric
+random variable with a constant parameter q.
+That is, the same q for each customer.
+So you might have a departure here.
+That's correspond to that customer here.
+And another departure at time step 6 correspond to that customer.
+It may be useful, again, to think about another imaginary experiment to represent this service duration.
+Imagine the following.
+At the time a customer in the queue becomes the one to be served, that customer starts flipping a biased coin,
+which has a probability q of resulting in Heads.
+And it does so independently during each successive time steps, until Heads appear for the first time, which then
+indicates that the checkout service is done, and that the customer can leave.
+So here in our example, you arrive at that time here.
+And this customer was being served.
+And during that time step, the customer flips a coin resulting in Tails, Tails, Tails, Heads.
+That customer now leaves.
+The next customer start being served.
+At that time, flips a coin-- Tails, Heads-- then that customer leaves again.
+Finally, we will also assume that the processes modeling these arrivals and departures are independent of each
+other.
+Now let us go back to our made up experiment, and assume that you have arrived at 6:45 PM.
+Consider the following question.
+What is the probability that you observe a customer leaving the checkout counter during the first time step?
+In our example, since there were at least one customer in the queue, that probability is then simply q.
+However, if that queue had been empty when you arrive, then that probability would have been 0.
+Another question, would the queue be empty at 6:50 PM?
+That means 5 minutes later.
+Well, it's hard to tell.
+If the initial length of the queue had been huge when you arrive at 6:45 PM, then the probability that it will be
+empty 5 minutes later would be very small, much smaller than the probability in that case, with two customers
+initially, or in that case with an initial empty queue.
+From these questions and answers, it looks like knowing the number of customers in the queue at any point in
+time not only provides a good description of the system at that time, but it does seem to capture the critical
+information we need in order to answer questions about the future evolution of the system.
+So let us define the state of our system as the number of customers in the queue at each time step n, and see
+what we can do.
+So here, in our example, initially we had 2 customers.
+Then, time step 1, still 2 customers.
+Time step 2, we have 1 arrival.
+So we have 3 customers.
+Time step 3 still 3.
+4, 3 minus 1.
+We have a departure, equals 2.
+So 5 will still be 2.
+Time step 6, we have an arrival and a departure.
+So we have 2.
+And so on and so forth.
+Assume now that there is limited space in the supermarket, and that no more than 10 customers can be in the
+queue at any point in time.
+We can then give a graphical representation of all possible states for our system, as follows.
+A system can be 11 different states, from an empty queue with no customer, to a system at full capacity with 10
+customers.
+Let us now describe some possible transitions between these states, from one step to the next.
+Suppose first that the system is in state 2, and that one new customer arrives and no one leaves.
+So you will transition from 2 to 3.
+And this is what happened in this example, from time step 1 to time step 2.
+Suppose now that you are in state 3, and that a customer leaves, and no one arrives.
+Then you will transition to state 2, like what happened between time step 3 and 4.
+What else?
+Well, you could also be in a given state at one time step, and stay in this same state at the next step.
+How?
+It can happen in two ways.
+If there are no arrivals and no departure in the next step, and that was what happened between time step 4 to 5
+here, 4 to 5.
+Or there is 1 arrival and 1 departure, like what happened between time step 5 and 6.
+A graphical representation of all possible one-step transitions can be done with the help of arcs, such as here.
+In order to complete our model, we need to indicate the probabilities associated with these transitions.
+So again, assume that you're currently in state 2, with 2 customers in the queue.
+The probability of next going to state 3 here, with 1 more customer in the queue is simply a probability of having 1
+arrival and no departures.
+On the other hand, the probability of being here, and going in transition next here, correspond to 1 departure and
+no arrival.
+Finally, the system can stay in state 2, like that, when there is 1 arrival and 1 departure, or no arrivals and no
+departures.
+These transition probabilities would be similar if the current state were 1, 3, 9.
+For the two extreme states, the transition probabilities are a bit different.
+If you are in state 0, the queue is empty, and you can go to state 1 with 1 additional customer, with a probability p.
+Or there is no new customer coming, and you stay in state 0.
+And if the queue is at maximum capacity, either you stay at maximum capacity if there is no service, or you go
+down to 9 customers in a queue if you have a departure.
+So one important fact.
+When you are in a given state, for example state 2, and you look at all possible transitions, could go to 3, could go
+to 1, could remain in 2.
+If you sum all the probabilities, p times 1 minus q plus q times 1 minus p plus this total probability here, pq plus 1
+minus p times 1 minus q, you will get a total probability of 1.
+Similarly, if you look at this probability here, they sum to 1.
+And these probabilities sum to 1.
+It's simply says that from one time step to the next, if you consider all possible transition probabilities, they all have
+to sum to 1.
+So in conclusion, this so-called transition probability graph, which is this representation here, provides a complete
+representation of a discrete time finite state Markov chain model of our simple supermarket checkout counter
+example.
+
+---

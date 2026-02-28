@@ -1,0 +1,15 @@
+The Markov inequality
+
+e Use a bit of information about a distribution
+
+to learn something about probabilities of “extreme events”
+e
+
+‘If X > 0 and E[X] is small, then X is unlikely to be very large”
+
+E
+Markov inequality: If X > 0 and a>0, then P(X >a) < [x]
+
+Ee O, 'f X<aq
+
+a if xeq 2Lra)=ElY] £41X]

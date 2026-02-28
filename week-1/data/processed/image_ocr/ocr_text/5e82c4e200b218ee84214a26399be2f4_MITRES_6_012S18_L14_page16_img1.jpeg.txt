@@ -1,0 +1,35 @@
+Discrete ©, continuous X
+
+e Standard example:
+— send signal O € {1,2,3}
+xX =0+W
+
+W ~ N(0,e2), indep. of ©
+fxjo(x | ®) = fw(e - 4)
+
+0.6
+Pe|x (9 | x)
+
+0.3
+0.1
+1 2 3 0
+
+e MAP rule: 6=
+
+pe (9) fxje(a | 4)
+
+Pex (8 | «) = Fx (2)
+
+fx(z) = Vpe) fxje(¢ | 6’)
+g!
+
+e conditional prob of error:
+P(64ACO|X=xz)
+
+smallest under the MAP rule
+
+e overall probability of error:
+P(6 #0) = [PO #O|X=2)fx(a) de
+
+=> P(O 4 0| O = 8) po (6)
+6

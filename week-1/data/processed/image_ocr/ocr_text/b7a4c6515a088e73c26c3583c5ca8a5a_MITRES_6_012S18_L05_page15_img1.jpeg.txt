@@ -1,0 +1,9 @@
+Elementary properties of expectations
+
+e Definition: E[X] = >> zpx (2)
+
+e If X >0, then E[X] >0
+
+e Ifa< xX <b, thena< E[X] <b
+
+e If cis a constant, Efc] =c

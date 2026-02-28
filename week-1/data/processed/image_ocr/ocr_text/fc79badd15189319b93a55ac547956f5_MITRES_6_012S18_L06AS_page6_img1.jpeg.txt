@@ -1,0 +1,18 @@
+Conditional PMF and expectation, given an event
+
+e Condition on an event A => use conditional probabilities
+
+px(«) = P(X = a)
+
+Mpx(2) =1
+E[X] = Sozpx (2)
+
+E[9(X)] = 2 9(x) px(«)
+
+OAsSsume
+px\a(a) = P(X =2| A) L(A)>0
+
+Voexja@z) =1
+E[X | 4] = Dozpx\(e)
+
+E[g(X) | A] = 9) pxya(@)

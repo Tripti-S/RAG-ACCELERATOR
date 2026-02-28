@@ -1,0 +1,37 @@
+Confidence intervals for the mean when o is unknown
+
+MOY 20.2 Gd, HASe
+Vn Vn
+
+P(E, - ) ~ 0.95
+
+Start from o? = E[(X; — 6)?]
+
+e Option 3: Use sample mean estimate
+(X;-0)? > o?
+
+Sir
+
+of the variance
+
+ll
+
+i=1
+
+(but do not know @)
+e Two approximations involved here:
+
+(iG - On)? => o2
+
+is
+
+— CLT: approximately normal } 1
+n-| Fiz
+
+ll
+
+— using estimate of o
+
+e correction for second approximation (t-tables)
+used when n is small
+

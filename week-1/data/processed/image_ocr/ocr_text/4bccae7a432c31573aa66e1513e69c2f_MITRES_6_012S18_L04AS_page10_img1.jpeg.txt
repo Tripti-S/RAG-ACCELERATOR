@@ -1,0 +1,20 @@
+Partitions
+
+e n >1 distinct items; r > 1 persons
+give n; items to person i
+
+— here nyz,...,nr are given nonnegative integers =e
+— withny+---+n=n Cay
+
+e Ordering n items: m!
+— Deal n; to each person i, and then order
+
+i a
+cmean!-..m! =m!
+
+rey msk Memek
+
+|
+number of partitions = — (multinomial coefficient)
+ny! ng! --- nr!
+

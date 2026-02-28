@@ -1,0 +1,11 @@
+Geometric random variable; parameter p: 0<p<1l
+
+e Experiment: infinitely many independent tosses of a coin; P(Heads) = p
+e Sample space: Set of infinite sequences of H and T
+
+e Random variable X: number of tosses until the first Heads
+
+e Model of: waiting times; number of trials until a success
+px(k) =
+
+123456789 ¢

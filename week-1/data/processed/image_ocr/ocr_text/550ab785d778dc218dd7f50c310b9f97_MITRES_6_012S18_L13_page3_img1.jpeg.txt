@@ -1,0 +1,5 @@
+The mean of E[X | Y]: Law of iterated expectations
+
+e gy) =E[X|Y=y] E[E[X | ¥]] = E[X]
+
+E[E[X | Y]|

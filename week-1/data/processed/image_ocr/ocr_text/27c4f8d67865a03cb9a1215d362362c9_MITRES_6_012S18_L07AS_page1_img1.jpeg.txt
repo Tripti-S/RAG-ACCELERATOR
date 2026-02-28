@@ -1,0 +1,14 @@
+LECTURE 7: Conditioning on a random variable; Independence of r.v.’s
+
+e Conditional PMFs
+— Conditional expectations
+
+— Total expectation theorem
+
+e Independence of r.v.’s
+— Expectation properties
+
+— Variance properties
+e The variance of the binomial
+
+e The hat problem: mean and variance

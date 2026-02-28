@@ -1,0 +1,65 @@
+Class 11 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. Learning from experience
+(a) Which treatment would you choose?
+1. Treatment 1: cured 100% of patients in a trial.
+2. Treatment 2: cured 95% of patients in a trial.
+3. Treatment 3: cured 90% of patients in a trial.
+(b) Which treatment would you choose?
+1. Treatment 1: cured 3 out of 3 patients in a trial.
+2. Treatment 2: cured 19 out of 20 patients treated in a trial.
+3. Standard treatment: cured 90000 out of 100000 patients in clinical practice.
+Board questions
+Problem 1. Learning from data
+• A certain disease has a prevalence of 0.005.
+• A screening test has 2% false positives an 1% false negatives.
+Suppose a random patient is screened and has a positive test.
+(a) Represent this information with a tree and use Bayes’ theorem to compute the proba-
+bilities the patient does and doesn’t have the disease.
+(b) Identify the data, hypotheses, likelihoods, prior probabilities and posterior probabilities.
+(c) Make a full likelihood table containing all hypotheses and possible test data.
+(d) Redo the computation using a Bayesian update table. Match the terms in your table
+to the terms in your previous calculation.
+Problem 2. Dice
+I have five dice: 4-sided, 6-sided, 8-sided, 12-sided, 20-sided.
+I pick one at random, roll it and report that the roll was a 13.
+Goal: Find the probabilities the die is 4, 6, 8, 12 or 20 sided.
+(a) Identify the hypotheses.
+(b) Make a likelihood table with columns for the data ‘rolled a 13’, ‘rolled a 5’ and ‘rolled
+a 9’.
+(c) Make a Bayesian update table and compute the posterior probabilities that the chosen
+die is each of the five dice.
+(d) Same question if I had reported a 5.
+(e) Same question if I had reported a 9.
+1
+18.05 class 11 problems, Spring 2022 2
+Problem 3. Iterated updates
+Suppose I rolled a 9 and then a 5.
+(a) Do the Bayesian update in two steps:
+Step 1: First update for the 9.
+Step 2: Then update the update for the 5.
+(b) Do the Bayesian update in one step.
+That is, the data is 𝒟 = ‘9 followed by 5’
+Problem 4. Probabilistic prediction (Probably won’t get here till next time)
+With the same setup as before let:
+𝒟 = result of first roll, 𝒟 = result of second roll
+1 2
+(a) Find 𝑃(𝒟 = 5).
+1
+(b) Find 𝑃 (𝒟 = 4|𝒟 = 5).
+2 1
+Extra problems
+Extra 1. Bayesian updating: terminology, trees, tables
+I have a bag with one 4-sided die and 999 6-sided dice. I pick one at random and roll it.
+Suppose I get a 3.
+Goal: find the probabilities the chosen die was 4-sided or 6-sided.
+(a) Identify the hypotheses.
+(b) Use Bayes’ theorem to compute the posterior probabilities. Organize the computation
+using trees.
+(c) Connect all the Bayesian updating terminology with the parts of the computation.
+(d) Redo the computation using a Bayesian updating table.
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

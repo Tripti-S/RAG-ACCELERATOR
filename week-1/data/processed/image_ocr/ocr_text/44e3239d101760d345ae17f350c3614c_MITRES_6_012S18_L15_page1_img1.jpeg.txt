@@ -1,0 +1,17 @@
+LECTURE 15: Linear models with normal noise
+
+m
+X,= D> a0; + Wi W;, ©j: independent, normal
+j=l
+
+e Very common and convenient model
+e Bayes’ rule: normal posteriors
+
+e MAP and LMS estimates coincide
+
+— simple formulas
+(linear in the observations)
+
+e Many nice properties
+
+e Trajectory estimation example

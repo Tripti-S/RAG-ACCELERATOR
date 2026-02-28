@@ -1,0 +1,15 @@
+Markov processes — II
+
+* review and some warm-up
+— definitions, Markov property
+— calculating the probabilities of trajectories )
+* steady-state behavior
+— recurrent states, transient states, recurrent classes
+
+—_——— _——__—
+
+— periodic states )
+
+— convergence theorem ))
+— balance equations )
+* birth-death processes o—

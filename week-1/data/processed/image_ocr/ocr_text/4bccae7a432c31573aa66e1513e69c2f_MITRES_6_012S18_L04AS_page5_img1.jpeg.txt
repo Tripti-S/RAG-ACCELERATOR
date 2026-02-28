@@ -1,0 +1,21 @@
+Combinations e Definition: ic number of k-element subsets
+
+Ge of a given n-element set
+N= Oo, | ye ee
+
+e Two ways of constructing an ordered sequence of k distinct items: le = © a) OE he
+
+>
+
+(I
+
+— Choose the k items one at a time
+
+— Choose k items, then order them K
+'
+
+Pee, © 6 eco |
+
+™(M-1) (m-2) -
+“)
+

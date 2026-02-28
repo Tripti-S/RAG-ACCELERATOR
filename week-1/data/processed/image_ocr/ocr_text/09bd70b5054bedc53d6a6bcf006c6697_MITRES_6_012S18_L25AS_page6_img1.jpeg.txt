@@ -1,0 +1,21 @@
+é
+steady-state prpbabilities aos ()_
+[rs Se (EZ <
+
+does rjj(n) = P(Xn=j| Xo =i) converge to somd7))?
+_— nn
+* theorem: yes, if:
+
+— recurrent states are all in a single class, and
+— single recurrent class is not periodic
+
+™
+
+* assuming “yes”, start from key recursion rij(n) = Sorin(n — 1)px;
+ait k=
+
+— take the limit as n — oo WO '
+
+— need also: = WwW =
+(=) a a sol” ™m tei Tis
+

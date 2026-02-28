@@ -1,0 +1,1 @@
+t® = E[min{n > 1 such that X, =s}|Xo =<]

@@ -1,0 +1,24 @@
+LECTURE 8: Continuous random variables and probability density functions
+
+e Probability density functions
+— Properties
+
+— Examples
+
+e Expectation and its properties
+— The expected value rule
+
+— Linearity
+
+Variance and its properties
+
+e Uniform and exponential random variables
+e Cumulative distribution functions
+
+e Normal random variables
+
+— Expectation and variance
+
+— Linearity properties
+
+— Using tables to calculate probabilities

@@ -1,0 +1,18 @@
+LMS estimation in the absence of observations
+
+e unknown ©; prior po(A)
+
+“3 fo)
+— interested in a point estimate @
+— no observations available 1/6
+a o]
+— MAP rule: Quy gel
+~ 4
+
+— (Conditional) expectation: 6 =7
+
+Criterion: Mean Squared Error (MSE): E [co a OR
+
+minimize mean squared error
+
+10

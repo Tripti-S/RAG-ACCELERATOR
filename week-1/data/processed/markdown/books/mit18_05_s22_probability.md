@@ -1,0 +1,4418 @@
+# Mit18 05 S22 Probability
+
+---
+
+Introduction
+Class 1, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Probability vs. Statistics
+In this introduction we will preview what we will be studying in 18.05. Don’t worry if many
+of the terms are unfamiliar, they will be explained as the course proceeds.
+Probability and statistics are deeply connected because all statistical statements are at bot-
+tom statements about probability. Despite this the two sometimes feel like very different
+subjects. Probability is logically self-contained; there are a few rules and answers all follow
+logically from the rules, though computations can be tricky. In statistics we apply proba-
+bility to draw conclusions from data. This can be messy and usually involves as much art
+as science.
+Probability example
+You have a fair coin (equal probability of heads or tails). You will toss it 100 times. What
+is the probability of 60 or more heads? There is only one answer (about 0.028444) and we
+will learn how to compute it.
+Statistics example
+You have a coin of unknown provenance. To investigate whether it is fair you toss it 100
+times and count the number of heads. Let’s say you count 60 heads. Your job as a statis-
+tician is to draw a conclusion (inference) from this data. There are many ways to proceed,
+both in terms of the form the conclusion takes and the probability computations used to
+justify the conclusion. In fact, different statisticians might draw different conclusions.
+Note that in the first example the random process is fully known (probability of heads =
+0.5). The objective is to find the probability of a certain outcome (at least 60 heads) arising
+from the random process. In the second example, the outcome is known (60 heads) and the
+objective is to illuminate the unknown random process (the probability of heads).
+2 Frequentist vs. Bayesian Interpretations
+There are two prominent and sometimes conflicting schools of statistics: Bayesian and
+frequentist. Their approaches are rooted in differing interpretations of the meaning of
+probability.
+Frequentists say that probability measures the frequency of various outcomes of an ex-
+periment. For example, saying a fair coin has a 50% probability of heads means that if we
+toss it many times then we expect about half the tosses to land heads.
+Bayesians say that probability is an abstract concept that measures a state of knowledge
+or a degree of belief in a given proposition. In practice Bayesians do not assign a single
+value for the probability of a coin coming up heads. Rather they consider a range of values
+each with its own probability of being true.
+In 18.05 we will study and compare these approaches. The frequentist approach has long
+1
+18.05 Class 1, Introduction, Spring 2022 2
+been dominant in fields like biology, medicine, public health and social sciences. The
+Bayesian approach has enjoyed a resurgence in the era of powerful computers and big
+data. It is especially useful when incorporating new data into an existing statistical model,
+for example, when training a speech or face recognition system. Today, statisticians are
+creating powerful tools by using both approaches in complementary ways.
+3 Applications, Toy Models, and Simulation
+Probabilityandstatisticsareusedwidelyinthephysicalsciences,engineering,medicine,the
+social sciences, the life sciences, economics and computer science. The list of applications is
+essentially endless: tests of one medical treatment against another (or a placebo), measures
+ofgeneticlinkage, thesearchforelementaryparticles, machinelearningforvisionorspeech,
+gamblingprobabilitiesandstrategies,climatemodeling,economicforecasting,epidemiology,
+marketing,googling…Wewilldrawonexamplesfrommanyofthesefieldsduringthiscourse.
+Given so many exciting applications, you may wonder why we will spend so much time
+thinking about toy models like coins and dice. By understanding these thoroughly we will
+develop a good feel for the simple essence inside many complex real-world problems. In
+fact, the modest coin is a realistic model for any situations with two possible outcomes:
+success or failure of a treatment, an airplane engine, a bet, or even a class.
+Sometimes a problem is so complicated that the best way to understand it is through
+computer simulation. Here we use software to run virtual experiments many times in order
+to estimate probabilities. In this class we will use R for simulation as well as computation
+and visualization. Don’t worry if you’re new to R; we will teach you all you need to know.
+Counting and Sets
+Class 1, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Know the definitions and notation for sets, intersection, union, complement.
+2. Be able to visualize set operations using Venn diagrams.
+3. Understand how counting is used computing probabilities.
+4. Be able to use the rule of product, inclusion-exclusion principle, permutations and com-
+binations to count the elements in a set.
+2 Counting
+2.1 Motivating questions
+Example 1. A coin is fair if it comes up heads or tails with equal probability. You flip a
+fair coin three times. What is the probability that exactly one of the flips results in a head?
+Solution: With three flips, we can easily list the eight possible outcomes:
+{𝑇𝑇𝑇,𝑇𝑇𝐻,𝑇𝐻𝑇,𝑇𝐻𝐻,𝐻𝑇𝑇,𝐻𝑇𝐻,𝐻𝐻𝑇,𝐻𝐻𝐻}
+Three of these outcomes have exactly one head:
+{𝑇𝑇𝐻,𝑇𝐻𝑇,𝐻𝑇𝑇}
+Since all outcomes are equally probable, we have
+number of outcomes with 1 head 3
+𝑃(1 head in 3 flips) = = .
+total number of outcomes 8
+Think: Would listing the outcomes be practical with 10 flips?
+A deck of 52 cards has 13 ranks (2, 3, …, 9, 10, J, Q, K, A) and 4 suits (♡,♠,♢,♣,). A
+poker hand consists of 5 cards. A one-pair hand consists of two cards having one rank and
+three cards having three other ranks, e.g., {2♡,2♠,5♡,8♣,K♢}
+Test your intuition: the probability of a one-pair hand is:
+(a) less than 5%
+(b) between 5% and 10%
+(c) between 10% and 20%
+(d) between 20% and 40%
+(e) greater than 40%
+1
+18.05 Class 1, Counting and Sets, Spring 2022 2
+At this point we can only guess the probability. One of our goals is to learn how to compute
+it exactly. To start, we note that since every set of five cards is equally probable, we can
+compute the probability of a one-pair hand as
+number of one-pair hands
+𝑃(one-pair) =
+total number of hands
+So, to find the exact probability, we need to count the number of elements in each of these
+sets. And we have to be clever about it, because there are too many elements to simply
+list them all. We will come back to this problem after we have learned some counting
+techniques.
+Several times already we have noted that all the possible outcomes were equally probable
+and used this to find a probability by counting. Let’s state this carefully in the following
+principle.
+Principle: Suppose there are 𝑛 possible outcomes for an experiment and each is equally
+probable. If there are 𝑘 desirable outcomes then the probability of a desirable outcome is
+𝑘/𝑛. Of course we could replace the word desirable by any other descriptor: undesirable,
+funny, interesting, remunerative, …
+Concept question: Can you think of a scenario where the possible outcomes are not
+equally probable?
+Here’s one scenario: on an exam you can get any score from 0 to 100. That’s 101 different
+possible outcomes. Is the probability you get less than 50 equal to 50/101?
+2.2 Sets and notation
+Our goal is to learn techniques for counting the number of elements of a set, so we start
+with a brief review of sets. (If this is new to you, please come to oﬀice hours).
+2.2.1 Definitions
+A set 𝑆 is a collection of elements. We use the following notation.
+Element: We write 𝑥 ∈ 𝑆 to mean the element 𝑥 is in the set 𝑆.
+Subset: We say the set 𝐴 is a subset of 𝑆 if all of its elements are in 𝑆. We write this as
+𝐴 ⊂ 𝑆.
+Complement:: The complement of 𝐴 in 𝑆 is the set of elements of 𝑆 that are not in 𝐴.
+We write this as 𝐴𝑐 or 𝑆 −𝐴.
+Union: The union of 𝐴 and 𝐵 is the set of all elements in 𝐴 or 𝐵 (or both). We write this
+as 𝐴∪𝐵.
+Intersection: The intersection of 𝐴 and 𝐵 is the set of all elements in both 𝐴 and 𝐵. We
+write this as 𝐴∩𝐵.
+Empty set: The empty set is the set with no elements. We denote it ∅.
+Disjoint: 𝐴 and 𝐵 are disjoint if they have no common elements. That is, if 𝐴∩𝐵 = ∅.
+Difference: The difference of 𝐴 and 𝐵 is the set of elements in 𝐴 that are not in 𝐵. We
+write this as 𝐴−𝐵.
+18.05 Class 1, Counting and Sets, Spring 2022 3
+Let’s illustrate these operations with a simple example.
+Example 2. Start with a set of 10 animals
+𝑆 = {Antelope, Bee, Cat, Dog, Elephant, Frog, Gnat, Hyena, Iguana, Jaguar}.
+Consider two subsets:
+𝑀 = the animal is a mammal = {Antelope, Cat, Dog, Elephant, Hyena, Jaguar}
+𝑊 = the animal lives in the wild = {Antelope, Bee, Elephant, Frog, Gnat, Hyena, Iguana, Jaguar}.
+Our goal here is to look at different set operations.
+Intersection: 𝑀∩𝑊 containsallwildmammals: 𝑀∩𝑊 = {Antelope, Elephant, Hyena, Jaguar}.
+Union: 𝑀 ∪ 𝑊 contains all animals that are mammals or wild (or both).
+𝑀 ∪ 𝑊 = {Antelope, Bee, Cat, Dog, Elephant, Frog, Gnat, Hyena, Iguana, Jaguar}.
+Complement: 𝑀𝑐 means everything that is not in 𝑀, i.e. not a mammal. 𝑀𝑐 =
+{Bee, Frog, Gnat, Iguana}.
+Difference: 𝑀 − 𝑊 means everything that’s in 𝑀 and not in 𝑊. So, 𝑀 − 𝑊 =
+{Cat, Dog}.
+There are often many ways to get the same set, e.g. 𝑀𝑐 = 𝑆 −𝑀, 𝑀 −𝑊 = 𝑀 ∩ 𝑊𝑐.
+Therelationshipbetweenunion, intersection, andcomplementisgivenbyDeMorgan’slaws:
+(𝐴∪𝐵)𝑐 = 𝐴𝑐 ∩𝐵𝑐
+(𝐴∩𝐵)𝑐 = 𝐴𝑐 ∪𝐵𝑐
+In words the first law says everything not in (𝐴 or 𝐵) is the same set as everything that’s
+(not in 𝐴) and (not in 𝐵). The second law is similar.
+2.2.2 Venn Diagrams
+Venn diagrams offer an easy way to visualize set operations.
+In all the figures 𝑆 is the region inside the large rectangle, 𝐿 is the region inside the left
+circle and 𝑅 is the region inside the right circle. The shaded region shows the set indicated
+underneath each figure.
+𝑆 𝐿 𝑅
+𝐿 ∪ 𝑅 𝐿 ∩ 𝑅 𝐿𝑐 𝐿−𝑅
+18.05 Class 1, Counting and Sets, Spring 2022 4
+Proof of DeMorgan’s Laws
+(𝐿 ∪ 𝑅)𝑐 𝐿𝑐 𝑅𝑐 𝐿𝑐 ∩ 𝑅𝑐
+(𝐿 ∩ 𝑅)𝑐 𝐿𝑐 𝑅𝑐 𝐿𝑐 ∪ 𝑅𝑐
+Example 3. Verify DeMorgan’s laws for the subsets 𝐴 = {1,2,3} and 𝐵 = {3,4} of the
+set 𝑆 = {1,2,3,4,5}.
+Solution: For each law we just work through both sides of the equation and show they are
+the same.
+1. (𝐴 ∪ 𝐵)𝑐 = 𝐴𝑐 ∩ 𝐵𝑐:
+Right hand side: 𝐴 ∪ 𝐵 = {1,2,3,4} ⇒ (𝐴 ∪ 𝐵)𝑐 = {5}.
+Left hand side: 𝐴𝑐 = {4,5}, 𝐵𝑐 = {1,2,5} ⇒ 𝐴𝑐 ∩ 𝐵𝑐 = {5}.
+The two sides are equal. QED
+2. (𝐴 ∩ 𝐵)𝑐 = 𝐴𝑐 ∪ 𝐵𝑐:
+Right hand side: 𝐴 ∩ 𝐵 = {3} ⇒ (𝐴 ∩ 𝐵)𝑐 = {1,2,4,5}.
+Left hand side: 𝐴𝑐 = {4,5}, 𝐵𝑐 = {1,2,5} ⇒ 𝐴𝑐 ∪ 𝐵𝑐 = {1,2,4,5}.
+The two sides are equal. QED
+Think: Draw and label a Venn diagram with 𝐴 the set of Brain and Cognitive Science
+majors and 𝐵 the set of sophomores. Shade the region illustrating the first law. Can you
+express the first law in this case as a non-technical English sentence?
+2.2.3 Products of sets
+The product of sets 𝑆 and 𝑇 is the set of ordered pairs:
+𝑆 ×𝑇 = {(𝑠,𝑡)|𝑠 ∈ 𝑆,𝑡 ∈ 𝑇}.
+In words the right-hand side reads “the set of ordered pairs (𝑠,𝑡) such that 𝑠 is in 𝑆 and 𝑡
+is in 𝑇.
+The following diagrams show two examples of the set product.
+18.05 Class 1, Counting and Sets, Spring 2022 5
+4
+× 1 2 3 4
+3
+1 (1,1) (1,2) (1,3) (1,4)
+2 (2,1) (2,2) (2,3) (2,4)
+3 (3,1) (3,2) (3,3) (3,4)
+1
+{1,2,3}×{1,2,3,4}
+1 4 5
+[1,4]×[1,3] ⊂ [0,5]×[0,4]
+The right-hand figure also illustrates that if 𝐴 ⊂ 𝑆 and 𝐵 ⊂ 𝑇 then 𝐴×𝐵 ⊂ 𝑆 ×𝑇.
+2.3 Counting
+If 𝑆 is finite, we use |𝑆| or #𝑆 to denote the number of elements of 𝑆.
+Two useful counting principles are the inclusion-exclusion principle and the rule of product.
+2.3.1 Inclusion-exclusion principle
+The inclusion-exclusion principle says
+|𝐴∪𝐵| = |𝐴|+|𝐵|−|𝐴∩𝐵|.
+We can illustrate this with a Venn diagram. 𝑆 is all the dots, 𝐴 is the dots in the blue
+circle, and 𝐵 is the dots in the red circle.
+𝑆
+𝐵 𝐴 ∩ 𝐵 𝐴
+|𝐴|isthenumberofdotsin𝐴andlikewisefortheothersets. Thefigureshowsthat|𝐴|+|𝐵|
+double-counts |𝐴 ∩ 𝐵|, which is why |𝐴 ∩ 𝐵| is subtracted off in the inclusion-exclusion
+formula.
+Example 4. In a band of singers and guitarists, seven people sing, four play the guitar,
+and two do both. How big is the band?
+18.05 Class 1, Counting and Sets, Spring 2022 6
+Solution: Let 𝑆 be the set singers and 𝐺 be the set guitar players. The inclusion-exclusion
+principle says
+size of band = |𝑆 ∪ 𝐺| = |𝑆|+|𝐺|−|𝑆 ∩ 𝐺| = 7+4−2 = 9.
+2.3.2 Rule of Product
+The Rule of Product says:
+If there are 𝑛 ways to perform action 1 and then by 𝑚 ways to perform action
+2, then there are 𝑛⋅𝑚 ways to perform action 1 followed by action 2.
+We will also call this the multiplication rule.
+Example 5. If you have 3 shirts and 4 pants then you can make 3⋅4 = 12 outfits.
+Think: An extremely important point is that the rule of product holds even if the ways to
+perform action 2 depend on action 1, as long as the number of ways to perform action 2 is
+independent of action 1. To illustrate this:
+Example 6. There are 5 competitors in the 100m final at the Olympics. In how many
+ways can the gold, silver, and bronze medals be awarded?
+Solution: There are 5 ways to award the gold. Once that is awarded there are 4 ways to
+award the silver and then 3 ways to award the bronze: answer 5⋅4⋅3 = 60 ways.
+Note that the choice of gold medalist affects who can win the silver, but the number of
+possible silver medalists is always four.
+2.4 Permutations and combinations
+2.4.1 Permutations
+A permutation of a set is a particular ordering of its elements. For example, the set {𝑎,𝑏,𝑐}
+has six permutations: 𝑎𝑏𝑐,𝑎𝑐𝑏,𝑏𝑎𝑐,𝑏𝑐𝑎,𝑐𝑎𝑏,𝑐𝑏𝑎. We found the number of permutations by
+listing them all. We could also have found the number of permutations by using the rule
+of product. That is, there are 3 ways to pick the first element, then 2 ways for the second,
+and 1 for the third. This gives a total of 3⋅2⋅1 = 6 permutations.
+Ingeneral,theruleofproducttellsusthatthenumberofpermutationsofasetof𝑘elements
+is
+𝑘! = 𝑘⋅(𝑘−1)⋯3⋅2⋅1.
+We also talk about the permutations of 𝑘 things out of a set of 𝑛 things. We show what
+this means with an example.
+Example 7. List all the permutations of 3 elements out of the set {𝑎,𝑏,𝑐,𝑑}.
+Solution: This is a longer list,
+𝑎𝑏𝑐 𝑎𝑐𝑏 𝑏𝑎𝑐 𝑏𝑐𝑎 𝑐𝑎𝑏 𝑐𝑏𝑎
+𝑎𝑏𝑑 𝑎𝑑𝑏 𝑏𝑎𝑑 𝑏𝑑𝑎 𝑑𝑎𝑏 𝑑𝑏𝑎
+𝑎𝑐𝑑 𝑎𝑑𝑐 𝑐𝑎𝑑 𝑐𝑑𝑎 𝑑𝑎𝑐 𝑑𝑐𝑎
+𝑏𝑐𝑑 𝑏𝑑𝑐 𝑐𝑏𝑑 𝑐𝑑𝑏 𝑑𝑏𝑐 𝑑𝑐𝑏
+18.05 Class 1, Counting and Sets, Spring 2022 7
+Note that 𝑎𝑏𝑐 and 𝑎𝑐𝑏 count as distinct permutations. That is, for permutations the order
+matters.
+There are 24 permutations. Note that the rule of product would have told us there are
+4⋅3⋅2 = 24 permutations without bothering to list them all.
+2.4.2 Combinations
+In contrast to permutations, in combinations order does not matter: permutations are lists
+and combinations are sets. We show what we mean with an example
+Example 8. List all the combinations of 3 elements out of the set {𝑎,𝑏,𝑐,𝑑}.
+Solution: Such a combination is a collection of 3 elements without regard to order. So, 𝑎𝑏𝑐
+and 𝑐𝑎𝑏 both represent the same combination. We can list all the combinations by listing
+all the subsets of exactly 3 elements.
+{𝑎,𝑏,𝑐} {𝑎,𝑏,𝑑} {𝑎,𝑐,𝑑} {𝑏,𝑐,𝑑}
+There are only 4 combinations. Contrast this with the 24 permutations in the previous
+example. The factor of 6 comes because every combination of 3 things can be written in 6
+different orders.
+2.4.3 Formulas
+We’ll use the following notations.
+𝑃 = number of permutations (lists) of 𝑘 distinct elements from a set of size 𝑛
+𝑛 𝑘
+𝐶 = (𝑛) = number of combinations (subsets) of 𝑘 elements from a set of size 𝑛
+𝑛 𝑘 𝑘
+We emphasize that by the number of combinations of 𝑘 elements we mean the number of
+subsets of size 𝑘.
+These have the following notation and formulas:
+𝑛!
+Permutations: 𝑃 = = 𝑛(𝑛−1)⋯(𝑛−𝑘+1)
+𝑛 𝑘 (𝑛−𝑘)!
+𝑛! 𝑃
+Combinations: 𝐶 = = 𝑛 𝑘
+𝑛 𝑘 𝑘!(𝑛−𝑘)! 𝑘!
+Thenotation 𝐶 isread“𝑛choose𝑘”. Theformulafor 𝑃 followsfromtheruleofproduct.
+𝑛 𝑘 𝑛 𝑘
+It also implies the formula for 𝐶 because a subset of size 𝑘 can be ordered in 𝑘! ways.
+𝑛 𝑘
+We can illustrate the relation between permutations and combinations by lining up the
+results of the previous two examples.
+𝑎𝑏𝑐 𝑎𝑐𝑏 𝑏𝑎𝑐 𝑏𝑐𝑎 𝑐𝑎𝑏 𝑐𝑏𝑎 {𝑎,𝑏,𝑐}
+𝑎𝑏𝑑 𝑎𝑑𝑏 𝑏𝑎𝑑 𝑏𝑑𝑎 𝑑𝑎𝑏 𝑑𝑏𝑎 {𝑎,𝑏,𝑑}
+𝑎𝑐𝑑 𝑎𝑑𝑐 𝑐𝑎𝑑 𝑐𝑑𝑎 𝑑𝑎𝑐 𝑑𝑐𝑎 {𝑎,𝑐,𝑑}
+𝑏𝑐𝑑 𝑏𝑑𝑐 𝑐𝑏𝑑 𝑐𝑑𝑏 𝑑𝑏𝑐 𝑑𝑐𝑏 {𝑏,𝑐,𝑑}
+Permutations: 𝑃 Combinations: 𝐶
+4 3 4 3
+Notice that each row in the permutations list consists of all 3! permutations of the corre-
+sponding set in the combinations list.
+18.05 Class 1, Counting and Sets, Spring 2022 8
+2.4.4 Examples
+Example 9. Count the following:
+(i) The number of ways to choose 2 out of 4 things (order does not matter).
+(ii) The number of ways to list 2 out of 4 things.
+(iii) The number of ways to choose 3 out of 10 things.
+Solution: (i) This is asking for combinations: (4) = 4! = 6.
+2 2!2!
+(ii) This is asking for permuations: 𝑃 = 4! = 12.
+4 2 2!
+(iii) This is asking for combinations: (10) = 10! = 10⋅9⋅8 = 120.
+3 3!7! 3⋅2⋅1
+Example 10. (i) Count the number of ways to get 3 heads in a sequence of 10 flips of a
+coin.
+(ii) If the coin is fair, what is the probability of exactly 3 heads in 10 flips?
+Solution: (i) This asks for the number sequences of 10 flips (heads or tails) with exactly
+3 heads. That is, we have to choose exactly 3 out of 10 flips to be heads. This is the same
+question as in the previous example.
+10 10! 10⋅9⋅8
+( ) = = = 120.
+3 3!7! 3⋅2⋅1
+(ii) Each flip has 2 possible outcomes (heads or tails). So the rule of product says there are
+210 = 1024 sequences of 10 flips. Since the coin is fair each sequence is equally probable.
+So the probability of 3 heads is
+120
+= 0.117.
+1024
+Probability: Terminology and Examples
+Class 2, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Know the definitions of sample space, event and probability function.
+2. Be able to organize a scenario with randomness into an experiment and sample space.
+3. Be able to make basic computations using a probability function.
+2 Terminology
+2.1 Probability cast list
+• Experiment: a repeatable procedure with well-defined possible outcomes.
+• Sample space: the set of all possible outcomes. We usually denote the sample space by
+Ω, sometimes by 𝑆.
+• Event: a subset of the sample space.
+• Probability function: a function giving the probability for each outcome.
+Later in the course we will learn about
+• Probability density: a continuous distribution of probabilities.
+• Random variable: a random numerical outcome.
+2.2 Simple examples
+Example 1. Toss a fair coin.
+Experiment: toss the coin, report if it lands heads or tails.
+Sample space: Ω = {𝐻, 𝑇}.
+Probability function: 𝑃(𝐻) = 0.5, 𝑃(𝑇) = 0.5.
+Example 2. Toss a fair coin 3 times.
+Experiment: toss the coin 3 times, list the results.
+Sample space: Ω = {𝐻𝐻𝐻, 𝐻𝐻𝑇, 𝐻𝑇𝐻, 𝐻𝑇𝑇, 𝑇𝐻𝐻, 𝑇𝐻𝑇, 𝑇𝑇𝐻, 𝑇𝑇𝑇}.
+Probability function: Each outcome is equally likely with probability 1/8.
+For small sample spaces we can put the set of outcomes and probabilities into a probability
+table.
+Outcomes HHH HHT HTH HTT THH THT TTH TTT
+Probability 1/8 1/8 1/8 1/8 1/8 1/8 1/8 1/8
+1
+18.05 Class 2, Probability: Terminology and Examples, Spring 2022 2
+Example 3. Measure the mass of a proton
+Experiment: follow some defined procedure to measure the mass and report the result.
+Sample space: Ω = [0,∞), i.e. in principle we can get any positive value.
+Probabilityfunction: sincethereisacontinuumofpossibleoutcomesthereisnoprobability
+function. Instead we need to use a probability density, which we will learn about later in
+the course.
+Example 4. Taxis (An infinite discrete sample space)
+Experiment: count the number of taxis that pass 77 Mass. Ave during an 18.05 class.
+Sample space: Ω = {0, 1, 2, 3, 4, …}.
+This is often modeled with the following probability function known as the Poisson distri-
+bution. (Do not worry about mastering the Poisson distribution just yet):
+𝜆𝑘
+𝑃(𝑘) = e−𝜆 ,
+𝑘!
+where 𝜆 is the average number of taxis. We can put this in a table:
+Outcome 0 1 2 3 … k …
+Probability e−𝜆 e−𝜆𝜆 e−𝜆𝜆2/2 e−𝜆𝜆3/3! … e−𝜆𝜆𝑘/𝑘! …
+∞ 𝜆𝑘
+Question: Accepting that this is a valid probability function, what is ∑e−𝜆 ?
+𝑘!
+𝑘=0
+Solution: This is the total probability of all possible outcomes, so the sum equals 1.
+∞ 𝜆𝑛
+(Note, this also follows from the Taylor series e𝜆 = ∑ .)
+𝑛!
+𝑛=0
+In a given setup there can be more than one reasonable choice of sample space. Here is a
+simple example.
+Example 5. Two dice (Choice of sample space)
+Suppose you roll one die. Then the sample space and probability function are
+Outcome 1 2 3 4 5 6
+Probability: 1/6 1/6 1/6 1/6 1/6 1/6
+Now suppose you roll two dice. What should be the sample space? Here are two options.
+1. Record the pair of numbers showing on the dice (first die, second die).
+2. Record the sum of the numbers on the dice. In this case there are 11 outcomes
+{2,3,4,5,6,7,8,9,10,11,12}. These outcomes are not all equally likely.
+As above, we can put this information in tables. For the first case, the sample space is the
+product of the sample spaces for each die
+{(1,1), (2,1), (3,1),…(6,6)}
+Each of the 36 outcomes is equally likely. (Why 36 outcomes?) For the probability function
+we will make a two dimensional table with the rows corresponding to the number on the
+first die, the columns the number on the second die and the entries the probability.
+18.05 Class 2, Probability: Terminology and Examples, Spring 2022 3
+Die 2
+1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+Die 1 3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+Two dice in a two dimensional table
+In the second case we can present outcomes and probabilities in our usual table.
+outcome 2 3 4 5 6 7 8 9 10 11 12
+probability 1/36 2/36 3/36 4/36 5/36 6/36 5/36 4/36 3/36 2/36 1/36
+The sum of two dice
+Think: What is the relationship between the two probability tables above?
+We will see that the best choice of sample space depends on the context. For now, simply
+note that given the outcome as a pair of numbers it is easy to find the sum.
+Note. Listing the experiment, sample space and probability function is a good way to start
+working systematically with probability. It can help you avoid some of the common pitfalls
+in the subject.
+Events.
+An event is a collection of outcomes, i.e. an event is a subset of the sample space Ω. This
+sounds odd, but it actually corresponds to the common meaning of the word.
+Example 6. Using the setup in Example ?? we would describe the event that you get
+exactly two heads in words by 𝐸 = ‘exactly 2 heads’. Written as a subset this becomes
+𝐸 = {𝐻𝐻𝑇, 𝐻𝑇𝐻, 𝑇𝐻𝐻}.
+You should get comfortable moving between describing events in words and as subsets of
+the sample space.
+The probability of an event 𝐸 is computed by adding up the probabilities of all of the
+outcomes in 𝐸. In this example each outcome has probability 1/8, so we have 𝑃(𝐸) = 3/8.
+2.3 Definition of a discrete sample space
+Definition. A discrete sample space is one that is listable, it can be either finite or infinite.
+Examples. {H, T}, {1, 2, 3}, {1, 2, 3, 4, …}, {2, 3, 5, 7, 11, 13, 17, …} are all discrete
+sets. The first two are finite and the last two are infinite.
+Example. The interval 0 ≤ 𝑥 ≤ 1 is not discrete, rather it is continuous. We will deal
+with continuous sample spaces in a few days.
+18.05 Class 2, Probability: Terminology and Examples, Spring 2022 4
+2.4 The probability function
+So far we’ve been using a casual definition of the probability function. Let’s give a more
+precise one.
+Careful definition of the probability function.
+For a discrete sample space 𝑆 a probability function 𝑃 assigns to each outcome 𝜔 a number
+𝑃(𝜔) called the probability of 𝜔. 𝑃 must satisfy two rules:
+• Rule 1. 0 ≤ 𝑃(𝜔) ≤ 1 (probabilities are between 0 and 1).
+• Rule 2. The sum of the probabilities of all possible outcomes is 1 (something must
+occur)
+In symbols, Rule 2 says: if 𝑆 = {𝜔 ,𝜔 ,…,𝜔 } then 𝑃(𝜔 )+𝑃(𝜔 )+…+𝑃(𝜔 ) = 1. Or,
+1 2 𝑛 1 2 𝑛
+𝑛
+using summation notation: ∑𝑃(𝜔 ) = 1.
+𝑗
+𝑗=1
+The probability of an event 𝐸 is the sum of the probabilities of all the outcomes in 𝐸. That
+is,
+𝑃(𝐸) = ∑𝑃(𝜔).
+𝜔∈𝐸
+Think: Check Rules 1 and 2 on Examples 1 and 2 above.
+Example 7. Flip until heads (A classic example)
+Suppose we have a coin with probability 𝑝 of heads and we have the following scenario.
+Experiment: Toss the coin until the first heads. Report the number of tosses.
+Sample space: Ω = {1, 2, 3, …}.
+Probability function: 𝑃(𝑛) = (1−𝑝)𝑛−1𝑝.
+Challenge 1: show the sum of all the probabilities equals 1 (hint: geometric series).
+Challenge 2: justify the formula for 𝑃(𝑛) (we will do this soon).
+Stopping problems. The previous toy example is an uncluttered version of a general
+class of problems called stopping rule problems. A stopping rule is a rule that tells you
+when to end a certain process. In the toy example above the process was flipping a coin
+and we stopped after the first heads. A more practical example is a rule for ending a series
+of medical treatments. Such a rule could depend on how well the treatments are working,
+how the patient is tolerating them and the probability that the treatments would continue
+to be effective. One could ask about the probability of stopping within a certain number of
+treatments or the average number of treatments you should expect before stopping.
+3 Some rules of probability
+For events 𝐴, 𝐿 and 𝑅 contained in a sample space Ω.
+Rule 1. 𝑃(𝐴𝑐) = 1−𝑃(𝐴).
+Rule 2. If 𝐿 and 𝑅 are disjoint then 𝑃(𝐿∪𝑅) = 𝑃(𝐿)+𝑃(𝑅).
+18.05 Class 2, Probability: Terminology and Examples, Spring 2022 5
+Rule 3. If 𝐿 and 𝑅 are not disjoint, we have the inclusion-exclusion principle:
+𝑃(𝐿 ∪ 𝑅) = 𝑃(𝐿)+𝑃(𝑅)−𝑃(𝐿 ∩ 𝑅)
+We visualize these rules using Venn diagrams.
+𝐴𝑐
+𝐿 𝑅 𝐿 𝑅
+𝐴
+Ω=𝐴∪𝐴𝑐, no overlap 𝐿∪𝑅, no overlap 𝐿∪𝑅, overlap = 𝐿∩𝑅
+We can also justify them logically.
+Rule 1: 𝐴 and 𝐴𝑐 split Ω into two non-overlapping regions. Since the total probability
+𝑃(Ω) = 1 this rule says that the probabiity of 𝐴 and the probability of ’not 𝐴’ are comple-
+mentary, i.e. sum to 1.
+Rule 2: 𝐿 and 𝑅 split 𝐿∪𝑅 into two non-overlapping regions. So the probability of 𝐿∪𝑅
+is is split between 𝑃(𝐿) and 𝑃(𝑅)
+Rule 3: In the sum 𝑃(𝐿) + 𝑃(𝑅) the overlap 𝑃(𝐿 ∩ 𝑅) gets counted twice. So 𝑃(𝐿) +
+𝑃(𝑅)−𝑃(𝐿∩𝑅) counts everything in the union exactly once.
+Think: Rule 2 is a special case of Rule 3.
+For the following examples suppose we have an experiment that produces a random integer
+between 1 and 20. The probabilities are not necessarily uniform, i.e., not necessarily the
+same for each outcome.
+Example 8. If the probability of an even number is 0.6 what is the probability of an odd
+number?
+Solution: Since being odd is complementary to being even, the probability of being odd is
+1-0.6 = 0.4.
+Let’s redo this example a bit more formally, so you see how it’s done. First, so we can refer
+toit, let’snametherandominteger𝑋. Let’salsonametheevent‘𝑋 iseven’as𝐴. Thenthe
+event ‘𝑋 is odd’ is 𝐴𝑐. We are given that 𝑃(𝐴) = 0.6. Therefore 𝑃(𝐴𝑐) = 1−0.6 = 0.4 .
+Example 9. Consider the 2 events, 𝐴: ‘𝑋 is a multiple of 2’; 𝐵: ‘𝑋 is odd and less than
+10’. Suppose 𝑃(𝐴) = 0.6 and 𝑃(𝐵) = 0.25.
+(i) What is 𝐴 ∩ 𝐵?
+(ii) What is the probability of 𝐴 ∪ 𝐵?
+Solution: (i) Since all numbers in 𝐴 are even and all numbers in 𝐵 are odd, these events
+are disjoint. That is, 𝐴 ∩ 𝐵 = ∅.
+(ii) Since 𝐴 and 𝐵 are disjoint 𝑃(𝐴 ∪ 𝐵) = 𝑃(𝐴)+𝑃(𝐵) = 0.85.
+Example 10. Let 𝐴, 𝐵 and 𝐶 be the events 𝑋 is a multiple of 2, 3 and 6 respectively. If
+𝑃(𝐴) = 0.6, 𝑃(𝐵) = 0.3 and 𝑃(𝐶) = 0.2 what is 𝑃(𝐴 or 𝐵)?
+Solution: Note two things. First we used the word ‘or’ which means union: ‘𝐴 or 𝐵’ =
+𝐴 ∪ 𝐵. Second, an integer is divisible by 6 if and only if it is divisible by both 2 and 3.
+18.05 Class 2, Probability: Terminology and Examples, Spring 2022 6
+This translates into 𝐶 = 𝐴 ∩ 𝐵. So the inclusion-exclusion principle says
+𝑃(𝐴 ∪ 𝐵) = 𝑃(𝐴)+𝑃(𝐵)−𝑃(𝐴 ∩ 𝐵) = 0.6+0.3−0.2 = 0.7 .
+Conditional Probability, Independence and Bayes’ Theorem
+Class 3, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Know the definitions of conditional probability and independence of events.
+2. Be able to compute conditional probability directly from the definition.
+3. Be able to use the multiplication rule to compute the total probability of an event.
+4. Be able to check if two events are independent.
+5. Be able to use Bayes’ formula to ‘invert’ conditional probabilities.
+6. Be able to organize the computation of conditional probabilities using trees and tables.
+7. Understand the base rate fallacy thoroughly.
+2 Conditional Probability
+Conditional probability answers the question ‘how does the probability of an event change
+if we have extra information’. We’ll illustrate with an example.
+Example 1. Toss a fair coin 3 times.
+(a) What is the probability of 3 heads?
+Solution: Sample space Ω = {𝐻𝐻𝐻, 𝐻𝐻𝑇, 𝐻𝑇𝐻, 𝐻𝑇𝑇, 𝑇𝐻𝐻, 𝑇𝐻𝑇, 𝑇𝑇𝐻, 𝑇𝑇𝑇}.
+All outcomes are equally probable, so 𝑃(3 heads) = 1/8.
+(b) Suppose we are told that the first toss was heads. Given this information how should
+we compute the probability of 3 heads?
+Solution: We have a new (reduced) sample space: Ω′ = {𝐻𝐻𝐻, 𝐻𝐻𝑇, 𝐻𝑇𝐻, 𝐻𝑇𝑇}.
+All outcomes are equally probable, so
+𝑃(3 heads given that the first toss is heads) = 1/4.
+This is called conditional probability, since it takes into account additional conditions. To
+develop the notation, we rephrase (b) in terms of events.
+Rephrased (b) Let 𝐴 be the event ‘all three tosses are heads’ = {𝐻𝐻𝐻}.
+Let 𝐵 be the event ‘the first toss is heads’ = {𝐻𝐻𝐻, 𝐻𝐻𝑇, 𝐻𝑇𝐻, 𝐻𝑇𝑇}.
+The conditional probability of 𝐴 knowing that 𝐵 occurred is written
+𝑃(𝐴|𝐵)
+This is read as
+‘the conditional probability of 𝐴 given 𝐵’
+1
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 2
+or
+‘the probability of 𝐴 conditioned on 𝐵’
+or simply
+‘the probability of 𝐴 given 𝐵’.
+We can visualize conditional probability as follows. Think of 𝑃(𝐴) as the proportion of the
+area of the whole sample space taken up by 𝐴. For 𝑃(𝐴|𝐵) we restrict our attention to 𝐵.
+That is, 𝑃(𝐴|𝐵) is the proportion of area of 𝐵 taken up by 𝐴, i.e. 𝑃(𝐴 ∩ 𝐵)/𝑃(𝐵).
+𝐵
+𝐴
+𝐴=𝐴∩𝐵 𝐵
+𝐴 ∩ 𝐵
+𝐻𝐻𝐻 𝐻𝐻𝑇 𝑇𝐻𝐻 𝑇𝐻𝑇
+𝐻𝑇𝐻 𝐻𝑇𝑇 𝑇𝑇𝐻 𝑇𝑇𝑇
+Conditional probability: Abstract visualization and coin example
+Note, 𝐴 ⊂ 𝐵 in the right-hand figure, so there are only two colors shown.
+The formal definition of conditional probability catches the gist of the above example and
+visualization.
+Formal definition of conditional probability
+Let 𝐴 and 𝐵 be events. We define the conditional probability of 𝐴 given 𝐵 as
+𝑃(𝐴 ∩ 𝐵)
+𝑃(𝐴|𝐵) = , provided 𝑃(𝐵) ≠ 0. (1)
+𝑃(𝐵)
+Let’sredothecointossingexampleusingthedefinitioninEquation(1). Recall𝐴=‘3heads’
+and 𝐵 = ‘first toss is heads’. We have 𝑃(𝐴) = 1/8 and 𝑃(𝐵) = 1/2. Since 𝐴 ∩ 𝐵 = 𝐴, we
+also have 𝑃(𝐴 ∩ 𝐵) = 1/8. Now according to (1),
+𝑃(𝐴 ∩ 𝐵) 1/8
+𝑃(𝐴|𝐵) = = = 1/4,
+𝑃(𝐵) 1/2
+which agrees with our answer in Example 1 b.
+We start with a simple example where we can find all the probabilities directly by counting.
+Example 2. Draw two cards from a deck. Define the events: 𝑆 = ‘first card is a spade’
+1
+and 𝑆 = ‘second card is a spade’. What is the 𝑃(𝑆 |𝑆 )?
+2 2 1
+Solution: We’ll use formula (1) to compute the conditional probability. We have to com-
+pute𝑃(𝑆 ),𝑃(𝑆 )and𝑃(𝑆 ∩𝑆 ): Weknowthat𝑃(𝑆 ) = 1/4becausethereare52equally
+1 2 1 2 1
+probable ways to draw the first card and 13 of them are spades. The same logic says that
+there are 52 equally probable ways the second card can be drawn, so 𝑃(𝑆 ) = 1/4.
+2
+Aside: The probability 𝑃(𝑆 ) = 1/4 may seem surprising since the value of first card
+2
+certainly affects the probabilities for the second card. However, if we look at all possible
+two card sequences we will see that every card in the deck has equal probability of being
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 3
+the second card. Since 13 of the 52 cards are spades we get 𝑃(𝑆 ) = 13/52 = 1/4. Another
+2
+way to say this is: if we are not given value of the first card then we have to consider all
+possibilities for the second card.
+Continuing, we compute 𝑃(𝑆 ∩ 𝑆 ) by counting:
+1 2
+Number of ways to draw a spade followed by a second spade: 13⋅12.
+Number of ways to draw any card followed by any other card: 52⋅51.
+Thus,
+13⋅12
+𝑃(𝑆 ∩ 𝑆 ) = = 3/51.
+1 2 52⋅51
+Now, using (1) we get
+𝑃(𝑆 ∩ 𝑆 ) 3/51
+𝑃(𝑆 |𝑆 ) = 2 1 = = 12/51.
+2 1 𝑃(𝑆 ) 1/4
+1
+This case is simple enough that we can check our answer by computing the conditional
+probability directly: if the first card is a spade then of the 51 cards remaining, 12 are
+spades. So, the probability the second card is also a spade is
+𝑃(𝑆 |𝑆 ) = 12/51.
+2 1
+Warning: In more complicated problems it will be be much harder to compute conditional
+probability by counting. Usually we have to use Equation (1).
+Think: For 𝑆 and 𝑆 in the previous example, what is 𝑃(𝑆 |𝑆𝑐)?
+1 2 2 1
+3 Multiplication Rule
+The following formula is called the multiplication rule.
+𝑃(𝐴 ∩ 𝐵) = 𝑃(𝐴|𝐵)⋅𝑃(𝐵). (2)
+This is simply a rewriting of the definition in Equation (1) of conditional probability. We
+will see that our use of the multiplication rule is very similar to our use of the rule of
+product in counting. In fact, the multiplication rule is just a souped up version of the rule
+of product.
+We start by verifying the multiplication rule for the previous example.
+Example 3. Draw two cards from a deck. Define the events: 𝑆 = ‘first card is a spade’
+1
+and 𝑆 = ‘second card is a spade’. Verify the multiplication rule.
+2
+Solution: Fromthepreviousexample,weknow𝑃(𝑆 |𝑆 ) = 12/51, 𝑃(𝑆 ∩𝑆 ) = 3/51, 𝑃(𝑆 ) =
+2 1 1 2 1
+1/4. From this it is easy to check that
+12 1 3
+𝑃(𝑆 |𝑆 )⋅𝑃(𝑆 ) = ⋅ = = 𝑃(𝑆 ∩ 𝑆 ).
+2 1 1 51 4 51 1 2
+4 Law of Total Probability
+The law of total probability will allow us to use the multiplication rule to find probabilities
+in more interesting examples. It involves a lot of notation, but the idea is fairly simple. We
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 4
+state the law when the sample space is divided into 3 pieces. It is a simple matter to extend
+the rule when there are more than 3 pieces.
+Law of Total Probability
+Suppose the sample space Ω is divided into 3 disjoint events 𝐵 , 𝐵 , 𝐵 (see the figure
+1 2 3
+below). Then for any event 𝐴:
+𝑃(𝐴) = 𝑃(𝐴 ∩ 𝐵 )+𝑃(𝐴 ∩ 𝐵 )+𝑃(𝐴 ∩ 𝐵 )
+1 2 3
+𝑃(𝐴) = 𝑃(𝐴|𝐵 )𝑃(𝐵 )+𝑃(𝐴|𝐵 )𝑃(𝐵 )+𝑃(𝐴|𝐵 )𝑃(𝐵 ) (3)
+1 1 2 2 3 3
+The top equation says ‘if 𝐴 is divided into 3 pieces then 𝑃(𝐴) is the sum of the probabilities
+of the pieces’. The bottom equation (3) is called the law of total probability. It is just a
+rewriting of the top equation using the multiplication rule.
+Ω
+𝐵
+1
+A ∩ B
+1
+A ∩ B A ∩ B
+2 3
+𝐵 𝐵
+2 3
+The sample space Ω and the event 𝐴 are each divided into 3 disjoint pieces.
+The law holds if we divide Ω into any number of events, so long as they are disjoint and
+cover all of Ω. Such a division is often called a partition of Ω.
+Our first example will be one where we already know the answer and can verify the law.
+Example 4. An urn contains 5 red balls and 2 green balls. Two balls are drawn one after
+the other. What is the probability that the second ball is red?
+Solution: The sample space is Ω = {rr, rg, gr, gg}.
+Let 𝑅 be the event ‘the first ball is red’, 𝐺 = ‘first ball is green’, 𝑅 = ‘second ball is
+1 1 2
+red’, 𝐺 = ‘second ball is green’. We are asked to find 𝑃(𝑅 ).
+2 2
+Let’s compute this same value using the law of total probability (3). First, we’ll find the
+conditional probabilities. This is a simple counting exercise.
+𝑃(𝑅 |𝑅 ) = 4/6, 𝑃(𝑅 |𝐺 ) = 5/6.
+2 1 2 1
+Since 𝑅 and 𝐺 partition Ω the law of total probability says
+1 1
+𝑃(𝑅 ) = 𝑃(𝑅 |𝑅 )𝑃(𝑅 )+𝑃(𝑅 |𝐺 )𝑃(𝐺 ) (4)
+2 2 1 1 2 1 1
+4 5 5 2
+= ⋅ + ⋅
+6 7 6 7
+30 5
+= = .
+42 7
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 5
+Of course, this example is simple enough that we could have computed 𝑃(𝑅 ) directly the
+2
+same way we found 𝑃(𝑆 ) directly in the card example. But, we will see that in more
+2
+complicated examples the law of total probability is truly necessary.
+Probability urns
+The example above used probability urns. Their use goes back to the beginning of the
+subject and we would be remiss not to introduce them. This toy model is very useful. We
+quote from Wikipedia: https://en.wikipedia.org/wiki/Urn_problem
+In probability and statistics, an urn problem is an idealized mental exercise
+in which some objects of real interest (such as atoms, people, cars, etc.) are
+represented as colored balls in an urn or other container. One pretends to draw
+(remove)oneormoreballsfromtheurn; thegoalistodeterminetheprobability
+of drawing one color or another, or some other properties. A key parameter is
+whether each ball is returned to the urn after each draw.
+It doesn’t take much to make an example where (3) is really the best way to compute the
+probability. Here is a game with slightly more complicated rules.
+Example 5. An urn contains 5 red balls and 2 green balls. A ball is drawn. If it’s green
+a red ball is added to the urn and if it’s red a green ball is added to the urn. (The original
+ball is not returned to the urn.) Then a second ball is drawn. What is the probability the
+second ball is red?
+Solution: The law of total probability says that 𝑃(𝑅 ) can be computed using the expres-
+2
+sion in Equation (4). Only the values for the probabilities will change. We have
+𝑃(𝑅 |𝑅 ) = 4/7, 𝑃(𝑅 |𝐺 ) = 6/7.
+2 1 2 1
+Therefore,
+4 5 6 2 32
+𝑃(𝑅 ) = 𝑃(𝑅 |𝑅 )𝑃(𝑅 )+𝑃(𝑅 |𝐺 )𝑃(𝐺 ) = ⋅ + ⋅ = .
+2 2 1 1 2 1 1 7 7 7 7 49
+5 Using Trees to Organize the Computation
+Trees are a great way to organize computations with conditional probability and the law of
+total probability. The figures and examples will make clear what we mean by a tree. As
+with the rule of product, the key is to organize the underlying process into a sequence of
+actions.
+We start by redoing Example 5. The sequence of actions are: first draw ball 1 (and add the
+appropriate ball to the urn) and then draw ball 2.
+5/7 2/7
+𝑅 𝐺
+1 1
+4/7 3/7 6/7 1/7
+𝑅 𝐺 𝑅 𝐺
+2 2 2 2
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 6
+You interpret this tree as follows. Each dot is called a node. The tree is organized by levels.
+The top node (root node) is at level 0. The next layer down is level 1 and so on. Each level
+shows the outcomes at one stage of the game. Level 1 shows the possible outcomes of the
+first draw. Level 2 shows the possible outcomes of the second draw starting from each node
+in level 1.
+Probabilities are written along the branches. The probability of 𝑅 (red on the first draw)
+1
+is 5/7. It is written along the branch from the root node to the one labeled 𝑅 . At the
+1
+next level we put in conditional probabilities. The probability along the branch from 𝑅 to
+1
+𝑅 is 𝑃(𝑅 |𝑅 ) = 4/7. It represents the probability of going to node 𝑅 given that you are
+2 2 1 2
+already at 𝑅 .
+1
+Themuliplicationrulesaysthat theprobabilityof gettingto anynode is justthe product of
+theprobabilitiesalongthepathtogetthere. Forexample,thenodelabeled𝑅 atthefarleft
+2
+really represents the event 𝑅 ∩ 𝑅 because it comes from the 𝑅 node. The multiplication
+1 2 1
+rule now says
+5 4
+𝑃(𝑅 ∩ 𝑅 ) = 𝑃(𝑅 )⋅𝑃(𝑅 |𝑅 ) = ⋅ ,
+1 2 1 2 1 7 7
+which is exactly multiplying along the path to the node.
+The law of total probability is just the statement that 𝑃(𝑅 ) is the sum of the probabilities
+2
+of all paths leading to 𝑅 (the two circled nodes in the figure). In this case,
+2
+5 4 2 6 32
+𝑃(𝑅 ) = ⋅ + ⋅ = ,
+2 7 7 7 7 49
+exactly as in the previous example.
+5.1 Shorthand vs. precise trees
+The tree given above involves some shorthand. For example, the node marked 𝑅 at the
+2
+far left really represents the event 𝑅 ∩ 𝑅 , since it ends the path from the root through
+1 2
+𝑅 to 𝑅 . Here is the same tree with everything labeled precisely. As you can see this tree
+1 2
+is more cumbersome to make and use. We usually use the shorthand version of trees. You
+should make sure you know how to interpret them precisely.
+𝑃(𝑅 )=5/7 𝑃(𝐺 )=2/7
+1 1
+𝑅 𝐺
+1 1
+𝑃(𝑅 |𝑅 )=4/7 𝑃(𝐺 |𝑅 )=3/7 𝑃(𝑅 |𝐺 )=6/7 𝑃(𝐺 |𝐺 )=1/7
+2 1 2 1 2 1 2 1
+𝑅 ∩𝑅 𝑅 ∩𝐺 𝐺 ∩𝑅 𝐺 ∩𝐺
+1 2 1 2 1 2 1 2
+6 Independence
+Two events are independent if knowledge that one occurred does not change the probability
+that the other occurred. Informally, events are independent if they do not influence one
+another.
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 7
+Example 6. Tossacointwice. Weexpecttheoutcomesofthetwotossestobeindependent
+ofoneanother. Inrealexperimentsthisalwayshastobechecked. Ifmycoinlandsinhoney
+and I don’t bother to clean it, then the second toss might be affected by the outcome of the
+first toss.
+Moreseriously,theindependenceofexperimentscanbyunderminedbythefailuretocleanor
+recalibrate equipment between experiments or to isolate supposedly independent observers
+from each other or a common influence. We’ve all experienced hearing the same ‘fact’ from
+different people. Hearing it from different sources tends to lend it credence until we learn
+that they all heard it from a common source. That is, our sources were not independent.
+Translating the verbal description of independence into symbols gives
+𝐴 is independent of 𝐵 if 𝑃(𝐴|𝐵) = 𝑃(𝐴). (5)
+That is, knowing that 𝐵 occurred does not change the probability that 𝐴 occurred. In
+terms of events as subsets, knowing that the realized outcome is in 𝐵 does not change the
+probability that it is in 𝐴.
+If 𝐴 and 𝐵 are independent in the above sense, then the multiplication rule gives
+𝑃(𝐴 ∩ 𝐵) = 𝑃(𝐴|𝐵)⋅𝑃(𝐵) = 𝑃(𝐴)⋅𝑃(𝐵).
+This justifies the following technical definition of independence.
+Formal definition of independence: Two events 𝐴 and 𝐵 are independent if
+𝑃(𝐴 ∩ 𝐵) = 𝑃(𝐴)⋅𝑃(𝐵) (6)
+Thisisanicesymmetricdefinitionwhichmakesclearthat𝐴isindependentof𝐵 ifandonly
+if 𝐵 is independent of 𝐴. Unlike the equation with conditional probabilities, this definition
+makes sense even when 𝑃(𝐵) = 0. In terms of conditional probabilities, we have:
+1. If 𝑃(𝐵) ≠ 0 then 𝐴 and 𝐵 are independent if and only if 𝑃(𝐴|𝐵) = 𝑃(𝐴).
+2. If 𝑃(𝐴) ≠ 0 then 𝐴 and 𝐵 are independent if and only if 𝑃(𝐵|𝐴) = 𝑃(𝐵).
+Independent events commonly arise as different trials in an experiment, as in the following
+example.
+Example 7. Toss a fair coin twice. Let 𝐻 = ‘heads on first toss’ and let 𝐻 = ‘heads on
+1 2
+second toss’. Are 𝐻 and 𝐻 independent?
+1 2
+Solution: Since 𝐻 ∩ 𝐻 is the event ‘both tosses are heads’ we have
+1 2
+𝑃(𝐻 ∩ 𝐻 ) = 1/4 = 𝑃(𝐻 )𝑃(𝐻 ).
+1 2 1 2
+Therefore the events are independent.
+We can ask about the independence of any two events, as in the following two examples.
+Example 8. Toss a fair coin 3 times. Let 𝐻 = ‘heads on first toss’ and 𝐴 = ‘two heads
+1
+total’. Are 𝐻 and 𝐴 independent?
+1
+Solution: We know that 𝑃(𝐴) = 3/8. Since this is not 0 we can check if the formula in
+Equation 5 holds. Now, 𝐻 = {HHH, HHT, HTH, HTT} contains exactly two outcomes
+1
+(𝐻𝐻𝑇, 𝐻𝑇𝐻) from 𝐴, so we have 𝑃(𝐴|𝐻 ) = 2/4. Since 𝑃(𝐴|𝐻 ) ≠ 𝑃(𝐴) these events
+1 1
+are not independent.
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 8
+Example 9. Draw one card from a standard deck of playing cards. Let’s examine the
+independence of 3 events ‘the card is an ace’, ‘the card is a heart’ and ‘the card is red’.
+Define the events as 𝐴 = ‘ace’, 𝐻 = ‘hearts’, 𝑅 = ‘red’.
+(a) We know that 𝑃(𝐴) = 4/52 (4 out of 52 cards are aces), 𝑃(𝐴|𝐻) = 1/13 (1 out of 13
+hearts are aces). Since 𝑃(𝐴) = 𝑃(𝐴|𝐻) we have that 𝐴 is independent of 𝐻.
+(b) 𝑃(𝐴|𝑅) = 2/26 = 1/13 = 𝑃(𝐴). So 𝐴 is independent of 𝑅. That is, whether the card
+is an ace is independent of whether it is red.
+(c) Finally, what about 𝐻 and 𝑅? Since 𝑃(𝐻) = 1/4 and 𝑃(𝐻|𝑅) = 1/2, 𝐻 and 𝑅 are not
+independent. We could also see this the other way around: 𝑃(𝑅) = 1/2 and 𝑃(𝑅|𝐻) = 1,
+so 𝐻 and 𝑅 are not independent. That is, the suit of a card is not independent of the color
+of the card’s suit.
+6.1 Paradoxes of Independence
+An event 𝐴 with probability 0 is independent of itself, since in this case both sides of
+equation (6) are 0. This appears paradoxical because knowledge that 𝐴 occurred certainly
+gives information about whether 𝐴 occurred. We resolve the paradox by noting that since
+𝑃(𝐴) = 0 the statement ‘𝐴 occurred’ is vacuous.
+Think: For what other value(s) of 𝑃(𝐴) is 𝐴 independent of itself?
+7 Bayes’ Theorem
+Bayes’ theorem is a pillar of both probability and statistics and it is central to the rest of
+this course. For two events 𝐴 and 𝐵 Bayes’ theorem (also called Bayes’ rule and Bayes’
+formula) says
+𝑃(𝐴|𝐵)⋅𝑃(𝐵)
+𝑃(𝐵|𝐴) = . (7)
+𝑃(𝐴)
+Comments: 1. Bayes’ rule tells us how to ‘invert’ conditional probabilities, i.e. to find
+𝑃(𝐵|𝐴) from 𝑃(𝐴|𝐵).
+2. In practice, 𝑃(𝐴) is often computed using the law of total probability.
+Proof of Bayes’ rule
+The key point is that 𝐴 ∩ 𝐵 is symmetric in 𝐴 and 𝐵. So the multiplication rule says
+𝑃(𝐵|𝐴)⋅𝑃(𝐴) = 𝑃(𝐴 ∩ 𝐵) = 𝑃(𝐴|𝐵)⋅𝑃(𝐵).
+Now divide through by 𝑃(𝐴) to get Bayes’ rule.
+A common mistake is to confuse the meanings of 𝑃(𝐴|𝐵) and 𝑃(𝐵|𝐴). They can be very
+different. This is illustrated in the next example.
+Example 10. Toss a coin 5 times. Let 𝐻 = ‘first toss is heads’ and let 𝐻 = ‘all 5 tosses
+1 𝐴
+are heads’. Then 𝑃(𝐻 |𝐻 ) = 1 but 𝑃(𝐻 |𝐻 ) = 1/16.
+1 𝐴 𝐴 1
+For practice, let’s use Bayes’ theorem to compute 𝑃(𝐻 |𝐻 ) using 𝑃(𝐻 |𝐻 ).The terms
+1 𝐴 𝐴 1
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 9
+are 𝑃(𝐻 |𝐻 ) = 1/16, 𝑃(𝐻 ) = 1/2, 𝑃(𝐻 ) = 1/32. So,
+𝐴 1 1 𝐴
+𝑃(𝐻 |𝐻 )𝑃(𝐻 ) (1/16)⋅(1/2)
+𝑃(𝐻 |𝐻 ) = 𝐴 1 1 = = 1,
+1 𝐴 𝑃(𝐻 ) 1/32
+𝐴
+which agrees with our previous calculation.
+7.1 The Base Rate Fallacy
+The base rate fallacy is one of many examples showing that it’s easy to confuse the meaning
+of 𝑃(𝐵|𝐴) and 𝑃(𝐴|𝐵) when a situation is described in words. This is one of the key
+examples from probability and it will inform much of our practice and interpretation of
+statistics. You should strive to understand it thoroughly.
+Example 11. The Base Rate Fallacy
+Consider a routine screening test for a disease. Suppose the frequency of the disease in the
+population (base rate) is 0.5%. The test is fairly accurate with a 5% false positive rate and
+a 10% false negative rate.
+You take the test and it comes back positive. What is the probability that you have the
+disease?
+Solution: We will do the computation three times: using trees, tables and symbols. We’ll
+use the following notation for the relevant events:
+𝐷+ = ‘you have the disease’
+𝐷− = ‘you do not have the disease
+𝑇+ = ‘you tested positive’
+𝑇− = ‘you tested negative’.
+We are given 𝑃(𝐷+) = 0.005 and therefore 𝑃(𝐷−) = 0.995. The false positive and false
+negative rates are (by definition) conditional probabilities.
+𝑃(false positive) = 𝑃(𝑇+|𝐷−) = 0.05 and 𝑃(false negative) = 𝑃(𝑇−|𝐷+) = 0.1.
+The complementary probabilities are known as the true negative and true positive rates:
+𝑃(𝑇−|𝐷−) = 1−𝑃(𝑇+|𝐷−) = 0.95 and 𝑃(𝑇+|𝐷+) = 1−𝑃(𝑇−|𝐷+) = 0.9.
+Trees: All of these probabilities can be displayed quite nicely in a tree.
+0.995 0.005
+𝐷− 𝐷+
+0.05 0.95 0.9 0.1
+𝑇+ 𝑇− 𝑇+ 𝑇−
+Thequestionasksfortheprobabilitythatyouhavethediseasegiventhatyoutestedpositive,
+i.e. what is the value of 𝑃(𝐷+|𝑇+). We aren’t given this value, but we do know 𝑃(𝑇+|𝐷+),
+so we can use Bayes’ theorem.
+𝑃(𝑇+|𝐷+)⋅𝑃(𝐷+)
+𝑃(𝐷+|𝑇+) = .
+𝑃(𝑇+)
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 10
+The two probabilities in the numerator are given. We compute the denominator 𝑃(𝑇+)
+using the law of total probability. Using the tree, we just have to sum the probabilities for
+each of the nodes marked 𝑇+
+𝑃(𝑇+) = 0.995×0.05+0.005×0.9 = 0.05425
+Thus,
+0.9×0.005
+𝑃(𝐷+|𝑇+) = = 0.082949 ≈ 8.3%.
+0.05425
+Remarks: This is called the base rate fallacy because the base rate of the disease in the
+population is so low that the vast majority of the people taking the test are healthy, and
+even with an accurate test most of the positives will be healthy people. Ask your doctor
+for his/her guess at the odds.
+To summarize the base rate fallacy with specific numbers
+95% of all tests are accurate does not imply 95% of positive tests are accurate
+We will refer back to this example frequently. It and similar examples are at the heart of
+many statistical misunderstandings.
+Other ways to work Example 11
+Tables: Another trick that is useful for computing probabilities is to make a table. Let’s
+redo the previous example using a table built with 10000 total people divided according to
+the probabilites in this example.
+We construct the table as follows. Pick a number, say 10000 people, and place it as the
+grand total in the lower right. Using 𝑃(𝐷+) = 0.005 we compute that 50 out of the 10000
+people are sick (𝐷+). Likewise 9950 people are healthy (𝐷−). At this point the table looks
+like:
+𝐷+ 𝐷− total
+𝑇+
+𝑇−
+total 50 9950 10000
+Using 𝑃(𝑇+|𝐷+) = 0.9 we can compute that the number of sick people who tested positive
+as 90% of 50 or 45. The other entries are similar. At this point the table looks like the
+table below on the left. Finally we sum the 𝑇+ and 𝑇− rows to get the completed table on
+the right.
+𝐷+ 𝐷− total 𝐷+ 𝐷− total
+𝑇+ 45 498 𝑇+ 45 498 543
+𝑇− 5 9452 𝑇− 5 9452 9457
+total 50 9950 10000 total 50 9950 10000
+Using the complete table we can compute
+|𝐷+ ∩ 𝑇+| 45
+𝑃(𝐷+|𝑇+) = = = 8.3%.
+|𝑇+| 543
+Symbols: For completeness, we show how the solution looks when written out directly in
+18.05 Class 3, Conditional Probability, Independence and Bayes’ Theorem, Spring 2022 11
+symbols.
+𝑃(𝑇+|𝐷+)⋅𝑃(𝐷+)
+𝑃(𝐷+|𝑇+) =
+𝑃(𝑇+)
+𝑃(𝑇+|𝐷+)⋅𝑃(𝐷+)
+=
+𝑃(𝑇+|𝐷+)⋅𝑃(𝐷+)+𝑃(𝑇+|𝐷−)⋅𝑃(𝐷−)
+0.9×0.005
+=
+0.9×0.005+0.05×0.995
+= 8.3%
+Visualization: The figure below illustrates the base rate fallacy. The large blue rectangle
+represents all the healthy people. The much smaller orange rectangle represents the sick
+people. The shaded rectangle represents the people who test positive. The shaded area
+covers most of the orange area and only a small part of the blue area. Even so, the most of
+the shaded area is over the blue. That is, most of the positive tests are of healthy people.
+𝐷− 𝐷+
+7.2 Bayes’ rule in 18.05
+As we said at the start of this section, Bayes’ rule is a pillar of probability and statistics.
+WehaveseenthatBayes’ruleallowsusto‘invert’conditionalprobabilities. Whenwestudy
+statistics we will see that the art of statistical inference involves deciding how to proceed
+when one (or more) of the terms on the right side of Bayes’ rule is unknown.
+Discrete Random Variables
+Class 4, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Know the definition of a discrete random variable.
+2. Know the Bernoulli, binomial, and geometric distributions and examples of what they
+model.
+3. Be able to describe the probability mass function and cumulative distribution function
+using tables and formulas.
+4. Be able to construct new random variables from old ones.
+2 Random Variables
+This topic is largely about introducing some useful terminology, building on the notions of
+sample space and probability function. The key words are
+1. Random variable
+2. Probability mass function (pmf)
+3. Cumulative distribution function (cdf)
+2.1 Recap
+AdiscretesamplespaceΩisafiniteorlistablesetofoutcomes{𝜔 , 𝜔 …}. Theprobability
+1 2
+of an outcome 𝜔 is denoted 𝑃(𝜔).
+An event 𝐸 is a subset of Ω. The probability of an event 𝐸 is 𝑃(𝐸) = ∑𝑃(𝜔).
+𝜔∈𝐸
+2.2 Random variables as payoff functions
+Example 1. A game with 2 dice.
+Roll a die twice and record the outcomes as (𝑖,𝑗), where 𝑖 is the result of the first roll and
+𝑗 the result of the second. We can take the sample space to be
+Ω = {(1,1),(1,2),(1,3),…,(6,6)} = {(𝑖,𝑗)|𝑖,𝑗 = 1,…6}.
+The probability function is 𝑃(𝑖,𝑗) = 1/36.
+1
+18.05 Class 4, Discrete Random Variables, Spring 2022 2
+In this game, you win $500 if the sum is 7 and lose $100 otherwise. We give this payoff
+function the name 𝑋 and describe it formally by
+500 if 𝑖+𝑗 = 7
+𝑋(𝑖,𝑗) = {
+−100 if 𝑖+𝑗 ≠ 7.
+Example 2. We can change the game by using a different payoff function. For example
+𝑌(𝑖,𝑗) = 𝑖𝑗−10.
+In this example if you roll (6,2) then you win $2. If you roll (2,3) then you win -$4 (i.e.,
+lose $4).
+Question: Which game is the better bet?
+Solution: We will come back to this once we learn about expectation.
+These payoff functions are examples of random variables. A random variable assigns a
+number to each outcome in a sample space. More formally:
+Definition: Let Ω be a sample space. A discrete random variable is a function
+𝑋 ∶ Ω → R
+that takes a discrete set of values. (Recall that R stands for the real numbers.)
+Why is 𝑋 called a random variable? It’s ‘random’ because its value depends on a random
+outcome of an experiment. And we treat 𝑋 like we would a usual variable: we can add it
+to other random variables, square it, and so on.
+2.3 Events and random variables
+For any value 𝑎 we write 𝑋 = 𝑎 to mean the event consisting of all outcomes 𝜔 with
+𝑋(𝜔) = 𝑎.
+Example 3. In Example 1 we rolled two dice and 𝑋 was the random variable
+500 if 𝑖+𝑗 = 7
+𝑋(𝑖,𝑗) = {
+−100 if 𝑖+𝑗 ≠ 7.
+The event 𝑋 = 500 is the set {(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)}, i.e. the set of all
+outcomes that sum to 7. So 𝑃(𝑋 = 500) = 1/6.
+We allow 𝑎 to be any value, even values that 𝑋 never takes. In Example 1, we could look
+at the event 𝑋 = 1000. Since 𝑋 never equals 1000 this is just the empty event (or empty
+set)
+‵𝑋 = 1000′ = {} = ∅ 𝑃(𝑋 = 1000) = 0.
+18.05 Class 4, Discrete Random Variables, Spring 2022 3
+2.4 Probability mass function and cumulative distribution function
+It gets tiring and hard to read and write 𝑃(𝑋 = 𝑎) for the probability that 𝑋 = 𝑎. When
+we know we’re talking about 𝑋 we will simply write 𝑝(𝑎). If we want to make 𝑋 explicit
+we will write 𝑝 (𝑎). We spell this out in a definition.
+𝑋
+Definition: The probability mass function (pmf) of a discrete random variable is the
+function 𝑝(𝑎) = 𝑃(𝑋 = 𝑎).
+Note:
+1. We always have 0 ≤ 𝑝(𝑎) ≤ 1.
+2. We allow 𝑎 to be any number. If 𝑎 is a value that 𝑋 never takes, then 𝑝(𝑎) = 0.
+Example 4. Let Ω be our earlier sample space for rolling 2 dice. Define the random
+variable 𝑀 to be the maximum value of the two dice, i.e.
+𝑀(𝑖,𝑗) = max(𝑖,𝑗).
+For example, the roll (3,5) has maximum 5, i.e. 𝑀(3,5) = 5.
+We can describe a random variable by listing its possible values and the probabilities asso-
+ciated to these values. For the above example we have:
+value 𝑎: 1 2 3 4 5 6
+pmf 𝑝(𝑎): 1/36 3/36 5/36 7/36 9/36 11/36
+For example, 𝑝(2) = 3/36.
+Question: What is 𝑝(8)? Solution: 𝑝(8) = 0.
+Think: What is the pmf for 𝑍(𝑖,𝑗) = 𝑖+𝑗? Does it look familiar?
+2.5 Events and inequalities
+Inequalities with random variables describe events. For example 𝑋 ≤ 𝑎 is the set of all
+outcomes 𝜔 such that 𝑋(𝑤) ≤ 𝑎.
+Example 5. If our sample space is the set of all pairs of (𝑖,𝑗) coming from rolling two dice
+and 𝑍(𝑖,𝑗) = 𝑖+𝑗 is the sum of the dice then
+𝑍 ≤ 4 = {(1,1), (1,2), (1,3), (2,1), (2,2), (3,1)}
+2.6 The cumulative distribution function (cdf)
+Definition: The cumulative distribution function (cdf) of a random variable 𝑋 is the
+function 𝐹 given by 𝐹(𝑎) = 𝑃(𝑋 ≤ 𝑎). We will often shorten this to distribution function.
+Note well that the definition of 𝐹(𝑎) uses the symbol less than or equal to. This will be
+important for getting your calculations exactly right.
+Example. Continuing with the example 𝑀, we have
+value 𝑎: 1 2 3 4 5 6
+pmf 𝑝(𝑎): 1/36 3/36 5/36 7/36 9/36 11/36
+cdf 𝐹(𝑎): 1/36 4/36 9/36 16/36 25/36 36/36
+18.05 Class 4, Discrete Random Variables, Spring 2022 4
+𝐹(𝑎) is called the cumulative distribution function because 𝐹(𝑎) gives the total probability
+that accumulates by adding up the probabilities 𝑝(𝑏) as 𝑏 runs from −∞ to 𝑎. For example,
+in the table above, the entry 16/36 in column 4 for the cdf is the sum of the values of the
+pmf from column 1 to column 4. In notation:
+As events: ‘𝑀 ≤ 4’ = {1,2,3,4}; 𝐹(4) = 𝑃(𝑀 ≤ 4) = 1/36+3/36+5/36+7/36 = 16/36.
+Just like the probability mass function, 𝐹(𝑎) is defined for all values 𝑎. In the above
+example, 𝐹(8) = 1, 𝐹(−2) = 0, 𝐹(2.5) = 4/36, and 𝐹(𝜋) = 9/36.
+2.7 Graphs of 𝑝(𝑎) and 𝐹(𝑎)
+We can visualize the pmf and cdf with graphs. For example, let 𝑋 be the number of heads
+in 3 tosses of a fair coin:
+value 𝑎: 0 1 2 3
+pmf 𝑝(𝑎): 1/8 3/8 3/8 1/8
+cdf 𝐹(𝑎): 1/8 4/8 7/8 1
+The colored graphs show how the cumulative distribution function is built by accumulating
+probabilityas𝑎increases. Theblackandwhitegraphsarethemorestandardpresentations.
+3/8 3/8
+1/8 1/8
+𝑎 𝑎
+0 1 2 3 0 1 2 3
+Probability mass function for 𝑋
+1 1
+7/8 7/8
+4/8 4/8
+1/8 1/8
+𝑎 𝑎
+0 1 2 3 0 1 2 3
+Cumulative distribution function for 𝑋
+18.05 Class 4, Discrete Random Variables, Spring 2022 5
+36/36
+25/36
+16/36
+11/36
+9/36 9/36
+7/36
+5/36
+4/36
+3/36
+1/36 𝑎 1/36 𝑎
+11 2 3 4 5 6 1 2 3 4 5 6
+pmf and cdf for the maximum of two dice (Example 4)
+1
+33/36
+30/36
+26/36
+21/36
+15/36
+10/36
+6/36 6/36
+5/36
+4/36
+3/36 3/36
+2/36
+1/36 1/36
+𝑎 𝑎
+1 2 3 4 5 6 7 8 9 10 11 12 2 3 4 5 6 7 8 9 10 11 12
+pmf and cdf for the sum of two dice
+Histograms: Later we will see another way to visualize the pmf using histograms. These
+require some care to do right, so we will wait until we need them.
+2.8 Properties of the cdf 𝐹
+The cdf 𝐹 of a random variable satisfies several properties:
+1. 𝐹 is non-decreasing. That is, its graph never goes down, or symbolically if 𝑎 ≤ 𝑏 then
+𝐹(𝑎) ≤ 𝐹(𝑏).
+18.05 Class 4, Discrete Random Variables, Spring 2022 6
+2. 0 ≤ 𝐹(𝑎) ≤ 1.
+3. lim 𝐹(𝑎) = 1, lim 𝐹(𝑎) = 0.
+𝑎→∞ 𝑎→−∞
+In words, (1) says the cumulative probability 𝐹(𝑎) increases or remains constant as 𝑎
+increases, but never decreases; (2) says the accumulated probability is always between 0
+and 1; (3) says that as 𝑎 gets very large, it becomes more and more certain that 𝑋 ≤ 𝑎 and
+as 𝑎 gets very negative it becomes more and more certain that 𝑋 > 𝑎.
+Think: Why does a cdf satisfy each of these properties?
+3 Specific Distributions
+3.1 Bernoulli Distributions
+Model: The Bernoulli distribution models one trial in an experiment that can result in
+either success or failure This is the most important distribution and is also the simplest. A
+random variable 𝑋 has a Bernoulli distribution with parameter 𝑝 if:
+1. 𝑋 takes the values 0 and 1.
+2. 𝑃(𝑋 = 1) = 𝑝 and 𝑃(𝑋 = 0) = 1−𝑝.
+We will write 𝑋 ∼ Bernoulli(𝑝) or Ber(𝑝), which is read “𝑋 follows a Bernoulli distribution
+with parameter 𝑝” or “𝑋 is drawn from a Bernoulli distribution with parameter 𝑝”.
+A simple model for the Bernoulli distribution is to flip a coin with probability 𝑝 of heads,
+with 𝑋 = 1 on heads and 𝑋 = 0 on tails. The general terminology is to say 𝑋 is 1 on
+success and 0 on failure, with success and failure defined by the context.
+Many decisions can be modeled as a binary choice, such as votes for or against a proposal.
+If 𝑝 is the proportion of the voting population that favors the proposal, than the vote of a
+random individual is modeled by a Bernoulli(𝑝).
+Here are the table and graphs of the pmf and cdf for the Bernoulli(1/2) distribution and
+below that for the general Bernoulli(𝑝) distribution.
+𝑝(𝑎) 𝐹(𝑎)
+1
+value 𝑎: 0 1
+pmf 𝑝(𝑎): 1/2 1/2 1/2 1/2
+cdf 𝐹(𝑎): 1/2 1
+𝑎 𝑎
+0 1 0 1
+Table, pmf and cmf for the Bernoulli(1/2) distribution
+18.05 Class 4, Discrete Random Variables, Spring 2022 7
+𝑝(𝑎) 𝐹(𝑎)
+1
+values 𝑎: 0 1 𝑝
+pmf 𝑝(𝑎): 1-p p
+cdf 𝐹(𝑎): 1-p 1 1−𝑝 1−𝑝
+𝑎 𝑎
+0 1 0 1
+Table, pmf and cmf for the Bernoulli(𝑝) distribution
+3.2 Binomial Distributions
+The binomial distribution Binomial(𝑛,𝑝), or Bin(𝑛,𝑝), models the number of successes in 𝑛
+independent Bernoulli(𝑝) trials.
+There is a hierarchy here. A single Bernoulli trial is, say, one toss of a coin. A single
+binomial trial consists of 𝑛 Bernoulli trials. For coin flips the sample space for a Bernoulli
+trial is {𝐻, 𝑇}. The sample space for a binomial trial is all sequences of heads and tails of
+length 𝑛. Likewise a Bernoulli random variable takes values 0 and 1 and a binomial random
+variables takes values 0, 1, 2, …, 𝑛.
+Example 6. Binomial(1,𝑝) is the same as Bernoulli(𝑝).
+Example 7. The number of heads in 𝑛 flips of a coin with probability 𝑝 of heads follows
+a Binomial(𝑛, 𝑝) distribution.
+We describe 𝑋 ∼ Binomial(𝑛,𝑝) by giving its values and probabilities. For notation we will
+use 𝑘 to mean an arbitrary number between 0 and 𝑛.
+𝑛
+We remind you that ‘𝑛 choose 𝑘 = ( ) = 𝐶 is the number of ways to choose 𝑘 things
+𝑘 𝑛 𝑘
+out of a collection of 𝑛 things and it has the formula
+𝑛 𝑛!
+( ) = . (1)
+𝑘 𝑘!(𝑛−𝑘)!
+(It is also called a binomial coeﬀicient.) Here is a table for the pmf of a Binomial(𝑛,𝑘) ran-
+dom variable. We will explain how the binomial coeﬀicients enter the pmf for the binomial
+distribution after a simple example.
+values 𝑎: 0 1 2 ⋯ 𝑘 ⋯ 𝑛
+𝑛 𝑛 𝑛
+pmf 𝑝(𝑎): (1−𝑝)𝑛 ( )𝑝1(1−𝑝) 𝑛−1 ( )𝑝2(1−𝑝) 𝑛−2 ⋯ ( )𝑝𝑘(1−𝑝) 𝑛−𝑘 ⋯ 𝑝𝑛
+1 2 𝑘
+Example 8. What is the probability of 3 or more heads in 5 tosses of a fair coin?
+Solution: The binomial coeﬀicients associated with 𝑛 = 5 are
+5 5 5! 5⋅4⋅3⋅2⋅1 5 5! 5⋅4⋅3⋅2⋅1 5⋅4
+( ) = 1, ( ) = = = 5, ( ) = = = = 10,
+0 1 1!4! 4⋅3⋅2⋅1 2 2!3! 2⋅1⋅3⋅2⋅1 2
+and similarly
+5 5 5
+( ) = 10, ( ) = 5, ( ) = 1.
+3 4 5
+18.05 Class 4, Discrete Random Variables, Spring 2022 8
+Using these values we get the following table for 𝑋 ∼ Binomial(5,p).
+values 𝑎: 0 1 2 3 4 5
+pmf 𝑝(𝑎): (1−𝑝)5 5𝑝(1−𝑝)4 10𝑝2(1−𝑝)3 10𝑝3(1−𝑝)2 5𝑝4(1−𝑝) 𝑝5
+We were told 𝑝 = 1/2 so
+1 3 1 2 1 4 1 1 1 5 16 1
+𝑃(𝑋 ≥ 3) = 10( ) ( ) +5( ) ( ) +( ) = = .
+2 2 2 2 2 32 2
+Think: Why is the value of 1/2 not surprising?
+3.3 Explanation of the binomial probabilities
+For concreteness, let 𝑛 = 5 and 𝑘 = 2 (the argument for arbitrary 𝑛 and 𝑘 is identical.) So
+𝑋 ∼ binomial(5,𝑝) and we want to compute 𝑝(2). The long way to compute 𝑝(2) is to list
+all the ways to get exactly 2 heads in 5 coin flips and add up their probabilities. The list
+has 10 entries:
+HHTTT, HTHTT, HTTHT, HTTTH, THHTT, THTHT, THTTH, TTHHT, TTHTH,
+TTTHH
+Each entry has the same probability of occurring, namely
+𝑝2(1−𝑝)3.
+This is because each of the two heads has probability 𝑝 and each of the 3 tails has proba-
+bility 1−𝑝. Because the individual tosses are independent we can multiply probabilities.
+Therefore, the total probability of exactly 2 heads is the sum of 10 identical probabilities,
+i.e. 𝑝(2) = 10𝑝2(1−𝑝)3, as shown in the table.
+This guides us to the shorter way to do the computation. We have to count the number of
+sequences with exactly 2 heads. To do this we need to choose 2 of the tosses to be heads
+and the remaining 3 to be tails. The number of such sequences is the number of ways to
+choose 2 out of 5 things, that is (5). Since each such sequence has the same probability,
+2
+𝑝2(1−𝑝)3, we get the probability of exactly 2 heads 𝑝(2) = (5)𝑝2(1−𝑝)3.
+2
+Here are some binomial probability mass functions:
+0.4
+0.2
+0.3
+0.2
+0.2
+0.1
+0.1
+0.1
+𝑎 𝑎 𝑎
+2 4 6 8 10 2 4 6 8 10 5 10 15 20
+Binomial(10, 0.5) Binomial(10, 0.1) Binomial(20, 0.1)
+18.05 Class 4, Discrete Random Variables, Spring 2022 9
+3.4 Geometric Distributions
+A geometric distribution models the number of tails before the first head in a sequence of
+coin flips (Bernoulli trials).
+Example 9. (a) Flip a coin repeatedly. Let 𝑋 be the number of tails before the first heads.
+So, 𝑋 can equal 0, i.e. the first flip is heads, 1, 2, …. In principle it takes any nonnegative
+integer value.
+(b) Give a flip of tails the value 0, and heads the value 1. In this case, 𝑋 is the number of
+0’s before the first 1.
+(c) Give a flip of tails the value 1, and heads the value 0. In this case, 𝑋 is the number of
+1’s before the first 0.
+(d) Call a flip of tails a success and heads a failure. So, 𝑋 is the number of successes before
+the first failure.
+(e) Call a flip of tails a failure and heads a success. So, 𝑋 is the number of failures before
+the first success.
+You can see this models many different scenarios of this type. The most neutral language
+is the number of tails before the first head.
+Formal definition. The random variable 𝑋 follows a geometric distribution with param-
+eter 𝑝 if
+• 𝑋 takes the values 0, 1, 2, 3, …
+• its pmf is given by 𝑝(𝑘) = 𝑃(𝑋 = 𝑘) = (1−𝑝)𝑘𝑝.
+We denote this by 𝑋 ∼ geometric(𝑝) or geo(𝑝). In table form we have:
+value 𝑎: 0 1 2 3 … 𝑘 …
+pmf 𝑝(𝑎): 𝑝 (1−𝑝)𝑝 (1−𝑝)2𝑝 (1−𝑝)3𝑝 … (1−𝑝)𝑘𝑝 …
+Table: 𝑋 ∼ geometric(𝑝): 𝑋 = the number of 0s before the first 1.
+We will show how this table was computed in an example below.
+The geometric distribution is an example of a discrete distribution that takes an infinite
+number of possible values. Things can get confusing when we work with successes and
+failure since we might want to model the number of successes before the first failure or we
+might want the number of failures before the first success. To keep straight things straight
+you can translate to the neutral language of the number of tails before the first heads.
+18.05 Class 4, Discrete Random Variables, Spring 2022 10
+1
+0.4 0.8
+0.3 0.6
+0.2 0.4
+0.1 0.2
+0.0 𝑎 0.0 𝑎
+0 1 5 10 0 1 5 10
+pmf and cdf for the geometric(1/3) distribution
+Example 10. Computing geometric probabilities. Suppose that the inhabitants of an
+islandplantheirfamiliesbyhavingbabiesuntilthefirstgirlisborn. Assumetheprobability
+of having a girl with each pregnancy is 0.5 independent of other pregnancies, that all babies
+survive and there are no multiple births. What is the probability that a family has 𝑘 boys?
+Solution: In neutral language we can think of boys as tails and girls as heads. Then the
+number of boys in a family is the number of tails before the first heads.
+Let’s practice using standard notation to present this. So, let 𝑋 be the number of boys in
+a (randomly-chosen) family. So, 𝑋 is a geometric random variable. We are asked to find
+𝑝(𝑘) = 𝑃(𝑋 = 𝑘). A family has 𝑘 boys if the sequence of children in the family from oldest
+to youngest is
+𝐵𝐵𝐵…𝐵𝐺
+with the first 𝑘 children being boys. The probability of this sequence is just the product
+of the probability for each child, i.e. (1/2)𝑘⋅(1/2) = (1/2)𝑘+1. (Note: The assumptions of
+equal probability and independence are simplifications of reality.)
+Think: What is the ratio of boys to girls on the island?
+More geometric confusion. Another common definition for the geometric distribution is the
+number of tosses until the first heads. In this case 𝑋 can take the values 1, i.e. the first
+flip is heads, 2, 3, …. This is just our geometric random variable plus 1. The methods of
+computing with it are just like the ones we used above.
+3.5 Uniform Distribution
+The uniform distribution models any situation where all the outcomes are equally likely.
+𝑋 ∼ uniform(𝑁).
+𝑋 takes values 1,2,3,…,𝑁, each with probability 1/𝑁. We have already seen this distribu-
+tion many times when modeling to fair coins (𝑁 = 2), dice (𝑁 = 6), birthdays (𝑁 = 365),
+and poker hands (𝑁 = (52)).
+5
+18.05 Class 4, Discrete Random Variables, Spring 2022 11
+3.6 Discrete Distributions Applet
+The applet at https://mathlets.org/mathlets/probability-distributions/ gives a
+dynamic view of some discrete distributions. The graphs will change smoothly as you move
+the various sliders. Try playing with the different distributions and parameters.
+This applet is carefully color-coded. Two things with the same color represent the same or
+closely related notions. By understanding the color-coding and other details of the applet,
+you will acquire a stronger intuition for the distributions shown.
+3.7 Other Distributions
+There are a million other named distributions arising is various contexts. We don’t expect
+you to memorize them (we certainly have not!), but you should be comfortable using a
+resource like Wikipedia to look up a pmf. For example, take a look at the info box at the
+top right of https://en.wikipedia.org/wiki/Hypergeometric_distribution. The info
+box lists many (surely unfamiliar) properties in addition to the pmf.
+4 Arithmetic with Random Variables
+We can do arithmetic with random variables. For example, we can add subtract, multiply
+or square them.
+There is a simple, but extremely important idea for counting. It says that if we have a
+sequence of numbers that are either 0 or 1 then the sum of the sequence is the number of
+1s.
+Example 11. Consider the sequence with five 1s
+1,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0.
+It is easy to see that the sum of this sequence is 5 the number of 1s.
+We illustrate this idea by counting the number of heads in 𝑛 tosses of a coin.
+Example 12. Toss a fair coin 𝑛 times. Let 𝑋 be 1 if the 𝑗th toss is heads and 0 if it’s
+𝑗
+tails. So, 𝑋 is a Bernoulli(1/2) random variable. Let 𝑋 be the total number of heads in
+𝑗
+the 𝑛 tosses. Assuming the tosses are independent we know 𝑋 ∼ binomial(𝑛,1/2). We can
+also write
+𝑋 = 𝑋 +𝑋 +𝑋 +…+𝑋 .
+1 2 3 𝑛
+Again, this is because the terms in the sum on the right are all either 0 or 1. So, the sum
+is exactly the number of 𝑋 that are 1, i.e. the number of heads.
+𝑗
+Theimportantthingtoseeintheexampleaboveisthatwe’vewrittenthemorecomplicated
+binomial random variable 𝑋 as the sum of extremely simple random variables 𝑋 . This will
+𝑗
+allow us to manipulate 𝑋 algebraically.
+Think: Suppose𝑋and𝑌 areindependentand𝑋 ∼ binomial(𝑛,1/2)and𝑌 ∼ binomial(𝑚,1/2).
+What kind of distribution does 𝑋+𝑌 follow? (Answer: binomial(𝑛+𝑚,1/2). Why?)
+18.05 Class 4, Discrete Random Variables, Spring 2022 12
+Example 13. Suppose 𝑋 and 𝑌 are independent random variables with the following
+tables.
+Values of 𝑋 𝑥: 1 2 3 4
+pmf 𝑝 (𝑥): 1/10 2/10 3/10 4/10
+𝑋
+Values of 𝑌 𝑦: 1 2 3 4 5
+pmf 𝑝 (𝑦): 1/15 2/15 3/15 4/15 5/15
+𝑌
+Check that the total probability for each random variable is 1. Make a table for the random
+variable 𝑋+𝑌.
+Solution: The first thing to do is make a two-dimensional table for the product sample
+space consisting of pairs (𝑥,𝑦), where 𝑥 is a possible value of 𝑋 and 𝑦 one of 𝑌. To help
+do the computation, the probabilities for the 𝑋 values are put in the far right column and
+those for 𝑌 are in the bottom row. Because 𝑋 and 𝑌 are independent the probability for
+(𝑥,𝑦) pair is just the product of the individual probabilities.
+𝑌 values
+1 2 3 4 5
+1
+2
+3
+4
+seulav
+𝑋
+1/150 2/150 3/150 4/150 5/150 1/10
+2/150 4/150 6/150 8/150 10/150 2/10
+3/150 6/150 9/150 12/150 15/150 3/10
+4/150 8/150 12/150 16/150 20/150 4/10
+1/15 2/15 3/15 4/15 5/15
+The diagonal stripes show sets of squares where 𝑋 +𝑌 is the same. All we have to do to
+compute the probability table for 𝑋+𝑌 is sum the probabilities for each stripe.
+𝑋+𝑌 values: 2 3 4 5 6 7 8 9
+pmf: 1/150 4/150 10/150 20/150 30/150 34/150 31/150 20/150
+When the tables are too big to write down we’ll need to use purely algebraic techniques to
+compute the probabilities of a sum. We will learn how to do this in due course.
+Discrete Random Variables: Expected Value
+Class 4, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Know how to compute expected value (mean) of a discrete random variable.
+2. Know the expected value of Bernoulli, binomial and geometric random variables.
+2 Expected Value
+In the R reading questions for this lecture, you simulated the average value of rolling a die
+many times. You should have gotten a value close to the exact answer of 3.5. To motivate
+the formal definition of the average, or expected value, we first consider some examples.
+Example 1. Suppose we have a six-sided die marked with five 5 3’s and one 6. (This was
+the red one from our non-transitive dice.) What would you expect the average of 6000 rolls
+to be?
+Solution: If we knew the value of each roll, we could compute the average by summing
+the 6000 values and dividing by 6000. Without knowing the values, we can compute the
+expected average as follows.
+Since there are five 3’s and one six weexpect roughly 5/6 of the rolls will give 3 and 1/6 will
+give 6. Assuming this to be exactly true, we have the following table of values and counts:
+value: 3 6
+expected counts: 5000 1000
+The average of these 6000 values is then
+5000⋅3+1000⋅6 5 1
+= ⋅3+ ⋅6 = 3.5
+6000 6 6
+We consider this the expected average in the sense that we ‘expect’ each of the possible
+values to occur with the given frequencies.
+Example 2. We roll two standard 6-sided dice. You win $1000 if the sum is 2 and lose
+$100 otherwise. How much do you expect to win on average per trial?
+1
+Solution: The probability of a 2 is 1/36. If you play 𝑁 times, you can ‘expect’ ⋅𝑁
+36
+of the trials to give a 2 and 35 ⋅𝑁 of the trials to give something else. Thus your total
+36
+expected winnings are
+𝑁 35𝑁
+1000⋅ −100⋅ .
+36 36
+To get the expected average per trial we divide the total by 𝑁:
+1 35
+expected average = 1000⋅ −100⋅ = −69.44.
+36 36
+1
+18.05 Class 4, Discrete Random Variables: Expected Value, Spring 2022 2
+Think: Would you be willing to play this game one time? Multiple times?
+Notice that in both examples the sum for the expected average consists of terms which are
+a value of the random variable times its probabilitiy. This leads to the following definition.
+Definition: Suppose 𝑋 is a discrete random variable that takes values 𝑥 , 𝑥 , …, 𝑥 with
+1 2 𝑛
+probabilities 𝑝(𝑥 ), 𝑝(𝑥 ), …, 𝑝(𝑥 ). The expected value of 𝑋 is denoted 𝐸[𝑋] and defined
+1 2 𝑛
+by
+𝑛
+𝐸[𝑋] = ∑𝑝(𝑥 )𝑥 = 𝑝(𝑥 )𝑥 +𝑝(𝑥 )𝑥 +…+𝑝(𝑥 )𝑥 .
+𝑗 𝑗 1 1 2 2 𝑛 𝑛
+𝑗=1
+Notes:
+1. The expected value is also called the mean or average of 𝑋 and often denoted by 𝜇
+(“mu”).
+2. As seen in the above examples, the expected value need not be a possible value of the
+random variable. Rather it is a weighted average of the possible values.
+3. Expected value is a summary statistic, providing a measure of the location or central
+tendency of a random variable.
+4. If all the values are equally probable then the expected value is just the usual average of
+the values.
+Example 3. Find 𝐸[𝑋] for the random variable X with table:
+values of 𝑋: 1 3 5
+pmf: 1/6 1/6 2/3
+1 1 2 24
+Solution: 𝐸[𝑋] = ⋅1+ ⋅3+ ⋅5 = = 4
+6 6 3 6
+Example 4. Let 𝑋 be a Bernoulli(𝑝) random variable. Find 𝐸[𝑋].
+Solution: 𝑋 takes values 1 and 0 with probabilities 𝑝 and 1−𝑝, so
+𝐸[𝑋] = 𝑝⋅1+(1−𝑝)⋅0 = 𝑝.
+Important: This is an important example. Be sure to remember that the expected value of
+a Bernoulli(𝑝) random variable is 𝑝.
+Think: What is the expected value of the sum of two dice?
+2.1 Mean and center of mass
+You may have wondered why we use the name ‘probability mass function’. Here’s one
+reason: if we place an object of mass 𝑝(𝑥 ) at position 𝑥 for each 𝑗, then 𝐸[𝑋] is the
+𝑗 𝑗
+position of the center of mass. Let’s recall the latter notion via an example.
+Example 5. Suppose we have two masses along the 𝑥-axis, mass 𝑚 = 500 at position
+1
+𝑥 = 3 and mass 𝑚 = 100 at position 𝑥 = 6. Where is the center of mass?
+1 2 2
+18.05 Class 4, Discrete Random Variables: Expected Value, Spring 2022 3
+Solution: Intuitively we know that the center of mass is closer to the larger mass.
+𝑚 𝑚
+1 2 𝑥
+3 6
+From physics we know the center of mass is
+𝑚 𝑥 +𝑚 𝑥 500⋅3+100⋅6
+𝑥 = 1 1 2 2 = = 3.5.
+𝑚 +𝑚 600
+1 2
+Wecallthisformulaa‘weighted’averageofthe𝑥 and𝑥 . Here𝑥 isweightedmoreheavily
+1 2 1
+because it has more mass.
+Now look at the definition of expected value 𝐸[𝑋]. It is a weighted average of the values of
+𝑋 with the weights being probabilities 𝑝(𝑥 ) rather than masses! We might say that “The
+𝑖
+expected value is the point at which the distribution would balance”. Note the similarity
+between the physics example and Example 1.
+2.2 Algebraic properties of 𝐸[𝑋]
+When we add, scale or shift random variables the expected values do the same. The
+shorthand mathematical way of saying this is that 𝐸[𝑋] is linear.
+1. If 𝑋 and 𝑌 are random variables on a sample space Ω then
+𝐸[𝑋+𝑌] = 𝐸[𝑋]+𝐸[𝑌]
+2. If 𝑎 and 𝑏 are constants then
+𝐸[𝑎𝑋+𝑏] = 𝑎𝐸[𝑋]+𝑏.
+We will think of 𝑎𝑋+𝑏 as scaling 𝑋 by 𝑎 and shifting it by 𝑏.
+Before proving these properties, let’s see them in action with a few examples.
+Example 6. Roll two dice and let 𝑋 be the sum. Find 𝐸[𝑋].
+Solution: Let 𝑋 be the value on the first die and let 𝑋 be the value on the second
+1 2
+die. Since 𝑋 = 𝑋 + 𝑋 we have 𝐸[𝑋] = 𝐸[𝑋 ] + 𝐸[𝑋 ]. Earlier we computed that
+1 2 1 2
+𝐸[𝑋 ] = 𝐸[𝑋 ] = 3.5, therefore 𝐸[𝑋] = 7.
+1 2
+Example 7. Let 𝑋 ∼ binomial(𝑛,𝑝). Find 𝐸[𝑋].
+Solution: Recallthat𝑋 modelsthenumberofsuccessesin𝑛Bernoulli(𝑝)randomvariables,
+which we’ll call 𝑋 ,…𝑋 . The key fact, which we highlighted in the previous reading for
+1 𝑛
+this class, is that
+𝑛
+𝑋 = 𝑋 +𝑋 +…+𝑋 = ∑𝑋 .
+1 2 𝑛 𝑗
+𝑗=1
+Now we can use the Algebraic Property (1) to make the calculation simple.
+𝑛
+𝑋 = ∑𝑋 ⇒ 𝐸[𝑋] = ∑𝐸[𝑋 ] = ∑𝑝 = 𝑛𝑝 .
+𝑗 𝑗
+𝑗=1 𝑗 𝑗
+18.05 Class 4, Discrete Random Variables: Expected Value, Spring 2022 4
+We could have computed 𝐸[𝑋] directly as
+𝑛 𝑛 𝑛
+𝐸[𝑋] = ∑𝑘𝑝(𝑘) = ∑𝑘( )𝑝𝑘(1−𝑝)𝑛−𝑘.
+𝑘
+𝑘=0 𝑘=0
+It is possible to show that the sum of this series is indeed 𝑛𝑝. We think you’ll agree that
+the method using Property (1) is much easier.
+Example 8. (For infinite random variables the mean does not always exist.) Suppose 𝑋
+has an infinite number of values according to the following table.
+values 𝑥: 2 22 23 … 2𝑘 …
+Try to compute the mean.
+pmf 𝑝(𝑥): 1/2 1/22 1/23 … 1/2𝑘 …
+Solution: The mean is
+∞ 1 ∞
+𝐸[𝑋] = ∑2𝑘 = ∑1 = ∞.
+2𝑘
+𝑘=1 𝑘=1
+The mean does not exist! This can happen with infinite series.
+Example 9. Mean of a geometric distribution
+Let 𝑋 ∼ geo(𝑝). Recall this means 𝑋 takes values 𝑘 = 0, 1, 2, …with probabilities 𝑝(𝑘) =
+(1−𝑝)𝑘𝑝. (𝑋 models the number of tails before the first heads in a sequence of Bernoulli
+trials.) The mean is given by
+1−𝑝
+𝐸[𝑋] = .
+𝑝
+To see this requires a clever trick. Mathematicians love this sort of thing and we hope you
+are able to follow the logic and enjoy it. In this class we will not ask you to come up with
+something like this on an exam.
+Here’s the trick.: to compute 𝐸[𝑋] we have to sum the infinite series
+∞
+𝐸[𝑋] = ∑𝑘(1−𝑝)𝑘𝑝.
+𝑘=0
+∞ 1
+Now, we know the sum of the geometric series: ∑𝑥𝑘 = .
+1−𝑥
+𝑘=0
+∞ 1
+Differentiate both sides: ∑𝑘𝑥𝑘−1 = .
+(1−𝑥)2
+𝑘=0
+∞ 𝑥
+Multiply by 𝑥: ∑𝑘𝑥𝑘 = .
+(1−𝑥)2
+𝑘=0
+∞ 1−𝑝
+Replace 𝑥 by 1−𝑝: ∑𝑘(1−𝑝)𝑘 = .
+𝑝2
+𝑘=0
+∞ 1−𝑝
+Multiply by 𝑝: ∑𝑘(1−𝑝)𝑘𝑝 = .
+𝑝
+𝑘=0
+This last expression is the mean.
+1−𝑝
+𝐸[𝑋] = .
+𝑝
+18.05 Class 4, Discrete Random Variables: Expected Value, Spring 2022 5
+Example 10. Flip a fair coin until you get heads for the first time. What is the expected
+number of times you flipped tails?
+Solution: The number of tails before the first head is modeled by 𝑋 ∼ geo(1/2). From the
+1/2
+previous example 𝐸[𝑋] = = 1. This is a surprisingly small number.
+1/2
+Example 11. Michael Jordan, perhaps the greatest basketball player ever, made 80% of
+his free throws. In a game what is the expected number he would make before his first miss.
+Solution: Here is an example where we want the number of successes before the first
+failure. Using the neutral language of heads and tails: success is tails (probability 1−𝑝)
+and failure is heads (probability = 𝑝). Therefore 𝑝 = 0.2 and the number of tails (made
+free throws) before the first heads (missed free throw) is modeled by a 𝑋 ∼ geo(0.2). We
+saw in Example 9 that this is
+1−𝑝 0.8
+𝐸[𝑋] = = = 4.
+𝑝 0.2
+2.3 Expected values of functions of a random variable
+(The change of variables formula.)
+If 𝑋 is a discrete random variable taking values 𝑥 , 𝑥 , …and ℎ is a function then ℎ(𝑋) is
+1 2
+a new random variable. Its expected value is
+𝐸[ℎ(𝑋)] = ∑ℎ(𝑥 )𝑝(𝑥 ).
+𝑗 𝑗
+𝑗
+We illustrate this with several examples.
+Example 12. Let 𝑋 be the value of a roll of one die and let 𝑌 = 𝑋2. Find 𝐸[𝑌].
+Solution: Since there are a small number of values we can make a table.
+𝑋 1 2 3 4 5 6
+𝑌 1 4 9 16 25 36
+prob 1/6 1/6 1/6 1/6 1/6 1/6
+Notice the probability for each 𝑌 value is the same as that of the corresponding 𝑋 value.
+So,
+1 1 1
+𝐸[𝑌] = 𝐸[𝑋2] = 12⋅ +22⋅ +…+62⋅ = 15.167.
+6 6 6
+Example 13. Roll two dice and let 𝑋 be the sum. Suppose the payoff function is given by
+𝑌 = 𝑋2−6𝑋+1. Is this a good bet?
+12
+Solution: We have 𝐸[𝑌] = ∑(𝑗2−6𝑗+1)𝑝(𝑗), where 𝑝(𝑗) = 𝑃(𝑋 = 𝑗).
+𝑗=2
+We show the table, but really we’ll use R to do the calculation.
+𝑋 2 3 4 5 6 7 8 9 10 11 12
+𝑌 -7 -8 -7 -4 1 8 17 28 41 56 73
+prob 1/36 2/36 3/36 4/36 5/36 6/36 5/36 4/36 3/36 2/36 1/36
+Here’s the R code I used to compute 𝐸[𝑌] = 13.833.
+18.05 Class 4, Discrete Random Variables: Expected Value, Spring 2022 6
+x = 2:12
+y = x^2 - 6*x + 1
+p = c(1 2 3 4 5 6 5 4 3 2 1)/36
+ave = sum(p*y)
+It gave 𝐸[𝑌] = 13.833.
+To answer the question above: since the expected payoff is positive it looks like a bet worth
+taking.
+Quiz: If 𝑌 = ℎ(𝑋) does 𝐸[𝑌] = ℎ(𝐸[𝑋])? Solution: NO!!! This is not true in general!
+Think: Is it true in the previous example?
+Quiz: If 𝑌 = 3𝑋+77 does 𝐸[𝑌] = 3𝐸[𝑋]+77?
+Solution: Yes. By property (2), scaling and shifting does behave like this.
+2.4 Proofs of the algebraic properties of 𝐸[𝑋]
+We finish by proving the algebraic properties of 𝐸[𝑋].
+1. For random variables 𝑋 and 𝑌 on a sample space Ω: 𝐸[𝑋+𝑌] = 𝐸[𝑋]+𝐸[𝑌]>
+2. For constants 𝑎,𝑏 and random variable 𝑋: 𝐸[𝑎𝑋+𝑏] = 𝑎𝐸[𝑋]+𝑏.
+The proof of Property (1) is simple, but there is some subtlety in even understanding what
+itmeanstoaddtworandomvariables. Recallthatthevalueofrandomvariableisanumber
+determined by the outcome of an experiment. To add 𝑋 and 𝑌 means to add the values of
+𝑋 and 𝑌 for the same outcome. In table form this looks like:
+outcome 𝜔: 𝜔 𝜔 𝜔 … 𝜔
+1 2 3 𝑛
+value of 𝑋: 𝑥 𝑥 𝑥 … 𝑥
+1 2 3 𝑛
+value of 𝑌: 𝑦 𝑦 𝑦 … 𝑦
+1 2 3 𝑛
+value of 𝑋+𝑌: 𝑥 +𝑦 𝑥 +𝑦 𝑥 +𝑦 … 𝑥 +𝑦
+1 1 2 2 3 3 𝑛 𝑛
+prob. 𝑃(𝜔): 𝑃(𝜔 ) 𝑃(𝜔 ) 𝑃(𝜔 ) … 𝑃(𝜔 )
+1 2 3 𝑛
+The proof of (1) follows immediately:
+𝐸[𝑋+𝑌] = ∑(𝑥 +𝑦 )𝑃(𝜔 ) = ∑𝑥 𝑃(𝜔 )+∑𝑦 𝑃(𝜔 ) = 𝐸[𝑋]+𝐸[𝑌].
+𝑖 𝑖 𝑖 𝑖 𝑖 𝑖 𝑖
+The proof of Property (2) only takes one line.
+𝐸[𝑎𝑋+𝑏] = ∑𝑝(𝑥 )(𝑎𝑥 +𝑏) = 𝑎∑𝑝(𝑥 )𝑥 +𝑏∑𝑝(𝑥 ) = 𝑎𝐸[𝑋]+𝑏.
+𝑖 𝑖 𝑖 𝑖 𝑖
+The 𝑏 term in the last expression follows because ∑𝑝(𝑥 ) = 1.
+𝑖
+Variance of Discrete Random Variables
+Class 5, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Be able to compute the variance and standard deviation of a random variable.
+2. Understand that standard deviation is a measure of scale or spread.
+3. Be able to compute variance using the properties of scaling and linearity.
+2 Spread
+Theexpectedvalue(mean)ofarandomvariableisameasureoflocationorcentraltendency.
+Ifyouhadtosummarizearandomvariablewithasinglenumber, themeanwouldbeagood
+choice. Still, the mean leaves out a good deal of information. For example, the random
+variables 𝑋 and 𝑌 below both have mean 0, but their probability mass is spread out about
+the mean quite differently.
+values 𝑋 -2 -1 0 1 2 values 𝑌 -3 3
+pmf 𝑝(𝑥) 1/10 2/10 4/10 2/10 1/10 pmf 𝑝(𝑦) 1/2 1/2
+It’s probably a little easier to see the different spreads in plots of the probability mass
+functions. We use bars instead of dots to give a better sense of the mass.
+𝑝(𝑥) pmf for 𝑋 pmf for 𝑌 𝑝(𝑦)
+1/2
+4/10
+2/10
+1/10
+𝑥 𝑦
+-2 -1 0 1 2 -3 0 3
+pmf’s for two different distributions both with mean 0
+In the next section, we will learn how to quantify this spread.
+3 Variance and standard deviation
+Taking the mean as the center of a random variable’s probability distribution, the variance
+is a measure of how much the probability mass is spread out around this center. We’ll start
+with the formal definition of variance and then unpack its meaning.
+Definition: If 𝑋 is a random variable with mean 𝐸[𝑋] = 𝜇, then the variance of 𝑋 is
+defined by
+Var(𝑋) = 𝐸[(𝑋−𝜇)2].
+1
+18.05 Class 5, Variance of Discrete Random Variables, Spring 2022 2
+The standard deviation 𝜎 of 𝑋 is defined by
+𝜎 = √Var(𝑋).
+If the relevant random variable is clear from context, then the variance and standard devi-
+ation are often denoted by 𝜎2 and 𝜎 (‘sigma’), just as the mean is 𝜇 (‘mu’).
+What does this mean? First, let’s rewrite the definition explicitly as a sum. If 𝑋 takes
+values 𝑥 ,𝑥 ,…,𝑥 with probability mass function 𝑝(𝑥 ) then
+1 2 𝑛 𝑖
+𝑛
+Var(𝑋) = 𝐸[(𝑋−𝜇)2] = ∑𝑝(𝑥 )(𝑥 −𝜇)2.
+𝑖 𝑖
+𝑖=1
+In words, the formula for Var(𝑋) says to take a weighted average of the squared distance
+to the mean. By squaring, we make sure we are averaging only non-negative values, so that
+the spread to the right of the mean won’t cancel that to the left. By using expectation,
+we are weighting high probability values more than low probability values. (See Example 2
+below.)
+Note on units:
+1. 𝜎 has the same units as 𝑋.
+2. Var(𝑋) has the same units as the square of 𝑋. So if 𝑋 is in meters, then Var(𝑋) is in
+meters squared.
+Because𝜎and𝑋 havethesameunits,thestandarddeviationisanaturalmeasureofspread.
+Let’s work some examples to make the notion of variance clear.
+Example 1. Compute the mean, variance and standard deviation of the random variable
+𝑋 with the following table of values and probabilities.
+value 𝑥 1 3 5
+pmf 𝑝(𝑥) 1/4 1/4 1/2
+Solution: First we compute 𝐸[𝑋] = 7/2. Then we extend the table to include (𝑋−7/2)2.
+value 𝑥 1 3 5
+𝑝(𝑥) 1/4 1/4 1/2
+(𝑥−7/2)2 25/4 1/4 9/4
+Now the computation of the variance is similar to that of expectation:
+25 1 1 1 9 1 11
+Var(𝑋) = ⋅ + ⋅ + ⋅ = .
+4 4 4 4 4 2 4
+Taking the square root we have the standard deviation 𝜎 = √11/4.
+Example 2. For each random variable 𝑋, 𝑌, 𝑍, and 𝑊 plot the pmf and compute the
+mean and variance.
+(i) value 𝑥 1 2 3 4 5
+pmf 𝑝(𝑥) 1/5 1/5 1/5 1/5 1/5
+(ii) value 𝑦 1 2 3 4 5
+pmf 𝑝(𝑦) 1/10 2/10 4/10 2/10 1/10
+18.05 Class 5, Variance of Discrete Random Variables, Spring 2022 3
+(iii) value 𝑧 1 2 3 4 5
+pmf 𝑝(𝑧) 5/10 0 0 0 5/10
+(iv) value 𝑤 1 2 3 4 5
+pmf 𝑝(𝑤) 0 0 1 0 0
+Solution: Each random variable has the same mean 3, but the probability is spread out
+differently. In the plots below, we order the pmf’s from largest to smallest variance: 𝑍, 𝑋,
+𝑌, 𝑊.
+𝑝(𝑧) pmf for 𝑍 𝑝(𝑥) pmf for 𝑋
+.5
+1/5
+𝑧 𝑥
+1 2 3 4 5 1 2 3 4 5
+𝑝(𝑤)
+1
+𝑝(𝑦) pmf for 𝑌 pmf for 𝑊
+.5
+.3
+.1
+𝑦 𝑊
+1 2 3 4 5 1 2 3 4 5
+Next we’ll verify our visual intuition by computing the variance of each of the variables.
+All of them have mean 𝜇 = 3. Since the variance is defined as an expected value, we can
+compute it using the tables.
+(i) value 𝑥 1 2 3 4 5
+pmf 𝑝(𝑥) 1/5 1/5 1/5 1/5 1/5
+(𝑋−𝜇)2 4 1 0 1 4
+Var(𝑋) = 𝐸[(𝑋−𝜇)2] = 4 + 1 + 0 + 1 + 4 = 2 .
+5 5 5 5 5
+(ii) value 𝑦 1 2 3 4 5
+𝑝(𝑦) 1/10 2/10 4/10 2/10 1/10
+(𝑌 −𝜇)2 4 1 0 1 4
+Var(𝑌) = 𝐸[(𝑌 −𝜇)2] = 4 + 2 + 0 + 2 + 4 = 1.2 .
+10 10 10 10 10
+(iii) value 𝑧 1 2 3 4 5
+pmf 𝑝(𝑧) 5/10 0 0 0 5/10
+(𝑍 −𝜇)2 4 1 0 1 4
+Var(𝑍) = 𝐸[(𝑍 −𝜇)2] = 20 + 20 = 4 .
+10 10
+18.05 Class 5, Variance of Discrete Random Variables, Spring 2022 4
+(iv) value 𝑤 1 2 3 4 5
+pmf 𝑝(𝑤) 0 0 1 0 0
+(𝑊 −𝜇)2 4 1 0 1 4
+Var(𝑊) = 0 . Note that 𝑊 doesn’t vary, so it has variance 0!
+3.1 The variance of a Bernoulli(𝑝) random variable.
+Bernoulli random variables are fundamental, so we should know their variance.
+If 𝑋 ∼ Bernoulli(𝑝) then
+Var(𝑋) = 𝑝(1−𝑝).
+Proof: We know that 𝐸[𝑋] = 𝑝. We compute Var(𝑋) using a table.
+values 𝑋 0 1
+pmf 𝑝(𝑥) 1−𝑝 𝑝
+(𝑋−𝜇)2 (0−𝑝)2 (1−𝑝)2
+Var(𝑋) = (1−𝑝)𝑝2+𝑝(1−𝑝)2 = (1−𝑝)𝑝(1−𝑝+𝑝) = (1−𝑝)𝑝.
+As with all things Bernoulli, you should remember this formula.
+Think: For what value of 𝑝 does Bernoulli(𝑝) have the highest variance? Try to answer
+this by plotting the PMF for various 𝑝.
+3.2 A word about independence
+So far we have been using the notion of independent random variable without ever carefully
+defining it. For example, a binomial distribution is the sum of independent Bernoulli trials.
+This may (should?) have bothered you. Of course, we have an intuitive sense of what inde-
+pendence means for experimental trials. We also have the probabilistic sense that random
+variables 𝑋 and 𝑌 are independent if knowing the value of 𝑋 gives you no information
+about the value of 𝑌.
+In a few classes we will work with continuous random variables and joint probability func-
+tions. After that we will be ready for a full definition of independence. For now we can use
+the following definition, which is exactly what you expect and is valid for discrete random
+variables.
+Definition: The discrete random variables 𝑋 and 𝑌 are independent if
+𝑃(𝑋 = 𝑎, 𝑌 = 𝑏) = 𝑃(𝑋 = 𝑎)𝑃(𝑌 = 𝑏)
+for any values 𝑎, 𝑏. That is, the probabilities multiply.
+3.3 Properties of variance
+The three most useful properties for computing variance are:
+1. If 𝑋 and 𝑌 are independent then Var(𝑋+𝑌) = Var(𝑋)+Var(𝑌).
+18.05 Class 5, Variance of Discrete Random Variables, Spring 2022 5
+2. For constants 𝑎 and 𝑏, Var(𝑎𝑋+𝑏) = 𝑎2Var(𝑋).
+3. Var(𝑋) = 𝐸[𝑋2]−𝐸[𝑋]2.
+For Property 1, note carefully the requirement that 𝑋 and 𝑌 are independent. We will
+return to the proof of Property 1 in a later class.
+Property 3 gives a formula for Var(𝑋) that is often easier to use in hand calculations. The
+computerishappytousethedefinition! We’llproveProperties2and3aftersomeexamples.
+Example 3. Suppose 𝑋 and 𝑌 are independent and Var(𝑋) = 3 and Var(𝑌) = 5. Find:
+(i) Var(𝑋+𝑌), (ii) Var(3𝑋+4), (iii) Var(𝑋+𝑋), (iv) Var(𝑋+3𝑌).
+Solution: To compute these variances we make use of Properties 1 and 2.
+(i) Since 𝑋 and 𝑌 are independent, Var(𝑋+𝑌) = Var(𝑋)+Var(𝑌) = 8.
+(ii) Using Property 2, Var(3𝑋+4) = 9⋅Var(𝑋) = 27.
+(iii) Don’t be fooled! Property 1 fails since 𝑋 is certainly not independent of itself. We can
+use Property 2: Var(𝑋 +𝑋) = Var(2𝑋) = 4⋅Var(𝑋) = 12. (Note: if we mistakenly used
+Property 1, we would the wrong answer of 6.)
+(iv) We use both Properties 1 and 2.
+Var(𝑋+3𝑌) = Var(𝑋)+Var(3𝑌) = 3+9⋅5 = 48.
+Example 4. Use Property 3 to compute the variance of 𝑋 ∼ Bernoulli(𝑝).
+Solution: From the table
+𝑋 0 1
+𝑝(𝑥) 1−𝑝 𝑝
+𝑋2 0 1
+we have 𝐸[𝑋2] = 𝑝. So Property 3 gives
+Var(𝑋) = 𝐸[𝑋2]−𝐸[𝑋]2 = 𝑝−𝑝2 = 𝑝(1−𝑝).
+This agrees with our earlier calculation.
+Example 5. Redo Example 1 using Property 3.
+Solution: From the table
+𝑋 1 3 5
+𝑝(𝑥) 1/4 1/4 1/2
+𝑋2 1 9 25
+we have 𝐸[𝑋] = 7/2 and
+1 1 1 60
+𝐸[𝑋2] = 12⋅ +32⋅ +52⋅ = = 15.
+4 4 2 4
+So Var(𝑋) = 15−(7/2)2 = 11/4 –as before in Example 1.
+3.4 Variance of binomial(𝑛,𝑝)
+Suppose 𝑋 ∼ binomial(𝑛,𝑝). Since 𝑋 is the sum of independent Bernoulli(𝑝) variables and
+each Bernoulli variable has variance 𝑝(1−𝑝) we have
+𝑋 ∼ binomial(𝑛,𝑝) ⇒ Var(𝑋) = 𝑛𝑝(1−𝑝).
+18.05 Class 5, Variance of Discrete Random Variables, Spring 2022 6
+3.5 Proof of properties 2 and 3
+Proof of Property 2: This follows from the properties of 𝐸[𝑋] and some algebra.
+Let 𝜇 = 𝐸[𝑋]. Then 𝐸[𝑎𝑋+𝑏] = 𝑎𝜇+𝑏 and
+Var(𝑎𝑋+𝑏) = 𝐸[(𝑎𝑋+𝑏−(𝑎𝜇+𝑏))2] = 𝐸[(𝑎𝑋−𝑎𝜇)2] = 𝐸[𝑎2(𝑋−𝜇)2] = 𝑎2𝐸[(𝑋−𝜇)2] = 𝑎2Var(𝑋).
+Proof of Property 3: We use the properties of 𝐸[𝑋] and a bit of algebra. Remember
+that 𝜇 is a constant and that 𝐸[𝑋] = 𝜇.
+𝐸[(𝑋−𝜇)2] = 𝐸[𝑋2−2𝜇𝑋+𝜇2]
+= 𝐸[𝑋2]−2𝜇𝐸[𝑋]+𝜇2
+= 𝐸[𝑋2]−2𝜇2+𝜇2
+= 𝐸[𝑋2]−𝜇2
+= 𝐸[𝑋2]−𝐸[𝑋]2. QED
+4 Tables of Distributions and Properties
+Distribution range 𝑋 pmf 𝑝(𝑥) mean 𝐸[𝑋] variance Var(𝑋)
+Bernoulli(𝑝) 0, 1 𝑝(0) = 1−𝑝, 𝑝(1) = 𝑝 𝑝 𝑝(1−𝑝)
+𝑛
+Binomial(𝑛, 𝑝) 0, 1,…, 𝑛 𝑝(𝑘) = ( )𝑝𝑘(1−𝑝)𝑛−𝑘 𝑛𝑝 𝑛𝑝(1−𝑝)
+𝑘
+1 𝑛+1 𝑛2−1
+Uniform(𝑛) 1, 2, …, 𝑛 𝑝(𝑘) =
+𝑛 2 12
+1−𝑝 1−𝑝
+Geometric(𝑝) 0, 1, 2,… 𝑝(𝑘) = 𝑝(1−𝑝)𝑘
+𝑝 𝑝2
+Let 𝑋 be a discrete random variable with range 𝑥 , 𝑥 , …and pmf 𝑝(𝑥 ).
+1 2 𝑗
+Expected Value: Variance:
+Synonyms: mean, average
+Notation: 𝐸[𝑋], 𝜇 Var(𝑋), 𝜎2
+Definition: 𝐸[𝑋] = ∑𝑝(𝑥 )𝑥 𝐸[(𝑋−𝜇)2] = ∑𝑝(𝑥 )(𝑥 −𝜇)2
+𝑗 𝑗 𝑗 𝑗
+𝑗 𝑗
+Scale and shift: 𝐸[𝑎𝑋+𝑏] = 𝑎𝐸[𝑋]+𝑏 Var(𝑎𝑋+𝑏) = 𝑎2Var(𝑋)
+Linearity: (for any 𝑋, 𝑌) (for 𝑋, 𝑌 independent)
+𝐸[𝑋+𝑌] = 𝐸[𝑋]+𝐸[𝑌] Var(𝑋+𝑌) = Var(𝑋)+Var(𝑌)
+Functions of 𝑋: 𝐸[ℎ(𝑋)] = ∑𝑝(𝑥 )ℎ(𝑥 )
+𝑗 𝑗
+Alternative formula: Var(𝑋) = 𝐸[𝑋2]−𝐸[𝑋]2 = 𝐸[𝑋2]−𝜇2
+Continuous Random Variables
+Class 5, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Know the definition of a continuous random variable.
+2. Knowthedefinitionoftheprobabilitydensityfunction(pdf)andcumulativedistribution
+function (cdf).
+3. Be able to explain why we use probability density for continuous random variables.
+2 Introduction
+We now turn to continuous random variables. All random variables assign a number to
+each outcome in a sample space. Whereas discrete random variables take on a discrete set
+of possible values, continuous random variables have a continuous set of values.
+Computationally, to go from discrete to continuous we simply replace sums by integrals. It
+will help you to keep in mind that (informally) an integral is just a continuous sum.
+Example 1. Since time is continuous, the amount of time Jon is early (or late) for class is
+a continuous random variable. Let’s go over this example in some detail.
+Suppose you measure how early Jon arrives to class each day (in units of minutes). That
+is, the outcome of one trial in our experiment is a time in minutes. We’ll assume there are
+random fluctuations in the exact time he shows up. Since in principle Jon could arrive, say,
+3.43 minutes early, or 2.7 minutes late (corresponding to the outcome -2.7), or at any other
+time, the sample space consists of all real numbers. So the random variable which gives the
+outcome itself has a continuous range of possible values.
+It is too cumbersome to keep writing ‘the random variable’, so in future examples we might
+write: Let 𝑇 = “time in minutes that Jon is early for class on any given day.”
+3 Calculus Warmup
+While we will assume you can compute the most familiar forms of derivatives and integrals
+by hand, we do not expect you to be calculus whizzes. For tricky expressions, we’ll let the
+computer do most of the calculating. Conceptually, you should be comfortable with two
+views of a definite integral.
+𝑏
+1. ∫ 𝑓(𝑥)𝑑𝑥 = area under the curve 𝑦 = 𝑓(𝑥).
+𝑎
+𝑏
+2. ∫ 𝑓(𝑥)𝑑𝑥 = ‘sum of 𝑓(𝑥)𝑑𝑥’.
+𝑎
+1
+18.05 Class 5, Continuous Random Variables, Spring 2022 2
+The connection between the two is:
+𝑛
+area ≈ sum of rectangle areas = 𝑓(𝑥 )Δ𝑥+𝑓(𝑥 )Δ𝑥+…+𝑓(𝑥 )Δ𝑥 = ∑𝑓(𝑥 )Δ𝑥.
+1 2 𝑛 𝑖
+1
+As the width Δ𝑥 of the intervals gets smaller the approximation becomes better.
+𝑦
+𝑦 𝑦=𝑓(𝑥)
+𝑦=𝑓(𝑥)
+Area=𝑓(𝑥)Δ𝑥
+𝑖
+Δ𝑥
+𝑥
+𝑥 𝑥 𝑥 𝑥 ⋯ 𝑥
+𝑎 𝑏 𝑎0 1 2 𝑏 𝑛
+Area is approximately the sum of rectangles
+Note: In calculus you learned to compute integrals by finding antiderivatives. This is
+important for calculations, but don’t confuse this method for the reason we use integrals.
+Our interest in integrals comes primarily from its interpretation as a ‘sum’ and to a much
+lesser extent its interpretation as area.
+4 Continuous Random Variables and Probability Density Func-
+tions
+A continuous random variable takes a range of values, which may be finite or infinite in
+extent. Here are a few examples of ranges: [0,1], [0,∞), (−∞,∞), [𝑎,𝑏].
+Definition: A random variable 𝑋 is continuous if there is a function 𝑓(𝑥) such that for
+any 𝑐 ≤ 𝑑 we have
+𝑑
+𝑃(𝑐 ≤ 𝑋 ≤ 𝑑) = ∫ 𝑓(𝑥)𝑑𝑥. (1)
+𝑐
+The function 𝑓(𝑥) is called the probability density function (pdf).
+The pdf always satisfies the following properties:
+1. 𝑓(𝑥) ≥ 0 (𝑓 is nonnegative).
+∞
+2. ∫ 𝑓(𝑥)𝑑𝑥 = 1 (This is equivalent to: 𝑃(−∞ < 𝑋 < ∞) = 1).
+−∞
+The probability density function 𝑓(𝑥) of a continuous random variable is the analogue of
+the probability mass function 𝑝(𝑥) of a discrete random variable. Here are two important
+differences:
+1. Unlike 𝑝(𝑥), the pdf 𝑓(𝑥) is not a probability. You have to integrate it to get proba-
+bility. (See section 4.2 below.)
+2. Since 𝑓(𝑥) is not a probability, there is no restriction that 𝑓(𝑥) be less than or equal
+to 1.
+18.05 Class 5, Continuous Random Variables, Spring 2022 3
+Note: In Property 2, we integrated over (−∞,∞) since we did not know the range of values
+taken by 𝑋. Formally, this makes sense because we just define 𝑓(𝑥) to be 0 outside of the
+range of 𝑋. In practice, we would integrate between bounds given by the range of 𝑋.
+4.1 Graphical View of Probability
+If you graph the probability density function of a continuous random variable 𝑋 then
+𝑃(𝑐 ≤ 𝑋 ≤ 𝑑) = area under the graph between 𝑐 and 𝑑.
+𝑓(𝑥)
+𝑃(𝑐 ≤𝑋 ≤𝑑)
+𝑥
+𝑐 𝑑
+Think: What is the total area under the pdf 𝑓(𝑥)?
+4.2 The terms ‘probability mass’ and ‘probability density’
+Why do we use the terms mass and density to describe the pmf and pdf? What is the
+differencebetweenthetwo? Thesimpleansweristhatthesetermsarecompletelyanalogous
+to the mass and density you saw in physics and calculus. We’ll review this first for the
+probability mass function and then discuss the probability density function.
+Mass as a sum:
+If masses 𝑚 , 𝑚 , 𝑚 , and 𝑚 are set in a row at positions 𝑥 , 𝑥 , 𝑥 , and 𝑥 , then the
+1 2 3 4 1 2 3 4
+total mass is 𝑚 +𝑚 +𝑚 +𝑚 .
+1 2 3 4
+𝑚 𝑚 𝑚 𝑚
+1 2 3 4
+𝑥
+𝑥 𝑥 𝑥 𝑥
+1 2 3 4
+We can define a ‘mass function’ 𝑝(𝑥) with 𝑝(𝑥 ) = 𝑚 for 𝑗 = 1, 2, 3, 4, and 𝑝(𝑥) = 0
+𝑗 𝑗
+otherwise. In this notation the total mass is 𝑝(𝑥 )+𝑝(𝑥 )+𝑝(𝑥 )+𝑝(𝑥 ).
+1 2 3 4
+The probability mass function behaves in exactly the same way, except it has the dimension
+of probability instead of mass.
+Mass as an integral of density:
+Supposeyouhavearodoflength𝐿meterswithvaryingdensity𝑓(𝑥)kg/m. (Notetheunits
+are mass/length.)
+Δ𝑥
+𝑥
+0 𝑥 1 𝑥 2 𝑥 3 𝑥 𝑖 𝑥 𝑛 = 𝐿
+mass of 𝑖th piece ≈ 𝑓(𝑥 )Δ𝑥
+𝑖
+18.05 Class 5, Continuous Random Variables, Spring 2022 4
+If the density varies continuously, we must find the total mass of the rod by integration:
+𝐿
+total mass = ∫ 𝑓(𝑥)𝑑𝑥.
+0
+This formula comes from dividing the rod into small pieces and ’summing’ up the mass of
+each piece. That is:
+𝑛
+total mass ≈ ∑𝑓(𝑥 )Δ𝑥
+𝑖
+𝑖=1
+In the limit as Δ𝑥 goes to zero the sum becomes the integral.
+The probability density function behaves exactly the same way, except it has units of
+probability/(unit 𝑥) instead of kg/m. Indeed, equation (1) is exactly analogous to the
+above integral for total mass.
+While we’re on a physics kick, note that for both discrete and continuous random variables,
+the expected value is simply the center of mass or balance point.
+Example 2. Suppose 𝑋 has pdf 𝑓(𝑥) = 3 on [0,1/3] (this means 𝑓(𝑥) = 0 outside of
+[0,1/3]). Graph the pdf and compute 𝑃(0.1 ≤ 𝑋 ≤ 0.2) and 𝑃(0.1 ≤ 𝑋 ≤ 1).
+Solution: 𝑃(0.1 ≤ 𝑋 ≤ 0.2) is shown below at left. We can compute the integral:
+0.2 0.2
+𝑃(0.1 ≤ 𝑋 ≤ 0.2) = ∫ 𝑓(𝑥)𝑑𝑥 = ∫ 3𝑑𝑥 = 0.3.
+0.1 0.1
+Or we can find the area geometrically:
+area of rectangle = 3⋅0.1 = 0.3.
+𝑃(0.1 ≤ 𝑋 ≤ 1) is shown below at right. Since there is only area under 𝑓(𝑥) up to 1/3, we
+have 𝑃(0.1 ≤ 𝑋 ≤ 1) = 3⋅(1/3−0.1) = 0.7.
+3 𝑓(𝑥) 3 𝑓(𝑥)
+𝑥 𝑥
+.1 .2 1/3 .1 1/3 1
+𝑃(0.1 ≤ 𝑋 ≤ 0.2) 𝑃(0.1 ≤ 𝑋 ≤ 1)
+Think: In the previous example 𝑓(𝑥) takes values greater than 1. Why does this not
+violate the rule that probabilities are always between 0 and 1?
+Note on notation. We can define a random variable by giving its range and probability
+density function. For example we might say, let 𝑋 be a random variable with range [0,1]
+18.05 Class 5, Continuous Random Variables, Spring 2022 5
+and pdf 𝑓(𝑥) = 𝑥/2. Implicitly, this means that 𝑋 has no probability density outside of the
+given range. If we wanted to be absolutely rigorous, we would say explicitly that 𝑓(𝑥) = 0
+outside of [0,1], but in practice this won’t be necessary.
+Example 3. Let 𝑋 be a random variable with range [0,1] and pdf 𝑓(𝑥) = 𝐶𝑥2. What is
+the value of 𝐶?
+Solution: Since the total probability must be 1, we have
+1 1
+∫ 𝑓(𝑥)𝑑𝑥 = 1 ⇔ ∫ 𝐶𝑥2𝑑𝑥 = 1.
+0 0
+By evaluating the integral, the equation at right becomes
+𝐶/3 = 1 ⇒ 𝐶 = 3 .
+Note: We say the constant 𝐶 above is needed to normalize the density so that the total
+probability is 1.
+Example 4. Let 𝑋 be the random variable in the Example 3. Find 𝑃(𝑋 ≤ 1/2).
+1/2 1/2 1
+Solution: 𝑃(𝑋 ≤ 1/2) = ∫ 3𝑥2𝑑𝑥 = 𝑥3∣ = .
+0 8
+0
+Think: For this 𝑋 (or any continuous random variable):
+• What is 𝑃(𝑎 ≤ 𝑋 ≤ 𝑎)?
+• What is 𝑃(𝑋 = 0)?
+• Does 𝑃(𝑋 = 𝑎) = 0 mean that 𝑋 can never equal 𝑎?
+In words the above questions get at the fact that the probability that a random person’s
+height is exactly 5’9” (to infinite precision, i.e. no rounding!) is 0. Yet it is still possible
+that someone’s height is exactly 5’9”. So the answers to the thinking questions are 0, 0, and
+No.
+4.3 Cumulative Distribution Function
+The cumulative distribution function (cdf) of a continuous random variable 𝑋 is defined in
+exactly the same way as the cdf of a discrete random variable.
+𝐹(𝑏) = 𝑃(𝑋 ≤ 𝑏).
+Note well that the definition is about probability. When using the cdf you should first think
+of it as a probability. Then when you go to calculate it you can use
+𝑏
+𝐹(𝑏) = 𝑃(𝑋 ≤ 𝑏) = ∫ 𝑓(𝑥)𝑑𝑥, where 𝑓(𝑥) is the pdf of 𝑋.
+−∞
+Notes:
+1. For discrete random variables, we defined the cumulative distribution function but did
+18.05 Class 5, Continuous Random Variables, Spring 2022 6
+not have much occasion to use it. The cdf plays a far more prominent role for continuous
+random variables.
+2. As before, we started the integral at −∞ because we did not know the precise range of
+𝑋. Formally, this still makes sense since 𝑓(𝑥) = 0 outside the range of 𝑋. In practice, we’ll
+know the range and start the integral at the start of the range.
+3. In practice we often say ‘𝑋 has distribution 𝐹(𝑥)’ rather than ‘𝑋 has cumulative distri-
+bution function 𝐹(𝑥).’
+Example 5. Find the cumulative distribution function for the density in Example 2.
+𝑎 𝑎
+Solution: For 𝑎 in [0,1/3] we have 𝐹(𝑎) = ∫ 𝑓(𝑥)𝑑𝑥 = ∫ 3𝑑𝑥 = 3𝑎.
+0 0
+Since 𝑓(𝑥) is 0 outside of [0,1/3] we know 𝐹(𝑎) = 𝑃(𝑋 ≤ 𝑎) = 0 for 𝑎 < 0 and 𝐹(𝑎) = 1
+for 𝑎 > 1/3. Putting this all together we have
+⎧0 if 𝑎 < 0
+{
+𝐹(𝑎) = 3𝑎 if 0 ≤ 𝑎 ≤ 1/3
+⎨
+{
+⎩1 if 1/3 < 𝑎.
+Here are the graphs of 𝑓(𝑥) and 𝐹(𝑥).
+𝐹(𝑥)
+1
+3 𝑓(𝑥)
+𝑥
+𝑥
+1/3 1/3
+Note the different scales on the vertical axes. Remember that the vertical axis for the pdf
+represents probability density and that of the cdf represents probability.
+Example 6. Find the cdf for the pdf in Example 3, 𝑓(𝑥) = 3𝑥2 on [0,1]. Suppose 𝑋 is a
+random variable with this distribution. Find 𝑃(𝑋 < 1/2).
+𝑎
+Solution: 𝑓(𝑥) = 3𝑥2 on [0,1] ⇒ 𝐹(𝑎) = ∫ 3𝑥2𝑑𝑥 = 𝑎3 on [0,1]. Therefore,
+0
+⎧0 if 𝑎 < 0
+{
+𝐹(𝑎) = 𝑎3 if 0 ≤ 𝑎 ≤ 1
+⎨
+{
+⎩1 if 1 < 𝑎
+Thus, 𝑃(𝑋 < 1/2) = 𝐹(1/2) = 1/8. Here are the graphs of 𝑓(𝑥) and 𝐹(𝑥):
+1
+3 𝑓(𝑥) 𝐹(𝑥)
+𝑥 𝑥
+1 1
+18.05 Class 5, Continuous Random Variables, Spring 2022 7
+4.4 Properties of cumulative distribution functions
+Here is a summarry of the most important properties of cumulative distribution functions
+(cdf)
+1. (Definition) 𝐹(𝑥) = 𝑃(𝑋 ≤ 𝑥)
+2. 0 ≤ 𝐹(𝑥) ≤ 1
+3. 𝐹(𝑥) is non-decreasing, i.e. if 𝑎 ≤ 𝑏 then 𝐹(𝑎) ≤ 𝐹(𝑏).
+4. lim 𝐹(𝑥) = 1 and lim 𝐹(𝑥) = 0
+𝑥→∞ 𝑥→−∞
+5. 𝑃(𝑎 ≤ 𝑋 ≤ 𝑏) = 𝐹(𝑏)−𝐹(𝑎)
+6. 𝐹′(𝑥) = 𝑓(𝑥).
+Properties2,3,4areidenticaltothosefordiscretedistributions. Thegraphsintheprevious
+examples illustrate them.
+Property 5 can be seen algebraically:
+𝑏 𝑎 𝑏
+∫ 𝑓(𝑥)𝑑𝑥 = ∫ 𝑓(𝑥)𝑑𝑥+∫ 𝑓(𝑥)𝑑𝑥
+−∞ −∞ 𝑎
+𝑏 𝑏 𝑎
+⇔ ∫ 𝑓(𝑥)𝑑𝑥 = ∫ 𝑓(𝑥)𝑑𝑥−∫ 𝑓(𝑥)𝑑𝑥
+𝑎 −∞ −∞
+⇔ 𝑃(𝑎 ≤ 𝑋 ≤ 𝑏) = 𝐹(𝑏)−𝐹(𝑎).
+Property 5 can also be seen geometrically. The orange region below represents 𝐹(𝑏) and
+the striped region represents 𝐹(𝑎). Their difference is 𝑃(𝑎 ≤ 𝑋 ≤ 𝑏).
+𝑃(𝑎 ≤ 𝑋 ≤ 𝑏)
+𝑥
+𝑎 𝑏
+Property 6 is the fundamental theorem of calculus.
+4.5 Probability density as a dartboard
+We find it helpful to think of sampling values from a continuous random variable as throw-
+ing darts at a funny dartboard. Consider the region underneath the graph of a pdf as a
+dartboard. Dividetheboardintosmallequalsizesquaresandsupposethatwhenyouthrow
+a dart you are equally likely to land in any of the squares. The probability the dart lands
+in a given region is the fraction of the total area under the curve taken up by the region.
+Since the total area equals 1, this fraction is just the area of the region. If 𝑋 represents
+the 𝑥-coordinate of the dart, then the probability that the dart lands with 𝑥-coordinate
+between 𝑎 and 𝑏 is just
+𝑏
+𝑃(𝑎 ≤ 𝑋 ≤ 𝑏) = area under 𝑓(𝑥) between 𝑎 and 𝑏 = ∫ 𝑓(𝑥)𝑑𝑥.
+𝑎
+Gallery of Continuous Random Variables
+Class 5, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Be able to give examples of what uniform, exponential and normal distributions are used
+to model.
+2. Be able to give the range and pdf’s of uniform, exponential and normal distributions.
+2 Introduction
+Here we introduce a few fundamental continuous distributions. These will play important
+roles in the statistics part of the class. For each distribution, we give the range, the pdf,
+the cdf, and a short description of situations that it models. These distributions all depend
+on parameters, which we specify.
+Asyoulookthrougheachdistributiondonottrytomemorizeallthedetails; youcanalways
+look those up. Rather, focus on the shape of each distribution and what it models.
+Although it comes towards the end, we call your attention to the normal distribution. It is
+easily the most important distribution defined here.
+2.1 Parametrized distributions
+When we studied discrete random variables we learned, for example, about the Bernoulli(𝑝)
+distribution. The probability 𝑝 used to define the distribution is called a parameter and
+Bernoulli(𝑝) is called a parametrized distribution. For example, tosses of fair coin follow a
+Bernoulli distribution where the parameter 𝑝 = 0.5. When we study statistics one of the
+key questions will be to estimate the parameters of a distribution. For example, if I have
+a coin that may or may not be fair then I know it follows a Bernoulli(𝑝) distribution, but
+I don’t know the value of the parameter 𝑝. I might run experiments and use the data to
+estimate the value of 𝑝.
+As another example, the binomial distribution Binomial(𝑛, 𝑝) depends on two parameters
+𝑛 and 𝑝.
+In the following sections we will look at specific parametrized continuous distributions.
+The applet https://mathlets.org/mathlets/probability-distributions/ allows you
+tovisualizethepdfandcdfofthesedistributionsandtodynamicallychangetheparameters.
+3 Uniform distribution
+1. Parameters: 𝑎, 𝑏.
+2. Range: [𝑎,𝑏].
+1
+18.05 Class 5, Gallery of Continuous Random Variables, Spring 2022 2
+3. Notation: uniform(𝑎, 𝑏) or U(𝑎, 𝑏).
+1
+4. Probability density function (pdf): 𝑓(𝑥) = for 𝑎 ≤ 𝑥 ≤ 𝑏.
+𝑏−𝑎
+5. Cumulative distribution function (cdf): 𝐹(𝑥) = (𝑥−𝑎)/(𝑏−𝑎) for 𝑎 ≤ 𝑥 ≤ 𝑏.
+6. Models: Situtations where all outcomes in the range have equal probability (more
+precisely all outcomes have the same probability density).
+Graphs:
+1 𝑓(𝑥)
+𝑏−𝑎
+𝐹(𝑥)
+1
+𝑥 𝑥
+𝑎 𝑏 𝑎 𝑏
+pdf and cdf for uniform(𝑎,𝑏) distribution.
+Example 1. 1. Suppose we have a tape measure with markings at each millimeter. If we
+measure (to the nearest marking) the length of items that are roughly a meter long, the
+rounding error will be uniformly distributed between -0.5 and 0.5 millimeters.
+2. Manyboardgamesusespinningarrows(spinners)tointroducerandomness. Whenspun,
+the arrow stops at an angle that is uniformly distributed between 0 and 2𝜋 radians.
+3. In most pseudo-random number generators, the basic generator simulates a uniform
+distributionandallotherdistributionsareconstructedbytransformingthebasicgenerator.
+4 Exponential distribution
+1. Parameter: 𝜆.
+2. Range: [0,∞).
+3. Notation: exponential(𝜆) or exp(𝜆).
+4. Probability density function (pdf): 𝑓(𝑥) = 𝜆e−𝜆𝑥 for 0 ≤ 𝑥.
+5. Cumulative distribution function (cdf): (This is an easy integral.)
+𝐹(𝑥) = 1−e−𝜆𝑥 for 𝑥 ≥ 0
+6. Right tail distribution: 𝑃(𝑋 > 𝑥) = 1 − 𝐹(𝑥) = e−𝜆𝑥. (Note: this is defined as
+𝑃(𝑋 > 𝑥), i.e. that 𝑋 is to the right of 𝑥 on the number line.)
+7. Models: The waiting time for a continuous process to change state.
+Example 2. If I step out to 77 Mass Ave after class and wait for the next taxi, my waiting
+time in minutes is exponentially distributed. We will see that in this case 𝜆 is given by
+1/(average number of taxis that pass per minute).
+18.05 Class 5, Gallery of Continuous Random Variables, Spring 2022 3
+Example3. Theexponentialdistributionmodelsthewaitingtimeuntilanunstableisotope
+undergoes nuclear decay. In this case, the value of 𝜆 is related to the half-life of the isotope.
+Memorylessness: There are other distributions that also model waiting times, but the
+exponential distribution has the additional property that it is memoryless. Here’s what this
+means in the context of Example 2: suppose that the probability that a taxi arrives within
+the first five minutes is 𝑝. If I wait five minutes and, in this case, no taxi arrives, then the
+probability that a taxi arrives within the next five minutes is still 𝑝. That is, my previous
+wait of 5 minutes has no impact on the length of my future wait!
+By contrast, suppose I were to instead go to Kendall Square subway station and wait for
+the next inbound train. Since the trains are coordinated to follow a schedule (e.g., roughly
+12 minutes between trains), if I wait five minutes without seeing a train then there is a far
+greater probability that a train will arrive in the next five minutes. In particular, waiting
+timeforthesubwayisnotmemoryless,andabettermodelwouldbetheuniformdistribution
+on the range [0,12].
+The memorylessness of the exponential distribution is analogous to the memorylessness
+of the (discrete) geometric distribution, where having flipped 5 tails in a row gives no
+information about the next 5 flips. Indeed, the exponential distribution is precisely the
+continuous counterpart of the geometric distribution, which models the waiting time for a
+discrete process to change state. More formally, memoryless means that the probability of
+waiting 𝑡 more minutes is independent of the amount of time already waited. In symbols,
+𝑃(𝑋 > 𝑠+𝑡|𝑋 > 𝑠) = 𝑃(𝑋 > 𝑡).
+Proof of memorylessness: We know that
+(𝑋 > 𝑠+𝑡) ∩ (𝑋 > 𝑠) = (𝑋 > 𝑠+𝑡),
+since the event ‘waited at least 𝑠 minutes’ contains the event ’waited at least 𝑠+𝑡 minutes’.
+Therefore the formula for conditional probability gives
+𝑃(𝑋 > 𝑠+𝑡) e−𝜆(𝑠+𝑡)
+𝑃(𝑋 > 𝑠+𝑡|𝑋 > 𝑠) = = = e−𝜆𝑡 = 𝑃(𝑋 > 𝑡).
+𝑃(𝑋 > 𝑠) e−𝜆𝑠
+The probability 𝑃(𝑋 > 𝑠+𝑡) = e−𝜆(𝑠+𝑡) is the formula for the right tail probability given
+above.
+Graphs:
+18.05 Class 5, Gallery of Continuous Random Variables, Spring 2022 4
+5 Normal distribution
+In 1809, Carl Friedrich Gauss published a monograph introducing several notions that have
+become fundamental to statistics: the normal distribution, maximum likelihood estimation,
+and the method of least squares (we will cover all three in this course). For this reason,
+the normal distribution is also called the Gaussian distribution, and it is by far the most
+important continuous distribution.
+1. Parameters: 𝜇, 𝜎.
+2. Range: (−∞,∞).
+3. Notation: Normal(𝜇,𝜎2) or 𝑁(𝜇,𝜎2).
+1
+4. Probability density function (pdf): 𝑓(𝑥) = √ e−(𝑥−𝜇)2/2𝜎2.
+𝜎 2𝜋
+5. Cumulativedistributionfunction(cdf): 𝐹(𝑥)hasnoformula,sousetablesorsoftware
+such as pnorm in R to compute 𝐹(𝑥).
+6. Models: Measurement error, intelligence/ability, height, averages of lots of data.
+The standard normal distribution 𝑁(0,1) has mean 0 and variance 1. We reserve 𝑍 for a
+1
+standard normal random variable, 𝜙(𝑧) = √ e−𝑧2/2 for the standard normal density, and
+2𝜋
+Φ(𝑧) for the standard normal distribution.
+Note: we will define mean and variance for continuous random variables next time. They
+have the same interpretations as in the discrete case. As you might guess, the normal
+distribution 𝑁(𝜇,𝜎2) has mean 𝜇, variance 𝜎2, and standard deviation 𝜎.
+Here are some graphs of normal distributions. Note that they are shaped like a bell curve.
+Note also that as 𝜎 increases they become more spread out.
+18.05 Class 5, Gallery of Continuous Random Variables, Spring 2022 5
+The bell curve: First we show the standard normal probability density and cumulative
+distribution functions. Below that is a selection of normal densities. Notice that the graph
+is centered on the mean and the bigger the variance the more spread out the curve.
+0.5 1.0
+0.4 0.8
+𝜙(𝑧) Φ(𝑧)
+0.3 0.6
+0.2 0.4
+0.1 0.2
+𝑧 𝑧
+−4 −2 0 2 4 −4 −2 0 2 4
+Standard normal pdf Standard normal cdf
+0.7
+𝑁(0,1)
+0.6 𝑁(4.5,0.5)
+𝑁(4.5,2.25)
+0.5 𝑁(6.5,1.0)
+𝑁(8.0,0.5)
+0.4
+0.3
+0.2
+0.1
+−4 −2 0 2 4 6 8 10
+Notation note. In the figure above we use our notation 𝑁(𝜇,𝜎2). So, for example,
+√
+𝑁(8,0.5) has variance 0.5 and standard deviation 𝜎 = 0.5 ≈ 0.7071.
+5.1 Normal probabilities
+To make approximations it is useful to remember the following rule of thumb for three
+approximate probabilities from the standard normal distribution:
+𝑃(−1 ≤ 𝑍 ≤ 1) ≈ 0.68, 𝑃(−2 ≤ 𝑍 ≤ 2) ≈ 0.95, 𝑃(−3 ≤ 𝑍 ≤ 3) ≈ 0.99.
+The figure below shows these probabilities as areas under the graph of the standard normal
+pdf 𝜙(𝑧).
+18.05 Class 5, Gallery of Continuous Random Variables, Spring 2022 6
+within1⋅𝜎≈68%
+NormalPDF within2⋅𝜎≈95%
+within3⋅𝜎≈99%
+68%
+95%
+99%
+𝑧
+−3𝜎 −2𝜎 −𝜎 𝜎 2𝜎 3𝜎
+Symmetry calculations
+We can use the symmetry of the standard normal distribution about 𝑧 = 0 to make some
+calculations.
+Example 4. The rule of thumb says 𝑃(−1 ≤ 𝑍 ≤ 1) ≈ 0.68. Use this to estimate Φ(1).
+Solution: Φ(1) = 𝑃(𝑍 ≤ 1). In the figure, the two tails (in blue) have combined area
+1 − 0.68 = 0.32. By symmetry the left tail has area 0.16 (half of 0.32), so 𝑃(𝑍 ≤ 1) ≈
+0.68+0.16 = 0.84.
+𝑃(−1≤𝑍 ≤1)
+𝑃(𝑍 ≤−1) 𝑃(𝑍 ≥1)
+.34 .34
+.16 .16
+𝑧
+−1 1
+5.2 Using R to compute the standard normal cdf
+# Use the R function pnorm(𝑥,𝜇,𝜎) to compute 𝐹(𝑥) for N(𝜇,𝜎2)
+pnorm(1,0,1)
+[1] 0.8413447
+pnorm(0,0,1)
+[1] 0.5
+pnorm(1,0,2)
+[1] 0.6914625
+pnorm(1,0,1) - pnorm(-1,0,1)
+[1] 0.6826895
+pnorm(5,0,5) - pnorm(-5,0,5)
+[1] 0.6826895
+# Of course z can be a vector of values
+pnorm(c(-3,-2,-1,0,1,2,3),0,1)
+[1] 0.001349898 0.022750132 0.158655254 0.500000000 0.841344746 0.977249868 0.998650102
+18.05 Class 5, Gallery of Continuous Random Variables, Spring 2022 7
+Note: The R function pnorm(𝑥,𝜇,𝜎) uses 𝜎 whereas our notation for the normal distri-
+bution N(𝜇,𝜎2) uses 𝜎2.
+Here’s a table of values with fewer decimal points of accuracy
+𝑧: -2 -1 0 0.3 0.5 1 2 3
+Φ(𝑧): 0.0228 0.1587 0.5000 0.6179 0.6915 0.8413 0.9772 0.9987
+Example 5. Use R to compute 𝑃(−1.5 ≤ 𝑍 ≤ 2).
+Solution: This is Φ(2)−Φ(−1.5) = pnorm(2,0,1) - pnorm(-1.5,0,1) = 0.91044
+6 Pareto and other distributions
+In 18.05, we only have time to work with a few of the many wonderful distributions that are
+used in probability and statistics. We hope that after this course you will feel comfortable
+learning about new distributions and their properties when you need them. Wikipedia is
+often a great starting point.
+The Pareto distribution is one common, beautiful distribution that we will not have time
+to cover in depth.
+1. Parameters: 𝑚 > 0 and 𝛼 > 0.
+2. Range: [𝑚,∞).
+3. Notation: Pareto(𝑚, 𝛼).
+𝛼𝑚𝛼
+4. Density: 𝑓(𝑥) = .
+𝑥𝛼+1
+5. Distribution: (easy integral)
+𝑚𝛼
+𝐹(𝑥) = 1− , for 𝑥 ≥ 𝑚
+𝑥𝛼
+6. Tail distribution: 𝑃(𝑋 > 𝑥) = 𝑚𝛼/𝑥𝛼, for 𝑥 ≥ 𝑚.
+7. Models: The Pareto distribution models a power law, where the probability that
+an event occurs varies as a power of some attribute of the event. Many phenomena
+follow a power law, such as the size of meteors, income levels across a population, and
+population levels across cities. See Wikipedia for loads of examples:
+https://en.wikipedia.org/wiki/Pareto_distribution#Applications
+Manipulating Continuous Random Variables
+Class 5, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Beabletofindthepdfandcdfofarandomvariabledefinedintermsofarandomvariable
+with known pdf and cdf.
+2 Transformations of Random Variables
+We frequently transform a known random variable into a new one by applying a formula.
+For example we might look at 𝑌 = 𝑎𝑋 +𝑏 or 𝑌 = 𝑋2. In this section we will see how to
+find the probability density and cumulative distribution of 𝑌 from those of 𝑋.
+For discrete random variables it was often possible do this by looking at probability tables.
+For continuous random variables we will need to use systematic algebraic techniques. We
+will see that transforming the pdf is just the change of variables (‘𝑢-substitution’) from
+calculus. To transform the cdf directly we will rely on its definition as a probability.
+Let’s remind ourselves of the basics:
+• The cdf of 𝑋 is 𝐹 (𝑥) = 𝑃(𝑋 ≤ 𝑥).
+𝑋
+• The pdf of 𝑋 is related to 𝐹 by 𝑓 (𝑥) = 𝐹′ (𝑥).
+𝑋 𝑋 𝑋
+2.1 Transforming the cdf
+Example 1. Suppose 𝑋 has range [0,2] and cdf 𝐹 (𝑥) = 𝑥2/4. What is the range, pdf
+𝑋
+and cdf of 𝑌 = 𝑋2?
+Solution: The range is easy: [0,4].
+To find the cdf we work systematically from the definition. For this example we will break
+it down into tiny steps, so you can see the thought process in detail.
+Step 1. Use definition:
+𝐹 (𝑦) = 𝑃(𝑌 ≤ 𝑦).
+𝑌
+Step 2. Replace 𝑌 by its formula in 𝑋:
+𝑃(𝑌 ≤ 𝑦) = 𝑃(𝑋2 ≤ 𝑦).
+Step 3. Algebraically manipulate this to isolate the 𝑋:
+√
+𝑃(𝑋2 ≤ 𝑦) = 𝑃(𝑋 ≤ 𝑦)
+Step 4. Notice that this is exactly the definition of 𝐹 :
+𝑋
+√ √
+𝑃(𝑋 ≤ 𝑦) = 𝐹 ( 𝑦)
+𝑋
+1
+18.05 Class 5, Manipulating Continuous Random Variables, Spring 2022 2
+Step 5. Use the known formula for 𝐹 :
+𝑋
+√ √
+𝐹 ( 𝑦) = ( 𝑦)2/4 = 𝑦/4.
+𝑋
+Following the chain from step 1 to step 5 we have the cdf:
+√ √
+𝐹 (𝑦) = 𝑃(𝑌 ≤ 𝑦) = 𝑃(𝑋2 ≤ 𝑦) = 𝑃(𝑋 ≤ 𝑦) = 𝐹 ( 𝑦) = 𝑦/4.
+𝑌 𝑋
+Finally, to find the pdf we can just differentiate the cdf:
+𝑑 1
+𝑓 (𝑦) = 𝐹 (𝑦) = .
+𝑌 𝑑𝑦 𝑌 4
+2.2 Transforming the pdf directly
+An alternative way to find the pdf directly is by change of variables. We present this for
+completeness and for anyone who prefers it as a method. Our observation is that most
+people find the cdf easier to transform.
+In calculus you learned the ‘u’-substitution. We’ll do a calculus example to remind you how
+this goes and then apply it to the pdf.
+Example 2. Calculus example. Convert the integral ∫(𝑥2 + 1)7𝑑𝑥 into an integral in
+𝑢 = 𝑥2+1.
+Solution: We have to convert each part of the integral from 𝑥 to 𝑢:
+(𝑥2+1)7 = 𝑢7
+𝑑𝑢 𝑑𝑢
+𝑑𝑢 = 2𝑥𝑑𝑥, therefore 𝑑𝑥 = = √
+2𝑥 2 𝑢−1
+Now we replacing each piece in the integral we get
+𝑑𝑢
+∫(𝑥2+1)7𝑑𝑥 = ∫𝑢7 √ .
+2 𝑢−1
+Example 3. Find the pdf of 𝑌 in Example 1 directly using the method of ‘u’-substitution.
+(In this case, ‘u’ will actually be ‘y’.)
+Solution: The trick is to remember that probability is given by an integral ∫𝑓 (𝑥)𝑑𝑥.
+𝑋
+We are given the change of variable 𝑦 = 𝑥2, so we change the integral from one in 𝑥 to one
+in 𝑦.
+𝑑𝑦
+𝑦 = 𝑥2 ⇒ 𝑑𝑦 = 2𝑥𝑑𝑥, therefore 𝑑𝑥 = √ .
+2 𝑦
+We are given 𝐹 (𝑥) = 𝑥2/4, so we can compute 𝑓 (𝑥) = 𝐹′ (𝑥) = 𝑥/2. Changing this to 𝑦
+𝑋 𝑋 𝑋
+we have
+√
+𝑓 (𝑥) = 𝑦/2.
+𝑋
+Putting the two pieces together we have the transformation
+√
+𝑦 𝑑𝑦 1
+𝑓 (𝑥)𝑑𝑥 = √ = 𝑑𝑦
+𝑋 2 2 𝑦 4
+18.05 Class 5, Manipulating Continuous Random Variables, Spring 2022 3
+Since this is a probability, the factor in front of 𝑑𝑦 is the probability density. That is,
+𝑓 (𝑦) = 1/4, exactly as in Example 1.
+𝑌
+Here are a few more examples. We do them a little more quickly than the above examples.
+Example 4. Let 𝑋 ∼ exp(𝜆), so 𝑓 (𝑥) = 𝜆e−𝜆𝑥 on [0,∞]. What is the probability density
+𝑋
+of 𝑌 = 𝑋2?
+Solution: We will do this using the change of variables for the pdf.
+𝑦 = 𝑥2 ⇒ 𝑑𝑦 = 2𝑥𝑑𝑥, therefore 𝑑𝑥 = 𝑑 √ 𝑦
+2 𝑦
+√
+𝑓 (𝑥) = 𝜆e−𝜆𝑥 = 𝜆e−𝜆 𝑦.
+𝑋
+Combining these we get,
+√ 𝑑𝑦
+𝑓 (𝑥)𝑑𝑥 = 𝜆e−𝜆 𝑦 √ = 𝑓 (𝑦)𝑑𝑦.
+𝑋 2 𝑦 𝑌
+𝜆 √
+So we conclude that 𝑓 (𝑦) = √ e−𝜆 𝑦 .
+𝑌 2 𝑦
+Example 5. Redo the previous example using the cdf.
+Solution: The cdf for the exponential random variable 𝑋 is 𝐹 (𝑥) = 1−e−𝜆𝑥. Therefore,
+𝑋
+for 𝑌 = 𝑋2 we have
+√ √ √
+𝐹 (𝑦) = 𝑃(𝑌 ≤ 𝑦) = 𝑃(𝑋2 ≤ 𝑦) = 𝑃(𝑋 ≤ 𝑦) = 𝐹 ( 𝑦) = 1−e−𝜆 𝑦.
+𝑌 𝑋
+We have found 𝐹 (𝑦). If we wanted 𝑓 (𝑦) we could take the derivative. We would get the
+𝑌 𝑌
+same answer as in the previous example.
+𝑋−5
+Example 6. Assume 𝑋 ∼ N(5,32) then 𝑍 = is standard normal, i.e., 𝑍 ∼ N(0,1).
+3
+Solution: Again using the change of variables and the formula for 𝑓 (𝑥) we have
+𝑋
+𝑥−5 𝑑𝑥
+𝑧 = ⇒ 𝑑𝑧 = , therefore 𝑑𝑥 = 3𝑑𝑧
+3 3
+For this example we will transform 𝑓 (𝑥)𝑑𝑥 in one line instead of two.
+𝑋
+1 1 1
+𝑓 (𝑥)𝑑𝑥 = √ e−(𝑥−5)2/(2⋅32)𝑑𝑥 = √ e−𝑧2/23𝑑𝑧 = √ e−𝑧2/2𝑑𝑧 = 𝑓 (𝑧)𝑑𝑧
+𝑋 𝑍
+3 2𝜋 3 2𝜋 2𝜋
+1
+Therefore 𝑓 (𝑧) = √ e−𝑧2/2. Since this is exactly the density for N(0,1) we have shown
+𝑍
+2𝜋
+that 𝑍 is standard normal.
+This example shows an important general property of normal random variables which we
+state as a theorem.
+Theorem. Standardization of normal random variables.
+𝑋−𝜇
+Assume 𝑋 ∼ N(𝜇,𝜎2). Show that 𝑍 = is standard normal, i.e., 𝑍 ∼ N(0,1).
+𝜎
+18.05 Class 5, Manipulating Continuous Random Variables, Spring 2022 4
+Proof. This is exactly the same computation as the previous example with 𝜇 replacing 5
+and 𝜎 replacing 3. We show the computation without comment.
+𝑥−𝜇 𝑑𝑥
+𝑧 = ⇒ 𝑑𝑧 = ⇒ 𝑑𝑥 = 𝜎𝑑𝑧
+𝜎 𝜎
+1 1 1
+𝑓 (𝑥)𝑑𝑥 = √ e−(𝑥−𝜇)2/(2⋅𝜎2)𝑑𝑥 = √ e−𝑧2/2𝜎𝑑𝑧 = √ e−𝑧2/2𝑑𝑧 = 𝑓 (𝑧)𝑑𝑧
+𝑋 𝑍
+𝜎 2𝜋 𝜎 2𝜋 2𝜋
+1
+Therefore 𝑓 (𝑧) = √ e−𝑧2/2. This shows 𝑍 is standard normal.
+𝑍
+2𝜋
+We call the change from 𝑋 to 𝑍 in this theorem standardization because it converts 𝑋 from
+an arbitrary normal random variable to a standard normal variable.
+Expectation, Variance and Standard Deviation for
+Continuous Random Variables
+Class 6, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Be able to compute and interpret expectation, variance, and standard deviation for
+continuous random variables.
+2. Beabletocomputeandinterpretquantilesfordiscreteandcontinuousrandomvariables.
+2 Introduction
+So far we have looked at expected value, standard deviation, and variance for discrete
+random variables. These summary statistics have the same meaning for continuous random
+variables:
+• The expected value 𝜇 = 𝐸[𝑋] is a measure of location or central tendency.
+• The standard deviation 𝜎 is a measure of the spread or scale.
+• The variance 𝜎2 = Var(𝑋) is the square of the standard deviation.
+To move from discrete to continuous, we will simply replace the sums in the formulas by
+integrals. We will do this carefully and go through many examples in the following sections.
+In the last section, we will introduce another type of summary statistic, quantiles. You may
+already be familiar with the 0.5 quantile of a distribution, otherwise known as the median
+or 50th percentile.
+3 Expected value of a continuous random variable
+Definition: Let 𝑋 be a continuous random variable with range [𝑎,𝑏] and probability
+density function 𝑓(𝑥). The expected value of 𝑋 is defined by
+𝑏
+𝐸[𝑋] = ∫ 𝑥𝑓(𝑥)𝑑𝑥.
+𝑎
+Let’s see how this compares with the formula for a discrete random variable:
+𝑛
+𝐸[𝑋] = ∑𝑥 𝑝(𝑥 ).
+𝑖 𝑖
+𝑖=1
+The discrete formula says to take a weighted sum of the values 𝑥 of 𝑋, where the weights
+𝑖
+are the probabilities 𝑝(𝑥 ). Recall that 𝑓(𝑥) is a probability density. Its units are
+𝑖
+1
+18.05 Class 6, Expectation and Variance for Continuous Random Variables, Spring 2022 2
+prob/(unit of 𝑋). So 𝑓(𝑥)𝑑𝑥 represents the probability that 𝑋 is in an infinitesimal range
+of width 𝑑𝑥 around 𝑥. Thus we can interpret the formula for 𝐸[𝑋] as a weighted integral
+of the values 𝑥 of 𝑋, where the weights are the probabilities 𝑓(𝑥)𝑑𝑥.
+As before, the expected value is also called the mean or average.
+3.1 Examples
+Let’s go through several example computations. Where the solution requires an integration
+technique, we push the computation of the integral to the appendix.
+Example 1. Let 𝑋 ∼ uniform(0,1). Find 𝐸[𝑋].
+Solution: 𝑋 has range [0,1] and density 𝑓(𝑥) = 1. Therefore,
+1 𝑥2 1 1
+𝐸[𝑋] = ∫ 𝑥𝑑𝑥 = ∣ = .
+2 2
+0 0
+Not surprisingly the mean is at the midpoint of the range.
+Example 2. Let 𝑋 have range [0,2] and density 3𝑥2. Find 𝐸[𝑋].
+8
+Solution:
+2 2 3 3𝑥4 2 3
+𝐸[𝑋] = ∫ 𝑥𝑓(𝑥)𝑑𝑥 = ∫ 𝑥3𝑑𝑥 = ∣ = .
+8 32 2
+0 0 0
+Does it make sense that this 𝑋 has mean is in the right half of its range?
+Solution: Yes. Since the probability density increases as 𝑥 increases over the range, the
+average value of 𝑥 should be in the right half of the range.
+𝑓(𝑥)
+𝑥
+1 𝜇=1.5
+𝜇 is “pulled” to the right of the midpoint 1 because there is more mass to the right.
+Example 3. Let 𝑋 ∼ exp(𝜆). Find 𝐸[𝑋].
+Solution: The range of 𝑋 is [0,∞) and its pdf is 𝑓(𝑥) = 𝜆e−𝜆𝑥. So (details in appendix)
+∞ e−𝜆𝑥 ∞ 1
+𝐸[𝑋] = ∫ 𝑥𝜆e−𝜆𝑥𝑑𝑥 = −𝑥e−𝜆𝑥− ∣ = .
+𝜆 𝜆
+0 0
+𝑓(𝑥)=𝜆e−𝜆𝑥
+𝑥
+𝜇=1/𝜆
+Mean of an exponential random variable
+18.05 Class 6, Expectation and Variance for Continuous Random Variables, Spring 2022 3
+Example 4. Let 𝑍 ∼ N(0,1). Find 𝐸[𝑍].
+1
+Solution: The range of 𝑍 is (−∞,∞) and its pdf is 𝜙(𝑧) = √ e−𝑧2/2. So (details in
+2𝜋
+appendix)
+∞ 1 1 ∞
+𝐸[𝑍] = ∫ √ 𝑧e−𝑧2/2𝑑𝑧 = −√ e−𝑧2/2∣ = 0 .
+2𝜋 2𝜋
+−∞ −∞
+𝜙(𝑧)
+𝑧
+𝜇=0
+The standard normal distribution is symmetric and has mean 0.
+3.2 Properties of 𝐸[𝑋]
+The properties of 𝐸[𝑋] for continuous random variables are the same as for discrete ones:
+1. If 𝑋 and 𝑌 are random variables on a sample space Ω then
+𝐸[𝑋+𝑌] = 𝐸[𝑋]+𝐸[𝑌]. (linearity I)
+2. If 𝑎 and 𝑏 are constants then
+𝐸[𝑎𝑋+𝑏] = 𝑎𝐸[𝑋]+𝑏. (linearity II)
+Example 5. In this example we verify that for 𝑋 ∼ N(𝜇,𝜎) we have 𝐸[𝑋] = 𝜇.
+Solution: Example (4) showed that for standard normal 𝑍, 𝐸[𝑍] = 0. We could mimic
+the calculation there to show that 𝐸[𝑋] = 𝜇. Instead we will use the linearity properties of
+𝐸[𝑋]. Intheclass5notesonmanipulatingrandomvariablesweshowedthatif𝑋 ∼ N(𝜇,𝜎2)
+is a normal random variable we can standardize it:
+𝑋−𝜇
+𝑍 = ∼ N(0,1).
+𝜎
+Inverting this formula we have 𝑋 = 𝜎𝑍 +𝜇. The linearity of expected value now gives
+𝐸[𝑋] = 𝐸[𝜎𝑍 +𝜇] = 𝜎𝐸[𝑍]+𝜇 = 𝜇
+3.3 Expectation of Functions of 𝑋
+This works exactly the same as the discrete case. if ℎ(𝑥) is a function then 𝑌 = ℎ(𝑋) is a
+random variable and
+∞
+𝐸[𝑌] = 𝐸[ℎ(𝑋)] = ∫ ℎ(𝑥)𝑓 (𝑥)𝑑𝑥.
+𝑋
+−∞
+Example 6. Let 𝑋 ∼ exp(𝜆). Find 𝐸[𝑋2].
+Solution: Using integration by parts we have
+∞ 2𝑥 2 ∞ 2
+𝐸[𝑋2] = ∫ 𝑥2𝜆e−𝜆𝑥𝑑𝑥 = [−𝑥2e−𝜆𝑥− e−𝜆𝑥− e−𝜆𝑥] = .
+𝜆 𝜆2 𝜆2
+0 0
+18.05 Class 6, Expectation and Variance for Continuous Random Variables, Spring 2022 4
+4 Variance
+Now that we’ve defined expectation for continuous random variables, the definition of vari-
+ance is identical to that of discrete random variables.
+Definition: Let 𝑋 be a continuous random variable with mean 𝜇. The variance of 𝑋 is
+Var(𝑋) = 𝐸[(𝑋−𝜇)2].
+4.1 Properties of Variance
+These are exactly the same as in the discrete case.
+1. If 𝑋 and 𝑌 are independent then Var(𝑋+𝑌) = Var(𝑋)+Var(𝑌).
+2. For constants 𝑎 and 𝑏, Var(𝑎𝑋+𝑏) = 𝑎2Var(𝑋).
+3. Theorem: Var(𝑋) = 𝐸[𝑋2]−𝐸[𝑋]2 = 𝐸[𝑋2]−𝜇2.
+For Property 1, note carefully the requirement that 𝑋 and 𝑌 are independent.
+Property 3 gives a formula for Var(𝑋) that is often easier to use in hand calculations. The
+proofs of properties 2 and 3 are essentially identical to those in the discrete case. We will
+not give them here.
+Example 7. Let 𝑋 ∼ uniform(0,1). Find Var(𝑋) and 𝜎 .
+𝑋
+Solution: In Example 1 we found 𝜇 = 1/2. Next we compute
+1 1
+Var(𝑋) = 𝐸[(𝑋−𝜇)2] = ∫ (𝑥−1/2)2𝑑𝑥 = .
+12
+0
+Example 8. Let 𝑋 ∼ exp(𝜆). Find Var(𝑋) and 𝜎 .
+𝑋
+Solution: In Examples 3 and 6 we computed
+∞ 1 ∞ 2
+𝐸[𝑋] = ∫ 𝑥𝜆e−𝜆𝑥𝑑𝑥 = and 𝐸[𝑋2] = ∫ 𝑥2𝜆e−𝜆𝑥𝑑𝑥 = .
+𝜆 𝜆2
+0 0
+So by Property 3,
+2 1 1 1
+Var(𝑋) = 𝐸[𝑋2]−𝐸[𝑋]2 = − = and 𝜎 = .
+𝜆2 𝜆2 𝜆2 𝑋 𝜆
+WecouldhaveskippedProperty3andcomputedthisdirectlyfromVar(𝑋) = ∫ ∞ (𝑥−1/𝜆)2𝜆e−𝜆𝑥𝑑𝑥.
+0
+Example 9. Let 𝑍 ∼ N(0,1). Show Var(𝑍) = 1.
+Note: The notation for normal variables is 𝑋 ∼ N(𝜇,𝜎2). This is certainly suggestive, but
+as mathematicians we need to prove that 𝐸[𝑋] = 𝜇 and Var(𝑋) = 𝜎2. Above we showed
+𝐸[𝑋] = 𝜇. This example shows that Var(𝑍) = 1, just as the notation suggests. In the next
+example we’ll show Var(𝑋) = 𝜎2.
+Solution: Since 𝐸[𝑍] = 0, we have
+1 ∞
+Var(𝑍) = 𝐸[𝑍2] = √ ∫ 𝑧2e−𝑧2/2𝑑𝑧.
+2𝜋
+−∞
+18.05 Class 6, Expectation and Variance for Continuous Random Variables, Spring 2022 5
+(using integration by parts with 𝑢 = 𝑧, 𝑣′ = 𝑧e−𝑧2/2 ⇒ 𝑢′ = 1, 𝑣 = −e−𝑧2/2)
+1 ∞ 1 ∞
+= √ (−𝑧e−𝑧2/2∣ )+ √ ∫ e−𝑧2/2𝑑𝑧.
+2𝜋 −∞ 2𝜋
+−∞
+The first term equals 0 because the exponential goes to zero much faster than 𝑧 grows at
+both ±∞. The second term equals 1 because it is exactly the total probability integral of
+the pdf 𝜑(𝑧) for N(0,1). So Var(𝑋) = 1.
+Example 10. Let 𝑋 ∼ N(𝜇,𝜎2). Show Var(𝑋) = 𝜎2.
+Solution: This is an exercise in change of variables. Letting 𝑧 = (𝑥−𝜇)/𝜎, we have
+1 ∞
+Var(𝑋) = 𝐸[(𝑋−𝜇)2] = √ ∫ (𝑥−𝜇)2e−(𝑥−𝜇)2/2𝜎2𝑑𝑥
+2𝜋𝜎
+−∞
+𝜎2 ∞
+= √ ∫ 𝑧2e−𝑧2/2𝑑𝑧 = 𝜎2.
+2𝜋
+−∞
+The integral in the last line is the same one we computed for Var(𝑍).
+5 Quantiles
+Definition: The median of 𝑋 is the value 𝑥 for which 𝑃(𝑋 ≤ 𝑥) = 0.5, i.e. the value
+of 𝑥 such that 𝑃(𝑋 ≤ 𝑥) = 𝑃(𝑋 ≥ 𝑥). In other words, 𝑋 has equal probability of
+being above or below the median, and each probability is therefore 1/2. In terms of the
+cdf 𝐹(𝑥) = 𝑃(𝑋 ≤ 𝑥), we can equivalently define the median as the value 𝑥 satisfying
+𝐹(𝑥) = 0.5.
+Think: What is the median of 𝑍?
+Solution: By symmetry, the median is 0.
+Example 11. Find the median of 𝑋 ∼ exp(𝜆).
+Solution: The cdf of 𝑋 is 𝐹(𝑥) = 1−e−𝜆𝑥. So the median is the value of 𝑥 for which
+𝐹(𝑥) = 1−e−𝜆𝑥 = 0.5.. Solving for 𝑥 we find: 𝑥 = (ln2)/𝜆 .
+Think: In this case the median does not equal the mean of 𝜇 = 1/𝜆. Based on the graph
+of the pdf of 𝑋 can you argue why the median is to the left of the mean.
+Definition: The pth quantile of 𝑋 is the value 𝑞 such that 𝑃(𝑋 ≤ 𝑞 ) = 𝑝.
+𝑝 𝑝
+Notes. 1. In this notation the median is 𝑞 .
+0.5
+2. We will usually write this in terms of the cdf: 𝐹(𝑞 ) = 𝑝.
+𝑝
+With respect to the pdf 𝑓(𝑥), the quantile 𝑞 is the value such that there is an area of 𝑝 to
+𝑝
+the left of 𝑞 and an area of 1−𝑝 to the right of 𝑞 . In the examples below, note how we
+𝑝 𝑝
+can represent the quantile graphically using either area of the pdf or height of the cdf.
+Example 12. Find the 0.6 quantile for 𝑋 ∼ 𝑈(0,1).
+18.05 Class 6, Expectation and Variance for Continuous Random Variables, Spring 2022 6
+Solution: The cdf for 𝑋 is 𝐹(𝑥) = 𝑥 on the range [0,1]. So 𝑞 = 0.6.
+0.6
+𝑓(𝑥) 𝐹(𝑥)
+left tail area = prob = 0.6
+1
+𝐹(𝑞 )=0.6
+0.6
+𝑥 𝑥
+𝑞 =0.6 𝑞 =0.6
+0.6 0.6
+𝑞 : left tail area = 0.6 ⇔ 𝐹(𝑞 ) = 0.6
+0.6 0.6
+Example 13. Find the 0.6 quantile of the standard normal distribution.
+Solution: We don’t have a formula for the cdf, so we use the R ‘quantile function’ qnorm.
+𝑞 = qnorm(0.6, 0, 1) = 0.25335
+0.6
+Φ(𝑧)
+𝜙(𝑧)
+1
+lefttailarea=prob. =0.6 𝐹(𝑞 )=0.6
+0.6
+𝑧 𝑧
+𝑞 =0.253 𝑞 =0.253
+0.6 0.6
+𝑞 : left tail area = 0.6 ⇔ 𝐹(𝑞 ) = 0.6
+0.6 0.6
+Quantiles give a useful measure of location for a random variable. We will use them more
+in coming lectures.
+5.1 Percentiles, deciles, quartiles
+For convenience, quantiles are often described in terms of percentiles, deciles or quartiles.
+The60th percentileisthesameasthe0.6quantile. Forexampleyouareinthe60th percentile
+for height if you are taller than 60 percent of the population, i.e. the probability that you
+are taller than a randomly chosen person is 60 percent.
+Likewise, deciles represent steps of 1/10. The third decile is the 0.3 quantile. Quartiles are
+in steps of 1/4. The third quartile is the 0.75 quantile and the 75th percentile.
+6 Appendix: Integral Computation Details
+From Example 3 Let 𝑋 ∼ exp(𝜆). Find 𝐸[𝑋].
+The range of 𝑋 is [0,∞) and its pdf is 𝑓(𝑥) = 𝜆e−𝜆𝑥. Therefore
+∞ ∞
+𝐸[𝑋] = ∫ 𝑥𝑓(𝑥)𝑑𝑥 = ∫ 𝜆𝑥e−𝜆𝑥𝑑𝑥
+0 0
+18.05 Class 6, Expectation and Variance for Continuous Random Variables, Spring 2022 7
+(using integration by parts with 𝑢 = 𝑥, 𝑣′ = 𝜆e−𝜆𝑥 ⇒ 𝑢′ = 1, 𝑣 = −e−𝜆𝑥)
+∞
+∞
+= −𝑥e−𝜆𝑥∣ +∫ e−𝜆𝑥𝑑𝑥
+0
+0
+∞
+e−𝜆𝑥 1
+= 0− ∣ = .
+𝜆 𝜆
+0
+We used the fact that 𝑥e−𝜆𝑥 and e−𝜆𝑥 go to 0 as 𝑥 → ∞.
+From Example 4 Let 𝑍 ∼ N(0,1). Find 𝐸[𝑍].
+1
+The range of 𝑍 is (−∞,∞) and its pdf is 𝜙(𝑧) = √ e−𝑧2/2. By symmetry the mean must
+2𝜋
+be 0. The only mathematically tricky part is to show that the integral converges, i.e. that
+the mean exists at all (some random variable do not have means, but we will not encounter
+this very often.) For completeness we include the argument, though this is not something
+we will ask you to do. We first compute the integral from 0 to ∞:
+∞ 1 ∞
+∫ 𝑧𝜙(𝑧)𝑑𝑧 = √ ∫ 𝑧e−𝑧2/2𝑑𝑧.
+2𝜋
+0 0
+The 𝑢-substitution 𝑢 = 𝑧2/2 gives 𝑑𝑢 = 𝑧𝑑𝑧. So the integral becomes
+1 ∞ 1 ∞
+√ ∫ 𝑧e−𝑧2/2𝑑𝑧. = √ ∫ e−𝑢𝑑𝑢 = −e−𝑢| ∞ = 1
+2𝜋 2𝜋 0
+0 0
+0
+Similarly, ∫ 𝑧𝜙(𝑧)𝑑𝑧 = −1. Adding the two pieces together gives 𝐸[𝑍] = 0.
+−∞
+From Example 6 Let 𝑋 ∼ exp(𝜆). Find 𝐸[𝑋2].
+∞ ∞
+𝐸[𝑋2] = ∫ 𝑥2𝑓(𝑥)𝑑𝑥 = ∫ 𝜆𝑥2e−𝜆𝑥𝑑𝑥
+0 0
+(using integration by parts with 𝑢 = 𝑥2, 𝑣′ = 𝜆e−𝜆𝑥 ⇒ 𝑢′ = 2𝑥, 𝑣 = −e−𝜆𝑥)
+∞
+∞
+= −𝑥2e−𝜆𝑥∣ +∫ 2𝑥e−𝜆𝑥𝑑𝑥
+0
+0
+(the first term is 0, for the second term use integration by parts: 𝑢 = 2𝑥, 𝑣′ = e−𝜆𝑥 ⇒
+𝑢′ = 2, 𝑣 = −e−𝜆𝑥)
+𝜆
+e−𝜆𝑥 ∞ ∞ e−𝜆𝑥
+= −2𝑥 ∣ +∫ 𝑑𝑥
+𝜆 𝜆
+0 0
+∞
+e−𝜆𝑥 2
+= 0− 2 ∣ = .
+𝜆2 𝜆2
+0
+Central Limit Theorem and the Law of Large Numbers
+Class 6, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Understand the statement of the law of large numbers.
+2. Understand the statement of the central limit theorem.
+3. Be able to use the central limit theorem to approximate probabilities of averages and
+sums of independent identically-distributed random variables.
+2 Introduction
+We all understand intuitively that the average of many measurements of the same unknown
+quantity tends to give a better estimate than a single measurement. Intuitively, this is
+because the random error of each measurement cancels out in the average. In these notes
+we will make this intuition precise in two ways: the law of large numbers (LoLN) and the
+central limit theorem (CLT).
+Briefly,boththelawoflargenumbersandcentrallimittheoremareaboutmanyindependent
+samples from same distribution. The LoLN tells us two things:
+1. Theaverageofmanyindependentsamplesis(withhighprobability)closetothemean
+of the underlying distribution.
+2. The density histogram of many independent samples is (with high probability) close
+to the graph of the density of the underlying distribution.
+To be absolutely correct mathematically we need to make these statements more precise,
+but as stated they are a good way to think about the law of large numbers.
+The central limit theorem says that the sum or average of many independent copies of a
+random variable is approximately a normal random variable. The CLT goes on to give
+precise values for the mean and standard deviation of the normal variable.
+These are both remarkable facts. Perhaps just as remarkable is the fact that often in
+practice 𝑛 does not have to be all that large.
+2.1 There is more to experimentation than mathematics
+The mathematics of the LoLN says that the average of a lot of independent samples from a
+random variable will almost certainly approach the mean of the variable. The mathematics
+cannot tell us if the tool or experiment is producing data worth averaging. For example,
+if the measuring device is defective or poorly calibrated then the average of many mea-
+surements will be a highly accurate estimate of the wrong thing! This is an example of
+1
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 2
+systematic error or sampling bias, as opposed to the random error controlled by the law of
+large numbers.
+3 The law of large numbers
+Suppose 𝑋 , 𝑋 , …, 𝑋 are independent random variables with the same underlying dis-
+1 2 𝑛
+tribution. In this case, we say that the 𝑋 are independent and identically-distributed, or
+𝑖
+i.i.d. In particular, the 𝑋 all have the same mean 𝜇 and standard deviation 𝜎.
+𝑖
+Let 𝑋 be the average of 𝑋 ,…,𝑋 :
+𝑛 1 𝑛
+𝑋 +𝑋 +⋯+𝑋 1 𝑛
+𝑋 = 1 2 𝑛 = ∑𝑋 .
+𝑛 𝑛 𝑛 𝑖
+𝑖=1
+Note that 𝑋 is itself a random variable. The law of large numbers and central limit
+𝑛
+theorem tell us about the value and distribution of 𝑋 , respectively.
+𝑛
+LoLN: As 𝑛 grows, the probability that 𝑋 is close to 𝜇 goes to 1.
+𝑛
+CLT: As 𝑛 grows, the distribution of 𝑋 converges to the normal distribution 𝑁(𝜇,𝜎2/𝑛).
+𝑛
+Before giving a more formal statement of the LoLN, let’s unpack its meaning through a
+concrete example (we’ll return to the CLT later on).
+Example 1. Averages of Bernoulli random variables
+Suppose each 𝑋 is an independent flip of a fair coin, so 𝑋 ∼ Bernoulli(0.5) and 𝜇 = 0.5.
+𝑖 𝑖
+Then 𝑋 is the proportion of heads in 𝑛 flips, and we expect that this proportion is close to
+𝑛
+0.5 for large 𝑛. Randomness being what it is, this is not guaranteed; for example we could
+get 1000 heads in 1000 flips, though the probability of this occurring is very small.
+So our intuition translates to: with high probability the sample average 𝑋 is close to the
+𝑛
+mean 0.5 for large 𝑛. We’ll demonstrate by doing some calculations in R. You can find the
+code used for ‘class 6 prep’ in the usual place on our website.
+To start we’ll look at the probability of being within 0.1 of the mean. We can express this
+probability as
+𝑃(|𝑋 −0.5| < 0.1) or equivalently 𝑃(0.4 ≤ 𝑋 ≤ 0.6)
+𝑛 𝑛
+The law of large numbers says that this probability goes to 1 as the number of flips 𝑛 gets
+large. Our R code produces the following values for 𝑃(0.4 ≤ 𝑋 ≤ 0.6).
+𝑛
+𝑛 = 10: pbinom(6, 10, 0.5) - pbinom(3, 10, 0.5) = 0.65625
+𝑛 = 50: pbinom(30, 50, 0.5) - pbinom(19, 50, 0.5) = 0.8810795
+𝑛 = 100: pbinom(60, 100, 0.5) - pbinom(39, 100, 0.5) = 0.9647998
+𝑛 = 500: pbinom(300, 500, 0.5) - pbinom(199, 500, 0.5) = 0.9999941
+𝑛 = 1000: pbinom(600, 1000, 0.5) - pbinom(399, 1000, 0.5) = 1
+As predicted by the LoLN the probability goes to 1 as 𝑛 grows.
+We redo the computations to see the probability of being within 0.01 of the mean. Our R
+code produces the following values for 𝑃(0.49 ≤ 𝑋 ≤ 0.51).
+𝑛
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 3
+𝑛 = 10: pbinom(5, 10, 0.5) - pbinom(4, 10, 0.5) = 0.2460937
+𝑛 = 100: pbinom(51, 100, 0.5) - pbinom(48, 100, 0.5) = 0.2356466
+𝑛 = 1000: pbinom(510, 1000, 0.5) - pbinom(489, 1000, 0.5) = 0.49334
+𝑛 = 10000: pbinom(5100, 10000, 0.5) - pbinom(4899, 10000, 0.5) = 0.9555742
+Again we see the probability of being close to the mean going to 1 as 𝑛 grows. Since 0.01
+is smaller than 0.1 it takes larger values of 𝑛 to raise the probability to near 1.
+This convergence of the probability to 1 is the LoLN in action! Whenever you’re confused,
+it will help you to keep this example in mind. So we see that the LoLN says that with high
+probability the average of a large number of independent trials from the same distribution
+will be very close to the underlying mean of the distribution. Now we’re ready for the
+formal statement.
+3.1 Formal statement of the law of large numbers
+Theorem (Law of Large Numbers): Suppose 𝑋 , 𝑋 , …, 𝑋 , … are i.i.d. random variables
+1 2 𝑛
+with mean 𝜇. For each 𝑛, let 𝑋 be the average of the first 𝑛 variables. Then for any 𝑎 > 0,
+𝑛
+we have
+lim 𝑃(|𝑋 −𝜇| < 𝑎) = 1.
+𝑛
+𝑛→∞
+This says precisely that as 𝑛 increases the probability of being within 𝑎 of the mean goes
+to 1. Think of 𝑎 as a small tolerance of error from the true mean 𝜇.
+Looking back at Example 1, we see that for tosses of a fair coin: If we choose the number
+of tosses 𝑛 = 500, then with probability 𝑝 = 0.99999, the experimental frequency of heads
+𝑋 will be within 𝑎 = 0.1 of 0.5. In words, this tells us that, on average, only 1 in 100,000
+𝑛
+experiments will produce an experimental frequency outside this range. If we decrease the
+tolerance 𝑎 and/or increase the probability 𝑝, then 𝑛 will need to be larger.
+4 Histograms
+We can summarize multiple samples 𝑥 ,…,𝑥 of a random variable in a histogram. Here
+1 𝑛
+we want to carefully construct histograms so that they resemble the area under the pdf.
+We will then see how the LoLN applies to histograms.
+The step-by-step instructions for constructing a density or frequency histogram are as fol-
+lows.
+1. Pick an interval of the real line and divide it into 𝑚 intervals, with endpoints 𝑏 , 𝑏 , …,
+0 1
+𝑏 . Usually these are equally sized, so let’s assume this to start.
+𝑚
+𝑥
+𝑏 𝑏 𝑏 𝑏 𝑏 𝑏 𝑏
+0 1 2 3 4 5 6
+Six equally-sized bins
+Each of the intervals is called a bin. For example, in the figure above the first bin is
+[𝑏 ,𝑏 ] and the last bin is [𝑏 ,𝑏 ]. Each bin has a bin width, e.g. 𝑏 −𝑏 is the first bin
+0 1 5 6 1 0
+width. Usually the bins all have the same width, called the bin width of the histogram.
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 4
+2. Place each 𝑥 into the bin that contains its value. If 𝑥 lies on the boundary of two bins,
+𝑖 𝑖
+we’ll put it in the left bin (this is the R default, though it can be changed).
+3. To draw a frequency histogram: put a vertical bar above each bin. The height of the
+bar should equal the number of 𝑥 in the bin.
+𝑖
+4. To draw a density histogram: put a vertical bar above each bin. The area of the bar
+should equal the fraction of all data points that lie in the bin.
+Notes:
+1. When all the bins have the same width, the frequency histogram bars have area propor-
+tional to the count. So the density histogram results from simply by dividing the height of
+each bar by the total area of the frequency histogram. Ignoring the vertical scale, the two
+histograms look identical.
+2. Caution: if the bin widths differ, the frequency and density histograms may look very
+different. There is an example of this below. Don’t let anyone fool you by manipulating
+bin widths to produce a histogram that suits their mischievous purposes!
+In 18.05, we’ll stick with equally-sized bins. In general, we prefer the density histogram
+since its vertical scale is the same as that of the pdf.
+Examples. Herearesomeexamplesofhistograms,allwiththedata[0.5,1,1,1.5,1.5,1.5,2,2,2,2].
+The R code that drew them is in the file ’class6-prep-b.r’. You can find it in the usual place
+on our website.
+1. Here the density and frequency plots look the same but have different vertical scales.
+Histogram of x
+x
+ytisneD
+0.5 1.0 1.5 2.0
+8.0
+6.0
+4.0
+2.0
+0.0
+Histogram of x
+x
+ycneuqerF
+0.5 1.0 1.5 2.0
+4
+3
+2
+1
+0
+Bins centered at 0.5, 1, 1.5, 2, i.e. width 0.5, bounds at 0.25, 0.75, 1.25, 1.75, 2.25.
+2. Note the values are all on the bin boundaries and are put into the left-hand bin. That
+is, the bins are right-closed, e.g the first bin is for values in the right-closed interval (0,0.5].
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 5
+Histogram of x
+x
+ytisneD
+0.0 0.5 1.0 1.5 2.0
+8.0
+6.0
+4.0
+2.0
+0.0
+Histogram of x
+x
+ycneuqerF
+0.0 0.5 1.0 1.5 2.0
+4
+3
+2
+1
+0
+Bin bounds at 0, 0.5, 1, 1.5, 2.
+3. Here we show density histograms based on different bin widths. Note that the scale
+keeps the total area equal to 1. The gaps are bins with zero counts.
+Histogram of x
+x
+ytisneD
+0.0 0.5 1.0 1.5 2.0
+6.0
+4.0
+2.0
+0.0
+Histogram of x
+x
+ytisneD
+0.5 1.0 1.5 2.0
+5.1
+0.1
+5.0
+0.0
+Left: wide bins; Right: narrow bins.
+4. Here we use unqual bin widths, so the density and frequency histograms look different
+Histogram of x
+x
+ytisneD
+0.0 0.5 1.0 1.5 2.0
+8.0
+6.0
+4.0
+2.0
+0.0
+Histogram of x
+x
+ycneuqerF
+0.0 0.5 1.0 1.5 2.0
+5
+4
+3
+2
+1
+0
+Don’t be fooled! These are based on the same data.
+Thedensityhistogramisthebetterchoicewithunequalbinwidths. Infact, Rwillcomplain
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 6
+if you try to make a frequency histogram with unequal bin widths. Compare the frequency
+histogram with unequal bin widths with all the other histograms we drew for this data. It
+clearly looks different. What happened is that by combining the data in bins (0.5,1] and
+(1,1.5] into one bin (0.5,1.5) we effectively made the height of both smaller bins greater.
+The reason the density histogram is nice is discussed in the next section.
+4.1 The law of large numbers and histograms
+The law of large number has an important consequence for density histograms.
+LoLN for histograms: With high probability the density histogram of a large number
+of samples from a distribution is a good approximation of the graph of the underlying pdf
+𝑓(𝑥) over the range of the histogram.
+Let’sillustratethisbygeneratingadensityhistogramwithbinwidth0.1from100000draws
+from a standard normal distribution. As you can see, the density histogram very closely
+tracks the graph of the standard normal pdf 𝜙(𝑧).
+0.5
+0.4
+0.3
+0.2
+0.1
+0
+-4 -2 0 2 4
+Density histogram of 10000 draws from a standard normal distribution, with 𝜙(𝑧) in blue.
+5 The Central Limit Theorem
+We now prepare for the statement of the CLT.
+5.1 Standardization
+Given a random variable 𝑋 with mean 𝜇 and standard deviation 𝜎, we define its standard-
+ization of 𝑋 as the new random variable
+𝑋−𝜇
+𝑍 = .
+𝜎
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 7
+Note that 𝑍 has mean 0 and standard deviation 1. Note also that if 𝑋 has a normal
+distribution, then the standardization of 𝑋 is the standard normal distribution 𝑍 with
+mean 0 and variance 1. This explains the term ‘standardization’ and the notation of 𝑍
+above.
+5.2 Statement of the Central Limit Theorem
+Suppose 𝑋 , 𝑋 , …, 𝑋 , …are i.i.d. random variables each having mean 𝜇 and standard
+1 2 𝑛
+deviation 𝜎. For each 𝑛, let 𝑆 denote the sum and let 𝑋 be the average of 𝑋 ,…,𝑋 .
+𝑛 𝑛 1 𝑛
+𝑛
+𝑆 = 𝑋 +𝑋 +…+𝑋 = ∑𝑋
+𝑛 1 2 𝑛 𝑖
+𝑖=1
+𝑋 +𝑋 +…+𝑋 𝑆
+𝑋 = 1 2 𝑛 = 𝑛.
+𝑛 𝑛 𝑛
+The properties of mean and variance show
+√
+𝐸[𝑆 ] = 𝑛𝜇, Var(𝑆 ) = 𝑛𝜎2, 𝜎 = 𝑛𝜎
+𝑛 𝑛 𝑆
+𝑛
+𝜎2 𝜎
+𝐸[𝑋 ] = 𝜇, Var(𝑋 ) = , 𝜎 = √ .
+𝑛 𝑛 𝑛 𝑋 𝑛 𝑛
+Since they are multiples of each other, 𝑆 and 𝑋 have the same standardization
+𝑛 𝑛
+𝑆 −𝑛𝜇 𝑋 −𝜇
+𝑍 = 𝑛√ = 𝑛√
+𝑛 𝜎 𝑛 𝜎/ 𝑛
+Central Limit Theorem: For large 𝑛,
+𝑋 ≈ N(𝜇,𝜎2/𝑛), 𝑆 ≈ N(𝑛𝜇,𝑛𝜎2), 𝑍 ≈ N(0,1).
+𝑛 𝑛 𝑛
+Notes: 1. In words: 𝑋 is approximately a normal distribution with the same mean as 𝑋
+𝑛
+but a smaller variance.
+2. 𝑆 is approximately normal.
+𝑛
+3. Standardized 𝑋 and 𝑆 are approximately standard normal.
+𝑛 𝑛
+The central limit theorem allows us to approximate a sum or average of i.i.d random vari-
+ables by a normal random variable. This is extremely useful because it is usually easy to
+do computations with the normal distribution.
+A precise statement of the CLT is that the cdf’s of 𝑍 converge to Φ(𝑧):
+𝑛
+lim 𝐹 (𝑧) = Φ(𝑧).
+𝑍
+𝑛→∞ 𝑛
+The proof of the Central Limit Theorem is more technical than we want to get in 18.05. It
+is accessible to anyone with a decent calculus background.
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 8
+5.3 Standard Normal Probabilities
+To apply the CLT, we will want to have some normal probabilities at our fingertips. The
+following probabilities appeared in Class 5. Let 𝑍 ∼ 𝑁(0,1), a standard normal random
+variable. Then with rounding we have:
+1. 𝑃(|𝑍| < 1) ≈ 0.68
+2. 𝑃(|𝑍| < 2) ≈ 0.95; more precisely 𝑃(|𝑍| < 1.96) ≈ 0.95.
+3. 𝑃(|𝑍| < 3) ≈ 0.997
+These numbers are easily computed in R using pnorm. However, they are well worth re-
+membering as rules of thumb. You should think of them as:
+1. The probability that a normal random variable is within 1 standard deviation of its
+mean is 0.68.
+2. The probability that a normal random variable is within 2 standard deviations of its
+mean is 0.95.
+3. The probability that a normal random variable is within 3 standard deviations of its
+mean is 0.997.
+This is shown graphically in the following figure.
+within 1⋅𝜎 ≈ 68%
+Normal PDF within 2⋅𝜎 ≈ 95%
+within 3⋅𝜎 ≈ 99%
+68%
+95%
+99%
+𝑧
+𝜇−3𝜎 𝜇−2𝜎 𝜇−𝜎 𝜇 𝜇+𝜎 𝜇+2𝜎 𝜇+3𝜎
+Claim: From these numbers we can derive:
+1. 𝑃(𝑍 < 1) ≈ 0.84
+2. 𝑃(𝑍 < 2) ≈ 0.977
+3. 𝑃(𝑍 < 3) ≈ 0.999
+Proof: Weknow𝑃(|𝑍| < 1) = 0.68. Theremainingprobabilityof0.32isinthetworegions
+𝑍 > 1 and 𝑍 < −1. These regions are referred to as the right-hand tail and the left-hand
+tail respectively. By symmetry each tail has area 0.16. Thus,
+𝑃(𝑍 < 1) = 𝑃(|𝑍| < 1)+𝑃(left-hand tail) = 0.84
+The other two cases are handled similarly.
+5.4 Applications of the CLT
+Example 2. Flip a fair coin 100 times. Estimate the probability of more than 55 heads.
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 9
+Solution: Let 𝑋 be the result of the 𝑗th flip, so 𝑋 = 1 for heads and 𝑋 = 0 for tails.
+𝑗 𝑗 𝑗
+The total number of heads is
+𝑆 = 𝑋 +𝑋 +…+𝑋 .
+1 2 100
+We know 𝐸[𝑋 ] = 0.5 and Var(𝑋 ) = 1/4. Since 𝑛 = 100, we have
+𝑗 𝑗
+𝐸[𝑆] = 50, Var(𝑆) = 25 and 𝜎 = 5.
+𝑆
+The central limit theorem says that the standardization of 𝑆 is approximately N(0,1). The
+question asks for 𝑃(𝑆 > 55). Standardizing and using the CLT we get
+𝑆 −50 55−50
+𝑃(𝑆 > 55) = 𝑃 ( > ) ≈ 𝑃(𝑍 > 1) = 0.16.
+5 5
+Here 𝑍 is a standard normal random variable and 𝑃(𝑍 > 1) = 1−𝑃(𝑍 < 1) ≈ 0.16.
+Example 3. Estimate the probability of more than 220 heads in 400 flips.
+Solution: This is nearly identical to the previous example. Now 𝜇 = 200 and 𝜎 = 10
+𝑆 𝑆
+and we want 𝑃(𝑆 > 220). Standardizing and using the CLT we get:
+𝑆 −𝜇 220−200
+𝑃(𝑆 > 220) = 𝑃 ( 𝑆 > ) ≈ 𝑃(𝑍 > 2) = 0.025.
+𝜎 10
+𝑆
+Again, 𝑍 ∼ N(0,1) and the rules of thumb show 𝑃(𝑍 > 2) = 0.025.
+Note: Even though 55/100 = 220/400, the probability of more than 55 heads in 100 flips
+is larger than the probability of more than 220 heads in 400 flips. This is due to the LoLN
+and the larger value of 𝑛 in the latter case.
+Example 4. Estimate the probability of between 40 and 60 heads in 100 flips.
+Solution: As in the first example, 𝐸[𝑆] = 50, Var(𝑆) = 25 and 𝜎 = 5. So
+𝑆
+40−50 𝑆 −50 60−50
+𝑃(40 ≤ 𝑆 ≤ 60) = 𝑃 ( ≤ ≤ ) ≈ 𝑃 (−2 ≤ 𝑍 ≤ 2)
+5 5 5
+We can compute the right-hand side using our rule of thumb. For a more accurate answer
+we use R:
+pnorm(2) - pnorm(-2) = 0.954…
+Recall that in Section 3 we used the binomial distribution to compute an answer of 0.965….
+So our approximate answer using CLT is off by about 1%.
+Think: Would you expect the CLT method to give a better or worse approximation of
+𝑃(200 < 𝑆 < 300) with 𝑛 = 500?
+We encourage you to check your answer using R.
+Example 5. Polling. When taking a political poll the results are often reported as a
+number with a margin of error. For example 52% ± 3% favor candidate A. The rule of
+√
+thumb is that if you poll 𝑛 people then the margin of error is ±1/ 𝑛. We will now see
+exactly what this means and that it is an application of the central limit theorem.
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 10
+Supposethereare2candidatesAandB.Supposefurtherthatthefractionofthepopulation
+whopreferAis𝑝 . Thatis, ifyouaskarandompersonwhotheypreferthentheprobability
+0
+they’ll answer A is 𝑝
+𝑜
+To run the poll a pollster selects 𝑛 people at random and asks ‘Do you support candidate
+A or candidate B?’ Thus we can view the poll as a sequence of 𝑛 independent Bernoulli(𝑝 )
+0
+trials, 𝑋 , 𝑋 , …, 𝑋 , where 𝑋 is 1 if the ith person prefers A and 0 if they prefer B. The
+1 2 𝑛 𝑖
+fraction of people polled that prefer A is just the average 𝑋.
+We know that each 𝑋 ∼ Bernoulli(𝑝 ) so,
+𝑖 0
+𝐸[𝑋 ] = 𝑝 and 𝜎 = √𝑝 (1−𝑝 ).
+𝑖 0 𝑋 0 0
+𝑖
+Therefore, the central limit theorem tells us that
+𝑋 ≈ N(𝑝 ,𝜎2/𝑛), where 𝜎 = √𝑝 (1−𝑝 ).
+0 0 0
+In a normal distribution 95% of the probability is within 2 standard deviations of the mean.
+√
+This means that in 95% of polls of 𝑛 people the sample mean 𝑋 will be within 2𝜎/ 𝑛 of
+the true mean 𝑝 . The final step is to note that for any value of 𝑝 we have 𝜎 ≤ 1/2. (It is
+0 0
+an easy calculus exercise to see that 1/4 is the maximum value of 𝜎2 = 𝑝 (1−𝑝 ).) This
+0 0
+means that we can conservatively say that in 95% of polls of 𝑛 people the sample mean
+√
+𝑋 is within 1/ 𝑛 of the true mean. The frequentist statistician then takes the interval
+√
+𝑋±1/ 𝑛 and calls it the 95% confidence interval for 𝑝 .
+0
+A word of caution: it is tempting and common, but wrong, to think that there is a 95%
+probability the true fraction 𝑝 is in a particular confidence interval. This is subtle, but
+0
+the error is the same one as thinking you have a disease if a test with a 95% true positive
+rate comes back positive. We will go into this in much more detail when we learn about
+confidence intervals.
+5.5 Why use the CLT
+Since the probabilities in the above examples can be computed exactly using the binomial
+distribution, you may be wondering what is the point of finding an approximate answer
+using the CLT. In fact, we were only able to compute these probabilities exactly because
+the 𝑋 were Bernoulli and so the sum 𝑆 was binomial. In general, the distribution of the
+𝑖
+𝑋 may not be familiar, or may not even be known, so you will not be able to compute the
+𝑖
+probabilities for 𝑆 exactly. It can also happen that the exact computation is possible in
+theory but too computationally intensive in practice, even for a computer. The power of
+theCLTisthatitapplieswhenever𝑋 hasameanandavariance. ThoughtheCLTapplies
+𝑖
+to many distributions, we will see in the next section that some distributions require larger
+𝑛 for the approximation to be a good one.
+5.6 How big does 𝑛 have to be to apply the CLT?
+Short answer: often, not that big.
+The following sequences of pictures show the convergence of averages to a normal distribu-
+tion.
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 11
+First we show the standardized average of 𝑛 i.i.d. uniform random variables with 𝑛 =
+1,2,4,8,12. The pdf of the average is in blue and the standard normal pdf is in red. By
+the time 𝑛 = 12 the fit between the standardized average and the true normal looks very
+good.
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Uniform: n = 1
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Uniform: n = 2
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Uniform: n = 4
+x
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Uniform: n = 8
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Uniform: n = 12
+x
+Next we show the standardized average of 𝑛 i.i.d. exponential random variables with
+𝑛 = 1,2,4,8,16,64. Notice that this asymmetric density takes more terms to converge to
+the normal density.
+−3 −2 −1 0 1 2 3
+8.0
+4.0
+0.0
+Exponential: n = 1
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Exponential: n = 2
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Exponential: n = 4
+x
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Exponential: n = 8
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Exponential: n = 16
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Exponential: n = 64
+x
+Next we show the (non-standardized) average of 𝑛 exponential random variables with 𝑛 =
+1,2,4,16,64. Notice how this standard deviation shrinks as 𝑛 grows, resulting in a spikier
+(more peaked) density.
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 12
+−2 −1 0 1 2 3 4
+8.0
+4.0
+0.0
+Exponential: n = 1
+−2 −1 0 1 2 3 4
+x
+4.0
+0.0
+Exponential: n = 2
+−2 −1 0 1 2 3 4
+x
+8.0
+4.0
+0.0
+Exponential: n = 4
+x
+−2 −1 0 1 2 3 4
+5.1
+0.1
+5.0
+0.0
+Exponential: n = 16
+−2 −1 0 1 2 3 4
+x
+0.3
+0.2
+0.1
+0.0
+Exponential: n = 64
+x
+Thecentrallimittheoremworksfordiscretevariablesalso. Hereisthestandardizedaverage
+of 𝑛 i.i.d. Bernoulli(0.5) random variables with 𝑛 = 1,2,12,64. Notice that as 𝑛 grows, the
+average can take more values, which allows the discrete distribution to ’fill in’ the normal
+density.
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Bernoulli: n = 1
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Bernoulli: n = 2
+−3 −2 −1 0 1 2 3
+x
+4.0
+2.0
+0.0
+Bernoulli: n = 12
+x
+−3 −2 −1 0 1 2 3
+4.0
+2.0
+0.0
+Bernoulli: n = 64
+x
+Note. In order to put the binomial (sum of Bernoulli) and normal distribution on the same
+axes, we had to convert the binomial probability mass function to a density. We did this
+by making it a bar graph with bars centered on each value and with bar width equal to the
+distance between values. Then the height of each bar is chosen so that the area equals the
+probability of the corresponding value.
+Finally we show the (non-standardized) average of 𝑛 Bernoulli(0.5) random variables, with
+𝑛 = 4,12,64. Notice how the standard deviation gets smaller resulting in a spikier (more
+peaked) density. (In these figures, rather than plotting colored bars, we made the bars
+white and only plotted a blue line at the center of each bar.
+18.05 Class 6, Central Limit Theorem and the Law of Large Numbers, Spring 2022 13
+−1.0 0.0 0.5 1.0 1.5 2.0
+8.0
+4.0
+0.0
+Bernoulli: n = 2
+0.0 0.5 1.0
+x
+0.2
+0.1
+0.0
+Bernoulli: n = 12
+0.0 0.5 1.0
+x
+6
+4
+2
+0
+Bernoulli: n = 64
+x
+Appendix
+Class 6, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Introduction
+In this appendix we give more formal mathematical material that is not strictly a part of
+18.05. This will not be on homework or tests. We give this material to emphasize that in
+doingmathematicsweshouldbecarefultospecifyourhypothesescompletelyandgiveclear
+deductive arguments to prove our claims. We hope you find it interesting and illuminating.
+2 With high probability the density histogram resembles the
+graph of the probability density function:
+Westatedthatoneconsequenceofthelawoflargenumbersisthatasthenumberofsamples
+increasesthedensityhistogramofthesampleshasanincreasingprobabilityofmatchingthe
+graph of the underlying pdf or pmf. This is a good rule of thumb, but it is rather imprecise.
+It is possible to make more precise statements. It will take some care to make a sensible
+and precise statement, which will not be quite so sweeping.
+Suppose we have an experiment that produces data according to the random variable 𝑋
+and suppose we generate 𝑛 independent samples from 𝑋. Call them
+𝑥 , 𝑥 ,…,𝑥 .
+1 2 𝑛
+By a bin we mean a range of values, i.e. (𝑏 ,𝑏 ]. The data point 𝑥 is in this bin if
+1 2 𝑘
+𝑏 < 𝑥 ≤ 𝑏 . (For the left-most bin, we would use an interval closed on both sides.) To
+1 𝑘 2
+make a density histogram of the data we divide the range of 𝑋 into 𝑚 bins and calculate
+the fraction of the data in each bin.
+Now, let𝑝 betheprobabilityarandomdatapointisinthe𝑘thbin. Thisisthisprobability
+𝑘
+for an indicator (Bernoulli) random variable 𝐵 which is 1 if the 𝑗th data point is in the
+𝑘,𝑗
+bin and and 0 otherwise.
+Statement 1. Let 𝑝̄ be the fraction of the data in bin 𝑘. As the number 𝑛 of data points
+𝑘
+gets large the probability that 𝑝̄ is close to 𝑝 approaches 1. Said differently, given any
+𝑘 𝑘
+small number, call it 𝑎 the probability 𝑃(|𝑝̄ −𝑝 | < 𝑎) depends on 𝑛, and as 𝑛 goes to
+𝑘 𝑘
+infinity this probability goes to 1.
+Proof. Let 𝐵̄ be the average of 𝐵 . Since 𝐸[𝐵 ] = 𝑝 , the law of large number says
+𝑘 𝑘,𝑗 𝑘,𝑗 𝑘
+exactly that
+𝑃(|𝐵̄ −𝑝 | < 𝑎) approaches 1 as 𝑛 goes to infinity.
+𝑘 𝑘
+But, since the 𝐵 are indicator variables, their average is exactly 𝑝̄ , the fraction of the
+𝑘,𝑗 𝑘
+data in bin 𝑘. Replacing 𝐵̄ by 𝑝̄ in the above equation gives
+𝑘 𝑘
+𝑃(|𝑝̄ −𝑝 | < 𝑎) approaches 1 as 𝑛 goes to infinity.
+𝑘 𝑘
+This is exactly what Statement 1 claimed.
+1
+18.05 Class 6, Appendix, Spring 2022 2
+Statement 2. The same statement holds for a finite number of bins simultaneously. That
+is, for bins 1 to 𝑚 we have
+𝑃((|𝐵̄ −𝑝 | < 𝑎), (|𝐵̄ −𝑝 | < 𝑎), …, (|𝐵̄ −𝑝 | < 𝑎)) approaches 1 as 𝑛 goes to infinity.
+1 1 2 2 𝑚 𝑚
+Proof. First we note the following probability rule, which is a consequence of the inclusion
+exclusion principle: If two events 𝐴 and 𝐵 have 𝑃(𝐴) = 1−𝛼 and 𝑃(𝐵) = 1−𝛼 then
+1 2
+𝑃(𝐴∩𝐵) ≥ 1−(𝛼 +𝛼 ).
+1 2
+Now, Statement 1 says that for any 𝛼 we can find 𝑛 large enough that 𝑃(|𝐵̄ −𝑝 | < 𝑎) >
+𝑘 𝑘
+1−𝛼/𝑚 for each bin separately. By the probability rule, the probability of the intersection
+of all these events is at least 1−𝛼. Since we can let 𝛼 be as small as we want by letting 𝑛
+go to infinity, in the limit we get probability 1 as claimed.
+Statement 3. If 𝑓(𝑥) is a continuous probability density with range [𝑎,𝑏] then by taking
+enough data and having a small enough bin width we can insure that with high probability
+the density histogram is as close as we want to the graph of 𝑓(𝑥).
+Proof. We will only sketch the argument. Assume the bin around 𝑥 has width is Δ𝑥. If
+Δ𝑥 is small enough then the probability a data point is in the bin is approximately 𝑓(𝑥)Δ𝑥.
+Statement 2 guarantees that if 𝑛 is large enough then with high probability the fraction
+of data in the bin is also approximately 𝑓(𝑥)Δ𝑥. Since this is the area of the bin we see
+that its height will be approximately 𝑓(𝑥). That is, with high probability the height of the
+histogram over any point 𝑥 is close to 𝑓(𝑥). This is what Statement 3 claimed.
+Note. If the range is infinite or the density goes to infinity at some point we need to be
+more careful. There are statements we could make for these cases.
+3 The Chebyshev inequality
+One proof of the LoLN follows from the following key inequality.
+The Chebyshev inequality. Suppose 𝑌 is a random variable with mean 𝜇 and variance 𝜎2.
+Then for any positive value 𝑎, we have
+Var(𝑌)
+𝑃(|𝑌 −𝜇| ≥ 𝑎) ≤ .
+𝑎2
+In words, the Chebyshev inequality says that the probability that 𝑌 differs from the mean
+by more than 𝑎 is bounded by Var(𝑌)/𝑎2. Morally, the smaller the variance of 𝑌, the
+smaller the probability that 𝑌 is far from its mean.
+Proof of the LoLN: Since Var(𝑋̄ ) = Var(𝑋)/𝑛, the variance of the average 𝑋̄ goes to
+𝑛 𝑛
+zero as 𝑛 goes to infinity. So the Chebyshev inequality for 𝑌 = 𝑋̄ and fixed 𝑎 implies
+𝑛
+that as 𝑛 grows, the probability that 𝑋̄ is farther than 𝑎 from 𝜇 goes to 0. Hence the
+𝑛
+probability that 𝑋̄ is within 𝑎 of 𝜇 goes to 1, which is the LoLN.
+𝑛
+Proof of the Chebyshev inequality: The proof is essentially the same for discrete and
+continuous𝑌. We’llassume𝑌 iscontinuousandalsothat𝜇 = 0, sincereplacing𝑌 by𝑌 −𝜇
+18.05 Class 6, Appendix, Spring 2022 3
+does not change the variance. So
+−𝑎 ∞ −𝑎 𝑦2 ∞ 𝑦2
+𝑃(|𝑌| ≥ 𝑎) = ∫ 𝑓(𝑦)𝑑𝑦+∫ 𝑓(𝑦)𝑑𝑦 ≤ ∫ 𝑓(𝑦)𝑑𝑦+∫ 𝑓(𝑦)𝑑𝑦
+𝑎2 𝑎2
+−∞ 𝑎 −∞ 𝑎
+∞ 𝑦2 Var(𝑌)
+≤ ∫ 𝑓(𝑦)𝑑𝑦 = .
+𝑎2 𝑎2
+−∞
+The first inequality uses that 𝑦2/𝑎2 ≥ 1 on the intervals of integration. The second in-
+equality follows because including the range [−𝑎,𝑎] only makes the integral larger, since the
+integrand is positive.
+4 The need for variance
+We didn’t lie to you, but we did gloss over one technical fact. Throughout we assumed
+that the underlying distributions had a variance. For example, the proof of the law of
+large numbers made use of the variance by way of the Chebyshev inequality. But there are
+distributionswhichdonothaveameanandvariancebecausethesumsorintegralsforthese
+do not converge to a finite number. For such distributions the law of large numbers may
+not be true.
+In 18.05 we won’t have to worry about this, but if you go deeper into statistics this may
+become important. For those who are interested: a standard example you can look up or
+play with in R is the Cauchy distribution.
+Joint Distributions, Independence
+Class 7, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Understand what is meant by a joint pmf, pdf and cdf of two random variables.
+2. Be able to compute probabilities and marginals from a joint pmf or pdf.
+3. Be able to test whether two random variables are independent.
+2 Introduction
+In science and in real life, we are often interested in two (or more) random variables at the
+same time. For example, we might measure the height and weight of giraffes, or the IQ
+and birthweight of children, or the frequency of exercise and the rate of heart disease in
+adults, or the level of air pollution and rate of respiratory illness in cities, or the number of
+Facebook friends and the age of Facebook members.
+Think: What relationship would you expect in each of the five examples above? Why?
+In such situations the random variables have a joint distribution that allows us to compute
+probabilitiesofeventsinvolvingbothvariablesandunderstandtherelationshipbetweenthe
+variables. This is simplest when the variables are independent. When they are not, we use
+covariance and correlation as measures of the nature of the dependence between them.
+3 Joint Distribution
+3.1 Discrete case
+Suppose𝑋 and𝑌 aretwodiscreterandomvariablesandthat𝑋 takesvalues{𝑥 ,𝑥 ,…,𝑥 }
+1 2 𝑛
+and 𝑌 takes values {𝑦 ,𝑦 ,…,𝑦 }. The ordered pair (𝑋,𝑌) take values in the product
+1 2 𝑚
+{(𝑥 ,𝑦 ),(𝑥 ,𝑦 ),…(𝑥 ,𝑦 )}. The joint probability mass function (joint pmf) of 𝑋 and 𝑌
+1 1 1 2 𝑛 𝑚
+is the function 𝑝(𝑥 ,𝑦 ) giving the probability of the joint outcome 𝑋 = 𝑥 , 𝑌 = 𝑦 .
+𝑖 𝑗 𝑖 𝑗
+We organize this in a joint probability table as shown:
+1
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 2
+𝑋\𝑌 𝑦 𝑦 … 𝑦 … 𝑦
+1 2 𝑗 𝑚
+𝑥 𝑝(𝑥 ,𝑦 ) 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 )
+1 1 1 1 2 1 𝑗 1 𝑚
+𝑥 𝑝(𝑥 ,𝑦 ) 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 )
+2 2 1 2 2 2 𝑗 2 𝑚
+⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯
+⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯
+𝑥 𝑝(𝑥 ,𝑦 ) 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 )
+𝑖 𝑖 1 𝑖 2 𝑖 𝑗 𝑖 𝑚
+⋯ ⋯ ⋯ ⋯ ⋯ ⋯
+𝑥 𝑝(𝑥 ,𝑦 ) 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 ) ⋯ 𝑝(𝑥 ,𝑦 )
+𝑛 𝑛 1 𝑛 2 𝑛 𝑗 𝑛 𝑚
+Example 1. Roll two dice. Let 𝑋 be the value on the first die and let 𝑌 be the value on
+the second die. Then both 𝑋 and 𝑌 take values 1 to 6 and the joint pmf is 𝑝(𝑖,𝑗) = 1/36
+for all 𝑖 and 𝑗 between 1 and 6. Here is the joint probability table:
+𝑋\𝑌 1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+Example 2. Roll two dice. Let 𝑋 be the value on the first die and let 𝑇 be the total on
+both dice. Here is the joint probability table:
+𝑋\𝑇 2 3 4 5 6 7 8 9 10 11 12
+1 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 0
+2 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0
+3 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0
+4 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0
+5 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0
+6 0 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36
+A joint probability mass function must satisfy two properties:
+1. 0 ≤ 𝑝(𝑥 ,𝑦 ) ≤ 1
+𝑖 𝑗
+2. The total probability is 1. We can express this as a double sum:
+𝑛 𝑚
+∑∑𝑝(𝑥 ,𝑦 ) = 1
+𝑖 𝑗
+𝑖=1 𝑗=1
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 3
+3.2 Continuous case
+Thecontinuouscaseisessentiallythesameasthediscretecase: wejustreplacediscretesets
+of values by continuous intervals, the joint probability mass function by a joint probability
+density function, and the sums by integrals.
+If 𝑋 takes values in [𝑎,𝑏] and 𝑌 takes values in [𝑐,𝑑] then the pair (𝑋,𝑌) takes values in
+the product [𝑎,𝑏] × [𝑐,𝑑]. The joint probability density function (joint pdf) of 𝑋 and 𝑌
+is a function 𝑓(𝑥,𝑦) giving the probability density at (𝑥,𝑦). That is, the probability that
+(𝑋,𝑌) is in a small rectangle of width 𝑑𝑥 and height 𝑑𝑦 around (𝑥,𝑦) is 𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦.
+𝑦
+𝑑
+Prob. = 𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦
+𝑑𝑦
+𝑑𝑥
+𝑐
+𝑥
+𝑎 𝑏
+A joint probability density function must satisfy two properties:
+1. 0 ≤ 𝑓(𝑥,𝑦)
+2. The total probability is 1. We now express this as a double integral:
+𝑑 𝑏
+∫ ∫ 𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = 1
+𝑐 𝑎
+Note: as with the pdf of a single random variable, the joint pdf 𝑓(𝑥,𝑦) can take values
+greater than 1; it is a probability density, not a probability.
+In 18.05 we won’t expect you to be experts at double integration. Here’s what we will
+expect.
+• You should understand double integrals conceptually as double sums.
+• You should be able to compute double integrals over rectangles.
+• For a non-rectangular region, when 𝑓(𝑥,𝑦) = 𝑐 is constant, you should know that the
+double integral is the same as the 𝑐×(the area of the region).
+3.3 Events
+Random variables are useful for describing events. Recall that an event is a set of outcomes
+and that random variables assign numbers to outcomes. For example, the event ‘𝑋 > 1’
+is the set of all outcomes for which 𝑋 is greater than 1. These concepts readily extend to
+pairs of random variables and joint outcomes.
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 4
+Example 3. In Example 1, describe the event 𝐵 = ‘𝑌 −𝑋 ≥ 2’ and find its probability.
+Solution: We can describe 𝐵 as a set of (𝑋,𝑌) pairs:
+𝐵 = {(1,3),(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,5),(3,6),(4,6)}.
+We can also describe it visually
+𝑋\𝑌 1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+The event 𝐵 consists of the outcomes in the shaded squares.
+Theprobabilityof𝐵 isthesumoftheprobabilitiesintheorangeshadedsquares,so𝑃(𝐵) =
+10/36.
+Example 4. Suppose 𝑋 and 𝑌 both take values in [0,1] with uniform density 𝑓(𝑥,𝑦) = 1.
+Visualize the event ‘𝑋 > 𝑌’ and find its probability.
+Solution: Jointly 𝑋 and 𝑌 take values in the unit square. The event ‘𝑋 > 𝑌’ corresponds
+to the shaded lower-right triangle below. Since the density is constant, the probability is
+just the fraction of the total area taken up by the event. In this case, it is clearly 0.5.
+𝑦
+1
+‘𝑋 >𝑌’
+𝑥
+1
+The event ‘𝑋 > 𝑌’ in the unit square.
+Example 5. Suppose 𝑋 and 𝑌 both take values in [0,1] with density 𝑓(𝑥,𝑦) = 4𝑥𝑦. Show
+𝑓(𝑥,𝑦) is a valid joint pdf, visualize the event 𝐴 = ‘𝑋 < 0.5 and 𝑌 > 0.5’ and find its
+probability.
+Solution: Jointly 𝑋 and 𝑌 take values in the unit square.
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 5
+𝑦
+1
+𝐴
+𝑥
+1
+The event 𝐴 in the unit square.
+To show 𝑓(𝑥,𝑦) is a valid joint pdf we must check that it is positive (which it clearly is)
+and that the total probability is 1.
+1 1 1 1
+1
+Total probability = ∫ ∫ 4𝑥𝑦𝑑𝑥𝑑𝑦 = ∫ [2𝑥2𝑦] 𝑑𝑦 = ∫ 2𝑦𝑑𝑦 = 1. QED
+0
+0 0 0 0
+The event 𝐴 is just the upper-left-hand quadrant. Because the density is not constant we
+must compute an integral to find the probability.
+0.5 1 0.5 1 0.5 3𝑥 3
+𝑃(𝐴) = ∫ ∫ 4𝑥𝑦𝑑𝑦𝑑𝑥 = ∫ [2𝑥𝑦2] 𝑑𝑥 = ∫ 𝑑𝑥 = .
+0.5 2 16
+0 0.5 0 0
+3.4 Joint cumulative distribution function
+Suppose 𝑋 and 𝑌 are jointly-distributed random variables. We will use the notation ‘𝑋 ≤
+𝑥, 𝑌 ≤ 𝑦’ to mean the event ‘𝑋 ≤ 𝑥 and 𝑌 ≤ 𝑦’. The joint cumulative distribution function
+(joint cdf) is defined as
+𝐹(𝑥,𝑦) = 𝑃(𝑋 ≤ 𝑥, 𝑌 ≤ 𝑦)
+Continuous case: If 𝑋 and 𝑌 are continuous random variables with joint density 𝑓(𝑥,𝑦)
+over the range [𝑎,𝑏]×[𝑐,𝑑] then the joint cdf is given by the double integral
+𝑦 𝑥
+𝐹(𝑥,𝑦) = ∫ ∫ 𝑓(𝑢,𝑣)𝑑𝑢𝑑𝑣.
+𝑐 𝑎
+To recover the joint pdf, we differentiate the joint cdf. Because there are two variables we
+need to use partial derivatives:
+𝜕2𝐹
+𝑓(𝑥,𝑦) = (𝑥,𝑦).
+𝜕𝑥𝜕𝑦
+Discrete case: If 𝑋 and 𝑌 are discrete random variables with joint pmf 𝑝(𝑥 ,𝑦 ) then the
+𝑖 𝑗
+joint cdf is give by the double sum
+𝐹(𝑥,𝑦) = ∑ ∑ 𝑝(𝑥 ,𝑦 ).
+𝑖 𝑗
+𝑥 ≤𝑥𝑦 ≤𝑦
+𝑖 𝑗
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 6
+3.5 Properties of the joint cdf
+The joint cdf 𝐹(𝑥,𝑦) of 𝑋 and 𝑌 must satisfy several properties:
+1. 𝐹(𝑥,𝑦) is non-decreasing: i.e. if 𝑥 or 𝑦 increase then 𝐹(𝑥,𝑦) must stay constant or
+increase.
+2. 𝐹(𝑥,𝑦) = 0 at the lower-left of the joint range.
+If the lower left is (−∞,−∞) then this means lim 𝐹(𝑥,𝑦) = 0.
+(𝑥,𝑦)→(−∞,−∞)
+3. 𝐹(𝑥,𝑦) = 1 at the upper-right of the joint range.
+If the upper-right is (∞,∞) then this means lim 𝐹(𝑥,𝑦) = 1.
+(𝑥,𝑦)→(∞,∞)
+Example 6. Find the joint cdf for the random variables in Example 5.
+Solution: The event ‘𝑋 ≤ 𝑥 and 𝑌 ≤ 𝑦’ is a rectangle in the unit square.
+𝑦
+1
+(𝑥,𝑦)
+‘𝑋 ≤𝑥 & 𝑌 ≤𝑦’
+𝑥
+1
+To find the cdf 𝐹(𝑥,𝑦) we compute a double integral:
+𝑦 𝑥
+𝐹(𝑥,𝑦) = ∫ ∫ 4𝑢𝑣𝑑𝑢𝑑𝑣 = 𝑥2𝑦2 .
+0 0
+Example 7. In Example 1, compute 𝐹(3.5,4).
+Solution: We redraw the joint probability table. Notice how similar the picture is to the
+one in the previous example.
+𝐹(3.5,4) is the probability of the event ‘𝑋 ≤ 3.5 and 𝑌 ≤ 4’. We can visualize this event
+as the shaded rectangles in the table:
+𝑋\𝑌 1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 7
+The event ‘𝑋 ≤ 3.5 and 𝑌 ≤ 4’.
+Adding up the probability in the shaded squares we get 𝐹(3.5,4) = 12/36 = 1/3.
+Note. One unfortunate difference between the continuous and discrete visualizations is that
+for continuous variables the value increases as we go up in the vertical direction while the
+opposite is true for the discrete case. We have experimented with changing the discrete
+tables to match the continuous graphs, but it causes too much confusion. We will just have
+to live with the difference!
+3.6 Marginal distributions
+When 𝑋 and 𝑌 are jointly-distributed random variables, we may want to consider only one
+of them, say 𝑋. In that case we need to find the pmf (or pdf or cdf) of 𝑋 without 𝑌. This
+is called a marginal pmf of the joint pmf (or pdf or cdf). The next example illustrates the
+way to compute this and the reason for the term ‘marginal’.
+3.7 Marginal pmf
+Example 8. In Example 2 we rolled two dice and let 𝑋 be the value on the first die and
+𝑇 be the total on both dice. Compute the marginal pmf for 𝑋 and for 𝑇.
+Solution: In the table each row represents a single value of 𝑋. So the event ‘𝑋 = 3’ is the
+third row of the table. To find 𝑃(𝑋 = 3) we simply have to sum up the probabilities in this
+row. We put the sum in the right-hand margin of the table. Likewise 𝑃(𝑇 = 5) is just the
+sum of the column with 𝑇 = 5. We put the sum in the bottom margin of the table.
+𝑋\𝑇 2 3 4 5 6 7 8 9 10 11 12 𝑝(𝑥 )
+𝑖
+1 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 0 1/6
+2 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 1/6
+3 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 1/6
+4 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 1/6
+5 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 1/6
+6 0 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+𝑝(𝑡 ) 1/36 2/36 3/36 4/36 5/36 6/36 5/36 4/36 3/36 2/36 1/36 1
+𝑗
+Computing the marginal probabilities 𝑃(𝑋 = 3) = 1/6 and 𝑃(𝑇 = 5) = 4/36.
+Note: Of course in this case we already knew the pmf of 𝑋 and of 𝑇. It is good to see that
+our computation here is in agreement!
+As motivated by this example, marginal pmfs are obtained from the joint pmf by summing:
+𝑝 (𝑥 ) = ∑𝑝(𝑥 ,𝑦 ), 𝑝 (𝑦 ) = ∑𝑝(𝑥 ,𝑦 )
+𝑋 𝑖 𝑖 𝑗 𝑌 𝑗 𝑖 𝑗
+𝑗 𝑖
+The term marginal refers to the fact that the values are written in the margins of the table.
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 8
+3.8 Marginal pdf
+For a continous joint density 𝑓(𝑥,𝑦) with range [𝑎,𝑏]×[𝑐,𝑑], the marginal pdfs are:
+𝑑 𝑏
+𝑓 (𝑥) = ∫ 𝑓(𝑥,𝑦)𝑑𝑦, 𝑓 (𝑦) = ∫ 𝑓(𝑥,𝑦)𝑑𝑥.
+𝑋 𝑌
+𝑐 𝑎
+Compare these with the marginal pmfs above; as usual the sums are replaced by integrals.
+We say that to obtain the marginal for 𝑋, we integrate out 𝑌 from the joint pdf and vice
+versa.
+Example 9. Suppose(𝑋,𝑌)takesvaluesonthesquare[0,1]×[1,2]withjointpdf𝑓(𝑥,𝑦) =
+8𝑥3𝑦. Find the marginal pdfs 𝑓 (𝑥) and 𝑓 (𝑦).
+3 𝑋 𝑌
+Solution: To find 𝑓 (𝑥) we integrate out 𝑦 and to find 𝑓 (𝑦) we integrate out 𝑥.
+𝑋 𝑌
+2 8 4 2
+𝑓 (𝑥) = ∫ 𝑥3𝑦𝑑𝑦 = [ 𝑥3𝑦2] = 4𝑥3
+𝑋 3 3
+1 1
+1 8 2 1 2
+𝑓 (𝑦) = ∫ 𝑥3𝑦𝑑𝑥 = [ 𝑥4𝑦1] = 𝑦 .
+𝑌 3 3 3
+0 0
+Example 10. Suppose (𝑋,𝑌) takes values on the unit square [0,1]×[0,1] with joint pdf
+𝑓(𝑥,𝑦) = 3(𝑥2+𝑦2). Find the marginal pdf 𝑓 (𝑥) and use it to find 𝑃(𝑋 < 0.5).
+2 𝑋
+Solution:
+1 3 3 𝑦3 1 3 1
+𝑓 (𝑥) = ∫ (𝑥2+𝑦2)𝑑𝑦 = [ 𝑥2𝑦+ ] = 𝑥2+ .
+𝑋 2 2 2 2 2
+0 0
+0.5 0.5 3 1 1 1 0.5 5
+𝑃(𝑋 < 0.5) = ∫ 𝑓 (𝑥)𝑑𝑥 = ∫ 𝑥2+ 𝑑𝑥 = [ 𝑥3+ 𝑥] = .
+𝑋 2 2 2 2 16
+0 0 0
+3.9 Marginal cdf
+Finding the marginal cdf from the joint cdf is easy. If 𝑋 and 𝑌 jointly take values on
+[𝑎,𝑏]×[𝑐,𝑑] then
+𝐹 (𝑥) = 𝐹(𝑥,𝑑), 𝐹 (𝑦) = 𝐹(𝑏,𝑦).
+𝑋 𝑌
+If 𝑑 is ∞ then this becomes a limit 𝐹 (𝑥) = lim 𝐹(𝑥,𝑦). Likewise for 𝐹 (𝑦).
+𝑋 𝑌
+𝑦→∞
+Example 11. The joint cdf in the last example was 𝐹(𝑥,𝑦) = 1(𝑥3𝑦+𝑥𝑦3) on [0,1]×[0,1].
+2
+Find the marginal cdfs and use 𝐹 (𝑥) to compute 𝑃(𝑋 < 0.5).
+𝑋
+Solution: We have 𝐹 (𝑥) = 𝐹(𝑥,1) = 1(𝑥3 +𝑥) and 𝐹 (𝑦) = 𝐹(1,𝑦) = 1(𝑦 +𝑦3). So
+𝑋 2 𝑌 2
+𝑃(𝑋 < 0.5) = 𝐹 (0.5) = 1(0.53+0.5) = 5 : exactly the same as before.
+𝑋 2 16
+3.10 3D visualization
+We visualized 𝑃(𝑎 < 𝑋 < 𝑏) as the area under the pdf f(x) over the interval [𝑎,𝑏]. Since
+the range of values of (𝑋,𝑌) is already a two dimensional region in the plane, the graph of
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 9
+𝑓(𝑥,𝑦) is a surface over that region. We can then visualize probability as volume under the
+surface.
+Think: Summoning your inner artist, sketch the graph of the joint pdf 𝑓(𝑥,𝑦) = 4𝑥𝑦 and
+visualize the probability 𝑃(𝐴) as a volume for Example 5.
+4 Independence
+We are now ready to give a careful mathematical definition of independence. Of course, it
+willsimplycapturethenotionofindependencewehavebeenusinguptonow. But, itisnice
+to finally have a solid definition that can support complicated probabilistic and statistical
+investigations.
+Recall that events 𝐴 and 𝐵 are independent if
+𝑃(𝐴∩𝐵) = 𝑃(𝐴)𝑃(𝐵).
+Random variables 𝑋 and 𝑌 define events like ‘𝑋 ≤ 2’ and ‘𝑌 > 5’. So, 𝑋 and 𝑌 are
+independent if any event defined by 𝑋 is independent of any event defined by 𝑌. The
+formal definition that guarantees this is the following.
+Definition: Jointly-distributed random variables 𝑋 and 𝑌 are independent if their joint
+cdf is the product of the marginal cdfs:
+𝐹(𝑋,𝑌) = 𝐹 (𝑥)𝐹 (𝑦).
+𝑋 𝑌
+For discrete variables this is equivalent to the joint pmf being the product of the marginal
+pmfs.:
+𝑝(𝑥 ,𝑦 ) = 𝑝 (𝑥 )𝑝 (𝑦 ).
+𝑖 𝑗 𝑋 𝑖 𝑌 𝑗
+For continous variables this is equivalent to the joint pdf being the product of the marginal
+pdfs.:
+𝑓(𝑥,𝑦) = 𝑓 (𝑥)𝑓 (𝑦).
+𝑋 𝑌
+Once you have the joint distribution, checking for independence is usually straightforward
+although it can be tedious.
+Example 12. For discrete variables independence means the probability in a cell must be
+the product of the marginal probabilities of its row and column. In the first table below
+this is true: every marginal probability is 1/6 and every cell contains 1/36, i.e. the product
+of the marginals. Therefore 𝑋 and 𝑌 are independent.
+In the second table below most of the cell probabilities are not the product of the marginal
+probabilities. For example, none of marginal probabilities are 0, so none of the cells with 0
+probability can be the product of the marginals.
+18.05 Class 7, Joint Distributions, Independence, Spring 2022 10
+𝑋\𝑌 1 2 3 4 5 6 𝑝(𝑥 )
+𝑖
+1 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+2 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+3 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+4 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+5 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+6 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+𝑝(𝑦 ) 1/6 1/6 1/6 1/6 1/6 1/6 1
+𝑗
+𝑋\𝑇 2 3 4 5 6 7 8 9 10 11 12 𝑝(𝑥 )
+𝑖
+1 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 0 1/6
+2 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 1/6
+3 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 1/6
+4 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 1/6
+5 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 1/6
+6 0 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+𝑝(𝑦 ) 1/36 2/36 3/36 4/36 5/36 6/36 5/36 4/36 3/36 2/36 1/36 1
+𝑗
+Example 13. For continuous variables independence means you can factor the joint pdf
+or cdf as the product of a function of 𝑥 and a function of 𝑦.
+(i) Suppose 𝑋 has range [0,1/2], 𝑌 has range [0,1] and 𝑓(𝑥,𝑦) = 96𝑥2𝑦3 then 𝑋 and 𝑌 are
+independent. The marginal densities are 𝑓 (𝑥) = 24𝑥2 and 𝑓 (𝑦) = 4𝑦3.
+𝑋 𝑌
+(ii)If𝑓(𝑥,𝑦) = 1.5(𝑥2+𝑦2)overtheunitsquarethen𝑋 and𝑌 arenotindependentbecause
+there is no way to factor 𝑓(𝑥,𝑦) into a product 𝑓 (𝑥)𝑓 (𝑦).
+𝑋 𝑌
+(iii) If 𝐹(𝑥,𝑦) = 1(𝑥3𝑦 + 𝑥𝑦3) over the unit square then 𝑋 and 𝑌 are not independent
+2
+because the cdf does not factor into a product 𝐹 (𝑥)𝐹 (𝑦).
+𝑋 𝑌
+Covariance and Correlation
+Class 7, 18.05
+Jeremy Orloff and Jonathan Bloom
+1 Learning Goals
+1. Understand the meaning of covariance and correlation.
+2. Be able to compute the covariance and correlation of two random variables.
+2 Covariance
+Covariance is a measure of how much two random variables vary together. For example,
+height and weight of giraffes have positive covariance because when one is big the other
+tends also to be big.
+Definition: Suppose 𝑋 and 𝑌 are random variables with means 𝜇 and 𝜇 . The
+𝑋 𝑌
+covariance of 𝑋 and 𝑌 is defined as
+Cov(𝑋,𝑌) = 𝐸[(𝑋−𝜇 )(𝑌 −𝜇 )].
+𝑋 𝑌
+2.1 Properties of covariance
+1. Cov(𝑎𝑋+𝑏,𝑐𝑌 +𝑑) = 𝑎𝑐Cov(𝑋,𝑌) for constants 𝑎,𝑏,𝑐,𝑑.
+2. Cov(𝑋 +𝑋 ,𝑌) = Cov(𝑋 ,𝑌)+Cov(𝑋 ,𝑌).
+1 2 1 2
+3. Cov(𝑋,𝑋) = Var(𝑋)
+4. Cov(𝑋,𝑌) = 𝐸[𝑋𝑌]−𝜇 𝜇 .
+𝑋 𝑌
+5. Var(𝑋+𝑌) = Var(𝑋)+Var(𝑌)+2Cov(𝑋,𝑌) for any 𝑋 and 𝑌.
+6. If 𝑋 and 𝑌 are independent then Cov(𝑋,𝑌) = 0.
+Warning: The converse is false: zero covariance does not always imply independence.
+Notes. 1. Property 4 is like the similar property for variance. Indeed, if 𝑋 = 𝑌 it is exactly
+that property: Var(𝑋) = 𝐸[𝑋2]−𝜇2 .
+𝑋
+By Property 5, the formula in Property 6 reduces to our earlier formula Var(𝑋 + 𝑌) =
+Var(𝑋)+Var(𝑌) when 𝑋 and 𝑌 are independent.
+We give the proofs below. However, understanding and using these properties is more
+important than memorizing their proofs.
+1
+18.05 Class 7, Covariance and Correlation, Spring 2022 2
+2.2 Sums and integrals for computing covariance
+Since covariance is defined as an expected value we compute it in the usual way as a sum
+or integral.
+Discrete case: If 𝑋 and 𝑌 have joint pmf 𝑝(𝑥 ,𝑦 ) then
+𝑖 𝑗
+𝑛 𝑚 𝑛 𝑚
+Cov(𝑋,𝑌) = ∑∑𝑝(𝑥 ,𝑦 )(𝑥 −𝜇 )(𝑦 −𝜇 ) = (∑∑𝑝(𝑥 ,𝑦 )𝑥 𝑦 )−𝜇 𝜇 .
+𝑖 𝑗 𝑖 𝑋 𝑗 𝑌 𝑖 𝑗 𝑖 𝑗 𝑋 𝑌
+𝑖=1 𝑗=1 𝑖=1 𝑗=1
+Continuous case: If 𝑋 and 𝑌 have joint pdf 𝑓(𝑥,𝑦) over range [𝑎,𝑏]×[𝑐,𝑑] then
+𝑑 𝑏 𝑑 𝑏
+Cov(𝑋,𝑌) = ∫ ∫ (𝑥−𝜇 )(𝑦−𝜇 )𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = (∫ ∫ 𝑥𝑦𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦)−𝜇 𝜇 .
+𝑥 𝑦 𝑥 𝑦
+𝑐 𝑎 𝑐 𝑎
+2.3 Examples
+Example 1. Flip a fair coin 3 times. Let 𝑋 be the number of heads in the first 2 flips
+and let 𝑌 be the number of heads on the last 2 flips (so there is overlap on the middle flip).
+Compute Cov(𝑋,𝑌).
+Solution: We’ll do this twice, first using the joint probability table and the definition of
+covariance, and then using the properties of covariance.
+With 3 tosses there are only 8 outcomes {HHH, HHT,...}, so we can create the joint prob-
+ability table directly.
+𝑋\𝑌 0 1 2 𝑝(𝑥 )
+𝑖
+0 1/8 1/8 0 1/4
+1 1/8 2/8 1/8 1/2
+2 0 1/8 1/8 1/4
+𝑝(𝑦 ) 1/4 1/2 1/4 1
+𝑗
+From the marginals we compute 𝐸[𝑋] = 1 = 𝐸[𝑌]. Now we use use the definition:
+Cov(𝑋,𝑌) = 𝐸[(𝑋−𝜇 )(𝑌 −𝜇 )] = ∑𝑝(𝑥 ,𝑦 )(𝑥 −1)(𝑦 −1)
+𝑥 𝑌 𝑖 𝑗 𝑖 𝑗
+𝑖,𝑗
+We write out the sum leaving out all the terms that are 0, i.e. all the terms where 𝑥 = 1
+𝑖
+or 𝑦 = 1 or the probability is 0.
+𝑖
+1 1 1
+Cov(𝑋,𝑌) = (0−1)(0−1)+ (2−1)(2−1) = .
+8 8 4
+We could also have used property 4 to do the computation: From the full table we compute
+2 1 1 1 5
+𝐸[𝑋𝑌] = 1⋅ +2 +2 +4 = .
+8 8 8 8 4
+18.05 Class 7, Covariance and Correlation, Spring 2022 3
+5 1
+So Cov(𝑋𝑌) = 𝐸[𝑋𝑌]−𝜇 𝜇 = −1 = .
+𝑋 𝑌 4 4
+Next we redo the computation of Cov(𝑋,𝑌) using the properties of covariance. As usual,
+let 𝑋 be the result of the 𝑖th flip, so 𝑋 ∼ Bernoulli(0.5). We have
+𝑖 𝑖
+𝑋 = 𝑋 +𝑋 and 𝑌 = 𝑋 +𝑋 .
+1 2 2 3
+We know 𝐸[𝑋 ] = 1/2 and Var(𝑋 ) = 1/4. Therefore using Property 2 of covariance, we
+𝑖 𝑖
+have
+Cov(𝑋,𝑌) = Cov(𝑋 +𝑋 ,𝑋 +𝑋 ) = Cov(𝑋 ,𝑋 )+Cov(𝑋 ,𝑋 )+Cov(𝑋 ,𝑋 )+Cov(𝑋 ,𝑋 ).
+1 2 2 3 1 2 1 3 2 2 2 3
+Since the different tosses are independent we know
+Cov(𝑋 ,𝑋 ) = Cov(𝑋 ,𝑋 ) = Cov(𝑋 ,𝑋 ) = 0.
+1 2 1 3 2 3
+Looking at the expression for Cov(𝑋,𝑌) there is only one non-zero term
+1
+Cov(𝑋,𝑌) = Cov(𝑋 ,𝑋 ) = Var(𝑋 ) = .
+2 2 2 4
+Example 2. (Zero covariance does not imply independence.) Let 𝑋 be a random vari-
+able that takes values −2,−1,0,1,2; each with probability 1/5. Let 𝑌 = 𝑋2. Show that
+Cov(𝑋,𝑌) = 0 but 𝑋 and 𝑌 are not independent.
+Solution: We make a joint probability table:
+𝑌\𝑋 -2 -1 0 1 2 𝑝(𝑦 )
+𝑗
+0 0 0 1/5 0 0 1/5
+1 0 1/5 0 1/5 0 2/5
+4 1/5 0 0 0 1/5 2/5
+𝑝(𝑥 ) 1/5 1/5 1/5 1/5 1/5 1
+𝑖
+Using the marginals we compute means 𝐸[𝑋] = 0 and 𝐸[𝑌] = 2.
+Next we show that 𝑋 and 𝑌 are not independent. To do this all we have to do is find one
+place where the product rule fails, i.e. where 𝑝(𝑥 ,𝑦 ) ≠ 𝑝(𝑥 )𝑝(𝑥 ):
+𝑖 𝑗 𝑖 𝑗
+𝑃(𝑋 = −2, 𝑌 = 0) = 0 but 𝑃(𝑋 = −2)⋅𝑃(𝑌 = 0) = 1/25.
+Since these are not equal 𝑋 and 𝑌 are not independent. Finally we compute covariance
+using Property 4:
+1
+Cov(𝑋,𝑌) = (−8−1+1+8)−𝜇 𝜇 = 0.
+5 𝑋 𝑦
+Discussion: This example shows that Cov(𝑋,𝑌) = 0 does not imply that 𝑋 and 𝑌 are
+independent. In fact, 𝑋 and 𝑋2 are as dependent as random variables can be: if you know
+the value of 𝑋 then you know the value of 𝑋2 with 100% certainty.
+18.05 Class 7, Covariance and Correlation, Spring 2022 4
+The key point is that Cov(𝑋,𝑌) measures the linear relationship between 𝑋 and 𝑌. In
+the above example 𝑋 and 𝑋2 have a quadratic relationship that is completely missed by
+Cov(𝑋,𝑌).
+Continuouscovarianceworksthesameway,exceptourcomputationsaredonewithintegrals
+instead of sums. Here is an example.
+Example 3. Continuous covariance. Suppose 𝑋 and 𝑌 are jointly distributed random
+variables, with range on the unit square [0,1]×[0,1] and joint pdf 𝑓(𝑥,𝑦) = 2𝑥3+2𝑦3.
+(i) Verify the 𝑓(𝑥,𝑦) is a valid probability density.
+(ii) Compute 𝜇 and 𝜇 .
+𝑋 𝑌
+(iii) Compute the covariance of Cov(𝑋,𝑌)
+Solution: Part of the point of this example is to show how to set up and compute the inte-
+grals using a joint density function. Since the pdf here is a polynomial, these computations
+are relatively easy.
+(i) A valid pdf has two properties: it is nonnegative and the total integral over the entire
+joint range is 1.
+Nonnegativity is clear: 𝑓(𝑥,𝑦) ≥ 0. The integral is not hard to compute
+1 1 1 1
+∫ ∫ 𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = ∫ ∫ 2𝑥3+2𝑦3𝑑𝑥𝑑𝑦
+0 0 0 0
+1 𝑥4 1 1
+Inner integral: ∫ 2𝑥3+2𝑦3𝑑𝑥 = +2𝑥𝑦3∣ = +2𝑦3.
+2 2
+0 0
+1 1 𝑦 𝑦4 1
+Outer integral: ∫ +2𝑦3𝑑𝑦 = + ∣ = 1.
+2 2 2
+0 0
+So, the integral over the entire joint range is 1. Thus, 𝑓(𝑥,𝑦) = 𝑥+𝑦 is a valid probability
+density.
+(ii) We need to compute integrals to find the means. We will write down the integrals, but
+not show the details of their computation. (Also, by symmetry, we know the two means are
+the same.)
+1 1 1 1 13
+𝜇 = ∫ ∫ 𝑥𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = ∫ ∫ 2𝑥4+2𝑥𝑦3)𝑑𝑥𝑑𝑦 =
+𝑋 20
+0 0 0 0
+1 1 1 1 13
+𝜇 = ∫ ∫ 𝑦𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = ∫ ∫ 2𝑦𝑥3+2𝑦4𝑑𝑥𝑑𝑦 =
+𝑌 20
+0 0 0 0
+(iii) We know Cov(𝑋,𝑌) = 𝐸[(𝑋−𝜇 )(𝑌 −𝜇 )]. This is an integral. Again, we will write
+𝑥 𝑌
+down the integral, but not show details of its computation,
+1 1
+Cov(𝑋,𝑌) = 𝐸[(𝑋−𝜇 )(𝑌 −𝜇 )] = ∫ ∫ (𝑥−13/20)(𝑦−13/20)𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦
+𝑥 𝑌
+0 0
+1 1 9
+= ∫ ∫ (𝑥−7/12)(𝑦−7/12)(2𝑥3+2𝑦3)𝑑𝑥𝑑𝑦 = −
+400
+0 0
+18.05 Class 7, Covariance and Correlation, Spring 2022 5
+(In fact, we wrote down the integral in the most straightforward way, but secretly we did
+the computation by computing 𝐸[𝑋𝑌]−𝐸[𝑋]𝐸[𝑌].)
+Here’s a plot of the pseudo-random samples generated from this distribution. Because the
+R code could do it easily, we also include a plot with a more extreme density function.
+0.0 0.2 0.4 0.6 0.8 1.0
+0.1
+8.0
+6.0
+4.0
+2.0
+0.0
+x
+y
+0.0 0.2 0.4 0.6 0.8 1.0
+Samples from 𝑓(𝑥,𝑦) = 2𝑥3+2𝑦3.
+0.1
+8.0
+6.0
+4.0
+2.0
+0.0
+x
+y
+Samples from 𝑓(𝑥,𝑦) = 10𝑥19+10𝑦19.
+3 Correlation
+The units of covariance Cov(𝑋,𝑌) are ‘units of 𝑋 times units of 𝑌’. This makes it hard to
+compare covariances: if we change scales then the covariance changes as well. Correlation
+is a way to remove the scale from the covariance.
+Definition: The correlation coeﬀicient between 𝑋 and 𝑌 is defined by
+Cov(𝑋,𝑌)
+Cor(𝑋,𝑌) = 𝜌 = .
+𝜎 𝜎
+𝑋 𝑌
+3.1 Properties of correlation
+1. 𝜌 is the covariance of the standardizations of 𝑋 and 𝑌.
+2. 𝜌 is dimensionless (it’s a ratio!).
+3. −1 ≤ 𝜌 ≤ 1. Furthermore,
+𝜌 = +1 if and only if 𝑌 = 𝑎𝑋+𝑏 with 𝑎 > 0,
+𝜌 = −1 if and only if 𝑌 = 𝑎𝑋+𝑏 with 𝑎 < 0.
+Property 3 shows that 𝜌 measures the linear relationship between variables. If the corre-
+lation is positive then when 𝑋 is large, 𝑌 will tend to large as well. If the correlation is
+negative then when 𝑋 is large, 𝑌 will tend to be small.
+Example 2 above shows that correlation can completely miss higher order relationships.
+Example 4. We continue Example 1. To compute the correlation we divide the covariance
+by the standard deviations. In Example 1 we found Cov(𝑋,𝑌) = 1/4 and Var(𝑋) =
+18.05 Class 7, Covariance and Correlation, Spring 2022 6
+√ √
+2Var(𝑋 ) = 1/2. So, 𝜎 = 1/ 2. Likewise 𝜎 = 1/ 2. Thus
+𝑗 𝑋 𝑌
+Cov(𝑋,𝑌) 1/4 1
+Cor(𝑋,𝑌) = = = .
+𝜎 𝜎 1/2 2
+𝑋 𝑌
+We see a positive correlation, which means that larger 𝑋 tend to go with larger 𝑌 and
+smaller 𝑋 with smaller 𝑌. In Example 1 this happens because toss 2 is included in both 𝑋
+and 𝑌, so it contributes to the size of both.
+Example 5. Look back at Example 3. See if you can compute the following.
+Var(𝑋) = 31/400, so 𝜎 = √31/400 ≈ 0.28
+𝑋
+Var(𝑌) = Var(𝑋), so 𝜎 ≈ 0.28
+𝑌
+Cov(𝑋,𝑌)
+Cor(𝑋,𝑌) = ≈ −0.29.
+𝜎 𝜎
+𝑋 𝑌
+3.2 Bivariate normal distributions
+The bivariate normal distribution has density
+−1 [(𝑥−𝜇𝑋)2 +(𝑦−𝜇𝑌)2 −2𝜌(𝑥−𝜇𝑥)(𝑦−𝜇𝑦)]
+e2(1−𝜌2) 𝜎2
+𝑋
+𝜎2
+𝑌
+𝜎𝑥𝜎𝑦
+𝑓(𝑥,𝑦) =
+2𝜋𝜎 𝜎 √1−𝜌2
+𝑋 𝑌
+Forthisdistribution, themarginaldistributionsfor𝑋 and𝑌 arenormalandthecorrelation
+between 𝑋 and 𝑌 is 𝜌.
+In the figures below we used R to simulate the distribution for various values of 𝜌. Individ-
+ually 𝑋 and 𝑌 are standard normal, i.e. 𝜇 = 𝜇 = 0 and 𝜎 = 𝜎 = 1. The figures show
+𝑋 𝑌 𝑋 𝑌
+scatter plots of the results.
+These plots and the next set show an important feature of correlation. We divide the data
+into quadrants by drawing a horizontal and a verticle line at the means of the 𝑦 data and
+𝑥 data respectively. A positive correlation corresponds to the data tending to lie in the 1st
+and 3rd quadrants. A negative correlation corresponds to data tending to lie in the 2nd
+and 4th quadrants. You can see the data gathering about a line as 𝜌 becomes closer to ±1.
+l ll l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l ll l l l l l ll l l l l l ll l ll l l l l ll ll l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l lll l l ll l l l ll l l l l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l ll lll l l l l l l l l l l l l l l l l l l l l ll l l l l l l l ll ll ll ll l l ll l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l ll l l l l l l l l l ll l l l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l ll l l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l ll l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l l l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l ll l ll l l ll l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l ll l l l l l l ll l l l l l l l l ll l l l l ll ll l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l ll l l l l l l ll l ll l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l l l l l l ll l l l l l l l l l l ll ll l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l l ll ll l l l l l l l l l l l l l ll l l ll l l l l l l lll ll l l l l l ll ll l ll l l l l l l ll l l l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l l l lll l l l l l l l l l l ll l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l ll ll l l l l l l ll
+−3 −2 −1 0 1 2 3
+3 2 1 0 1− 3−
+rho=0.00
+y l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l ll ll l l l l l ll l l l l l l l l ll l l l l l l ll l l l l l l l ll l l l l l l l l l l l l l l l l l l l ll ll ll l ll l l l l ll l l l l l l ll l l ll l l l l l l l ll ll l l l l l l l l l l l l l l l ll ll l l l l l l l l ll l l l l l l ll l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l ll l l l l ll l ll l l l ll l l l l l l l l l l l l l l ll l ll l l l l l ll l l l l l l l l l ll ll l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l ll l l l l l l l l ll l l ll l l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l lll lll l l l l l l l l l ll l ll l l ll l l l l l l l l ll l l l l l l l l l l l l l l ll l l l ll l l l l l ll l l l l l l l ll l l l l lll l l l l l l l l l ll ll ll l l ll l l l l ll l l l l l l ll l l l l ll l l l l ll l l l l l l l l l l ll l l l lll l l l l l l l l l l l l ll l l lll l ll l ll l l l l l ll ll l l l l l l l l ll l ll ll l l l l l l l l l ll l l l l l l l l l l l ll l l l ll l l l l ll l l l l l l l l ll ll l l l l l l l ll ll l l l l l l l l l l l l l l l ll l l l l l l l l l l l ll l l ll l l l l l l ll l ll l l l l ll l l l l l l l l l l l l ll l l l l l l l l l l ll ll l l l l l l l l l ll l l l l l l l l l l l l ll l l l l l l l l l l l l l l ll l l l ll l l l l l l l ll l l ll l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l ll l l l l l l l l l ll l l l l l l l l ll l l l l l l l l l l lll l l l l l l l l l ll l ll l l ll l l ll l l l l l l l l l l l l l l l l l l llll l ll l lll l ll lll l l ll l l l l l l l l l l l l l l l ll l l l l
+−4 −3 −2 −1 0 1 2 3
+x
+3 2 1 0 1− 3−
+rho=0.30
+y
+x
+18.05 Class 7, Covariance and Correlation, Spring 2022 7
+ll l l l ll l ll l l l l l l l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l lll l l l l l ll l ll l l l l ll l l l l l l ll l l l l ll l l l ll l l l l l l l l l l l lll l l l l l ll l l l l l l l ll l l l l l l l l l ll l ll lll l l l l l l l l l l l l l l l l l l l ll l l lll l l l l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l lll l l l l l ll l l l ll l l l l l l l ll ll l l l l l l l l ll l l l l l l l ll l ll l ll l l ll l l l ll l l l l l ll ll l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l ll l l l l lll l l l l l l l l l l l l l l l ll l l l ll l l l l l l l l l lll l l l l l l l l l ll l l l l l l ll l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l lll l l ll l ll l ll l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l ll ll l l l l l l l l ll l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll ll l l l l l l l l l l l l l lll l l l l l l l l l lll l l l ll l l l l ll l l l l l l l l l l l l l l ll ll l l l l l l l l l ll l l l l l l ll l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l lll l ll l l l l l l l l ll l l l l l l l l l l l l l ll l l l l ll ll l l l l l l l l l l l ll l l l ll ll l l l l l l l ll l l l l l l l l l l l l l l l l l l l l ll l l l l ll l l l l l ll l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l ll l
+l l
+−3 −2 −1 0 1 2 3
+2 1 0 1−
+3−
+rho=0.70
+y l llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+l
+−4 −2 0 2
+x
+2 0 2−
+4−
+rho=1.00
+y
+x
+l
+ll l l l l l ll l lll l l l l l l l l l l l ll l l ll ll l l l ll l l l l l l l l l l ll l l l ll l ll l l l l l l l l l l l l l ll l l l l l l ll l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l lll l l l l ll l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l l l l l l ll l l l l l l l l l l l l ll l l l l l l l ll ll l l ll l l ll l l l lll l l l l l l l l l l l l l l l l ll l l l l l l l ll l l l l l l ll ll lll l l l l lll l l l l l l l ll l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l ll l l l l l l l ll l l l l ll l ll lll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l l l l l ll ll l l l l l l l l ll ll l l l l l ll l l l l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l ll l ll l l l l l l l l l l l l l l l l l ll l ll l l l l l lll l l l ll l l l l l l ll l l l l l lll l l l l ll l l l l ll ll l l l l l l l l l l l ll l ll l ll l l l ll l l l l ll l l l l l l l l ll l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l llll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l ll l lll ll l l l l l l l ll l l l l l l l l l l l l l l l ll l l l l l ll l l l l l l ll l l l l l l l l l lll l l l ll l l l l l l l l l l l l l ll l l l ll l l l l l l l ll l ll l ll ll l l l l l l l l lll l l l l l l ll ll l l l ll l l l l l l l l l ll l l l l l l l l l ll l l l l l l ll l l l ll l l ll l ll l l l l l l l l l l l l l l l l l l l l l l ll
+−3 −2 −1 0 1 2 3
+3
+2 1 0 2−
+rho=−0.50
+y
+l
+ll l l l l l ll l l ll l l llll l l ll l l l l lll l ll l l l ll l l l l l l l l lll l l l l l l l l l ll l ll l ll l ll ll llll l lllll l ll l l l lllll l l l l llll ll l lll l l l l l l l ll l l lll l lll l l l l ll ll l l l l l ll l llll l l l lllll lll l l llll l l lll l l l l l l l l l l lll l ll ll l ll l l l l l ll l l l ll l lll l ll l l l l l ll l l ll l l ll ll l l l l l l l l l l l ll l l l ll l l l l l l l l l ll l l l l l l l l l l lll ll l l l ll l ll l ll l l l l llll l l l ll l lll l l l l l lll l ll l l l l l l l ll lll l l ll ll l ll l l l l lll l l l l l ll l l l ll l lll lll l ll l l l l l l l lllll ll l l ll l l l l ll ll l l ll l ll l l l l l l l l l l l llll l l l ll l l ll l l l lll l l l ll l l l l l l l ll lll ll l l l l l l l l l l ll ll ll l l l ll l l l l l l l l l l lll ll l l l lll l lll l l l l lll ll l l l ll l l l l l ll l l l l l l ll lll l ll lll l ll ll l lll l lll l llll l l ll l l ll l l l l l ll l lllll l l l l lll llll l l l l l l l l l l l l l l l l ll ll l l l l lll l l ll l l l l l l l l l ll l l l ll lll ll l ll lll lll l lll lll l l l l l l l l l l l ll ll l lll llllll l l ll l l llllllll l l ll l l l l l l l l l ll l ll l l l l l l l l lll l l ll l l l lll l l lll l l ll ll ll l l l l l l l l l l l ll l ll l l l l l l l ll l l l ll l l l ll llll l l l l l l l l ll l l l l l l l l l l l l l l l l l l ll llll l ll ll l ll l l l l l ll l l ll l ll l l l lll l l l l ll l l l l ll llll l l l ll ll l ll l l l l l l l lll ll l llll l l l ll ll ll l l l ll l ll ll l ll l l l l l l l ll l lll ll l llll l l l l ll l l l l ll l l l l l l llll lll ll l l l l l l ll ll l l ll ll l l l l l l l l l l l ll l ll l l l l l l l l l l l l l l ll l ll l l l l
+−3 −2 −1 0 1 2 3 4
+x
+2 0 2− 4−
+rho=−0.90
+y
+x
+3.3 Overlapping uniform distributions
+We ran simulations in R of the following scenario. 𝑋 , 𝑋 , …, 𝑋 are i.i.d and follow a
+1 2 20
+𝑈(0,1)distribution. 𝑋 and𝑌 arebothsumsofthesamenumberof𝑋 . Wecallthenumber
+𝑖
+of 𝑋 common to both 𝑋 and 𝑌 the overlap. The notation in the figures below indicates
+𝑖
+the number of 𝑋 being summed and the number which overlap. For example, 5,3 indicates
+𝑖
+that 𝑋 and 𝑌 were each the sum of 5 of the 𝑋 and that 3 of the 𝑋 were common to both
+𝑖 𝑖
+sums. (The data was generated using rand(1,1000);)
+Using the linearity of covariance it is easy to compute the theoretical correlation. For
+each plot we give both the theoretical correlation and the correlation of the data from the
+simulated sample.
+18.05 Class 7, Covariance and Correlation, Spring 2022 8
+l l l l l l l l ll l l l l l l l l l l ll ll l ll l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l ll l l l l l l l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l ll l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l ll l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l ll l l ll l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l l l ll l l l l l l l l l ll l l l l l l l l l l l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l lll l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l
+0.0 0.2 0.4 0.6 0.8 1.0
+8.0 4.0 0.0
+(1, 0) cor=0.00, sample_cor=−0.07
+y l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l ll l ll l l l l l ll l l l l ll l l l l l l l l l ll l l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l lll l l l l ll l l l l l ll l l ll l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l l l l l l l l l ll l l l l l l l l ll l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l lll l l l l l l l l l l l l l ll l l l l l l ll l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l l l l l ll l l l l l ll l l ll l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l ll l l ll l l l ll l l ll l ll l l l ll l l ll ll l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l ll l l l l l l ll l ll l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l l ll l l ll ll ll l l ll l l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l ll l l ll lll l l l l l l l l l l l l l lll l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l l l l ll l l l l l l l ll l l l
+0.0 0.5 1.0 1.5 2.0
+x
+0.2
+5.1 0.1 5.0 0.0
+(2, 1) cor=0.50, sample_cor=0.48
+y
+x
+l l l l ll l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l l l ll l l ll l l ll l ll l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll lll l l l l l l l l l l l l l l l ll ll l l l l l l l l ll l l l l l ll ll ll l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l l l l l l l l ll l l l l l l ll l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l l l ll ll l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l ll l ll l l l l ll l l l l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l ll l l l l l llll l l l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l ll l l l l l l l ll l ll l l l l l l l ll l l l l l l l l ll l l l l ll l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l ll l l ll l ll l l l l l l ll l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l l l l l l l l ll l l l l l l ll l lll l l l l ll l l l l l l l l l l l l l l l l l l l l l ll l l l l ll ll l l l l l l l l l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l ll l l l l l l l l l l l l l l ll l l l ll l lll l l ll ll l l ll l l l ll ll l ll l l l l l l l l ll l l l l l l lll l l l l l lll l l l l ll l l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l ll l l l l ll l ll l l l
+1 2 3 4
+4 3 2 1
+(5, 1) cor=0.20, sample_cor=0.21
+y l l l l ll l l l ll ll l l l l l l ll l ll l l l l l l l l l l ll l l l l l l l lll l l l ll ll l l l l l l l l ll l l l l l l l l l l l l l l l l lll l l ll l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l ll l l l l ll l l l l l ll l l l ll l l l l l l l l l l l l l l ll l l l l l l l ll l l ll l l ll l l l l l l l l l l llll ll ll l ll l l l ll l l l l l l l l l l l l l l l l l l l l ll l l l l l l ll l l l ll ll ll l l l l l l l l l l l l l ll l l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l ll l l l ll l ll llll l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l l ll l l ll l l l l ll l lll l l l l l l l l ll l l l l l l l l l ll l l l l l l l l ll l l l l ll l l l l l l ll l l l l l l l l l l ll l l l l l l ll l l l l l ll l l l l ll l l l l l l l ll l ll l l l l l l l l l l l ll l l l l l ll l l l l l l l l l ll l l ll l l l l l ll l l l l l ll l l l l l l ll l l l l l l l l l l l l l l l ll l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l ll l ll l l l l l l ll l l l ll l l l l ll l l l l l lll l l l l l l l l ll l l l l ll l l l l l l ll ll l l l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l ll l l l l l l l l l ll l ll l l ll l l l l l l l l l l l l l l l ll l lll l l l l ll l l ll ll l l l l l l l l l l l l l l ll l l l l l l l l l l l ll l l ll l l l l lll ll l l ll l l l l l l l l l l l l l l l l lll l l l l l l l l ll l l l l l l l l l l l ll l l l l ll l l l l l l ll l ll l l l l l l l l l l l l l l l l ll ll l l l l ll l l l l l l l l lll l l l l l l l ll l l l l l ll l l ll l l l l l l l l l l lll l ll l l ll l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l
+1 2 3 4
+x
+4 3 2 1
+(5, 3) cor=0.60, sample_cor=0.63
+y
+x
+l l
+l ll l l l l l l l l l l l l l l l l l l l l l ll l lll l l l l l l l l l l l l ll ll l lll l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l ll l l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l ll l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l lll l l l l ll l l l l l ll l l l l l l ll l l l l l l l l l l ll ll l l lll l l l l l l l l l l l lll l l l l l l l l l l ll l l l l l l l l l ll l l l l l l l l l ll l l ll ll l l l l l l l l ll ll l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll ll ll l l l l l l l l l l l l ll l l l lll ll l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l lll l l l l l l ll l l l ll l l l l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l l l l l l l l l l ll l l l l lllll ll l l l lll l l lll l l l l l l l ll l l l l l l l l l l l l l l lll l l l l l l ll l l l l l l l ll l l l l l l l l l l l ll l l l l l l ll ll l ll ll l l l ll l l l l l l l l l l ll l l l l l l l l l l l ll l l l l l ll l l l ll l l ll l ll l l l l l l ll ll l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l ll l l l l ll ll lll l l l l l l l l l ll ll l l l ll l l l l l l ll l l l l l l l l l l l ll l l l ll l l l l l ll l l l l l l l l l ll l l l l l l ll ll l l l l l lll l l l l l l l l l l ll l l l ll l l l l l l l l ll l l l ll l l l ll l l l l ll l ll ll l l l l l l ll l l ll l l l l l l l l l l l l l l l l l l l l l l l ll lll l l l l l l l l l ll ll l ll l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l
+l
+2 3 4 5 6 7
+7 6 5 4 3
+2
+(10, 5) cor=0.50, sample_cor=0.53
+y l l l l l l ll l l lll l l l l l l ll l lll l lll ll l l l l llll l ll ll l ll l l l l l l llll l l l l l l l l l ll ll ll lll l l l l l l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l l ll l l l l l l l l l l l l l l l l l ll l l l l llll l l l l l l l l l l l l l l l l l l l l ll l l l l ll l l l l l l l ll l ll ll l l l l l ll l l l l l lll l l l l l l l l ll l l l l l ll l ll l l ll l l l l l l l l l l l llll l l l l l l l l ll l l l l l l l l ll ll l l l ll l l l l lllll l l l ll l l l l l l l l l l l ll lll l l l l l l l l l l l ll l ll lll l l l l l l l ll l l l l ll l l l l l l ll l l l l l l l l l l l llll l l l l l l l l l l l l l l ll l l l l l l l l l ll l l l ll l l l l l l l l l ll l l l l l l lll l l l l l ll l l l l l l l ll l l lll l l l l l l l l ll l l l l ll l l l l l l l l l l llll l l l ll ll lll l l l l l l l l l l l lll ll l l l l l ll l l l ll l l l l l l l l l ll l ll l ll l ll l ll l ll ll ll l l l l l l l l l l l ll l l ll l l l l l ll l l ll l ll l llll l l l l l l l l l lll l ll ll l ll l l l ll l l l l l l ll l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l ll l l ll ll l l l l ll l l l l lll l l l ll l l l l l l l l ll ll l l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l ll l l l ll l l ll l l ll l ll l l l l l ll ll l l l l ll l l l l l l ll l ll l l l l l l l ll l l l l l l ll l llll ll l l l l ll l l l l l ll l l l ll l l l lll l l l l l l l l l ll l l l ll l l l l lll l ll l l ll l l l l ll l l l l l l lll ll l ll l l l lll l lll l l l l l l l l l ll l ll l l l l l l l ll l l l l ll l l l l l l ll l l l l l l l l l l ll ll l l l ll l ll l l ll l l l l l l ll l l l ll l l l l l l l l ll ll l l l l ll l l l l ll l l l lll llll lll l l l l ll l l l l ll l ll l l l l l l lll l l l ll l l l l
+l
+l l
+ll
+l l l ll l
+l
+3 4 5 6 7 8
+x
+8
+7 6 5 4 3
+2
+(10, 8) cor=0.80, sample_cor=0.81
+y
+x
+18.05 Class 7, Covariance and Correlation, Spring 2022 9
+4 Proof of the properties of covariance and correlation
+4.1 Proofs of the properties of covariance
+1 and 2 follow from similar properties for expected value.
+3. This is the definition of variance:
+Cov(𝑋,𝑋) = 𝐸[(𝑋−𝜇 )(𝑋−𝜇 )] = 𝐸[(𝑋−𝜇 )2] = Var(𝑋).
+𝑋 𝑋 𝑋
+4. Recall that 𝐸[𝑋−𝜇 ] = 0. So
+𝑥
+Cov(𝑋,𝑌) = 𝐸[(𝑋−𝜇 )(𝑌 −𝜇 )]
+𝑋 𝑌
+= 𝐸[𝑋𝑌 −𝜇 𝑌 −𝜇 𝑋+𝜇 𝜇 ]
+𝑋 𝑌 𝑋 𝑌
+= 𝐸[𝑋𝑌]−𝜇 𝐸[𝑌]−𝜇 𝐸[𝑋]+𝜇 𝜇
+𝑋 𝑌 𝑋 𝑌
+= 𝐸[𝑋𝑌]−𝜇 𝜇 −𝜇 𝜇 +𝜇 𝜇
+𝑋 𝑌 𝑋 𝑌 𝑋 𝑌
+= 𝐸[𝑋𝑌]−𝜇 𝜇 .
+𝑋 𝑌
+5. Using properties 3 and 2 we get
+Var(𝑋+𝑌) = Cov(𝑋+𝑌,𝑋+𝑌) = Cov(𝑋,𝑋)+2Cov(𝑋,𝑌)+Cov(𝑌,𝑌) = Var(𝑋)+Var(𝑌)+2Cov(𝑋,𝑌).
+6. If 𝑋 and 𝑌 are independent then 𝑓(𝑥,𝑦) = 𝑓 (𝑥)𝑓 (𝑦). Therefore
+𝑋 𝑌
+Cov(𝑋,𝑌) = ∫∫(𝑥−𝜇 )(𝑦−𝜇 )𝑓 (𝑥)𝑓 (𝑦)𝑑𝑥𝑑𝑦
+𝑋 𝑌 𝑋 𝑌
+= ∫(𝑥−𝜇 )𝑓 (𝑥)𝑑𝑥 ∫(𝑦−𝜇 )𝑓 (𝑦)𝑑𝑦
+𝑋 𝑋 𝑌 𝑌
+= 𝐸[𝑋−𝜇 ]𝐸[𝑌 −𝜇 ]
+𝑋 𝑌
+= 0.
+4.2 Proof of Property 3 of correlation
+(This is for the mathematically interested.)
+𝑋 𝑌 𝑋 𝑌 𝑋 𝑌
+0 ≤ Var( − ) = Var( )+Var( )−2Cov( , ) = 2−2𝜌
+𝜎 𝜎 𝜎 𝜎 𝜎 𝜎
+𝑋 𝑌 𝑋 𝑌 𝑋 𝑌
+This implies 𝜌 ≤ 1
+𝑋 𝑌
+Likewise 0 ≤ Var( + ), so −1 ≤ 𝜌.
+𝜎 𝜎
+𝑋 𝑌
+𝑋 𝑌 𝑋 𝑌
+If 𝜌 = 1 then 0 = Var( − ) ⇒ − = 𝑐.
+𝜎 𝜎 𝜎 𝜎
+𝑋 𝑌 𝑋 𝑌
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

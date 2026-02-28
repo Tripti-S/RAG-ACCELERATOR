@@ -1,0 +1,11 @@
+Expectation of a uniform r.v.
+
+e Uniform on 0,1,...,n
+
+px(2)
+
+i
+n+l
+
+e Definition: E[X] = >> zpx(a)
+

@@ -1,0 +1,17 @@
+Sum of a random number of independent r.v.’s E[Y] = E[N] - ELX]
+e N: number of stores visited
+
+e X;: money spent in store z
+UV Is 2 nonnegative Integer r-v.) — X; independent, identically distributed
+
+e Let Y=X1i+-::-+Xyn — independent of N
+
+E[Y|N=n] =
+
+e Total expectation theorem:
+
+E[Y] = 0 pn(n) E[Y | N =n]
+
+e Law of iterated expectations:
+
+E[Y] = E[E[Y | N]]

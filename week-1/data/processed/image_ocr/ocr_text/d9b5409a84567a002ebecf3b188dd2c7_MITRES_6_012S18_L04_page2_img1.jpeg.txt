@@ -1,0 +1,12 @@
+Basic counting principle
+
+4 shirts
+3 ties
+2 jackets
+
+Number of possible attires?
+
+e r stages
+e n,; Choices at stage i
+
+Number of choices is:

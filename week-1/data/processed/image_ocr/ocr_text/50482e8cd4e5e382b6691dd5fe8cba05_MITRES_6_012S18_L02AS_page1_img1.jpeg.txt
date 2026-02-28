@@ -1,0 +1,9 @@
+LECTURE 2: Conditioning and Bayes’ rule
+
+e Conditional probability
+
+e Three important tools:
+— Multiplication rule
+— Total probability theorem
+
+— Bayes’ rule (—> inference)

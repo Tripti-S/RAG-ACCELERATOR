@@ -1,0 +1,8 @@
+The variance of a sum of random variables
+
+var(X1 + X2) = E] +Xq ETH HT
+=e] ( (x -eL%)) + (mE IY]
+- £) (mL er ))* + (ae ~ EL 1)
++2 (EDN) (m2 ~E D1)
+
+= Var(x,) +Var (xz) +2 cov (M,%2)

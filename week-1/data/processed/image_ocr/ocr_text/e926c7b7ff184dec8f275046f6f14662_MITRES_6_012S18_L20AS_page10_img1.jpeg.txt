@@ -1,0 +1,14 @@
+Other natural estimators
+
+° 6x =E[X] 6x == Xx e 0=Elg(X)] o=
+I
+ex = var(X) = E[(X - 6x)?] dy =1¥ (x) - Sy?
+i=1,
+
+© cov(X,Y) = Bx ~6x)(¥ — 6y)|
+
+(%z, ¥:) : i
+p= cov(x,Y) ~_ COV(X,Y)
+VOX + oy Oe Vix: Voy
+
+e next steps: find the distribution of }, MSE, confidence intervals,...

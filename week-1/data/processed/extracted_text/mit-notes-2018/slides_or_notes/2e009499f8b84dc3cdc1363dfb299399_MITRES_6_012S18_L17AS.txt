@@ -1,0 +1,239 @@
+LECTURE 17: Linear least mean squares (LLMS) estimation
+I
+• Conditional expectation E[e Xl may be hard to compute/implement
+-
+e +
+• Restrict to estimators = aX b
+- minimize mean squared error
+• Simple solution
+• Mathematical properties
+• Example
+1
+LLMS formulation
+e ;
+• Unknown observation X
+-
+e e
+I
+• Estimators = gCX) eLMS = E[e Xl
+---+)
+10
+- e,
+• Consider estimators of
+e +
+of the form = aX b
+'--E[e/x::');] •
+Minimize E [Ce - aX - b)2], w.r.t. a, b
+4
+- -
+I
+• If E[e Xl is linear in X, then eLMS = eLLMS
+x
+3 5 9 I I •
+2
+Solution to the LLMS problem
+• Minimize E [(8 - aX - b)2], w.r.t. a, b
+I
+I
+b::
+E[19] - [X]
+- suppose a has already been found: c::t. {;
+-E[@-a)(J)'­ (f!Y-ax)
+(@-aX
+-=-
+VQ'l.
+E
+- 2
+cov(@..:)._x....:):_~
+-=:var(e)'" a2.VQ'l(X) a _ _
+p :.
+-:z .C,!lI(C!f»)r)
+5t
+(If)
+Q VtA.7 (Ov(l?J/f)= 0
+O-e CT..­
+,
+-
+a - cov(() ?r)!v().z(x) P
+-
+a - O"x­
+o-~
+.
+o.-x
+!l
+-=- _
+Cov(8 , X) a
+8 -E[8l+ var(Xl..; X - E[Xl) =E[8l+Pa~(X - E[Xl)
+L
+3
+Remarks on the solution and on the error variance
+• Only means, variances , covariances matter
+Ipl=-:l
+e"
+J
+[x [@]
+f"
+?
+• p > 0: )(:> [; ":=?) L
+"
+f [ e ]
+f).. .:
+• p=O:
+E [C8L - 8)2] = (1 - p2)varC8)
+•
+4
+e _ [
+Example cov(e , x)
++ (x - +
+L - E e] var(X) E[XJ) = E[e] P""6(X - E[X])
+_ _
+e :; + 9.(x-:r) ~:-_~;;--.....:..._---=---=- ~"X~_~
+-_ [ 1
+E [xJ ::::
+10 • ~ L r ~] ~ E U :::: 0 E 1­
+10
+17 (
+0
+J
+I
+:::: 3
+Vaf' ()() -I- "-~"= ' 3
+4
+(ov(l9.J
+(Y+UJ::::
+- x
+------;--;------;;-~,.____
+3 5 9 II 3
+= )u.)
+co
+C01lre,(})+
+/01 =:
+['I,
+f): :f~Jr"'"
+U'VI
+:fol''''' [- J
+>< '" 6l
++ U
+U'l1 J, J
+(3, () ~""rhpe""de.J
+5
+LLMS for inferring the parameter of a coin
+• Standard example:
+e; feO
+coin with bias prior
+fix n; X =number of heads
+feO
+• Assume is uniform in [O, 1J
+- cov(e,x) ( )
++
+eLLMS = E[eJ var(X)' X - E[XJ
+6
+LLMS for inferring the parameter of a coin
+I I
+1 1 I
+i i
+= - = 2 =3
+• G: uniform on [0, 1] E[G] var(G) -c':: E[G ] = ~ 22
+2 12
+• PX le: Bin(n, G) E[X I G] = nG var(X I G) = nG(l - G)
+2
+=E['" 0]"
+"'1ft = ~ ~(I-e) 4-""1.(;)
+E[X ] E[X2IG]
+•
+17 [ , 7 "" '"
+1_.... .., .", 2
+E[X2]= E[E[X'JeJrE
+",f) .. r,.,1-"'){}.J=T f 3 =&"3
+-
+2) ( J)
+r r: ~ ,,/·=;+ti -,
++.2)
+"1 ",,!I. '>l!l. "" 9 _ ... ('"
+{ ' : 3 ­
+fJ
+var(X)= [LX - [LX ::
+S [X $] = t9
+I F 1 n
+=
+E[GX G] l?
+E I r!)]] E[""
+E[GX] = [ [ [(Y)< = fY '-] -= '11/3
+r[e
+x) - F [&] f[x] ~ ;. - ::- ,~
+= =
+cov(G , X)
+7
+LLMS for inferring the parameter of a coin
+e
++
+= E[8] Cov(8, X) (X - E[X])
+LLMS var(X)
+•
++
+n n(n 2)
+cov(8 X) = - va r (X) = ---'----'-----'- E[X] = n
+, 12
+12 2
+"
+- X+1 CJ
+LLM + = 5
+8 S = n 2 r.:::IL M
+8
+LLMS with multiple observations
+e ;
+• Unknown observations X = ( Xl' ... ' X n )
+-
+• Consider estimators of the form:
+• Find best choices of al, ... lan , b
+" Q.:
+£[x,tj
+t-.2t!'J,C!J~flx"t;J
+• • •
+[X,
+- - a.., E c9)+ ...
+~
+-1- •••
+I
+• If E[e Xl is linear in X, then eLMS = eLLMS
+• Solve linear system in b and the
+a i •
+• O nl y mea ns, va ria nces , cova ri ances matte r
+• If multiple unknown e j, apply to each one, separately
+9
+The simplest LLMS example with multiple observations
+,
+,
+,
+X =8+W 8 , WI ) "" Wn uncorrelated
+n n
+• Suppose 8 , WI ) "" W n are independent normal
+• Suppose general (not normal) distributions,
+but same means, variances, as in normal example
+all covariances also the same
+solution must be the same
+10
+The representation of the data matters in LLMS
+• Estimation based on X versus X3
+I I 3
+- LMS: E[e X] is the same as E[e X ]
+e e
++ +
+- LLMS is different: estimator = aX b versus = aX3 b
+j 1
+Wv(f9,X va (.x·
+t
+) )
+- -
+-
+•
+e
++ + +
+- can also consider = a1X a2ex a3 10g X b
+11
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a p articular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

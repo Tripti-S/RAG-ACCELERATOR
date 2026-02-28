@@ -1,0 +1,21 @@
+calculating absorption probabilities AL
+
+* absorbing state: recurrent state k with py, = 1
+1
+
+* what is the probability @;)that the chain
+eventually settles in rs given it started in i? oe done
+
+i=4,a,=1 por)
+
+a a, o®
+
+otherwise, a; = a
+
+A= 848 Az =0.2 G4+ 0.80,
+de> 20/g = ed
+Oz ='SA8 A, = 0.60,+ 0.4 Aa
+; 0.8 ; ™ ¥. e Qa; = 0.3 Q,+0.84, 40Kis
+. unigue solution from fp; = YS pia; ak Saal a * a
+
+as =p ond = As“=o0 for re wet cel slele

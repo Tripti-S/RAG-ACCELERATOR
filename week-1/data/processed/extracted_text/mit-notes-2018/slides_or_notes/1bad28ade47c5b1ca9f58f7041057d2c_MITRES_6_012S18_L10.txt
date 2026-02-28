@@ -1,0 +1,297 @@
+LECTURE 10: Conditioning on a random variable; Independence; Bayes' rule
+• Conditioning X on Y
+- Total probability theorem
+- Total expectation theorem
+• Independence
+- independent normals
+• A comprehensive example
+• Four variants of the Bayes rule
+1
+Cond .t. iona PDFs, given anot e r.v.
+Px,y(x, y) fx,y(x, y)
+Px,y(x, y) PXIA(x) fx1A(x)
+= = = = ( ) ,
+I I
+>
+Px1y(x y) P(X x Y y) if py(y) 0
+Px1y(x I y) fx1y(x I y)
+PY Y
+f >
+(x I - f ,y(x, y) if fy(y) 0
+Defin-tion·
+X y f (y)
+>
+where P(A) O
+P(x < < x 8 I y < Y < y t:)
+l_
+I I
+Definit"o . P(X E A Y = y) = f x I y(x y) dx
+2
+Comments on conditional DFs
+I (x,y)
+fx1 (x I y) - ' • fx1v(x I y) >O
+-
+fy(y)
+.
+.
+' .
+'
+. '
+• ink o,f value of Y as fixed at some y , ' , , . ' . '
+-
+. :
+'
+- ' i ' '
+shape Q,f fx1y(· I y): slice of the jo·nt ' . ' ..
+' ' ' •. ,'
+'
+' '
+- ' - ' -
+J_: ' - . ' '
+'
+- '
+'·
+- '
+f x,v(x, y) dx . - .
+..
+• = -- ' -
+1
+J_:fx1y(x I y)dx '
+fy(y)
+' .
+•
+Mui iplication rule.
+fx,y(x,y) = fy(y) · f x 1y(x I y) 4
+2
+0
+=
+I
+x)
+f x(x) · fy1x(Y
+-2
+-2
+3
+Total probability and expectation theorems
+L:
+= =
+Px(x) LPY(Y)Px1y(x I y) fx(x) fy(y)fx1y(x I y) dy
+y
+J:
+I I
+E[X Y = y] = LxPx1y(x y) E[X I Y = y] = a;fx1y(x I y) dx
+X
+L:
+I I
+E[X] = Lpy(y)E(X y = y] E[X] = fy(y)E[X y = y] dy
+y
+• Expected value rule ...
+4
+ndependence
+=
+Px,y(x, y) Px(x) py(y), fo all x, y
+=
+f f au
+(x, y) x(x) (y), for x and y
+= I
+f x,y(x, y) fx 1y(x y) fy(y)
+=
+>
+• equivalent to. fx iy(x [y) fx(x), for all y with fy(y) 0 and a I x
+=
+If X, Y are independent. [ Y] [X]E[Y]
+) =
+var(X var(X) var(Y)
+g(X) and h(Y) are a so ·ndependent: E[g(X)h(Y) - [g(X)] E h(Y)
+5
+Stick - break-ng example
+fx(x)
+• Break a stick of ength £ twice
+first break at X: unifo m i 0, £]
+- second break at Y. uniform ·n [O, X]
+X
+= I =
+fx,y(x, y) f x(x)fy1x(Y x)
+y
+y
+X
+X
+6
+y
+Stick - break-ng example
+=
+fx ,y(x, y) t~'
+X
+fy(y) -
+E[Y -
+• Using total expectatio theorem.
+7
+nde endent s andard norma s
+=
+lx,y(x, y) /x(x)/y(y) . . ..
+. . '
+x2} y2} .
+{ .
+.
+• • I ..
+1 { .
+= _ 0.2 , . . .
+exp - • _ exp - . '
+'
+~ ~
+v2w 2 v2w 2 .. : ,, I•
+,..
+,
+0.15 ~ ' , . '
+' ..
+.
+. . '
+..
+, ', ; ' '
+(/)
+C
+Cl) . ..
+0
+:z:. . ..
+0.1
+. . ,' '
+'
+..c . , . . . .
+ro
+..c . '
+..
+0 •
+~
+c.. 0.05
+.
+..
+0
+4
+4
+-2
+-4 -4
+y
+8
+X
+Independent norma s
+=
+lx,y(x, y) /x(x)/y(y)
+:,., , .. - ' '
+, , '
+1 { (x - µ, )2 (y - µy)2 0.1 , , ' ' '
+- 21rux<ry exp - 2a1 x 2u 2 - , , :. . , , · ... , , , ' . ' . ' ' ' ' . . . . . . . . . . - ' .
+y , , '
+•'
+0.08 .
+' ..
+'.,:".,. ' '
+. . .
+' . .
+.>..i... .. . .
+. .
+( ~ /) 0.06 , , , , . . . . . ..' .
+.
+0 , , ,,. . . ' ' ' ' '
+I
+...
+.
+0.04 , , ' ' . . .
+~ .
+.c ,, , ' .
+l • .
+0
+'
+aL-.
+, ,.
+,
+0.02 ..
+.
+' ' .
+,
+. .
+'
+0
+5
+0
+-5
+-5
+y
+9
+X
+- a theme w-th variat-ons
+In erence
+______ ____,y,.
+X
+unobserved value x observed value y
+•I·)
+pri,or Px( •)
+model Pyix(
+Px,y(x, y) Px(x) PYIX(Y Ix) f x,y(x, y) - f (x) fyl (y Ix)
+- py(y) Px y(x Iy) fy(y) fx y(x I y)
+_
+( I .) _ Px(x) Py 1x(Y Ix) I ) f x(x) fy1x(Y Ix)
+f (
+PX IY X y - ( ) XIY X y fy(y)
+PY Y
+j
+Ix')
+py(y) - LPx(x') PYIX(Y fy(y) f x(x') Jy x(Y Ix') dx'
+x'
+10
+T e ayes ule - one d-sc e e and one cont-nuous andom va -a le
+K: discrete Y. continuous
+k I ) - PK(k) iYIK(Y Ik) f ( · I = I
+k) fy(y) PKIY(k y)
+(
+PKIY y fy(y)
+YIK y PK(k)
+I
+=
+=
+I PK(k) fy(y') PKIY(k Iy') dy'
+fy(y) I:PK(k') IYIK(Y k')
+k'
+11
+The Bayes le - d-screte unk ow , cont-nuous measure ent
+• unkown K: equally likely to be -1 or +1
++
+• measurement Y: Y - K W, W N(O, 1)
+rv
+= =
+• Probability that K 1, g·ven that Y y?
+I ) - I
+k PK(k) fy K(Y k)
+(
+=
+PK(k) PKIY Y - fy(y)
+= = I
+fy(y) LPK(k') fy K(Y k')
+fy(y)
+k'
+I =
+PKIY( 1 y)
+12
+The Bayes ule - cont-nuous unk ow , d-scr e measurement
+• easurement K: Ber oulr w·th parameter Y =
+I
+I ( I k) fy(y) PKIY(k y)
+YIK PK(k)
+y
+f
+=
+• unkown Y. uniform on 0, 1]
+PK(k) fy(y') PKIY(k Iy') dy'
+=
+• Distribution of Y g·ven hat K 17
+=
+= I
+fy(y) PKIY( 1 y)
+=
+PK(l)
+13
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+14

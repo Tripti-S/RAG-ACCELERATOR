@@ -1,0 +1,9 @@
+Probability mass function (PMF) of a discrete r.v. X
+e It is the “probability law’ or “probability distribution” of X
+
+e If we fix some z, then "XX =~2” is an event
+
+px(z) = P(X =2) = P({w EN st. XWw) = z})
+
+e Properties: px(x) >0 So px(2) =1
+H

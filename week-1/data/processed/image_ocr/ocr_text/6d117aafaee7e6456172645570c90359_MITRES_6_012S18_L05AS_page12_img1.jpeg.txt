@@ -1,0 +1,10 @@
+Expectation of a Bernoulli r.v.
+
+0, w.p.1—p
+
+xa{* Wpe ELxl=\-p +O-(1-p) =P
+
+If X is the indicator of an event A, X= /4:
+
+X=41 iff A occuas p? 2(4)
+E[T, = L(A)

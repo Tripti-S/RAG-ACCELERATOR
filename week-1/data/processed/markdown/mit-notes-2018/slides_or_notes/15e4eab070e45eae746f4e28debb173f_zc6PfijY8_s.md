@@ -1,0 +1,26 @@
+# 15E4Eab070E45Eae746F4E28Debb173F Zc6Pfijy8 S
+
+---
+
+MITOCW | MITRES6_012S18_L13-01_300k
+By this point in this class, you must have realized that a lot of revolves around the concept of conditioning.
+Conditional expectations play a central role.
+For this reason, it is useful to revisit this concept and view it in a more abstract manner.
+The basic idea is that the value of a conditional expectation is affected by a random quantity by the value of the
+random variable Y on which we are conditioning.
+It is a function of Y and, therefore, a random variable.
+Based on this observation, we will redefine the conditional expectation as a random variable and then try to
+understand its properties.
+In particular, we will develop a formula for the expected value of the conditional expectation.
+This will be what as known as the law of iterated expectations.
+After doing all this, we will follow a similar program for the conditional variance.
+Once more, we will see that it can be viewed as a random variable.
+And then we will relate its expected value with the unconditional variance.
+This will be the so-called law of total variance.
+As an illustration of the tools we are introducing in this lecture, we will consider various examples that will hopefully
+clarify the concepts involved.
+Our final and most important example will involve the sum of a random number of independent random variables.
+The setting here is more challenging than the case where we add a fixed number of random variables.
+But by using conditioning, we will be able to derive formulas for the mean and the variance.
+
+---

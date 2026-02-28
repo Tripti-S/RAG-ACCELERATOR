@@ -1,0 +1,11 @@
+Usefulness of the CLT
+
+Sa = Xy te + Xn Zn =
+
+Central Limit Theorem: For every z: lim. P( 2, = 2) = PC < 2)
+
+e universal and easy to apply; only means, variances matter
+
+e fairly accurate computational shortcut
+
+e justification of normal models

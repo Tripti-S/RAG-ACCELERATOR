@@ -1,0 +1,15 @@
+Usefulness of the CLT
+
+S&S. ta
+Sn = Xp +: + Xn go See Zire NO; 2)
+Jno
+
+[ central Limit Theorem: For every z: lim. P(Zn:< z) = PC <z) ]
+
+e universal and easy to apply; only means, variances matter
+
+e fairly accurate computational shortcut
+
+justification of | models ~CK
+e justification of normal mo
+aon

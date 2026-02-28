@@ -1,0 +1,399 @@
+# Mit18 05 S22 Exam2 Nhst
+
+---
+
+Summary of NHST for 18.05
+Jeremy Orloff and Jonathan Bloom
+𝑧-test
+• Use: Compare the data mean to an hypothesized mean.
+• Data: 𝑥 , 𝑥 , … , 𝑥 .
+1 2 𝑛
+• Assumptions: The data are independent normal samples:
+𝑥 ∼ 𝑁(𝜇,𝜎2) where 𝜇 is unknown, but 𝜎 is known.
+𝑖
+• 𝐻 : For a specified 𝜇 , 𝜇 = 𝜇 .
+0 0 0
+• 𝐻 :
+𝐴
+Two-sided: 𝜇 ≠ 𝜇
+0
+one-sided-greater: 𝜇 > 𝜇
+0
+one-sided-less: 𝜇 < 𝜇
+0
+𝑥 − 𝜇
+• Test statistic: 𝑧 = √ 0
+𝜎/ 𝑛
+• Null distribution: 𝜙(𝑧 | 𝐻 ) is the pdf of 𝑍 ∼ 𝑁(0,1).
+0
+• 𝑝-value:
+Two-sided: 𝑝 = 𝑃(|𝑍| > 𝑧 |𝐻 ) = 2*(1-pnorm(abs(z), 0, 1))
+0
+one-sided-greater (right-sided): 𝑝 = 𝑃(𝑍 > 𝑧 |𝐻 ) = 1 - pnorm(z, 0, 1)
+0
+one-sided-less (left-sided): 𝑝 = 𝑃(𝑍 < 𝑧 |𝐻 ) = pnorm(z, 0, 1)
+0
+• Critical values: 𝑧 has right-tail probability 𝛼
+𝛼
+𝑃(𝑧 > 𝑧 | 𝐻 ) = 𝛼 ⇔ 𝑧 = qnorm(1−𝛼, 0, 1).
+𝛼 0 𝛼
+• Rejection regions: let 𝛼 be the significance.
+Right-sided rejection region: [𝑧 , ∞)
+𝛼
+Left-sided rejection region: (−∞, 𝑧 ]
+1−𝛼
+Two-sided rejection region: (−∞, 𝑧 ] ∪ [𝑧 , ∞)
+1−𝛼/2 𝛼/2
+Alternate test statistic
+• Test statistic: 𝑥
+• Null distribution: 𝜙(𝑥 | 𝐻 ) is the pdf of 𝑋̄ ∼ N(𝜇 , 𝜎2/𝑛).
+0 0
+• 𝑝-value:
+√
+Two-sided: 𝑝 = 𝑃(|𝑋̄ −𝜇 | > |𝑥−𝜇 ||𝐻 ) = 2*(1-pnorm(abs((𝑥 − 𝜇 ), 0, 𝜎/ 𝑛))
+0 0 0 0 √
+one-sided-greater: 𝑝 = 𝑃(𝑋̄ > 𝑥) = 1 - pnorm(𝑥, 𝜇 , 𝜎/ 𝑛)
+√0
+one-sided-less: 𝑝 = 𝑃(𝑋̄ < 𝑥) = pnorm(𝑥, 𝜇 , 𝜎/ 𝑛)
+0
+• Critical values: 𝑥 has right-tail probability 𝛼
+𝛼
+√
+𝑃(𝑋 > 𝑥 | 𝐻 ) = 𝛼 ⇔ 𝑥 = qnorm(1 − 𝛼, 𝜇 , 𝜎/ 𝑛).
+𝛼 0 𝛼 0
+• Rejection regions: let 𝛼 be the significance.
+Right-sided rejection region: [𝑥 , ∞)
+𝛼
+Left-sided rejection region: (−∞, 𝑥 ]
+1−𝛼
+Two-sided rejection region: (−∞, 𝑥 ] ∪ [𝑥 , ∞)
+1−𝛼/2 𝛼/2
+1
+Summary of NHST for 18.03, Spring 2022 2
+One-sample 𝑡-test of the mean
+• Use: Compare the data mean to an hypothesized mean.
+• Data: 𝑥 , 𝑥 , … , 𝑥 .
+1 2 𝑛
+• Assumptions: The data are independent normal samples:
+𝑥 ∼ 𝑁(𝜇,𝜎2) where both 𝜇 and 𝜎 are unknown.
+𝑖
+• 𝐻 : For a specified 𝜇 , 𝜇 = 𝜇
+0 0 0
+• 𝐻 :
+𝐴
+Two-sided: 𝜇 ≠ 𝜇
+0
+one-sided-greater: 𝜇 > 𝜇
+0
+one-sided-less: 𝜇 < 𝜇
+0
+𝑥 − 𝜇
+• Test statistic: 𝑡 = √ 0,
+𝑠/ 𝑛
+1 𝑛
+where 𝑠2 is the sample variance: 𝑠2 = ∑(𝑥 − 𝑥)2
+𝑛 − 1 𝑖
+𝑖=1
+• Null distribution: 𝜙(𝑡 | 𝐻 ) is the pdf of 𝑇 ∼ 𝑡(𝑛−1).
+0
+(Student 𝑡-distribution with 𝑛 − 1 degrees of freedom)
+• 𝑝-value:
+Two-sided: 𝑝 = 𝑃(|𝑇 | > 𝑡) = 2*(1-pt(abs(t), n-1))
+one-sided-greater: 𝑝 = 𝑃(𝑇 > 𝑡) = 1 - pt(t, n-1)
+one-sided-less: 𝑝 = 𝑃(𝑇 < 𝑡) = pt(t, n-1)
+• Critical values: 𝑡 has right-tail probability 𝛼
+𝛼
+𝑃(𝑇 > 𝑡 | 𝐻 ) = 𝛼 ⇔ 𝑡 = qt(1−𝛼, 𝑛−1).
+𝛼 0 𝛼
+Right-sided rejection region: [𝑡 , ∞)
+𝛼
+• Rejection regions: let 𝛼 be the significance. Left-sided rejection region: (−∞, 𝑡 ]
+1−𝛼
+Two-sided rejection region: (−∞, 𝑡 ] ∪ [𝑡 , ∞)
+1−𝛼/2 𝛼/2
+Two-sample 𝑡-test for comparing means (assuming equal variance)
+• Use: Compare the means from two groups.
+• Data: 𝑥 , 𝑥 , … , 𝑥 and 𝑦 , 𝑦 , … , 𝑦 .
+1 2 𝑛 1 2 𝑚
+• Assumptions: Both groups of data are independent normal samples:
+𝑥 ∼ 𝑁(𝜇 ,𝜎2)
+𝑖 𝑥
+𝑦 ∼ 𝑁(𝜇 ,𝜎2)
+𝑗 𝑦
+where both 𝜇 and 𝜇 are unknown and possibly different. The variance 𝜎 is unknown,
+𝑥 𝑦
+but the same for both groups.
+• 𝐻 : 𝜇 = 𝜇
+0 𝑥 𝑦
+• 𝐻 :
+𝐴
+Two-sided: 𝜇 ≠ 𝜇
+𝑥 𝑦
+one-sided-greater: 𝜇 > 𝜇
+𝑥 𝑦
+one-sided-less: 𝜇 < 𝜇
+𝑥 𝑦
+Summary of NHST for 18.03, Spring 2022 3
+𝑥 − 𝑦̄
+• Test statistic: 𝑡 = ,
+𝑠
+𝑃
+where 𝑠2 and 𝑠2 are the sample variances and 𝑠2 is (sometimes called) the pooled
+𝑥 𝑦 𝑃
+sample variance:
+(𝑛 − 1)𝑠2 + (𝑚 − 1)𝑠2 1 1
+𝑠2 = 𝑥 𝑦 ( + )
+𝑝 𝑛+𝑚−2 𝑛 𝑚
+• Null distribution: 𝜙(𝑡 | 𝐻 ) is the pdf of 𝑇 ∼ 𝑡(𝑛+𝑚−2).
+0
+(Student 𝑡-distribution with 𝑛 + 𝑚 − 2 degrees of freedom.)
+• 𝑝-value:
+Two-sided: 𝑝 = 𝑃(|𝑇 | > 𝑡) = 2*(1-pt(abs(t), n+m-2))
+one-sided-greater: 𝑝 = 𝑃(𝑇 > 𝑡) = 1 - pt(t, n+m-2)
+one-sided-less: 𝑝 = 𝑃(𝑇 < 𝑡) = pt(t, n+m-2)
+• Critical values: 𝑡 has right-tail probability 𝛼
+𝛼
+𝑃(𝑡 > 𝑡 | 𝐻 ) = 𝛼 ⇔ 𝑡 = qt(1−𝛼, 𝑛+𝑚−2).
+𝛼 0 𝛼
+• Rejection regions: let 𝛼 be the significance.
+Right-sided rejection region: [𝑡 , ∞)
+𝛼
+Left-sided rejection region: (−∞, 𝑡 ]
+1−𝛼
+Two-sided rejection region: (−∞, 𝑡 ] ∪ [𝑡 , ∞)
+1−𝛼/2 𝛼/2
+Notes: 1. Unequal variances. There is a form of the 𝑡-test for when the variances are
+not assumed equal. It is sometimes called Welch’s 𝑡-test. In the R function t.test, there
+is an argument var.equal. Setting it to FALSE runs the unequal variances version of the
+t-test.
+2. When the data naturally comes in pairs (𝑥 , 𝑦 ), one uses the paired two-sample 𝑡-test.
+𝑖 𝑖
+For example, in comparing two treatments, each patient receiving treatment 1 might be
+paired with a patient receiving treatment 2 who is similar in terms of stage of disease, age,
+sex, etc.
+￿2 test for variance
+• Use: Compare the data variance to an hypothesized variance.
+• Data: 𝑥 , 𝑥 , … , 𝑥 .
+1 2 𝑛
+• Assumptions: The data are independent normal samples:
+𝑥 ∼ 𝑁(𝜇,𝜎2) where both 𝜇 and 𝜎 are unknown.
+𝑖
+• 𝐻 : For a specified 𝜎 , 𝜎 = 𝜎
+0 0 0
+• 𝐻 :
+𝐴
+Two-sided: 𝜎 ≠ 𝜎
+0
+one-sided-greater: 𝜎 > 𝜎
+0
+one-sided-less: 𝜎 < 𝜎
+0
+(𝑛 − 1)𝑠2 1 𝑛
+• Test statistic: 𝑋2 = , where 𝑠2 is the sample variance: 𝑠2 = ∑(𝑥 −
+𝜎2 𝑛−1 𝑖
+0 𝑖=1
+𝑥)2
+Summary of NHST for 18.03, Spring 2022 4
+• Null distribution: 𝜙(𝑋2 |𝐻 ) is the pdf of 𝜒2 ∼ 𝜒2(𝑛 − 1).
+0
+(Chi-square distribution with 𝑛 − 1 degrees of freedom)
+• 𝑝-value:
+Because the 𝜒2 distribution is not symmetric around zero the two-sided test is a little
+awkward to write down. The idea is to look at the 𝑋2 statistic and see if it’s in the
+left or right tail of the distribution. The 𝑝-value is twice the probability in that tail.
+An easy check for which tail it’s in is: 𝑠2/𝜎2 > 1 (right tail) or 𝑠2/𝜎2 < 1 (left tail).
+0 0
+2∗𝑃(𝜒2 > 𝑋2) if 𝑋2 is in the right tail
+Two-sided: 𝑝 = {
+2∗𝑃(𝜒2 < 𝑋2) if 𝑋2 is in the left tail
+= 2*min(pchisq(𝑋2,n-1), 1-pchisq(𝑋2,n-1))
+one-sided-greater: 𝑝 = 𝑃(𝜒2 > 𝑋2) = 1 - pchisq(𝑋2 , n-1)
+one-sided-less: 𝑝 = 𝑃(𝜒2 < 𝑋2) = pchisq(𝑋2 , n-1)
+• Critical values: 𝑥 has right-tail probability 𝛼
+𝛼
+𝑃(𝜒2 > 𝑥 | 𝐻 ) = 𝛼 ⇔ 𝑥 = qchisq(1−𝛼, 𝑛−1).
+𝛼 0 𝛼
+• Rejection regions: let 𝛼 be the significance.
+Right-sided rejection region: [𝑥 , ∞)
+𝛼
+Left-sided rejection region: (−∞, 𝑥 ]
+1−𝛼
+Two-sided rejection region: (−∞, 𝑥 ] ∪ [𝑥 , ∞)
+1−𝛼/2 𝛼/2
+￿2 test for goodness of fit for categorical data
+• Use: Test whether discrete data fits a specific finite probability mass function.
+• Data: An observed count 𝑂 in cell 𝑖 of a table.
+𝑖
+• Assumptions: None
+• 𝐻 : The data was drawn from a specific discrete distribution.
+0
+• 𝐻 : The data was drawn from a different distribution
+𝐴
+• Test statistic: The data consists of observed counts 𝑂 for each cell. From the null hy-
+𝑖
+pothesis probability table we get a set of expected counts 𝐸 . There are two statistics
+𝑖
+that we can use:
+𝑂
+Likelihood ratio statistic 𝐺 = 2∗∑𝑂 ln ( 𝑖 )
+𝑖 𝐸
+𝑖
+(𝑂 − 𝐸 )2
+Pearson’s chi-square statistic 𝑋2 = ∑ 𝑖 𝑖 .
+𝐸
+𝑖
+It is a theorem that under the null hypthesis 𝑋2 ≈ 𝐺 and both are approximately
+chi-square. Before computers, 𝑋2 was used because it was easier to compute. Now,
+it is better to use 𝐺 although you will still see 𝑋2 used quite often.
+Summary of NHST for 18.03, Spring 2022 5
+• Degrees of freedom 𝑑𝑓: The number of cell counts that can be freely specified. In the
+case above, of the 𝑛 cells 𝑛 − 1 can be freely specified and the last must be set to
+make the correct total. So we have 𝑑𝑓 = 𝑛−1 degrees of freedom.
+In other chi-square tests there can be more relations between the cell counts of 𝑑𝑓
+might be different from 𝑛 − 1.
+• Rule of thumb: Combine cells until the expected count in each cell is at least 5.
+• Null distribution: Assuming 𝐻 , both statistics (approximately) follow a chi-square
+0
+distribution with 𝑑𝑓 degrees of freedom. That is both 𝜙(𝐺 | 𝐻 ) and 𝜙(𝑋2 |𝐻 ) have
+0 0
+the approximately same pdf as 𝑌 ∼ 𝜒2(𝑑𝑓).
+• 𝑝-value:
+𝑝 = 𝑃(𝑌 > 𝐺) = 1 - pchisq(G, df)
+𝑝 = 𝑃(𝑌 > 𝑋2) = 1 - pchisq(𝑋2 , df)
+• Critical values: 𝑐 has right-tail probability 𝛼
+𝛼
+𝑃(𝑌 > 𝑐 | 𝐻 ) = 𝛼 ⇔ 𝑐 = qchisq(1 − 𝛼, 𝑑𝑓).
+𝛼 0 𝛼
+• Rejection regions: let 𝛼 be the significance.
+We expect 𝑋2 to be small if the fit of the data to the hypothesized distribution is
+good. So we only use a right-sided rejection region: [𝑐 , ∞).
+𝛼
+One-way ANOVA (𝐹 -test for equal means)
+• Use: Compare the data means from 𝑛 groups with 𝑚 data points in each group.
+• Data:
+𝑥 , 𝑥 , …, 𝑥
+1,1 1,2 1,𝑚
+𝑥 , 𝑥 , …, 𝑥
+2,1 2,2 2,𝑚
+…
+𝑥 , 𝑥 , …, 𝑥
+𝑛,1 𝑛,2 𝑛,𝑚
+• Assumptions: Data for each group is an independent normal sample drawn from
+distributions with (possibly) different means but the same variance:
+𝑥 ∼ 𝑁(𝜇 ,𝜎2)
+1,𝑗 1
+𝑥 ∼ 𝑁(𝜇 ,𝜎2)
+2,𝑗 2
+…
+𝑥 ∼ 𝑁(𝜇 ,𝜎2)
+𝑛,𝑗 𝑛
+The group means 𝜇 are unknown and possibly different. The variance 𝜎 is unknown,
+𝑖
+but the same for all groups.
+• 𝐻 : All the means are identical 𝜇 = 𝜇 = … = 𝜇 .
+0 1 2 𝑛
+• 𝐻 : Not all the means are the same.
+𝐴
+• Test statistic: 𝑓 = MS 𝐵 , where
+MS
+𝑊
+Summary of NHST for 18.03, Spring 2022 6
+𝑥̄ = mean of group 𝑖
+𝑖
+𝑥 + 𝑥 + … + 𝑥
+=
+𝑖,1 𝑖,2 𝑖,𝑚
+.
+𝑚
+𝑥 = grand mean of all the data.
+𝑠2 = sample variance of group 𝑖
+𝑖
+1 𝑚
+= ∑(𝑥 − 𝑥̄ )2.
+𝑚 − 1 𝑖,𝑗 𝑖
+𝑗=1
+MS = between group variance
+𝐵
+= 𝑚 × sample variance of group means
+𝑚 𝑛
+= ∑(𝑥̄ − 𝑥)2.
+𝑛 − 1 𝑖
+𝑖=1
+MS = average within group variance
+𝑊
+= sample mean of 𝑠2, … , 𝑠2
+1 𝑛
+𝑠2+ 𝑠2+ … + 𝑠2
+= 1 2 𝑛
+𝑛
+• Idea: If the 𝜇 are all equal, this ratio should be near 1. If they are not equal then
+𝑖
+MS should be larger while MS should remain about the same, so 𝑓 should be
+𝐵 𝑊
+larger. We won’t give a proof of this.
+• Null distribution: 𝜙(𝑓 | 𝐻 ) is the pdf of 𝐹 ∼ 𝐹(𝑛−1,𝑛(𝑚−1)).
+0
+This is the 𝐹 -distribution with (𝑛 − 1) and 𝑛(𝑚 − 1) degrees of freedom. Several
+𝐹 -distributions are plotted below.
+• 𝑝-value: 𝑝 = 𝑃(𝐹 > 𝑓) = 1- pf(f, n-1, n*(m-1)))
+0 2 4 6 8 10
+0.1
+8.0
+6.0
+4.0
+2.0
+0.0
+F(3,4)
+F(10,15)
+F(30,15)
+x
+Notes: 1. ANOVA tests whether all the means are the same. It does not test whether
+some subset of the means are the same.
+2. There is a test where the variances are not assumed equal.
+3. There is a test where the groups don’t all have the same number of samples.
+𝐹 -test for equal variances
+• Use: Compare the vaiances from two groups.
+• Data: 𝑥 , 𝑥 , … , 𝑥 and 𝑦 , 𝑦 , … , 𝑦 .
+1 2 𝑛 1 2 𝑚
+• Assumptions: Both groups of data are independent normal samples:
+𝑥 ∼ 𝑁(𝜇 ,𝜎2)
+𝑖 𝑥 𝑥
+𝑦 ∼ 𝑁(𝜇 ,𝜎2)
+𝑗 𝑦 𝑦
+Summary of NHST for 18.03, Spring 2022 7
+where 𝜇 , 𝜇 , 𝜎 and 𝜎 are all unknown.
+𝑥 𝑦 𝑥 𝑦
+• 𝐻 : 𝜎 = 𝜎
+0 𝑥 𝑦
+• 𝐻 :
+𝐴
+Two-sided: 𝜎 ≠ 𝜎
+𝑥 𝑦
+one-sided-greater: 𝜎 > 𝜎
+𝑥 𝑦
+one-sided-less: 𝜎 < 𝜎
+𝑥 𝑦
+𝑠2
+• Test statistic: 𝑓 = 𝑥 ,
+𝑠2
+𝑦
+where 𝑠2 and 𝑠2 are the sample variances of the data.
+𝑥 𝑦
+• Null distribution: 𝜙(𝑓 | 𝐻 ) is the pdf of 𝐹 ∼ 𝐹(𝑛−1,𝑚−1).
+0
+(𝐹 -distribution with 𝑛 − 1 and 𝑚 − 1 degrees of freedom.)
+• 𝑝-value:
+Two-sided: 𝑝 = 2*min(pf(f,n-1,m-1), 1-pf(f, n-1,m-1))
+one-sided-greater: 𝑝 = 𝑃(𝐹 > 𝑓) = 1 - pf(f, n-1, m-1)
+one-sided-less: 𝑝 = 𝑃(𝐹 < 𝑓) = pf(f, n-1, m-1)
+• Critical values: 𝑓 has right-tail probability 𝛼
+𝛼
+𝑃(𝐹 > 𝑓 | 𝐻 ) = 𝛼 ⇔ 𝑓 = qf(1−𝛼, 𝑛−1, 𝑚−1).
+𝛼 0 𝛼
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

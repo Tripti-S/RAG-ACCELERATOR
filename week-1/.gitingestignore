@@ -1,0 +1,7 @@
+# week-1/.gitingestignore
+data/raw/
+data/processed/
+*.parquet
+*.csv
+*.npy
+*.bin

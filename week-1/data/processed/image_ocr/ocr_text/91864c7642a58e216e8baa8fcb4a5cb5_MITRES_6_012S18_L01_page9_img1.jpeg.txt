@@ -1,0 +1,5 @@
+Some simple consequences of the axioms
+
+e A,B,C disjoint: P(AU BUC) = P(A) + P(B) + P(C)
+
+e P({s1,s0,...,sc}) =

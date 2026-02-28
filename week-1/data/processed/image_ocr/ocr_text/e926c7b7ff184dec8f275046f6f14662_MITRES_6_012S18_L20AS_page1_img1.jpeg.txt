@@ -1,0 +1,14 @@
+LECTURE 20: An introduction to classical statistics
+e Unknown constant 6 (not a r.v.)
+
+e if 6=E[X]: estimate using the sample mean (X; +---+ Xn)/n
+
+— terminology and properties
+
+e Confidence intervals (CIs)
+— CIs using the CLT
+
+— CIs when the variance is unknown
+e Other uses of sample means
+
+e Maximum Likelihood estimation

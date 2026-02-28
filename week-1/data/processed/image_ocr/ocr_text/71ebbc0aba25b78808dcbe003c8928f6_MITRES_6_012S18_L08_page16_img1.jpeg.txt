@@ -1,0 +1,13 @@
+Linear functions of a normal random variable
+
+e Let Y=aX+b X~N(p,07)
+
+E[Y] =
+
+Var(Y) =
+
+e Fact (will prove later in this course):
+
+Y ~ N(ap + b,a2e7)
+
+e Special case: a= 0?

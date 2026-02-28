@@ -1,0 +1,14 @@
+Section means and variances
+e Two sections of a class: y=1 (10 students); y= 2 (20 students)
+x;: score of student i
+
+e Experiment: pick a student at random (uniformly)
+random variables: X and Y
+
+1 10 1 30
+e Data: y=1: 10 2 %= 90 y=2: 20 dv, 71 = 60
+E[X] =
+B[X |Y=1]= E[X | Y] =
+ELX | Y = 2] =
+
+E[E[X | ¥]] =

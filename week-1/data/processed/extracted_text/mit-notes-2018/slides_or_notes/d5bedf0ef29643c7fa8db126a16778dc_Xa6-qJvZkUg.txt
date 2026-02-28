@@ -1,0 +1,18 @@
+MITOCW | MITRES6_012S18_L26-01_300k
+In this final lecture, we will first review the various properties of a nice Markov chain, which ensures steady state
+behavior, and go over some of the notions in more detail with some examples.
+Providing some insights on how good an approximation we have when we use steady state probabilities to
+characterize the behavior of a Markov chain, which has run for a long time, but not an infinite amount of time.
+We will then consider a classical application of Markov chains, which has to do with the design of a phone system.
+This is a famous problem, which was posed, analyzed, and solved by a Danish engineer by the name Erlang.
+It was more than 100 years ago when phones just started to exist, but we will see that this methodology remains
+relevant to design similar systems in today's world.
+We will then make use of all what we have learned so far in order to calculate some interesting short term
+behaviors of Markov chains having more than one recurrent classes.
+We will introduce the notion of absorbing states, and we will show how to calculate the probability of ending up in
+such a state, as well as related quantities such as the expected time it takes to do so.
+As a classical example, we will look at the gambler continuously playing a simple game of chance, say a lottery,
+until he either accumulates a given amount of money or loses all his money.
+Both of these states are absorbing.
+What are their corresponding probabilities?
+After this lecture, you will be able to answer such questions.

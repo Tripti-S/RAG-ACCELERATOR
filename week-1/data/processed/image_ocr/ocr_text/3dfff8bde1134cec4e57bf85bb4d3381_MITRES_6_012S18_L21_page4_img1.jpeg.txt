@@ -1,0 +1,7 @@
+Number of successes/arrivals S in n time slots
+
+P(S =k) =
+
+E[S] =
+
+var(S) =

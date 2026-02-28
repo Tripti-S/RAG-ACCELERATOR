@@ -1,0 +1,3 @@
+Sample space: continuous example
+
+e (x,y) such that O<a,y<1

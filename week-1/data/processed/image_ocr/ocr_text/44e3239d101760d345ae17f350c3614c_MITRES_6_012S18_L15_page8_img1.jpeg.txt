@@ -1,0 +1,15 @@
+The mean squared error
+
+fo|x(6|x) =c: exp { — quad(4)}
+
+(0-20)? , (0-21)? (0 — an)?
+ad 4] — i eee ——
+quad(@) 202 + 20? see 262
+e Performance measures:
+nm
+E[(@ — 6)? |X =a = E[(© - 6)? | X =a] = var(@| xX =2)=1/ 3%
+i=0%
+
+E[(@ — 6)?] =
+
+fx(2) =c: e-(ez*+Brt+7) a>dO Normal with mean —§/2a and variance 1/2a

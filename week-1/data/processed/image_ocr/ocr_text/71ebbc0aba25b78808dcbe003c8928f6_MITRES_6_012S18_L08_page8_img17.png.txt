@@ -1,0 +1,1 @@
+Continuous uniform random variable; parameters a, bd

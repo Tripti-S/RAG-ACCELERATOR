@@ -1,0 +1,8 @@
+Properties of expectations
+
+e If X>0, then E[X] >0
+e Ifa<X <b, thena< E[X] <b
+
+e Expected value rule:
+
+E[g(X)] = 37 9(x)px(2) Elg(X)] = | 9@fx@) da

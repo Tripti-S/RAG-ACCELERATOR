@@ -1,0 +1,16 @@
+Independence and expectations
+
+e In general: E[g(X,Y)] # 9(ELX], B[Y]) always — .
+
+e Exceptions: E[aX +b] = aE[X]+) ELX + Y + Z] = E[X]+ E[Y]+ E[Z]
+
+If X, Y are independent: E[XY] = ELX]E[Y]
+
+g(X) and A(Y) are also independent: E[g(X)h(Y)] = E[g(X)]- E[h(vY)]
+
+Eley) Hey) = EY
+: Z2 ey P (%y) = 5d) Bos Py)
+
+z 2 © Pym) 2Y% = ELx1ELY]
+
+ees

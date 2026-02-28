@@ -1,0 +1,15 @@
+Mathematical background: Infinite series
+
+xa = Jim, Le pro vieled Bron Ox ists
+
+e If a; >0: limit exists &—
+
+e if terms a; do not all have the same sign:
+— limit need not exist
+
+— limit may exist but be different if we sum in a different order
+
+fo. @)
+— Fact: limit exists and independent of order of summation if > lai] < 00
+i=1
+

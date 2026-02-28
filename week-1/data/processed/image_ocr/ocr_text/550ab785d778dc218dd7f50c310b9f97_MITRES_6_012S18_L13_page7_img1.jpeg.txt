@@ -1,0 +1,10 @@
+Derivation of the law of total variance
+
+var(X) = E|var(X | Y)| a var (E[X | Y]) e var(X) = E[X?] — (E[X])?
+
+var(xX |Y =y) =
+var(x | Y) =
+
+E[var(X | Y)] =
+
+var (E[X | Y]) =

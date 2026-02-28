@@ -1,0 +1,330 @@
+# 5620E9F86Ac94F9C87A11A523E8Ed57F Mitres 6 012S18 Mathovervw
+
+---
+
+Mathematical background
+• Sets and De Morgan's laws
+• Sequences and ther limits
+• Infinite series
+- The geometric series
+• Sums with multiple indices
+• Countable and uncountable sets
+•
+1
+51 0 /
+Sets
+Y'I . ."
+t:I
+• A coll ecti o n o f distin ct elem ents
+~ ~~~~
+5
+fa, te
+\',c, d. f~"""
+1-
+S
+?e
+f:
+reo.e
+~u .... ),ers ~"'f.:",ife
+SC
+f S
+x
+Elf(: C05 (:>:.) ;. 1/2.
+tf
+?CE5Z,
+XGsc.
+e
+.Jl :
+ref
+u.1I)1'Vet'~o.. ri
+S
+')c
+r sJ =¢
+¢ : e""'pt 52.
+(Scf=
+5
+c
+I
+s
+S e T :
+xG-5~x~1
+C­
+2
+Unions and intersections
+SUI
+SlJT X€ ~ :leES XE-T
+01'
+?Ce-I
+S (JT S Q'IIId
+SilT J:e ¢:::;> XI':
+5...
+U 5"
+.
+'"
+3
+Set properties
+SVIVU
+"
+S U T = T U S, S U (T U U) = (S U T) U U,
+~>
+n n n n n
+S (T U) (S T) (S U), , " S (T U) (S T) (S U),
+~~ U = U U = U U
+(Se)e S, S n Se 0, •
+= =
+~)
+S U !1 !1, S n !1 S.
+= =
+S e T
+c. S
+I '
+4
+De Morgan's laws
+C (QSnr=~s~
+5 -)5
+( c
+( s ( n ) C
+UT
+~5 S c_'>5
+•
+,
+(~Snr QS~
+=
+c
+(SC.I')T ~5UT
+)
+SenT = (S"UTt
+C
+T
+( >
+5
+Mathematical background: Sequences and their limits
+S
+h ' .,
+IN :: /~".
+0-, ,o...~ ,Q.j.,' ••
+;, E
+5 IR. 10 ""
+Q..: =
+E :; j~
+-5u.....
+d
+lo~
+5-
+~ lTV
+5 Q.,.
+-'7 • • 0
+• ..
+D
+m
+7 ... 10 p
+• •
+= Q; a. • • •
+•
+-t ....-.
+•
+• t
+I L
+"
+For a. ... , z>o,Ul.efl.€ eXists • 5u.c~
+L
+o }
+t to" t Rev. ctJ <
+~ t ~ I Q, - £
+k· .
+<Q.: ... >CH J::, ~ ~CO""- u
+-/;: .... 0(1;'
+=>
+tl.: b; . 1> ~Cq") -:> ~(a.)
+~o
+'';>
+6
+Mathematical background: When does a sequence converge?
+•
+•
+• If a ; $ a;+l , for al l i , then either: •
+• ... :oJ
+•
+•
+•
+- the sequence "converges t o
+00"
+' . D
+- the seque nce converges t o so m e real number a
+la; - al
+• If $ b;, for all i, and b; --+ 0 , th en a; --+ a
+•
+•
+7
+Mathematical background: Infinite senes
+n
+00
+L
+ai = lim " ai
+n-+oo ~
+i= l i= l •
+>
+• If ai 0: limit exists
+• if terms ai do not all have the same sign:
+limit need not exist
+limit may exist but be different if we sum in a different order
+00
+L
+<
+- Fact: limit exists and independent of order of summation if lai l co
+i =l
+-
+8
+Mathematical background: Geometric series
+00
+I: + + + ... 1
+S-:. i 2
+a = 1 a a lal < 1
+I -a
+i =O
+'I" I
+01-0(
+00 • Gb •
+~~I+L-<'
+=1-I-o(Lo(" ::\+0<5
+i
+,
+0 \
+( -·0
+9
+About the order of summation on series with multiple indices
+• • •
+J J J
+L • • • • • • • • • • • • • • • • • • • • •
+a "
+'J
+i> l ,j > l
+• • • • • • • • • • • • • • • • •
+• • • • • • • • • • • • • • • • •
+• • • • • • • • • • • • • • • • •
+• • • • • • • • • • • • • • • •
+, , ,
+. . .
+.
+J
+Q:) 00
+00 00
+0 b 2 -- 2 Z
+• • • • • L ct -·
++1 - 1
+• 19 Q,"
+) =,
+• • • • • r • :. J
+0 • + 1 - 1 : I i-:.I
+(
+1
+• • • •
+~
+0 +1 - 1
+--
+1+01-0· 1
+0
+• • • • "' J =0
+0 - 1
+• +1
+• • • • •
+0 +1 - 1
+,
+.
+10
+About the order of summation serres with multiple indices
+In
+• •
+J J
+~1
+• • • • • •
+I I
+L • • • • • • • •
+<00
+aij
+•
+C·
+(i,j): j<i • • • • • • • • •
+• • • • • • • • • • • •
+• • • • • • • • • • • • • •
+, ,
+. .
+•
+t
+CO
+a. ..
+­
+?
+-
+({ij
+'0
+•
+•
+iJ =, • •
+•
+l:.' I"" ! =)
+11
+Countable versus uncountable infinite sets
+•
+•
+• •
+•
+• Countable: can be put in 1-1 correspondence •
+•
+a, •
+•
+•
+with positive integers
+a. •
+a,
+positive integers
+integers
+pairs of positive integers
+.
+J
+< <
+rational numbers q, with 0 q 1
+•
+•
+••
+•
+•
+• Uncountable: not countable
+•
+the interval [0,1]
+,
+.
+the reals, the plane, ...
+•
+12
+The reals are uncountable
+• Cantor's diagonalization argument
+P f '1§
+• ofeCA""'~ pa. ... o .... ~J 'S,
+<1X J/O ...
+•
+7
+•
+-®
+.'133· . .
+'$'1'-1'7." = X
+"I
+D
+::::f:
+"l..Jg'-l ') "I?
+'1 <"
+X
+t
+a.PP
+78'7 for
+• '3
+'1 '1 '1
+13
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

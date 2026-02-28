@@ -1,0 +1,15 @@
+Independence vs. pairwise independence
+e Two independent fair coin tosses HH
+— Hy: First toss is H
+
+— Hp»: Second toss is H
+TH
+P(H1) = P(H2) = 1/2
+
+e C: the two tosses had the same result
+
+Hy, Ho, and C are pairwise independent, but not independent
+
+AT
+
+TT

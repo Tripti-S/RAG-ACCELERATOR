@@ -1,0 +1,16 @@
+Classical statistics
+
+e Inference using the Bayes rule:
+unknown © and observation X are both random variables fo hw
+— Find pej\x
+e Classical statistics: unknown constant @
+0 Xx x) 6 ew lu ( 10)
+bons 6 — estimate bie 7
+
+— also for vectors X and @: px,.....x,(@1,---,@ni1,..-;Om)
+
+— px(x;0) are NOT conditional probabilities; @ is NOT random
+
+— mathematically: many models, one for each possible value of 0
+
+i. ine

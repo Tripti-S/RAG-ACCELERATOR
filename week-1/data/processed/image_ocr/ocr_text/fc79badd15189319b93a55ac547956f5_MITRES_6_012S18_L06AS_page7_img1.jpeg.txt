@@ -1,0 +1,13 @@
+Example of conditioning
+
+e Let A= {X > 2}
+px (a) pxa(2)
+1/4 1/3
+1 2 3 4 = 123 4 2
+E[X] = 2.5 E[X | A]= 3
+var(X) = S(b-a)(b-asg) —-var(X A= > (4 - syrt + (3-3)"
+So e : 2
+ti 3722
+
+_ 7k
++7 (2 2)* 3

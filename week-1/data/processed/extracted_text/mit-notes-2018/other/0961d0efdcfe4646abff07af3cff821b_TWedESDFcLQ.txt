@@ -1,0 +1,83 @@
+MITOCW | MITRES6_012S18_L25-06_300k
+All right.
+So, as we've seen in the previous clip, another way that initial conditions may matter is if a chain has a periodic
+structure.
+There are many ways of defining periodicity.
+Some of them are more mathematical than others.
+Let us consider one of the most intuitive ways of doing that.
+So here is the definition.
+The states in a recurrent class are periodic if they can be lumped together, or grouped, into several subgroups so
+that all transitions from one group lead to the next group.
+So what does that really mean?
+Let us try to parse out this by looking at the given example.
+So here we would have a situation, a structure of a diagram, in which d is equal to 2.
+Whenever you are at a given time in a state in that group, in the next transition you will go to that group.
+And if you are in that group, at the next transition, you will go to that group.
+So in some sense, there is periodicity, and there is somewhat of a deterministic behavior, according to this
+transition.
+But there is also some randomness left.
+We can be in any of these states within that sub-group.
+But one thing that is for sure is that whenever, at a given time, you are into one of these states, here, in that
+group, if the Markov chain has this specific structure, in the next transition you will transition to one of the states,
+here.
+And the next transition after, you will go back here.
+So essentially, if your Markov chain started in one of these states here, at time n equals zero, then at time n
+equals 1, it would be here.
+And then at time n equals 2, it would be here.
+Times them into 3, and so on and so forth.
+So every time you would have an even number, then you are guaranteed that the Markov chain will be in one of
+these states, here.
+Clearly, with this kind of structure, it is impossible to have convergence of the steady state probabilities.
+This is another example where you would have a structure of a diagram in which you have a period of 3, here.
+So in that case here, d equals 3.
+So here again, if you are in one of these states at a given time, then at the next time the following transition will
+guarantee to bring you in that group.
+And during the next transition you will go to that group.
+And then again, here, and again you have this kind of behavior in a very systematic way.
+So if you started here at time n equals 0, you would be in that group, here, at times n equals 1.
+And you would be here at n equals 2.
+And again, n equals 3 here, n equals 4, n equals 5, 6, 7, 8.
+And you see the pattern.
+If you look at any time in the future, if the time is of the form 3 times k for any k greater than or equal to 0, you're
+guaranteed that your chain will be in one of these states.
+Otherwise, it will be here, or here.
+So here again, you do not have convergence of the steady states, because if you are told that you started in one
+of the states here, then you know that whenever you have a time that is the form 3k plus 1 you will be here.
+And so the probability of being here would be 0.
+All right, so we have been able to explain a little bit what a periodic state is, using this definition.
+Now given a Markov chain, how can we tell whether a Markov chain is periodic or not?
+There are, in fact, systematic ways of doing it mathematically.
+But usually within the types of examples we see in this class-- most of them, these will be easy to see-- we just
+eyeball the chain and we tell whether it is periodic or not.
+So let us see if it is that easy to do, and consider that chain, here.
+OK, so let's see.
+Is this chain periodic or not?
+I will give you a couple of seconds to think about it.
+Now I'm going to help a little bit.
+I'll just decide that this one will be red, this one will be red, this one will be red, and this one will be red.
+Now I'm asking the same question.
+What do you think?
+Well, from the structure it is clear that this Markov chain is periodic and has a period of d equals 2.
+In some sense, the red state, here, could be one of these groups.
+These are the red ones.
+And the white, here, would be those, here.
+And it is clear, if you look at this diagram, that whenever you are in a red state, at the next transition you are
+guaranteed to be in a white state.
+From this one, you will be in white.
+From this one, you will be in the white.
+From this one , as well.
+And from this one, as well.
+And whenever you are in a white state, this one, this one, this one, or this one, at the next period you are
+guaranteed to be in a red state.
+So this tells you that sometimes it is not that easy to eyeball and decide if the Markov chain is periodic or not.
+If you have, for example, lots of, lots of states, you might have some trouble doing this exercise.
+On the other hand, something very useful to know.
+Sometimes, it's extremely easy to tell that the chain is not periodic, even if you have a lot of states.
+What is that case?
+Well, look at this case, here, and suppose for a moment that you have a self transition here.
+Well in that case, you would have a transition from a white state to a white state.
+And you're not guaranteed anymore that from a white state you would go to a red state.
+In that sense, as soon as you have a self transition, the Markov chain is aperiodic.
+It cannot be periodic.
+So whenever you have a self transition, this implies that the chain is not periodic.
+And usually that's the simplest and easiest way that we can tell, most of the time, that the chain is not periodic.

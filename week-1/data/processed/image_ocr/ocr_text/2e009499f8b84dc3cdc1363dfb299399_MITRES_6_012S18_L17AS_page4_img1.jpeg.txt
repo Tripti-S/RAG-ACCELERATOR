@@ -1,0 +1,15 @@
+Remarks on the solution and on the error variance
+
+6, =Ele]+ SAX E[X]) = E[] + p22 (x -E[X])
+e Only means, variances, covariances matter
+‘i [oe] jel=2
+ep>o: XrE[x] ~ OA, 7 EL® Se
+p [: L CO; = (2)
+
+[Fle: -e)7]=a-— var) |
+
+2
+E[(B~ p32 x)*]> %' - 2P52 posgn pt Se oe
+
+assume Efoj=E[x]=0
+

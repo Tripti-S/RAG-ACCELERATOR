@@ -1,0 +1,151 @@
+# Mit18 05 S22 Class13 Pset Sol
+
+---
+
+Class 13 in-class problems, 18.05, Spring 2022
+In class examples and discussion
+Class example 1.
+• Three types of coins with probabilities 0.25, 0.5, 0.75 of heads.
+• Assume the numbers of each type are in the ratio 1 to 2 to 1.
+• Assume we pick a coin at random, toss it twice and get 𝑇 𝑇 .
+Compute the posterior probability the coin has probability 0.25 of heads.
+Solution: Let 𝜃 be the probability of heads for the chosen coin. We have three hypotheses:
+𝜃 = 0.25, 𝜃 = 0.5, 𝜃 = 0.75. Let’s denote these hypotheses by 𝜃 , 𝜃 and 𝜃 .
+0.25 0.5 0.75
+The data is 𝑇 𝑇 and we want to compute 𝑃 (𝜃 | 𝑇 𝑇 ).
+0.25
+Using a Bayesian update table:
+hypotheses prior likelihood Bayes numerator posterior
+ℋ 𝑃 (ℋ) 𝑃 (𝑇 𝑇 |ℋ) 𝑃 (𝑇 𝑇 |ℋ)𝑃 (ℋ) 𝑃 (ℋ|𝑇 𝑇 )
+𝜃 1/4 (0.75)2 0.141 0.500
+0.25
+𝜃 1/2 (0.5)2 0.125 0.444
+0.5
+𝜃 1/4 (0.25)2 0.016 0.056
+0.75
+Total 1 𝑃 (𝑇 𝑇 ) = 0.281 1
+Don’t forget that the update table is just a nice presentation of Bayes’ formula and the law
+of total probability. Please be sure you understand how each of the entries in the update
+table correspond to the pieces of Bayes’ formula. For example, the posterior for 𝜃 is
+0.25
+computed in the first row. Written long-hand it looks like:
+𝑃 (𝑇 𝑇 |𝜃 )𝑃 (𝜃 )
+𝑃 (𝜃 |𝑇 𝑇 ) = 0.25 0.25
+0.25 𝑃 (𝑇 𝑇 )
+𝑃 (𝑇 𝑇 |𝜃 )𝑃 (𝜃 )
+= 0.25 0.25
+𝑃 (𝑇 𝑇 |𝜃 )𝑃 (𝜃 ) + 𝑃 (𝑇 𝑇 |𝜃 )𝑃 (𝜃 ) + 𝑃 (𝑇 𝑇 |𝜃 )𝑃 (𝜃 )
+0.25 0.25 0.5 0.5 0.75 0.75
+(0.75)2(1/4)
+=
+(0.75)2(1/4) + (0.5)2(1/2) + (0.25)2(1/4)
+= 0.5.
+Note. The total probability 𝑃 (𝑇 𝑇 ) is also called the prior predictive probability of the
+data.
+Concept questions
+Concept question 1. Discrete or continuous?
+Suppose 𝑋 ∼ Bernoulli(𝜃) where the value of 𝜃 is unknown. If we use Bayesian methods to
+make probabilistic statements about 𝜃 then which one of the following is true?
+1. The random variable is discrete, the space of hypotheses is discrete.
+1
+18.05 class 13 problems, Spring 2022 2
+2. The random variable is discrete, the space of hypotheses is continuous.
+3. The random variable is continuous, the space of hypotheses is discrete.
+4. The random variable is continuous, the space of hypotheses is continuous.
+Solution: 2. A Bernoulli random variable takes values 0 or 1. So 𝑋 is discrete. The pa-
+rameter 𝜃 can be anywhere in the continuous range [0,1]. Therefore the space of hypotheses
+is continuous.
+Board questions
+Problem 1. Total probability
+(a) A coin has unknown probability of heads 𝜃 with prior pdf, for the value of 𝜃, 𝑓(𝜃) = 3𝜃2.
+Find the probability of throwing tails on the first toss.
+(b) Describe an experiment with success and failure that this models. Include the reason
+for the prior in your description.
+Solution: (a) Take 𝑥 = 1 for heads and 𝑥 = 0 for tails. The likelihood 𝑝(𝑥 = 0|𝜃) = 1−𝜃.
+The law of total probability says
+1 1
+𝑝(𝑥 = 0) = ∫ 𝑝(𝑥 = 0|𝜃)𝑓(𝜃)𝑑𝜃 = ∫ (1−𝜃)3𝜃2𝑑𝜃 = 1/4.
+0 0
+(b) There are many possible examples. Here’s one:
+A medical treatment has unknown probability 𝜃 of success. A priori we think it’s a good
+treatment so we use a prior of 𝑓(𝜃) = 3𝜃2 which is biased towards success. If the first use
+is succesful, then after updating we would believe a little more strongly in the treatment.
+Problem 2. Bent coin 1
+We have a ‘bent’ coin with an unknown probability 𝜃 of heads. Assume the following:
+• Prior for the value of 𝜃: 𝑓(𝜃) = 2𝜃 on [0, 1].
+• Data: toss once and get heads.
+(a) Find the posterior pdf to this data.
+(b) Suppose you toss again and get tails. Update your posterior from part (a) using this
+data.
+(c) On one set of axes graph the prior and the posteriors from parts (a) and (b).
+(a) Solution: Here’s the update table
+Bayes
+hypoth. range prior likelihood numerator posterior
+𝜃 [0, 1] 2𝜃 𝑑𝜃 𝜃 2𝜃2 𝑑𝜃 3𝜃2 𝑑𝜃
+Total [0, 1] 1 𝑇 = ∫ 1 2𝜃2 𝑑𝜃 = 2/3 1
+0
+Posterior pdf: 𝑓(𝜃|𝑥) = 3𝜃2. (Graph below.)
+18.05 class 13 problems, Spring 2022 3
+Note: We don’t really need to compute 𝑇 . Once we know the posterior density is of the
+form 𝑐𝜃2 we only have to find the value of 𝑐 makes it have total probability 1.
+(b) Solution:
+Bayes
+hypoth. range prior likelihood numerator posterior
+𝜃 [0, 1] 3𝜃2 𝑑𝜃 1 − 𝜃 3𝜃2(1 − 𝜃), 𝑑𝜃 12𝜃2(1 − 𝜃) 𝑑𝜃
+Total [0, 1] 1 ∫ 1 3𝜃2(1 − 𝜃) 𝑑𝜃 = 1/4 1
+0
+Posterior pdf: 𝑓(𝜃|𝑥) = 12𝜃2(1 − 𝜃).
+(c) Solution: Here is the plot of the prior and the two posteriors. Notice that posterior b
+is 0 at 𝜃 = 1. This happened because the tails on the second toss means 𝜃 cannot equal 1.
+0.0 0.2 0.4 0.6 0.8 1.0
+0.3
+5.2
+0.2
+5.1
+0.1
+5.0
+0.0
+Prior, posterior a, posterior b
+Posterior a
+Prior
+Posterior b
+q
+Problem 2. Bent coin 2
+Same scenario: bent coin ∼ Bernoulli(𝜃).
+Flat prior: 𝑓(𝜃) = 1 on [0, 1]
+Data: toss 27 times and get 15 heads and 12 tails.
+Use this data to find the posterior pdf.
+Write an integral formula for the normalizing factor (total probability of the data), but do
+not compute it. Call its value 𝑇 and give the posterior pdf in terms of 𝑇 .
+Solution: Here’s the update table.
+Bayes
+hypoth. range prior likelihood numerator posterior
+𝜃 [0, 1] 1 ⋅ 𝑑𝜃 (27)𝜃15(1 − 𝜃)12 (27)𝜃15(1 − 𝜃)12 𝑑𝜃 𝑐𝜃15(1 − 𝜃)12 𝑑𝜃
+15 15
+Total [0, 1] 1 𝑇 = ∫ 1 (27)𝜃15(1 − 𝜃)12 𝑑𝜃 1
+0 15
+(27 )
+So, 𝑓(𝜃|𝑥) = 𝑐𝜃15(1 − 𝜃)12, where 𝑐 = 15 . A computation (or Wikipedia) would show
+𝑇
+28!
+𝑐 =
+15! 12!
+18.05 class 13 problems, Spring 2022 4
+Both prior and posterior are Beta distributions. Here are plots.
+0.0 0.2 0.4 0.6 0.8 1.0
+4
+3
+2
+1
+0
+Prior and posterior
+Posterior
+Prior
+q
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

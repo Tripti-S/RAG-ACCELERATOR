@@ -1,0 +1,535 @@
+optimization - Why to optimize max log probability instead of probability - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Why to optimize max log probability instead of probability
+Ask Question
+Asked
+10 years, 4 months ago
+Modified
+6 years, 7 months ago
+Viewed
+45k times
+99
+$\begingroup$
+In most machine learning tasks where you can formulate some probability $p$ which should be maximised, we would actually optimize the log probability $\log p$ instead of the probability for some parameters $\theta$. E.g. in maximum likelihood training, it's usually the log-likelihood. When doing this with some gradient method, this involves a factor:
+$$ \frac{\partial \log p}{\partial \theta} = \frac{1}{p} \cdot \frac{\partial p}{\partial \theta} $$
+See
+here
+or
+here
+for some examples.
+Of course, the optimization is equivalent, but the gradient will be different, so any gradient-based method will behave different (esp. stochastic gradient methods).
+Is there any justification that the $\log p$ gradient works better than the $p$ gradient?
+probability
+optimization
+likelihood
+Share
+Cite
+Improve this question
+Follow
+asked
+Sep 28, 2015 at 8:37
+Albert
+1,275
+1
+1 gold badge
+11
+11 silver badges
+14
+14 bronze badges
+$\endgroup$
+2
+3
+$\begingroup$
+you need to notice that we usually maximize likelihood using derivatives. On the other hand in many cases the independence condition is applied meaning that the Likelihood is the product of some iid probability density functions. Moreover product of many small values (in  [0,1] interval) results in a very tiny value. This result in a computation difficulty.
+$\endgroup$
+TPArrow
+–
+TPArrow
+2015-09-28 09:20:34 +00:00
+Commented
+Sep 28, 2015 at 9:20
+$\begingroup$
+@AlejandroRodriguez check out my
+answer
+here for more detail.
+$\endgroup$
+Paul
+–
+Paul
+2015-10-12 17:34:57 +00:00
+Commented
+Oct 12, 2015 at 17:34
+Add a comment
+|
+7 Answers
+7
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+107
++50
+$\begingroup$
+Gradient methods generally work better optimizing $\log p(x)$ than $p(x)$ because the gradient of $\log p(x)$ is generally more
+well-scaled
+. That is, it has a size that consistently and helpfully reflects the objective function's geometry, making it easier to select an appropriate step size and get to the optimum in fewer steps.
+To see what I mean, compare the gradient optimization process for $p(x) = \exp(-x^2)$ and $f(x) = \log p(x) = -x^2$. At any point $x$, the gradient of $f(x)$ is $$f'(x) = -2x.$$ If we multiply that by $1/2$, we get the exact step size needed to get to the global optimum at the origin, no matter what $x$ is. This means that we don't have to work too hard to get a good step size (or "learning rate" in ML jargon). No matter where our initial point is, we just set our step to half the gradient and we'll be at the origin in one step. And if we don't know the exact factor that is needed, we can just pick a step size around 1, do a bit of line search, and we'll find a great step size very quickly, one that works well no matter where $x$ is. This property is robust to translation and scaling of $f(x)$. While scaling $f(x)$ will cause the optimal step scaling to differ from 1/2, at least the step scaling will be the same no matter what $x$ is, so we only have to find one parameter to get an efficient gradient-based optimization scheme.
+In contrast, the gradient of $p(x)$ has very poor global properties for optimization. We have $$p'(x) = f'(x) p(x)= -2x \exp(-x^2).$$ This multiplies the perfectly nice, well-behaved gradient $-2x$ with a factor $\exp(-x^2)$ which decays (faster than) exponentially as $x$ increases. At $x = 5$, we already have $\exp(-x^2) = 1.4 \cdot 10^{-11}$, so a step along the gradient vector is about $10^{-11}$ times too small. To get a reasonable step size toward the optimum, we'd have to scale the gradient by the reciprocal of that, an enormous constant $\sim 10^{11}$. Such a badly-scaled gradient is worse than useless for optimization purposes - we'd be better off just attempting a unit step in the uphill direction than setting our step by scaling against $p'(x)$! (In many variables $p'(x)$ becomes a bit more useful since we at least get directional information from the gradient, but the scaling issue remains.)
+In general there is no guarantee that $\log p(x)$ will have such great gradient scaling properties as this toy example, especially when we have more than one variable. However, for pretty much any nontrivial problem, $\log p(x)$ is going to be way, way better than $p(x)$. This is because the likelihood is a big product with a bunch of terms, and the log turns that product into a sum, as noted in several other answers. Provided the terms in the likelihood are
+well-behaved
+from an optimization standpoint, their log is generally well-behaved, and the sum of well-behaved functions is well-behaved. By
+well-behaved
+I mean $f''(x)$ doesn't change too much or too rapidly, leading to a nearly quadratic function that is easy to optimize by gradient methods. The sum of a derivative is the derivative of the sum, no matter what the derivative's order, which helps to ensure that that big pile of sum terms has a very reasonable second derivative!
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 13, 2015 at 16:51
+answered
+Oct 12, 2015 at 11:54
+Paul
+11.2k
+3
+3 gold badges
+33
+33 silver badges
+58
+58 bronze badges
+$\endgroup$
+2
+7
+$\begingroup$
++1 This answer brings up and emphasizes points that get to the heart of the matter.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2015-10-12 16:26:34 +00:00
+Commented
+Oct 12, 2015 at 16:26
+1
+$\begingroup$
+Thanks! I wanted to try this on tensorflow. For those accustomed to tensorflow here it is a quick implementation:
+here
+$\endgroup$
+user_anon
+–
+user_anon
+2020-07-04 13:30:28 +00:00
+Commented
+Jul 4, 2020 at 13:30
+Add a comment
+|
+64
+$\begingroup$
+Underflow
+The computer uses a limited digit floating point representation of fractions, multiplying so many probabilities is guaranteed to be very very close to zero.
+With $log$, we don't have this issue.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Sep 28, 2015 at 9:23
+Uri Goren
+1,841
+1
+1 gold badge
+14
+14 silver badges
+25
+25 bronze badges
+$\endgroup$
+7
+4
+$\begingroup$
++1 for numerical stability - this and the Yuril's answer should be one!
+$\endgroup$
+Alec Teal
+–
+Alec Teal
+2015-09-29 00:02:46 +00:00
+Commented
+Sep 29, 2015 at 0:02
+1
+$\begingroup$
+You can calculate the product in log-space, thus it becomes a sum, and then transfer it back. Or you calculate $\frac{\partial \log p}{\partial \theta} \cdot p$ which is equal to $\frac{\partial p}{\partial \theta}$. So, numerical stability is not the question.
+$\endgroup$
+Albert
+–
+Albert
+2015-09-29 06:58:32 +00:00
+Commented
+Sep 29, 2015 at 6:58
+5
+$\begingroup$
+@Filip The terminology in this thread is somewhat ill-advised. We're discussing probability
+densities
+, not probabilities. Densities are arbitrary: they depend on the units of measurement. Moreover, for sufficient sample sizes the probability density of any simple sample from a parametric model will eventually be less than $2^{-127}$. In large problems (with millions of data), probability densities routinely are $2^{-1000000}$ or smaller. Even a sample of size $80$ from the standard Normal distribution is almost certain to have a probability density less than $2^{-127}$.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2015-09-29 20:53:51 +00:00
+Commented
+Sep 29, 2015 at 20:53
+4
+$\begingroup$
+@FilipHaglund : whuber is correct, however, the fact that it's densities isn't the crucial observation here. We could just as well be discussing a discrete process and talking about actual probabilities (and in fact, the OP did not say anything that excludes this case). But we're talking about probabilities for very specific outcomes (e.g., a million observations going some particular way). A single specific outcome is unlikely, but in Bayesian inference ratios of probabilities are important, so we need to know how much bigger is one tiny probability from another.
+$\endgroup$
+Meni Rosenfeld
+–
+Meni Rosenfeld
+2015-10-10 20:31:45 +00:00
+Commented
+Oct 10, 2015 at 20:31
+2
+$\begingroup$
+Yes, but underflo is not the whole picture.  Logarithms was used this way long before we hadf computers, logarithms are also used in purely theoretical treatments, so there are some underlying theoretical reasons as well!
+$\endgroup$
+kjetil b halvorsen
+–
+kjetil b halvorsen
+♦
+2016-03-16 13:15:37 +00:00
+Commented
+Mar 16, 2016 at 13:15
+|
+Show
+2
+more comments
+48
++50
+$\begingroup$
+The logarithm of the probability of multiple joint probabilities
+simplifies to the sum
+of the logarithms of the individual probabilities (and the sum rule is easier than the product rule for differentiation)
+$\log \left(\prod_i P(x_i)\right) = \sum_i \log \left( P(x_i)\right)$
+The logarithm of a member of the family of
+exponential
+probability distributions (which includes the ubiquitous normal) is polynomial in the parameters (i.e. max-likelihood reduces to
+least-squares
+for normal distributions)
+$\log\left(\exp\left(-\frac{1}{2}x^2\right)\right) = -\frac{1}{2}x^2$
+The latter form is both more
+numerically stable
+and
+symbolically
+easier to differentiate than the former.
+Last but not least, the logarithm is a
+monotonic
+transformation that preserves the locations of the extrema (in particular, the estimated parameters in max-likelihood are identical for the original and the log-transformed formulation)
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 28, 2015 at 16:46
+answered
+Sep 28, 2015 at 15:56
+TemplateRex
+713
+4
+4 silver badges
+11
+11 bronze badges
+$\endgroup$
+4
+6
+$\begingroup$
+Reason 2 cannot be stressed enough. To maximize the log-likelihood for a linear model with Gaussian noise, you just have to solve a least-squares problem, which amounts to solving a linear system of equations.
+$\endgroup$
+Paul
+–
+Paul
+2015-09-28 16:41:11 +00:00
+Commented
+Sep 28, 2015 at 16:41
+$\begingroup$
+Reason 1 and 3 just describe how to calculate it. You can calculate it that way and then convert it back (multiply by $p$) to get $\frac{\partial p}{\partial \theta}$. It's actually quite common to calculate in log-space for numerical stability. But that does not explain why you use that gradient. Reason 4 also is not a reason why the $\log p$ gradient is better. You can do that with many other transformations, too. Reason 2 is interesting but I'm still not exactly sure why the gradient of a polynomial is better than the gradient of another function.
+$\endgroup$
+Albert
+–
+Albert
+2015-09-29 07:04:43 +00:00
+Commented
+Sep 29, 2015 at 7:04
+$\begingroup$
+@Albert the derivative of a polynomial is a polynomial of one degree lower (in particular, quadratic goes to linear), whereas exponentials don't simply under differentiation
+$\endgroup$
+TemplateRex
+–
+TemplateRex
+2015-09-29 07:18:53 +00:00
+Commented
+Sep 29, 2015 at 7:18
+$\begingroup$
+@TemplateRex: Yes, that's clear. But I'm asking about the convergence properties in a stochastic gradient method.
+$\endgroup$
+Albert
+–
+Albert
+2015-09-29 13:16:18 +00:00
+Commented
+Sep 29, 2015 at 13:16
+Add a comment
+|
+30
+$\begingroup$
+It is much easier to take a derivative of sum of logarithms than to take a derivative of product, that contains, say, 100 multipliers.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 28, 2015 at 12:04
+answered
+Sep 28, 2015 at 8:50
+Yurii
+2,014
+1
+1 gold badge
+20
+20 silver badges
+26
+26 bronze badges
+$\endgroup$
+2
+12
+$\begingroup$
+Plus you reduce potential numerical problems when terms become very small or large.
+$\endgroup$
+Björn
+–
+Björn
+2015-09-28 09:17:11 +00:00
+Commented
+Sep 28, 2015 at 9:17
+8
+$\begingroup$
+On the contrary, the OP implicitly provides an excellent way to compute the derivative of any product of nonnegative functions: multiply the sum of the derivatives of the logs by the product itself. (This multiplication is best carried out in terms of logarithms, which eliminates the numerical problems referred to in @Björn's comment, too.) Thus, "ease" offers no real explanatory power, nor does it address the more meaningful question about comparing the gradients.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2015-09-28 16:53:25 +00:00
+Commented
+Sep 28, 2015 at 16:53
+Add a comment
+|
+11
+$\begingroup$
+As a general rule, the most basic and easy optimization problem is to optimize a quadratic function. You can easily find the optimum of such a function no matter where you start. How this manifests depends on the specific method but the closer your function to a quadratic, the better.
+As noted by TemplateRex, in a wide variety of problems, the probabilities that go into calculating the likelihood function come from the normal distribution, or are approximated by it. So if you work on the log, you get a nice quadratic function. Whereas if you work on the probabilities, you have a function that
+Is not convex (the bane of optimization algorithms everywhere)
+Crosses multiple scales rapidly, and therefore has a very narrow range where the function values are indicative of where to direct your search.
+Which function would you rather optimize,
+this
+, or
+this
+?
+(This was actually an easy one; in practical applications your search can start so far off the optimum that the function values and gradients, even if you were able to compute them numerically, will be indistinguishable from 0 and useless for the purposes of the optimization algorithm. But transforming to a quadratic function makes this a piece of cake.)
+Note that this is completely consistent with the numerical stability issues already mentioned. The reason log scale is required to work with this function, is exactly the same reason that the log probability is much better behaved (for optimization and other purposes) than the original.
+You could also approach this another way. Even if there was no advantage to the log (which there is) - we're gonna use the log scale anyway for derivations and calculation, so what reason is there to apply the exp transformation just for computing the gradient? We may as well remain consistent with the log.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 29, 2015 at 19:27
+answered
+Sep 29, 2015 at 19:22
+Meni Rosenfeld
+578
+2
+2 silver badges
+12
+12 bronze badges
+$\endgroup$
+1
+$\begingroup$
+@TemplateRex: The log of a (downward) convex positive function is convex, but the converse isn't true. The probabilities aren't convex so they have nothing to preserve, but the log is convex. Look at the graphs I linked - exp(-10x^2) is obviously non-convex, but -10x^2 is.
+$\endgroup$
+Meni Rosenfeld
+–
+Meni Rosenfeld
+2015-09-29 20:36:59 +00:00
+Commented
+Sep 29, 2015 at 20:36
+Add a comment
+|
+4
+$\begingroup$
+By using the $\ln p$ we increase the dynamic range of the optimization algorithm. The $p$ in applications is usually a product of functions. For instance, in maximum likelihood estimation it's the product of the form $L(x|\theta)=\Pi_{i=1}^n f(x_i|\theta)$, where $f(.)$ is the density function, which can be greater or less than 1, btw.
+So, when $n$ is very large, i.e. large sample, your likelihood function $L(.)$ is usually far away from 1: it's either very small or very large, because it's a power function $L\sim f(.)^n$.
+By taking a log we simply improve the dynamic range of any optimization algorithm, allowing it to work with extremely large or small values in the same way.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Oct 7, 2015 at 20:57
+Aksakal
+63.4k
+6
+6 gold badges
+109
+109 silver badges
+212
+212 bronze badges
+$\endgroup$
+Add a comment
+|
+0
+$\begingroup$
+Some nice answers have been given already. But I encountered recently a new one:
+Often, you are given a huge training data set
+$\mathcal{X}$
+, and you define some probabilistic model
+$p(x|\theta)$
+, and you want to maximize the likelihood for
+$x \in \mathcal{X}$
+. They are assumed to be independent, i.e. you have
+$$
+p(\mathcal{X}|\theta) = \prod_{x\in\mathcal{X}} p(x|\theta) .
+$$
+Now, you often do some sort of stochastic (mini-batch) gradient-based training, i.e. in each step, for your loss
+$L$
+, you optimize
+$L(\mathcal{X'}|\theta)$
+for
+$\mathcal{X'} \subset \mathcal{X}$
+, i.e.
+$$
+\theta' := \theta - \frac{\partial \sum_{x\in\mathcal{X'}} L(x|\theta)}{\partial \theta} .
+$$
+Now, these stochastic steps are accumulated additively. Because of that, you want the property that in general
+$$
+L(\mathcal{X}|\theta) = \sum_{x\in\mathcal{X}} L(x|\theta) .
+$$
+This is the case for
+$$
+L(x|\theta) = -\log p(x|\theta) .
+$$
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 25, 2019 at 7:49
+Albert
+1,275
+1
+1 gold badge
+11
+11 silver badges
+14
+14 bronze badges
+$\endgroup$
+Add a comment
+|
+Your Answer
+Draft saved
+Draft discarded
+Sign up or
+log in
+Sign up using Google
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+By clicking “Post Your Answer”, you agree to our
+terms of service
+and acknowledge you have read our
+privacy policy
+.
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+optimization
+likelihood
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+74
+Why do we minimize the negative likelihood if it is equivalent to maximization of the likelihood?
+10
+How do you fit a Poisson distribution to table data?
+4
+What is bad about maximizing $\sum_{i}{p(x_{i}|\theta)}$ instead of maximizing $\prod_{i}{p(x_{i}|\theta)}$
+2
+logarithm in loglikelihood
+0
+likelihood function of a line regression equation
+Related
+2
+Gradient and Hessian of a likelihood function where y is defined implicitly
+16
+Optimization with orthogonal constraints
+34
+Theoretical motivation for using log-likelihood vs likelihood
+2
+Derivation of a marginal log likelihood
+3
+Gradient ascent to maximise log likelihood
+2
+Why does the score test work for values longer in the tail that have a small log-likelihood derivative?
+4
+Why are Likelihood Functions from Exponential Family Convex?
+5
+How to prevent negative variance estimates in likelihood optimization?
+Hot Network Questions
+Do we assume that there are assumptions?
+Did George Boole invent boolean algebra to explain the Trinity?
+PTIJ: Need help picking a topic for a halacha shiur
+Can a coin be 'completely' unclippable?
+Who's the first adult woman protagonist to involuntarily go to another universe / reality / world?
+Holding notes and purpose of the arc
+Generate random, unique, nonzero integers
+Wake on LAN stopped working after upgrading packages
+Where do we stop vetting people in the presidential line of succession for eligibility to be president?
+Can commit messages include volatile information?
+What is he doing?!
+Recurrence functional inequality
+Modeling a curved boombox body with clean topology for speaker holes
+When are Closure nodes necessary in Geometry Nodes compared to Node Groups?
+Why is the asymptotic variance of true errors and residuals the same
+apt remove does not fail upon removing a package that is a dependency of another
+Why does 74x138 have 3 EN and why does it have to be 1 EN active high and 2 active low?
+Would the Catholic Church excommunicate parents who are otherwise faithful, over only their being credo baptists?
+What is the name of this polyhedron formed from six squares and eight equilateral triangles?
+Can the beat frequency of two slightly different tones cause a room to resonate?
+Some books recommendation by which I can know about what's happening in current mathematics research in Pure mathematics?
+Regular delays in sent (not received) pings
+What circumstances could make kidnapping and murder of Nancy Guthrie a federal crime?
+What does "crown" symbolise in "the crown of righteousness" 2 Timothy 4:8?
+more hot questions
+Question feed

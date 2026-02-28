@@ -1,0 +1,60 @@
+MITOCW | MITRES6_012S18_L22-02_300k
+We now set out to study the Poisson process, which is a continuous time version of the Bernoulli process.
+In the Bernoulli process, time is divided into slots.
+And during each one of the slots, we may either have an arrival or no arrival.
+In the Poisson process, time is continuous.
+And we may get arrivals at any time.
+We want to define the Poisson process by introducing some assumptions that in some ways parallel the
+assumptions that we made for the Bernoulli process.
+What where those assumptions?
+The first one we made was the assumption of independence-- namely that what happens in different slots are
+independent.
+Similarly, for the Poisson process, we will make the following independence assumption.
+If we consider two intervals, two time intervals that are disjoint, and look at the random variable that stands for the
+number of arrivals during this interval and that interval, we will assume that these two random variables are
+independent.
+But even more than that, if we take any collection of disjoint time intervals, and we look at the associated random
+variables, the associated numbers of arrivals, that collection will also consist of independent random variables.
+The second assumption for the Bernoulli processes was one of time homogeneity, namely at each slot, we had
+the same probability of an arrival.
+We want to make a similar assumption for the Poisson process, and it's going to be the following.
+The probability that we have k arrivals during an interval of a certain duration tau is going to be the same no
+matter where that interval sits.
+So if this is an interval that has a certain duration, and this is an interval that has the same duration, the probability
+of three arrivals in this interval is going to be the same as the probability of three arrivals in that interval.
+And therefore, since this probability does not depend on where the interval sits, that probability will be fully defined
+by the number of arrivals that we're interested in and the length of the interval as opposed to the location of the
+interval.
+So we will be using this notation here to indicate this probability.
+In this notation, we think of tau as a constant.
+And then, P of k corresponds to probabilities.
+In particular, if you add over all k's the various probabilities, what you should get would be a value of 1, because
+this exhausts all the possibilities.
+And k here ranges from 0 to infinity, because we allow an arbitrarily large number of arrivals during a given time
+interval.
+Now, with this assumption in place, it would still be possible to have arrivals that happen simultaneously, multiple
+arrivals at the same time point.
+In order to avoid this situation, we introduce one more assumption which is the following.
+It talks about the number of arrivals during a time interval that has a small length delta.
+During a small time interval, there is negligible probability of having more than one arrival.
+We will either have one or zero arrivals.
+And the probability of one arrival is a certain number, lambda times delta.
+It's proportional to delta.
+So if the interval becomes smaller and smaller, that probability also goes to 0.
+But it goes to 0 at a rate proportional to delta.
+So you can think of lambda as probability per unit time.
+These are the units of lambda.
+Now here, I'm writing an approximate equality.
+What does that mean?
+It means that these are not exact expressions.
+But they are exact within a second order term.
+And a second order term is a term that's negligible compared to the first order term when delta is small.
+More precisely, mathematically, what we mean is that a second order term compared to a first order term goes to
+0 as delta goes to 0.
+Finally, let me reiterate that lambda should be interpreted as an arrival rate.
+It is a probability per unit time.
+The bigger lambda is, the bigger the probability is that we get an arrival during a small time interval.
+If we double lambda, then we double the probability that we have an arrival during a small time interval.
+And so we expect to have about twice as many arrivals, hence the interpretation as an arrival rate.
+We will see shortly that this is also justified because lambda shows up in expressions for the expected number of
+arrivals during a time interval.

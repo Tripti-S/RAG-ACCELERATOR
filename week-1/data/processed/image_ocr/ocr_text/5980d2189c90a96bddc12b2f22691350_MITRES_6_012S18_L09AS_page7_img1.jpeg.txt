@@ -1,0 +1,11 @@
+Memorylessness of the exponential PDF
+
+fr(a) =e”, for x >0
+
+P(O<T<5) X £ (0)-d ad i
+
+vcr Ad
+
+similar to an independent coin flip,
+every 6 time steps,
+with P(success) Ad

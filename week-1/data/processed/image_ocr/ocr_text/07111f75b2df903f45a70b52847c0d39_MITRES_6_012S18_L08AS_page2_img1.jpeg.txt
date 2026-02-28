@@ -1,0 +1,16 @@
+Probability density functions (PDFs)
+PDF fx(z)
+
+px(e)
+
+P(a<X <b)
+
+: i
+a b =
+P(a<X<d)= YD pyle) Pa<xX <0) = [" fx(a)de
+aiac<a<b 4a e
+px(#) > 0 Lpx(e) =1 « fx@)20 «+ |” fx@)dr=1
+
+[Perinition: A random variable is continuous if it can be described by a por |
+
+PCisxs3 on 4x5) sf (isxes)+2 (42x95)

@@ -1,0 +1,9 @@
+Number of successes/arrivals S in n time slots
+
+0 GH XK te they
+
+k u-k -_
+° P(S=k)= (=) P (1-p) jew gyine
+e E[s]= ~P
+
+° var(s) = 1 p(1- p)

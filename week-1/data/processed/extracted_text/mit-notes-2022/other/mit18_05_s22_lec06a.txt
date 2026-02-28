@@ -1,0 +1,245 @@
+Continuous Expectation and Variance, Quantiles,
+the Law of Large Numbers
+18.05 Spring 2022
+0.7
+0.6
+0.5
+0.4
+0.3
+0.2
+0.1
+−4 −2 0 2 4 6
+1/17
+Agenda/Announcements
+• Friday is a normal class in – we’ll finish class 6
+• In case of a snow closing, we will cancel class and adjust the pset
+and schedule.
+• R studio graded:
+- Good job!
+- Notice that we are learning how easy simulations are to do
+- -0.25 for stray printouts –this will go up as time goes on
+• Gabriel has OH after class.
+Agenda
+• Expected value
+• Variance and standard deviation
+• Quantiles (median etc.)
+• Histograms
+• Law of Large Numbers (LoLN)
+• Tomorrow: Central Limit Theorem (CLT)
+2/17
+Expected value
+Expected value: measure of location, central tendency
+Definition. 𝑋 continuous with range [𝑎, 𝑏] and pdf 𝑓(𝑥):
+𝑏
+𝐸[𝑋] = ∫ 𝑥𝑓(𝑥)𝑑𝑥.
+𝑎
+𝑋 discrete with values 𝑥 , …, 𝑥 and pmf 𝑝(𝑥 ):
+1 𝑛 𝑖
+𝑛
+𝐸[𝑋] = ∑ 𝑥 𝑝(𝑥 ).
+𝑖 𝑖
+𝑖=1
+Continuous and discrete expectation are essentially the same
+formulas.
+3/17
+Variance and standard deviation
+Standard deviation: measure of spread, scale
+Definition. For any random variable 𝑋 with mean 𝜇,
+Var(𝑋) = 𝐸[(𝑋 − 𝜇)2], 𝜎 = √Var(𝑋)
+𝑋 continuous with range [𝑎, 𝑏] and pdf 𝑓(𝑥):
+𝑏
+Var(𝑋) = ∫ (𝑥−𝜇)2𝑓(𝑥)𝑑𝑥.
+𝑎
+𝑋 discrete with values 𝑥 , …, 𝑥 and pmf 𝑝(𝑥 ):
+1 𝑛 𝑖
+𝑛
+Var(𝑋) = ∑(𝑥 − 𝜇)2𝑝(𝑥 ).
+𝑖 𝑖
+𝑖=1
+Continuous and discrete variance are essentially the same formulas.
+4/17
+Properties
+Properties: (the same for discrete and continuous)
+1. 𝐸[𝑋 + 𝑌 ] = 𝐸[𝑋] + 𝐸[𝑌 ].
+2. 𝐸[𝑎𝑋 + 𝑏] = 𝑎𝐸[𝑋] + 𝑏.
+3. If 𝑋 and 𝑌 are independent then
+Var(𝑋 +𝑌) = Var(𝑋) + Var(𝑌 ).
+4. Var(𝑎𝑋 + 𝑏) = 𝑎2Var(𝑋).
+5. Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2.
+5/17
+Board question
+The random variable 𝑋 has range [0,1] and pdf 𝑓(𝑥) = 𝑐𝑥2.
+(a) Find 𝑐.
+(b) Find the mean, variance and standard deviation of 𝑋.
+(c) Find the median value of 𝑋.
+(d) Suppose 𝑋 , … 𝑋 are independent identically-distributed copies
+1 16
+of 𝑋. Let 𝑋 be their average. What is the standard deviation of 𝑋?
+(e) Suppose 𝑌 = 𝑋4. Compute 𝐸[𝑌 ]
+(f) Find the pdf of 𝑌 .
+6/17
+Quantiles: measure of location
+Example. The 0.6 quantile 𝑞 is the 𝑥-value, with
+0.6
+𝑃 (𝑋 ≤ 𝑞 ) = 𝐹 (𝑞 ) = 0.6.
+0.6 0.6
+𝑓(𝑧)
+lefttailarea=prob. =0.6
+𝑥
+𝑞 =0.253
+0.6
+𝐹(𝑥)
+1
+𝐹(𝑞 )=0.6
+0.6
+𝑥
+𝑞 =0.253
+0.6
+𝑞 : left tail area = 0.6 ⇔ 𝐹 (𝑞 ) = 0.6 ⇔ 𝑞 = 𝐹 −1(0.6)
+0.6 0.6 0.6
+In R: qnorm, qbinom, qexp etc. The posted problems for today
+include one on using R for quantiles.
+7/17
+Concept questions: Greatest median 1
+Each of the curves is the density for a random variable. Where there
+is just one curve they overlap.
+The median of the black plot is at 𝑞. Which density has the greatest
+median?
+(A)
+Curvescoincidetohere.
+q
+1. Black 2. Orange 3. Blue
+4. All the same 5. Impossible to tell
+8/17
+Concept questions: Greatest median 2
+Each of the curves is the density for a random variable. Where there
+is just one curve they overlap.
+The median of the black plot is at 𝑞. Which density has the greatest
+median?
+(B)
+q
+1. Black 2. Orange 3. Blue
+4. All the same 5. Impossible to tell
+9/17
+Histograms
+Made by ‘binning’ data.
+Frequency: height of bar over bin = number of data
+points in bin.
+Density: area of bar = fraction of all data points that lie
+in the bin. So, total area is 1.
+10/17
+Example: equal bin widths
+Consider data 0.5, 0.9, 1.0, 1.3, 1.4, 1.5, 1.8, 1.8, 2.0, 2.0.
+Make frequency and density histograms with bin width 0.5 starting at
+0.0.
+Check that the total area of the histogram on the left is 1.
+density frequency
+0.8 4
+0.6 3
+0.4 2
+0.2 1
+1/10 2/10 3/10 4/10 1 2 3 4
+𝑥 𝑥
+0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0
+• Values on bin boundaries, e.g. 0.5, 1, 1.5, 2 go to left-hand bin.
+• Bins are right-closed, e.g first bin is (0, 0.5].
+• With equal bin widths the histograms look the same. Only
+vertical scale is changed.
+11/17
+Example: unequal bin widths
+Repeat the example with unequal bin widths. Put the bin bounds at
+0.0, 0.5, 1.5, 2.0.
+Solution: With unequal bin widths the density and frequency
+histograms look different
+density frequency
+1.0 5
+0.8 4
+0.6 3
+0.4 2
+0.2 1
+1/10 5/10 4/10 1 5 4
+𝑥 𝑥
+0.0 0.5 1.0 1.5 2.0 0.0 0.5 1.0 1.5 2.0
+Don’t be fooled! These are based on the same data.
+• If using unequal bin widths, always use a density histogram.
+• R will complain if you don’t
+• Density histogram looks similar to previous histograms.
+• Frequency histogram is different and misleading
+12/17
+Board question: Histograms
+(a) Make both a frequency and density histogram from the data
+below.
+Use bins of width 0.5 starting at 0. The bins should be right closed.
+1 1.2 1.3 1.6 1.6
+2.1 2.2 2.6 2.7 3.1
+3.2 3.4 3.8 3.9 3.9
+(b) Same question using unequal width bins with edges 0, 1, 3, 4.
+(c) For part (b), why does the density histogram give a more
+reasonable representation of the data?
+13/17
+Law of Large Numbers (LoLN)
+• Informally: An average of many measurements is more accurate
+than a single measurement.
+• Formally: Let 𝑋 , 𝑋 , …be i.i.d. random variables all with mean
+1 2
+𝜇 and standard deviation 𝜎.
+𝑋 +𝑋 +…+𝑋 1 𝑛
+𝑋 = 1 2 𝑛 = ∑𝑋 .
+𝑛 𝑛 𝑛 𝑖
+𝑖=1
+Then for any (small number) 𝑎, we have
+lim 𝑃(|𝑋 −𝜇| < 𝑎) = 1.
+𝑛
+𝑛→∞
+• By choosing 𝑛 large enough we can, with probability close to 1,
+make 𝑋 as close as we want to 𝜇.
+𝑛
+𝑋 is random, so there may be a small probability that it is far
+𝑛
+from 𝜇.
+14/17
+(b) If 𝑝 = 0.8, which is the better strategy?
+(a) Maximal (b) Minimal (c) They are the same
+Concept Question: Desperation
+• You have $100. You need $1000 by tomorrow morning.
+• Your only way to get it is to gamble.
+• If you bet $k, you either win $k with probability 𝑝 or lose $k with
+probability 1 − 𝑝.
+Maximal strategy: Bet as much as you can, up to what you need,
+each time.
+Minimal strategy: Make a small bet, say $5, each time.
+(a) If 𝑝 = 0.45, which is the better strategy?
+(a) Maximal (b) Minimal (c) They are the same
+15/17
+Concept Question: Desperation
+• You have $100. You need $1000 by tomorrow morning.
+• Your only way to get it is to gamble.
+• If you bet $k, you either win $k with probability 𝑝 or lose $k with
+probability 1 − 𝑝.
+Maximal strategy: Bet as much as you can, up to what you need,
+each time.
+Minimal strategy: Make a small bet, say $5, each time.
+(a) If 𝑝 = 0.45, which is the better strategy?
+(a) Maximal (b) Minimal (c) They are the same
+(b) If 𝑝 = 0.8, which is the better strategy?
+(a) Maximal (b) Minimal (c) They are the same
+15/17
+LoLN and histograms
+LoLN implies density histogram converges to pdf:
+0.5
+0.4
+0.3
+0.2
+0.1
+0
+-4 -2 0 2 4
+Histogram with bin width 0.1 showing 100000 draws from a standard
+normal distribution. Standard normal pdf is overlaid in blue.
+16/17
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+17/17

@@ -1,0 +1,11 @@
+The mean of the binomial
+
+e X: binomial with parameters n, p Ls n =
+E[X] =) k()e*-p)*
+— number of successes in n independent trials k=0
+
+E[X] = np
+X;=1 if ith trial is a success;
+
+' (indicator variable)
+X;,=0 otherwise

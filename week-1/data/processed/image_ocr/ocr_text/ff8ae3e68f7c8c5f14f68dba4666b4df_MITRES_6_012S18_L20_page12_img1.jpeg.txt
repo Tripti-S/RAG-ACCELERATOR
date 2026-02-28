@@ -1,0 +1,21 @@
+Comments on ML
+
+e maximize py (a; 6)
+
+e maximization is usually done numerically
+
+if have n i.i.d. data drawn from model px(2z; 0), then, under mild assumptions:
+
+— consistent: On —>6
+
+—
+
+a(On)
+e analytical and simulation methods for calculating ¢ = o(On)
+
+, On — 9
+— asumptotically normal: On N(O,1) (CDF convergence)
+
+— hence confidence intervals P(Sn —-196¢<0< On + 1.96 z) ~ 0.95
+
+— asymptotically “efficient” (“best”)

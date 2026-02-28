@@ -1,0 +1,13 @@
+The case of multiple observations
+e Key conclusions:
+— posterior is normal
+— LMS and MAP estimates coincide
+— these estimates are “linear,” of the form @=ap+a4a1 +:-:+anzn
+e Interpretations:
+
+— estimate 9: weighted average of zg (prior mean) and 2; (observations)
+
+— weights determined by variances
+
+Ouap = 9Lms = B[O| X = a] =
+

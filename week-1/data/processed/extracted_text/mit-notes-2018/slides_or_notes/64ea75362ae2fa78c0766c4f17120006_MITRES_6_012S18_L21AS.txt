@@ -1,0 +1,312 @@
+LECTURE 21: The Bernoulli process
+• Definition of Bernoulli process
+• Stoch astic processes
+• Basic properties (memorylessness)
+• The time of the kth success/arrival
+• Distribution of interarrival times
+• Merging and splitting
+• Poisson approximation
+1
+The Bernoulli process
+• A sequence of independent Bernoulli trials, X
+i
+• At each trial, i:
+P(X = 1) P(success at the ith trial) =p
+i
+P(X = 0) = P(failure at the ith trial)
+1
+i -p
+�
+<: p, I
+o
+• Key assumptions:
+Independence
+• Jacob Bernoulli
+Tim e-homogeneity
+(1655-1705)
+Model of:
+•
+(Image is in the public domain.
+Sequence of lottery wins/losses Source: Wikipedia)
+Arrivals (each second) to a bank
+Arrivals (at each time slot) to server
+• • •
+2
+Stochastic processes
++e
+t"" "
+i "-
+• First view: seq uence of random variables Xl , X2,···
+r (, - r)
+Interest ed in : E[Xi l var(X ) ~ px.(x) -=
+i
+p
+, J-
+: Px
+p,..
+(1<,) •••
+('.t".. )
+n"
+I
+fO"
+RQ ""
+0.
+•
+• Second view - sample space: o •
+0t
+• b
+Set fc,fi ... Ne '5e9 .. e... c~
+<;2=
+o:S
+kd. }'.)
+o~
+•
+0. •
+• 0
+• Exampl e (for Bernoulli process):
+0 ( p , )
+P(Xi = 1 for all i) = ~
+f (X 1 = I) ..: p"'", f e
+~ .R.
+1 " > ••• )(" 01. 0<.
+3
+Number of successes/arrivals S in n time slots
+. S= X, ...
+·.·t)(...
+• peS = k) =
+P
+• E[S) = ""
+p'
+P
+(I -
+• var(S) = 'I't
+4
+Time until the first success/arrival
+.
+r
+•
+•
+......... ...... ( 0
+• P(T1 = k) =
+1
+• E[Tll =­
+p
+I - p
+• var(T1) = 2
+P
+•
+5
+Independence, memorylessness, and fresh-start properties
+t
+~ y, '" {Y, S 0 ~ J~ eA.cleJ­
+[I(, '" ger(P) X, ,(... +' 'f, "..
+I-
+",.""/0, ,,
+Y
+X ;\:
+I II :.)(" X'",+1 .
+""--"""-" j
+f , ~ ~
+':j ( :. I , '".. • .. ( ) ,
+J • ."
+- : : CD
+Bpl'(p)
+• Fresh-start after time n
+{'I'd i ....
+(!) d~~J
+1
+0\)0 0 0
+I " I I . I I I / f i
+• .,..,1.",
+x,}"
+0;'
+j
+I,
+I
+"P?et'(
+p)
+• Fresh-start after time Tl
+6
+Independence, memorylessness, and fresh-start properties
+? ;.s
+N
+• Fresh-start after a random time N
+r
+',01 '}
+/0, ',0/"/
+(J{Jr
+c.
+N = time of 3rd success QJA)o..
+..
+N = first time that 3 successes in a row have been observed dJer~" ed
+I '
+I ' I 0/'/ '1 0 I_'C!'...:'..!./..!'-!',- -_ _ _ _
+r
+f
+A.J
+""-0
+-N = the time just before the fi t occurrence of 1 ,1 ,1
+-
+.Pf r
+( t:l.« Sa.
+d
+eier"<o
+IM@r:i
++ +
+The process X X is:
+, , ...
+N l N 2
+a Bernoulli process
+(as lo ng as N is det ermined "ca usa ll y")
+independent of N, Xl , "" XN
+7
+The distribution of busy periods
+p
+• At each slot, a server is busy or idle (Bernoulli process)
+• First busy period:
+starts with first busy slot
+ends just before the first subsequent idle slot
+B I
+II....
+II
+•
+6eo
+(I -
+p)
+I B
+• •
+I I I I I B B B B I I I I B
+- - . ­
+8
+Time of the kth success/arrival
+,
+oJ
+00 """I' 01 " oJ ,
+"
+-
+T.
+I
+, Y, 1. '(~ 3
+T.
+• Y = time of kth arrival
+k
+2:
+• T k = kth inter-arrival time = Yk - Yk- l (k 2)
+• The process starts fresh after time Tl
+• T2 is independent of Tl; Geometric(p); etc.
+9
+Time of the kth success/arrival
+l(Y~ =--/;)
+the Ti are i.i. d ., Geom etric(p)
+1 (" P
+= o..r " ,. "­
+s
+-I ,1,,0.
+1:-/
+il""'e
+-I: -
+1
+t=k,k +l , . ..
+-
+-
+r
+r r ,.
+k -
+1 C.\ V
+~ ~
+C{ '"
+•
+-
+.
+f.-1..
+10
+Merging of independent Bernoulli processes
+• 7'
+Btl ........ .
+11<1"(1 I prj I 171'1 IXl I ~ ,
+Bernoulli(p)
+,
+time
+£-1..
+merged process
++
+B ern oulli(p q - pq)
+time
+(collisions are counted as one arrival)
+I IXI I XI I I xl 1'X1x! I IXlGI8 ........ •
+'(~
+Bernoulli(q)
+time
+I I
+~(Xf,~J
+,
+Zj,: (2 ) •• 'J~I:-)
+= -p)(I-'9)
+'1 1- (,
+(XHI)
+Yt+l)
+2HI
+o
+p(I-')
+p (1-1')(1-9
+I
+P(arrival in first process arrival) = _.- - ­
+J:;
+ptIJ-P9
+0 '
+11
+Splitting of a Bernoulli process
+• Split successes into two streams, using independent flips of a coin with bias q
+- assume that coin flips are independent from the original Bernoulli process
+GO
+I I PC! I I I I I IX) I-I ........ •
+Bernoulli(pq)
+time
+t
+. . . .
+Bernoulli(p) , , , ,
+time
+\-"1
+.
+I I I I pq I I If l I I I I
+~ ....... .
+Bernoulli(p(l - q»
+-
+time
+IV
+• Are the two resulting streams independent? 0
+12
+Poisson approximation to binomial
+p --"
+0
+=
+• Interesting regime: large n , small p, moderate A np
+n! k( 1 )n-k
+• NumberofarrivalsSinnslots: PS(k) = (n - k) l k! -P -P , k=O, ___ ,n
+I: "1_k
+(I _
+=
+For fixed k 0 , 1, ___ ,
+tl , ..l .
+I) ••• (... - ):. +-1) •.
+:; t>t. ("" -
+Ak
+k! e- >., 'It
+~ /C
+ps (k) -+
+Jc. -"
+~
+.., - I
+:,.-.-­
+•••
+'"
+I • • •
+• Fact: lim (1 - A/ n)n = e- .\
+n-+oo
+13
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

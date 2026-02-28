@@ -1,0 +1,70 @@
+Review for Exam 1
+18.05 Spring 2022
+https://xkcd.com/552/
+Image courtesy of xkcd. License: CC BY-NC.
+1/8
+Announcements
+• Friday (regular class, in 4-149). Class 10 –starting statistics.
+• Reading questions for Class 10 are posted but optional.
+2/8
+Exam 1
+• Designed to be 1 hour long. You’ll have the entire 80 minutes.
+• For the exam you will be given a table of standard normal
+probabilities.
+• You can bring in a cheat sheet: 1 side of an 8 × 11 sheet of
+paper. You’ll turn it in with the exam for 5 points.
+• Lots of practice problems posted on our MITx site (see week 5).
+• No calculators. (They won’t be necessary.)
+• Be sure to get familiar with the table of normal probabilities.
+You will be given a copy on the exam.
+• No R on the exam.
+3/8
+Normal Table
+Standard normal table of left tail probabilities.
+𝑧 Φ(𝑧) 𝑧 Φ(𝑧) 𝑧 Φ(𝑧) 𝑧 Φ(𝑧)
+-4.00 0.0000 -2.00 0.0228 0.00 0.5000 2.00 0.9772
+-3.95 0.0000 -1.95 0.0256 0.05 0.5199 2.05 0.9798
+-3.90 0.0000 -1.90 0.0287 0.10 0.5398 2.10 0.9821
+-3.85 0.0001 -1.85 0.0322 0.15 0.5596 2.15 0.9842
+-3.80 0.0001 -1.80 0.0359 0.20 0.5793 2.20 0.9861
+-3.75 0.0001 -1.75 0.0401 0.25 0.5987 2.25 0.9878
+-3.70 0.0001 -1.70 0.0446 0.30 0.6179 2.30 0.9893
+-3.65 0.0001 -1.65 0.0495 0.35 0.6368 2.35 0.9906
+-3.60 0.0002 -1.60 0.0548 0.40 0.6554 2.40 0.9918
+-3.55 0.0002 -1.55 0.0606 0.45 0.6736 2.45 0.9929
+-3.50 0.0002 -1.50 0.0668 0.50 0.6915 2.50 0.9938
+-3.45 0.0003 -1.45 0.0735 0.55 0.7088 2.55 0.9946
+-3.40 0.0003 -1.40 0.0808 0.60 0.7257 2.60 0.9953
+-3.35 0.0004 -1.35 0.0885 0.65 0.7422 2.65 0.9960
+-3.30 0.0005 -1.30 0.0968 0.70 0.7580 2.70 0.9965
+-3.25 0.0006 -1.25 0.1056 0.75 0.7734 2.75 0.9970
+4/8
+Today
+1. Correlation is not causation examples.
+2. Get the in-class Exam 1 material from MITx ‘Review Materials’
+– Scan the review list.
+– Work in groups at the boards and the staff will come around and
+answer questions.
+5/8
+Real-life correlations
+• Over time, amount of ice cream consumption is correlated with
+number of pool drownings.
+• In 1685 (and today) being a student is the most dangerous
+profession. That is, the average age of those who die is less than
+any other profession.
+• In 90% of bar fights ending in a death the person who started
+the fight died.
+• Hormone replacement therapy (HRT) is correlated with a lower rate
+of coronary heart disease (CHD).
+6/8
+Correlation is not causation
+Edward Tufte: ”Empirically observed covariation is a necessary but
+not suﬀicient condition for causality.”
+7/8
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+8/8

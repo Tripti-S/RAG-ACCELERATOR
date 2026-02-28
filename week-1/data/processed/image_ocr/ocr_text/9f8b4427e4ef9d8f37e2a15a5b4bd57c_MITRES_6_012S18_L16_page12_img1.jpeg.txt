@@ -1,0 +1,9 @@
+Properties of the estimation error in LMS estimation
+
+e Estimator: © = E[O| X] e Error: O=O-0
+
+E[O|X =a] =0
+
+cov(O,6)=0
+
+var(©) = var(©) 4+ var(©)

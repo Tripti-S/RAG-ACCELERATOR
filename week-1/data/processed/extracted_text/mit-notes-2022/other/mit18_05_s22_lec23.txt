@@ -1,0 +1,315 @@
+Confidence Intervals II
+18.05 Spring 2022
+𝑧 𝜎
+𝜇 𝜇=𝑥+ 𝛼√/2
+𝑛
+𝑧 𝜎
+𝜇=𝑥− 𝛼√/2
+𝑛
+𝜇
+0
+𝑥
+𝑥 𝑥
+2 1
+1/19
+Announcements/Agenda
+Announcements
+• None
+Agenda
+• R Quiz info.
+• Polling: estimating 𝜃 in Bernoulli(𝜃).
+• CLT ⇒ large sample confidence intervals for the mean.
+• Three views of confidence intervals.
+• Pivoting: constructing confidence intervals and non-rejection
+regions.
+2/19
+R Quiz info
+R Quiz, Friday May 6 in 4-149, 3-4 PM
+• Formatted like the R Studios
+• Open internet, open notes (no communication with other
+sentient beings).
+• Simple calculation
+• Simple plotting
+• Standard statistics: mean, variance, quantiles, etc.
+• Standard distributions: dnorm(), pnorm(), dexp(), ...
+• Simulation: sample(), rnorm(), ...
+• Standard tests
+• Bayesian updating
+• At least one problem that requires R help and/or Google.
+3/19
+Polling confidence interval
+Also called a binomial proportion confidence interval
+Polling means sampling from a Bernoulli(𝜃) distribution,
+i.e. data 𝑥 ,…,𝑥 ∼ Bernoulli(𝜃).
+1 𝑛
+• Conservative normal confidence interval for 𝜃:
+1
+𝑥 ± 𝑧 ⋅ √
+𝛼/2 2 𝑛
+Proof uses the CLT and the observation 𝜎 = √𝜃(1−𝜃) ≤ 1/2.
+• Rule-of-thumb 95% confidence interval for 𝜃:
+1
+𝑥 ± √
+𝑛
+(Reason: 𝑧 ≈ 2.)
+0.025
+4/19
+Binomial proportion confidence intervals
+√
+Political polls often give a margin-of-error of ±1/ 𝑛, i.e. they use
+the rule-of-thumb 95% confidence interval.
+For example, if a poll reports a margin of error of ±0.05 this means
+1 1
+√ = ⇒ 𝑛 = 400 people polled
+𝑛 20
+There are many types of binomial proportion confidence intervals:
+https://en.wikipedia.org/wiki/Binomial_proportion_
+confidence_interval
+5/19
+Board question: Confidence intervals for binomial
+proportion
+For a poll to find the proportion 𝜃 of people supporting X we know
+that a (1 − 𝛼) confidence interval for 𝜃 is given by
+𝑧 𝑧
+[ 𝑥 ̄ − √
+𝛼/2
+, 𝑥 ̄ + √
+𝛼/2
+].
+2 𝑛 2 𝑛
+(a) How many people would you have to poll to have a margin of
+error of 0.01 with 95% confidence? (You can do this in your head.)
+(b) How many people would you have to poll to have a margin of
+error of 0.01 with 80% confidence. (You’ll want R or other calculator
+here.)
+(c) If 𝑛 = 900, compute the 95% and 80% confidence intervals for 𝜃.
+6/19
+Concept question: overnight polling
+During the presidential election season, pollsters often do ‘overnight
+polls’ and report a ‘margin of error’ of about ±4%.
+The number of people polled is in which of the following ranges?
+(a) 0 – 50
+(b) 50 –100
+(c) 100 – 500
+(d) 300 – 600
+(e) 600 – 1000
+7/19
+• Nonrepresentative sample: who can be reached and who chooses to
+respond.
+• Pollsters try to adjust results to take account of the difference
+between the sample group and the group of actual voters.
+• “At the end of the day, it is important to place preelection results in
+the proper context. It is easy to confuse quantification with
+precision – especially nowadays, given the prominence of data and
+data-driven stories. But it is always important to understand what
+was done to collect and produce the results so poll consumers can be
+better informed.”
+https://www.pewresearch.org/fact-tank/2021/07/21/
+a-conversation-about-u-s-election-polling-problems-in-2020/
+Problems with overnight election polling
+What are some of the methodological problems with overnight polls?
+8/19
+Problems with overnight election polling
+What are some of the methodological problems with overnight polls?
+• Nonrepresentative sample: who can be reached and who chooses to
+respond.
+• Pollsters try to adjust results to take account of the difference
+between the sample group and the group of actual voters.
+• “At the end of the day, it is important to place preelection results in
+the proper context. It is easy to confuse quantification with
+precision – especially nowadays, given the prominence of data and
+data-driven stories. But it is always important to understand what
+was done to collect and produce the results so poll consumers can be
+better informed.”
+https://www.pewresearch.org/fact-tank/2021/07/21/
+a-conversation-about-u-s-election-polling-problems-in-2020/
+8/19
+Large sample confidence interval
+Data 𝑥 , … , 𝑥 independently drawn from a distribution that may not
+1 𝑛
+be normal but has finite mean and variance.
+The central limit theorem says that for large 𝑛,
+𝑥 ̄ − 𝜇
+√ ≈ N(0, 1)
+𝑠/ 𝑛
+i.e. the sampling distribution of the studentized mean is
+approximately standard normal:
+So for large 𝑛 the (1 − 𝛼) confidence interval for 𝜇 is approximately
+𝑠 𝑠
+[ 𝑥̄ − √ ⋅ 𝑧 , 𝑥 ̄ + √ ⋅ 𝑧 ]
+𝑛 𝛼/2 𝑛 𝛼/2
+This is called the large sample confidence interval.
+9/19
+Review: confidence intervals for normal data
+Suppose the data 𝑥 , … , 𝑥 is drawn from N(𝜇, 𝜎2)
+1 𝑛
+Confidence level = 1 − 𝛼
+• 𝑧 confidence interval for the mean (𝜎 known)
+𝑧 ⋅ 𝜎 𝑧 ⋅ 𝜎 𝑧 ⋅𝜎
+[𝑥 −
+𝛼
+√
+/2
+, 𝑥 +
+𝛼
+√
+/2
+] or 𝑥 ±
+𝛼
+√
+/2
+𝑛 𝑛 𝑛
+• 𝑡 confidence interval for the mean (𝜎 unknown)
+𝑡 ⋅ 𝑠 𝑡 ⋅ 𝑠 𝑡 ⋅𝑠
+[𝑥 −
+𝛼
+√
+/2
+, 𝑥 +
+𝛼
+√
+/2
+] or 𝑥 ±
+𝛼
+√
+/2
+𝑛 𝑛 𝑛
+• 𝜒2 confidence interval for 𝜎2
+𝑛−1 𝑛−1
+[ 𝑠2, 𝑠2] ;
+𝑐 𝑐
+𝛼/2 1−𝛼/2
+• 𝑡 and 𝜒2 have 𝑛 − 1 degrees of freedom.
+10/19
+Three views of confidence intervals
+View 1: Define/construct CI using a standardized point statistic.
+View 2: Define/construct CI based on hypothesis tests.
+View 3: Define CI as any interval statistic satisfying a formal
+mathematical property.
+11/19
+View 1: Using a standardized point statistic
+Example. 𝑥 …, 𝑥 ∼ N(𝜇, 𝜎2), where 𝜎 is known.
+1 𝑛
+The standardized sample mean follows a standard normal distribution.
+𝑥 − 𝜇
+𝑧 = √ ∼ N(0, 1)
+𝜎/ 𝑛
+Therefore:
+𝑥 − 𝜇
+𝑃 (−𝑧 < √ < 𝑧 | 𝜇) = 1 − 𝛼
+𝛼/2 𝜎/ 𝑛 𝛼/2
+Pivot to:
+𝜎 𝜎
+𝑃(𝑥−𝑧 ⋅ √ < 𝜇 < 𝑥+𝑧 ⋅ √ | 𝜇) = 1−𝛼
+𝛼/2 𝑛 𝛼/2 𝑛
+This is the (1 − 𝛼) confidence interval for 𝜇:
+𝜎 𝜎 𝜎
+[𝑥 − 𝑧 ⋅ √ , 𝑥 + 𝑧 ⋅ √ ] = 𝑥 ± 𝑧 ⋅ √
+𝛼/2 𝑛 𝛼/2 𝑛 𝛼/2 𝑛
+Think of it as 𝑥 ± error
+12/19
+View 1: Other standardized statistics
+The 𝑡 and 𝜒2 statistics fit this paradigm as well:
+𝑥 − 𝜇
+𝑡 = √ ∼ 𝑡(𝑛 − 1)
+𝑠/ 𝑛
+(𝑛 − 1)𝑠2
+𝑋2 = ∼ 𝜒2(𝑛−1)
+𝜎2
+𝑥 − 𝜇
+So, −𝑡 < √ < 𝑡 becomes
+𝛼/2 𝑠/ 𝑛 𝛼/2
+𝑠 𝑠
+𝑥 − 𝑡 ⋅ √ < 𝜇 < 𝑥 + 𝑡 ⋅ √ .
+𝛼/2 𝑛 𝛼/2 𝑛
+(𝑛 − 1)𝑠2
+Likewise, 𝑐 ≤ ≤ 𝑐 becomes
+1−𝛼/2 𝜎2 𝛼/2
+𝑛−1 𝑛−1
+𝑠2 ≤ 𝜎2 ≤ 𝑠2.
+𝑐 𝑐
+𝛼/2 1−𝛼/2
+13/19
+View 2: Using hypothesis tests
+Set up: Unknown parameter 𝜃. Test statistic 𝑥.
+For any value 𝜃 , we can run an NHST with null hypothesis
+0
+𝐻 ∶ 𝜃 = 𝜃
+0 0
+at significance level 𝛼.
+Definition. Given 𝑥, the (1 − 𝛼) confidence interval contains all 𝜃
+0
+which are not rejected when they are the null hypothesis.
+Definition. A type 1 CI error occurs when the confidence interval
+does not contain the true value of 𝜃.
+For a 1 − 𝛼 confidence interval, the type 1 CI error rate is 𝛼.
+14/19
+Board question: pivoting: confidence intervals and
+non-rejection regions
+This question gets at the relationship between confidence intervals
+and non-rejection regions.
+Main point: For a sample with sample mean 𝑥, the confidence
+interval consists of all values 𝜇 for which a NHST with null
+hypothesis mean = 𝜇 would not reject on seeing 𝑥.
+Assume we have independent data 𝑥 ,…,𝑥 ∼ 𝑁(𝜇,𝜎2), where 𝜇 is
+1 𝑛
+unknown and 𝜎 is known.
+Answer the questions on the next slide.
+15/19
+Board question: continued
+(a) For null hypothesis 𝜇 = 𝜇 give the two-sided non-rejection
+0
+region for significance level 𝛼.
+(b) Call the data average 𝑥. Give the 1 − 𝛼 confidence interval for 𝜇.
+(c) Use the 𝑥, 𝜇-plane on the next slide. Note the conveniently
+included guides.
+(i) Plot the horizontal line segment at height 𝜇 showing the
+0
+non-rejection region for 𝐻 ∶ 𝜇 = 𝜇 (significance level = 𝛼).
+0 0
+(ii) Plot the horizontal line segment at other heights showing the
+non-rejection region for the corresponding 𝜇.
+(iii) Plot the vertical line segments showing the 1 − 𝛼 confidence
+intervals around 𝑥 and 𝑥
+1 2
+(iv) Plot the vertical line segment at other values of 𝑥 showing the
+corresponding confidence interval.
+16/19
+Board question axes
+𝑧 𝜎
+𝜇 𝜇=𝑥+ 𝛼√/2
+𝑛
+𝑧 𝜎
+𝜇=𝑥− 𝛼√/2
+𝑛
+𝜇
+0
+𝑥
+𝑥 𝑥
+2 1
+Understand how the main point connects with your graph.
+17/19
+View 3: Formal
+Recall: An interval statistic is an interval 𝐼 computed from data 𝑥.
+𝑥
+This is a random interval because 𝑥 is random.
+Suppose 𝑥 is drawn from 𝑓(𝑥|𝜃) with unknown parameter 𝜃.
+Definition:
+A (1 − 𝛼) confidence interval for 𝜃 is an interval statistic 𝐼 such that
+𝑥
+𝑃 (𝐼 contains 𝜃 | 𝜃) = 1−𝛼
+𝑥
+for all possible values of 𝜃 (and hence for the true value of 𝜃).
+Note: equality in this definition is often relaxed to ≥ or ≈.
+= : 𝑧, 𝑡, 𝜒2
+≥ : rule-of-thumb and exact binomial (polling)
+≈ : large sample confidence interval
+(See the Class 23 reading for more on this view.)
+18/19
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+19/19

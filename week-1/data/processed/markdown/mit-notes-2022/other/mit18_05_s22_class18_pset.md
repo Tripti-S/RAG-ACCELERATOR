@@ -1,0 +1,115 @@
+# Mit18 05 S22 Class18 Pset
+
+---
+
+Class 18 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. NHST
+You collect data from an experiment and do a left-sided 𝑧-test with significance 0.1. You
+find the 𝑧-value is 1.8
+(i) Which of the following computes the critical value for the rejection region?
+(a) pnorm(0.1, 0, 1) (b) pnorm(0.9, 0, 1)
+(c) pnorm(0.95, 0, 1) (d) pnorm(1.8, 0, 1)
+(e) 1 - pnorm(1.8, 0, 1) (f) qnorm(0.05, 0, 1)
+(g) qnorm(0.1, 0, 1) (h) qnorm(0.9, 0, 1)
+(i) qnorm(0.95, 0, 1)
+(ii) Which of the above computes the 𝑝-value for this experiment?
+(iii) Should you reject the null hypothesis?
+Concept question 2. Power
+The power of the test in the graph is given by the area of
+𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 )
+𝐴 0
+𝑅
+𝑅 3
+2
+𝑅 𝑅
+1 4
+𝑥
+reject𝐻 region . non-reject𝐻 region
+0 0
+(a) 𝑅 (b) 𝑅 (c) 𝑅 + 𝑅 (d) 𝑅 +𝑅 +𝑅
+1 2 1 2 1 2 3
+Concept question 3. Higher power
+Which of the tests below has higher power?
+𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 )
+𝐴 0
+𝑥
+reject𝐻 region . non-reject𝐻 region
+0 0
+𝜙(𝑥|𝐻 ) 𝜙(𝑥|𝐻 )
+𝐴 0
+𝑥
+reject𝐻 region . non-reject𝐻 region
+0 0
+(1) Top graph (2) Bottom graph
+1
+18.05 class 18 problems, Spring 2022 2
+Board questions
+Problem 1. Significance level and power
+Our data 𝑥 follows a binomial(𝜃, 10) distribution with 𝜃 unknown.
+The rejection region is boxed in orange. The corresponding probabilities for different hy-
+potheses are shaded below it.
+𝑥 0 1 2 3 4 5 6 7 8 9 10
+𝐻 ∶ 𝑝(𝑥|𝜃=0.5) 0.001 0.010 0.044 0.117 0.205 0.246 0.205 0.117 0.044 0.010 .001
+0
+𝐻 ∶ 𝑝(𝑥|𝜃=0.6) 0.000 0.002 0.011 0.042 0.111 0.201 0.251 0.215 0.121 0.040 0.006
+𝐴
+𝐻 ∶ 𝑝(𝑥|𝜃=0.7) 0.000 0.000 0.001 0.009 0.037 0.103 0.200 0.267 0.233 0.121 0.028
+𝐴
+(a) Find the significance level of the test.
+(b) Find the power of the test for each of the two alternative hypotheses.
+(c) What is the probability of a type I error? type II?
+Problem 2. 𝑧 and one-sample 𝑡-test
+For both problems use significance level 𝛼 = 0.05.
+Assume the data 2, 4, 4, 10 are independently drawn from a 𝑁(𝜇, 𝜎2).
+The hypotheses are: 𝐻 : 𝜇 = 0 and 𝐻 : 𝜇 ≠ 0.
+0 𝐴
+(a) Is the test one or two-sided? If one-sided, which side?
+(b) Assume 𝜎2 = 16 is known and test 𝐻 against 𝐻 .
+0 𝐴
+(c) Now assume 𝜎2 is unknown and test 𝐻 against 𝐻 .
+0 𝐴
+Problem 3. Two-sample 𝑡-test
+Real data from 1408 women admitted to a maternity hospital for (i) medical reasons or
+through (ii) unbooked emergency admission. The duration of pregnancy is measured in
+complete weeks from the beginning of the last menstrual period.
+Medical: 775 obs. with 𝑥̄ = 39.08 and 𝑠2 = 7.77.
+Emergency: 633 obs. with 𝑥̄ = 39.60 and 𝑠2 = 4.95
+(a) Set up and run a two-sample 𝑡-test to investigate whether the duration differs for the
+two groups.
+(b) What assumptions did you make?
+Discussion questions
+1. Significance and power
+The null distribution for test statistic 𝑥 is 𝑁(4, 82). The rejection region is {𝑥 ≥ 20}.
+What is the significance level and power of this test?
+2. Type I errors Q1
+Suppose a journal will only publish results that are statistically significant at the 0.05 level.
+What percentage of the papers it publishes contain type I errors?
+18.05 class 18 problems, Spring 2022 3
+3. Type I errors Q2
+Jerry desperately wants to cure diseases but he is terrible at designing effective treatments.
+He is however a careful scientist and statistician, so he randomly divides his patients into
+control and treatment groups. The control group gets a placebo and the treatment group
+gets the experimental treatment. His null hypothesis 𝐻 is that the treatment is no better
+0
+than the placebo. He uses a significance level of 𝛼 = 0.05. If his 𝑝-value is less than 𝛼 he
+publishes a paper claiming the treatment is significantly better than a placebo.
+(a) Since his treatments are never, in fact, effective what percentage of his experiments
+result in published papers?
+(b) What percentage of his published papers contain type I errors, i.e. describe treatments
+that are no better than placebo?
+4. Type I errors Q3
+Jen is a genius at designing treatments, so all of her proposed treatments are effective. She
+is also a careful scientist and statistician, so she too runs double-blind, placebo controlled,
+randomized studies. Her null hypothesis is always that the new treatment is no better than
+the placebo. She also uses a significance level of 𝛼 = 0.05 and publishes a paper if 𝑝 < 𝛼.
+(a) How could you determine what percentage of her experiments result in publications?
+(b) What percentage of her published papers contain type I errors, i.e. describe treatments
+that are, in fact, no better than placebo?
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

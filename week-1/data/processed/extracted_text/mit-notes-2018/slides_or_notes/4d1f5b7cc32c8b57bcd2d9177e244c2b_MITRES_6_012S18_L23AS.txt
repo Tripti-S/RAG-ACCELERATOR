@@ -1,0 +1,223 @@
+LECTURE 23: More on the Poisson process
+• The sum of independent Poisson r .v.s
+• Merging and splitting
+• Random incidence
+1
+The sum of independent Poisson random variables
+• Poisson process of rate A = 1 ( J[ "
+)( )(
+N time
+M
+(Ar)k e-
+• Consecutive intervals of length J.t and v
+P(k , r) = k !
+(At...)
+• Numbers of arrivals during these intervals: M and N fIOIHo ...
+.fc!ll~~"'" Y'e s
+(1"') • Independent?
+• M:
+JIO'>'O",
+• N: (V-)
+•
+The sum of independent Poisson random variables,
+with means/parameters J.t and v ,
++
+is Poisson with mean /pa rameter J.t v
+2
+..
+•
+> 2
+~2: 0(0')
+0=
+1:(),
+t'\~)~ +
+Merged process: Poisson(Al
+A~ )
+3
+Where is an arrival of the merged process coming from?
+I A,((;l. t-~).)
+P(Red arrival at time t) = Red bulb flashes
+(Poisson)
+OC,,)
+An flashes
+(Poisson)
+o
+1 > 2
+Green bulb flashes
+(Poisson)
+oc6')
+------- ----------+•
+~eJ ~1
+•
+time
+r
+1
+...... •
+I (
+A. I #') I"l
+iI • 1"~r.) )( )(
+P(kth arrival is Red) =
+time
+~ ~
+____________________
+G~ee~ ~I ~'
+• Independence for different arrivals
+time
+10
+P(4 out of first 10 arrivals are Red) = ...,
+4
+The time the first (or the last) light bulb burns out
+I
+• Three lightbulbs
+time
+y ,
+I ,~ X'X -u •
+- independent lifetimes X, Y, Z; exponential >,) t;me
+1/3,1
+• Find expected time until first burnout '" I 2 " .. .
+"'00 ,
+s fI d
+? \ -~?:: \ -" j \ - &- ti me
+f I
+"-,,,Co) e e e '" '" 7<t-c.
+.... : "'I 1\ /1
+(1
+-H"
+_.H- -3,H
+_~t
+000
+1
+(~i"ltIlJ'(Jz.~>,t) =.f()(~tJ'(?-bJlh/;-)::e e e ::e
+["p(),!)
+• x,
+Y, Z: first arrivals in independent Poisson processes
+.f
+(3,1)
+• Merged process: 0,'5;0 ...
+-cJ<rO~)
+• min{X, Y, Z}: 1st arrival in merged process ....-­
+5
+The time the first (or the last) light bulb burns out
+• Three lig htbulbs
+time
+- ind epend ent lifetim es X, Y, Z; expo nenti al(.x)
+• Find ex pect ed tim e until all burn o ut , ,
+,
+I time
+•
+I I I
+. - t­
+t
+3A 2,1 ,.\
+6
+Splitting of a Poisson process
+• Split arrivals into two streams, using independent coin flips of a coin with bias q
+assume that coin flips are independent from the original Poisson process
+....
+..
+-:::1
+time
+Resulting streams are Poisson,
+F T . • 2
+rates >-q , >-( 1 - q)
+f
+time
+• Are the two resulting streams independent?
+•
+Surprisingly, yes !
+7
+"Random incidence" in the Poisson process
+• Poisson process that has been running forever
+,
+:x •
+time
+• Believe that A = 4/hour, so that E[Tkl =
+•
+• Show up at some time and measure interarrival time
+- do it many times, average results, see something around 30 mins! Why?
+8
+"Random incidence" in the Poisson process - analysis
+tL
+1if V
+- - - - - - - - ....:...-:' :': '=:-:-:: .
+~-;:-::;-:":";==".:= ..~::::~:::::
+----t-;m...e.
+• Arrive at time t*
+• U : last arrival time • V : next arrival time
+O*-UJ.
+eV-f1-)
++ /,
+• V - U=
+,
+,
+0)
+,
+f,y E"p(,J)
+(~)
+~
+I
+/~
+• E(V - U] = - ­
+-
+­
+rI ~
+,
+tI
+.A,""
+• V - U: interarrival time you see, versus kth interarrival time
+9
+Random incidence "paradox" not special to the Poisson process
+IS
+10
+10
+;c ,.
+x •
+r x
+)F
+time
+• Example: interrarival times, i.i.d., equally likely to be 5 or 10 minutes
+I
+1 . ,
+expected value of kth interarrival time: + - . 10
+~ ~
+• you show up at a "random time"
+I
+P(arrive during a 5-minute interarrival interval) = ­
+3
+__fc..
+. 1 _
+= -.:7"'""
+expected length of interarrival interval during which you arnve -10
+3
+10
+-:::3,'$
+• Calculation generalizes to "renewal processes:"
+i.i.d. interarrival times, from some general distribution
+• "Samplin g m etho d" m atters
+10
+Different sampling methods can give different results
+0 0
+0
+• Average family size?
+(.~~o:)~·J
+look at a "random" family (uniformly chosen)
+6
+G
+r_.
+look at a "random" person's (uniformly chosen) family
+"
+• Average bus occupancy?
+I I ., I
+I .
+0
+0 ..
+look at a "random" bus (uniformly chosen)
+look at a "random" passenger's bus
+• Average class size?
+11
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a p articular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

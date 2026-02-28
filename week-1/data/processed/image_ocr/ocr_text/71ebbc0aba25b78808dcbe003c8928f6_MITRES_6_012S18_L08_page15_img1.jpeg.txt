@@ -1,0 +1,11 @@
+General normal (Gaussian) random variables
+
+1 2 /9—2
+| IN 2): _ —(x2—p)</20
+e General normal N(p,0*): fx(x2) = =a
+
+e E[X] =
+
+e var(X) =o?
+
+-1

@@ -1,0 +1,12 @@
+Definition of conditional probability
+
+e P(A|B) = “probability of A,
+given that B occurred”
+
+Des. Aap
+(ANB) 2/2
+—_ PAI B)= Seay =e wen
+ba) 6/2 2
+
+defined only when P(B) > 0
+

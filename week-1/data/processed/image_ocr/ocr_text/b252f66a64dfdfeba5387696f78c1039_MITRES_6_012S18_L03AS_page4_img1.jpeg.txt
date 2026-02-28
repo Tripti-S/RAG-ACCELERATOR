@@ -1,0 +1,13 @@
+Independence of event complements
+Definition of independence: P(An B) = P(A) -P(B)
+
+e If A and B are independent, then A and B¢ are independent.
+
+— Intuitive argument — Formal proof
+Ae © A= (nne)u ANB")
+Z) > 2A) = 26498) + £(ANB*)
+
+= 214) 2 (8) + £ IAN Bo)
+
+2 (Ang) = BIA) -LIA)L(B) = B(@) (1 - 2(8))
+= £(A)2 (8)

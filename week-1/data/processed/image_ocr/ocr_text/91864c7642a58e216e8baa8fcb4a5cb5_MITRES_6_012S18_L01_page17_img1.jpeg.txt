@@ -1,0 +1,9 @@
+Countable additivity axiom
+
+e Strengthens the finite additivity axiom
+
+Countable Additivity Axiom:
+
+If Ai, Az, A3,... is an infinite sequence of disjoint events,
+then P(A; U Ap U A3 U-:-) = P(A) + P(A2) + P(A3) +:
+

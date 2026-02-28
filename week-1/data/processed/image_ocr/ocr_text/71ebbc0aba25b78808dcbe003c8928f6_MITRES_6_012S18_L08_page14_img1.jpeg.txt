@@ -1,0 +1,8 @@
+Standard normal (Gaussian) random variables
+
+e Standard normal N(0,1): fx(x) = see el
+Tv
+
+e E[X] =
+
+e var(x)=1

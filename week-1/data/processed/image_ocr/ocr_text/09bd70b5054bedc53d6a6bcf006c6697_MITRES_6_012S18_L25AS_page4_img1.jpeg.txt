@@ -1,0 +1,9 @@
+review: recurrent and transient states
+
+* state i is recurrent if “starting from i, and from wherever you can go, there is a
+way of returning to i” Rec.
+
+¢ if not recurrent,
+
+* recurrent class:a collection of recurrent states communicating only between
+each other

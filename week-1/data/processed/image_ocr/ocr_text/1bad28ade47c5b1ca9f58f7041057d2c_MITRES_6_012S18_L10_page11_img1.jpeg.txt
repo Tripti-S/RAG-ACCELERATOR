@@ -1,0 +1,14 @@
+The Bayes rule — one discrete and one continuous random variable
+
+kK: discrete Y: continuous
+
+pK(k) fyjx(y|k) fy (y) pry (Ely)
+
+Pry (kl y) = fy\x(y|k) =
+
+fy®
+
+pK(k)
+
+fy(y) = Dx (¥’) fyi yk’) PK(k) = / fy (y) pry (kl y’) dy’
+k/

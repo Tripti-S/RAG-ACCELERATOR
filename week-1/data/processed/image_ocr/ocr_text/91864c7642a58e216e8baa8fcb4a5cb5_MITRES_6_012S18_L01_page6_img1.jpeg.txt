@@ -1,0 +1,12 @@
+Probability axioms
+
+e Event: a subset of the sample space
+— Probability is assigned to events
+
+e Axioms:
+— Nonnegativity: P(A) >0
+
+— Normalization: P(Q)=1
+
+— (Finite) additivity: (to be strengthened later)
+If ANB=@, then P(AUB) = P(A) + P(B)

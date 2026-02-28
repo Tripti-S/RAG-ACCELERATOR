@@ -1,0 +1,4 @@
+The king’s sibling
+
+e The king comes from a family of two children.
+What is the probability that his sibling is female?

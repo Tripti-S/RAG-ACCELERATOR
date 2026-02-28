@@ -1,0 +1,16 @@
+Total expectation theorem
+
+Ay
+
+Ao
+
+A3
+
+Ai NB
+P(B) = P(A1) P(B| Ai) +
+
+AonB
+
+A3NB
+
+*++ + P(An) P(B | An)

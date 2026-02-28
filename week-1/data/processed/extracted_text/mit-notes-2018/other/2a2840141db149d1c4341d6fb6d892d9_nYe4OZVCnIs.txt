@@ -1,0 +1,37 @@
+MITOCW | MITRES6_012S18_S01-05_300k
+This will be a short tutorial on infinite series, their definition and their basic properties.
+What is an infinite series?
+We're given a sequence of numbers ai, indexed by i, where i ranges from 1 to infinity.
+So it's an infinite sequence.
+And we want to add the terms of that sequence together.
+We denote the resulting sum of that infinity of terms using this notation.
+But what does that mean exactly?
+What is the formal definition of an infinite series?
+Well, the infinite series is defined as the limit, as n goes to infinity, of the finite series in which we add only the first
+n terms in the series.
+However, this definition makes sense only as long as the limit exists.
+This brings up the question, when does this limit exist?
+The nicest case arises when all the terms are non-negative.
+If all the terms are non-negative, here's what's happening.
+We consider the partial sum of the first n terms.
+And then we increase n.
+This means that we add more terms.
+So the partial sum keeps becoming bigger and bigger.
+The sequence of partial sums is a monotonic sequence.
+Now monotonic sequences always converge either to a finite number or to infinity.
+In either case, this limit will exist.
+And therefore, the series is well defined.
+The situation is more complicated if the terms ai can have different signs.
+In that case, it's possible that the limit does not exist.
+And so the series is not well defined.
+The more interesting and complicated case is the following.
+It's possible that this limit exists.
+However, if we rearrange the terms in the sequence, we might get a different limit.
+When can we avoid those complicated situations?
+We can avoid them if it turns out that the sum of the absolute value of the numbers sums to a finite number.
+Now this series that we have here is an infinite series in which we add non-negative numbers.
+And by the fact that we mentioned earlier, this infinite series is always well defined.
+And it's going to be either finite or infinite.
+If it turns out to be finite, then the original series is guaranteed to be well defined, to have a finite limit when we
+define it that way, and furthermore, that finite limit is the same even if we rearrange the different terms, if we
+rearrange the sequence with which we sum the different terms.

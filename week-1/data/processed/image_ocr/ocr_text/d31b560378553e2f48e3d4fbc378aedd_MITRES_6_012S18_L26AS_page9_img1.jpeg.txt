@@ -1,0 +1,24 @@
+gambler’s example
+
++ agambler starts with i dollars; each time, she bets $1 in a fair game, until she either has O or n dollars.
+* what is the ee a; that she ends ¢ with having n Gollars?
+
+be or SI 4=0,q,=04% i=n, a; 7
+ha op i rs ae @in As = = feats 4oeaz)
+
+° expected wealth at the end? O-(1—a;)+n-a;= Nx “K = yt !
+
+* how long does the gambler expect to stay in the game?
+— jj = expected number of plays, starting from i
+
+- fori=O,n: p= O ior en Mia 449
+
+- in ‘gue
+
+fai pans
+e °
+
+. in case of waRaerabe odds? f = OS 4 Cc
+
+7 <
+

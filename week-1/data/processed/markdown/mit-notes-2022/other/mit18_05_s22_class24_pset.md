@@ -1,0 +1,39 @@
+# Mit18 05 S22 Class24 Pset
+
+---
+
+Class 24 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1. Which stat is easiest
+Consider finding bootstrap confidence intervals for
+I. the mean II. the median III. 47th percentile.
+Which is easiest to find?
+(a) I (b) II (c) III (d) I and II
+(e) II and III (f) I and III (g) I and II and III
+Board questions
+Problem 1. Empirical bootstrap
+Data: 3 8 1 8 3 3
+Bootstrap samples (each column is one bootstrap trial):
+8 8 1 8 3 8 3 1
+1 3 3 1 3 8 3 3
+3 1 1 8 1 3 3 8
+8 1 3 1 3 3 8 8
+3 3 1 8 8 3 8 3
+3 8 8 3 8 3 1 1
+(a) Compute a bootstrap 80% percentile confidence interval for the mean.
+(b) Compute a bootstrap 80% percentile confidence interval for the median.
+Problem 2. Parametric bootstrap
+Data is taken from a Binomial(8, 𝜃) distribution. After 6 trials, the results are
+6 5 5 5 7 4
+(a) Estimate 𝜃.
+(b) Write out the R code to generate data of 100 parametric bootstrap samples and compute
+an 80% confidence interval for 𝜃.
+(Try this without looking at your notes.)
+1
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

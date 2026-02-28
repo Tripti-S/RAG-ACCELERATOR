@@ -1,0 +1,15 @@
+Elementary properties of expectations
+e Definition: E[X] = aed 2]
+
+e If X >0, then B[X] >0
+Sor al? w: X(w)zO 20 tt 20)
+
+° Ifa<X <b, then a<B[X] <b
+for allws agxWw)eh E[x} = 2 =p.) 22eh)
+=a 2 p, (x) =Q-{=a
+z
+e If cis a constant, B[c] =c
+
+|? Elej= c-ple)=e
+
+< cs

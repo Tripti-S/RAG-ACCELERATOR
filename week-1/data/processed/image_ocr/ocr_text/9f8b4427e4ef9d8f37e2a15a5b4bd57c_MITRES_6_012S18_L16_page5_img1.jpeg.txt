@@ -1,0 +1,8 @@
+LMS estimation of © based on X
+
+¢ E[O] minimizes E[(© — 6)?|
+
+e E[O|X =2] minimizes E[(© —§)2|x = 2]
+
+©. ms = E[© | X] minimizes E|(©-9(X))?|, over all estimators © = g(X)
+

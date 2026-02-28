@@ -1,0 +1,12 @@
+A general function g(X) of a continuous r.v.
+
+e Two-step procedure:
+
+— Find the CDF of ¥: Fy(y)=P(Y <y) = £ (g(x) <y)
+
+dFy
+
+— Differentiate: fy-(y) = “i
+Y
+
+(y)

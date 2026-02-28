@@ -1,0 +1,14 @@
+LLMS with multiple observations
+e Unknown ©; observations X = (Xj,...,Xn)
+e Consider estimators of the form: © =a,X,+-:-+anXn+b
+
+e Find best choices of aj,...,an,b
+
+minimize: E[(a1X1 H+ fF anXn + b— e)?|
+
+e If E[O| X] is linear in X, then O_ms = O_Lms
+e Solve linear system in b and the a;
+
+e Only means, variances, covariances matter
+
+e If multiple unknown ©;, apply to each one, separately

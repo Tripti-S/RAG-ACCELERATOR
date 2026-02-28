@@ -1,0 +1,10 @@
+A model with normality assumptions
+
+1
+
+1 Tm
+fo|x(@|x) = c(x) exp 1-5 B+ b+ 3 552 d- (2 — 9% — 915 — oat)?
+i=1
+
+e MAP estimate: maximize over (49, 01,65);
+(minimize quadratic function)

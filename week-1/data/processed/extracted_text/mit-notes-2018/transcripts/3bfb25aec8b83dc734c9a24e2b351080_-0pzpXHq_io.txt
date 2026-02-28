@@ -1,0 +1,71 @@
+MITOCW | MITRES6_012S18_L13-08_300k
+We will now go through an example, which is essentially a drill, to consolidate our understanding of the conditional
+expectation and the conditional variance.
+Consider a random variable X, which is continuous and is described by a PDF of this form.
+Whenever we have a PDF that seems to consist of different pieces, it's always useful to divide and conquer.
+And the way we will do that will be to consider two different scenarios.
+That X falls in this range.
+And in that scenario, we say that the certain random variable Y is equal to 1.
+And another scenario in which X falls in this range, and in that case, we say that Y is equal to 2.
+Let us now look at the conditional expectation of X given Y. What is it?
+Well, it is a random variable which can take a different values depending on what Y is.
+If Y happens to take a value of 1, then we are in this range.
+And the conditional PDF of X, given that Y falls in this range, keeps the same shape, it's uniform.
+And so it's mean is going to be equal to the midpoint of this interval, which is 1/2.
+And this is something that happens when Y is equal to 1.
+What is the probability of this happening?
+The probability that Y is equal to 1 is the area under the PDF in this range.
+And since the height of the PDF is 1/2, this probability is 1/2.
+The alternative scenario is that Y happens to take the value of 2.
+In which case, X lives in this interval.
+Given that X has fallen in this interval, the conditional expectation of X is the midpoint of this interval.
+And the midpoint of this interval is at 2.
+And this is an event that, again, happens with probability 1/2, because the area under the PDF in this region is
+equal to 1/2.
+So the conditional expectation is a random variable that takes these values with these probabilities.
+Since we now have a complete probabilistic description of this random variable, we're able to calculate the
+expectation of this random variable.
+What is it?
+With probability 1/2, the random variable takes the value of 1/2.
+And with probability 1/2, it takes a value of 2.
+And so the expected value of the conditional expectation is 5/4.
+But the law of iterated expectations tells us that this quantity is also the same as the expected value of X. So we
+have managed to find the expected value of X by the divide and conquer method, by considering different cases.
+Let us now turn to the conditional variance of X given Y. Once more, this quantity is a random variable.
+The value of that quantity depends on what Y turns out to be.
+And we have, again, the same two possibilities.
+Y could be equal to 1, or Y could be equal to 2.
+And these possibilities happen with equal probabilities.
+If Y is equal to 1, conditional on that event, X has a uniform PDF on this range, on an interval of length one.
+And we know that the variance of a uniform PDF on an interval of length one is 1/12.
+If on the other hand, Y takes a value of 2, then X is a uniform random variable on an interval of length 2.
+And the variance in this case is 2 squared, where this 2 stands for the length of the interval, divided by 12, which
+is the same as 4/12.
+So we now have a complete probabilistic description of the conditional variance as a random variable.
+It's a random variable that with these probabilities, takes these two particular values.
+Since we know the distribution of this random variable, we can certainly calculate its expected value.
+And the expected value is found as follows.
+With probability 1/2, the random variable of interest takes a value of 1/12.
+And with probability 1/2, this random variable takes a value of 4/12.
+And this number happens to be 5/24.
+Finally, let us calculate the variance of the conditional expectation.
+Since we have complete information about the distribution of the conditional expectation, calculating its variance is
+not going to be difficult.
+So what is it?
+With probability 1/2, the conditional expectation takes a value of 1/2.
+We subtract from this is the mean of the conditional expectation, which is 5/4.
+And we take the square of that.
+So this term is the square or the deviation of the value of the random variable of 1/2 from the mean of that
+random variable.
+And we get a similar term.
+If Y happens to be equal to 2.
+With probability 1/2 half, our random variable takes a value of 2, which is so much away from the mean of the
+random variable.
+And then we square that quantity.
+If we carry out the algebra, the answer turns out to be 9 over 16.
+And now we can go back to the law of the total variance and calculate that the total variance is equal to the
+expected value of the variance, which is 5/24.
+And then we have the variance of the expected value, which is 9/16.
+And this number evaluates to 37/48.
+So we have managed to find the variance of this random variable using the divide and conquer methods and the
+law of the total variance.

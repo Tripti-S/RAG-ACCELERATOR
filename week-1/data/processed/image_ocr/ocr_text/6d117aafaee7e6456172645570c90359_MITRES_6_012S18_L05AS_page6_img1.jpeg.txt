@@ -1,0 +1,13 @@
+The simplest random variable: Bernoulli with parameter p € [0, 1]
+
+w f, (e)=1-f “Pp
+oa ee a
+
+iO )
+e Models a trial that results in success/failure, Heads/Tails, etc.
+
+e Indicator r.v. of an event A: I4 = 1 iff A occurs
+Br z
+Aves) 0 « 27,21) = 24)
+A” if
+AS a," [) ?

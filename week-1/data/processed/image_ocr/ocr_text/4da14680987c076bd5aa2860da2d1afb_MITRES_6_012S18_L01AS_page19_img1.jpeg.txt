@@ -1,0 +1,13 @@
+Interpretations of probability theory
+
+e A narrow view: a branch of math
+— Axioms => theorems “Thm:” “Frequency” of event A ‘is’ P(A)
+
+e Are probabilities frequencies?
+— P(coin toss yields heads) = 1/2
+— P(the president of ... will be reelected) = 0.7
+
+e Probabilities are often intepreted as:
+— Description of beliefs
+
+— Betting preferences

@@ -1,0 +1,24 @@
+Related topics
+
+Better bounds/approximations on tail probabilities ” !
+SSS ee bs oo
+— Markov and Chebyshev inequalities “
+7 R(a)
+on
+
+— Chernoff bound A. 4 1M.-p 122) £€ os
+_ _ » Py “
+
+Central limit theorem M., nt NM (¥; oc yy.)
+Different types of convergence
+
+— Convergence in probability
+
+— Convergence “with probability 1” F és : Yn amd Y (wi? =A.
+
+"00
+— Strong law of large numbers M wes p
+~
+
+M200
+— Convergence of a sequence of distributions (CDFs) to a limiting CDF

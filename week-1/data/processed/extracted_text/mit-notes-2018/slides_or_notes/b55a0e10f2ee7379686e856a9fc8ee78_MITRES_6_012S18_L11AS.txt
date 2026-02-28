@@ -1,0 +1,289 @@
+LECTURE 11: Derived distributions
+• Given the distribution of X,
+find the distribution of Y = g(X)
+the discrete case
+the continuous case
+general approach, using CDFs
++
+the linear case : Y = aX b
+general formula when g is monotonic
+• Given the Uoint) distribution of X and Y,
+find the distribution of Z = g(X, Y)
+1
+Derived distributions - the discrete case
+f.,. f ('{ :::
+=
+Y g(X) 4 )
+(y) ;;
+::: -e (X ll) f.. (X:::
+~ t '»
+y
+'" f,. J?
+o.?> ..
+('f) .,. 0. '1
+J< (,.) .'-
+9
+0.4
+5
+0.3
+4
+prob
+0.2 py(y) - P (g(X) = y)
+3
+3 L
+-
+px (x)
+2
+2 T:9 ( X)=Y
+•
+2
+A linear function of a discrete r.v.
+Z=2X
+pz(z)
+px(x)
+3 / 6
+It;,
+2 / 6 2
+1/ 6
+-~ ~ 'f z
+- 1 1 2 x
+Pi l? E
+7)
+(7) = ('r= = (.iXt~ :::7)
+-?)
+: f (X:: Px (7
+}'"-3) :::
+JL
+~
++ ~)
+y Y = aX b : py(y) = Px (y:
+I
+3
+A linear function of a continuous r. v.
+Jx(x)
+2/ 3 - ­
+- 1 1 x
+Jz(z)
+Z=2X Y = 2X+3
+h(Y)
+'/~
+'/)'
+./,
+I
+'16
+1/~
+'1>
+Y
+-
+z 3
+I
+4
+A linear function of a continuous r. v. Y = aX + b
+Fy
+(7) ~.f('(= 7) = f(a Xl-b ~ '!)
+F:- (
+1 ( !
+~ .Y~ ~.h
+= X' b) ; )
+t (
+jy (/,) ::- .
+Y~h) ~.
+(Y - b)
+1
+Jy(y) = j;;"jJx a
+5
+A linear function of a normal r. v. is normal
+I
+I
+:.~-- ,
+•
+I
+0' )'"
++
+Y = aX b. a oF 0
+(Y - b)
+1
+=
+Jy(y) Jx - .
+lal
+a
+6
+A general function g(X ) of a continuous r.v.
+• Two-step procedure:
+" f '!)
+Find the CDF of Y: Fy(y) = P(Y < y) (~()() !:
+•
+dFy
+DifFerentiate: fy(y) = dy (y)
+7
+x 3
+Example: Y = ; X uniform on [0,2]
+1
+•
+fv
+,/£
+%
+•
+o
+I
+..
+. ;
+"jf/3
+8
+=
+Example: Y a/X
+• You go to the gym and set the speed X of the treadmill
+to a number between 5 and 10 km/hr (with a uniform distribution).
+Find the PDF of the time it takes to run 10km.
+10
+1/,
+)<
+-10 10
+•
+1'(
+-I (- 10)
+(y) -
+~
+- -
+- - J'£/~~
+• • • )
+?
+_'I 'ti­
+L
+I
+U2e!I</'Je.
+:::: 0 0
+J
+9
+A general formula for the PDF of Y = g( X) when 9 is monotonic
+de ere", s" ")O'
+<:I:' ="> ::1'(0:1 < ~(?cl)
+A ssum e 9 strictl y i~ng
+S-
+(~): f('(5y)~i ()(~U~J)
+F)<CD.rr»)
+=
+and difFerenti abl e
+h y,,(Ur» d.~R(7)
+Cy) =
+y g(x) r'( (,/) ;
+~
+f ( '( ~ y) '" f (X ~ ~ (f»)
+:: 1-1 (X ~(Ul»)= F", (0.(7»)
+1-
+.X
+dh
+Ix
+jy(y) = (hey) ) -d ,(y)
+Y
+10
+=
+Example: Y X 2 ; X uniform on [0 , 1]
+dh
+= Ix
+Jy (y ) (h(y )) d (y)
+y
+o
+I
+~'1!
+11
+I
+An intuitive explanation for the monotonic case
+a,
+h
+z 0I.0~ r.~)
+( )
+Y=")'
+::x:
+~
+dg
+slope - (.e)
+y S,zdr:~~(r)
+d.c -;c::(JJrJ
+(J)
+..........
+/ · .
+.
+• •
+• •
+· .
+(y, y+02 1
+· .
+· .
+•• •
+•
+x
+(.", .e+o, 1
+12
+=
+A nonmonotonic example: Y X2
+• Th e discrete case:
+= .f.
++.f
+(x:: 3» (X.:- -3)
+py(9)
+-~ ~
+fx
+I (f() p" ( - II; )
+J = +
+py(y)
+Y ~O
+• The continu ous case: '
+G
+(,1:: .fn~l) =1 (X2:7)=f(L)(I~Ifi)::f (-VY!E X !If;)
+I; Fl< (- 'J7)
+('0) -
+=
+13
+A function of multiple r. v .'5: Z = g(X , Y)
+• Same m ethodology: find CDF of Z
+-
+, -~;> (4 - -1 - ­ - - - - ­
+•
+Let Z = Y / X; X , Y ind ependent, uniform on [0 , 1]
+, ,
+"'-'Po,e.
+'/2 i!:
+-
+-
+,~:a.x
+'/2­
+1 1
+J
+\'
+c
+,
+se.fe.
+III 1\
+i
+5¢
+(~)
+, ,
+1 '12 1
+r.
+=1 (. z) -
+0)
+- 2<0
+(2) y.
+!'
+•
+•(£ •
+X
+t
+a..t.
+=
+•
+-.il
+O~f!~1
+9. )
+,
+I
+:::.1-,22- 2-,. I
+I
+14
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

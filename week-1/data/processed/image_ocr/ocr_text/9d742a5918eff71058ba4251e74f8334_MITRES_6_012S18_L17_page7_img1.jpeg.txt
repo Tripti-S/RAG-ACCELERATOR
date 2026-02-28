@@ -1,0 +1,12 @@
+LLMS for inferring the parameter of a coin
+
+e ©: uniform on [0,1] E[O]= 5 var(O) = = E[©?] =
+
+© pxjo: Bin(n,©) E[X|©]=n© _var(X|©) =n@(1- ©)
+E[X] = E[X?|©] =
+E[X2] =
+var(X) =
+E[OX | 6] =
+E[OX] =
+
+cov(9O, X) =

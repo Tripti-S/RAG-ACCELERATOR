@@ -1,0 +1,19 @@
+MITOCW | MITRES6_012S18_L23-01_300k
+In this lecture, we look in some depth into various properties of Poisson processes.
+These properties would be quite hard to study if one were to proceed just analytically by manipulating formulas.
+However, by using memorylessness and our intuitive understanding of what the Poisson process really is, they
+become quite simple.
+And the mathematical manipulations can be avoided almost entirely.
+We will start by arguing that the sum of independent Poisson random variables is Poisson.
+But we will then establish the much stronger statement that if we merge two independent Poisson processes, we,
+again, obtain a Poisson process.
+We will see that we can exploit this fact to solve some problems that would be quite difficult otherwise.
+Once more, intuitive reasoning is the key.
+Finally, we will spend some time discussing a phenomenon that goes under the name of random incidence.
+The Poisson process has been running.
+You show up at a certain time.
+You look at the size of the inter-arrival interval during which you show up.
+It turns out that this inter-arrival interval that you get to observe is not a typical one.
+It tends to be larger than the typical inter-arrival interval.
+We will understand what exactly is going on, build some intuition, and realize that this is a general phenomenon
+that also shows up in many other contexts.

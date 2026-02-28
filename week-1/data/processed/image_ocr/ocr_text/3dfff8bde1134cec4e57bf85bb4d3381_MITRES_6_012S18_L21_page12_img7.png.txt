@@ -1,0 +1,1 @@
+Bernoulli(p(1—q))

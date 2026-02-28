@@ -1,0 +1,7 @@
+LMS estimation of © based on X
+
+e LMS relevant to estimation (not hypothesis testing)
+
+e Same as MAP if the posterior is unimodal and symmetric around the mean
+
+— e.g., when posterior is normal (the case in “linear—-normal" models)

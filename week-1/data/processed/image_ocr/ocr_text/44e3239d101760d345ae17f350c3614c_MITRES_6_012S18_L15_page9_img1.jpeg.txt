@@ -1,0 +1,11 @@
+The mean squared error
+
+2
+0
+
+e Example: o4 =o
+e conditional mean squared error same for all zx
+
+e Example: X =0O+W O-n~N(0,1), W-+WN(O0,1)
+
+independent ©, W 6 = x/2 E[(© —~6)?2|x= | =

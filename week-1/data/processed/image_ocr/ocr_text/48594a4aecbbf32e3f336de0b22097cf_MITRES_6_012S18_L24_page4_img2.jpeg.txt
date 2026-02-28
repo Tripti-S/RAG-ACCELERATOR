@@ -1,0 +1,4 @@
+P(Xn = 9) = Dd P(X0 = A)rij(n)
+a
+
+tv

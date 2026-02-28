@@ -1,0 +1,18 @@
+Conditional expectation as a random variable
+
+e Function h e Random variable X; what is h(X)?
+
+e.g., h(x) = x, for all x e h(X) is the r.v. that takes the value <2,
+if X happens to take the value zx
+
+e gy) = E[X | ¥ =y] = Dozpyyy (x | y)
+(integral in continuous case)
+e g(Y): is the r.v. that takes the value E[X | Y = y],
+if Y happens to take the value y
+
+e Remarks:
+— It is a function of Y Definition: E[X|Y] =g9(Y)
+
+— It is a random variable
+
+— Has a distribution, mean, variance, etc.

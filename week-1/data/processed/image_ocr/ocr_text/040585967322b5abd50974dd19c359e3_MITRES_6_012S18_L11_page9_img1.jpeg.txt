@@ -1,0 +1,5 @@
+Example: Y = a/X
+
+e You go to the gym and set the speed X of the treadmill
+to a number between 5 and 10 km/hr (with a uniform distribution).
+Find the PDF of the time it takes to run 10km.

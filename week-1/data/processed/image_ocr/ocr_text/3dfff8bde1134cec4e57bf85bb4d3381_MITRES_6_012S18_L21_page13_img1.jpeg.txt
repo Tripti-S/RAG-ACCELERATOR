@@ -1,0 +1,18 @@
+Poisson approximation to binomial
+
+e Interesting regime: large n , small p, moderate \ = np
+
+e Number of arrivals Sinn slots: pg(k) = p¥(1—p)"-*, k=0,...,n
+
+n!
+(n—k)!k!
+
+For fixed k= 0,1,...
+
+»
+
+AK _
+
+e Fact: for any fixed k > 0,
+lim (1 —A/n)"-* = e
+n—- Ooo

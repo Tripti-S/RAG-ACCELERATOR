@@ -1,0 +1,19 @@
+Splitting of a Poisson process
+
+e Split arrivals into two streams, using independent coin flips of a coin with bias q
+
+— assume that coin flips are independent from the original Poisson process
+2
+? ay) 0(5°)
+wd Ad¢
+
+time
+
+i-4] [eens streams are Poisson,
+F ; rates Aq, \(1 — q)
+
++ Fi -9) time
+
+e Are the two resulting streams independent?
+
+Surprisingly, yes!

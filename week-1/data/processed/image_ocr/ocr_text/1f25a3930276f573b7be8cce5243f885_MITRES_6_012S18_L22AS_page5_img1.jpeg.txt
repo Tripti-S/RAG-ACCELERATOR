@@ -1,0 +1,21 @@
+Mean and variance of the number of arrivals
+
+P(k,r) = P(N; =k) = Ore
+
+‘ 0
+k!
+ke—AT
+Ble] = S> RAE = 2At
+k=0 °
+
+N;, & Binomial(n, p)
+
+n=T/6, p=6+0(62)
+E[Mz]zupsdc
+var(N,) = *p-p)edt
+
+E[N-] = Ar
+
+var(N;) = Ar
+
+Ela]

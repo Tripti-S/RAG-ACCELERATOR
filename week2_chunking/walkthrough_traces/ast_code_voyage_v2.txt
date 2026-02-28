@@ -1,0 +1,47 @@
+🚀 Week 2: Single Strategy Indexing
+==================================================
+🎯 Strategy: ast_code
+🧠 Embedder: voyage
+🧪 Mode: FULL (all files)
+📋 Loading deduplication manifest...
+   Total files in manifest: 184
+   Deduplication reduction: 25.81%
+🚀 FULL MODE: Processing all deduplicated files
+📁 Files to process: 184
+
+======================================================================
+📊 INDEXING STRATEGY: AST Code (2048c/400w)
+🧠 EMBEDDER: Voyage-4-lite (API)
+======================================================================
+🚀 Using Voyage embedder: voyage-4-lite (2048d, 32000 max tokens)
+🔧 Creating Chunking Pipeline...
+📊 Strategy: AST Code (2048c/400w)
+🧠 Embedder: Voyage-4-lite (API)
+🔢 Dimensions: 2048
+📊 Collection: week2_ast_code_voyage
+⚡ Batch Size: 32
+⏱️  Qdrant Timeout: 120s
+🔧 Creating Qdrant collection: week2_ast_code_voyage...
+✅ Qdrant collection created: week2_ast_code_voyage
+🔗 Connecting pipeline components...
+✅ Pipeline created for strategy: AST Code (2048c/400w)
+🚀 Ready to index documents!
+
+🚀 Starting indexing...
+📁 Files to process: 184
+Converting markdown files to Documents:   0%|          | 0/71 [00:00<?, ?it/s]Converting markdown files to Documents:  25%|██▌       | 18/71 [00:00<00:00, 177.36it/s]Converting markdown files to Documents:  62%|██████▏   | 44/71 [00:00<00:00, 222.02it/s]Converting markdown files to Documents: 100%|██████████| 71/71 [00:00<00:00, 256.21it/s]
+Calculating embeddings:   0%|          | 0/22 [00:00<?, ?it/s]Calculating embeddings:   5%|▍         | 1/22 [00:01<00:34,  1.63s/it]Calculating embeddings:   9%|▉         | 2/22 [00:02<00:23,  1.19s/it]Calculating embeddings:  14%|█▎        | 3/22 [00:04<00:25,  1.35s/it]Calculating embeddings:  18%|█▊        | 4/22 [00:05<00:23,  1.30s/it]Calculating embeddings:  23%|██▎       | 5/22 [00:06<00:19,  1.12s/it]Calculating embeddings:  27%|██▋       | 6/22 [00:06<00:16,  1.01s/it]Calculating embeddings:  32%|███▏      | 7/22 [00:07<00:13,  1.08it/s]Calculating embeddings:  36%|███▋      | 8/22 [00:08<00:11,  1.23it/s]Calculating embeddings:  41%|████      | 9/22 [00:08<00:10,  1.27it/s]Calculating embeddings:  45%|████▌     | 10/22 [00:09<00:08,  1.35it/s]Calculating embeddings:  50%|█████     | 11/22 [00:10<00:07,  1.44it/s]Calculating embeddings:  55%|█████▍    | 12/22 [00:10<00:06,  1.52it/s]Calculating embeddings:  59%|█████▉    | 13/22 [00:11<00:05,  1.65it/s]Calculating embeddings:  64%|██████▎   | 14/22 [00:11<00:04,  1.63it/s]Calculating embeddings:  68%|██████▊   | 15/22 [00:12<00:04,  1.61it/s]Calculating embeddings:  73%|███████▎  | 16/22 [00:13<00:03,  1.66it/s]Calculating embeddings:  77%|███████▋  | 17/22 [00:13<00:03,  1.66it/s]Calculating embeddings:  82%|████████▏ | 18/22 [00:14<00:02,  1.66it/s]Calculating embeddings:  86%|████████▋ | 19/22 [00:14<00:01,  1.60it/s]Calculating embeddings:  91%|█████████ | 20/22 [00:15<00:01,  1.38it/s]Calculating embeddings:  95%|█████████▌| 21/22 [00:16<00:00,  1.30it/s]Calculating embeddings: 100%|██████████| 22/22 [00:17<00:00,  1.42it/s]Calculating embeddings: 100%|██████████| 22/22 [00:17<00:00,  1.27it/s]
+  0%|          | 0/687 [00:00<?, ?it/s] 15%|█▍        | 100/687 [00:04<00:23, 24.93it/s] 29%|██▉       | 200/687 [00:07<00:16, 29.00it/s] 44%|████▎     | 300/687 [00:18<00:27, 13.95it/s] 58%|█████▊    | 400/687 [00:20<00:14, 19.52it/s] 73%|███████▎  | 500/687 [00:22<00:07, 25.14it/s] 87%|████████▋ | 600/687 [00:24<00:02, 30.00it/s]700it [00:29, 26.08it/s]                         700it [00:29, 23.69it/s]
+
+✅ Token Limit Check: All 687 chunks within 32000 token limit
+   Max chunk: 4209 tokens | Avg: 307 tokens
+
+✅ Indexing completed!
+⏱️  Processing time: 50.83 seconds
+📝 Documents written: 687
+⚡ Avg time per file: 0.28 seconds
+
+🎯 Collection created: week2_ast_code_voyage
+   Ready for RAG queries!
+
+🎉 Strategy indexed successfully!

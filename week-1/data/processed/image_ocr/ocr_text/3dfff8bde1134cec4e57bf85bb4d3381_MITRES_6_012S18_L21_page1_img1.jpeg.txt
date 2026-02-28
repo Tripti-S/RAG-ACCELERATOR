@@ -1,0 +1,14 @@
+LECTURE 21: The Bernoulli process
+e Definition of Bernoulli process
+
+e Stochastic processes
+
+e Basic properties (memorylessness)
+
+e The time of the kth success/arrival
+
+e Distribution of interarrival times
+
+e Merging and splitting
+
+e Poisson approximation

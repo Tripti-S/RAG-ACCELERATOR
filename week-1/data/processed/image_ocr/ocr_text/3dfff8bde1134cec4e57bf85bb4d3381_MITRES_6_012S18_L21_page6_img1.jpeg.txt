@@ -1,0 +1,5 @@
+Independence, memorylessness, and fresh-start properties
+
+e Fresh-start after time n
+
+e Fresh-start after time T;

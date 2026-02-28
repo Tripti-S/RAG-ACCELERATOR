@@ -1,0 +1,10 @@
+Derived distributions — the discrete case
+
+Y = 9(X)
+
+py (y)
+
+P(g(X) = y)
+S> px(2)
+
+x: g(x)=y

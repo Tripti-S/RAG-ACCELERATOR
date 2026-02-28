@@ -1,0 +1,10 @@
+Independence
+e of two events: P(AN B) = P(A) - P(B) P(A | B) = P(A)
+
+e of ar.v. and an event: P(X =z and A) => P(X =2)-P(A), forallaz
+
+px y(a,y) =px(x)py(y), forall a, y
+
+X,Y,Z are independent if:
+
+Px y,z(@,y,z) = px(z) py(y) pz(z), for all x, y, z

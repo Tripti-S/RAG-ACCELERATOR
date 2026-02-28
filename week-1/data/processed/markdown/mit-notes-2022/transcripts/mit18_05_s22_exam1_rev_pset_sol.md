@@ -1,0 +1,472 @@
+# Mit18 05 S22 Exam1 Rev Pset Sol
+
+---
+
+Class Exam 1 Review Problems –solutions, 18.05, Spring
+2022
+There are certainly too many problems here to do in class. Pick and choose the ones that
+will be most helpful to you. The actual test will be much much shorter.
+1 Normal probability table
+Problem 1. (Table of normal probabilities)
+Use the table of standard normal probabilities to compute the following. (𝑍 is the standard
+normal.)
+(a) (i) 𝑃 (𝑍 ≤ 1.5) (ii) 𝑃 (−1.5 < 𝑍 < 1.5) 𝑃 (𝑍 > −0.75).
+(b) Suppose 𝑋 ∼ N(2, (0.5)2). Find (i) 𝑃(𝑋 ≤ 2) (ii) 𝑃(1 < 𝑋 ≤ 1.75).
+Solution: (a) (i) 0.9332 (ii) 0.9332 - 0.0668 = 0.8664
+(iii) By symmetry = 𝑃 (𝑍 < 0.75) = 0.7734. (Or we could have used 1 − 𝑃 (𝑍 > −0.75.))
+(b) (i) Since 2 is the mean of the normal distribution, 𝑃(𝑋 ≤ 2) = 0.5.
+(ii) Standardizing,
+1−2 1.75−2
+𝑃(1 < 𝑋 ≤ 1.75) = 𝑃 ( < 𝑍 ≤ ) = 𝑃(−2 < 𝑍 < −0.5) = 0.3085−0.0228 = 0.2857 .
+0.5 0.5
+2 Counting and Probability Problems
+Problem 2. (a) How many ways can you arrange the letters in the word STATISTICS?
+(e.g. SSSTTTIIAC counts a one arrangement.)
+(b) If all arrangements are equally likely, what is the probabilitiy the two ’i’s are next to
+each other.
+Solution: (a) Create an arrangement in stages and count the number of possibilities at
+each stage:
+10
+Stage 1: Choose three of the 10 slots to put the S’s: ( )
+3
+7
+Stage 2: Choose three of the remaining 7 slots to put the T’s: ( )
+3
+4
+Stage 3: Choose two of the remaining 4 slots to put the I’s: ( )
+2
+2
+Stage 4: Choose one of the remaining 2 slots to put the A: ( )
+1
+1
+Stage 5: Use the last slot for the C: ( )
+1
+Number of arrangements:
+10 7 4 2 1
+( )( )( )( )( ) = 50400.
+3 3 2 1 1
+1
+Exam 1 review, Spring 2022 2
+10
+(b) The are ( ) = 45 equally likely ways to place the two I’s.
+2
+There are 9 ways to place them next to each other, i.e. in slots 1 and 2, slots 2 and 3, …,
+slots 9 and 10.
+So the probability the I’s are adjacent is 9/45 = 0.2.
+3 Conditional Probability and Bayes’ Theorem Problems
+Problem 3. Corrupted by their power, the judges running the popular game show America’s
+Next Top Mathematician have been taking bribes from many of the contestants. Each
+episode, a given contestant is either allowed to stay on the show or is kicked off.
+If the contestant has been bribing the judges they will be allowed to stay with probability 1.
+If the contestant has not been bribing the judges, they will be allowed to stay with probability
+1/3.
+Suppose that 1/4 of the contestants have been bribing the judges. The same contestants
+bribe the judges in both rounds, i.e., if a contestant bribes them in the first round, they bribe
+them in the second round too (and vice versa).
+(a) If you pick a random contestant who was allowed to stay during the first episode, what
+is the probability that they were bribing the judges?
+(b) If you pick a random contestant, what is the probability that they are allowed to stay
+during both of the first two episodes?
+(c) If you pick random contestant who was allowed to stay during the first episode, what is
+the probability that they get kicked off during the second episode?
+Solution: The following tree shows the setting. Stay means the contestant was allowed
+1
+to stay during the first episode and stay means the they were allowed to stay during the
+2
+second.
+1/4 3/4
+Bribe Honest
+1 0 1/3 2/3
+Stay Leave Stay Leave
+1 1 1 1
+1 0 1/3 2/3
+Stay Leave Stay Leave
+2 2 2 2
+Let’s name the relevant events:
+𝐵 = the contestant is bribing the judges
+𝐻 = the contestant is honest (not bribing the judges)
+𝑆 = the contestant was allowed to stay during the first episode
+1
+𝑆 = the contestant was allowed to stay during the second episode
+2
+𝐿 = the contestant was asked to leave during the first episode
+1
+𝐿 = the contestant was asked to leave during the second episode
+2
+Exam 1 review, Spring 2022 3
+(a) We first compute 𝑃 (𝑆 ) using the law of total probability.
+1
+1 1 3 1
+𝑃(𝑆 ) = 𝑃(𝑆 |𝐵)𝑃(𝐵)+𝑃(𝑆 |𝐻)𝑃(𝐻) = 1⋅ + ⋅ = .
+1 1 1 4 3 4 2
+𝑃 (𝐵) 1/4 1
+We therefore have (by Bayes’ rule) 𝑃 (𝐵|𝑆 ) = 𝑃 (𝑆 |𝐵) = 1 ⋅ = .
+1 1 𝑃(𝑆 ) 1/2 2
+1
+(b) Using the tree we have the total probability of 𝑆 is
+2
+1 3 1 1 1
+𝑃(𝑆 ) = + ⋅ ⋅ =
+2 4 4 3 3 3
+𝑃 (𝐿 ∩ 𝑆 )
+(c) We want to compute 𝑃 (𝐿 |𝑆 ) = 2 1 .
+2 1 𝑃 (𝑆 )
+1
+From the calculation we did in part (a), 𝑃 (𝑆 ) = 1/2. For the numerator, we have (see the
+1
+tree)
+1 2 3 1
+𝑃(𝐿 ∩ 𝑆 ) = 𝑃(𝐿 ∩ 𝑆 |𝐵)𝑃(𝐵)+𝑃(𝐿 ∩ 𝑆 |𝐻)𝑃(𝐻) = 0⋅ + ⋅ =
+2 1 2 1 2 1 4 9 4 6
+1/6 1
+Therefore 𝑃 (𝐿 |𝑆 ) = = .
+2 1 1/2 3
+4 Independence Problems
+Problem 4. You roll a twenty-sided die. Determine whether the following pairs of events
+are independent.
+(a) ‘You roll an even number’ and ‘You roll a number less than or equal to 10’.
+(b) ‘You roll an even number’ and ‘You roll a prime number’.
+Solution: 𝐸 = even numbered = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20}.
+𝐿 = roll ≤ 10 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}.
+𝐵 = roll is prime = {2, 3, 5, 7, 11, 13, 17, 19} (We use 𝐵 because 𝑃 is not a good choice.)
+(a) 𝑃(𝐸) = 10/20, 𝑃(𝐸|𝐿) = 5/10. These are the same, so the events are independent.
+(b) 𝑃 (𝐸) = 10/20. 𝑃(𝐸|𝐵) = 1/8. These are not the same so the events are not indepen-
+dent.
+5 Expectation and Variance Problems
+Problem 5. The random variable 𝑋 takes values -1, 0, 1 with probabilities 1/8, 2/8, 5/8
+respectively.
+(a) Compute 𝐸[𝑋].
+(b) Give the pmf of 𝑌 = 𝑋2 and use it to compute 𝐸[𝑌 ].
+(c) Instead, compute 𝐸[𝑋2] directly from an extended table.
+Exam 1 review, Spring 2022 4
+(d) Compute Var(𝑋).
+(a) Solution: We have
+𝑋 values: -1 0 1
+prob: 1/8 2/8 5/8
+𝑋2 1 0 1
+So, 𝐸[𝑋] = −1/8 + 5/8 = 1/2.
+𝑌 values: 0 1
+(b) Solution: ⇒ 𝐸[𝑌 ] = 6/8 = 3/4.
+prob: 2/8 6/8
+(c) Solution: The change of variables formula just says to use the bottom row of the table
+in part (a): 𝐸[𝑋2] = 1⋅(1/8)+0 ⋅(2/8)+1 ⋅(5/8) = 3/4 (same as part (b)).
+(d) Solution: Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 = 3/4 − 1/4 = 1/2.
+Problem 6. Suppose 100 people all toss a hat into a box and then proceed to randomly
+pick out of a hat. What is the expected number of people to get their own hat back.
+Hint: express the number of people who get their own hat as a sum of random variables
+whose expected value is easy to compute.
+Solution: Let 𝑋 be the number of people who get their own hat.
+Following the hint: let 𝑋 represent whether person 𝑗 gets their own hat. That is, 𝑋 = 1
+𝑗 𝑗
+if person 𝑗 gets their hat and 0 if not.
+100 100
+We have, 𝑋 = ∑𝑋 , so 𝐸[𝑋] = ∑𝐸[𝑋 ].
+𝑗 𝑗
+𝑗=1 𝑗=1
+Since person 𝑗 is equally likely to get any hat, we have 𝑃 (𝑋 = 1) = 1/100. Thus, 𝑋 ∼
+𝑗 𝑗
+Bernoulli(1/100) ⇒ 𝐸[𝑋 ] = 1/100 ⇒ 𝐸[𝑋] = 1.
+𝑗
+6 Probability Mass Functions, Probability Density Functions
+and Cumulative Distribution Functions Problems
+Problem 7. (a) Suppose that 𝑋 has probability density function 𝑓 (𝑥) = 𝜆e−𝜆𝑥 for 𝑥 ≥ 0.
+𝑋
+Compute the cdf, 𝐹 (𝑥).
+𝑋
+(b) If 𝑌 = 𝑋2, compute the pdf and cdf of 𝑌 .
+(a) Solution: We have cdf of 𝑋,
+𝑥
+𝐹 (𝑥) = ∫ 𝜆e−𝜆𝑥𝑑𝑥 = 1 − e−𝜆𝑥.
+𝑋
+0
+Now for 𝑦 ≥ 0, we have
+(b) Solution:
+√ √
+𝐹 (𝑦) = 𝑃(𝑌 ≤ 𝑦) = 𝑃(𝑋2 ≤ 𝑦) = 𝑃(𝑋 ≤ 𝑦) = 1− e−𝜆 𝑦.
+𝑌
+Exam 1 review, Spring 2022 5
+Differentiating 𝐹 (𝑦) with respect to 𝑦, we have
+𝑌
+𝜆 √
+𝑓
+𝑌
+(𝑦) =
+2
+𝑦− 1
+2
+e−𝜆 𝑦.
+Problem 8. Suppose you roll a fair 6-sided die 100 times (independently), and you get $3
+every time you roll a 6.
+Let 𝑋 be the number of dollars you win on rolls 1 through 25.
+1
+Let 𝑋 be the number of dollars you win on rolls 26 through 50.
+2
+Let 𝑋 be the number of dollars you win on rolls 51 through 75.
+3
+Let 𝑋 be the number of dollars you win on rolls 76 throught 100.
+4
+Let 𝑋 = 𝑋 +𝑋 +𝑋 +𝑋 be the total number of dollars you win over all 100 rolls.
+1 2 3 4
+(a) What is the probability mass function of 𝑋?
+(b) What is the expectation and variance of 𝑋?
+(c) Let 𝑌 = 4𝑋 . (So instead of rolling 100 times, you just roll 25 times and multiply your
+1
+winnings by 4.)
+(i) What are the expectation and variance of 𝑌 ?
+(ii) How do the expectation and variance of 𝑌 compare to those of 𝑋? (That is, are they
+bigger, smaller, or equal?) Explain (briefly) why this makes sense.
+Solution: (a) There are a number of ways to present this.
+Let 𝑇 be the total number of times you roll a 6 in the 100 rolls. We know 𝑇 ∼ Binomial(100, 1/6).
+Since you win $3 every time you roll a 6, we have 𝑋 = 3𝑇 . So, we can write
+100 1 𝑘 5 100−𝑘
+𝑃(𝑋 = 3𝑘) = ( )( ) ( ) , for 𝑘 = 0, 1, 2, …, 100.
+𝑘 6 6
+Alternatively we could write
+100 1 𝑥/3 5 100−𝑥/3
+𝑃(𝑋 = 𝑥) = ( )( ) ( ) , for 𝑥 = 0, 3, 6, …, 300.
+𝑥/3 6 6
+(b) 𝐸[𝑋] = 𝐸[3𝑇] = 3𝐸[𝑇] = 3⋅100⋅ 1 = 50,
+6
+Var(𝑋) = Var(3𝑇) = 9Var(𝑇) = 9⋅100⋅ 1 ⋅ 5 = 125.
+6 6
+(c) (i) Let 𝑇 be the total number of times you roll a 6 in the first 25 rolls. So, 𝑋 = 3𝑇
+1 1 1
+and 𝑌 = 12𝑇 .
+1
+Now, 𝑇 ∼ Binomial(25, 1/6), so
+1
+𝐸[𝑌] = 12𝐸[𝑇 ] = 12⋅25⋅16 = 50.
+1
+and
+1 5
+Var(𝑌) = 144Var(𝑇 ) = 144⋅25⋅ ⋅ = 500.
+1 6 6
+(ii) The expectations are the same by linearity because 𝑋 and 𝑌 are the both
+3 × 100 × a Bernoulli(1/6) random variable.
+Exam 1 review, Spring 2022 6
+For the variance, Var(𝑋) = 4Var(𝑋 ) because 𝑋 is the sum of 4 independent variables all
+1
+identical to 𝑋 . However Var(𝑌) = Var(4𝑋 ) = 16Var(𝑋 ). So, the variance of 𝑌 is 4
+1 1 1
+times that of 𝑋. This should make some intuitive sense because 𝑋 is built out of more
+independent trials than 𝑋 .
+1
+Another way of thinking about it is that the difference between 𝑌 and its expectation is
+four times the difference between 𝑋 and its expectation. However, the difference between
+1
+𝑋 and its expectation is the sum of such a difference for 𝑋 , 𝑋 , 𝑋 , and 𝑋 . It’s probably
+1 2 3 4
+the case that some of these deviations are positive and some are negative, so the absolute
+value of this difference for the sum is probably less than four times the absolute value of this
+difference for one of the variables, i.e. the deviations are likely to cancel to some extent.
+7 Joint Probability, Covariance, Correlation Problems
+Problem 9. Covariance and Independence
+Let 𝑋 be a random variable that takes values -2, -1, 0, 1, 2; each with probability 1/5. Let
+𝑌 = 𝑋2.
+(a) Fill out the following table giving the joint frequency function for 𝑋 and 𝑌 . Be sure to
+include the marginal probabilities.
+𝑋 -2 -1 0 1 2 total
+𝑌
+0
+1
+4
+total
+Solution:
+𝑋 -2 -1 0 1 2
+𝑌
+0 0 0 1/5 0 0 1/5
+1 0 1/5 0 1/5 0 2/5
+4 1/5 0 0 0 1/5 2/5
+1/5 1/5 1/5 1/5 1/5 1
+Each column has only one nonzero value. For example, when 𝑋 = −2 then 𝑌 = 4, so in
+the 𝑋 = −2 column, only 𝑃(𝑋 = −2,𝑌 = 4) is not 0.
+(b) Find 𝐸[𝑋] and 𝐸[𝑌 ].
+Solution: Using the marginal distributions: 𝐸[𝑋] = 1(−2−1+0+1+2) = 0.
+5
+1 2 2
+𝐸[𝑌] = 0⋅ +1 ⋅ +4 ⋅ = 2.
+5 5 5
+(c) Show 𝑋 and 𝑌 are not independent.
+Solution: We show the probabilities don’t multiply:
+𝑃(𝑋 = −2, 𝑌 = 0) = 0 ≠ 𝑃(𝑋 = −2)⋅𝑃(𝑌 = 0) = 1/25.
+Since these are not equal 𝑋 and 𝑌 are not independent. (It is obvious that 𝑋2 is not
+independent of 𝑋.)
+Exam 1 review, Spring 2022 7
+(d) Show Cov(𝑋,𝑌) = 0.
+This is an example of uncorrelated but non-independent random variables. The reason this
+can happen is that correlation only measures the linear dependence between the two variables.
+In this case, 𝑋 and 𝑌 are not at all linearly related.
+Solution: Using the table from part (a) and the means computed in part (d) we get:
+Cov(𝑋,𝑌) = 𝐸[𝑋𝑌 ]−𝐸[𝑋]𝐸[𝑌]
+1 1 1 1 1
+= (−2)(4) + (−1)(1) + (0)(0) + (1)(1) + (2)(4)
+5 5 5 5 5
+= 0.
+Problem 10. Continuous Joint Distributions
+Suppose 𝑋 and 𝑌 are continuous random variables with joint density function 𝑓(𝑥,𝑦) =
+𝑐(𝑥 + 2𝑦) on the rectangle [0,1] × [0,2].
+When doing this problem in class: Only compute the integrals in parts (a) and (b). For the
+1 2
+others, just give the integrals in a form like ∫ ∫ 𝑥𝑓(𝑥,𝑦)𝑑𝑦 𝑑𝑥, but don’t compute them.
+0 0
+(a) Find the value of 𝑐.
+Solution: We need the total probability to be 1. So
+1 2
+∫ ∫ 𝑐(𝑥 + 2𝑦) 𝑑𝑦 𝑑𝑥 = 1.
+0 0
+2
+Inner integral: 𝑐(𝑥𝑦 + 𝑦2)∣ = 𝑐(2𝑥 + 4).
+0
+1
+Outer integral: [𝑐𝑥2 + 4𝑥] = 5𝑐.
+0
+So 𝑐 = 1/5.
+(b) Let 𝐹 (𝑥, 𝑦) be the joint CDF. Compute 𝐹 (𝑥, 𝑦). Compute 𝐹 (1, 2).
+𝑎 𝑏 1 𝑎 𝑏
+Solution: 𝐹(𝑎,𝑏) = 𝑃(𝑋 ≤ 𝑎,𝑌 ≤ 𝑏) = ∫ ∫ 𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = ∫ ∫ (𝑥+2𝑦)𝑑𝑦𝑑𝑥.
+5
+0 0 0 0
+Inner integral:
+1
+[𝑥𝑦 + 𝑦2]
+𝑏
+=
+1
+(𝑥𝑏 + 𝑏2).
+5 0 5
+1 𝑏𝑥2
+𝑎
+1 𝑎2𝑏
+Outer integral: [ + 𝑏2𝑥] = ( + 𝑎𝑏2) .
+5 2 5 2
+0
+1 𝑥2𝑦
+So, changing back to 𝑥, 𝑦: 𝐹(𝑥,𝑦) = ( +𝑥𝑦2) and 𝐹(1,2) = 1.
+5 2
+(c) Compute the marginal densities for 𝑋 and 𝑌 .
+2 1 2 1 2 1
+Solution: 𝑓 (𝑥) = ∫ 𝑓(𝑥,𝑦)𝑑𝑦 = ∫ (𝑥+2𝑦)𝑑𝑦 = [𝑥𝑦+𝑦2] = (2𝑥 + 4).
+𝑋 5 5 0 5
+0 0
+1 1 1
+Similarly, 𝑓 (𝑦) = ∫ 𝑓(𝑥,𝑦)𝑑𝑥 = ( +2𝑦).
+𝑌 5 2
+0
+Exam 1 review, Spring 2022 8
+(d) Are 𝑋 and 𝑌 independent?
+Solution: To see if they are independent we check if the joint density is the product of the
+marginal densities.
+1
+𝑓(𝑥,𝑦) = 𝑥+𝑦, 𝑓 (𝑥)⋅𝑓 (𝑦) = (2𝑥+4)(1/2+2𝑦).
+𝑋 𝑌 25
+Since these are not equal, 𝑋 and 𝑌 are not independent.
+(e) Compute 𝐸[𝑋], 𝐸[𝑌 ], 𝐸[𝑋2 + 𝑌 2], Cov(𝑋,𝑌 ), Cor(𝑋, 𝑌 ).
+Solution:
+1 2 1 1 2
+𝐸[𝑋] = ∫ ∫ 𝑥𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥 = ∫ ∫ 𝑥(𝑥+2𝑦)𝑑𝑦𝑑𝑥.
+5
+0 0 0 0
+8
+The integration is similar to all the others in this problem: 𝐸[𝑋] = ≈ 0.533.
+15
+1 1 1
+(Or, using (b), 𝐸[𝑋] = ∫ 𝑥𝑓 (𝑥)𝑑𝑥 = ∫ 𝑥(2𝑥+4)𝑑𝑥 = 8/15.)
+𝑋 5
+0 0
+1 2 19
+Similarly, 𝐸[𝑌] = ∫ ∫ 𝑦𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥 = ≈ 1.267. .
+15
+0 0
+For the remaining integrals, we won’t show any computation. They all look similar.
+1 2 1 1 2 67
+𝐸[𝑋2+𝑌 2] = ∫ ∫ (𝑥2+𝑦2)𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥 = ∫ ∫ (𝑥2+𝑦2)(𝑥+2𝑦)𝑑𝑦𝑑𝑥 = ≈ 2.333.
+5 30
+0 0 0 0
+For Cov(𝑋,𝑌 ) we use the formula Cov(𝑋,𝑌) = 𝐸[𝑋𝑌 ]−𝐸[𝑋]𝐸[𝑌].
+1 2 1 1 2 2
+𝐸[𝑋𝑌 ] = ∫ ∫ 𝑥𝑦𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥 = ∫ ∫ 𝑥𝑦(𝑥+2𝑦)𝑑𝑦𝑑𝑥 = ≈ 0.667.
+5 3
+0 0 0 0
+2 8 19
+Cov(𝑋,𝑌) = 𝐸[𝑋𝑌 ]−𝐸[𝑋]𝐸[𝑌] = − ⋅ ≈ −0.00889.
+3 15 15
+To find the covariance, we need the variances of 𝑋 and 𝑌 . For this, we first compute 𝐸[𝑋2],
+𝐸[𝑌 2].
+1 2 1 2
+𝐸[𝑋2] = ∫ ∫ 𝑥2𝑓(𝑥,𝑦)𝑑𝑦𝑑𝑥 = 11/30 and 𝐸[𝑌2] = ∫ ∫ 𝑦2𝑓(𝑥,𝑦),𝑑𝑦𝑑𝑥 = 28/15.
+0 0 0 0
+So, Var(𝑋) = 11/30 − (8/15)2 ≈ 0.0822 and Var(𝑌 ) = 28/15 − (19/15)2 ≈ 0.262.
+√ √ Cov(𝑋,𝑌 )
+Thus, 𝜎 ≈ 0.0822, 𝜎 ≈ 0.262 and Cor(𝑋, 𝑌 ) = ≈ −0.0606. .
+𝑋 𝑌 𝜎 𝜎
+𝑋 𝑌
+8 Law of Large Numbers, Central Limit Theorem Problems
+Problem 11. Suppose 𝑋 , … , 𝑋 are i.i.d. with mean 1/5 and variance 1/9. Use the
+1 100
+central limit theorem to estimate 𝑃 (∑ 𝑋 < 30).
+𝑖
+Exam 1 review, Spring 2022 9
+Solution: Standardize:
+∑𝑋 −𝜇 30 − 𝑛𝜇
+𝑃 (∑ 𝑋 < 30) = 𝑃 ( √𝑖 < √ )
+𝑖 𝑛𝜎 𝑛𝜎
+𝑖
+30−20
+≈ 𝑃 (𝑍 < ) (by the central limit theorem)
+10/3
+= 𝑃(𝑍 < 3)
+= 0.9987 (from the table of normal probabilities)
+Problem 12. (More Central Limit Theorem)
+The average IQ in a population is 100 with standard deviation 15 (by definition, IQ is
+normalized so this is the case). What is the probability that a randomly selected group of
+100 people has an average IQ above 115?
+Solution: Let 𝑋 be the IQ of a randomly selected person. We are given 𝐸[𝑋 ] = 100 and
+𝑗 𝑗
+𝜎 = 15.
+𝑋
+𝑗
+Let 𝑋 be the average of the IQ’s of 100 randomly selected people. Then we know
+√
+𝐸[𝑋] = 100 and 𝜎 = 15/ 100 = 1.5.
+𝑋
+The problem asks for 𝑃 (𝑋 > 115). Standardizing we get 𝑃(𝑋 > 115) ≈ 𝑃(𝑍 > 10).
+This is effectively 0.
+9 More problems
+Problem 13. (Arithmetic Puzzle)
+The joint and marginal pmf’s of 𝑋 and 𝑌 are partly given in the following table.
+\𝑌 1 2 3
+𝑋
+1 1/6 0 … 1/3
+2 … 1/4 … 1/3
+3 … … 1/4 …
+1/6 1/3 … 1
+(a) Complete the table.
+(b) Are 𝑋 and 𝑌 independent?
+Solution: (a) The marginal probabilities have to add up to 1, so the two missing marginal
+probabilities can be computed: 𝑃(𝑋 = 3) = 1/3, 𝑃(𝑌 = 3) = 1/2. Now each row and
+column has to add up to its respective margin. For example, 1/6+0+𝑃(𝑋 = 1,𝑌 = 3) =
+1/3, so 𝑃(𝑋 = 1,𝑌 = 3) = 1/6. Here is the completed table.
+\𝑌 1 2 3
+𝑋
+1 1/6 0 1/6 1/3
+2 0 1/4 1/12 1/3
+3 0 1/12 1/4 1/3
+1/6 1/3 1/2 1
+Exam 1 review, Spring 2022 10
+(b) No, 𝑋 and 𝑌 are not independent.
+For example, 𝑃(𝑋 = 2,𝑌 = 1) = 0 ≠ 𝑃(𝑋 = 2)⋅𝑃(𝑌 = 1).
+Problem 14. Compute the expectation and variance of a Bernoulli(𝑝) random variable.
+Solution: Make a table:
+𝑋: 0 1
+prob: (1-p) p
+𝑋2 0 1.
+From the table, 𝐸[𝑋] = 0⋅(1−𝑝)+1 ⋅𝑝 = 𝑝.
+Since 𝑋 and 𝑋2 have the same table 𝐸[𝑋2] = 𝐸[𝑋] = 𝑝.
+Therefore, Var(𝑋) = 𝑝−𝑝2 = 𝑝(1−𝑝).
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

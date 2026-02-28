@@ -1,0 +1,897 @@
+probability - What is meant by a "random variable"? - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+What is meant by a "random variable"?
+Ask Question
+Asked
+15 years, 7 months ago
+Modified
+1 year, 9 months ago
+Viewed
+29k times
+113
+$\begingroup$
+What do they mean when they say "random variable"?
+probability
+random-variable
+intuition
+definition
+Share
+Cite
+Improve this question
+Follow
+edited
+Apr 25, 2024 at 5:02
+User1865345
+12.3k
+13
+13 gold badges
+28
+28 silver badges
+47
+47 bronze badges
+asked
+Jul 19, 2010 at 19:37
+Baltimark
+2,328
+4
+4 gold badges
+20
+20 silver badges
+20
+20 bronze badges
+$\endgroup$
+0
+Add a comment
+|
+10 Answers
+10
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+50
+$\begingroup$
+A random variable is a variable whose value depends on unknown events.  We can summarize the unknown events as "state", and then the random variable is a function of the state.
+Example:
+Suppose we have three dice rolls ($D_{1}$,$D_{2}$,$D_{3}$).  Then the state $S=(D_{1},D_{2},D_{3})$.
+One random variable $X$ is the number of 5s. This is:
+$$ X=(D_{1}=5?)+(D_{2}=5?)+(D_{3}=5?)$$
+Another random variable $Y$ is the sum of the dice rolls. This is:
+$$ Y=D_{1}+D_{2}+D_{3}  $$
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 19, 2016 at 8:54
+Tim
+144k
+27
+27 gold badges
+279
+279 silver badges
+545
+545 bronze badges
+answered
+Jul 19, 2010 at 20:08
+Paul
+1,421
+1
+1 gold badge
+16
+16 silver badges
+16
+16 bronze badges
+$\endgroup$
+6
+1
+$\begingroup$
+Thanks for clear and concise answer. It raises a question on the purpose of separating the unknown state from the outcome (I guess this is how the domain and range of the "random variable" are called in probability theory). It seems that the unknown state is called
+a sample
+, which
+I asked to distinguish from the outcomes
+. Why do you need to introduce a function and call it random variable, though it is absolutely deterministic and not variable at all? Why cannot you sample the outcome right away?
+$\endgroup$
+Val
+–
+Val
+2014-07-15 12:12:28 +00:00
+Commented
+Jul 15, 2014 at 12:12
+7
+$\begingroup$
+When the "events" become "known," what happens to the random variable?  According to this answer, it can no longer exist! The reliance of this answer on such nebulous ideas as "known"--which is purely subjective--makes it less than satisfactory as either a definition or explanation of random variables.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-07-18 14:08:32 +00:00
+Commented
+Jul 18, 2016 at 14:08
+3
+$\begingroup$
+@whuber English, and other human language, is necessarily imprecise. It seems you are actually picking on the word "depends", not "known". "is a function of" is more precise, but then "unknown events" is vague and so the mathematicians define a "probability space", "sigma algebra", "measurable functions", etc. If you need a more rigorous treatment, Wikipedia has it:
+en.wikipedia.org/wiki/Random_variable
+$\endgroup$
+Paul
+–
+Paul
+2016-07-20 00:02:53 +00:00
+Commented
+Jul 20, 2016 at 0:02
+3
+$\begingroup$
+@whuber While wikipedia rushes off to mathematical jargon to obtain precision, I notice that your answer, a decent layman's example of all that, while a worthwhile read, requires about 16 paragraphs to execute.  But what to tell an undergraduate who wants an answer that takes 5 seconds to read?  Customers appreciate brevity in definitions.
+$\endgroup$
+Paul
+–
+Paul
+2016-07-20 00:19:02 +00:00
+Commented
+Jul 20, 2016 at 0:19
+9
+$\begingroup$
+It's a measurable real-valued function on a probability space.  With each of those technical terms--"measurable," "real-valued function," and "probability space" I estimate I lost 90% of the potential audience, leaving just 0.1% actually understanding and appreciating the definition.  Incidentally, that's purely a mathematical definition.  It's useless until one has specified how it can be applied to a real statistical problem--but at least it's correct (if not completely general).
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-07-20 14:05:13 +00:00
+Commented
+Jul 20, 2016 at 14:05
+|
+Show
+1
+more comment
+112
+$\begingroup$
+Introduction
+In thinking over a recent comment, I notice that all replies so far suffer from the use of undefined terms like "variable" and vague terms like "unknown," or appeal to technical mathematical concepts like "function" and "probability space."  What should we say to the non-mathematical person who would like a plain, intuitive, yet accurate definition of "random variable"?  After some preliminaries describing a simple model of random phenomena, I provide such a definition that is short enough to fit on one line.  Because it might not fully satisfy the
+cognoscenti
+, an afterward explains how to extend this to the usual technical definition.
+Tickets in a box
+One way to approach the idea behind a
+random variable
+is to appeal to the
+tickets-in-a-box model of randomness
+.  This model replaces an experiment or observation by a box full of tickets. On each ticket is written a possible
+outcome
+of the experiment.  (An outcome can be as simple as "heads" or "tails" but in practice it is a more complex thing, such as a history of stock prices, a complete record of a long experiment, or the sequence of all words in a document.)  All possible outcomes appear at least once among the tickets; some outcomes may appear on many tickets.
+Instead of actually conducting the experiment, we imagine thoroughly--but blindly--mixing all the tickets and selecting just one.  If we can show that the real experiment
+should
+behave as if it were conducted in this way, then we have reduced a potentially complicated (and expensive, and lengthy) real-world experiment to a simple, intuitive,
+thought experiment
+(or "statistical model").  The clarity and simplicity afforded by this model makes it possible to analyze the experiment.
+An example
+Standard examples concern outcomes of tossing coins and dice and drawing playing cards.  These are somewhat distracting for their triviality, so to illustrate, suppose we are concerned about the outcome of the US presidential election in 2016.  As a (tiny) simplification, I will assume that one of the two major parties--Republican (R) or Democratic (D)--will win.  Because (with the information presently available) the outcome is uncertain, we imagine putting tickets into a box: some with "R" written on them and others with "D".  Our model of the outcome is to draw exactly one ticket from this box.
+There is something missing: we haven't yet stipulated
+how many tickets
+there will be for each outcome. In fact, finding this out is the principal problem of statistics: based on observations (and theory), what can be said about the relative proportions of each outcome in the box?
+(I hope it's clear that the
+proportions
+of each kind of ticket in the box determine its properties, rather than the actual numbers of each ticket.  The proportions are defined--as usual--to be the count of each kind of ticket divided by the total number of tickets.  For instance, a box with one "D" ticket and one "R" ticket behaves exactly like a box with a million "D" tickets and a million "R" tickets, because in either case each type is 50% of all the tickets and therefore each has a 50% chance of being drawn when the tickets are thoroughly mixed.)
+Making the model quantitative
+But let's not pursue this question here, because we are near our goal of defining a random variable.  The problem with the model so far is that it is not
+quantifiable,
+whereas we would like to be able to answer quantitative questions with it.  And I don't mean trivial ones, either, but real, practical questions such as "if my company has a billion Euros invested in US offshore fossil fuel development, how much will the value of this investment change as a result of the 2016 election?"  In this case the model is so simple that there's not much we can do to get a realistic answer to this question, but we could go so far as to consult our economic staff and ask for their opinions about the two possible outcomes:
+If the Democrats win, how much will the investment change?  (Suppose the answer is
+$d$
+dollars.)
+If the Republicans win, how much will it change?  (Suppose the answer is
+$r$
+dollars.)
+The answers are
+numbers.
+To use them in the model, I will ask my staff to go through all the tickets in the box and on every "D" ticket to write "
+$d$
+dollars" and on every "R" ticket to write "
+$r$
+dollars."  Now we can model the uncertainty in the investment clearly and quantitatively:
+its post-election change in value is the same as receiving the amount of money written on a single ticket drawn randomly from this box.
+This model helps us answer additional questions about the investment.  For instance,
+how uncertain should we be about the investment's value
+?  Although there are (simple) mathematical formulas for this uncertainty, we could reproduce their answers reasonably accurately just by using our model repeatedly--maybe a thousand times over--to see what kinds of outcomes actually occur and measuring their spread.
+A tickets-in-a-box model gives us a way to reason quantitatively about uncertain outcomes.
+Random variables
+To obtain quantitative answers about uncertain or variable phenomena, we can adopt a ticket-in-a-box model
+and write numbers on the tickets.
+This process of writing numbers has to follow only a single rule: it must be
+consistent.
+In the example,
+every
+Democratic ticket has to have "
+$d$
+dollars" written on it--no exceptions--and
+every
+Republican ticket has to have "
+$r$
+dollars" written on it.
+A
+random variable
+is any consistent way to write numbers on tickets in a box.
+(The mathematical notation for this is to give a name to the
+renumbering process,
+typically with a capital latin letter like
+$X$
+or
+$Y$
+.  The identifying information written on the tickets is often named with little letters, typically
+$\omega$
+(lower case Greek "omega").  The value associated by means of the random variable
+$X$
+to the ticket
+$\omega$
+is denoted
+$X(\omega)$
+.  In the example, then, we might say something like "
+$X$
+is a random variable representing the change in the investment's value."  It would be fully specified by stating
+$X(\text{D})=d$
+and
+$X(\text{R}) = r$
+.  In more complicated cases, the values of
+$X$
+are given by more complicated descriptions and, often, by formulas.  For instance, the tickets might represent a year's worth of closing prices of a stock and the random variable
+$X$
+might be the value at a particular time of some derivative on that stock, such as a put option. The option contract describes how
+$X$
+is computed. Options traders use exactly this kind of model to price their products.)
+Did you notice that such an
+$X$
+is neither random nor a variable?  Neither is it "uncertain" or "unknown."  It is a
+definite assignment
+(of numbers to outcomes), something we can write down with full knowledge and complete certainty.  What
+is
+random is the process of drawing a ticket from the box; what
+is
+variable is the value on the ticket that might be drawn.
+Notice, too, the clean separation of two different issues involved in evaluating the investment: I asked my economists to determine
+$X$
+for me, but not to opine about the election outcome.  I will use other information (perhaps by calling in political consultants, astrologers, using a Ouija board, or whatever) to estimate the proportions of each of the "D" and "R" tickets to put in the box.
+Afterward: about measurability
+When the definition of random variable is accompanied with the
+caveat
+"measurable," what the definer has in mind is a generalization of the tickets-in-a-box model to situations with infinitely many possible outcomes.  (Technically, it is needed only with
+uncountably
+infinite outcomes or where
+irrational
+probabilities are involved, and even in the latter case can be avoided.)  With infinitely many outcomes it is difficult to say what the
+proportion
+of the total would be.  If there are infinitely many "D" tickets and infinitely many "R" tickets, what are their relative proportions?  We can't find out with a mere division of one infinity by another!
+In these cases, we need a different way to specify the proportions.  A "measurable" set of tickets is any collection of tickets in the box for which their proportion can be defined. When this is done, the number we have been thinking of as a "proportion" is called the "probability."  (Not every collection of tickets need have a probability associated with it.)
+In addition to satisfying the consistency requirement, a random variable
+$X$
+has to allow us to compute probabilities that are associated with natural questions about the outcomes.  Specifically, we want assurance that questions of the form "what is the chance that the value
+$X(\omega)$
+will lie between such-and-such (
+$a$
+) and such-and-such (
+$b$
+)?" will actually have mathematically well-defined answers, no matter what two values we give for the limits
+$a$
+and
+$b$
+.  Such rewriting procedures are said to be "measurable."
+All random variables must be measurable,
+by definition.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jan 2, 2023 at 11:36
+spleen
+3
+2
+2 bronze badges
+answered
+Apr 1, 2013 at 18:14
+whuber
+♦
+345k
+67
+67 gold badges
+832
+832 silver badges
+1.4k
+1.4k bronze badges
+$\endgroup$
+21
+4
+$\begingroup$
+A worked example illustrating these concepts appears at
+stats.stackexchange.com/a/68782
+.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-08-30 15:08:19 +00:00
+Commented
+Aug 30, 2013 at 15:08
+4
+$\begingroup$
+NB
+I suspect that many people use the term "population" roughly in the sense of the tickets in a box. I avoid that terminology because it sounds too much like we can only create probability models for sampling actual (physical) populations.  Even when there is a physical population being sampled, it is rare for there to be a perfect one-to-one correspondence between it and the tickets. For instance, nobody will ever be able to enumerate the Chinese people alive on January 1, 2014, in part because of uncertainties about when people are born, when they die, and even whether they are Chinese.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2014-01-14 16:08:38 +00:00
+Commented
+Jan 14, 2014 at 16:08
+7
+$\begingroup$
+@jsk The intro to this answer explains why such care seemed necessary. Although it's true that two other answers in this thread contain a correct and complete definition ("a measurable function from a probability space into a measurable space known as the state space"), that definition implicitly requires understanding preliminaries about sigma algebras, probability measures, and measurable functions. Readers will complain
+"that is graduate level stuff"
+.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2014-05-02 14:59:12 +00:00
+Commented
+May 2, 2014 at 14:59
+5
+$\begingroup$
+@user4205580 For a purely mathematical definition, "consistency" is not necessary at all, because for the mathematician, the random variable is simply "given."  For statistical applications, as discussed here, it's an important condition, because many data are not numerical: random variables have to be constructed in a way that is appropriate for the model and the analytical objectives. You may decide for yourself whether there is any value for you in this conceptual distinction.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2015-12-12 15:33:04 +00:00
+Commented
+Dec 12, 2015 at 15:33
+4
+$\begingroup$
+@user4205580 Yes, that is correct. You're getting to the crux of the matter: the measure-theoretic approach skips the tickets-in-a-box model and instead uses just two outcomes (labeled "D" and "R"),
+but assigns probabilities to them.
+The purpose of introducing multiple tickets with the same labels--effectively introducing
+multiplicities
+for the outcomes $\omega$--is to introduce a more concrete way of understanding probability in this context (and to appreciate better the distinction between probability and random variable, a point that is emphasized in the Wikipedia article).
+$\endgroup$
+whuber
+–
+whuber
+♦
+2015-12-12 16:19:46 +00:00
+Commented
+Dec 12, 2015 at 16:19
+|
+Show
+16
+more comments
+33
+$\begingroup$
+Informally, a random variable is a way to assign a numerical code to each possible outcome.*
+Example 1
+I flip a coin. The set of possible outcomes (also called the "sample space") may be written as $\{H,T\}$.
+An example of a random variable $X$ might assign $X(H)=1$ and $X(T)=0$. That is, heads is "coded" as $1$ and tails is "coded" as $0$.
+Example 2
+I draw a card from a standard 52-card deck. The set of possible outcomes is $$\{A♠, K♠, \dots, 2♠, A♡, K♡, \dots, 2♡, A♢, K♢, \dots, 2♢, A♣, K♣, \dots, 2♣ \}.$$
+In bridge, an ace is worth 4 high card points, a king 3, a queen 2, and a jack 1. Any other card is worth 0 points.
+So we might let $Y$ be the corresponding random variable, where for example $Y\left(A♡ \right)=4$, $Y\left(J♣ \right)=1$, and $Y\left(7♠  \right)=0$.
+What's the point of random variables? One simple answer is that abstract symbols like "$H$", "$T$" or "$A♠$" are sometimes difficult and troublesome to handle. So we instead translate them into numbers, which are easier to manipulate.
+$$$$
+*Formally a random variable is a function that maps each outcome (in the sample space) to a real number.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 6, 2016 at 7:58
+user46481
+$\endgroup$
+1
+7
+$\begingroup$
++1.  This answer gets to the point, is correct, and is clear--thereby avoiding the nonsense about "unknown" and "changing" values that pervades some other replies in this thread.
+$\endgroup$
+whuber
+–
+whuber
+♦
+2016-07-18 14:15:35 +00:00
+Commented
+Jul 18, 2016 at 14:15
+Add a comment
+|
+23
+$\begingroup$
+I was told this story:
+A random variable can be compared with the holy roman empire:  The
+Holy Roman Empire was not holy, it was not roman, and it was not an
+empire.
+In the same way, a Random Variable is neither random, nor a variable.  It is just a function.  (the story was told here:
+source
+).
+This is at least a quippy way to explain, which might help people remember!
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 10, 2018 at 21:54
+answered
+Feb 26, 2017 at 10:26
+kjetil b halvorsen
+♦
+86k
+32
+32 gold badges
+217
+217 silver badges
+699
+699 bronze badges
+$\endgroup$
+Add a comment
+|
+16
+$\begingroup$
+Unlike a regular variable, a random variable may not be substituted for a single, unchanging value.  Rather
+statistical properties
+such as the
+distribution
+of the random variable may be stated.  The distribution is a function that provides the probability the variable will take on a given value, or fall within a range given certain parameters such as the mean or standard deviation.
+Random variables may be classified as
+discrete
+if the distribution describes values from a countable set, such as the integers.  The other classification for a random variable is
+continuous
+and is used if the distribution covers values from an uncountable set such as the real numbers.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 20, 2010 at 17:46
+answered
+Jul 19, 2010 at 20:08
+Sharpie
+4,514
+6
+6 gold badges
+25
+25 silver badges
+18
+18 bronze badges
+$\endgroup$
+5
+2
+$\begingroup$
+It's probably best not to use the term "normal variable" here when you do not mean a normally distributed random variable.
+$\endgroup$
+Rob Hyndman
+–
+Rob Hyndman
+2010-07-19 23:28:39 +00:00
+Commented
+Jul 19, 2010 at 23:28
+$\begingroup$
+Agreed.  Although I personally would look at someone funny for a few seconds if they said "normal variable" and didn't throw the word "random" or "distributed" in there somewhere to cue me that that is what they were discussing.  But I am also an engineer and not a statistician so I don't use that much domain-specific notation.
+$\endgroup$
+Sharpie
+–
+Sharpie
+2010-07-19 23:56:45 +00:00
+Commented
+Jul 19, 2010 at 23:56
+7
+$\begingroup$
+Random variables may be classified as
+discreet
+if they don't draw attention to themselves. If they're merely countable we say
+discrete
+:-P Also, you mean prescribe rather than proscribe, but I think
+describe
+might be more appropriate. Nice answer, anyway -- hopefully +1 will help mitigate the nitpicking!
+$\endgroup$
+walkytalky
+–
+walkytalky
+2010-07-20 01:43:31 +00:00
+Commented
+Jul 20, 2010 at 1:43
+$\begingroup$
+@walkytalky Thanks for the corrections- I have made some fixes.
+$\endgroup$
+Sharpie
+–
+Sharpie
+2010-07-20 18:00:44 +00:00
+Commented
+Jul 20, 2010 at 18:00
+1
+$\begingroup$
+Any variable is a placeholder for a value. You may assign this or that value to a variable (sometimes the set of values you can assign is constrained by a set, called
+type
+). A variables which keep a single, unchanging value are known as 'constants'. Might be you wanted to say that random variable keeps a known value whereas the value of random variable is unknown? This contradicts to the other answers, which say that random variable is not a variable at all -- it is a function that (deterministically) maps unknown state to something else. It is not random and it is not a variable, they say.
+$\endgroup$
+Val
+–
+Val
+2014-07-15 11:59:17 +00:00
+Commented
+Jul 15, 2014 at 11:59
+Add a comment
+|
+7
+$\begingroup$
+A random variable, usually denoted X, is a variable where the outcome is uncertain. The observation of a particular outcome of this variable is called a realisation. More concretely, it is a function which maps a probability space into a measurable space, usually called a state space. Random variables are discrete (can take a number of distinct values) or continuous (can take an infinite number of values).
+Consider the random variable X which is the total obtained when rolling two dice. It can take any of the values 2-12 (with equal probability given fair dice) and the outcome is uncertain until the dice are rolled.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jul 20, 2010 at 12:25
+Graham Cookson
+8,291
+7
+7 gold badges
+46
+46 silver badges
+36
+36 bronze badges
+$\endgroup$
+1
+7
+$\begingroup$
+Just a thought, but this reads like you're saying the probability of rolling a 12 (1/36) is the same as a 7 (1/6).
+$\endgroup$
+jefflovejapan
+–
+jefflovejapan
+2011-07-13 03:48:58 +00:00
+Commented
+Jul 13, 2011 at 3:48
+Add a comment
+|
+6
+$\begingroup$
+The sample space may be a set of
+arbitrary
+elements, e.g.
+$\{\color{red} {\text{red}}, \color{green} {\text{green}}, \color{blue} {\text{blue}}\}$
+.
+But this freedom of possible outcomes is difficult to work with. So someone invented the idea of working not with
+arbitrary elements
+, but only with
+real numbers
+.
+To reach it, the first thing is to
+map such elements to real numbers,
+e.g.
+\begin{aligned}
+\color{red} {\text{red }} &\mapsto 6.72\\
+\color{green} {\text{green}} &\mapsto -2\\
+\color{blue} {\text{blue}} &\mapsto 19.5
+\end{aligned}
+And that mapping is called a
+random variable.
+After choosing that mapping we get rid of problems how to operate with
+arbitrary things
+, because now we may do various
+calculations with numbers.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Feb 8, 2021 at 9:48
+answered
+Feb 8, 2021 at 5:29
+MarianD
+1,543
+2
+2 gold badges
+13
+13 silver badges
+18
+18 bronze badges
+$\endgroup$
+Add a comment
+|
+5
+$\begingroup$
+From
+Wikipedia
+:
+In mathematics (especially probability
+theory and statistics), a random
+variable (or stochastic variable) is
+(in general) a measurable function
+that maps a probability space into a
+measurable space. Random variables
+mapping all possible outcomes of an
+event into the real numbers are
+frequently studied in elementary
+statistics and used in the sciences to
+make predictions based on data
+obtained from scientific experiments.
+In addition to scientific
+applications, random variables were
+developed for the analysis of games of
+chance and stochastic  events. The
+utility of random variables comes from
+their ability to capture only the
+mathematical properties necessary to
+answer probabilistic  questions.
+From
+cnx.org
+:
+A random variable is a function, which assigns unique numerical values to all possible
+outcomes of a random experiment under fixed conditions. A random variable is not a
+variable but rather a function that maps events to numbers.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Jul 19, 2010 at 19:47
+answered
+Jul 19, 2010 at 19:42
+Mehper C. Palavuzlar
+1,174
+3
+3 gold badges
+16
+16 silver badges
+26
+26 bronze badges
+$\endgroup$
+3
+6
+$\begingroup$
+Neither of the cnx.org definitions is correct: the first due to its vague--and possibly misleading--use of "unique" and "fixed conditions" and the second because it's simply wrong; an RV is defined on
+outcomes
+(elements of the sample space), not
+events
+(measurable sets of outcomes).
+$\endgroup$
+whuber
+–
+whuber
+♦
+2013-04-01 18:33:37 +00:00
+Commented
+Apr 1, 2013 at 18:33
+$\begingroup$
+One problem I see with this definition is that density functions are not always probability density functions. That is, suppose we write that the gas pressure in a vessel leaking into a vacuum is $P=\kappa \lambda e^{-\lambda t}$, then $\kappa=\int_0^\infty P(t) dt$, and $ ED(t)=\lambda e^{-\lambda t}$ is the density function whose area under the curve is 1. In this, P is not probability, it is pressure as determined by elapsing time, i.e., although $ED(t)$ has the form of a pdf, it is not a model for a histogram of outcomes.
+$\endgroup$
+Carl
+–
+Carl
+2019-04-20 05:20:44 +00:00
+Commented
+Apr 20, 2019 at 5:20
+2
+$\begingroup$
+In other words, it is better not to say that a pdf is a random variable, because it is sometimes a deterministic model for a random variable, and sometimes a deterministic model for a deterministic process, as per the example above. What the pdf never was, is random, i.e., it is completely determined as an $f(x)$ with no wiggle room.
+$\endgroup$
+Carl
+–
+Carl
+2019-04-20 05:39:49 +00:00
+Commented
+Apr 20, 2019 at 5:39
+Add a comment
+|
+5
+$\begingroup$
+A random variable is a measurable function defined on a probability space:
+If
+$\left(\Omega,\mathcal F, \mathbb P\right)$
+is a probability space and
+$\left(S, \mathcal A \right)$
+a measurable space, then any
+$\mathcal F/\mathcal A$
+-measurable function
+$Y: \Omega \to S$
+is called a (
+$S$
+-valued) random variable.
+Some authors use a less general definition in which
+$\left(S, \mathcal A \right) \equiv \left(\mathbb R, \mathop{\mathcal B}\left(\mathbb R\right) \right)$
+is required, where
+$\mathop{\mathcal B}\left(\mathbb R\right)$
+is the Borel
+$\sigma$
+-algebra on
+$\mathbb R$
+.
+Share
+Cite
+Improve this answer
+Follow
+answered
+Jan 2, 2023 at 16:45
+statmerkur
+7,165
+1
+1 gold badge
+23
+23 silver badges
+55
+55 bronze badges
+$\endgroup$
+1
+2
+$\begingroup$
+I do vouch for a formal, not beating the bush definition. A post that caters to it is apt here. +1.
+$\endgroup$
+User1865345
+–
+User1865345
+2023-01-02 16:59:40 +00:00
+Commented
+Jan 2, 2023 at 16:59
+Add a comment
+|
+3
+$\begingroup$
+In the my non-math university studies, we were told that random variable is a map from values that variable can take to the probabilities. This allowed to draw the probability distributions
+Recently, I have realized how different is that from what mathematicians do have in mind. It turns out that by the random variable they mean a simple function
+$X: \Omega \to \mathbb R,$
+which takes an element of sample space
+$\Omega$
+(
+aka outcome, ticket or individual
+, as explained above) and translates it into a real number
+$\mathbb R$
+in range
+$(-\infty, \infty).$
+That is, it was aptly noted above that it is not random and no variable at all. The randomness usually comes with probability measure
+$P,$
+as part of measure space (
+$\Omega, P). ~P$
+maps samples to
+$\mathbb R,$
+similarly to random variable but this time range limited to
+$[0,1] $
+and we can say that random variable translates
+$(\Omega, P)$
+into
+$(\mathbb R, P),$
+an thus, random variable is equipped with probability measure
+$P: \mathbb R \to [0,1]$
+so that you can say for every
+$x \in \mathbb R$
+what is the probability of its occurrence.
+I do not know why do you need these kind of random variables and why cannot you sample the elements of R in the first place but it seems that translating samples to numeric values allows us to order the samples, draw the distribution and compute the expectation. I have got this idea reading
+A Measure Theory Tutorial (Measure Theory for Dummies)
+Might be mathematicians have better applications of random variable in mind, but I cannot find them in my superfluous study. The very same text suggests that you do not need converting samples into numbers always, particularly, to compute entropy for alphabet
+$\Omega$
+$$H(\Omega) = \sum{P(\Omega_i) \ln (\Omega_i)}$$
+integral does not need any real values of random variable.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 26, 2022 at 0:23
+User1865345
+12.3k
+13
+13 gold badges
+28
+28 silver badges
+47
+47 bronze badges
+answered
+Jul 18, 2014 at 11:34
+Val
+583
+5
+5 silver badges
+14
+14 bronze badges
+$\endgroup$
+1
+1
+$\begingroup$
+Actually, mathematicians goes beyond that. $X$ may take values in an arbitrary set $A$, which is equipped with some $\sigma$-algebra $\mathcal{A}$.
+$\endgroup$
+Integral
+–
+Integral
+2015-07-03 04:14:01 +00:00
+Commented
+Jul 3, 2015 at 4:14
+Add a comment
+|
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+random-variable
+intuition
+definition
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+5
+Confusion about random variables and what they mean
+1
+Importance of a Random Variable
+2
+Probability of random variable being another random variable
+0
+What is $X$, it doesn't seem to be a set in the usual mathematical sense, even though it's often referred to as one
+1
+Intuition about the definition of random variables?
+0
+Does $X$ (a random variable) usually refer to the population or the sample?
+-2
+Trying to understand random variables using the function notation f(x) = y
+0
+Must Random Variables' Probabilities Sum to One?
+0
+Random variables and their values
+0
+Random variable concept and terminology
+See more linked questions
+Related
+7
+What is a multivariate random variable?
+1
+What is the difference between the following two definitions of a Random Variable?
+7
+What is the difference between sample space and random variable?
+3
+Why must a random variable be $\mathcal{F}$-measurable?
+57
+What is it meant with the $\sigma$-algebra generated by a random variable?
+18
+Why is an estimator considered a random variable?
+2
+What does it mean to generate a random variable from a distribution when random variable is a function?
+8
+What is the "opposite" of a random variable?
+Hot Network Questions
+What's the best explanation that E# is not the same as F?
+How do I encourage more interaction with Fate's mechanics?
+"イカのナントカ"... what kind of expression is this?
+What are the meanings of the columns in the output of lsinitrd?
+PTIJ: Serving With Oy
+What is the best way for a 19th century equivalent society transport high amounts of fat on expeditions into large cave systems
+Question 14 from section 3.6 of Topology And Groupoids
+Identify this IC's manufacturer logo with stylised 'm'
+Sicilian Defense Yates Variation straight up hangs a piece
+How do different prepositions affect meaning when adding an adjective to "Je suis venu en voiture"?
+What are the visual tells of wands?
+Safety of using solder-tinned stranded wires in WAGO Cage Clamp terminal blocks
+Authorship decision for substantial writing assistance
+Create and verify a large single file in parallel-mode
+Why two NaNs with the same binary are still not equal to each other but two infs are?
+Why does 74x138 have 3 EN and why does it have to be 1 EN active high and 2 active low?
+Modeling a curved boombox body with clean topology for speaker holes
+Recurrence functional inequality
+PTIJ: Need help picking a topic for a halacha shiur
+Arrow not pointing in the correct direction/incorrectly rendered
+`reinterpret_cast` between unrelated structs with the same layout
+Listingsutf8 (plus a JSON preset) Accents moved at start of words (avéré => ééavr)
+Can commit messages include volatile information?
+Some books recommendation by which I can know about what's happening in current mathematics research in Pure mathematics?
+more hot questions
+Question feed

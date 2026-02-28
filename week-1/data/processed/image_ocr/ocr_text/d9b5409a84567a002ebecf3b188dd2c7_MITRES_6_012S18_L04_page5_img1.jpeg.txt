@@ -1,0 +1,9 @@
+Combinations e Definition: (,): number of k-element subsets | _ ni
+
+of a given n-element set k\(n — k)!
+
+e Two ways of constructing an ordered sequence of k distinct items:
+
+— Choose the k items one at a time
+
+— Choose k items, then order them

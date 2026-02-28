@@ -1,0 +1,10 @@
+Binomial random variable; parameters: positive integer n; p€ [0,1]
+
+e Experiment: n independent tosses of a coin with P(Heads) = p
+
+e Sample space: Set of sequences of H and T, of length n
+
+e Random variable X: number of Heads observed
+
+e Model of: number of successes in a given number of independent trials
+

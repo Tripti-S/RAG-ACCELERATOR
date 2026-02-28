@@ -1,0 +1,48 @@
+MITOCW | MITRES6_012S18_L21-02_300k
+We now start our discussion of stochastic processes by starting with the simplest stochastic process there is.
+This is the so-called Bernoulli process, which is nothing but a sequence of independent Bernoulli trials.
+We let Xi stand for the random variable that describes the result in the i trial.
+The assumptions that we make are that at each trial there is a certain probability, p, that the trial results in 1.
+And in that case, we usually say that there is a success at the ith trial.
+And the remaining probability, 1 minus p, is assigned to the possibility that the random variable Xi takes a value of
+0, in which case sometimes we say that there was a failure.
+Now, to keep things nontrivial, we will always assume that p is a number strictly between 0 and 1, because
+otherwise, in the extreme cases of p equal to 0 or p equal to 1, there isn't really any randomness.
+This process is something that we have already seen.
+We have worked plenty of examples involving repeated Bernoulli trials or repeated coin flips.
+We have solved several problems, we have seen several formulas.
+Here we will recapitulate some of them.
+But we will also start looking at the process from a new point of view.
+Before continuing, let me emphasize the assumptions that come into the Bernoulli process.
+One key assumption is that we have independence.
+The different trials are independent.
+The second assumption that we make is that the model is time homogeneous.
+What I mean by this is that this probability p of success at a given trial is the same for all trials.
+It does not depend on i.
+So this process is as simple as a stochastic process could be.
+But nevertheless, it can be used as a model in various situations.
+Sometimes it's clear that we're dealing with a Bernoulli process, but sometimes it also shows up in unexpected
+ways.
+In any case, the first simple example could be the following.
+Every week you play the lottery, and either you win or you do not to win.
+And assuming that it is the same kind of lottery that you play each week, the constant p would be the same, the
+probability of success.
+And assuming a lottery that is not rigged in any way, whether you win on one week, should be independent from
+what happens in other weeks.
+Quite often, the Bernoulli process is used as a model of arrivals, in which case, instead of saying probability of
+success, we would say probably of an arrival.
+The idea is that time is slotted, let's say, in seconds, for example.
+And each second you're sitting at the entrance of a bank and you make a note whether somebody came into the
+bank, in which case we have an arrival or success, or whether no one came during that time interval.
+If one here believes that different slots, different seconds, are independent of each other, then you do have a
+Bernoulli process.
+It might not be an exactly accurate model, but it is a good first approximation to start working with a model of this
+situation.
+Similarly, if you have a server, a computer, that takes jobs to process and jobs are coming randomly, you divide
+time into slots, and during each slot a job might arrive or might not arrive.
+And as a first approach to a model of this kind, you might as well employ the Bernoulli process.
+A final note, why is this process called the Bernoulli process?
+Well, the name comes from a famous family of Swiss mathematicians, the Bernoulli family.
+And one of them, Jacob Bernoulli, did many contributions to many branches of mathematics.
+But an important one was in the field of probability, where he actually derived quite deep results on a sequence of
+what we now call Bernoulli trials.

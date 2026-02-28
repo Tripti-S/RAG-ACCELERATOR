@@ -1,0 +1,23 @@
+Independence vs. pairwise independence
+e Two independent fair coin tosses
+— Hy: First toss is H
+— Hp»: Second toss is H
+
+P(A)) = P(Ho) = 1/2
+
+° C: the two tosses had the same result =?) 4,773
+
+PCH ae)ahCM OH.) = 4/4 BH) 2 Ce) =
+= 2
+
+2 (HOH, 9<) 22 (HH) Me aes.
+
+LHL (Ha)RC<) 2/8
+
+(Cellet (H, | H, = 2 Ga\='/e =F Ce)
+ECciHOW,) <4 + PC) = Ve
+
+Ay, Hz, and C are pairwise independent, but not independent
+
+= ! Ht, , Crimdep.
+H2, Cs indep.

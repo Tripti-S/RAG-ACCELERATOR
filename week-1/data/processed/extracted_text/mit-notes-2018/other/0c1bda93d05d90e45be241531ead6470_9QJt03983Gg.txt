@@ -1,0 +1,98 @@
+MITOCW | MITRES6_012S18_S01-07_300k
+We now continue our discussion of infinite series.
+Sometimes we have to deal with series where the terms being added are indexed by multiple indices, as in this
+example here.
+We're given numbers, aij, and i ranges over all the positive integers.
+j also ranges over all the positive integers.
+So what does this sum represent?
+We can think of it as follows.
+We have here a two-dimensional grid that corresponds to all the pairs (i,j).
+And in essence, each one of those points corresponds to one of the terms that we want to add.
+So we can sum the different terms in some arbitrary order.
+Let's say we start from here.
+Take that term, add this term, then add this term here, then add this term, then the next term, next term, and so
+on.
+And we can keep going that way, adding the different terms according to some sequence.
+So essentially, what we're doing here is we're taking this two-dimensional grid and arranging the terms associated
+with that grid, in some particular linear order.
+And we're summing those terms in sequence.
+As long as this sum converges to something as we keep adding more and more terms, then this double series will
+be well defined.
+Notice, however, we can add those terms in many different orders.
+And in principle, those different orders might give us different kinds of results.
+On the other hand, as long as the sum of the absolute values of all the terms turns out to be finite, then the
+particular order in which we're adding the different terms will turn out that it doesn't matter.
+There's another way that we can add the terms together, and this is the following.
+Let us consider fixing a particular choice of i, and adding all of the terms that are associated with this particular
+choice of i, as j ranges from 1 to infinity.
+So what we're doing is we're taking the summation from j equal to 1 to infinity, while keeping the value of i fixed.
+We do this for every possible i.
+So for every possible i, we're going to get a particular number.
+And then we take the numbers that we obtain for the different choices if i, so i ranges from 1 to infinity.
+And we add all those terms together.
+So this is one particular order, one particular way of doing the infinite summation.
+Now, why start with the summation over j's while keeping i fixed?
+There's no reason for that.
+We could also carry out the summation by fixing a particular choice of j and summing over all i's.
+So now it is i that ranges from 1 to infinity.
+And we look at this infinite sum.
+This is the infinite sum of those terms.
+We obtain one such infinite sum for every choice of j.
+And then we take that sum that we obtain for any particular choice of j, and add over the different possible values
+of j.
+So j goes from 1 to infinity.
+This is a different way of carrying out the summation.
+And these are going to give us the same result, and the same result that we would also obtain if we were to add
+the terms in this particular order, as long as the double series is well-defined, in the following sense.
+If we have a guarantee that the sum of the absolute values of those numbers is finite, no matter which way we
+add them, then it turns out that we can use any particular order to add the terms in the series.
+We're going to get the same result.
+And we can also carry out the double summation by doing-- by adding over one index at a time.
+A word of caution-- this condition is not always satisfied.
+And in those cases, strange things can happen.
+Suppose that the sequences we're dealing with, the aij's, take those particular values indicated in this picture.
+And all the remaining terms, the aij's associated with the other dots, are all 0's.
+So all these terms out there will be 0's.
+If we carry out the summation by fixing a j and adding over all i's, what we get here is 0, and a 0, and a 0, and a 0.
+That's because in each row we have a 1 and a minus 1, which cancel out and give us 0's.
+So if we carry out the summation in this manner, we get a sum of 0's, which is 0.
+But if we carry out the summation in this order, fix an i, and then add over all j's, the first term that we get here is
+going to be 1, because in this column, this is the only non-zero number.
+And then in the remaining columns, as we add the terms, we're going to get 0's, and 0's, and so on.
+And so if we carry out the summation in this way, we obtain a 1.
+So this is an example that shows you that the order of summation actually may matter.
+In this example, the sum of the absolute values of all of the terms that are involved is infinity, because we have
+infinitely many plus or minus 1's, so this condition here is not satisfied in this example.
+Let us now consider the case where we want to add the terms of a double sequence, but over a limited range of
+indices as in this example, where we have coefficients aij, which we want to add, but only for those i's and j's for
+which j is less than or equal to i.
+Graphically, this means that we only want to consider the pairs shown in this picture.
+So these points here correspond to i,j pairs for which i is equal to j.
+Terms on the right, or points to the right, correspond to i,j pairs for which i is at least as large as j.
+We can carry out this summation in two ways.
+One way is the following.
+We fix a value of i, and we consider all of the corresponding terms, that correspond to different choices of j.
+But we only go up to the point where i is equal to j.
+This is the largest term.
+So what are we doing here?
+We're taking the coefficients aij, and we are adding over all j's, starting from 1, which corresponds to this term.
+And j goes up to the point where it becomes equal to i.
+We do this for every value of i.
+And so we get a number for the sum of each one of the columns, and then we add those numbers together.
+So we're adding over all i's, and i ranges from 1 up to infinity.
+This is one way of carrying out the summation.
+Alternatively, we could fix a value of j, and consider doing the summation over all choices of i.
+So this corresponds to the sum over all choices of i, from where?
+The smallest term, the first term, happens when i is equal to the value of j.
+And then we have larger choices of i, numbers for which i is bigger than the corresponding value of j.
+And so i ranges from j all the way to infinity.
+And this is the sum over one of the rows in this diagram.
+We do this for every j.
+We get a result, and then we need to add all those results together.
+So we're summing for all j's from 1 up to infinity.
+So these are two different ways that we can evaluate this series associated with a double sequence.
+We can either add over all j's first and then over i's, or we can sum over all i's first, and then over all j's.
+The two ways of approaching this problem, this summation, should give us the same answer.
+And this is going to be, again, subject to the usual qualification.
+As long as the sum of the absolute values of the terms that we're trying to add is less than infinity-- if this condition
+is true, then the two ways of carrying out the summation are equal, and they're just two different alternatives.

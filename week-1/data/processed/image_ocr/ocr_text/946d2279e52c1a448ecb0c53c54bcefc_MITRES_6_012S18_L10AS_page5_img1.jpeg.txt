@@ -1,0 +1,15 @@
+Independence
+
+Pxy(2,y) = px(«)py(y), for all x, y
+
+[ fx,y@,y) = fx(@) fy(y), for all x and y | Friw - fy
+
+fxy(@y) = fxy(ly) fy@)
+
+e equivalent to: fxyy(«|y) = fx(x), for all y with fy(y) > 0 and all «
+
+If X, Y are independent: E[XY] = E[X]E[Y]
+
+var(X + Y) = var(X) + var(Y)
+g(X) and h(Y) are also independent: E[g(X)A(Y)] = E[g(X)] - E[h(¥)]
+

@@ -1,0 +1,8 @@
+Functions of multiple random variables
+
+Z= 9(X,Y)
+
+PMF: pz(z) =P(Z =z) = P(9(X, Y)= z)
+
+Expected value rule: E[g(X,Y)] = 5— 5° 9(2,y) px,y(2, y)
+zy

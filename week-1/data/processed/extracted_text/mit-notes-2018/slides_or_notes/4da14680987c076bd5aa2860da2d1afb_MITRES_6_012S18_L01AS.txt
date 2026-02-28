@@ -1,0 +1,327 @@
+LECTURE 1: Probability models and axioms
+• Sample space
+• Probability laws
+Axioms
+Properties that follow from the axioms
+• Examples
+Discrete
+Continuous
+• Discussion
+Countable additivity
+Mathematical subtleties
+• Interpretations of probabilities
+1
+Sample space
+• Two steps:
+Describe possible outcomes
+- Describe beliefs about likelihood of outcomes
+2
+Sample space
+-
+I
+•
+• List (set) of possible outcomes, \l
+• List must be:
+Mutua Ily excl usive
+Collectively exhaustive
+At the "right" granu larity
+•
+•
+•
+•
+• . T o.. ...J ....
+• D
+•
+•
+• •
+•
+3
+Sample space: discrete/ finite example
+• Two rolls of a tetrahedral die
+sequential description
+---::. 1. 1
+:- 1.2
+':::: 1.3
+4
+1.4
+,~
+Y = Second 3
+roll
+3,1
+2
+I
+') I
+I 2 3 4
+x
+Firsl roll 4.4
+=
+\ Y'ee...
+4
+Sample space: continuous example
+• (x,y ) such that 0 <x,y< 1
+•
+y
+1
+•
+1 x
+5
+Probability axioms ---:---"J
+I
+/ / ./ / I
+• Event: a subset of the sample space
+- Probability is assigned to events
+o
+I
+f(A)
+•
+• Axioms:
+>
+Nonnegativity: peA) 0
+Normalization: perl) = 1
+(Finite) additivity: (to be strengthened later)
+-..n..
++
+If A n B = ,0 . then peA u B) = peA) PCB)
+/fl./ e:
+sJ (
+e...pJr
+6
+Some simple consequences of the axioms
+Axioms Consequences
+> <
+P(A) 0 P(A) 1
+P(r2) = 1 P(0) = 0
++
+For disjoint events: P(A) P(N) = 1
++
+P(A U B) = P(A) P(B) + +
+P(A U B U C) = P(A) P(B) P(C)
+and similarly for k disjoint events
++ ... +
+P( {S1, S2,···, Sk}) = P( {S1}) p.( {Sk })
++ ... +
+= P(S1) P(Sk)
+7
+Some simple consequences of the axioms
+Axioms
+(0.1 peA) 2: 0
+(\,1 P("') = 1
+For disjoi nt eve nts:
+«1 +
+u =
+peA B) peA) PCB)
+c.
+.!
+i :: f } i C
+(Jl) (S2.
+)
+i:o
+1 +j(cpj ~l(r:j;)=O.
+8
+Some simple consequences of the axioms
++ +
+• A , B , C disjoint: P(A B C) = P (A) P(B) P(C )
+U U
+UC) ::-
+- - - - - - - , I ( i
+AU!3uc.):::! ( (!luB)
+[,4(//3) +1(c.)
+(/»
+f
+=- f(J3) +.f
+t (c.)
+l<.
+E
+~) 1 ~
+(l-i,u ••• UA):.) :: (!f<')
+1 (15.~ u~SJl.S() ~s):~)
+•• ·u
+£
+:: f'
+(5.) ~ '" -+ (S ... )
+-
+9
+More consequences of the axioms
+n
+B ':: (13
+A U A
+• If A C B , t he n P (A) $ P (B) c)
+.e l? -e.
+('P/)t/~) ~ f(~)
+(B): (4) t-
+0.0
++
+• P (A U B) = P (A) P (B) - 'P (A n B)1
+10
+More consequences of the axioms
++ + K
+u u n n n
+• p eA B C ) = p eA) P (A C B) p eN B C C ) •
+l ( Aue,uc ) =
+11
+Probability calculation: discrete/finite example
+• Two rolls of a t etrahedral die • Let every possible outcome have probability 1/ 16
+I - I
+'-I • ­
+• P (X = 1) =
+16
+17....­
+!,:::;-
+....
+4 ~
+:0­ Let Z = mi n(X, Y)
+., .... 2-:=2
+?:.
+~
+Y = Second 3 "/ ~ )(~,..,I";o)
+'/'6
+roll
+'0 %;:: • P(Z=4)=
+~
+2 ~ %-
+~
+Ii.
+I ~ • P(Z = 2) = I ,
+1G •
+~
+I 2 3 4
+x
+First roll
+=
+12
+Discrete uniform law
+/f,." h
+. • •
+/-"- -.........
+•
+- Assume 0 consist s of n equ ally likely elements •
+• A
+- Assume A co nsist s of k elements
+• •
+•
+, ~.----/.
+k •-,- ­
+peA) =
+'11. 1
+prob = ­
+n
+13
+Probability calculation: continuous example
+• (x,y) such that 0 <x,y< 1 =
+• Uniform probability law: Probability Area
+y I zI" . I ­
+I
+p ({(x,y) I x +y < 1( 2}) = 2· . - -
+2.
+8
+r--~::-
+1
+A
+•
+1 x
+14
+Probability calculation steps
+• Specify the sam pie space
+• Specify a probability law
+• Iden tify an event of interest
+•
+• Ca lculate ...
+15
+Probability calculation: discrete but infinite sample space
+p
+• Sa m ple space:
+{1 ,2, ...}
+112
+o
+- We are given Pen) =~, n = 1, 2 , ...
+•
+2n •
+•
+•
+•
+<b QO • 114
+• o
+•
+•
+~_I _~'"')~_, _I •
+c.. "..' \_ L ..,,_-. I - • • 11.
+• o
+• 1116
+•
+2. .. 2. 2. ('/Ill • • Q •••
+",~.!! ,0 1- • • •
+•
+1 2 3 4
+((9./1](,)"'5)
+• P(outcomeiseven)= l
+=.f Cf2~U~'1~ lJ{C.~u ' •• ) 0 1' (i) + 1 ("1)+1 (<;)1- •••
+, ,
+,
+...
+I
+.. I I I - I -­
+I (
+.. t ' • - • -,
+~ ~ + ... :: '1 + '1- "+ • • " -
+I 3
+'-t
+'-j!L I
+"
+16
+Countable additivity axiom
+• Strengthens the finite additivity axiom
+Countable Additivity __
+AxiOm:~ ~
+If AI, A2, A3,'" is an infinite(S~quenc"3> of disjoint eve nts,
++ + + ...
+then P(AI U A2 U A3 U ... ) = P(AI) P(A2) P(A3)
+•
+17
+Mathematical subtleties
+Countable Additivity Axiom:
+If AI, A2, A3,'" is an infinite sequence of disj oi nt eve nts,
++ + + ...
+then P(AI U A2 U A 3 U ... ) = P ( A I) P(A2) P(A3 )
+•
+-, ?
+i =1 f (T(?:
+1= (52) , U ?C'1:,YJ? GJ ~
+,
+.
+• Additivity holds on ly for "countable" sequences of events
+• The unit square (simlarly, the real lin e, etc.) is not countable
+( its elements cannot be arranged in a sequence)
+• "Area" is a leg itim ate probability law on the unit squa re,
+as long as we do not try to assign probabilities/areas to "very strange" sets
+18
+Interpretations of probability theory
+• A narrow view: a branch of math
+"Thm:" "Frequency" of event A "is" peA)
+- Axioms theorems
+=?
+• Are probabilities frequencies?
+- P(coin toss yields heads) = 1/ 2
+- P(the president of ... will be reelected) = 0.7
+• Probabilities are often intepreted as:
+Description of beliefs
+Betting preferences
+19
+The role of probability theory
+• A framework for analyzing phenomena with uncertain outcomes
+- Rules for consistent reasoning
+- Used for predictions and decisions
+Predictions
+Proba bi lity theory
+Real world
+(Analysis)
+Decisions
+Data Models
+I
+In feren ce 5 tati sti cs
+20
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a particular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

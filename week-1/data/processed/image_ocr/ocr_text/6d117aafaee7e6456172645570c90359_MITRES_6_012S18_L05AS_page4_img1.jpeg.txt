@@ -1,0 +1,14 @@
+Probability mass function (PMF) of a discrete r.v. X
+
+e It is the “probability law’ or “probability distribution” of X
+
+e If we fix some x, then “X = 2” is an event
+Z25 X=5 gw . X(w) = 53 =fa,b3
+p, (5) = 72
+
+F.(y)
+
+px(t) =P(X=2) = P({w EQ st. X(Ww) = z})
+
+- Properties: py(«) >0 Mipx(z) =1
+

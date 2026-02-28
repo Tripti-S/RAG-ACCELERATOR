@@ -1,0 +1,14 @@
+Total probability and expectation theorems
+
+Ay AiNnB P(B) = P(A1)P(B | Ai) +:::+P(An)P(B | An)
+px (x) = P(A1) pxja, (2) + +++ + P(An) pxja,(@)
+A> AonB
+A3NB
+A3
+fx (x) = P(A1) fxja,(@) +++ + P(An) fx\4,(@)
+SAD) Bx | Ay)
+P42) BLx | Ad]
+E[X] = P(A1)E[X | Ai] + +--+ P(An)E[X | Ap]
+P(A3)
+
+E[X | Az]

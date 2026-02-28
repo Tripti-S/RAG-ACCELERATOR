@@ -1,0 +1,29 @@
+MITOCW | MITRES6_012S18_L03-04_300k
+Let us now discuss an interesting fact about independence that should enhance our understanding.
+Suppose that events A and B are independent.
+Intuitively, if I tell you that A occurred, this does not change your beliefs as to the likelihood that B will occur.
+But in that case, this should not change your beliefs as to the likelihood that B will not occur.
+So A should be independent of B complement.
+In other words, the occurrence of A tells you nothing about B, and therefore tells you nothing about B complement
+either.
+This was an intuitive argument that if A and B are independent, then A and B complement are also independent.
+But let us now verify this intuition through a formal proof.
+The formal proof goes as follows.
+We have the two events, A and B. And event A can be broken down into two pieces.
+One piece is the intersection of A with B. So that's the first piece.
+And the second piece is the part of A which is outside B.
+And that piece is A intersection with the complement of B. So these are the two pieces that together comprise
+event A.
+Now, these two pieces are disjoint from each other.
+And therefore, by the additivity axiom, the probability of A is equal to the probability of A intersection B plus the
+probability of A intersection with B complement.
+Using independence, the first term becomes probability of A times probability of B. And we leave the second term
+as is.
+Now let us move this term to the other side.
+And we obtain that the probability of A intersection with B complement is the probability of A minus the probability
+of A times the probability of B. We factor out the term probability of A, and we are left with 1 minus probability of B.
+And then we recognize that 1 minus the probability of B is the same as the probability of B complement.
+So we proved that the probability of A and B complement occurring together is the product of their individual
+probabilities.
+And that's exactly the definition of A being independent from B complement.
+And this concludes the formal proof.

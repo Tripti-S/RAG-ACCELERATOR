@@ -1,0 +1,5 @@
+LECTURE 23: More on the Poisson process
+e The sum of independent Poisson r.v.s
+e Merging and splitting
+
+e Random incidence

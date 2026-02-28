@@ -1,0 +1,22 @@
+The sum of independent normal r.v.’s
+
+fal2) = [ fx(@)fy@-«) ae
+e X~ N(uz,02), Y ~ N(uy,02), independent Z=X+Y
+1 —(2- oO = y= oC
+Ix(2) = Ta5 (e-ms)*/202 fy (y) = oy. (y-py)?/20y
+fz(z) =
+
+[ fx@ fre - 2) de
+
+= f° = ep { - ear}
+(algebra) = ! {
+
+a 2
+Tity &
+$$ exp
+af 2u(a? + a3)
+
+= (= — ps — by)” }
+2(a2 +95)
+
+The sum of finitely many independent normals is normal

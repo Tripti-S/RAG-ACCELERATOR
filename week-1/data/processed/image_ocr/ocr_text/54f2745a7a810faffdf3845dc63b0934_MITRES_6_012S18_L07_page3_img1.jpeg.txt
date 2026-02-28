@@ -1,0 +1,12 @@
+Conditional PMEs involving more than two r.v.’s
+e Self-explanatory notation
+
+Pxiy,z(@ | ¥,2)
+
+px y|z(2,y | z)
+
+e Multiplication rule
+
+P(ANBNC) = P(A) P(B| A) P(C| ANB)
+
+Px, y,Z(@,y, z) = px (x) py|x(y | ©) pzix,y (| 2, y)

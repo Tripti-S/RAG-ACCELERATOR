@@ -1,0 +1,15 @@
+mean first passage and recurrence times
+
+* chain with one recurrent class; fix a recurrent state s
+
+* mean first passage time from i to s :
+@ Elmin{n > 0 such that Xn = s}|Xo =i]
+— unique solution to:
+ts = 0,
+& = 1+ do pi; t;, for alli#s
+d
+
+* mean recurrence time of s
+
+— solution to:
+te = 1405s

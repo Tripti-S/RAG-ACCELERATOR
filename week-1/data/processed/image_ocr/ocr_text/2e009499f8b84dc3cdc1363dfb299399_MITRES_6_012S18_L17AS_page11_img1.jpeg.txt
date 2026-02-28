@@ -1,0 +1,16 @@
+The representation of the data matters in LLMS
+
+Estimation based on X versus X?
+
+LMS: E[© | X] is the same as E[© | X3]
+__
+
+LLMS is different: estimator © = aX +b versus © = aX3+5
+
+cov(@, x?) var(x*)
+
+a aN ay “eS
+can also consider © = aX + a9X?+4+a3X3+b
+Ri = = °
+
+can also consider © = ay X + aze* + a3zlog X +b

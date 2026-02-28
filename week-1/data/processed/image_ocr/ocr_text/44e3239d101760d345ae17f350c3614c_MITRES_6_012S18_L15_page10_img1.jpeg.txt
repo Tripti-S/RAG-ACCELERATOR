@@ -1,0 +1,17 @@
+The case of multiple parameters: trajectory estimation
+
+400 -
+
+Qa XK e Random variables Oo, ©1, G2
+
+independent; priors fo;
+
+a(t) = 09 + 01t + Oot? \ e Measurements at times ty,...,tn
+Xj = Oo + O1t; + Oot? + W;
+
+noise model: fy,
+
+jool n L L 1 4 n 1 4 n
+L]
+
+re eT independent W,; independent from ©,

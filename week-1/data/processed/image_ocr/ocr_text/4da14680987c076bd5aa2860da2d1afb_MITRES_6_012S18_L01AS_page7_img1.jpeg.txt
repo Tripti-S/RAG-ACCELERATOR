@@ -1,0 +1,13 @@
+Some simple consequences of the axioms
+
+Axioms Consequences
+P(A) >0 P(A) <1
+Pa) 1 P(@) =0
+
+For disjoint events: P(A) + P(A) =1
+
+P(AUB)=P(A)+P(B) ss pra BUC) = P(A) + P(B) + P(C)
+
+and similarly for k disjoint events
+P({s1, 52,---, 8.}) = P({s1}) +--+ P{se})
+= P(s1) +--+ Psp)

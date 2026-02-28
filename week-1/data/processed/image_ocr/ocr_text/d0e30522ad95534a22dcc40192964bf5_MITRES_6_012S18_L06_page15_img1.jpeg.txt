@@ -1,0 +1,12 @@
+More than two random variables
+
+px y,z(#@,y,z) = P(X =a and Y=y and Z =z)
+
+cry 2
+
+px(z) = >>> px y.z(a, y, 2)
+
+y
+
+px y(2,y) => px y,z(2,y, 2)
+Zz

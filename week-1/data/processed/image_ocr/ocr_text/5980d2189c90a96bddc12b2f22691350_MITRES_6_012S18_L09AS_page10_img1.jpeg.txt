@@ -1,0 +1,13 @@
+Mixed distributions
+
+xa ern on [0,2], with probability 1/2 Is X discrete? Vo
+1, with probability 1/2
+Is X continuous? Ns
+LCxa)e/2
+Y discrete x= Y, with probability p xs ;
+F continuous Z, with probability 1 —p iS! mixen
+
+FG@)= po h(vsx)4(1-p) R (22%)
+=p Fy @) +(1- p) Fa (%)
+
+E[x) =p Ef] + (\- pela)

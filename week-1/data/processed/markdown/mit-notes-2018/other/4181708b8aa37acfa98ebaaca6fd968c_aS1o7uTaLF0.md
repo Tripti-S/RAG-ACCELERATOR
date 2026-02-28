@@ -1,0 +1,59 @@
+# 4181708B8Aa37Acfa98Ebaaca6Fd968C As1O7Utalf0
+
+---
+
+MITOCW | MITRES6_012S18_L23-08_300k
+In this segment, we go through another random incidence example, one that does not involve the Poisson
+process, but a much simpler arrival process.
+We do this for two reasons.
+One is because of the simplicity of the example, perhaps the intuition will be a little more transparent.
+And the second reason is to illustrate that we're dealing with a phenomenon that's not specific to the Poisson
+process, but is much more general.
+The example is as follows.
+We have an arrival process, in which arrivals happen at random.
+And the consecutive interarrival times are independent, identically distributed, random variables.
+However, unlike the Poisson process, these interarrival times are not exponential random variables.
+But instead, we assume that they are either 5 or 10 minutes with equal probability.
+So we have an arrival.
+The next arrival may happen five minutes later.
+The next arrival may again happen five minutes later.
+Then maybe we get an interarrival interval of length 10, then maybe another interarrival interval of length 10,
+followed by one of five, and so on.
+What is the expected value of the kth interarrival time?
+Well, an interarrival time is with probability 1/2 of length five and with probability 1/2 of length 10.
+So the average interarrival time is 7.5.
+Now, you show up at a random time.
+And by random we mean a time that's completely uncoordinated with the arrival process.
+You show up at some point in time, and you look at the interarrival interval in which you fall.
+And you're interested in the length of that particular interarrival interval.
+What is the probability that you fall inside a five minute interarrival interval?
+Since intervals of length five are as likely as intervals of length 10, in the long run, there's going to be roughly as
+many five minute intervals as there will be 10 minute intervals.
+On the other hand, the 10 minute intervals occupy twice as much space on the real line.
+And for this reason, it is 2 times more likely that you will fall in a 10 minute interval rather than a five minute
+interval.
+In other words, the probability of falling in a five minute interval is going to be 1/3.
+Whereas the probability of following in a 10 minute interval is going to be 2/3.
+For this reason, the expected length of the interarrival interval that you get to see when you arrive is equal to, with
+probability 1/3, you see a five.
+And with probability 2/3, you see a 10.
+And this number evaluates approximately to 8.3, which is indeed larger than 7.5.
+The conclusion from this example is similar to the one that we had for the Poisson process.
+Although the average interarrival time is 7.5, when you show up at a random time you are more likely to fall in a
+larger interval.
+And for that reason, on the average, you will be seeing longer interarrival intervals.
+The calculations that we carried through in that simple example can be generalized for more general arrival
+processes, called renewal processes.
+In a renewal process, once more the consecutive interarrival times are independent, identically distributed,
+random variables.
+But they have a general distribution.
+For this case, there's a formula again that tells us the length or the expected length of the interarrival interval that
+you get to see.
+But the main message from this example is that it does make a difference how you sample, how you choose what
+to watch and what to measure.
+It makes a difference whether you decide to measure the kth interarrival time and it's average value or to decide
+to measure an interarrival time that's chosen by showing up at a random time.
+The two methods of sampling give you different results.
+And we will see next a few examples that have this particular flavor.
+
+---

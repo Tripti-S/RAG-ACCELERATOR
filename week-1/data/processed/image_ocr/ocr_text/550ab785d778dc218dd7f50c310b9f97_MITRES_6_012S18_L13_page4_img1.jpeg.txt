@@ -1,0 +1,14 @@
+Stick-breaking example fy(y)
+
+e Stick example: stick of length 2
+break at uniformly chosen point Y
+
+break what is left at uniformly chosen point xX
+
+E[X | Y =y] = Ix@lw
+
+E[X | Y] =
+
+E[X] =
+
+8

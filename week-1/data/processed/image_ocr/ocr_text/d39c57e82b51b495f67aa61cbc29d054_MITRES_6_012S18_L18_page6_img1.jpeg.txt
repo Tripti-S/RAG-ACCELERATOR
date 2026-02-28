@@ -1,0 +1,18 @@
+The Weak Law of Large Numbers (WLLN)
+
+e X4,Xo,... i.i.d.; finite mean p and variance o2
+Xp 4--4X
+Sample mean: M,, = Aa 8 T Ke
+nm
+e E[M,] =
+e Var(Mn) =
+
+P(|Mn-—pl| >) <
+
+Xy+-+-+Xn
+7m
+
+WLLN: For e>0, P(|Mn—|>«) = P(|
+
+- | >) +0, as n — co
+

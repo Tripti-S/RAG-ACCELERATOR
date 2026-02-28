@@ -1,0 +1,15 @@
+The role of probability theory
+
+e A framework for analyzing phenomena with uncertain outcomes
+— Rules for consistent reasoning
+— Used for predictions and decisions
+
+Predictions
+
+Probability theory
+Decisions (Analysis)
+
+Real world
+
+Inference/Statistics
+

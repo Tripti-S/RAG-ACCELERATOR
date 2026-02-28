@@ -1,0 +1,5 @@
+A linear function of a continuous r.v.
+————
+
+fx (2)
+

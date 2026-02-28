@@ -1,0 +1,7 @@
+More consequences of the axioms
+
+e If ACB, then P(A) < P(B)
+
+e P(AUB) = P(A) + P(B) - P(ANB)
+
+e P(AUB) < P(A) + P(B)

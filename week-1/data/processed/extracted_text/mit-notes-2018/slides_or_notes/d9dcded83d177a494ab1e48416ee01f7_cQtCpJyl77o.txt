@@ -1,0 +1,35 @@
+MITOCW | MITRES6_012S18_L25-08_300k
+All right.
+So let us revisit the example from last lecture.
+So we have a Markov chain with two states, one and two, and this Markov chain has a single recurrent class.
+All right.
+And then also it's not periodic right, because we have self transition of this type.
+So as a result, this is well defined and these steady state probabilities from 1 to m, in that case for us, m = 2,
+right?
+So let us write the system and solve the system of linear equation for this example here.
+So what we have is pi 1 equals pi 1 times 0.5 plus pi 2 times 0.2.
+So that's the first equation that corresponds to j equals 1.
+Now, for j equals 2, pi 2 equals pi 1 times 0.5 plus pi 2 times 0.8.
+So we have a system of two equations with two unknowns, pi 1 and pi 2.
+Let us rewrite them, I pass this one on this side and this one on this side.
+So we get pi 1 times 1 minus 0.5 minus 0.5 equals pi 2 times 0.2.
+And this one pi 2 times 1 minus 0.8 is 0.2 equals pi 1 times 0.5.
+We realize that these two happen to be the same, so they are not enough to define a unique solution, so we have
+to add another equation, and we know that these are probabilities.
+So pi 1 plus pi 2 has to be one, and so now we're going to keep one of these two, let's say this one, I'm going to
+write it here.
+And we can rewrite it by saying that pi 1 times 1/2 equals pi 2 times 1/5.
+So now, we're going to take that, replace pi 1 equals 2/5 of pi 2 is the result of that.
+And we're going to use that pi 1 and replace it here.
+So we end it by 2 times 2/5 plus 1 equals 1, which means that from here, we get that pi 2 equals 5 plus 2/7 so 5/7,
+and then we use that and place it here and we end up having pi 1 equals 2/5 times 5/7 equals 2/7, and we check
+5 plus 2 equals 7, so these are real probabilities.
+So the probabilitiy that you find yourself at state one at time 1 trillion would be approximately 2/7.
+The probability that you find yourself at state one at time 2 trillions is again approximately 2/7.
+So essentially what we have here is the probability of being in that state one settles in a steady value.
+That's what the steady state convergence means.
+It's convergence of probabilities, not convergence of the process itself.
+Again, the process will keep jumping back and forth, but the steady state probability will settle for a given value
+here in one, that will be 2/7, and the steady state probability in being in two will settle to 5/7.
+And finally in this example, and more generally when we have a single class and no periodicity, the initial state
+does not matter.

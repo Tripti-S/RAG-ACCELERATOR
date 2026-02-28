@@ -1,0 +1,13 @@
+design of gpione system
+rlanq )
+¢ 3 Lines 3)
+* calls originate as a Poisson process, rate \
+* each call duration is exponential (parameter j)
+
+* need to decide on how many lines, B?
+
+tone 219) tapes}
+
+2£n8 time
+— P(anew call arrives) ~ Ad
+— if you have i active calls, then P(a departure) © ig

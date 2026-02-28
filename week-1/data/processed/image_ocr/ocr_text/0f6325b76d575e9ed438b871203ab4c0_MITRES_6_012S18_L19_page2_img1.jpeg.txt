@@ -1,0 +1,18 @@
+Different scalings of the sum of i.i.d. random variables
+e Xj,...,Xn i.i.d., finite mean p and variance o2
+
+® Sn = Xy+°:-+Xn
+
+variance: no2
+
+w My = 58 = 1H Xs
+nm Tm
+
+; om
+variance: —
+nm
+
+Sn _ Xi te +Xn
+vn on
+
+variance: a7

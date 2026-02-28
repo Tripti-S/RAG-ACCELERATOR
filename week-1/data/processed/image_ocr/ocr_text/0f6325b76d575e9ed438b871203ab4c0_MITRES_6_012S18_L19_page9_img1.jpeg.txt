@@ -1,0 +1,10 @@
+Example 1
+e P(S, <a) xb given two parameters, find the third Zn = =
+no
+
+e Package weights X;, i.i.d. exponential, A = 1/2;
+~p=o=
+e Load container with n = 100 packages
+
+P(Sn > 210)
+

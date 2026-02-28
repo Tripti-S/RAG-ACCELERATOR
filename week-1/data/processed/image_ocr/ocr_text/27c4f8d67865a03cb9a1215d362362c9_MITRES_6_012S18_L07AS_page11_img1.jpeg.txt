@@ -1,0 +1,21 @@
+The hat problem
+
+e n people throw their hats in a box and then pick one at random
+
+— All permutations equally likely 1 Jun! peop &e hats
+— Equivalent to picking one hat at a time i x
+e X: number of people who get their own hat ! rea)
+= Find f(xy}: E[ AK). -.r E [Xm =m =[ 3G} Ey)
+a “|= .
+—_ = — 1
+1, if i selects own hat 3 2 2
+= 9 otherwi !
+, otherwise. P, Ck): Rare
+
+X=X,+Xot---+Xn Z kp, (*)
+i
+
+° E[X] = E[x,] =f (x, =!) =
+
+i}
+m

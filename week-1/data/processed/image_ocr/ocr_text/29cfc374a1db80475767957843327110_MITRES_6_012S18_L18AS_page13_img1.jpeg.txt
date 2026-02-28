@@ -1,0 +1,15 @@
+Convergence in probability examples
+
+1
+e X;:  i.i.d., uniform on [0,1] [eechouaal
+
+© Yn = min{xX1,...,Xn} Z €
+n+)
+P(\¥n-O0|>¢) = P (¥.,2€) .
+oe = P(X,2£,..., Xa)
+- = P (X,2¢) ++ 2 (Xa2¢)
+<1
+
+mn
+(1-¢) —-—-0o
+”-»00

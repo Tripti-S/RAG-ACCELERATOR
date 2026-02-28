@@ -1,0 +1,18 @@
+Sum of a random number of independent r.v.’s E[Y] = B[N] - E[X]
+
+e N: number of stores visited e X;: money spent in store i
+
+(W is a nonnegative integer r.v.) — X; independent, identically distributed
+— independent of N
+
+EIY|N =n = ELK 4X Juan] = E[Ki toe kal ven]
+
+e Total expectation theorem:
+BY] =¥ pwn) Elv|N=nl = > p, (a)m£fxl -ElvJE]x]
+n. mm
+
+e Law of iterated expectations:
+
+E[Y] = E[ELY | NJ] = ef velx]] =E[w} Efx]
+
+e Let Y=X,+---+Xy

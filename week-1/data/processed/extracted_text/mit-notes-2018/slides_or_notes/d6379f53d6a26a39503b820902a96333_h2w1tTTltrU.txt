@@ -1,0 +1,46 @@
+MITOCW | MITRES6_012S18_L24-07_300k
+We have observed in the simple example from the previous clip that when the Markov chain initially starts in state
+one, the probability that it finds itself in state one after a long period of time converges to a constant value, in our
+case, 2/7.
+In addition, if the Markov chain initially starts in state two, the probability that it finds itself in state one after a long
+period of time also converges to the same constant value, 2/7.
+Are these two properties of long term convergence and of vanishing effect of the initial state over the long term
+convergence always true?
+Mathematically, we are asking the question, is rij of n pi j when n goes to infinity?
+The answer is that for nice Markov chains, this will be true, but this is not always true.
+Consider the first question.
+Does rij(n) always converge to something as n goes to infinity?
+Look at the following simple Markov chain.
+When in state two, you will never be in state two at the next transition.
+You will end up next in either state one or state three.
+However, no matter where you end up, you're sure that the next transition will bring you back to state two, either
+here or from here.
+In other words, for n odd, r22 of n will always be 0, and for n even, r22 of n will always be 1.
+And so r22 of n will never converge.
+It will always alternate between 1 or 0.
+Convergence has failed.
+That chain has a periodic structure, and we will see in the next lecture that if periodicity is absent from a chain,
+then we don't have a problem with convergence.
+Consider now the second question dealing with a vanishing importance of initial states when convergence occurs.
+For this, consider the following Markov chain.
+If you start in state one, there is no way you can escape.
+You are certain to stay there forever.
+So r11 of n will always be 1.
+On the other hand, if you start in state three, there is no way you will ever reach state one.
+So r31 of n will be 0.
+The initial state of where you started does matter in this example, and its influence never vanishes in the long run.
+The second nice property has failed here.
+And here, this has to do with the Markov structure where some states are not accessible from some other states,
+and we will address this in the final portion of this lecture.
+Finally, let us calculate r21 of n for large n.
+So you start in state two, and you ask yourself, what is the probability that I will end up in state one after n steps
+for n large?
+Well, when you start in two, you may stay in two for a while by doing this kind of transition and this transition and
+this transition.
+But eventually, with probability one, you will escape.
+Either you will go to state one, or you will escape to state three.
+And in that case, you will never go back to two.
+If you are in one, you will never go back here to two, and from three, you will never go back to two.
+Because of the symmetry between these probabilities here-- 0.3 on this side and 0.3 on this side-- when you do
+escape state two, you are equally likely to escape toward one or toward three.
+So what you have is that r21 of n will be 1/2.

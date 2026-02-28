@@ -1,0 +1,26 @@
+Different scalings of the sum of i.i.d. random variables
+
+X1,...,Xn ii.d., finite mean pw and variance o2 Z \
+
+-! 6 1
+in = Xp te + Xn
+
+variance: no2
+
+a
+
+~.
+~n
+Sn Xp+-- +X
+© My = oe ae Mit + Xn
+n n
+2
+A — eo
+variance: —- ~—o il
+n
+
+vn vn 4
+mo
+
+variance: ¢2 = ———
+m

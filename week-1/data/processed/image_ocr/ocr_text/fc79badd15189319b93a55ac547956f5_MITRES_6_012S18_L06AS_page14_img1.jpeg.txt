@@ -1,0 +1,26 @@
+The mean of the geometric
+
+px(k) . .
+E[X] = Yo kpx(t) = Yo kL —p)* 4p
+| k=l k=1
+|
+_ , - :
+Hi x=/
+
+~| +E[x-!)
+\+ p-E[x-1]x=1] + Ci-p) Efx-)>1)
+=1 +0 + ('1~p) E[x]
+
+~~»
+
+m
+
+x
+
+ees |
+(
+
+M
+
+=~
+'

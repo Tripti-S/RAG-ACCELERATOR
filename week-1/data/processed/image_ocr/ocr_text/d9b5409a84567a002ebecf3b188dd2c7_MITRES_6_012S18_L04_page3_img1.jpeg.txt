@@ -1,0 +1,9 @@
+Basic counting principle examples
+
+e Number of license plates with 2 letters followed by 3 digits:
+
+e ... if repetition is prohibited:
+
+e Permutations: Number of ways of ordering n elements:
+
+e Number of subsets of {1,...,n}:

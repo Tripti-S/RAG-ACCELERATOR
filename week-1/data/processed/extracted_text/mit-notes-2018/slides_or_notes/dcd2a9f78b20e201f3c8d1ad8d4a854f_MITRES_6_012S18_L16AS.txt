@@ -1,0 +1,191 @@
+LECTURE 16: Least mean squares (LMS) estimation
+xl
+• minimize (conditional) mean squared error E [(8 - 6)2 1X =
+xl
+solution : {j = E[8 1X =
+general estimation method
+• Mathematical properties
+• Example
+1
+LMS estimation in the absence of observations
+l
+[(e - 2
+6)
+• Criterion: Mean Squared Error (MSE): E
+minimize mea n squ ared error
+2
+LMS estimation in the absence of observations
+• Least mean squares formu lation:
+­
+minimize m ean squared error (MS E), E [(8 - 8)2] 0= E[8] •
+e e
+~
+-
+.£4.-0·. +2
+E[~iJ 2 ( J 3 + - - 1 £ .... 19
+- , I , _ J
+• "'" I .. I ... I /; e-<J..
+• Optimal mean squa red error: E [(8 - E[8])2] = var(8)
+3
+e
+LMS estimation of based on X
+e ;
+• unknown prior pe(8)
+~ "
+- interested in a point estimate 8
+/
+I
+• observation X ; model pX le(x 8) / '
+- - - - - . ­
+- observe that X = x
+e)2 ]: e
+minimize mean squared error (MSE), E [(e - = E[e)
+e
+= = =
+e)2 1 I
+minimize conditional mean squared error, E [(e - X x] : E[e X x)
+I
+• LMS estimate: 8 ~ = E[e X = x)
+e
+I
+estimator: = E[e X)
+•
+4
+"
+e
+LMS estimation of based on X ~ = ~r:;c)
+?C
+/ x
+e
+7L-:._
+- X
+=-~(X)
+x]
+• E[e 1X xl E[Ce - 8)2 1X
+= minimizes =
+f02
+f P{J
+(e - E[elx=~Jllx=~] {E[(e-'(?C))!)X~~J
+{.l
+X
+IX] 5 E [ ( f ) - ' 1 ( X ) Y l x ]
+E[(fY-f[fY)X])'J
+E[(l9-~[@h(~l ~ E[Cf)-~(XJ)':!
+eLMS e
+E[e 1 E[ce - gCx))2], gCX)
+= ~l m inimi zes ove r all estim ators =
+5
+LMS performance evaluation
+If I xl
+• LMS estimate: = E[e X =
+e
+IXl
+estimator: = E[e
+Expected performance, once we have a measurement:
+= E[(e - E[e I = xl)2 I = xl = var(e I =
+MSE X X X x)
+- -
+Expected performance of the design:
+6
+e
+LMS estimation of based on X
+• LMS relevant to estimation (not hypothesis testing)
+• Same as MAP if the posterior is unimodal and symmetric around the mean
+- e.g., when posterior is normal (the case in "linear-normal" models)
+•
+7
+Example
+e-I!?<~e+1
+Os.1=r
+() i
+feCO)
+10
+(9~'X-i
+() =
+1 / 6
+~- I
+8
+Conditional mean squared error
+10
+! xle(x I 0)
+fe(O)
+' / 2
+'/6
+- ----l4---...J,L---+
+-
+0 - 1 0+1 4
+O
+3
+x
+xl 3 5
+• E[(e - E[e J X = x])2 J X =
+I
+- same as var(e X = x): variance of Var(e X = x)
+J
+conditional distribution of e
+t("') (~Jx=~)d?C
+V(.t?
+)C
+•
+x
+9 II
+9
+LMS estimation with multiple observations or unknowns
+e ;
+• unknown prior pe(8)
+~
+- interested in a point estimate 8
+I
+• observations X = (Xl , X 2, ···, X n ) ; model pX le(x 8)
+observe that X = x
+new universe: condition on X = x
+I
+• LMS estimate: E[e Xl = Xl,··· , X n = Xn]
+e
+• If is a vector, apply to each component separately
+"
+10
+Some challenges in LMS estimation
+feeO) fX le(x 0)
+I
+fe lx(O I x) = fxex)
+J
+fxex) = feeO')fx lee x 0 ') dO'
+1
+fX le(x
+• Full correct model, 10), may not be available •
+• Can be hard to compute/implement/analyze
+11
+Properties of the estimation error in LMS estimation
+-
+-
+-
+• Esti m ator: e = E[e I Xl • Error: e = e - e
+= =
+E [G I X xl 0
+]E[e§]
+- 0
+­
+cov(G , G) = 0
+,
+--"
+.
+"
+"
+"­
+=
+f[f}) elx=5I:] OE[§)X;:'):;]
+=
+0
+"
+"-'
+(!)=(}-()
++
+var(e) = var(G) va r (G) •
+12
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a p articular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

@@ -1,0 +1,14 @@
+Proof of key properties of the correlation coefficient
+
+e Assume, for simplicity, zero means and unit variances, so that p(X,Y) = E[XY]
+B|(X - p¥)?| = E[x*] -2 eélx1] + prelrts
+-—— 2 - pt 2
+0% =| -2ptsp*=1-e =o ap Se
+
+(x -BIX]) (v- EY)
+
+oxX oy
+
+AX,Y) = E
+
+If |p| = 1, then X=e7 => X= or Ra -T

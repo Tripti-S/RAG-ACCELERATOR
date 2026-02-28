@@ -1,0 +1,22 @@
+ML estimation example — normal mean and variance
+
+n
+e Xj1,...,Xn: i.i.d., N(p,v) fx(zi u,v) = |]
+i=1
+n 2 (aj - p)?
+minimize —lo ———
+2 gut 2u
+— minimize w.r.t. p: B= to Fin
+m1
+
+wo, - Le ~
+— minimize w.r.t. v: 6=-— > (a, - 7)?
+n :
+i=1
+
+1
+V2Tv P {
+
+(x; — p)?
+
+2u

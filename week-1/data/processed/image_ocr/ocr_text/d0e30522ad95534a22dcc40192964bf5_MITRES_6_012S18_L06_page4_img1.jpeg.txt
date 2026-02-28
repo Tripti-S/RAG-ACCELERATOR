@@ -1,0 +1,10 @@
+Variance of the Bernoulli
+
+x= 1, wW.p. p
+0, w.p. l1—p
+
+var(X) = )\(# — E[X])*px(z)
+
+x
+
+var(X) = ELX2] — (E[X])2

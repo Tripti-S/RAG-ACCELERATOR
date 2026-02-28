@@ -1,0 +1,15 @@
+Example: Y = a/X
+
+e You go to the gym and set the speed X of the treadmill
+to a number between 5 and 10 km/hr (with a uniform distribution).
+Find the PDF of the time it takes to run 10km.
+
+Fx bises Y= <2. (2y22
+Us x
+FG 10 10 Fy (=P (1s )=P (2 <7)
+’ - = L 10
+* “EON ey age(ia- FF)
+2 (~10 2 eye
+[o)
+
+, 0 Metwi'se

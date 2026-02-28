@@ -1,0 +1,10 @@
+The time T, until the first arrival
+
+e Find the CDF: P(T, <t) =
+
+fr,(t) =r", fort >0
+
+Exponential(A)
+
+Memorylessness: conditioned on T, >t,
+the PDF of 7; —t is again exponential

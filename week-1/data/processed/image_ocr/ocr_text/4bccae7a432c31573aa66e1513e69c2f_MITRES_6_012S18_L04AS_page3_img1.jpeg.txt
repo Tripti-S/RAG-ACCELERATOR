@@ -1,0 +1,15 @@
+Basic counting principle examples
+e Number of license plates with 2 letters followed by 3 digits:
+26 -26 -\0-10-10
+e ... if repetition is prohibited: 26-25 +\O “9+ 8
+
+e Permutations: Number of ways of ordering n elements:
+
+Pepa] n(n )(m-2)eeed om
+4
+
+nm MN-1 M-2
+
+¢ Number of subsets of {1,...,n}: A Pees | 3 3 9 = z
+
+Ch fda =F 63

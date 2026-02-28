@@ -1,0 +1,15 @@
+The Bayes rule — discrete unknown, continuous measurement
+e unkown K: equally likely to be —1 or +1
+e measurement Y: Y=K+W; We-WN(0,1)
+
+e Probability that K = 1, given that Y = y?
+
+_ PKC) fy|KY |»)
+Pry (kly) = Fry)
+
+pK(k) = fy|kYy|k) =
+
+fy@® = fy(y) = op (®’) fyi« yk’)
+k/
+
+PRyyQ|y) =

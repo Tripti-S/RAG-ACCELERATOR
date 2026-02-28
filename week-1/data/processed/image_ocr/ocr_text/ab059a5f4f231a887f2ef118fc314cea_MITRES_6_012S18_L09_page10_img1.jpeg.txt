@@ -1,0 +1,19 @@
+Mixed distributions
+
+x= uniform on [0,2], with probability 1/2
+~ )4, with probability 1/2
+
+Y discrete x= Y, with probability p
+Z continuous
+
+Fx(z) =
+
+E[X] =
+
+Z, with probability 1 —p
+
+Is X discrete?
+
+Is X continuous?
+
+X is mixed

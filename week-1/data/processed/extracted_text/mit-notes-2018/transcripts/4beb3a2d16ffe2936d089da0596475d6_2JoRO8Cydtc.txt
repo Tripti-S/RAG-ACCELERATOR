@@ -1,0 +1,37 @@
+MITOCW | MITRES6_012S18_L22-05_300k
+Now that we have in our hands the PMF of the random variable N tau, which is the number of arrivals during an
+interval of length tau, we can go ahead and try to calculate the mean and variance of this quantity.
+Regarding the mean, we could use just the definition of the expected value and then carry out of this calculation,
+which is not too hard.
+And in the end, we would obtain an answer equal to lambda times tau.
+This is indeed the correct formula for the expected value.
+But let us understand why this formula should be true without doing any calculation.
+Remember that the random variable, the number of arrivals in the Poisson process, is well approximated by a
+binomial random variable with those particular parameters n and p in the limit when delta goes to zero.
+And this works through a discretization argument.
+Therefore, the expected value of N tau should be approximately equal to the expected value of that we get from
+the Bernoulli processes, that is the expected value of the binomial random variable.
+And the expected value of a binomial random variable is n times p.
+And n times p evaluates approximately to lambda times tau.
+The second equality here is approximate because we're neglecting this order of delta squared term.
+Now, these approximations are increasingly exact as we let delta go to 0.
+And when we take the limit as delta goes to 0, we see that the expected value of the number of arrivals in the
+Poisson process will be equal to lambda tau.
+For the variance, we can follow a similar argument.
+First do a binomial approximation and use the formula for the variance of a binomial random variable.
+And then, when delta is small, this number p is small.
+And it's negligible compared to 1.
+n times p is approximately lambda [tau].
+And so we obtain this expression This expression here is the correct one.
+If we were to use the formal definition of the variance and carry out the calculations using the PMF, this is what we
+would obtain, except that it would be somewhat tedious.
+The formulas that we have derived, at least the first one, is quite intuitive and has a natural form.
+The expected number of arrivals is proportional to tau.
+If we double the length of the time interval for interest, we expect to see twice as many arrivals.
+This formula also reinforces the interpretation of lambda as an arrival rate.
+Since lambda is the expected number of arrivals divided by the length of time, it is, really, the expected number of
+arrivals per unit time.
+So it's natural to call lambda the arrival rate, or the intensity of the arrival process.
+Finally, regarding the variance, it is a curious fact that the variance turns out to be exactly the same as the
+expected value.
+And this is a special property of the Poisson PMF.

@@ -1,0 +1,9 @@
+Total probability and expectation theorems
+
+px(2) = py (y)pxy (ely) fx(z) = [ fy) Fx (ely) dy
+y —co
+E[X | ¥ =y] = Dapxyy(cly) BIX|Y¥=y]= [- efxiy(ely) de
+ELX] = Dpy(wELX |¥ =y) ELX] = [" fy(y)ELX | ¥ = yl dy
+y —6O
+
+e Expected value rule...

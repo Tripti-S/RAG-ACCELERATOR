@@ -1,0 +1,59 @@
+# C025B4Baa48Ff7801B96C3915Ee62E5C Mhonq7Gjjqg
+
+---
+
+MITOCW | MITRES6_012S18_L13-07_300k
+We will now go through a derivation of the law of total variance.
+This particular derivation is not insightful.
+It will not really give you any intuition as to why the law of total variance is correct.
+On the other hand, it involves some interesting manipulations that will be useful to be able to follow, and
+understand the kinds of objects that they're being moved around, and why each step is valid.
+Our derivation relies on the standard formula that we have on how to calculate variances.
+And our first step is to apply this formula to the conditional variance.
+Now, the conditional variance is like an ordinary variance, except that it is calculated in a conditional universe.
+So we apply this formula, except that the expectation of X squared is the expectation calculated in the conditional
+universe.
+And similarly, for the next term it is the square of the expected value of X. But it's the expected value of X as
+calculated in the conditional universe.
+So this is an equality between numbers.
+What does it translate to?
+This has been defined as a random variable that takes this value when capital Y is equal to little y.
+What is the random variable that takes this value when capital Y is little y?
+Well, this random variable here is a random variable that takes this value when capital Y is equal to little y.
+And this random variable here is a random variable that takes this numerical value when capital Y is equal to little
+y.
+So to summarize, this is the random variable that takes this numerical value when capital Y is equal to little y.
+And this is a random variable that takes this value when capital Y is equal to little y.
+This expression, the left hand side is equal to the right hand side for all y's.
+And therefore, this random variable and that random variable always take the same numerical values no matter
+what y happens to be.
+So these are identical random variables.
+And so we have this equality between random variables.
+The next step as we're working towards calculating this first term here in the law of total variance is to take the
+expectation of this expression.
+What is it?
+We take the expectation of the first term.
+It's the expectation of a conditional expectation.
+And according to the law of iterated expectations, it is the same as the unconditional expectation.
+And then we have the expected value of the next term.
+Next, we want to make some progress towards calculating this second quantity in the law of total variance.
+And the way to calculate it is to just apply this general property of variances to the special case where X gets
+replaced by the expected value of X given Y.
+So the first term will be the expected value of our random variable squared.
+Our random variable is the expected value of X given Y.
+And the second term involves the expected value of the random variable whose variance we're considering.
+So it's the expected value of this random variable.
+So it's the expected value of the conditional expectation.
+And everything gets squared.
+What is this term?
+By the law of iterated expectations, the expected value of a conditional expectation is the same as the
+unconditional expectation.
+So this last term here is of this form.
+What we will do next is to take this expression here and that expression here, and add them together.
+When we add them, we notice that this term and that term are the same.
+So they cancel out.
+And we're left with the expected value of X squared minus the square of the expected value.
+But we know that this is the same as the variance of X. So we have proved that the sum of these two terms, which
+are the two terms up here, give us the variance of X.
+
+---

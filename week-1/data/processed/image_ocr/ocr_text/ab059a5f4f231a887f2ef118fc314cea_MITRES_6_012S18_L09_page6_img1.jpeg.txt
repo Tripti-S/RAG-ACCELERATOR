@@ -1,0 +1,11 @@
+Memorylessness of the exponential PDF
+
+e Do you prefer a used or a new “exponential” light bulb? Probabilistically identical!
+e Bulb lifetime T: exponential(A)
+
+P(T >x)=e-**, for x >0
+— we are told that T>t
+
+— r.v. X: remaining lifetime
+
+P(X >2|T>t)=e, forx>0

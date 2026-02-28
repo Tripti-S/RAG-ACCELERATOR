@@ -1,0 +1,6 @@
+LMS estimation in the absence of observations
+e Least mean squares formulation:
+
+minimize mean squared error (MSE), E (oe — 6)?): 6 = E[e]
+
+e Optimal mean squared error: E \(e — E[©])?| = var(©)

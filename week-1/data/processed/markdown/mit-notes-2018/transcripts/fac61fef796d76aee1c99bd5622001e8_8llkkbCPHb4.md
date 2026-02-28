@@ -1,0 +1,69 @@
+# Fac61Fef796D76Aee1C99Bd5622001E8 8Llkkbcphb4
+
+---
+
+MITOCW | MITRES6_012S18_L04-05_300k
+The coefficients n-choose-k that we calculated in the previous segment are known as the binomial coefficients.
+They are intimately related to certain probabilities associated with coin tossing models, the so-called binomial
+probabilities.
+This is going to be our subject.
+We consider a coin which we toss n times in a row, independently.
+For each one of the tosses of this coin, we assume that there is a certain probability, p, that the result is heads,
+which of course, implies that the probability of obtaining tails in any particular toss is going to be 1 minus p.
+The question we want to address is the following.
+We want to calculate the probability that in those n independent coin tosses, we're going to observe exactly k
+heads.
+Let us start working our way towards the solution to this problem by looking first at a simple setting and then move
+on.
+So let us answer this simple question.
+What is the probability that we observe this particular sequence?
+Of course here we take n equal to six, and we wish to calculate this probability.
+Now, because we have assumed that the coin tosses are independent, we can multiply probabilities.
+So the probability of this sequence is equal to the probability that the first toss is heads times the probability that
+the second toss is tails, which is 1 minus p, times the probability that the third toss is tails, which is 1 minus p,
+times the probability of heads, times the probability of heads, times the probability of heads.
+And by collecting terms, this is p to the 4th times 1 minus p to the second power.
+More generally, if I give you a particular sequence of heads and tails, as in this example, and I ask you, what is
+the probability that this particular sequence is observed, then by generalizing from this answer or from the
+derivation of this answer, you see that you're going to get p to the power number of heads.
+And the reason is that each time that there's a head showing up in this sequence, there's a corresponding factor
+of p in this numerical answer.
+And then there are factors associated with tails.
+Each tail contributes a factor of 1 minus p.
+And so we're going to have here 1 minus p to a power equal to the number of tails.
+Now, if I ask you about the probability of a particular sequence and that particular sequence has happened to
+have exactly k heads, what is the probability of that sequence?
+Well, we already calculated what it is.
+It is the previous answer, except we use the symbol k instead of just writing out explicitly "number of heads." And
+the number of tails is the number of tosses minus how many tosses resulted in heads.
+Now, we're ready to consider the actual problem that we want to solve, which is calculate the probability of k
+heads.
+The event of obtaining k heads can happen in many different ways.
+Any particular k-head sequence makes that event to occur.
+Any particular k-head sequence has a probability equal to this expression.
+The overall probability of k heads is going to be the probability of any particular k-head sequence, times the
+number of k-head sequences that we have.
+Now, the reason why we can carry out this argument is the fact that any k-head sequence has the same
+probability.
+Otherwise, we wouldn't be able to write down an answer which is just the product of two terms.
+But because every k-head sequence has the same probability, to find the overall probability, we take the
+probability of each one of them and multiply it with the number of how many of these we have.
+So to make further progress, now we need to calculate the number of possible k-head sequences.
+How many are there?
+Well, specifying a k-head sequence is the same as the following.
+You think of having n time slots.
+These time slots corresponds to the different tosses of your coin.
+And to specify a k-head sequence, you need to tell me which ones of these slots happen to contain a head.
+You need to tell me k of those slots.
+So in other words, what you're doing is you're specifying a subset of the set of these n slots, a subset that has k
+elements.
+You need to choose k of the slots out of the n and tell me that those k slots have heads.
+That's the way of specifying a particular k-head sequence.
+So what's the number of k-head sequences?
+Well, it's the same as the number of ways that you can choose k slots out of the n slots, which is our binomial
+coefficient, n-choose-k.
+Therefore, the answer to our problem is this expression here, times n-choose-k, which is shown up here.
+At this point, we can pause and consider a simple question to check your understanding of the binomial
+probabilities.
+
+---

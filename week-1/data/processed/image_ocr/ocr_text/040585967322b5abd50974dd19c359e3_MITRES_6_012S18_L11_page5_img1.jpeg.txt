@@ -1,0 +1,2 @@
+A linear function of a continuous r.v. Y=axX+b
+

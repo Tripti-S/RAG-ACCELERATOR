@@ -1,0 +1,25 @@
+Interpreting the WLLN Mn = (Xi +++: + Xn)/n
+
+Xi te +Xn
+
+n
+
+ween. For «> 0, P(|Mn — ul > ¢) = P(| u| ><) +0, ssn |
+
+e One experiment
+
+— many measurements X; = «+ W;
+
+— W;: measurement noise; E[W;]=0; independent W;
+
+— sample mean ,, is unlikely to be far off from true mean yu
+
+e Many independent repetitions of the same experiment
+
+— event A, with p= P(A) y,
+— Xj: indicator of event A ‘a ' att A occurs
+O.wW.
+
+— the sample mean M,, is the empirical a of event A
+
+eln-J=p

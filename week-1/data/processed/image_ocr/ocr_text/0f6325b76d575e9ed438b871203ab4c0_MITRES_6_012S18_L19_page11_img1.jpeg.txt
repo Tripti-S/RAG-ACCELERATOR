@@ -1,0 +1,10 @@
+Example 3
+e P(S, <a) xb given two parameters, find the third Zn = =
+no
+
+e Package weights Xj, i.i.d. exponential, A = 1/2;
+pr=o=
+
+e How large can n be,
+so that P(S, > 210) = 0.05?
+

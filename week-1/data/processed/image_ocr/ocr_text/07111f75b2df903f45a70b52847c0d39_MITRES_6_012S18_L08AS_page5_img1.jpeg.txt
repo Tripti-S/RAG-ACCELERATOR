@@ -1,0 +1,9 @@
+Expectation/mean of a continuous random variable
+
+px(e) PDF fx(x)
+P(a< X <b)
+poo
+E[X] = Lents) E[X] = [- 2fx(@) dx
+e Interpretation: Average in large number Fine print:
+
+of independent repetitions of the experiment Assume f |x| fx (ade < oe

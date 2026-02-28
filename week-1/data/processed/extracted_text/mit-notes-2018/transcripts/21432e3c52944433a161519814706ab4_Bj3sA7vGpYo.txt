@@ -1,0 +1,32 @@
+MITOCW | MITRES6_012S18_L19-04_300k
+Let us now look at some numerical examples to get a feel for how the central limit theorem works in practice.
+Let us look at a discrete random variable that has a uniform distribution in the range here from 1 to 8.
+If we add two independent random variables, drawn from this PMF, we obtain a random variable whose PMF is
+the convolution of this PMF with itself.
+We can even carry out this calculation by hand, and we get a triangular PMF.
+So this is what we get for the case where n is equal to 2.
+Now we can keep doing this.
+If we add four of these discrete uniforms, of course assumed independent, then we obtain a PMF that starts to
+have a shape close to that of a normal shape.
+And if you take as many as 32 of them, then the PMF of the sum of 32 discrete uniforms is almost identical to the
+shape that you would get if you were to draw a normal PDF.
+So with n as small as 32, we have essentially converged.
+In fact, this convergence is so good that in practice, quite often people use this idea to generate random samples
+of a normal random variable.
+What do you do?
+You draw 32 random samples from a discrete uniform, add them up.
+And what you get is a sample of essentially a normal random variable.
+Now in this example, things worked out well for us because the distribution that we started from was nicely
+symmetric and didn't have any strange features.
+Things are not always so favorable.
+Let us consider starting from a truncated geometric.
+If we add eight random variables that are independent and drawn from this distribution, what we obtain is a PMF
+of this form, which does not really look like a normal shape.
+The reason is that there's a pronounced asymmetry.
+So let us add more and more independent X's.
+If we add 16 of them, we start to get something that's a little closer to normal.
+But the asymmetry is still visible.
+And if we add 32 of them, we can still see some asymmetry.
+Namely, this tail here does not look exactly like this tail out there.
+So in this instance, it's really the asymmetry of the original distribution that makes it difficult to converge.
+And it will take larger values of n before we can get a very accurate approximation.

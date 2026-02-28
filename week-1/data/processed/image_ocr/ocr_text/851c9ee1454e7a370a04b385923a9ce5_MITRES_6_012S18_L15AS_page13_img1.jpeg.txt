@@ -1,0 +1,23 @@
+Linear normal models .
+
+95 and xX; and are linear functions of independent normal random variables
+
+Imear regressiou
+feyetOl2) = ea) exp { — quadratio(lyy...,And¥ . ? ‘
+
+MAP estimate: maximize over (41,...4m);
+(minimize quadratic function)
+
+Crnear equations
+Omap,j: linear function of X = (Xj,..., Xn)
+
+Facts:
+
+° Omap, = ElO;|X]
+
+© marginal posterior PDF of ©;: fo; xy | 2), is normal
+
+o MAP estimate based on the joint posterior PDF:
+same as MAP estimate based on the marginal posterior PDF
+
+° E[(6i,map —©;)? | x= a]: same for all «

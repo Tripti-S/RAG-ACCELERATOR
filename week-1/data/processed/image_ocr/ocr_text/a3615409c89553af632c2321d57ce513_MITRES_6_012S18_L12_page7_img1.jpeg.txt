@@ -1,0 +1,11 @@
+Covariance properties
+
+cov(x, X) =
+
+cov(aX +b, Y) =
+
+cov(x,¥+Z)=
+
+cov(X,¥) = E[(X — BIX]) -(¥ - E[Y)|
+
+cov(X,Y) = E[XY] — E[X]E[Y]

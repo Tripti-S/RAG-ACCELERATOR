@@ -1,0 +1,8 @@
+The simplest random variable: Bernoulli with parameter p € [0, 1]
+
+x= 1, wW.p. p
+0, w.p. 1—p
+
+e Models a trial that results in success/failure, Heads/Tails, etc.
+
+e Indicator r.v. of an event A: IJ, = 1 iff A occurs

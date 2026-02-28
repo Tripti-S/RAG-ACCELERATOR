@@ -1,0 +1,16 @@
+Point estimates in Bayesian inference
+
+The complete answer is a posterior distribution:
+
+PMP pe)x(-| 2) or PDF fojx(- | x)
+
+estimate: 9 = g(x)
+Pe|x(- | x) fexC| =) (number)
+| | L4 | SII. estimator: © = 9(X)
+1 1 t (random variable) |
+e Maximum a posteriori probability (MAP):
+
+Pox ("| 2) = maxpe)x(8| 2),
+fojx(@ | ) = max fex(9 | 2),
+
+e Conditfonal expectation: E[O |X =2] (LMS: Least Mean Squares)

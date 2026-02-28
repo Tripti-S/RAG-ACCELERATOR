@@ -1,0 +1,14 @@
+Probability calculation: discrete/finite example
+
+e Two rolls of a tetrahedral die e Let every possible outcome have probability 1/16
+
+e P(X =1)=
+4 Let Z = min(X,Y)
+Y=s ?
+= Second
+roll e P(Z=4) =
+2
+l e P(Z=2)=
+
+1 2 K 4
+X = First roll

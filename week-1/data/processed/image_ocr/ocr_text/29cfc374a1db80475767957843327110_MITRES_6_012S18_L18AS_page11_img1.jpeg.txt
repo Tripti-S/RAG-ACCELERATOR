@@ -1,0 +1,12 @@
+Some properties
+
+Suppose that Xn > a, Yn > b, in probability
+
+z
+If g is continuous, then g(Xn) > g(a) x 3a
+
+m
+
+Xn+Yn-7a+b
+
+But: E[X,] need not converge to a

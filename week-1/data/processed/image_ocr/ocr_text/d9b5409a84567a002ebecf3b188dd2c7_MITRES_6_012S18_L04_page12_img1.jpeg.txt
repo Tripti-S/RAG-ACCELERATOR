@@ -1,0 +1,5 @@
+Example: 52-card deck, dealt (fairly) to four players. A smart solution
+Find P(each player gets an ace)
+
+Stack the deck, aces on top Deal, one at a time, to available “slots”
+

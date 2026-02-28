@@ -1,0 +1,11 @@
+The mean of E[X | Y]: Law of iterated expectations
+© o(y) =BIX|¥ =¥)
+elxly)? 9 (Y)
+E[ELX|¥)] = —[9(1)]
+= 2 a) Pry (y) exp, value rue
+
+2 EIxl¥=7] Ay)
+° tota 2 exp Lau
+: -ELe]
+
+E[E[X |Y]] = ELX]

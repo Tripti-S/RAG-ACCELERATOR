@@ -1,0 +1,14 @@
+Jointly continuous r.v.’s and joint PDFs px (x) fx(2)
+
+pxy(2,y) fxy(,y)
+
+pxy(z,y) = P(X =x and Y =y)>0 fxy(a,y) = 0
+
+P((X,Y) €B)= ©Y pxy@y) P((X,Y)€B)= I/ fxy (x,y) dedy «
+(ay)EB (y)eB
+
+LL pxy vy) =1 E l newew=1
+
+Definition: Two random variables are jointly continuous
+if they can be described by a joint PDF
+

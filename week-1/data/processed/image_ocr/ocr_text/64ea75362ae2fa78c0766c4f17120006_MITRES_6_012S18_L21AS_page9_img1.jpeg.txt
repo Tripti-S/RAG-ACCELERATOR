@@ -1,0 +1,11 @@
+Time of the kth success/arrival
+9,2) '] 9) oe; Of 'Fole) ojos
+T , Ty Yo Is ¥g
+
+e Y, = time of kth arrival Y,=Ti+---+Th
+
+e 7, = kth inter-arrival time =Y¥,—Y,_1 (k> 2)
+
+The process starts fresh after time T,
+
+T> is independent of T;; Geometric(p); etc.

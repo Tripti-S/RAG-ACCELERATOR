@@ -1,0 +1,15 @@
+The conditional variance as a random variable
+
+var(X) = E(x = E[X])?]
+
+var(X |Y =y) = E[(X —B[X |y =y))?|Y =y]
+1
+
+[ varex | Y) is the r.v. that takes the value var(X |¥ =y), when Y =y |
+
+e Example: X uniform on [0,Y] var(X |Y =y) = Zz af 2
+
+var(X |Y) = YA
+
+Law of total variance: var(X) = E[var(x | y)| ak var (BLX | ¥})
+

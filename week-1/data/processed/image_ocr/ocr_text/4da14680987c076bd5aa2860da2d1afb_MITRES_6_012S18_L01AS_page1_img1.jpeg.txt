@@ -1,0 +1,22 @@
+LECTURE 1: Probability models and axioms
+
+e Sample space
+
+e Probability laws
+
+— Axioms
+
+— Properties that follow from the axioms
+e Examples
+
+— Discrete
+
+— Continuous
+
+e Discussion
+
+— Countable additivity
+
+— Mathematical subtleties
+
+e Interpretations of probabilities

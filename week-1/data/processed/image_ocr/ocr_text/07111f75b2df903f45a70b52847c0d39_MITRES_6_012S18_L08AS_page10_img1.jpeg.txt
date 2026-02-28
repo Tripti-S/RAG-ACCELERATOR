@@ -1,0 +1,15 @@
+Cumulative distribution function (CDF)
+
+[cor definition: i =PX< »]
+
+e Continuous random variables:
+
+Fx(x) = P(X <2) = [fx® dt
+MLL
+
+PCxs 4) = P(x <3) +£(3<%E4)
+
+uu ——1
+
+Fx(2)
+

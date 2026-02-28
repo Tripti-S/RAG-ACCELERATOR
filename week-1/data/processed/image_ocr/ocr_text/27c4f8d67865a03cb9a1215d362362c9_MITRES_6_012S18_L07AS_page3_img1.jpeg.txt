@@ -1,0 +1,12 @@
+Conditional PMFs involving more than two r.v.'s
+
+e Self-explanatory notation P (x22, ¥: y 2 2) Pax. (@y, 2)
+Pxjy,z(@ | ys) =f (x=%|¥=7,222) = Bivzy,2=2) Pye (7,2)
+
+pxy\z(%,y | 2) = P(x=%Y=7 J2 22)
+
+e Multiplication rule
+
+P(AN BNC) = P(A) P(B| A) P(C| ANB)
+
+Px y,z(%, 9,2) = Px () py|x(y | *) pax, | ey)

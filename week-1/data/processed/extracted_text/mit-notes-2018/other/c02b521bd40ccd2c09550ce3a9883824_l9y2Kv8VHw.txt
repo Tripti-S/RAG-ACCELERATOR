@@ -1,0 +1,99 @@
+MITOCW | MITRES6_012S18_L18-07_300k
+We will now go through two examples of convergence in probability.
+Our first example is quite trivial.
+We're dealing with a sequence of random variables Yn that are discrete.
+Most of the probability is concentrated at 0.
+But there is also a small probability of a large value.
+Because the bulk of the probability mass is concentrated at 0, it is a good guess that this sequence converges to
+0.
+Do we have, indeed, convergence in probability to 0?
+We need to check the definition.
+So we fix some epsilon, which is a positive number.
+And we look at the probability of the event that our random variable is epsilon or more away than what we think is
+the limit of that sequence.
+We look at that probability.
+And in this example, it is equal to 1 over n, which goes to 0 as n goes to infinity.
+And this verifies that, indeed, in this example, Yn converges to 0, as n goes to infinity in probability.
+Now, we make the following observation.
+If we are to calculate the expected value of this random variable, what we get is the following.
+We get a value of 0 with this probability, no contribution to the expectation.
+But we also get a value of n squared with probability 1 over n.
+And so the expected value is equal to n, which, actually, goes to infinity, as n goes to infinity.
+So we have a situation where the sequence of the random variables converges to 0.
+But the expectation does not converge to 0.
+In fact, it goes to infinity.
+And this example serves to make the point that convergence in probability does not imply convergence of
+expectations.
+The reason is that convergence in probability has to do with the bulk of the distribution.
+It only cares that the tail of the distribution has small probability.
+On the other hand, the expectation is highly sensitive to the tail of the distribution.
+It might be that the tail only has a small probability.
+But if that probability is assigned to a very large value, then the expectation will be strongly affected and can be
+quite different from the limit of the random variable.
+Our second example is going to be less trivial and more interesting.
+Consider random variables that are independent and identically distributed and whose common distribution is
+uniform on the unit interval, so that the PDF takes this form.
+Are these random variables convergent to something?
+The answer is no.
+And the reason is that as i increases, the distribution does not change.
+And it does not to get concentrated around a certain number.
+The distribution remains spread out over the entire unit interval.
+But let us look now at some related random variables.
+Let us define Yn to be the minimum of the first n of the X's that we get.
+So if n is equal to 4, and we obtain these four values, Yn would be equal to this value.
+Notice that if we draw more values, then the new values might be above the minimum, in which case the minimum
+does not change.
+But we might also get a value that's below the minimum, in which case the minimum moves down.
+The only thing that can happen is that the minimum goes down.
+It cannot go up.
+And this gives us this inequality.
+So the random variables Yn tends to go down.
+How far down?
+If n is very large, we expect that we will obtain some X's whose value happens to be very close to 0, which means
+that Yn will go down to values that are very close to 0.
+And this leads us to conjecture that, perhaps, Yn does converge to 0.
+This is always the first step when dealing with convergence in probability.
+The first step is to make an educated guess about what the limit might be.
+And then we want to verify that this is, indeed, the correct limit.
+To verify that, what we do is we fix some positive epsilon.
+And we look for the probability that the distance of the random variable Yn from the conjectured limit has a
+magnitude that's larger than or equal to epsilon.
+And what we need to show is that this quantity converges to 0 as n goes to infinity, no matter what epsilon is.
+Now, because Yn is a non-negative random variable, this is the same as the probability that Yn is larger than or
+equal to epsilon.
+Now, let us distinguish between two cases.
+If epsilon is bigger than 1, we're asking for the probability that Yn is larger than or equal to a certain number
+epsilon that's out there.
+But this probability is 0.
+There's no way that the minimum of these uniforms will take a value that's larger than some epsilon that's larger
+than 1.
+So in that case, this quantity is equal to zero.
+And we are done.
+But we need to check that this quantity becomes small no matter what epsilon is.
+So now, let us consider taking a small epsilon that is some number that's less than or equal to 1.
+For that case, let us continue with the calculation.
+The minimum is going to be at least epsilon, if, and only if, all of the random variables are at least epsilon.
+So this is an equivalent way of writing this particular event here.
+Now, because of independence, this is the product of the probabilities that each one of the random variables is
+larger than or equal to epsilon.
+The probability that X1 is larger than or equal to epsilon can be found as follows.
+If we have here epsilon, the probability of being larger than or equal to epsilon is the probability of this event here.
+So it's the area of this rectangle.
+The base of that rectangle is 1 minus epsilon.
+And so we obtain 1 minus epsilon for this first term.
+But because the Xi's are identically distributed, all the other terms that we multiply are also the same.
+And so the answer is this expression here.
+Now, epsilon is a positive number.
+So 1 minus epsilon is strictly less than 1.
+And when we take higher powers of a number that's less than 1, we obtain something that converges to 0 as n
+goes to infinity.
+And that's what we needed to verify.
+Since this is the case for any epsilon, we conclude that the random variables Yn converge to zero in the sense
+that we have defined, in probability.
+Generalizing from this example, when we want to show convergence in probability, the first step is to make a
+guess as to what is the value that the sequence converges to.
+In this example, that value was equal to 0.
+Once we have made that conjecture, then we write down an expression for the probability of being epsilon away
+from the conjectured limit.
+And then we calculate that probability either exactly, as in this example.
+Or we try to bound it somehow and still show that it goes to 0.

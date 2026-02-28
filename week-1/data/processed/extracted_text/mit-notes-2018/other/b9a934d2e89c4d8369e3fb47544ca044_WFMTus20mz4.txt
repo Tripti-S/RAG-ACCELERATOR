@@ -1,0 +1,18 @@
+MITOCW | MITRES6_012S18_L09-09_300k
+In this segment we will go very fast through a few definitions and facts that remain true in the continuous case.
+Everything is completely analogous to the discrete case.
+And there are absolutely no surprises here.
+So, for example, we have defined joint PMFs for the case of more than two discrete random variables.
+And we have a bunch of facts about them.
+In a similar manor, we can define joint PDFs for more than two random variables.
+And if you have understood the material so far, you can guess how such a joint PDF will be used.
+For example, you can calculate the probability of a three dimensional set by integrating the joint PDF over that
+three dimensional set.
+And there are analogs off all of the other formulas that we have here where we follow the usual recipe.
+Sums become integrals, and PMFs are replaced by PDFs.
+Finally, when you deal with a random variable, which is defined as a function of jointly continuous random
+variables, we can use an expected value rule that takes the same form as in the discrete case.
+And using the expected value rule, we can establish, once more, the usual linearity properties of expectations.
+So absolutely no surprises here.
+The derivations are either completely straightforward.
+Or they follow exactly the same line of argument as in the discrete case, with just minor changes in notation.

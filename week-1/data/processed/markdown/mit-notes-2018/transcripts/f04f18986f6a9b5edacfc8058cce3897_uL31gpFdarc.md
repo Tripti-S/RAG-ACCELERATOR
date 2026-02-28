@@ -1,0 +1,109 @@
+# F04F18986F6A9B5Edacfc8058Cce3897 Ul31Gpfdarc
+
+---
+
+MITOCW | MITRES6_012S18_L02-05_300k
+Let us now examine what conditional probabilities are good for.
+We have already discussed that they are used to revise a model when we get new information, but there is
+another way in which they arise.
+We can use conditional probabilities to build a multi-stage model of a probabilistic experiment.
+We will illustrate this through an example involving the detection of an object up in the sky by a radar.
+We will keep our example very simple.
+On the other hand, it turns out to have all the basic elements of a real-world model.
+So, we are looking up in the sky, and either there's an airplane flying up there or not.
+Let us call Event A the event that an airplane is indeed flying up there, and we have two possibilities.
+Either Event A occurs, or the complement of A occurs, in which case nothing is flying up there.
+At this point, we can also assign some probabilities to these two possibilities.
+Let us say that through prior experience, perhaps, or some other knowledge, we know that the probability that
+something is indeed flying up there is 5% and with probability 95% nothing is flying.
+Now, we also have a radar that looks up there, and there are two things that can happen.
+Either something registers on the radar screen or nothing registers.
+Of course, if it's a good radar, probably Event B will tend to go together with Event A. But it's also possible that the
+radar will make some mistakes.
+And so we have various possibilities.
+If there's a plane up there, it's possible that the radar will detect it, in which case Event B will also happen.
+But it's also conceivable that the radar will not detect it, in which case we have a so-called miss.
+And so a plane is flying up there, but the radar missed it, did not detect it.
+Another possibility is that nothing is flying up there, but the radar does detect something, and this is a situation
+that's called a false alarm.
+Finally, there's the possibility that nothing is flying up there, and the radar did not see anything either.
+Now, let us focus on this particular situation.
+Suppose that Event A has occurred.
+So we are living inside this particular universe.
+In this universe, there are two possibilities, and we can assign probabilities to these two possibilities.
+So let's say that if something is flying up there, our radar will find it with probability 99%, but will also miss it with
+probability 1%.
+What's the meaning of this number, 99%?
+Well, this is a probability that applies to a situation where an airplane is up there.
+So it is really a conditional probability.
+It's the conditional probability that we will detect something, the radar will detect the plane, given that the plane is
+already flying up there.
+And similarly, this 1% can be thought of as the conditional probability that the complement of B occurs, so the
+radar doesn't see anything, given that there is a plane up in the sky.
+We can assign similar probabilities under the other scenario.
+If there is no plane, there is a probability that there will be a false alarm, and there is a probability that the radar
+will not see anything.
+Those four numbers here are, in essence, the specs of our radar.
+They describe how the radar behaves in a world in which an airplane has been placed in the sky, and some other
+numbers that describe how the radar behaves in a world where nothing is flying up in the sky.
+So we have described various probabilistic properties of our model, but is it a complete model?
+Can we calculate anything that we might wish to calculate?
+Let us look at this question.
+Can we calculate the probability that both A and B occur?
+It's this particular scenario here.
+How can we calculate it?
+Well, let us remember the definition of conditional probabilities.
+The conditional probability of an event given another event is the probability of their intersection divided by the
+probability of the conditioning event.
+But this doesn't quite help us because if we try to calculate the numerator, we do not have the value of the
+probability of A given B. We have the value of the probability of B given A. What can we do?
+Well, we notice that we can use this definition of conditional probabilities, but use it in the reverse direction,
+interchanging the roles of A and B. If we interchange the roles of A and B, our definition leads to the following
+expression.
+The conditional probability of B given A is the probability that both events occur divided by the probability, again, of
+the conditioning event.
+Therefore, the probability that A and B occur is equal to the probability that A occurs times the conditional
+probability that B occurs given that A occurred.
+And in our example, this is 0.05 times the conditional probability that B occurs, which is 0.99.
+So we can calculate the probability of this particular event by multiplying probabilities and conditional probabilities
+along the path in this tree diagram that leads us here.
+And we can do the same for any other leaf in this diagram.
+So for example, the probability that this happens is going to be the probability of this event times the conditional
+probability of B complement given that A complement has occurred.
+How about a different question?
+What is the probability, the total probability, that the radar sees something?
+Let us try to identify this event.
+The radar can see something under two scenarios.
+There's the scenario where there is a plane up in the sky and the radar sees it.
+And there's another scenario where nothing is up in the sky, but the radar thinks that it sees something.
+So these two possibilities together make up the event B.
+And so to calculate the probability of B, we need to add the probabilities of these two events.
+For the first event, we already calculated it.
+It's 0.05 times 0.90.
+For the second possibility, we need to do a similar calculation.
+The probability that this occurs is equal to 0.95 times the conditional probability of B occurring under the scenario
+where A complement has occurred, and this is 0.1.
+If we add those two numbers together, the answer turns out to be 0.1445.
+Finally, a last question, which is perhaps the most interesting one.
+Suppose that the radar registered something.
+What is the probability that there is an airplane out there?
+How do we do this calculation?
+Well, we can start from the definition of the conditional probability of A given B, and note that we already have in
+our hands both the numerator and the denominator.
+So the numerator is this number, 0.05 times 0.99, and the denominator is 0.1445, and we can use our calculators
+to see that the answer is approximately 0.34.
+So there is a 34% probability that an airplane is there given that the radar has seen or thinks that it sees
+something.
+So the numerical value of this answer is somewhat interesting because it's pretty small.
+Even though we have a very good radar that tells us the right thing 99% of the time under one scenario and 90%
+under the other scenario.
+Despite that, given that the radar has seen something, this is not really convincing or compelling evidence that
+there is an airplane up there.
+The probability that there's an airplane up there is only 34% in a situation where the radar thinks that it has seen
+something.
+So in the next few segments, we are going to revisit these three calculations and see how they can generalize.
+In fact, a large part of what is to happen in the remainder of this class will be elaboration on these three ideas.
+They are three types of calculations that will show up over and over, of course, in more complicated forms, but the
+basic ideas are essentially captured in this simple example.
+
+---

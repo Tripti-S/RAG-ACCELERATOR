@@ -1,0 +1,23 @@
+The time the first (or the last) light bulb burns out
+x
+-R-mae_ cr i —-— =
+e Three lightbulbs % time
+
+— independent lifetimes X, Y, Z; exponential(\) Sine
+e Find expected time until first burnout [al 2
+00
+
+E [um in§x,y,23) 4 fff min hn, 7,25 Fiat | a7 PF 1 a748 olxdy da
+
+000
+jt AR -AE -3At
+f (minta,t,29 2 4) =P (xzt,vy2t,22t) =e alae 2
+
+Exp(3a)
+
+e X,Y, Z: first arrivals in independent Poisson processes
+
+e Merged process: PLoiston (3A)
+
+3a
+e min{X,Y,Z}: 1st arrival in merged process a Expl )

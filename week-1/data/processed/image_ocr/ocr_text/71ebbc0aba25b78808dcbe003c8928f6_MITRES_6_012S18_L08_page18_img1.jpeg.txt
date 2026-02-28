@@ -1,0 +1,11 @@
+Standardizing a random variable
+
+e Let X have mean yp and variance o? > 0
+
+X — pb
+
+oO
+
+e Let Y =
+
+e If also X is normal, then:

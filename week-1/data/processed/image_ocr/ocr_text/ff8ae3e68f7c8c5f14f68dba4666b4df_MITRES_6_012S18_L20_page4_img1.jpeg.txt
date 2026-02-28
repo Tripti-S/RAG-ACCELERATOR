@@ -1,0 +1,17 @@
+Estimating a mean
+
+e Xj,...,Xn: ii.d., mean 6, variance o2
+
+_ Art t+Xn
+
+n
+
+©, = sample mean = My, On: estimator (a random variable)
+
+Properties and terminology:
+
+e E[O,] =6 (unbiased)
+
+e WLLN: 6,58 (consistency)
+
+e mean squared error (MSE): E|(Gn — 6)?

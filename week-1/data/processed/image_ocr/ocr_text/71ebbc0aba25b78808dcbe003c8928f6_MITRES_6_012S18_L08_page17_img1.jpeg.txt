@@ -1,0 +1,5 @@
+Standard normal tables
+e No closed form available for CDF
+
+but have tables, for the standard normal
+

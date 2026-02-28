@@ -1,0 +1,98 @@
+# Mit18 05 S22 Class03 Pset
+
+---
+
+Class 3 in-class problems, 18.05, Spring 2022
+Concept questions
+Concept question 1.
+Toss a coin 4 times. Let 𝐴 = ‘at least three heads’ and 𝐵 = ‘first toss is tails’.
+1. What is 𝑃 (𝐴|𝐵)?
+(a) 1/16 (b) 1/8 (c) 1/4 (d) 1/5
+2. What is 𝑃 (𝐵|𝐴)?
+(a) 1/16 (b) 1/8 (c) 1/4 (d) 1/5
+Concept question 2. Trees 1.
+𝑥
+𝐴 𝑦 𝐴
+1 2
+𝐵 𝑧 𝐵 𝐵 𝐵
+1 2 1 2
+𝐶 𝐶 𝐶 𝐶 𝐶 𝐶 𝐶 𝐶
+1 2 1 2 1 2 1 2
+1. The probability 𝑥 represents
+(a) 𝑃 (𝐴 ) (b) 𝑃 (𝐴 |𝐵 ) (c) 𝑃 (𝐵 |𝐴 ) (d) 𝑃 (𝐶 |𝐵 ∩ 𝐴 ).
+1 1 2 2 1 1 2 1
+Concept question 3. Trees 2.
+2. The probability 𝑦 represents
+(a) 𝑃 (𝐵 ) (b) 𝑃 (𝐴 |𝐵 ) (c) 𝑃 (𝐵 |𝐴 ) (d) 𝑃 (𝐶 |𝐵 ∩ 𝐴 ).
+2 1 2 2 1 1 2 1
+Concept question 4. Trees 3.
+3. The probability 𝑧 represents
+(a) 𝑃 (𝐶 ) (b) 𝑃 (𝐵 |𝐶 ) (c) 𝑃 (𝐶 |𝐵 ) (d) 𝑃 (𝐶 |𝐵 ∩ 𝐴 ).
+1 2 1 1 2 1 2 1
+Concept question 5. Trees 4.
+4. The circled node represents the event
+(a) 𝐶 (b) 𝐵 ∩ 𝐶 (c) 𝐴 ∩ 𝐵 ∩ 𝐶 (d) 𝐶 |𝐵 ∩ 𝐴 .
+1 2 1 1 2 1 1 2 1
+In class examples
+Class example 1.
+• Organize computations
+• Compute total probability
+• Compute Bayes’ formula
+1
+18.05 class 3 problems, Spring 2022 2
+Example. Game: 5 orange and 2 blue balls in an urn. A random ball is selected and
+replaced by a ball of the other color; then a second ball is drawn.
+1. What is the probability the second ball is orange?
+2. What is the probability the first ball was orange given the second ball was orange?
+5/7 2/7
+First draw 𝑂 𝐵
+1 1
+4/7 3/7 6/7 1/7
+Second draw
+𝑂 𝐵 𝑂 𝐵
+2 2 2 2
+Board questions
+Problem 1. Monty Hall
+• One door hides a car, two hide goats.
+• The contestant chooses any door.
+• Monty always opens a different door with a goat. (He can do this because he knows
+where the car is.)
+• The contestant is then allowed to switch doors if they want.
+What is the best strategy for winning a car?
+(a) Switch (b) Don’t switch (c) It doesn’t matter
+This image is in the public domain.
+Organize the Monty Hall problem into a tree and compute the probability of winning if you
+always switch.
+Hint first break the game into a sequence of actions.
+Problem 2. Independence
+Roll two dice and consider the following events
+• 𝐴 = ‘first die is 3’
+• 𝐵 = ‘sum is 6’
+• 𝐶 = ‘sum is 7’
+18.05 class 3 problems, Spring 2022 3
+𝐴 is independent of
+(a) 𝐵 and 𝐶 (b) 𝐵 alone (c) 𝐶 alone (d) Neither 𝐵 or 𝐶.
+Problem 3. Evil Squirrels
+Of the one million squirrels on MIT’s campus most are good-natured. But one hundred of
+them are pure evil! An enterprising student in Course 6 develops an “Evil Squirrel Alarm”
+which they offer to sell to MIT for a passing grade. MIT decides to test the reliability of
+the alarm by conducting trials.
+© Bigmacthealmanac. Some rights reserved. License: CC BY-SA. This content is excluded
+from our Creative Commons license. For more information, see https://ocw.mit.edu/fairuse.
+• When presented with an evil squirrel, the alarm goes off 99% of the time.
+• When presented with a good-natured squirrel, the alarm goes off 1% of the time.
+(a) If a squirrel sets off the alarm, what is the probability that it is evil?
+(b) Should MIT co-opt the patent rights and employ the system?
+Problem 4. Dice Game
+1. The Randomizer holds the 6-sided die in one fist and the 8-sided die in the other.
+2. The Roller selects one of the Randomizer’s fists and covertly takes the die.
+3. The Roller rolls the die in secret and reports the result to the table.
+Given the reported number, what is the probability that the 6-sided die was chosen? (Find
+the probability for each possible reported number.)
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

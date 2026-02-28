@@ -1,0 +1,62 @@
+MITOCW | MITRES6_012S18_L01-08_300k
+We will now go through a probability calculation for the case where we have a continuous sample space.
+We revisit our earlier example in which we were throwing a dart into a square target, the square target being the
+unit square.
+And we were guaranteed that our dart would fall somewhere inside this set.
+So our sample space is the unit square itself.
+We have a description of the sample space, but we do not yet have a probability law.
+We need to specify one.
+The choice of a probability law could be arbitrary.
+It's up to us to choose how to model a certain situation.
+And to keep things simple, we're going to assume that our probability law is a uniform one, which means that the
+probability of any particular subset of the sample space is going to be the area of that subset.
+So if we have some subset lying somewhere here and we ask what is the probability that we fall into that subset?
+The probability is exactly the area of that particular subset.
+Once more, this is an arbitrary choice of a probability law.
+There's nothing in our assumptions so far that would force us to make this particular choice.
+And we just use it for the purposes of this example.
+So now let us calculate some probabilities.
+Let us look at this event.
+This is the event that the sum of the two numbers that we get in our experiment is less than or equal to 1/2.
+It is always useful to work in terms of a picture and to depict that event in a picture of the sample space.
+So in terms of that sample space, the points that make this event to be true are just a triangle that lies below the
+line, where this is the line, that's x plus y equals 1/2.
+Anything below that line, these are the outcomes that make this event happen.
+So we're trying to find the probability of this red event.
+We have assumed that probability is equal to area.
+Therefore, the probability we're trying to calculate is the area of a triangle.
+And the area of a triangle is 1/2 times the base of the triangle, which is 1/2 in our case, times the height of the
+triangle, which is again 1/2 in our case.
+And the end result is 1/8.
+Let us now calculate another probability.
+Now, this is an event that consists of only a single element.
+We take the point 0.5, 0.3, which sits somewhere here.
+The event of interest is a set, but that set consists of a single point.
+So we're asking for the probability that our dart falls exactly on top of that point.
+What is it?
+Well, it is the area of a set that consists of a single point.
+What is the area of a single point?
+It is 0.
+And similarly for any other single point inside that sample space that we might have considered, the answer is
+going to be 0.
+Let us now abstract from this example, as well as the previous one, and note the following.
+Probability calculations involve a sequence of four steps.
+Starting with a word description of a problem, of a probabilistic experiment, we first write down the sample space.
+Then we specify a probability law.
+Let me emphasize again here that this step has some arbitrariness in it.
+You can choose any probability law you like, although for your results to be useful it would be good if your
+probability law captures the real-world phenomenon you're trying to model.
+Typically you're interested in calculating the probability of some event.
+That event may be described in some loose manner, so you need to describe it mathematically.
+And if possible, it's always good to describe it in terms of a picture.
+Pictures are immensely useful when going through this process.
+And finally, the last step is to go ahead and calculate the probability of the event of interest.
+Now, a probability law in principle specifies the probability of every event, and there's nothing else to do.
+But quite often the probability law will be given in some implicit manner, for example, by specifying the probabilities
+of only some of the events.
+In that case, you may have to do some additional work to find the probability of the particular event that you care
+about.
+This last step sometimes will be easy.
+Sometimes it may be complicated.
+But in either case, by following this four-step procedure and by being systematic you will always be able to come
+up with a single correct answer.

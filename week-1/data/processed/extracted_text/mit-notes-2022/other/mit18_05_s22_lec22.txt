@@ -1,0 +1,262 @@
+Confidence Intervals for Normal Data
+18.05 Spring 2022
+−2 −1 0 1 2 3 4
+𝜇 0 𝑥
+𝜇 ±1 intervalcenteredon𝜇 doesnotcontain𝑥
+0 0
+𝑥±1 intervalcenteredon𝑥doesnotcontain𝜇
+0
+𝜇 ±2.3 intervalcenteredon𝜇 contains𝑥
+0 0
+𝑥±2.3 intervalcenteredon𝑥contains𝜇
+0
+1/15
+Announcements/Agenda
+Exam 2
+• Next Thursday in class
+• Covers classes 10-20
+• You can use a cheat sheet - 1 side of a 8 × 11 sheet
+• We’ll give you probability tables – these are in the review
+materials
+• Class on Tuesday will be review
+• Review materials are on MITx
+Agenda
+• Review of critical values and quantiles.
+• Computing 𝑧, 𝑡, 𝜒2 confidence intervals for normal data.
+• Conceptual view of confidence intervals.
+• Confidence intervals for polling (Bernoulli distributions).
+2/15
+Review of critical values and quantiles
+• Quantile: left tail 𝑃(𝑋 < 𝑞 ) = 𝛼
+𝛼
+• Critical value: right tail 𝑃(𝑋 > 𝑐 ) = 𝛼
+𝛼
+Letters for critical values:
+• 𝑧 for N(0, 1)
+𝛼
+• 𝑡 for 𝑡 distributions
+𝛼
+• 𝑐 , 𝑥 all purpose
+𝛼 𝛼
+𝑃(𝑍 ≤𝑞 ) 𝑃(𝑍 >𝑧 )
+𝛼 𝛼
+𝛼 𝛼
+𝑧
+𝑞 𝑧
+𝛼 𝛼
+𝑞 and 𝑧 for the standard normal distribution.
+𝛼 𝛼
+3/15
+2. −𝑧 =
+0.16
+(a) -1.33 (b) -0.99 (c) 0.99 (d) 1.33 (e) 3.52
+Concept question: critical values
+𝑃(𝑍 ≤𝑞 ) 𝑃(𝑍 >𝑧 )
+𝛼 𝛼
+𝛼 𝛼
+𝑧
+𝑞 𝑧
+𝛼 𝛼
+1. 𝑧 =
+0.025
+(a) -1.96 (b) -0.95 (c) 0.95 (d) 1.96 (e) 2.87
+4/15
+Concept question: critical values
+𝑃(𝑍 ≤𝑞 ) 𝑃(𝑍 >𝑧 )
+𝛼 𝛼
+𝛼 𝛼
+𝑧
+𝑞 𝑧
+𝛼 𝛼
+1. 𝑧 =
+0.025
+(a) -1.96 (b) -0.95 (c) 0.95 (d) 1.96 (e) 2.87
+2. −𝑧 =
+0.16
+(a) -1.33 (b) -0.99 (c) 0.99 (d) 1.33 (e) 3.52
+4/15
+Computing confidence intervals from normal data
+Suppose the data 𝑥 , … , 𝑥 is independently drawn from N(𝜇, 𝜎2)
+1 𝑛
+Confidence level = 1 − 𝛼
+• 𝑧 confidence interval for the mean (𝜎 known)
+𝑧 ⋅ 𝜎 𝑧 ⋅𝜎
+[𝑥 −
+𝛼
+√
+/2
+, 𝑥 +
+𝛼
+√
+/2
+]
+𝑛 𝑛
+• 𝑡 confidence interval for the mean (𝜎 unknown)
+𝑡 ⋅ 𝑠 𝑡 ⋅𝑠
+[𝑥 −
+𝛼
+√
+/2
+, 𝑥 +
+𝛼
+√
+/2
+]
+𝑛 𝑛
+• 𝜒2 confidence interval for 𝜎2
+𝑛−1 𝑛−1
+[ 𝑠2, 𝑠2]
+𝑐 𝑐
+𝛼/2 1−𝛼/2
+• 𝑡 and 𝜒2 have 𝑛 − 1 degrees of freedom.
+5/15
+𝑧 rule of thumb
+Suppose 𝑥 ,…,𝑥 ∼ N(𝜇, 𝜎2) with 𝜎 known.
+1 𝑛
+The rule-of-thumb 95% confidence interval for 𝜇 is:
+𝜎 𝜎
+[𝑥 ̄ − 2√ , 𝑥 ̄+ 2√ ]
+𝑛 𝑛
+A more precise 95% confidence interval for 𝜇 is:
+𝜎 𝜎
+[𝑥 ̄ − 1.96√ , 𝑥 ̄+ 1.96√ ]
+𝑛 𝑛
+6/15
+Board question: computing confidence intervals
+The data 4, 1, 2, 3 is drawn from N(𝜇, 𝜎2) with 𝜇 unknown.
+(a) Find a 90% 𝑧 confidence interval for 𝜇, given that 𝜎 = 2.
+For the remaining parts, suppose 𝜎 is unknown.
+(b) Find a 90% 𝑡 confidence interval for 𝜇.
+(c) Find a 90% 𝜒2 confidence interval for 𝜎2.
+(d) Find a 90% 𝜒2 confidence interval for 𝜎.
+(e) Given a normal sample with 𝑛 = 100, 𝑥 = 12, and 𝑠 = 5,
+find the rule-of-thumb 95% confidence interval for 𝜇.
+7/15
+Conceptual view of confidence intervals
+• Computed from data ⇒ interval statistic
+• ‘Estimates’ a parameter of interest ⇒ interval estimate
+• Width = measure of precision
+• Confidence level = measure of performance
+• Connected to NHST: Given a test statistic 𝑥, the confidence
+interval for 𝜃 = all values 𝜃 for which we wouldn’t reject the null
+0
+hypothesis 𝜃 = 𝜃 .
+0
+• Confidence intervals are a frequentist method.
+- No need for a prior, only uses likelihood.
+- Frequentists do not assign probabilities to hypothetical values of
+unknown parameters.
+- A 95% confidence interval of [1.1, 3.3] for 𝜇 does not mean that
+𝑃(1.1 ≤ 𝜇 ≤ 3.3) = 0.95.
+• We will compare with Bayesian probability intervals later.
+Applet:
+https://mathlets.org/mathlets/confidence-intervals/
+8/15
+Discussion: Width of confidence intervals
+The quantities 𝑛, 𝑐 = confidence, 𝑥, 𝜎 all appear in the 𝑧 confidence
+interval for the mean.
+How does the width of a confidence interval for the mean change if:
+1. We increase 𝑛 and leave the others unchanged?
+2. We increase 𝑐 and leave the others unchanged?
+3. We increase 𝜇 and leave the others unchanged?
+4. We increase 𝜎 and leave the others unchanged?
+(A) it gets wider (B) it gets narrower (C) it stays the same.
+9/15
+Intervals and pivoting
+𝑥: sample mean (statistic)
+𝜇 : hypothesized mean (not known)
+0
+−2 −1 0 1 2 3 4
+𝜇 0 𝑥
+𝜇 ±1 intervalcenteredon𝜇 doesnotcontain𝑥
+0 0
+𝑥±1 intervalcenteredon𝑥doesnotcontain𝜇
+0
+𝜇 ±2.3 intervalcenteredon𝜇 contains𝑥
+0 0
+𝑥±2.3 intervalcenteredon𝑥contains𝜇
+0
+Algebra of pivoting:
+𝜇 − 2.3 ≤ 𝑥 ≤ 𝜇 + 2.3 𝑥 in non-rejection region
+0 0
+⇔ 𝑥 + 2.3 ≥ 𝜇 ≥ 𝑥 − 2.3 𝜇 in confidence interval
+0 0
+⇔ |𝑥 − 𝜇 | ≤ 2.3 distance apart ≤ 2.3.
+0
+(Can also do for non-symmetric intervals.)
+10/15
+Board question: confidence intervals and non-rejection
+regions
+Suppose 𝑥 ,…,𝑥 ∼ N(𝜇, 𝜎2) with 𝜎 known.
+1 𝑛
+Consider two intervals:
+1. The 𝑧 confidence interval around 𝑥 at confidence level 1 − 𝛼.
+2. The 𝑧 non-rejection region for 𝐻 ∶ 𝜇 = 𝜇 at significance level 𝛼.
+0 0
+Compute and sketch these intervals to show that:
+𝜇 is in the first interval ⇔ 𝑥 is in the second interval.
+0
+11/15
+Solution
+𝜎
+Confidence interval: 𝑥 ± 𝑧 ⋅ √
+𝛼/2 𝑛
+𝜎
+Non-rejection region: 𝜇 ± 𝑧 ⋅ √
+0 𝛼/2 𝑛
+Since the intervals are the same width they either both contain the
+other’s center or neither one does.
+𝑁(𝜇 ,𝜎2/𝑛)
+0
+𝑥
+𝜇 −𝑧 ⋅ √𝜎 𝜇 +𝑧 ⋅ √𝜎
+𝑥 2 0 𝛼/2 𝑛 𝜇 0 𝑥 1 0 𝛼/2 𝑛
+12/15
+Polling: a binomial proportion confidence interval
+Data 𝑥 , … , 𝑥 from a Bernoulli(𝜃) distribution with 𝜃 unknown.
+1 𝑛
+A conservative normal† (1 − 𝛼) confidence interval for 𝜃 is given by
+𝑧 𝑧
+[ 𝑥 ̄ − √
+𝛼/2
+, 𝑥 ̄ + √
+𝛼/2
+].
+2 𝑛 2 𝑛
+Proof uses the CLT and the observation 𝜎 = √𝜃(1−𝜃) ≤ 1/2.
+√
+Political polls often give a margin-of-error of ±1/ 𝑛. This
+rule-of-thumb corresponds to a 95% confidence interval:
+1 1
+[𝑥̄ − √ , 𝑥̄+ √ ].
+𝑛 𝑛
+(The proof is in the class 23 notes.)
+Conversely, a margin of error of ±0.05 means 400 people were polled.
+†
+There are many types of binomial proportion confidence intervals.
+https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval
+13/15
+Board question: Polling
+For a poll to find the proportion 𝜃 of people supporting X we know
+that a (1 − 𝛼) confidence interval for 𝜃 is given by
+𝑧 𝑧
+[ 𝑥 ̄ − √
+𝛼/2
+, 𝑥 ̄ + √
+𝛼/2
+].
+2 𝑛 2 𝑛
+(a) How many people would you have to poll to have a margin of
+error of 0.01 with 95% confidence? (You can do this in your head.)
+(b) How many people would you have to poll to have a margin of
+error of 0.01 with 80% confidence. (You’ll want R or other calculator
+here.)
+(c) If 𝑛 = 900, compute the 95% and 80% confidence intervals for 𝜃.
+14/15
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+15/15

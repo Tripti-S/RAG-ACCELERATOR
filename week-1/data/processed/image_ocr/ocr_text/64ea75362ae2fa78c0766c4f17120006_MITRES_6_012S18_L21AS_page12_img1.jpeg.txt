@@ -1,0 +1,18 @@
+Splitting of a Bernoulli process a
+1-9
+
+e Split successes into two streams, using independent flips of a coin with bias q
+
+— assume that coin flips are independent from the original Bernoulli process
+
+Bernoulli(pq) x I \ ) XI |e §
+749 r time
+
+Bernoulli(p) Be! |
+time
+“4 |
+Bernoulli(p(1—q)) LLL TL eI tt A
+
+time
+
+e Are the two resulting streams independent? Mo

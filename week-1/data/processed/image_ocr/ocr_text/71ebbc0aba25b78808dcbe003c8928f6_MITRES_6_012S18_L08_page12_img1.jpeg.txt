@@ -1,0 +1,9 @@
+General CDF properties
+
+Fx (x) = P(X <2)
+
+e Non-decreasing
+
+e Fy(ax) tends to 1, as x > c
+
+e Fy(ax) tends to 0, as x > —oo

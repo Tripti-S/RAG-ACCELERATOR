@@ -1,0 +1,410 @@
+Joint Distributions, Independence
+Covariance and Correlation
+18.05 Spring 2022
+𝑋\𝑌 1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+1/30
+Announcements/Agenda
+Announcements
+• Exam 1 on Thursday March 10. Covers classes 1-7.
+• Designed for 1 hour. You will have the full 80 minutes.
+• Review materials will be posted tomorrow.
+• Class on Tuesday 3/8 will be mostly review.
+• For the exam you will be given a table of standard normal
+probabilities.
+• You can bring in a cheat sheet: 1 side of an 8 × 11 sheet of
+paper. You’ll turn it in with the exam for 5 points.
+Agenda
+• Joint distributions: pmf, pdf, cdf
+• Marginal distributions
+• Independence
+• Covariance and correlation
+2/30
+Joint Distributions
+𝑋 and 𝑌 are jointly distributed random variables.
+Discrete: Probability mass function (pmf): 𝑝(𝑥 , 𝑦 )
+𝑖 𝑗
+Continuous: probability density function (pdf): 𝑓(𝑥, 𝑦)
+Both: cumulative distribution function (cdf):
+𝐹(𝑥,𝑦) = 𝑃(𝑋 ≤ 𝑥,𝑌 ≤ 𝑦)
+3/30
+Discrete joint pmf: example 1
+Roll two dice: 𝑋 = # on first die, 𝑌 = # on second die
+𝑋 takes values in 1, 2, …, 6, 𝑌 takes values in 1, 2, …, 6
+Joint probability table:
+𝑋\𝑌 1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+pmf: 𝑝(𝑖, 𝑗) = 1/36 for any 𝑖 and 𝑗 between 1 and 6.
+4/30
+Discrete joint pmf: example 2
+Roll two dice: 𝑋 = # on first die, 𝑇 = sum of both dice
+𝑋\𝑇 2 3 4 5 6 7 8 9 10 11 12
+1 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 0
+2 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0
+3 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0
+4 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0
+5 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0
+6 0 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36
+E.g. 𝑝(4,2) = 0, 𝑝(1, 7) = 1/36.
+5/30
+Continuous joint distributions
+• 𝑋 takes values in [𝑎, 𝑏], 𝑌 takes values in [𝑐, 𝑑]
+• (𝑋, 𝑌 ) takes values in [𝑎, 𝑏] × [𝑐, 𝑑].
+• Joint probability density function (pdf) 𝑓(𝑥, 𝑦)
+𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = probability of being in the small square around (𝑥, 𝑦).
+𝑦
+𝑑
+Prob. =𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦
+𝑑𝑦
+𝑑𝑥
+𝑐
+𝑥
+𝑎 𝑏
+6/30
+Properties of the joint pmf and pdf
+Discrete case: probability mass function (pmf)
+1. 0 ≤ 𝑝(𝑥 , 𝑦 ) ≤ 1
+𝑖 𝑗
+2. Total probability is 1.
+𝑛 𝑚
+∑ ∑ 𝑝(𝑥 , 𝑦 ) = 1
+𝑖 𝑗
+𝑖=1 𝑗=1
+Continuous case: probability density function (pdf)
+1. 0 ≤ 𝑓(𝑥,𝑦)
+2. Total probability is 1.
+𝑑 𝑏
+∫ ∫ 𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = 1
+𝑐 𝑎
+Note: 𝑓(𝑥, 𝑦) can be greater than 1: it is a density not a probability.
+7/30
+18.02 in 18.05
+• You should understand double integrals conceptually as double
+sums.
+• You should be able to compute double integrals over rectangles.
+• For a non-rectangular region, when 𝑓(𝑥,𝑦) = 𝑐 is constant, you
+should know that the double integral is the same as 𝑐×(the area
+of the region).
+• You should be able to compute partial derivatives.
+8/30
+Solution: We can describe 𝐴 as a set of (𝑋,𝑌) pairs:
+𝐴 = {(1,3),(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,5),(3,6),(4,6)}.
+Or we can visualize it by shading the table:
+𝑃(𝐴) = sum of probabilities in shaded cells = 10/36.
+Example: discrete events
+Roll two dice: 𝑋 = # on first die, 𝑌 = # on second die.
+Consider the event: 𝐴 = ‘𝑌 −𝑋 ≥ 2’
+Describe the event 𝐴 and find its probability.
+9/30
+Example: discrete events
+Roll two dice: 𝑋 = # on first die, 𝑌 = # on second die.
+Consider the event: 𝐴 = ‘𝑌 −𝑋 ≥ 2’
+Describe the event 𝐴 and find its probability.
+Solution: We can describe 𝐴 as a set of (𝑋, 𝑌 ) pairs:
+𝐴 = {(1, 3), (1, 4), (1, 5), (1, 6), (2, 4), (2, 5), (2, 6), (3, 5), (3, 6), (4, 6)}.
+Or we can visualize it by shading the table:
+𝑋\𝑌 1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+𝑃 (𝐴) = sum of probabilities in shaded cells = 10/36.
+9/30
+Solution:
+The event takes up half the square. Since the density is uniform this
+is half the probability. That is, 𝑃(𝑋 > 𝑌) = 0.5.
+Example: continuous events
+Suppose (𝑋, 𝑌 ) takes values in [0,1] × [0,1].
+Uniform density 𝑓(𝑥,𝑦) = 1.
+Visualize the event ‘𝑋 > 𝑌 ’ and find its probability.
+10/30
+Example: continuous events
+Suppose (𝑋, 𝑌 ) takes values in [0,1] × [0,1].
+Uniform density 𝑓(𝑥,𝑦) = 1.
+Visualize the event ‘𝑋 > 𝑌 ’ and find its probability.
+Solution:
+𝑦
+1
+‘𝑋>𝑌’
+𝑥
+1
+The event takes up half the square. Since the density is uniform this
+is half the probability. That is, 𝑃(𝑋 > 𝑌) = 0.5.
+10/30
+Cumulative distribution function
+𝑦 𝑥
+𝐹(𝑥,𝑦) = 𝑃(𝑋 ≤ 𝑥, 𝑌 ≤ 𝑦) = ∫ ∫ 𝑓(𝑢,𝑣)𝑑𝑢𝑑𝑣.
+𝑐 𝑎
+(𝑎 and 𝑐 are the bottom of the ranges of 𝑋 and 𝑌 respectively.)
+𝜕2𝐹
+𝑓(𝑥,𝑦) = (𝑥,𝑦).
+𝜕𝑥𝜕𝑦
+Properties
+1. 𝐹 (𝑥, 𝑦) is non-decreasing. That is, as 𝑥 or 𝑦 increases 𝐹 (𝑥, 𝑦)
+increases or remains constant.
+2. 𝐹(𝑥,𝑦) = 0 at the lower left of its range.
+3. 𝐹(𝑥,𝑦) = 1 at the upper right of its range.
+11/30
+Marginal pmf and pdf
+Roll two dice: 𝑋 = # on first die, 𝑇 = total on both dice.
+The pmf of 𝑋 is found by summing the rows. The pmf of 𝑇 is found
+by summing the columns. These are called marginal pmfs of the joint
+distribution.
+𝑋\𝑇 2 3 4 5 6 7 8 9 10 11 12 𝑝(𝑥)
+𝑖
+1 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 0 1/6
+2 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 1/6
+3 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 1/6
+4 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 1/6
+5 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 1/6
+6 0 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+𝑝(𝑡 ) 1/36 2/36 3/36 4/36 5/36 6/36 5/36 4/36 3/36 2/36 1/36 1
+𝑗
+For continuous distributions the marginal pdf 𝑓 (𝑥) is found by
+𝑋
+integrating out the 𝑦. Likewise for 𝑓 (𝑦).
+𝑌
+12/30
+Board question: Joint distributions
+Suppose 𝑋 and 𝑌 are random variables and
+• (𝑋, 𝑌 ) takes values in [0,1] × [0,1].
+• the pdf is 𝑓(𝑥,𝑦) = 𝑥+𝑦.
+(a) Show 𝑓(𝑥, 𝑦) is a valid pdf.
+(b) Visualize the event 𝐴 = ‘𝑋 > 0.3 and 𝑌 > 0.5’. Find its
+probability.
+(c) Find the cdf 𝐹 (𝑥, 𝑦).
+(d) Use the cdf 𝐹 (𝑥, 𝑦) to find the marginal cdf 𝐹 (𝑥) and
+𝑋
+𝑃 (𝑋 < 0.5).
+(e) Find the marginal pdf 𝑓 (𝑥). Use this to find 𝑃 (𝑋 < 0.5).
+𝑋
+(f) See next slide
+13/30
+Board question: continued
+(f) (New scenario) From the following table compute 𝐹 (3.5, 4).
+𝑋\𝑌 1 2 3 4 5 6
+1 1/36 1/36 1/36 1/36 1/36 1/36
+2 1/36 1/36 1/36 1/36 1/36 1/36
+3 1/36 1/36 1/36 1/36 1/36 1/36
+4 1/36 1/36 1/36 1/36 1/36 1/36
+5 1/36 1/36 1/36 1/36 1/36 1/36
+6 1/36 1/36 1/36 1/36 1/36 1/36
+14/30
+Independence
+Events 𝐴 and 𝐵 are independent if
+𝑃 (𝐴 ∩ 𝐵) = 𝑃 (𝐴)𝑃 (𝐵).
+Random variables 𝑋 and 𝑌 are independent if
+𝐹 (𝑥, 𝑦) = 𝐹 (𝑥)𝐹 (𝑦).
+𝑋 𝑌
+Discrete random variables 𝑋 and 𝑌 are independent if
+𝑝(𝑥 , 𝑦 ) = 𝑝 (𝑥 )𝑝 (𝑦 ).
+𝑖 𝑗 𝑋 𝑖 𝑌 𝑗
+Continuous random variables 𝑋 and 𝑌 are independent if
+𝑓(𝑥,𝑦) = 𝑓 (𝑥)𝑓 (𝑦).
+𝑋 𝑌
+Independence means probabilities multiply!
+15/30
+Concept question: Independence I
+Roll two dice: 𝑋 = value on first, 𝑌 = value on second
+𝑋\𝑌 1 2 3 4 5 6 𝑝(𝑥 )
+𝑖
+1 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+2 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+3 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+4 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+5 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+6 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+𝑝(𝑦 ) 1/6 1/6 1/6 1/6 1/6 1/6 1
+𝑗
+Are 𝑋 and 𝑌 independent? 1. Yes 2. No
+16/30
+Concept question: Independence II
+Roll two dice: 𝑋 = value on first, 𝑇 = sum
+𝑋\𝑇 2 3 4 5 6 7 8 9 10 11 12 𝑝(𝑥)
+𝑖
+1 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 0 1/6
+2 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 0 1/6
+3 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 0 1/6
+4 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 0 1/6
+5 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 0 1/6
+6 0 0 0 0 0 1/36 1/36 1/36 1/36 1/36 1/36 1/6
+𝑝(𝑦 ) 1/36 2/36 3/36 4/36 5/36 6/36 5/36 4/36 3/36 2/36 1/36 1
+𝑗
+Are 𝑋 and 𝑌 independent? 1. Yes 2. No
+17/30
+Concept question: Independence III
+Which of the following joint pdfs are the variables independent?
+(Each of the ranges is a rectangle chosen so that
+∫∫𝑓(𝑥,𝑦)𝑑𝑥𝑑𝑦 = 1.)
+(i) 𝑓(𝑥,𝑦) = 4𝑥2𝑦3.
+(ii) 𝑓(𝑥,𝑦) = 1(𝑥3𝑦+𝑥𝑦3).
+2
+(iii) 𝑓(𝑥,𝑦) = 6𝑒−3𝑥−2𝑦
+(a) i (b) ii (c) iii (d) i, ii
+(e) i, iii (f) ii, iii (g) i, ii, iii (h) None
+18/30
+Covariance
+Measures the degree to which two random variables vary together,
+e.g. height and weight of people.
+𝑋, 𝑌 random variables with means 𝜇 and 𝜇 .
+𝑋 𝑌
+Definition: Cov(𝑋,𝑌) = 𝐸[(𝑋 −𝜇 )(𝑌 −𝜇 )].
+𝑋 𝑌
+• Positive covariance: When 𝑋 is bigger than 𝜇 then 𝑌 is
+𝑋
+‘usually’ bigger than 𝜇 , and vice versa
+𝑌
+• Negative covariance: When 𝑋 is bigger than 𝜇 then 𝑌 is
+𝑋
+‘usually’ smaller than 𝜇 , and vice versa
+𝑌
+• Zero covariance: The sign of 𝑋 − 𝜇 tells us nothing about the
+𝑋
+sign of (𝑌 −𝜇 ).
+𝑌
+19/30
+Properties of covariance
+1. Cov(𝑎𝑋 + 𝑏, 𝑐𝑌 + 𝑑) = 𝑎𝑐Cov(𝑋, 𝑌 ) for constants 𝑎, 𝑏, 𝑐, 𝑑.
+2. Cov(𝑋 +𝑋 ,𝑌) = Cov(𝑋 ,𝑌 ) + Cov(𝑋 , 𝑌 ).
+1 2 1 2
+3. Cov(𝑋, 𝑋) = Var(𝑋)
+4. Cov(𝑋,𝑌) = 𝐸[𝑋𝑌 ]−𝜇 𝜇 = 𝐸[𝑋𝑌 ]−𝐸[𝑋]𝐸[𝑌].
+𝑋 𝑌
+5. If 𝑋 and 𝑌 are independent then Cov(𝑋,𝑌) = 0.
+6. Warning, the converse is not true: if covariance is 0 the
+variables might not be independent.
+20/30
+Covariance = 0. Not independent!
+Key point: covariance measures the linear relationship between 𝑋 and
+𝑌. It can completely miss a quadratic or higher order relationship.
+Table question
+Suppose we have the following joint probability table.
+𝑌\𝑋 -1 0 1 𝑝(𝑦 )
+𝑗
+0 0 1/2 0 1/2
+1 1/4 0 1/4 1/2
+𝑝(𝑥 ) 1/4 1/2 1/4 1
+𝑖
+At your table work out the covariance Cov(𝑋, 𝑌 ).
+Are 𝑋 and 𝑌 independent?
+21/30
+Table question
+Suppose we have the following joint probability table.
+𝑌\𝑋 -1 0 1 𝑝(𝑦 )
+𝑗
+0 0 1/2 0 1/2
+1 1/4 0 1/4 1/2
+𝑝(𝑥 ) 1/4 1/2 1/4 1
+𝑖
+At your table work out the covariance Cov(𝑋, 𝑌 ).
+Are 𝑋 and 𝑌 independent?
+Covariance = 0. Not independent!
+Key point: covariance measures the linear relationship between 𝑋 and
+𝑌 . It can completely miss a quadratic or higher order relationship.
+21/30
+Correlation
+Like covariance, but removes scale.
+The correlation coeﬀicient between 𝑋 and 𝑌 is defined by
+Cov(𝑋, 𝑌 )
+Cor(𝑋,𝑌) = 𝜌 = .
+𝜎 𝜎
+𝑋 𝑌
+Properties: 1. 𝜌 is the covariance of the standardized versions of 𝑋
+and 𝑌 .
+2. 𝜌 is dimensionless (it’s a ratio).
+3. −1 ≤ 𝜌 ≤ 1.
+4. 𝜌 = 1 if and only if 𝑌 = 𝑎𝑋 +𝑏 with 𝑎 > 0
+5. 𝜌 = −1 if and only if 𝑌 = 𝑎𝑋 +𝑏 with 𝑎 < 0.
+22/30
+Board question: Covariance and correlation
+Flip a fair coin 11 times. (The tosses are all independent.)
+Let 𝑋 = number of heads in the first 6 flips
+Let 𝑌 = number of heads on the last 6 flips.
+Compute Cov(𝑋, 𝑌 ) and Cor(𝑋, 𝑌 ).
+23/30
+Real-life correlations
+• Over time, amount of ice cream consumption is correlated with
+number of pool drownings.
+• In 1685 (and today) being a student is the most dangerous
+profession. That is, the average age of those who die is less than
+any other profession.
+• In 90% of bar fights ending in a death the person who started
+the fight died.
+• Hormone replacement therapy (HRT) is correlated with a lower
+rate of coronary heart disease (CHD).
+24/30
+Correlation is not causation
+Edward Tufte: ”Empirically observed covariation is a necessary but
+not suﬀicient condition for causality.”
+25/30
+Overlapping sums of uniform random variables
+We made two random variables 𝑋 and 𝑌 from overlapping sums of
+uniform random variables
+For example:
+𝑋 = 𝑋 +𝑋 +𝑋 +𝑋 +𝑋
+1 2 3 4 5
+𝑌 = 𝑋 +𝑋 +𝑋 +𝑋 +𝑋
+3 4 5 6 7
+These are sums of 5 of the 𝑋 with 3 in common.
+𝑖
+If we sum 𝑟 of the 𝑋 with 𝑠 in common we name it (𝑟, 𝑠).
+𝑖
+Below are a series of scatterplots produced using R.
+26/30
+Scatter plots
+l l l l l l l l ll l l l l l l l l l l ll ll l ll l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l lll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l ll l l l l l l l l l l l l ll l ll l l l l l l l l l l l l l ll l l l l l l ll l ll l ll ll l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l ll l l l ll ll l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l ll l l l l l l l l l l lll l l l ll l l l l l l l l l l l ll l l l l l l l l l l l l ll l l ll l l l l l ll l l l l l l l l l l l l l ll l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l lll l ll l l ll l l l l l l l l l l l l l l l l l l l l l l ll l l l l ll l l l l l l l ll l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l ll ll l l l l l l l l l ll l l l l l l l l l l l l l l l lll l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l l ll l l l l l ll ll l l l l l l ll l l l l l l l l l l l l l ll l l l l l l l ll l l l l ll ll l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l l l l l l l l lll l ll l l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l ll l l l l l l
+0.0 0.2 0.4 0.6 0.8 1.0
+27/30
+8.0 4.0 0.0
+(1, 0) cor=0.00, sample_cor=−0.07
+y l l l l l l l l l l l l l ll l l l lll l l l ll l l ll l l lll ll l l l l l ll l l l l ll l l l l l l l l l ll ll l l l l l l l ll l ll l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l lll l l ll l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll ll l l l l l l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l lll l l l l l l l l l l l lll l l l l ll l ll l l ll l l ll l l l l l l l l l l l l l l ll ll ll l l l l l l l l l l l l l l l l l l ll l l l l l l l l ll l l l l l l l l l l l l lll l l l l l ll l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l ll l l lll l l l l l l l l l l l l l ll l l l l l l ll l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l l l l l l l l l l l l l l ll l l l l l l ll ll l ll l l l l l l l l l l l l ll l l ll l l l l l ll l l ll l llll l l l l l l l l lll l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l ll l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l lll l ll l l ll l l l ll l l ll l ll ll l ll l l ll ll l l l l l l l l ll l l l l l l l l l l l l l l l l l ll l l ll l l l l l l l l ll l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l l ll l l l l l l ll l ll l l l l l l l l l l l l l lll l l l l l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l l l ll l l l l lll l l l l l l l l l l l l l l l l l l lll l l l l l l l l l l l l l l ll l l ll ll ll l l ll l l l l l l l l l l l l l ll l l l l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l ll l l ll lll l l l l l l l l l l l l l lll l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l l l l ll l l l l l l l ll l l l
+0.0 0.5 1.0 1.5 2.0
+x
+0.2
+5.1 0.1 5.0 0.0
+(2, 1) cor=0.50, sample_cor=0.48
+y
+x
+l l l l ll l l l l l l l l l l l ll l l l l l ll l l l l l ll l l l l l l l l lll ll l l l l l l l l l l l l l l l ll l l l l l l l ll ll l l l l l l l l l ll l ll l l l l l l l l l l l l l l l l l l l l l l l l lll l l ll l l l l l l l l l l l lll l l ll l l ll l lll l l l l l l l l l l l ll l l l l l l l l l l l l l l l l l l ll l l l l l l l l l l ll lll l l l l l l l l l l l l l l l ll ll l l l l l l l l ll l l l l l ll ll ll l l l l l l l l l l l l ll l l l l l ll l l ll l l ll l ll l l l l l l l l ll l l l l l l ll l l l l l ll l l l l l l l l l l l ll l l l l l l l l l l ll l l l l l l l l l l l l l l l l l ll l l l ll l l l l l l l ll l l l ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l l ll l l l ll l l l l l l l l l ll lll l l l l l l l l ll l l l l l l l l l ll ll l l l l l l l l l l l l l l l l l l l l l l l l l l l l l ll l l l l ll l ll l ll l ll l l l l l ll l l l l ll l l l l l l ll l l l l l l l l l l l l l ll l l l l l lll l l l l l l l l l l l l l l l l lll l l lll ll l l l l ll l l l l l llll l l l l l l l l l l l l l l ll l l l ll ll l ll l l l l l l l l l l l l l l l l l l l l ll l l l l l l l ll l ll l l l l l l l ll l l l ll l l l ll l l l l ll l l l l l l l l ll l l l ll l l l l l l l l l l l l l l l lll l l lll ll l l l l l l ll l l l l l l ll l ll l l l l l l l l ll l l l l l l l l l l ll l l l l l ll l l l l l l l l l l l l l l l l lll l l l l l l l l ll l ll l l l l l l ll llll l l l l ll l l l l l l l l l l l l l l l l l l l l l ll l l l l ll ll l l l lll l l l l l l l l ll l l l ll l lll l l l l l l l l l l l ll l l ll ll l l l l l l l ll l l l l l l l l l l l ll l ll l l l ll l lll l l ll ll l l ll l l l llll l lll l l l l l l l ll l l ll l l lllll l l l lll l l l l ll l l l l l l l l l l l l ll l l l l ll l l l l l l l l l l l l l l l lll l l l ll lll l l l
+1 2 3 4
+4 3 2 1
+(5, 1) cor=0.20, sample_cor=0.21
+y l l l l l l l l ll l llll l l ll l l l lll l lll l lll ll ll l l llll l llll l lll l l l l l lllll l l l lll l l ll ll ll l l ll l l l l l l l l l l l l ll ll l l l l l l ll l l lll l ll l l l l ll l l ll l l l l l l ll l l l l l ll ll l l llll l lll l l l l l l l l l l l l l l l l ll l l l l ll ll l ll ll ll l ll ll ll l l l ll l l l l l lll l l l l l l l l lll l l l l ll l ll l l ll l l l l lll l l l l llll l l l l l l l l ll ll l l l l l l ll ll l l l ll ll l l lllll l l l ll l l ll l l l l l l l ll lll l l ll l l l l l l l ll l ll lll l l l l l l l ll l l l l ll l l l l l l ll l l l l l l l l l l l llll ll l l l ll l l l ll l lll l l l l l l l l l ll l l l ll l l l l l l ll l ll l l l l l llll l l l l l ll l l l l ll l ll l l llll l l l l l l l llll l l ll l l l l l l l ll l llll l l l ll ll lll l l l l l l l l l l l lllll l l l l l ll l l l ll l l l l l l l l l ll l ll l ll l ll l ll l ll ll ll l l l l l l l ll l l ll l l ll ll ll l ll l l ll llll lllll l l l ll l l l lll l llll l ll l l l ll l l l l l l ll l l l l l l ll l l l l l l l l ll l l l l ll l l l l l l ll l l ll ll l l l l ll l l ll llll l l ll l l l l l l l l ll ll l l l l l l l ll l l ll l ll l l ll l l l l ll l l l l l lll ll l ll l l ll l l ll l ll ll l l l ll ll l l l l lll l l l l lll l ll l l l l l l l lll l l l l l ll l llll ll l l ll ll l l l l l ll l l l llll l llll l l l l l ll l ll l llll ll l lllll ll ll ll l l l l ll l ll l l l lllll l ll l l llll l lll l l l l l l l l l ll l lll l l l l l l ll l l ll ll l l l l l l ll l l l l ll l l l l llll ll l ll l ll l l ll l l l ll lll l l l ll l l l l l ll l llll l l l lll l l ll lll l llll llll lll l l l l ll l l l l lll ll l l l l l l llll ll ll l l l l l l l ll l l
+3 4 5 6 7 8
+x
+8 7 6 5 4 3 2
+(10, 8) cor=0.80, sample_cor=0.81
+y
+x
+Intuition check
+Toss a fair coin 2𝑛 + 1 times. Let 𝑋 be the number of heads on the
+first 𝑛 + 1 tosses and 𝑌 the number on the last 𝑛 + 1 tosses.
+If 𝑛 = 1000 then Cov(𝑋, 𝑌 ) is:
+(a) 0 (b) 1/4 (c) 1/2 (d) 1
+(e) More than 1 (f) tiny but not 0
+(This is computed in the answer to the next board question.)
+28/30
+Board question: Even more tosses
+Toss a fair coin 2𝑛 + 1 times. Let 𝑋 be the number of heads on the
+first 𝑛 + 1 tosses and 𝑌 the number on the last 𝑛 + 1 tosses.
+Compute Cov(𝑋, 𝑌 ) and Cor(𝑋, 𝑌 ).
+29/30
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit:
+https://ocw.mit.edu/terms.
+30/30

@@ -1,0 +1,8 @@
+Markov processes — | Wy
+* checkout counter example Y “hy, a
+
+* Markov process definition
+* n-step transition probabilities
+
+* classification of states ee
+

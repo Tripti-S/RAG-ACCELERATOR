@@ -1,0 +1,15 @@
+“Random incidence” in the Poisson process — analysis
+
+va + Vv
+
+eae
+
+time
+Arrive at time t*
+
+U: last arrival time e V: next arrival time
+
+V-U= (yag*) # (ew)
+Exp (A) Exp(a)
+
+V —U: interarrival time you see, versus kth interarrival time

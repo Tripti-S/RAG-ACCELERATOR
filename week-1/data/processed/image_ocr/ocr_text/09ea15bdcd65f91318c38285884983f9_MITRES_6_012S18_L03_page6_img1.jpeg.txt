@@ -1,0 +1,17 @@
+Conditioning may affect independence
+
+e Two unfair coins, A and B:
+P(H | coin A) =0.9, P(H | coin B) =0.1
+
+e choose either coin with equal probability
+e Are coin tosses independent?
+
+Coin A — Compare:
+
+05 P(toss 11 = H)
+
+P(toss 11 = H | first 10 tosses are heads)
+0.5
+
+Coin B
+

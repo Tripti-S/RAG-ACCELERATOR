@@ -1,0 +1,22 @@
+ML estimation example — normal mean and variance
+
+e X4,...,Xni Lid., N(u,v)
+
+(wi — 1)?
+
+fx(@ w,v) = aut ao
+
+P)
+minimize sloge+ = —
+Uv
+
+i=1
+
+woe . ~ tye + on
+— minimize w.r.t. pu: z=
+m
+
+12 (x:-p)=O @ Zt =™4
+whe
+
+2v

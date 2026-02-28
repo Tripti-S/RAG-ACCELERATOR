@@ -1,0 +1,507 @@
+random variable - Convergence in probability vs. almost sure convergence - Cross Validated
+Skip to main content
+Stack Exchange Network
+Stack Exchange network consists of 183 Q&A communities including
+Stack Overflow
+, the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+Visit Stack Exchange
+Loading…
+Stack Internal
+Knowledge at work
+Bring the best of human thought and AI automation together at your work.
+Explore Stack Internal
+Convergence in probability vs. almost sure convergence
+Ask Question
+Asked
+15 years, 5 months ago
+Modified
+1 year ago
+Viewed
+59k times
+108
+$\begingroup$
+I've never really grokked the difference between these two measures of convergence. (Or, in fact, any of the different types of convergence, but I mention these two in particular because of the Weak and Strong Laws of Large Numbers.)
+Sure, I can quote the definition of each and give an example where they differ, but I still don't quite get it.
+What's a good way to understand the difference? Why is the difference important? Is there a particularly memorable example where they differ?
+probability
+random-variable
+convergence
+Share
+Cite
+Improve this question
+Follow
+edited
+Feb 5, 2025 at 7:15
+User1865345
+12.3k
+13
+13 gold badges
+28
+28 silver badges
+47
+47 bronze badges
+asked
+Aug 31, 2010 at 3:57
+raegtin
+10.2k
+15
+15 gold badges
+56
+56 silver badges
+58
+58 bronze badges
+$\endgroup$
+5
+1
+$\begingroup$
+This last guy explains it very well. If you take a sequence of random variables Xn= 1 with probability 1/n and zero otherwise. It is easy to see taking limits that this converges to zero in probability, but fails to converge almost surely. As he said, probability doesn't care that we might get a one down the road. Almost surely does. Almost surely implies convergence in probability, but not the other way around yah?
+$\endgroup$
+Tim Brown
+–
+Tim Brown
+2012-09-14 08:10:28 +00:00
+Commented
+Sep 14, 2012 at 8:10
+$\begingroup$
+Welcome to the site, @Tim-Brown, we appreciate your help answering questions here. One thing to note is that it's best to identify other answers by the answerer's username, "this last guy" won't be very effective. Eg, the list will be re-ordered over time as people vote. You may want to read our
+FAQ
+.
+$\endgroup$
+gung - Reinstate Monica
+–
+gung - Reinstate Monica
+2012-09-21 03:01:57 +00:00
+Commented
+Sep 21, 2012 at 3:01
+$\begingroup$
+Also the answer to this:
+stats.stackexchange.com/questions/72859/…
+$\endgroup$
+kjetil b halvorsen
+–
+kjetil b halvorsen
+♦
+2015-08-11 09:09:42 +00:00
+Commented
+Aug 11, 2015 at 9:09
+$\begingroup$
+Possible duplicate of
+Is there a statistical application that requires strong consistency?
+$\endgroup$
+kjetil b halvorsen
+–
+kjetil b halvorsen
+♦
+2017-11-30 10:59:44 +00:00
+Commented
+Nov 30, 2017 at 10:59
+1
+$\begingroup$
+Two examples illustrating convergence in probability when there is not almost sure convergence (WLLN applies but SLLN does not):
+stats.stackexchange.com/a/609954/2958
+and
+stats.stackexchange.com/a/205564/2958
+$\endgroup$
+Henry
+–
+Henry
+2024-02-22 15:37:45 +00:00
+Commented
+Feb 22, 2024 at 15:37
+Add a comment
+|
+5 Answers
+5
+Sorted by:
+Reset to default
+Highest score (default)
+Date modified (newest first)
+Date created (oldest first)
+116
+$\begingroup$
+From my point of view the difference is important, but largely for philosophical reasons.  Assume you have some device, that improves with time.  So, every time you use the device the probability of it failing is less than before.
+Convergence in probability says that the chance of failure goes to zero as the number of usages goes to infinity.  So, after using the device a large number of times, you can be very confident of it working correctly, it still might fail, it's just very unlikely.
+Convergence almost surely is a bit stronger.  It says that the total number of failures is
+finite
+. That is, if you count the number of failures as the number of usages goes to infinity, you will get a finite number.  The impact of this is as follows:  As you use the device more and more, you will, after some finite number of usages, exhaust all failures.  From then on the device will work
+perfectly
+.
+As Srikant points out, you don't actually know when you have exhausted all failures, so from a purely practical point of view, there is not much difference between the two modes of convergence.
+However, personally I am very glad that, for example, the strong law of large numbers exists, as opposed to just the weak law.  Because now, a scientific experiment to obtain, say, the speed of light, is justified in taking averages.  At least in theory, after obtaining enough data, you can get arbitrarily close to the true speed of light.  There wont be any failures (however improbable) in the averaging process.
+Let me clarify what I mean by ''failures (however improbable) in the averaging process''.  Choose some $\delta > 0$ arbitrarily small. You obtain $n$ estimates $X_1,X_2,\dots,X_n$ of the speed of light (or some other quantity) that has some `true' value, say $\mu$. You compute the average
+$$S_n = \frac{1}{n}\sum_{k=1}^n X_k.$$
+As we obtain more data ($n$ increases) we can compute $S_n$ for each $n = 1,2,\dots$.  The weak law says (under some assumptions about the $X_n$) that the probability
+$$P(|S_n - \mu| > \delta) \rightarrow 0$$
+as $n$ goes to $\infty$. The strong law says that the number of times that $|S_n - \mu|$ is larger than $\delta$ is finite (with probability 1).  That is, if we define the indicator function $I(|S_n - \mu| > \delta)$ that returns one when $|S_n - \mu| > \delta$ and zero otherwise, then
+$$\sum_{n=1}^{\infty}I(|S_n - \mu| > \delta)$$
+converges. This gives you considerable confidence in the value of $S_n$, because it guarantees (i.e. with probability 1) the existence of some finite $n_0$ such that $|S_n - \mu| < \delta$ for all $n > n_0$ (i.e. the average never
+fails
+for $n > n_0$).  Note that the weak law gives no such guarantee.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 2, 2010 at 4:41
+answered
+Aug 31, 2010 at 6:53
+Robby McKilliam
+2,310
+1
+1 gold badge
+15
+15 silver badges
+16
+16 bronze badges
+$\endgroup$
+12
+3
+$\begingroup$
+Thanks, I like the convergence of infinite series point-of-view!
+$\endgroup$
+raegtin
+–
+raegtin
+2010-09-01 14:20:24 +00:00
+Commented
+Sep 1, 2010 at 14:20
+5
+$\begingroup$
+I think you meant countable and not necessarily finite, am I wrong? Or am I mixing with integrals.
+$\endgroup$
+Royi
+–
+Royi
+2013-08-02 14:55:33 +00:00
+Commented
+Aug 2, 2013 at 14:55
+1
+$\begingroup$
+To be more accurate, the set of events it happens (Or not) is with measure of zero -> probability of zero to happen.
+$\endgroup$
+Royi
+–
+Royi
+2013-08-02 15:06:52 +00:00
+Commented
+Aug 2, 2013 at 15:06
+1
+$\begingroup$
+I'm not sure I understand the argument that almost sure gives you "considerable confidence." Just because $n_0$ exists doesn't tell you if you reached it yet. Finite doesn't necessarily mean small or practically achievable. By itself the strong law doesn't seem to tell you when you have reached or when you will reach $n_0$.
+$\endgroup$
+Joseph Garvin
+–
+Joseph Garvin
+2018-11-19 02:52:58 +00:00
+Commented
+Nov 19, 2018 at 2:52
+1
+$\begingroup$
+As @Royi mention, that should be countable rather than finite. So the infinite series can go to infinity.
+$\endgroup$
+winston
+–
+winston
+2021-01-07 11:19:21 +00:00
+Commented
+Jan 7, 2021 at 11:19
+|
+Show
+7
+more comments
+54
+$\begingroup$
+I know this question has already been answered (and quite well, in my view), but there was a different question
+here
+which had a comment @NRH that mentioned the graphical explanation, and rather than put the pictures
+there
+it would seem more fitting to put them here.
+So, here goes.  It's not as cool as an R package.  But it's self-contained and doesn't require a subscription to JSTOR.
+In the following we're talking about a simple random walk, $X_{i}= \pm 1$ with equal probability, and we are calculating running averages,
+$$
+\frac{S_{n}}{n} = \frac{1}{n}\sum_{i = 1}^{n}X_{i},\quad n=1,2,\ldots.
+$$
+The SLLN (convergence almost surely) says that we can be 100% sure that
+this
+curve stretching off to the right will eventually, at some finite time, fall entirely within the bands forever afterward (to the right).
+The R code used to generate this graph is below (plot labels omitted for brevity).
+n <- 1000;  m <- 50; e <- 0.05
+s <- cumsum(2*(rbinom(n, size=1, prob=0.5) - 0.5))
+plot(s/seq.int(n), type = "l", ylim = c(-0.4, 0.4))
+abline(h = c(-e,e), lty = 2)
+The WLLN (convergence in probability) says that a large proportion of the sample paths will be in the bands on the right-hand side, at time $n$ (for the above it looks like around 48 or 9 out of 50).  We can never be sure that any
+particular
+curve will be inside at any finite time, but looking at the mass of noodles above it'd be a pretty safe bet.  The WLLN also says that we can make the proportion of noodles inside as close to 1 as we like by making the plot sufficiently wide.
+The R code for the graph follows (again, skipping labels).
+x <- matrix(2*(rbinom(n*m, size=1, prob=0.5) - 0.5), ncol = m)
+y <- apply(x, 2, function(z) cumsum(z)/seq_along(z))
+matplot(y, type = "l", ylim = c(-0.4,0.4))
+abline(h = c(-e,e), lty = 2, lwd = 2)
+Share
+Cite
+Improve this answer
+Follow
+edited
+Apr 13, 2017 at 12:44
+Community
+Bot
+1
+answered
+May 20, 2011 at 2:47
+user1108
+$\endgroup$
+1
+$\begingroup$
+I am not sure, but I feel that I disagree with "The SLLN (convergence almost surely) says that we can be 100% sure that this curve stretching off to the right will eventually, at some finite time, fall entirely within the bands forever afterward (to the right)." I think we cannot be sure about the behavior of a particular curve. We only know that the "percentage" (measured by probability) of those curves who go beyond the bands infinitely many times among all possible curves (the whole sample space $\{-1,1\}^\infty$) is zero.
+$\endgroup$
+Hepdrey
+–
+Hepdrey
+2024-05-12 17:48:37 +00:00
+Commented
+May 12, 2024 at 17:48
+Add a comment
+|
+10
+$\begingroup$
+One thing that helped me to grasp the difference is the following equivalence
+$$P\left({\lim_{n\to\infty}|X_n-X|=0}\right) = 1 \iff \lim_{n\to\infty} P\left({\sup_{m\geq n}|X_m-X|>\epsilon }\right) = 0  ~\forall \epsilon > 0.$$
+In comparison stochastic convergence:
+$$\lim_{n\to\infty}P(|X_n-X|>\epsilon) = 0   ~\forall \epsilon >0.$$
+When comparing the right side of the upper equivalence with the stochastic convergence, the difference becomes clearer, I think.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Nov 5, 2022 at 12:15
+User1865345
+12.3k
+13
+13 gold badges
+28
+28 silver badges
+47
+47 bronze badges
+answered
+Jan 23, 2018 at 7:52
+Sebastian
+3,134
+16
+16 silver badges
+31
+31 bronze badges
+$\endgroup$
+1
+$\begingroup$
+I find this equivalence helpful as well, since all the terms of the rest of the series must vanish at infinity : $$a.s \iff \sum_n{P(|X_n - X|>\varepsilon)} < \infty \;,\ \forall \;\ \varepsilon >0  $$
+$\endgroup$
+bigInner
+–
+bigInner
+2021-10-24 09:28:51 +00:00
+Commented
+Oct 24, 2021 at 9:28
+Add a comment
+|
+7
+$\begingroup$
+I understand it as follows,
+Convergence in probability
+The probability that the sequence of random variables equals the target value is asymptotically decreasing and approaches 0 but never actually attains 0.
+Almost Sure Convergence
+The sequence of random variables will equal the target value asymptotically but you cannot predict at what point it will happen.
+Almost sure convergence is a stronger condition on the behavior of a sequence of random variables because it states that "something will definitely happen" (we just don't know when). In contrast, convergence in probability states that "while something is likely to happen" the likelihood of "something
+not
+happening" decreases asymptotically but never actually reaches 0. (something
+$\equiv$
+a sequence of random variables converging to a particular value).
+The
+wiki
+has some examples of both which should help clarify the above (in particular see the example of the archer in the context of convergence in prob and the example of the charity in the context of almost sure convergence).
+From a practical standpoint, convergence in probability is enough as we do not particularly care about very unlikely events. As an example, consistency of an estimator is essentially convergence in probability. Thus, when using a consistent estimate, we implicitly acknowledge the fact that in large samples there is a very small probability that our estimate is far from the true value. We live with this 'defect' of convergence in probability as we know that asymptotically the probability of the estimator being far from the truth is vanishingly small.
+Share
+Cite
+Improve this answer
+Follow
+edited
+Oct 23, 2018 at 18:33
+gung - Reinstate Monica
+151k
+90
+90 gold badges
+422
+422 silver badges
+752
+752 bronze badges
+answered
+Aug 31, 2010 at 4:39
+user28
+$\endgroup$
+3
+$\begingroup$
+Attempted editor argues that this should read, "The probability that the sequence of random variables
+does not equal
+the target value...".
+$\endgroup$
+gung - Reinstate Monica
+–
+gung - Reinstate Monica
+2018-10-23 18:34:57 +00:00
+Commented
+Oct 23, 2018 at 18:34
+3
+$\begingroup$
+"The probability that the sequence of random variables equals the target value is asymptotically decreasing and approaches 0 but never actually attains 0." Shouldn't it be MAY never actually attains 0?
+$\endgroup$
+wanderer
+–
+wanderer
+2018-11-21 16:58:29 +00:00
+Commented
+Nov 21, 2018 at 16:58
+$\begingroup$
+@gung The probability that it equals the target value approaches 1 or the probability that it does not equal the target values approaches 0. The current definition is incorrect.
+$\endgroup$
+Undertherainbow
+–
+Undertherainbow
+2019-06-22 11:39:12 +00:00
+Commented
+Jun 22, 2019 at 11:39
+Add a comment
+|
+6
+$\begingroup$
+If you enjoy visual explanations, there was a nice
+'Teacher's Corner' article
+on this subject in the American Statistician (cite below).  As a bonus, the authors included an
+R package
+to facilitate learning.
+@article{lafaye09,
+title={Understanding Convergence Concepts: A Visual-Minded and Graphical Simulation-Based Approach},
+author={Lafaye de Micheaux, P. and Liquet, B.},
+journal={The American Statistician},
+volume={63},
+number={2},
+pages={173--178},
+year={2009},
+publisher={ASA}
+}
+Share
+Cite
+Improve this answer
+Follow
+edited
+Sep 1, 2010 at 0:23
+Rob Hyndman
+59.7k
+29
+29 gold badges
+153
+153 silver badges
+203
+203 bronze badges
+answered
+Sep 1, 2010 at 0:00
+Kingsford Jones
+772
+6
+6 silver badges
+7
+7 bronze badges
+$\endgroup$
+Add a comment
+|
+Your Answer
+Draft saved
+Draft discarded
+Sign up or
+log in
+Sign up using Google
+Sign up using Email and Password
+Submit
+Post as a guest
+Name
+Email
+Required, but never shown
+Post as a guest
+Name
+Email
+Required, but never shown
+Post Your Answer
+Discard
+By clicking “Post Your Answer”, you agree to our
+terms of service
+and acknowledge you have read our
+privacy policy
+.
+Start asking to get answers
+Find the answer to your question by asking.
+Ask question
+Explore related questions
+probability
+random-variable
+convergence
+See similar questions with these tags.
+Featured on Meta
+Logo updates to Stack Overflow's visual identity
+All users on Stack Exchange can now participate in chat
+Community Engagement Across the Network: Focus for 2026
+Linked
+31
+Is there a statistical application that requires strong consistency?
+10
+In convergence in probability or a.s. convergence w.r.t which measure is the probability?
+10
+Intuition behind strong vs weak laws of large numbers (with an R simulation)
+5
+Simple example wanted: $ X_n $ converges to $X$ in probability but not almost surely
+3
+Almost sure convergence difference from limit existence?
+3
+If sample average converges in an iid sample, must it converge to the mean?
+1
+almost sure convergence and probability of estimator inside a compact set
+1
+Random Variables and Convergence in Probability
+Related
+3
+Almost sure convergence
+0
+Convergence of Sum of Sums of random variables : trivial?
+13
+Almost sure convergence does not imply complete convergence
+2
+Convergence almost sure of sequence random variables with Bernoulli distribution
+4
+Almost sure convergence definitions
+14
+Almost sure probability in convergence, versus 0 probability in reality
+Hot Network Questions
+Refusing authorship on a paper I consider scientifically unsound
+Can I recover this money?
+PTIJ: What is the significance of the term Shoe-Shine Purim?
+Searching for a SF short story: in a space war, one side develops technology to stretch space like a rubber sheet in all directions around its ships
+Guess the PIN. You only got one shot!
+What does "crown" symbolise in "the crown of righteousness" 2 Timothy 4:8?
+"Senselessness" of tautology within TLP
+Is "naturalism of the gaps" a fallacy acknowledged by philosophers, just like "God of the gaps" usually is?
+Safety of using solder-tinned stranded wires in WAGO Cage Clamp terminal blocks
+Why does 74x138 have 3 EN and why does it have to be 1 EN active high and 2 active low?
+Is "Spider-Man is a good movie" an unfalsifiable statement?
+Python cast byte array to C void pointer
+Can commit messages include volatile information?
+Is it legal for the military to send a soldier on a mission that will lead almost surely to their death?
+How is the expectation of spin related to the eigenvector of the spin operator?
+Episode of an anime about a witch or magic girl in high school named Kurumi, who starts crying and herself turns into a baby
+Create and verify a large single file in parallel-mode
+Why is there a strange removal of mortar right behind my water heater?
+Can we run out of PNR codes?
+Supporting via direct payments vs. via subsidies
+What circumstances could make kidnapping and murder of Nancy Guthrie a federal crime?
+Identify tv episode, everyone's got a brain chip - except one man who ultimately must destroy it
+What do philosophers consider to be natural?
+Regular delays in sent (not received) pings
+more hot questions
+Question feed

@@ -1,0 +1,19 @@
+LECTURE 4: Counting
+
+Discrete uniform law
+
+— Assume &2 consists of n equally likely elements
+— Assume A consists of k elements
+
+Then: P(A)= number of elements of A _ k
+
+number of elements of Qn
+
+e Basic counting principle
+
+e Applications
+
+permutations number of subsets
+
+combinations binomial probabilities
+partitions

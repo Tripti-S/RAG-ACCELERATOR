@@ -1,0 +1,17 @@
+LECTURE 11: Derived distributions
+
+e Given the distribution of X,
+find the distribution of Y = g(X)
+
+— the discrete case
+
+— the continuous case
+
+— general approach, using CDFs
+
+— the linear case: Y =aX +b
+
+— general formula when g is monotonic
+
+e Given the (joint) distribution of X and Y,
+find the distribution of Z = g(X,Y)

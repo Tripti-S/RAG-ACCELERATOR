@@ -1,0 +1,7 @@
+Probability calculation: continuous example
+
+e (x,y) such that O<2,y<1 e Uniform probability law: Probability = Area
+
+P({(2,y) |«+y <1/2}) =
+
+P({(0.5,0.3)}) =

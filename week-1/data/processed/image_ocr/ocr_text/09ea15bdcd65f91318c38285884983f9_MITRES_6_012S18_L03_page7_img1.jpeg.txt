@@ -1,0 +1,16 @@
+Independence of a collection of events
+
+e Intuitive “definition”: Information on some of the events
+does not change probabilities related to the remaining events
+
+Definition: Events Aj, Ao9,...,An are called independent if:
+
+P(A; N.AjN:++:N Am) = P(A;)P(A;):::P(Am) for any distinct indices i,j,...,m
+
+n= 3:
+P(A1M Az) = P(A1) - P(A2)
+P(AzN A3) = P(A) - P(A3) pairwise independence
+
+P(A2/N A3) = P(A2) - P(A3)
+
+P(A, A2N A3) = P(A1) : P(A2) - P(A3)

@@ -1,0 +1,13 @@
+Basic counting principle 4 2 2u< 4 3 9
+
+4 shirts ¥e 3
+3 ties
+2 jackets n,=4
+M,=%
+Number of possible attires?
+N ,= 2
+
+e r stages
+e nj; choices at stage i
+
+Number of choices is: “1, +N, +++ Ne

@@ -1,0 +1,21 @@
+The variance of a sum of random variables
+var(X1 + Xo) = var(X1) + var(X2) + 2cov(X4, X2)
+=
+var(Xy + +--+ Xn) = E] (% beect Me ) ]
+~
+(assume Omeans) _ 32 _Xe ]
+SEP ort e DAM
+oa) f rigueg
+‘ plates 4 pieu CePas
+
+Vel ee hes
+
+tA)
+= 7 Var(x;) +> Cov (Xz Ay)
+t ‘#9
+
+var(X1 +-:-+ Xn) = >> var(X%i)+ >> cov(X;,x;)
+i=l {G,j): 743}
+
+a
+

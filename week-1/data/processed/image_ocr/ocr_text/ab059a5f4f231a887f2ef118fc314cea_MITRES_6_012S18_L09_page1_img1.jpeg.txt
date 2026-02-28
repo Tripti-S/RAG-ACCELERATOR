@@ -1,0 +1,22 @@
+LECTURE 9: Conditioning on an event; Multiple continuous r.v.’s
+e Conditioning a r.v. on an event
+
+— Conditional PDF
+
+— Conditional expectation and the expected value rule
+
+— Exponential PDF: memorylessness
+
+— Total probability and expectation theorems
+
+— Mixed distributions
+
+e Jointly continuous r.v.’s and joint PDFs
+
+— From the joints to the marginals
+
+Uniform joint PDF example
+
+The expected value rule and linearity of expectations
+
+The joint CDF

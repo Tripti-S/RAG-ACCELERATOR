@@ -1,0 +1,15 @@
+What exactly does the CLT say? —- Theory
+
+pty te ia Z ~ N(0,1)
+Jno
+
+[ Centra Limit Theorem: For every z: lim P(Zn < z) = P(Z < z) }
+
+e CDF of Z, converges to normal CDF
+e results for convergence of PDFs or PMFs (with more assumptions)
+
+e results without assuming that the X; are identically distributed
+
+e results under ‘weak dependence”
+
+e proof: uses “transforms”: Efe’2] + E[e*Z], for all s

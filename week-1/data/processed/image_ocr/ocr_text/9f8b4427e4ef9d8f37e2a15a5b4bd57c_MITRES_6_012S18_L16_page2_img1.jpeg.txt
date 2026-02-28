@@ -1,0 +1,17 @@
+LMS estimation in the absence of observations
+
+unknown ©; prior poe(A)
+
+. fo()
+— interested in a point estimate @
+— no observations available 1/6
+— MAP rule:
+4
+
+— (Conditional) expectation:
+
+Criterion: Mean Squared Error (MSE): E \(e = 6)?|
+
+minimize mean squared error
+
+10

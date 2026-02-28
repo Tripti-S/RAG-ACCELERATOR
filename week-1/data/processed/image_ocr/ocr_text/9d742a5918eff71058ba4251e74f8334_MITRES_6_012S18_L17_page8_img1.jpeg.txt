@@ -1,0 +1,11 @@
+LLMS for inferring the parameter of a coin
+
+O_ims = E[O] + x = E[X])
+cov(O, X) = =a var(X) = mnt?)
+
+X+1
+n+2
+
+S_L_ms =
+
+E[X] = 5

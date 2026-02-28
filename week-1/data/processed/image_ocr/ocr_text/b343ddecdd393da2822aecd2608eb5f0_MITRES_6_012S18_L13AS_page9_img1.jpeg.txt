@@ -1,0 +1,25 @@
+Section means and variances
+e Two sections of a class: y= 1 (10 students); y= 2 (20 students)
+aj: score of student i
+
+e Experiment: pick a student at random (uniformly)
+random variables: X and Y
+
+1 > 1 x
+e Data: yeh: = xz; = 90 yo: a; = 60
+10 24 20 511
+
+40
+E[X] = 55 2%, =< (90-10 +60 £0) =70
+
+ee
+E[X | Y] =
+
+Ya~60
+
+E[X |Y =1)= 90
+
+E[X |Y=2]=60
+
+2
+E[E[X | Y]] = $20 + F960 =70

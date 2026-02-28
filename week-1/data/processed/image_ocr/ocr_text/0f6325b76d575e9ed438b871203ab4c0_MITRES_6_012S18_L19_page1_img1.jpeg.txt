@@ -1,0 +1,16 @@
+LECTURE 19: The Central Limit Theorem (CLT)
+
+e WLLN: Xi te tXn
+n
+
+— E[X]
+@ CLT: X41 +:---+Xn& normal
+— precise statement
+
+— universality, usefulness
+
+— many examples
+
+— refinement for discrete r.v.s
+
+— application to polling

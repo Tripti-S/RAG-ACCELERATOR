@@ -1,0 +1,17 @@
+MITOCW | MITRES6_012S18_L03-01_300k
+In this lecture, we introduce and develop the concept of independence between events.
+The general idea is the following.
+If I tell you that a certain event A has occurred, this will generally change the probability of some other event B.
+Probabilities will have to be replaced by conditional probabilities.
+But if the conditional probability turns out to be the same as the unconditional probability, then the occurrence of
+event A does not carry any useful information on whether event B will occur.
+In such a case, we say that events A and B are independent.
+We will develop some intuition about the meaning of independence of two events and introduce an extension, the
+concept of conditional independence.
+We will then proceed to define the independence of a collection of more than two events.
+If, for any two of the events in the collection we have independence between them, we will say that we have
+pairwise independence.
+But we will see that independence of the entire collection is something different.
+It involves additional conditions.
+Finally, we will close with an application in reliability analysis and with a nice puzzle that will serve as a word of
+caution about putting together probabilistic models.

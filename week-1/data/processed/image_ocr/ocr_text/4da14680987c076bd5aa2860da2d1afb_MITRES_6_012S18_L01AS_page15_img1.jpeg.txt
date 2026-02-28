@@ -1,0 +1,8 @@
+Probability calculation steps
+
+Specify the sample space
+
+Specify a probability law
+e Identify an event of interest
+
+e Calculate...

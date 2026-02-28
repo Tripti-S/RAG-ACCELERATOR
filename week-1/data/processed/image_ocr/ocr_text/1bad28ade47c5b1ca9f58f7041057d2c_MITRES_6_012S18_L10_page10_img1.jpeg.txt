@@ -1,0 +1,15 @@
+The Bayes rule — a theme with variations
+
+Inference
+Px\y ( ——~
+xX Y
+unobserved value x observed value y
+prior px(-) model py|x( *|-)
+pxy(z,y) = px(«) py\x(y|z) fxy(a,y) = fx(*) fyx(|2)
+= py(y) px|y (aly) = fy) fxy@ly)
+(ely) = Px (2) py|x(y|@) fry(ely) = fx(@) fy|x(y|2)
+sare py(y) al fy(y)
+
+py(y) = dex’) py|x(y| 2’) fy = | fx@’) fyjx(y|2’) de’
+
+zr

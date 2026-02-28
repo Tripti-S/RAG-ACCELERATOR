@@ -1,0 +1,18 @@
+Independence of a collection of events
+
+e Intuitive “definition”: Information on some of the events
+does not change probabilities related to the remaining events
+
+A Pri imdey > 2(A,OAL)= 20M 0Ag\ A, UCAS)
+4 (Ay) = 2 (431 A,NAz) = 2(4,)A, 942) 2 P(A IA, 142)
+
+Definition: Events Aj, Ao,...,An are called independent if:
+
+P(A;N.Aj;N---0 Am) = P(Aj)P(Aj)---P(Am) for any distinct indices i,j,...,m
+n= 8:
+P(A1N Az) = P(A1) - P(A2)
+P(A, A3) = P(A1) : P(A3) pairwise independence
+
+P(A2N Az) = P(A2) - P(A3)
+
+P(A, 9 Ag A3) = P(A1) - P(A2) - P(A3)

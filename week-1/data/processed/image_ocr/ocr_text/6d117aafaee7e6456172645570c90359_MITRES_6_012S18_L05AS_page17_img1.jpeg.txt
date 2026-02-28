@@ -1,0 +1,15 @@
+Linearity of expectation: E[aX +6] = aE[X]+ )
+
+X=Selary EL[x)= average salary
+
+Yenew salary =9X+100 e[y}=E]2x+!00)= 26 [x] +100
+e Intuitive
+
+e Derivation, based on the expected value rule: a(x) zQe+ b
+
+ely) =2 9p. ce) rage
+>P(arrh)p(e) 2 a2*pe) +b 7 pe)
+x a SF
+-@E[x] +b *
+
+EC 9} = 9(efx)) exceptional g

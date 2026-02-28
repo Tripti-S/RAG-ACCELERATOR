@@ -1,0 +1,10 @@
+The Markov inequality
+
+E[X]
+
+Markov inequality: If X > 0 and a> 0, then P(X >a) < ——
+a
+
+e Example: X is Exponential(A = 1): P(X >a)<
+
+e Example: X is Uniform[—4,4]: P(X > 3) <

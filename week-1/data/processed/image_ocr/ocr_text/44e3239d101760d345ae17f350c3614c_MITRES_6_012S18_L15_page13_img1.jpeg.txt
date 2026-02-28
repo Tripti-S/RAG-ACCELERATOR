@@ -1,0 +1,18 @@
+Linear normal models
+
+e ©, and X; and are linear functions of independent normal random variables
+
+e fox (6|z) = c(z) exp { — quadratic(64,... Om)
+
+e MAP estimate: maximize over (61,...9m);
+(minimize quadratic function)
+
+Omap,j: linear function of X = (X1,..., Xn)
+e Facts:
+© Omap, = E[O;|X]
+o marginal posterior PDF of ©;: fo,|x (9; |x), is normal
+
+o MAP estimate based on the joint posterior PDF:
+same as MAP estimate based on the marginal posterior PDF
+
+° E[(6;,map —~©,)?|x= a: same for all x

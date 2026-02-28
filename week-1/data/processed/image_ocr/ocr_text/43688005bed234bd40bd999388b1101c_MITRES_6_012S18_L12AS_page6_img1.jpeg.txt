@@ -1,0 +1,18 @@
+Covariance oo
+Definition for general case:
+
+e Zero-mean, discrete X and Y
+
+— ifindependent: ELXY] = [ eA B(x = FLX) i (y= EP) }
+
+=ElxJeLrl=o lO Efcx-elx])! El) 1-ElrT]
+
+y
+
+e independent => cov(x,Y)=0
+(converse is not true)
+
+XY 70
+
+E[XY] oO E Lxy] <o
+

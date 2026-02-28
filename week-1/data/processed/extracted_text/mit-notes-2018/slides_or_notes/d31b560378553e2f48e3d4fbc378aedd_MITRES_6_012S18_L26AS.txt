@@ -1,0 +1,248 @@
+Markov processes - III
+• review of steady-state behavior
+• probability of blocked phone calls
+• calculating absor ption probabilities
+•
+calculating expected time to absorption
+1
+review of steady state behavior
+• Markov chain with a single class of recurrent
+states. aperiodic; and some transient states; then.
+- - ',.;
+I
+lim " i)'(n) = lim P ( X " = j Xo = i) = 'V i
+" J'
+n-+oo 11-+00 • ;'-,
+..
+:.j .; r1J ... ,. 1.,,­ __ 0 _
+...
+(P(l(... I
+~
+)(0='
+" \..­
+;
+4-.
+1P~O-)1
+/"1fj"
+­
+....
+• can be found as the unique solution to the
+balance equations
+j = 1, .. . ,
+L
+• together with =
+" j 1
+J
+2
+on the use of steady state probabilities, example
+III"O.S~1I'"\.J'O.'l. ~ o.qqB
+1
+, !).,8'"
+iTi TTl. ,
+=d Od~ I
+-to
+____M
+O.S
+• •
+'2./r
+.' F
+_ _ _ _ _ _ _ _3>
+assume process starts in state 1
+'" ..e 5 " " "
+= ',,1
+P (Xl = 1 ilnd XIOO = 1 1 X o 1) = ",:,.5 ~ct.(,
+IrCx,=.,/'ICo,.l).'p(X,oo='/ )(,:~~) t. ~..., 10 5 cl."> J
+....0
+f" r
+Cq'l) 'R:i f"
+~ 1Tj OS~~ t)
+J' " Co O/d..t" .:> ~ ......,..~..
+= =
+2 1 .N )
+P (XIOO = 1 and XIOI Xo 1) =
+:£> PI'
+'1.0.')'" -Wc.o/
+jP(X.o--I/ W(X.o. ~2...J XOOO= ~ ~I
+f't. F ...
+W1f,"'l'l...
+f,,(14)O) ~ 2....,.00$ <
+)I (c:. \
+O<"C I
+= = :}~./ )
+P (XlOO = 1 and X f OO = I J XO 1) _<::0.3
+,i>OC.,._. Xo•• ). 0'( X?Q)~II X,eo ..'... ~, t.
+= _ C :::
+o.~'}
+(,,{.oo) .... r.,(IOO) ~-,y;"',,. :'TI;'-: (~)
+3
+design of system
+_a~hone
+(8 r
+'"",) v;lI.
+j~ _ t,.~
+( ,,,,,I<) - - ­
+• calls originate as a Poisson process. rate oX
+• each call duration is exponential (parameter f.J.)
+• need to decide on how many lines,
+B~
+t
+, ,
+•
+••
+_ _ .1111 -<
+7 ~1111
+"
+tIme
+.n
+"
+."
+".l
+"
+• at!
+for time slots of small duration
+••
+•
+•
+• • • • • II ,. M II
+~ ~
+I I
+l..,.S
+P(a new call arrives) :::::: Ad
+if you have i active calls. then P{a departure) ::::::: iJ.L§
+4
+design of a phone system, a discrete time approximation
+~---..,
+,
+time
+• approximation: discrete time slots of (small) duration 8
+!P(i. •...,"'")~U ; TI(1."'II"'~ll":b.sy)~<I"S;
+I..:...
+1
+c.cJ/,
+). ;;::.]0 ~
+1
+#=->3
+o
+J. ""',....It.t
+'fo
+calls
+• balance e uations
+'0 ?
+1r. -) -,rEo - - ­ '13",
+110 ,
+--~-
+A7fi_ l = iJ1-7ri
+"!
+Ai
+11"0
+11" " -
+1 - i "1
+H
+• P(arriving customer finds busy system) is@
+5
+calculating absorption probabilities
+• absorbing state: recurrent state k with Pkk = 1
+b..:
+• what is the probability @ that the chain
+eventually settles inA'given it started in i ?
+S
+= =
+I
+i 4, ai
+i =5 , ai = O
+I !
+3
+OJ otherwise, a i =
+.,
+a.:
+,BAd
+-
+"
+tons
+elL'"
+06
+r-_ _ ::;.1>/t.8
+1 - ..:-<.l:I::l, ..
+...,
+08
+L
+• unique solution from i = Pij aj
+.'Ib. ....
+.l .: I
+=- -:L. / • -d ' - - ­
+().s
+6
+expected time to absorption
+"
+• find expected number of transitions I-'i "
+until reaching 4, given that the initial state is i "
+"
+J.Li=o i = 4
+o.t­ for
+?
+=
+for all others, j..1.'i
+,
+Ih:.IIO/B'
+0.4
+_ /-<'1.::
+qt;~ :. ~
+1Iy&
+~1=
++
+•
+unique solution from =
+i 1 L PijI.Lj
+.
+J
+7
+mean first passage and recurrence times
+"
+• chain with one recurrent class; fix a recurrent state s
+8
+gambler's example
+• a gambler starts with i dollars; each time. she bets $1 in a fair game, until she either has 0 or n dollars.
+• ,w h at is the probability
+ai
+that she enrds.. ,u. p with having
+n
+'&lIars?
+$.v ••
+• = n, Ui =
+t
+•••
+>'-­
+~~
+a...:
+,~~
+, I
+• expected wealth at the end!
+••
+'-' a.;.
+%
+=-
+• how long does the gambler expect to stay in the game!
+.""A-llcO
+=
+/.Li expected number of plays. starting from i
+<.:
+for i = 0 , n: J-li = 0 \ c .. ~ :. i + I ,/".1+1. -+
+- in general
++
+J-Li = 1 L Pijl.Lj
+...•.
+f ;:
+J O·s
+• in case of unfavorable odds? 1._1
+r::
+,-t =­
+~...:
+r""
+f I -
+9
+MIT OpenCourseWare
+https://ocw.mit.edu
+Resource: Introduction to Probability
+John Tsitsiklis and Patrick Jaillet
+The following may not correspond to a p articular course on MIT OpenCourseWare, but has been provided by the author as an individual learning resource.
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.

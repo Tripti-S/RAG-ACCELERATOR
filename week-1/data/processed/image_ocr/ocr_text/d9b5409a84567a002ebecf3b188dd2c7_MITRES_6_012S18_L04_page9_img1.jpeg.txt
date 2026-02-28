@@ -1,0 +1,15 @@
+A coin tossing problem
+
+e Given that there were 3 heads in 10 tosses,
+
+Assumptions:
+independence
+what is the probability that the first two tosses were heads? . P
+
+e P(H) =p
+— event A: the first 2 tosses were heads
+
+_ (\_k _ »\n—-k
+— event B: 3 out of 10 tosses were heads P(k heads) = (_ )p*(1 —p)
+
+e Second solution: Conditional probability law (on B) is uniform

@@ -1,0 +1,60 @@
+# Lec4-Notespreclass
+
+---
+
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or publishing the contents in part or full is liable for legal action.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or publishing the contents in part or full is liable for legal action.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or publishing the contents in part or full is liable for legal action.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or publishing the contents in part or full is liable for legal action.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or publishing the contents in part or full is liable for legal action.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or publishing the contents in part or full is liable for legal action.
+tstriptisingh8@gmail.com
+P2D1YUXGRW
+This file is meant for personal use by tstriptisingh8@gmail.com only.
+Sharing or publishing the contents in part or full is liable for legal action.
+moc.liamg@8hgnisitpirtst
+WRGXUY1D2P
+.ylno
+moc.liamg@8hgnisitpirtst
+yb
+esu
+lanosrep
+rof
+tnaem
+si
+elif
+sihT
+.noitca
+lagel
+rof
+elbail
+si
+lluf
+ro
+trap
+ni
+stnetnoc
+eht
+gnihsilbup
+ro
+gnirahS
+
+---

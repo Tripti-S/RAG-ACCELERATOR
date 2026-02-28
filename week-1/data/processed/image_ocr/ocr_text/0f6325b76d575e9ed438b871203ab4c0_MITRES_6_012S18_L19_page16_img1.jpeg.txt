@@ -1,0 +1,17 @@
+The polister’s problem revisited
+
+e p: fraction of population that will vote “yes” in a referendum
+
+e ith (randomly selected) person polled: De ‘0 if yes,
+
+0, if no.
+
+© Mn =(Xy+-+:-+Xn)/n: fraction of “yes” in our sample
+
+e Would like “small error,” e.g.: |Mn—p| < 0.01
+P(|Mn — p| > .01)
+
+Sn — ny
+
+i
+. Jno

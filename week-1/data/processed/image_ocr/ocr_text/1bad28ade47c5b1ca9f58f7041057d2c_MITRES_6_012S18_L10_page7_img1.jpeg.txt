@@ -1,0 +1,8 @@
+Stick-breaking example
+
+1
+
+fyty) =
+E[Y] =
+
+e Using total expectation theorem:

@@ -1,0 +1,663 @@
+# Mit18 05 S22 Prac Exam Final Probability Sol
+
+---
+
+Review for final exam solutions: probability unit
+MIT 18.05 Spring 2022
+Problem 1. Consider the nucleotides 𝐴, 𝐺, 𝐶, 𝑇 .
+(a) How many ways are there to make a sequence of 5 nucleotides.
+Solution: Four ways to fill each slot: 45 .
+(b) How many sequences of length 5 are there where no adjacent nucleotides are the same
+Solution: Four ways to fill the first slot and 3 ways to fill each subsequsent slot: 4 ⋅ 34 .
+(c) How many sequences of length 5 have exactly one 𝐴?
+Solution: Build the sequences as follows:
+Step 1: Choose which of the 5 slots gets the 𝐴: 5 ways to place the one 𝐴.
+Step 2: 34 ways to fill the remain 4 slots.
+By the rule of product there are 5 ⋅ 34 such sequences.
+Problem 2. (a) How many 5 card poker hands are there?
+(b) How many ways are there to get a full house (3 of one rank and 2 of another)?
+(c) What’s the probability of getting a full house?
+52
+(a) Solution: ( ).
+5
+4 13 4 12
+(b) Solution: Number of ways to get a full-house: ( )( )( )( )
+2 1 3 1
+4 13 4 12
+( )( )( )( )
+2 1 3 1
+(c) Solution:
+52
+( )
+5
+Problem 3. (Counting)
+(a) How many arrangements of the letters in the word probability are there?
+(b) Suppose all of these arrangements are written in a list and one is chosen at random.
+What is the probability it begins with ‘b’.
+(a) Solution: There are several ways to think about this. Here is one.
+The 11 letters are p, r, o, b,b, a, i,i, l, t, y. We use the following steps to create a sequence
+of these letters.
+Step 1: Choose a position for the letter p: 11 ways to do this.
+Step 2: Choose a position for the letter r: 10 ways to do this.
+Step 3: Choose a position for the letter o: 9 ways to do this.
+Step 4: Choose two positions for the two b’s: 8 choose 2 ways to do this.
+Step 5: Choose a position for the letter a: 6 ways to do this.
+Step 6: Choose two positions for the two i’s: 5 choose 2 ways to do this.
+Step 7: Choose a position for the letter l: 3 ways to do this.
+1
+Step 8: Choose a position for the letter t: 2 ways to do this.
+Step 9: Choose a position for the letter y: 1 ways to do this.
+Multiply these all together we get:
+8 5 11!
+11⋅10⋅9⋅( ) ⋅6⋅( ) ⋅3⋅2⋅1 =
+2 2 2!⋅2!
+(b) Solution: Here are two ways to do this problem.
+Method 1. Since every arrangement has equal probability of being chosen we simply have
+to count the number that start with the letter ‘b’. After putting a ‘b’ in position 1 there
+are 10 letters: p, r, o, b, a, i,i, l, t, y, to place in the last 10 positions. We count this in the
+same manner as part (a). That is
+Choose the position for p: 10 ways.
+Choose the positions for r,o,b,a,: 9⋅8⋅7⋅6 ways.
+Choose two positions for the two i’s: 5 choose 2 ways.
+Choose the position for l: 3 ways.
+Choose the position for t: 2 ways.
+Choose the position for y: 1 ways.
+5 10!
+Multiplying this together we get 10⋅9⋅8⋅7⋅6⋅( )⋅3⋅2⋅1 = arrangements start with the
+2 2!
+10!/2! 2
+letter b. Therefore the probability a random arrangement starts with b is =
+11!/2! ⋅ 2! 11
+Method 2. Suppose we build the arrangement by picking a letter for the first position,
+then the second position etc. Since there are 11 letters, two of which are b’s we have a 2/11
+chance of picking a b for the first letter.
+Problem 4. Let 𝐸 and 𝐹 be two events. Suppose the probability that at least one of them
+occurs is 2/3. What is the probability that neither 𝐸 nor 𝐹 occurs?
+Solution: We are given 𝑃(𝐸 ∪ 𝐹) = 2/3 and asked to find 𝑃 ((𝐸 ∪ 𝐹 )𝑐).
+𝑃((𝐸 ∪ 𝐹)𝑐) = 1−𝑃(𝐸 ∪ 𝐹) = 1/3.
+Problem 5. Let 𝐶 and 𝐷 be two events with 𝑃(𝐶) = 0.3, 𝑃 (𝐷) = 0.4, and 𝑃(𝐶𝑐∩𝐷) = 0.2.
+What is 𝑃(𝐶 ∩𝐷)?
+Solution: 𝐷 is the disjoint union of 𝐷 ∩ 𝐶 and 𝐷 ∩ 𝐶𝑐.
+So, 𝑃(𝐷 ∩ 𝐶)+𝑃(𝐷 ∩ 𝐶𝑐) = 𝑃(𝐷). Thus, 𝑃(𝐷 ∩ 𝐶) = 𝑃(𝐷)−𝑃(𝐷 ∩ 𝐶𝑐) = 0.4−0.2 =
+0.2.
+Problem 6. Suppose we have 8 teams labeled 𝑇 , …, 𝑇 . Suppose they are ordered by
+1 8
+placing their names in a hat and drawing the names out one at a time.
+(a) How many ways can it happen that all the odd numbered teams are in the odd numbered
+slots and all the even numbered teams are in the even numbered slots?
+Solution: Slots 1, 3, 5, 7 are filled by 𝑇 , 𝑇 , 𝑇 , 𝑇 in any order: 4! ways.
+1 3 5 7
+Slots 2, 4, 6, 8 are filled by 𝑇 , 𝑇 , 𝑇 , 𝑇 in any order: 4! ways.
+2 4 6 8
+2
+Solution: 4!⋅4! = 576.
+(b) What is the probability of this happening?
+Solution: There are 8! ways to fill the 8 slots in any way.
+4!⋅4! 576
+Since each outcome is equally likely the probabilitiy is = = 0.143 = 1.43%.
+8! 40320
+Problem 7. More cards! Suppose you want to divide a 52 card deck into four hands with
+13 cards each. What is the probability that each hand has a king?
+Solution: Let 𝐻 be the event that the 𝑖𝑡ℎ hand has one king. We have the conditional
+𝑖
+probabilities
+4 48 3 36 2 24
+( )( ) ( )( ) ( )( )
+1 12 1 12 1 12
+𝑃 (𝐻 ) = ; 𝑃 (𝐻 |𝐻 ) = ; 𝑃 (𝐻 |𝐻 ∩ 𝐻 ) =
+1 52 2 1 39 3 1 2 26
+( ) ( ) ( )
+13 13 13
+𝑃 (𝐻 |𝐻 ∩ 𝐻 ∩ 𝐻 ) = 1
+4 1 2 3
+𝑃 (𝐻 ∩ 𝐻 ∩ 𝐻 ∩ 𝐻 ) = 𝑃 (𝐻 |𝐻 ∩ 𝐻 ∩ 𝐻 ) 𝑃 (𝐻 |𝐻 ∩ 𝐻 ) 𝑃 (𝐻 |𝐻 ) 𝑃 (𝐻 )
+1 2 3 4 4 1 2 3 3 1 2 2 1 1
+2 24 3 36 4 48
+( )( )( )( )( )( )
+1 12 1 12 1 12
+= .
+26 39 52
+( )( )( )
+13 13 13
+Problem 8. Suppose we roll a fair die twice. Let 𝐴 be the event ‘the sum of the rolls is 5’
+and let 𝐵 be the event ‘at least one of the rolls is 4.’
+(a) Calculate 𝑃 (𝐴|𝐵).
+(b) Are 𝐴 and 𝐵 independent?
+(a) Solution: Sample space = 𝑆 = {(1,1), (1,2), (1,3), …, (6,6)} = {(𝑖,𝑗) |𝑖,𝑗 = 1, 2, 3, 4, 5, 6}.
+(Each outcome is equally likely, with probability 1/36.)
+𝐴 = {(1, 4), (2, 3), (3, 2), (4, 1)},
+𝐵 = {(4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (1, 4), (2, 4), (3, 4), (5, 4), (6, 4) }
+𝑃(𝐴 ∩ 𝐵) 2/36 2
+𝑃 (𝐴|𝐵) = = = .
+𝑃(𝐵) 11/36 11
+(b) Solution: 𝑃 (𝐴) = 4/36 ≠ 𝑃 (𝐴|𝐵), so they are not independent.
+Problem 9. On a quiz show the contestant is given a multiple choice question with 4
+options. Suppose there is a 70% chance the contestant actually knows the answer. If they
+don’t know the answer they guess with a 25% chance of getting it right. Suppose they get it
+right. What is the probability that they were guessing?
+Solution: Let 𝐶 be the event the contestant gets the question correct and 𝐺 the event the
+contestant guessed.
+3
+The question asks for 𝑃 (𝐺|𝐶).
+𝑃 (𝐶|𝐺) 𝑃 (𝐺)
+We’ll compute this using Bayes’ rule: 𝑃(𝐺|𝐶) = .
+𝑃 (𝐶)
+We’re given: 𝑃(𝐶|𝐺) = 0.25, 𝑃(𝐾) = 0.7.
+Law of total prob.: 𝑃(𝐶) = 𝑃(𝐶|𝐺)𝑃(𝐺) + 𝑃(𝐶|𝐺𝑐)𝑃(𝐺𝑐) = 0.25⋅0.3 + 1.0 ⋅0.7 = 0.775
+0.075
+Therefore 𝑃(𝐺|𝐶) = = 0.097 = 9.7%.
+0.775
+Problem 10. Suppose you have an urn containing 7 red and 3 blue balls. You draw three
+balls at random. On each draw, if the ball is red you set it aside and if the ball is blue you
+put it back in the urn. What is the probability that the third draw is blue?
+(If you get a blue ball it counts as a draw even though you put it back in the urn.)
+Solution: Here is the game tree, 𝑅 means red on the first draw etc.
+1
+7/10 3/10
+𝑅 𝐵
+1 1
+6/9 3/9 7/10 3/10
+𝑅 𝐵 𝑅 𝐵
+2 2 2 2
+5/8 3/8 6/9 3/9 6/9 3/9 7/10 3/10
+𝑅 𝐵 𝑅 𝐵 𝑅 𝐵 𝑅 𝐵
+3 3 3 3 3 3 3 3
+Summing the probability to all the 𝐵 nodes we get
+3
+7 6 3 7 3 3 3 7 3 3 3 3
+𝑃(𝐵 ) = ⋅ ⋅ + ⋅ ⋅ + ⋅ ⋅ + ⋅ ⋅ = 0.350.
+3 10 9 8 10 9 9 10 10 9 10 10 10
+Problem 11. Suppose that 𝑃 (𝐴) = 0.4, 𝑃 (𝐵) = 0.3 and 𝑃((𝐴∪𝐵)𝐶) = 0.42. Are 𝐴 and
+𝐵 independent?
+Solution: We have 𝑃(𝐴∪𝐵) = 1−0.42 = 0.58 and we know because of the inclusion-
+exclusion principle that
+𝑃(𝐴∪𝐵) = 𝑃(𝐴)+𝑃(𝐵)−𝑃(𝐴∩𝐵).
+Thus,
+𝑃 (𝐴 ∩ 𝐵) = 𝑃 (𝐴) + 𝑃 (𝐵) − 𝑃 (𝐴 ∪ 𝐵) = 0.4 + 0.3 − 0.58 = 0.12 = (0.4)(0.3) = 𝑃 (𝐴)𝑃 (𝐵).
+So, 𝐴 and 𝐵 are independent.
+Problem 12. Suppose now that events 𝐴, 𝐵 and 𝐶 are mutually independent with
+𝑃(𝐴) = 0.3, 𝑃(𝐵) = 0.4, 𝑃(𝐶) = 0.5.
+Compute the following: (Hint: Use a Venn diagram)
+(i) 𝑃(𝐴∩𝐵 ∩𝐶𝑐) (ii) 𝑃(𝐴∩𝐵𝑐 ∩𝐶) (iii) 𝑃(𝐴𝑐 ∩𝐵 ∩𝐶)
+4
+Solution: By the mutual independence we have
+𝑃(𝐴∩𝐵∩𝐶) = 𝑃(𝐴)𝑃(𝐵)𝑃(𝐶) = 0.06 𝑃(𝐴∩𝐵) = 𝑃(𝐴)𝑃(𝐵) = 0.12
+𝑃(𝐴∩𝐶) = 𝑃(𝐴)𝑃(𝐶) = 0.15 𝑃(𝐵∩𝐶) = 𝑃(𝐵)𝑃(𝐶) = 0.2
+We show this in the following Venn diagram
+𝐴 𝐵
+0.06
+0.09 0.14
+0.06
+0.09 0.14
+0.21
+𝐶
+Note that, for instance, 𝑃 (𝐴 ∩ 𝐵) is split into two pieces. One of the pieces is 𝑃 (𝐴 ∩ 𝐵 ∩ 𝐶)
+which we know and the other we compute as 𝑃(𝐴∩𝐵)−𝑃(𝐴∩𝐵∩𝐶) = 0.12−0.06 = 0.06.
+The other intersections are similar.
+We can read off the asked for probabilities from the diagram.
+(i) 𝑃(𝐴∩𝐵 ∩𝐶𝑐) = 0.06
+(ii) 𝑃(𝐴∩𝐵𝑐 ∩𝐶) = 0.09
+(iii) 𝑃(𝐴𝑐 ∩𝐵 ∩𝐶) = 0.14.
+Problem 13. Suppose 𝐴 and 𝐵 are events with 0 < 𝑃(𝐴) < 1 and 0 < 𝑃(𝐵) < 1.
+(a) If 𝐴 and 𝐵 are disjoint can they be independent?
+(b) If 𝐴 and 𝐵 are independent can they be disjoint?
+(c) If 𝐴 ⊂ 𝐵 can they be independent?
+Solution: The answer to all three parts is ‘No’. Each of these answers relies on the fact
+that the probabilities of 𝐴 and 𝐵 are strictly between 0 and 1.
+To show 𝐴 and 𝐵 are not independent we need to show either 𝑃(𝐴 ∩ 𝐵) ≠ 𝑃(𝐴) ⋅𝑃(𝐵)
+or 𝑃 (𝐴|𝐵) ≠ 𝑃 (𝐴).
+(a) No, they cannot be independent: 𝐴 ∩ 𝐵 = ∅ ⇒ 𝑃(𝐴 ∩ 𝐵) = 0 ≠ 𝑃(𝐴) ⋅𝑃(𝐵).
+(b) No, they cannot be disjoint: same reason as in part (a).
+(c) No, they cannot be independent: 𝐴 ⊂ 𝐵 ⇒ 𝐴 ∩ 𝐵 = 𝐴
+⇒ 𝑃(𝐴 ∩ 𝐵) = 𝑃(𝐴) > 𝑃(𝐴) ⋅𝑃(𝐵). The last inequality follows because 𝑃(𝐵) < 1.
+Problem 14. Directly from the definitions of expected value and variance, compute 𝐸[𝑋]
+and Var(𝑋) when 𝑋 has probability mass function given by the following table:
+X -2 -1 0 1 2
+pmf 1/15 2/15 3/15 4/15 5/15
+5
+Solution: We compute
+1 2 3 4 5 2
+𝐸[𝑋] = −2⋅ +−1 ⋅ +0 ⋅ +1 ⋅ +2 ⋅ = .
+15 15 15 15 15 3
+Thus
+2
+Var(𝑋) = 𝐸[(𝑋 − )2]
+3
+2 2 1 2 2 2 2 2 3 2 2 4 2 2 5
+= (−2− ) ⋅ +(−1− ) ⋅ +(0− ) ⋅ +(1− ) ⋅ +(2− ) ⋅
+3 15 3 15 3 15 3 15 3 15
+14
+= .
+9
+Problem 15. Suppose that 𝑋 takes values between 0 and 1 and has probability density
+function 2𝑥. Compute Var(𝑋) and Var(𝑋2).
+Solution: We will make use of the formula Var(𝑌 ) = 𝐸[𝑌 2] − 𝐸[𝑌 ]2. First we compute
+1 2
+𝐸[𝑋] = ∫ 𝑥 ⋅ 2𝑥𝑑𝑥 =
+3
+0
+1 1
+𝐸[𝑋2] = ∫ 𝑥2 ⋅ 2𝑥𝑑𝑥 =
+2
+0
+1 1
+𝐸[𝑋4] = ∫ 𝑥4 ⋅ 2𝑥𝑑𝑥 = .
+3
+0
+Thus,
+1 4 1
+Var(𝑋) = 𝐸[𝑋2] − (𝐸[𝑋]) 2 = − =
+2 9 18
+and
+Var(𝑋2) = 𝐸[𝑋4] − (𝐸[𝑋2])
+2
+=
+1
+−
+1
+=
+1
+.
+3 4 12
+Problem 16. The pmf of 𝑋 is given by the following table
+Value of 𝑋 -1 0 1
+Probability 1/3 1/6 1/2
+(a) Compute 𝐸[𝑋].
+(b) Give the pdf of 𝑌 = 𝑋2 and use it to compute 𝐸[𝑌 ].
+(c) Instead, compute 𝐸[𝑋2] directly from an extended table.
+(d) Compute Var(𝑋).
+(a) Solution: We have the extended table
+𝑋 values: -1 0 1
+prob: 1/3 1/6 1/2
+𝑋2 1 0 1
+So, 𝐸[𝑋] = −1/3 + 1/2 = 1/6.
+6
+(b) Solution: ⇒ 𝐸[𝑌 ] = 5/6.
+𝑌 values: 0 1
+prob: 1/6 5/6
+(c) Solution: Using the table in part (a) 𝐸[𝑋2] = 1⋅(1/3)+0 ⋅(1/6)+1 ⋅(1/2) = 5/6
+(same as part (b)).
+(d) Solution: Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 = 5/6 − 1/36 = 29/36.
+Problem 17. Compute the expectation and variance of a Bernoulli(𝑝) random variable.
+Solution: Make a table:
+𝑋: 0 1
+prob: (1-p) p
+𝑋2 0 1.
+From the table, 𝐸[𝑋] = 0⋅(1−𝑝)+1 ⋅𝑝 = 𝑝.
+Since 𝑋 and 𝑋2 have the same table 𝐸[𝑋2] = 𝐸[𝑋] = 𝑝.
+Therefore, Var(𝑋) = 𝑝−𝑝2 = 𝑝(1−𝑝).
+Problem 18. Suppose 100 people all toss a hat into a box and then proceed to randomly
+pick out of a hat. What is the expected number of people to get their own hat back.
+Hint: express the number of people who get their own hat as a sum of random variables
+whose expected value is easy to compute.
+Solution: Let 𝑋 be the number of people who get their own hat.
+Following the hint: let 𝑋 represent whether person 𝑗 gets their own hat. That is, 𝑋 = 1
+𝑗 𝑗
+if person 𝑗 gets their hat and 0 if not.
+100 100
+We have, 𝑋 = ∑𝑋 , so 𝐸[𝑋] = ∑𝐸[𝑋 ].
+𝑗 𝑗
+𝑗=1 𝑗=1
+Since person 𝑗 is equally likely to get any hat, we have 𝑃 (𝑋 = 1) = 1/100. Thus, 𝑋 ∼
+𝑗 𝑗
+Bernoulli(1/100) ⇒ 𝐸[𝑋 ] = 1/100 ⇒ 𝐸[𝑋] = 1.
+𝑗
+Problem 19. Suppose that 𝑋 ∼ Bin(𝑛, 0.5). Find the probability mass function of 𝑌 = 2𝑋.
+Solution: For 𝑦 = 0,2,4,…,2𝑛,
+𝑦 𝑛 1 𝑛
+𝑃(𝑌 = 𝑦) = 𝑃(𝑋 = ) = ( ) ( ) .
+2 𝑦/2 2
+Problem 20. (a) Suppose that 𝑋 is uniform on [0, 1]. Compute the pdf and cdf of 𝑋.
+(b) If 𝑌 = 2𝑋+5, compute the pdf and cdf of 𝑌 .
+(a) Solution: We have 𝑓 (𝑥) = 1 for 0 ≤ 𝑥 ≤ 1. The cdf of 𝑋 is
+𝑋
+𝑥 𝑥
+𝐹 (𝑥) = ∫ 𝑓 (𝑡)𝑑𝑡 = ∫ 1𝑑𝑡 = 𝑥.
+𝑋 𝑋
+0 0
+7
+(b) Solution: Since 𝑋 is between 0 and 1 we have 𝑌 is between 5 and 7. Now for 5 ≤ 𝑦 ≤ 7,
+we have
+𝑦−5 𝑦−5 𝑦−5
+𝐹 (𝑦) = 𝑃(𝑌 ≤ 𝑦) = 𝑃(2𝑋+5 ≤ 𝑦) = 𝑃(𝑋 ≤ ) = 𝐹 ( ) = .
+𝑌 2 𝑋 2 2
+Differentiating 𝑃(𝑌 ≤ 𝑦) with respect to 𝑦, we get the probability density function of 𝑌 ,
+for 5 ≤ 𝑦 ≤ 7,
+1
+𝑓 (𝑦) = .
+𝑌 2
+Problem 21. (a) Suppose that 𝑋 has probability density function 𝑓 (𝑥) = 𝜆e−𝜆𝑥 for
+𝑋
+𝑥 ≥ 0. Compute the cdf, 𝐹 (𝑥).
+𝑋
+(b) If 𝑌 = 𝑋2, compute the pdf and cdf of 𝑌 .
+(a) Solution: We have cdf of 𝑋,
+𝑥
+𝐹 (𝑥) = ∫ 𝜆e−𝜆𝑥𝑑𝑥 = 1 − e−𝜆𝑥.
+𝑋
+0
+Now for 𝑦 ≥ 0, we have
+(b) Solution:
+√ √
+𝐹 (𝑦) = 𝑃(𝑌 ≤ 𝑦) = 𝑃(𝑋2 ≤ 𝑦) = 𝑃(𝑋 ≤ 𝑦) = 1− e−𝜆 𝑦.
+𝑌
+Differentiating 𝐹 (𝑦) with respect to 𝑦, we have
+𝑌
+𝜆 √
+𝑓
+𝑌
+(𝑦) =
+2
+𝑦− 1
+2
+e−𝜆 𝑦.
+Problem 22. Suppose that 𝑋 is a random variable that takes on values 0, 2 and 3 with
+probabilities 0.3, 0.1, 0.6 respectively. Let 𝑌 = 3(𝑋−1)2.
+(a) What is the expectation of 𝑋?
+(b) What is the variance of 𝑋?
+(c) What is the expection of 𝑌 ?
+(d) Let 𝐹 (𝑡) be the cumulative density function of 𝑌 . What is 𝐹 (7)?
+𝑌 𝑌
+(a) Solution: We first make the probability tables
+𝑋 0 2 3
+prob. 0.3 0.1 0.6
+𝑌 3 3 12
+So, 𝐸[𝑋] = 0⋅0.3+2 ⋅0.1+3 ⋅0.6 = 2
+(b) Solution: 𝐸[𝑋2] = 0⋅0.3+4 ⋅0.1+9 ⋅0.6 = 5.8 ⇒ Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 =
+5.8−4 = 1.8.
+(c) Solution: 𝐸[𝑌] = 3⋅0.3+3 ⋅0.1+12 ⋅6 = 8.4.
+(d) Solution: From the table we see that 𝐹 (7) = 𝑃(𝑌 ≤ 7) = 0.4.
+𝑌
+8
+Problem 23. Suppose you roll a fair 6-sided die 25 times (independently), and you get $3
+every time you roll a 6. Let 𝑋 be the total number of dollars you win.
+(a) What is the pmf of 𝑋.
+(b) Find 𝐸[𝑋] and Var(𝑋).
+(c) Let 𝑌 be the total won on another 25 independent rolls. Compute and compare 𝐸[𝑋+𝑌 ],
+𝐸[2𝑋], Var(𝑋 +𝑌), Var(2𝑋).
+Explain briefly why this makes sense.
+(a) Solution: There are a number of ways to present this. Here’s one:
+𝑋 ∼ 3 binomial(25, 1/6), so
+25 1 𝑘 5 25−𝑘
+𝑃(𝑋 = 3𝑘) = ( )( ) ( ) , for 𝑘 = 0, 1, 2, …, 25.
+𝑘 6 6
+(b) Solution: 𝑋 ∼ 3 binomial(25, 1/6).
+Recall that the mean and variance of binomial(𝑛, 𝑝) are 𝑛𝑝 and 𝑛𝑝(1 − 𝑝). So,
+1
+𝐸[𝑋] = 3𝑛𝑝 = 3⋅25⋅ = 75/6, and Var(𝑋) = 9𝑛𝑝(1 − 𝑝) = 9 ⋅ 25(1/6)(5/6) = 125/4.
+6
+(c) Solution: 𝐸[𝑋 + 𝑌 ] = 𝐸[𝑋] + 𝐸[𝑌 ] = 150/6 = 25., 𝐸[2𝑋] = 2𝐸[𝑋] = 150/6 = 25.
+Var(𝑋 +𝑌) = Var(𝑋) + Var(𝑌 ) = 250/4. Var(2𝑋) = 4Var(𝑋) = 500/4.
+The means of 𝑋 +𝑌 and 2𝑋 are the same, but Var(2𝑋) > Var(𝑋 +𝑌).
+This makes sense because in 𝑋 +𝑌 sometimes 𝑋 and 𝑌 will be on opposite sides from the
+mean so distances to the mean will tend to cancel, However in 2𝑋 the distance to the mean
+is always doubled.
+Problem 24. A continuous random variable 𝑋 has PDF 𝑓(𝑥) = 𝑥 + 𝑎𝑥2 on [0,1]
+Find 𝑎, the CDF and 𝑃(0.5 < 𝑋 < 1).
+Solution: First we find the value of 𝑎:
+1 1 1 𝑎
+∫ 𝑓(𝑥)𝑑𝑥 = 1 = ∫ 𝑥+𝑎𝑥2𝑑𝑥 = + ⇒ 𝑎 = 3/2.
+2 3
+0 0
+The CDF is 𝐹 (𝑥) = 𝑃(𝑋 ≤ 𝑥). We break this into cases:
+𝑋
+(i) 𝑏 < 0, so 𝐹 (𝑏) = 0.
+𝑋
+(ii) 0 ≤ 𝑏 ≤ 1, so 𝐹 (𝑏) = ∫ 𝑏 𝑥+ 3𝑥2𝑑𝑥 = 𝑏2 + 𝑏3.
+𝑋 0 2 2 2
+(iii) 1 < 𝑥, so 𝐹 (𝑏) = 1.
+𝑋
+Using 𝐹 we get
+𝑋
+0.52+0.53 13
+𝑃(0.5 < 𝑋 < 1) = 𝐹 (1)−𝐹 (0.5) = 1−( ) = .
+𝑋 𝑋 2 16
+Problem 25. For each of the following say whether it can be the graph of a cdf. If it can
+be, say whether the variable is discrete or continuous.
+9
+(i) (ii)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+(iii) (iv)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+(v) (vi)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+(vii) (viii)
+𝐹 (𝑥) 𝐹 (𝑥)
+1 1
+0.5 0.5
+𝑥 𝑥
+Solution:
+(i) yes, discrete, (ii) no, (iii) no, (iv) no, (v) yes, continuous
+(vi) no (vii) yes, continuous, (viii) yes, continuous.
+Problem 26. Correlation
+Flip a coin 5 times. Use properties of covariance to compute the covariance and correlation
+between the number of heads on the first 3 and last 3 flips.
+Solution: As usual let 𝑋 = the number of heads on the 𝑖th flip, i.e. 0 or 1.
+𝑖
+Let 𝑋 = 𝑋 +𝑋 +𝑋 the sum of the first 3 flips and 𝑌 = 𝑋 +𝑋 +𝑋 the sum of the
+1 2 3 3 4 5
+last 3. Using the algebraic properties of covariance we have
+Cov(𝑋,𝑌) = Cov(𝑋 + 𝑋 + 𝑋 , 𝑋 + 𝑋 + 𝑋 )
+1 2 3 3 4 5
+= Cov(𝑋 , 𝑋 ) + Cov(𝑋 , 𝑋 ) + Cov(𝑋 , 𝑋 )
+1 3 1 4 1 5
++ Cov(𝑋 , 𝑋 ) + Cov(𝑋 , 𝑋 ) + Cov(𝑋 , 𝑋 )
+2 3 2 4 2 5
++ Cov(𝑋 , 𝑋 ) + Cov(𝑋 , 𝑋 ) + Cov(𝑋 , 𝑋 )
+3 3 3 4 3 5
+1
+Because the 𝑋 are independent the only non-zero term in the above sum is Cov(𝑋 𝑋 ) = Var(𝑋 ) =
+𝑖 3 3 3 4
+Therefore, Cov(𝑋,𝑌) = 1.
+4
+10
+We get the correlation by dividing by the standard deviations. Since 𝑋 is the sum of 3
+independent Bernoulli(0.5) we have 𝜎 = √3/4
+𝑋
+Cov(𝑋,𝑌) 1/4 1
+Cor(𝑋,𝑌) = = = .
+𝜎 𝜎 (3)/4 3
+𝑋 𝑌
+Problem 27. Exponential Distribution
+Suppose that buses arrive are scheduled to arrive at a bus stop at noon but are always 𝑋
+minutes late, where 𝑋 is an exponential random variable with probability density function
+𝑓 (𝑥) = 𝜆e−𝜆𝑥. Suppose that you arrive at the bus stop precisely at noon.
+𝑋
+(a) Compute the probability that you have to wait for more than five minutes for the bus
+to arrive.
+Solution: We compute
+5
+𝑃(𝑋 ≥ 5) = 1−𝑃(𝑋 < 5) = 1−∫ 𝜆e−𝜆𝑥𝑑𝑥 = 1 − (1 − e−5𝜆) = e−5𝜆.
+0
+(b) Suppose that you have already waiting for 10 minutes. Compute the probability that you
+have to wait an additional five minutes or more.
+Solution: We want 𝑃 (𝑋 ≥ 15|𝑋 ≥ 10). First observe that 𝑃(𝑋 ≥ 15,𝑋 ≥ 10) = 𝑃(𝑋 ≥
+15). From similar computations in (a), we know
+𝑃(𝑋 ≥ 15) = e−15𝜆 𝑃 (𝑋 ≥ 10) = e−10𝜆.
+From the definition of conditional probability,
+𝑃(𝑋 ≥ 15,𝑋 ≥ 10) 𝑃(𝑋 ≥ 15)
+𝑃(𝑋 ≥ 15|𝑋 ≥ 10) = = = e−5𝜆
+𝑃(𝑋 ≥ 10) 𝑃(𝑋 ≥ 10)
+Note: This is an illustration of the memorylessness property of the exponential distribu-
+tion.
+Problem 28. Normal Distribution: Throughout these problems, let 𝜙 and Φ be the pdf
+and cdf, respectively, of the standard normal distribution Suppose 𝑍 is a standard normal
+random variable and let 𝑋 = 3𝑍 +1.
+(a) Express 𝑃(𝑋 ≤ 𝑥) in terms of Φ
+Solution: We have
+𝑥−1 𝑥−1
+𝐹 (𝑥) = 𝑃(𝑋 ≤ 𝑥) = 𝑃(3𝑍 +1 ≤ 𝑥) = 𝑃(𝑍 ≤ ) = Φ( ).
+𝑋 3 3
+(b) Differentiate the expression from (𝑎) with respect to 𝑥 to get the pdf of 𝑋, 𝑓(𝑥).
+Remember that Φ′(𝑧) = 𝜙(𝑧) and don’t forget the chain rule
+Solution: Differentiating with respect to 𝑥, we have
+d 1 𝑥 − 1
+𝑓 (𝑥) = 𝐹 (𝑥) = 𝜙( ).
+𝑋 dx 𝑋 3 3
+11
+Since 𝜙(𝑥) = (2𝜋)−
+2
+1 e− 𝑥
+2
+2 , we conclude
+𝑓 𝑋 (𝑥) = √ 1 e − (𝑥 2 − ⋅3 1 2 ) 2 ,
+3 2𝜋
+which is the probability density function of the 𝑁(1, 9) distribution. Note: The arguments
+in (a) and (b) give a proof that 3𝑍 +1 is a normal random variable with mean 1 and variance
+9. See Problem Set 3, Question 5.
+(c) Find 𝑃(−1 ≤ 𝑋 ≤ 1)
+Solution: We have
+2 2
+𝑃(−1 ≤ 𝑋 ≤ 1) = 𝑃 (− ≤ 𝑍 ≤ 0) = Φ(0)−Φ(− ) ≈ 0.2475
+3 3
+(d) Recall that the probability that 𝑍 is within one standard deviation of its mean is approx-
+imately 68%. What is the probability that 𝑋 is within one standard deviation of its mean?
+Solution: Since 𝐸[𝑋] = 1, Var(𝑋) = 9, we want 𝑃(−2 ≤ 𝑋 ≤ 4). We have
+𝑃(−2 ≤ 𝑋 ≤ 4) = 𝑃(−3 ≤ 3𝑍 ≤ 3) = 𝑃(−1 ≤ 𝑍 ≤ 1) ≈ 0.68.
+Problem 29. Transforming Normal Distributions
+Suppose 𝑍 ∼ N(0,1) and 𝑌 = e𝑍 .
+(a) Find the cdf 𝐹 (𝑎) and pdf 𝑓 (𝑦) for 𝑌 . (For the CDF, the best you can do is write it
+𝑌 𝑌
+in terms of Φ the standard normal cdf.)
+Solution: Note, 𝑌 follows what is called a log-normal distribution.
+𝐹 (𝑎) = 𝑃(𝑌 ≤ 𝑎) = 𝑃(𝑒𝑍 ≤ 𝑎) = 𝑃(𝑍 ≤ ln(𝑎)) = Φ(ln(𝑎)).
+𝑌
+Differentiating using the chain rule:
+𝑑 𝑑 1 1
+𝑓 (𝑎) = 𝐹 (𝑎) = Φ(ln(𝑎)) = 𝜙(ln(𝑎)) = √ e−(ln(𝑎))2/2.
+𝑦 𝑑𝑎 𝑌 𝑑𝑎 𝑎 2𝜋 𝑎
+(b) We don’t have a formula for Φ(𝑧) so we don’t have a formula for quantiles. So we have
+to write quantiles in terms of Φ−1.
+(i) Write the 0.33 quantile of 𝑍 in terms of Φ−1
+(ii) Write the 0.9 quantile of 𝑌 in terms of Φ−1.
+(iii) Find the median of 𝑌 .
+Solution: (i) The 0.33 quantile for 𝑍 is the value 𝑞 such that 𝑃 (𝑍 ≤ 𝑞 ) = 0.33.
+0.33 0.33
+That is, we want
+Φ(𝑞 ) = 0.33 ⇔ 𝑞 = Φ−1(0.33) .
+0.33 0.33
+(ii) We want to find 𝑞 where
+0.9
+𝐹 (𝑞 ) = 0.9 ⇔ Φ(ln(𝑞 )) = 0.9 ⇔ 𝑞 = eΦ−1(0.9) .
+𝑌 0.9 0.9 0.9
+12
+(iii) As in (ii) 𝑞 = eΦ −1(0.5) = e0 = 1 .
+0.5
+Problem 30. (Random variables derived from normal random variables)
+Let 𝑋 , 𝑋 , …𝑋 be i.i.d. N(0, 1) random variables.
+1 2 𝑛
+Let 𝑌 = 𝑋2 + … + 𝑋2 .
+𝑛 1 𝑛
+(a) Use the formula Var(𝑋 ) = 𝐸[𝑋2] − 𝐸[𝑋 ]2 to show 𝐸[𝑋2] = 1.
+𝑗 𝑗 𝑗 𝑗
+Solution: Var(𝑋 ) = 1 = 𝐸[𝑋2] − 𝐸[𝑋 ]2 = 𝐸[𝑋2]. QED
+𝑗 𝑗 𝑗 𝑗
+(b) Set up an integral in 𝑥 for computing 𝐸[𝑋4].
+𝑗
+For 3 extra credit points, use integration by parts show 𝐸[𝑋4] = 3.
+𝑗
+(If you don’t do this, you can still use this result in part c.)
+1 ∞
+Solution: 𝐸[𝑋4] = √ ∫ 𝑥4e−𝑥2/2 𝑑𝑥.
+𝑗
+2𝜋
+−∞
+(Extra credit) By parts: let 𝑢 = 𝑥3, 𝑣′ = 𝑥e−𝑥2/2 ⇒ 𝑢′ = 3𝑥2, 𝑣 = −e−𝑥2/2
+1 ∞ 1 ∞
+𝐸[ 𝑋4 ] = √ [𝑥3e−𝑥2/2 ∣ + √ ∫ 3𝑥2e−𝑥2/2 𝑑𝑥]
+𝑗
+2𝜋 𝑖𝑛𝑓𝑡𝑦 2𝜋
+−∞
+The first term is 0 and the second term is the formula for 3𝐸[𝑋2] = 3 (by part (a)). Thus,
+𝑗
+𝐸[𝑋4] = 3.
+𝑗
+(c) Deduce from parts (a) and (b) that Var(𝑋2) = 2.
+𝑗
+Solution: Var(𝑋2) = 𝐸[𝑋4] − 𝐸[𝑋2]2 = 3 − 1 = 2. QED
+𝑗 𝑗 𝑗
+(d) Use the Central Limit Theorem to approximate 𝑃 (𝑌 > 110).
+100
+Solution: 𝐸[𝑌 ] = 𝐸[100𝑋2] = 100. Var(𝑌 ) = 100Var(𝑋 ) = 200.
+100 𝑗 100 𝑗
+The CLT says 𝑌 is approximately normal. Standardizing gives
+100
+𝑌 −100 10 √
+𝑃(𝑌 > 110) = 𝑃 ( 10√0 > √ ) ≈ 𝑃(𝑍 > 1/ 2) = 0.24 .
+100
+200 200
+This last value was computed using R: 1 - pnorm(1/sqrt(2),0,1).
+Problem 31. More Transforming Normal Distributions
+(a) Suppose 𝑍 is a standard normal random variable and let 𝑌 = 𝑎𝑍+𝑏, where 𝑎 > 0 and
+𝑏 are constants.
+Show 𝑌 ∼ N(𝑏, 𝑎2) (remember our notation for normal distributions uses mean and vari-
+ance).
+Solution: Let 𝜙(𝑧) and Φ(𝑧) be the PDF and CDF of 𝑍.
+𝐹 (𝑦) = 𝑃 (𝑌 ≤ 𝑦) = 𝑃 (𝑎𝑍 + 𝑏 ≤ 𝑦) = 𝑃 (𝑍 ≤ (𝑦 − 𝑏)/𝑎) = Φ((𝑦 − 𝑏)/𝑎).
+𝑌
+Differentiating:
+𝑑 𝑑 1 1
+𝑓 (𝑦) = 𝐹 (𝑦) = Φ((𝑦−𝑏)/𝑎) = 𝜙((𝑦−𝑏)/𝑎) = √ e−(𝑦−𝑏)2/2𝑎2.
+𝑌 𝑑𝑦 𝑌 𝑑𝑦 𝑎 2𝜋𝑎
+Since this is the density for N(𝑏, 𝑎2) we have shown 𝑌 ∼ N(𝑏, 𝑎2).
+𝑌 −𝜇
+(b) Suppose 𝑌 ∼ N(𝜇, 𝜎2). Show follows a standard normal distribution.
+𝜎
+13
+Solution: By part (a), 𝑌 ∼ N(𝜇,𝜎2) ⇒ 𝑌 = 𝜎𝑍 +𝜇. But, this implies (𝑌 −𝜇)/𝜎 = 𝑍 ∼
+N(0, 1). QED
+Problem 32. (Sums of normal random variables)
+Let 𝑋, 𝑌 be independent random variables where 𝑋 ∼ 𝑁(2,5) and 𝑌 ∼ 𝑁(5,9) (we use the
+notation 𝑁(𝜇, 𝜎2)). Let 𝑊 = 3𝑋−2𝑌 +1.
+(a) Compute 𝐸[𝑊 ] and Var(𝑊 ).
+Solution: 𝐸[𝑊] = 3𝐸[𝑋]−2𝐸[𝑌]+1 = 6−10+1 = −3
+Var(𝑊) = 9Var(𝑋) + 4Var(𝑌) = 45+36 = 81
+(b) It is known that the sum of independent normal distributions is normal. Compute
+𝑃(𝑊 ≤ 6).
+Solution: Since the sum of independent normal is normal part (a) shows: 𝑊 ∼ 𝑁(−3,81).
+𝑊 +3 9
+Let 𝑍 ∼ 𝑁(0,1). We standardize 𝑊 : 𝑃(𝑊 ≤ 6) = 𝑃 ( ≤ ) = 𝑃(𝑍 ≤ 1) ≈ 0.84.
+9 9
+Problem 33. Let 𝑋 ∼ U(𝑎, 𝑏). Compute 𝐸[𝑋] and Var(𝑋).
+Solution: Method 1
+1
+𝑈(𝑎, 𝑏) has density 𝑓(𝑥) = on [𝑎,𝑏]. So,
+𝑏 − 𝑎
+𝑏 1 𝑏 𝑥2 𝑏 𝑏2 − 𝑎2 𝑎 + 𝑏
+𝐸[𝑋] = ∫ 𝑥𝑓(𝑥)𝑑𝑥 = ∫ 𝑥𝑑𝑥 = ∣ = = .
+𝑏−𝑎 2(𝑏−𝑎) 2(𝑏−𝑎) 2
+𝑎 𝑎 𝑎
+𝑏 1 𝑏 𝑥3 𝑏 𝑏3 − 𝑎3
+𝐸[𝑋2] = ∫ 𝑥2𝑓(𝑥)𝑑𝑥 = ∫ 𝑥2𝑑𝑥 = ∣ = .
+𝑏−𝑎 3(𝑏−𝑎) 3(𝑏−𝑎)
+𝑎 𝑎 𝑎
+Finding Var(𝑋) now requires a little algebra,
+𝑏3 − 𝑎3 (𝑏 + 𝑎)2
+Var(𝑋) = 𝐸[𝑋2] − 𝐸[𝑋]2 = −
+3(𝑏 − 𝑎) 4
+4(𝑏3 − 𝑎3) − 3(𝑏 − 𝑎)(𝑏 + 𝑎)2 𝑏3 − 3𝑎𝑏2 + 3𝑎2𝑏 − 𝑎3 (𝑏 − 𝑎)3 (𝑏 − 𝑎)2
+= = = = .
+12(𝑏 − 𝑎) 12(𝑏 − 𝑎) 12(𝑏 − 𝑎) 12
+Method 2
+There is an easier way to find 𝐸[𝑋] and Var(𝑋).
+Let 𝑈 ∼ U(𝑎, 𝑏). Then the calculations above show 𝐸[𝑈] = 1/2 and (𝐸[𝑈2] = 1/3 ⇒
+Var(𝑈) = 1/3 − 1/4 = 1/12.
+Now, we know 𝑋 = (𝑏−𝑎)𝑈 +𝑎, so 𝐸[𝑋] = (𝑏 − 𝑎)𝐸[𝑈] + 𝑎 = (𝑏 − 𝑎)/2 + 𝑎 = (𝑏 + 𝑎)/2
+and Var(𝑋) = (𝑏 − 𝑎)2Var(𝑈) = (𝑏 − 𝑎)2/12.
+14
+MIT OpenCourseWare
+https://ocw.mit.edu
+18.05 Introduction to Probability and Statistics
+Spring 2022
+For information about citing these materials or our Terms of Use, visit: https://ocw.mit.edu/terms.
+
+---

@@ -1,0 +1,14 @@
+Inference then and now
+
+e Then:
+10 patients were treated: 3 died
+
+10 patients were not treated: 5 died
+Therefore ...
+Now:
+
+e Big data
+
+e Big models
+
+e Big computers
