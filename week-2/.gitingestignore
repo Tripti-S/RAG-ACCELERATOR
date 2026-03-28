@@ -8,3 +8,4 @@ data/processed/
 *.bin
 prequalify.py
 week2_submission_guidelines.md
+human_evaluations

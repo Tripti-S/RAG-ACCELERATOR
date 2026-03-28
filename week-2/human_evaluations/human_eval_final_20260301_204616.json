@@ -1,0 +1,105 @@
+{
+  "saved_at": "2026-03-01T20:46:16.180914",
+  "week2_dir": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-2",
+  "strategies": [
+    "hybrid",
+    "recursive",
+    "semantic"
+  ],
+  "question_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "completed_questions": 4,
+  "total_questions": 10,
+  "evaluations": {
+    "1": {
+      "winner": "hybrid",
+      "coverage": 3,
+      "factuality": 3,
+      "clarity": 3,
+      "notes": "",
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities."
+    },
+    "2": {
+      "winner": "",
+      "coverage": 3,
+      "factuality": 3,
+      "clarity": 3,
+      "notes": "",
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator."
+    },
+    "3": {
+      "winner": "",
+      "coverage": 3,
+      "factuality": 3,
+      "clarity": 3,
+      "notes": "",
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation."
+    },
+    "4": {
+      "winner": "",
+      "coverage": 3,
+      "factuality": 3,
+      "clarity": 3,
+      "notes": "",
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space."
+    },
+    "5": {
+      "winner": "",
+      "coverage": 3,
+      "factuality": 3,
+      "clarity": 3,
+      "notes": "",
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?"
+    },
+    "6": {
+      "winner": "",
+      "coverage": 3,
+      "factuality": 3,
+      "clarity": 3,
+      "notes": "",
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit."
+    },
+    "7": {
+      "winner": "",
+      "coverage": 4,
+      "factuality": 4,
+      "clarity": 4,
+      "notes": "hybrid gives context of retrieval but recursive",
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined."
+    },
+    "8": {
+      "winner": "recursive",
+      "coverage": 4,
+      "factuality": 4,
+      "clarity": 4,
+      "notes": "",
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?"
+    },
+    "9": {
+      "winner": "semantic",
+      "coverage": 4,
+      "factuality": 3,
+      "clarity": 4,
+      "notes": "Better answer, context and example provided",
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?"
+    },
+    "10": {
+      "winner": "recursive",
+      "coverage": 4,
+      "factuality": 4,
+      "clarity": 4,
+      "notes": "Full information with clear background",
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?"
+    }
+  }
+}

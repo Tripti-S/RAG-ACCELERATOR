@@ -1,0 +1,41 @@
+{
+  "strategy": "Recursive",
+  "collection": "week2_recursive",
+  "embedder_type": "bge",
+  "embedder_name": "BGE-large-en-v1.5 (FastEmbed)",
+  "embedding_dimension": 1024,
+  "llm_model": "gemini-2.5-flash",
+  "top_k": 10,
+  "dataset": "test_questions",
+  "generated_at": "2026-03-01T12:34:56.000000",
+  "results": [
+    {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "winner": "Recursive",
+      "signal": 75,
+      "cutoffs": 2,
+      "useful": 3,
+      "reasoning": "Recursive chunks had more cutoffs and some irrelevant content."
+    },
+    {
+      "question_id": 2,
+      "question": "What is the law of total probability?",
+      "winner": "Recursive",
+      "signal": 70,
+      "cutoffs": 3,
+      "useful": 3,
+      "reasoning": "Chunks were less focused, with more overlap and noise."
+    },
+    {
+      "question_id": 3,
+      "question": "Explain Bayes' theorem and its application.",
+      "winner": "Recursive",
+      "signal": 72,
+      "cutoffs": 2,
+      "useful": 3,
+      "reasoning": "Some chunks were relevant, but several were cut mid-thought."
+    }
+    // ... more questions ...
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "strategy": "Hybrid (Semantic + AST)",
+  "collection": "week2_hybrid",
+  "embedder_type": "minilm",
+  "embedder_name": "all-MiniLM-L6-v2",
+  "embedding_dimension": 384,
+  "llm_model": "gemini-2.5-flash",
+  "top_k": 10,
+  "dataset": "test_questions",
+  "generated_at": "2026-03-01T12:34:56.000000",
+  "results": [
+    {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "winner": "Hybrid",
+      "signal": 90,
+      "cutoffs": 0,
+      "useful": 5,
+      "reasoning": "Hybrid chunks were focused and relevant, with no critical information lost."
+    },
+    {
+      "question_id": 2,
+      "question": "What is the law of total probability?",
+      "winner": "Hybrid",
+      "signal": 80,
+      "cutoffs": 1,
+      "useful": 4,
+      "reasoning": "Hybrid chunks were more concise, but naive included some useful background."
+    },
+    {
+      "question_id": 3,
+      "question": "Explain Bayes' theorem and its application.",
+      "winner": "Hybrid",
+      "signal": 85,
+      "cutoffs": 0,
+      "useful": 5,
+      "reasoning": "Hybrid chunks are highly relevant, but one chunk was redundant."
+    }
+    // ... more questions ...
+  ]
+}

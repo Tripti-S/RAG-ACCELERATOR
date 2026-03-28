@@ -1,0 +1,1219 @@
+{
+  "evaluation_type": "pairwise_retrieval_week3_all_techniques",
+  "model": "gemini-2.5-flash",
+  "techniques": [
+    "Recursive (2000c/200)",
+    "Week 3 baseline: hybrid retrieval + reranking",
+    "Week 3 hybrid + rerank + metadata filtering",
+    "Week 3 two-stage routing + hybrid + reranking"
+  ],
+  "source_files": {
+    "Recursive (2000c/200)": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-2\\evaluations\\rag_results\\rag_results_recursive_20260301_041934.json",
+    "Week 3 baseline: hybrid retrieval + reranking": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-3\\rag_results\\week3_hybrid_rerank_baseline_20260310_010501.json",
+    "Week 3 hybrid + rerank + metadata filtering": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-3\\rag_results\\week3_hybrid_rerank_metadata_filter_results.json",
+    "Week 3 two-stage routing + hybrid + reranking": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-3\\rag_results\\week3_two_stage_routing_results.json"
+  },
+  "pairs_compared": [
+    [
+      "Recursive (2000c/200)",
+      "Week 3 baseline: hybrid retrieval + reranking"
+    ],
+    [
+      "Recursive (2000c/200)",
+      "Week 3 hybrid + rerank + metadata filtering"
+    ],
+    [
+      "Recursive (2000c/200)",
+      "Week 3 two-stage routing + hybrid + reranking"
+    ],
+    [
+      "Week 3 baseline: hybrid retrieval + reranking",
+      "Week 3 hybrid + rerank + metadata filtering"
+    ],
+    [
+      "Week 3 baseline: hybrid retrieval + reranking",
+      "Week 3 two-stage routing + hybrid + reranking"
+    ],
+    [
+      "Week 3 hybrid + rerank + metadata filtering",
+      "Week 3 two-stage routing + hybrid + reranking"
+    ]
+  ],
+  "questions_evaluated": 10,
+  "evaluations": {
+    "q1_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 4.5,
+        "B_relevance_score": 5.0,
+        "A_direct_context_count": 9,
+        "B_direct_context_count": 10,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provided the direct formal definition as an equation in all 10 contexts, while Technique A provided it in 9 contexts."
+    },
+    "q1_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 1.5,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 1.0,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 2,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 7
+      },
+      "reasoning": "Technique A provides significantly more direct answers (7 vs 2) to the formal definition of independence as an equation. All contexts in Technique A are useful, while Technique B has a high number of irrelevant/noise contexts (7 out of 10, assuming the unlisted contexts are noise)."
+    },
+    "q1_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 2.5,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 5,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Both techniques provided the same number of useful and direct contexts, and no noise. However, Technique B's direct answer contexts were generally ranked higher by score, indicating slightly better relevance for the core question."
+    },
+    "q1_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 1.5,
+        "A_relevance_score": 5.0,
+        "B_relevance_score": 1.5,
+        "A_direct_context_count": 10,
+        "B_direct_context_count": 3,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 7
+      },
+      "reasoning": "Technique A provides 10 highly relevant contexts, all of which directly state or clearly derive the formal definition of independence as an equation. Technique B provides only 3 useful contexts, with the remaining 7 being irrelevant or noise (assuming the 4 unlisted contexts are noise to meet the '10 contexts' requirement)."
+    },
+    "q1_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.5,
+        "B_usefulness_score": 2.5,
+        "A_relevance_score": 4.0,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 8,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 5
+      },
+      "reasoning": "Technique A provided 8 contexts that directly state the formal definition of independence as an equation (P(A \u2229 B) = P(A)P(B)), with only 1 noisy context. Technique B provided only 4 direct answers and had 5 noisy contexts, making Technique A significantly more effective and less noisy."
+    },
+    "q1_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 1.5,
+        "B_usefulness_score": 4.0,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 3.0,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 6,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 2
+      },
+      "reasoning": "Technique B provides more useful contexts and more direct answers for the formal definition of independence, with fewer noisy contexts compared to Technique A."
+    },
+    "q2_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 2,
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provided more contexts that directly presented the Bayes' Rule formula and clearly identified the role of the Law of Total Probability in its denominator (7 contexts vs. 5 for Technique A)."
+    },
+    "q2_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 2,
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 3.0,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 1.5,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 3,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique A provides more contexts that directly state Bayes' Rule and clearly identify the role of the Law of Total Probability in its denominator, including examples for both discrete and continuous cases. Technique B has fewer direct answers and fewer overall useful contexts."
+    },
+    "q2_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 2,
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provides significantly more direct answers to the question, explicitly stating Bayes' Rule and identifying the Law of Total Probability in the denominator across multiple contexts. It also has a higher useful total and no noise, making it superior for this query."
+    },
+    "q2_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 2,
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 3.0,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 1.5,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 3,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 4
+      },
+      "reasoning": "Technique A provides more contexts that directly answer both parts of the question (7 vs 3). All 10 contexts in Technique A are useful, while Technique B only provides 6 useful contexts and has 4 assumed noise contexts (as only 6 out of 10 were provided)."
+    },
+    "q2_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 2,
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 3.0,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 6,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provides significantly more contexts that directly answer both parts of the question (Bayes' Rule formula and the role of the Law of Total Probability in the denominator). It also has no irrelevant contexts, unlike Technique B."
+    },
+    "q2_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 2,
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 1.0,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 2,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provided more direct answers (3 vs 2) to both parts of the question (Bayes' formula and the role of the Law of Total Probability in the denominator) and had no irrelevant contexts, making it more effective for this specific query."
+    },
+    "q3_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 3,
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B has a significantly higher number of useful and direct contexts, and zero noise contexts, compared to Technique A. Multiple contexts in B explicitly state the formula and the key property (linearity of expectation) used in its derivation."
+    },
+    "q3_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 3,
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 2.5,
+        "B_usefulness_score": 4.0,
+        "A_relevance_score": 2.0,
+        "B_relevance_score": 4.0,
+        "A_direct_context_count": 4,
+        "B_direct_context_count": 8,
+        "A_noise_chunks": 5,
+        "B_noise_chunks": 2
+      },
+      "reasoning": "Technique B provides more useful contexts (8 vs 5) and more direct answers (8 vs 4) for both the formula and the key property. It also has significantly fewer noise contexts (2 vs 5)."
+    },
+    "q3_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 3,
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 2.5,
+        "B_usefulness_score": 2.5,
+        "A_relevance_score": 0.5,
+        "B_relevance_score": 1.5,
+        "A_direct_context_count": 1,
+        "B_direct_context_count": 3,
+        "A_noise_chunks": 5,
+        "B_noise_chunks": 4
+      },
+      "reasoning": "Technique B provides the direct answer (formula and key property) in 3 contexts, while Technique A only provides it in 1 context. Both techniques have a similar number of useful contexts, but Technique B has slightly less noise."
+    },
+    "q3_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 3,
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 0.5,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 1,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Both techniques returned identical contexts, resulting in the same counts for useful, direct, and noise contexts. Only one context ([A3]/[B3]) explicitly provided both the shortcut formula for variance and named 'linearity of expectations' as the key property used in its derivation. All contexts were relevant to variance or expectation properties, making them useful, and none were noise."
+    },
+    "q3_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 3,
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 4.5,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 9,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique A provides the shortcut formula for variance in 9 out of 10 contexts, and explicitly names 'linearity of expectations' as the key property in its derivation in one context (A3). Technique B provides the formula in only 4 contexts and names the property in one context (B2). Technique A is significantly more direct and comprehensive in answering the question."
+    },
+    "q3_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 3,
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.5,
+        "B_usefulness_score": 2.0,
+        "A_relevance_score": 1.0,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 2,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 5
+      },
+      "reasoning": "Technique A provided more useful contexts (9 vs 4) and more direct answers (2 vs 1) for both parts of the question. It also had significantly less noise (1 vs 5)."
+    },
+    "q4_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 4,
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 2.0,
+        "B_relevance_score": 4.5,
+        "A_direct_context_count": 4,
+        "B_direct_context_count": 9,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique B is superior as it provides a significantly higher number of useful and direct contexts (9 vs 6 useful, 9 vs 4 direct) that explain both how the Law of Total Probability is used in Bayes' Rule and the assumptions about the partition. It also has much less noise (1 vs 4 irrelevant contexts)."
+    },
+    "q4_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 4,
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 3.5,
+        "B_usefulness_score": 2.0,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Technique A has more useful contexts overall (7 vs 4) and a slightly higher number of contexts that directly answer parts of the question (5 vs 4). Specifically, contexts like A2 and A7 in Technique A provide strong direct answers for both the derivation of Bayes' Rule using the Law of Total Probability and the partition assumption."
+    },
+    "q4_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 4,
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 1.0,
+        "B_relevance_score": 1.5,
+        "A_direct_context_count": 2,
+        "B_direct_context_count": 3,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique B has more contexts that directly answer the question and a higher total number of useful contexts, while also having less noise compared to Technique A."
+    },
+    "q4_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 4,
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.5,
+        "B_usefulness_score": 2.0,
+        "A_relevance_score": 4.0,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 8,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Technique A provides significantly more useful contexts (9 vs 4) and more direct answers (8 vs 4) for the question. It also has less noise (1 vs 3). The contexts in Technique A clearly explain the partition assumption and how the Law of Total Probability forms the denominator of Bayes' Rule."
+    },
+    "q4_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 4,
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 4.5,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Both techniques have the same number of useful and noise contexts. Technique B has one more context that directly explains or shows the derivation of Bayes' Rule using the Law of Total Probability, giving it a slight edge in directness."
+    },
+    "q4_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 4,
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space.",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 2.5,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique B provides significantly more useful and direct contexts. Several contexts in B (e.g., B3, B4, B6) directly explain how the Law of Total Probability is used to derive Bayes' Rule by expanding the denominator, and also clearly specify the partition assumption. Technique A has fewer useful contexts and only one context (A4) that directly shows the LoTP expansion in Bayes' Rule, with the assumption stated in separate contexts (A1, A2)."
+    },
+    "q5_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 5,
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 4.0,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 8,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A has a perfect useful_total of 10 and 0 noise documents, providing comprehensive and relevant information without irrelevant content. While Technique B has a slightly higher direct_count, it includes one noise document (B10), which detracts from overall retrieval quality."
+    },
+    "q5_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 5,
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 2.5,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 0.0,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 0,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provides clear definitions for both independence and conditional independence, including their mathematical formulations (A4, A10). Crucially, it offers specific examples for the scenario where events can be conditionally independent but not independent (A7, A10). Technique B only provides definitions for independence and conditional probability (not conditional independence) and does not address the specific scenario requested. Many of B's contexts are only partially relevant or focus on tangential topics."
+    },
+    "q5_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 5,
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 4.0,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 2
+      },
+      "reasoning": "Technique B provided more contexts that directly answered all parts of the question, specifically the mathematical definitions and the scenario where events can be conditionally independent but not independent. Both techniques had the same number of useful and noise contexts, but B had one more direct answer."
+    },
+    "q5_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 5,
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.5,
+        "B_usefulness_score": 1.5,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 0.0,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 0,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Technique A provided 5 contexts that directly addressed all parts of the question, including the mathematical definitions of both independence and conditional independence, their comparison, and a scenario where events can be conditionally independent but not independent. It also had 4 additional contexts that defined independence. Only 1 context was noise. Technique B, based on the 6 contexts provided, only offered definitions for independence in 3 contexts and completely missed conditional independence and the specific scenario requested. The remaining 3 contexts for B were noise. Therefore, Technique A is significantly better at answering the question."
+    },
+    "q5_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 5,
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 2.5,
+        "B_usefulness_score": 2.5,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 2.5,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 5,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Both techniques provide the same number of useful and direct contexts for answering the question. However, Technique A includes one irrelevant context (A10) discussing pairwise vs. collection independence, whereas Technique B has no irrelevant contexts, making it slightly better."
+    },
+    "q5_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 5,
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 1.5,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 0.0,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 0,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B is significantly better. It provides clear definitions for both independence and conditional independence, explicitly compares them, and offers multiple scenarios where events can be conditionally independent but not independent. Technique A only defines independence and contains several irrelevant contexts, completely missing the conditional independence aspect and the scenario."
+    },
+    "q6_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 6,
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.5,
+        "B_usefulness_score": 4.0,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 4.0,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 8,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provided more contexts that directly and completely described the limiting conditions (n approaches infinity, p approaches zero) and the behavior of the parameters (np remains constant, equal to lambda) for the binomial distribution to approximate the Poisson distribution."
+    },
+    "q6_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 6,
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.5,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 3.0,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 6,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provides more useful contexts, more direct answers, and has no irrelevant/noise contexts, making it superior for this question."
+    },
+    "q6_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 6,
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 4.5,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 4.5,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 9,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provided more direct answers to the question and had no irrelevant contexts, making it superior in retrieval quality for this query."
+    },
+    "q6_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 6,
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 4.0,
+        "B_relevance_score": 4.0,
+        "A_direct_context_count": 8,
+        "B_direct_context_count": 8,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Both techniques returned the exact same set of 10 contexts with identical scores and content. Therefore, their performance is identical for this query, and no clear winner can be determined. 'A' is chosen as per instruction to pick 'A' or 'B'."
+    },
+    "q6_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 6,
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provided 10 useful contexts with 7 directly answering the question, and no noise. Technique B provided 9 useful contexts with 7 directly answering the question, but included 1 noise context. Therefore, Technique A is superior due to higher overall utility and no irrelevant content."
+    },
+    "q6_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 6,
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 4.0,
+        "B_relevance_score": 3.0,
+        "A_direct_context_count": 8,
+        "B_direct_context_count": 6,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provided more useful and direct contexts (10 useful, 8 direct) and had no noise. Technique B had fewer useful and direct contexts (9 useful, 6 direct) and included one noisy context."
+    },
+    "q7_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 7,
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 3.5,
+        "A_relevance_score": 0.5,
+        "B_relevance_score": 1.5,
+        "A_direct_context_count": 1,
+        "B_direct_context_count": 3,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Technique B provides more contexts that directly state linearity of expectation does not require independence, and also includes derivations based on the definition of expectation that implicitly demonstrate this. It has a higher useful total and direct count, and a lower noise count."
+    },
+    "q7_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 7,
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 2.5,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 5,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique B is superior as it provides more useful contexts, a higher number of direct answers, and significantly less noise. Several contexts in B explicitly state that linearity of expectation does not require independence and provide the derivation from the definition of expectation, which is crucial for the question."
+    },
+    "q7_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 7,
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 2.5,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 1.0,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 2,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 2
+      },
+      "reasoning": "Technique A provides more direct answers to the core question. Contexts A3 and A4 offer derivations of linearity of expectation using the definition (joint PMF) without invoking independence, which directly explains why independence is not required. Additionally, A8 explicitly states that linearity of expectation does not require independence. While Technique B also provides similar derivations (B1, B3), it lacks the explicit statement found in A8 and has fewer overall useful contexts for the specific question."
+    },
+    "q7_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 7,
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 3.5,
+        "B_usefulness_score": 3.5,
+        "A_relevance_score": 2.0,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 4,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Both techniques returned identical sets of contexts with identical scores, resulting in the same counts for useful, direct, and noise contexts. Therefore, there is no performance difference between A and B for this query."
+    },
+    "q7_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 7,
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 2.5,
+        "B_usefulness_score": 1.5,
+        "A_relevance_score": 1.5,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 3,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Technique A provides more useful contexts that directly address the question. It includes explicit statements that linearity of expectation does not require independence ([A1], [A4]), and a full derivation based on the definition of expectation that demonstrates this ([A3], [A6]). Technique B only provides the derivation ([B1], [B3]) and one demonstration ([B7]), lacking the explicit statements found in A."
+    },
+    "q7_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 7,
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 2.0,
+        "B_usefulness_score": 1.5,
+        "A_relevance_score": 1.0,
+        "B_relevance_score": 1.0,
+        "A_direct_context_count": 2,
+        "B_direct_context_count": 2,
+        "A_noise_chunks": 6,
+        "B_noise_chunks": 7
+      },
+      "reasoning": "Technique A has more useful contexts (4 vs 3) and less noise (6 vs 7) compared to Technique B. Both techniques provide the same number of direct explanations based on the definition of expectation (2 contexts each, which are identical derivations)."
+    },
+    "q8_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 8,
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 2.0,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 4,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provides a much higher number of useful and direct contexts, with zero noise. Technique A has 4 irrelevant contexts, significantly impacting its quality."
+    },
+    "q8_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 8,
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 0.0,
+        "A_relevance_score": 3.0,
+        "B_relevance_score": 0.0,
+        "A_direct_context_count": 6,
+        "B_direct_context_count": 0,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provides multiple contexts that directly define the memoryless property of the geometric distribution and explain its special nature by drawing analogies to the exponential distribution. Technique B provides no relevant information."
+    },
+    "q8_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 8,
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.0,
+        "B_usefulness_score": 4.0,
+        "A_relevance_score": 2.0,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 4,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 4,
+        "B_noise_chunks": 2
+      },
+      "reasoning": "Technique B provides more useful contexts overall (8 vs 6) and significantly fewer noise contexts (2 vs 4). Both techniques have the same number of contexts that directly define the memoryless property, but B's additional useful contexts further elaborate on the property and its special nature among discrete distributions."
+    },
+    "q8_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 8,
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 0.0,
+        "A_relevance_score": 5.0,
+        "B_relevance_score": 0.0,
+        "A_direct_context_count": 10,
+        "B_direct_context_count": 0,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provides 10 highly relevant contexts that define the memoryless property and explain its significance by drawing parallels with the exponential distribution and contrasting it with non-memoryless processes. Technique B provides only one context, which is entirely noise and irrelevant to the question."
+    },
+    "q8_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 8,
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 4.0,
+        "A_relevance_score": 1.0,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 2,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 2
+      },
+      "reasoning": "Technique A provided more useful contexts (10 vs 8), more direct answers (2 vs 1), and had no noise, making it superior. Context A4 was particularly good at explaining why the property is special by contrasting it with non-memoryless distributions and highlighting its continuous counterpart."
+    },
+    "q8_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 8,
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 0.0,
+        "B_usefulness_score": 3.5,
+        "A_relevance_score": 0.0,
+        "B_relevance_score": 2.0,
+        "A_direct_context_count": 0,
+        "B_direct_context_count": 4,
+        "A_noise_chunks": 1,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Technique B provides multiple contexts that directly define and explain the memoryless property of the geometric distribution. It also includes contexts that discuss the property for other distributions (like exponential), which helps to understand its significance and 'special' nature. Technique A provides no relevant information."
+    },
+    "q9_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 9,
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provides more contexts that are directly relevant and explicitly explain the conceptual difference between E[X|Y] and E[X|Y=y], and why one is a random variable while the other is a number. It also has no noisy contexts, unlike Technique A."
+    },
+    "q9_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 9,
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 3.5,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 3.0,
+        "B_relevance_score": 5.0,
+        "A_direct_context_count": 6,
+        "B_direct_context_count": 10,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique B provided 10 highly relevant contexts, all of which directly explained the conceptual difference between E[X|Y] and E[X|Y=y] and why one is a random variable while the other is a number. Technique A had fewer useful contexts (7) and included 3 noise contexts that were too general about random variables."
+    },
+    "q9_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 9,
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 4.5,
+        "A_relevance_score": 3.0,
+        "B_relevance_score": 4.0,
+        "A_direct_context_count": 6,
+        "B_direct_context_count": 8,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique B provided more contexts that directly and clearly explained the conceptual difference between E[X|Y] as a random variable and E[X|Y=y] as a number. It also had fewer irrelevant/noise contexts."
+    },
+    "q9_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 9,
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 3.5,
+        "B_relevance_score": 3.5,
+        "A_direct_context_count": 7,
+        "B_direct_context_count": 7,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Both techniques returned identical sets of contexts, scores, and rankings. Therefore, their performance metrics are the same. I arbitrarily selected 'A' as the winner."
+    },
+    "q9_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 9,
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 5.0,
+        "B_relevance_score": 5.0,
+        "A_direct_context_count": 10,
+        "B_direct_context_count": 10,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Both techniques provided excellent and highly relevant contexts, with all 10 contexts being useful and directly addressing the conceptual difference between E[X|Y] and E[X|Y=y] as a random variable versus a number. Technique A is chosen as the winner because its top-ranked documents (A1, A2, A3, A4) articulated the distinction with slightly more immediate clarity and directness for both parts of the question compared to Technique B's top results."
+    },
+    "q9_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 9,
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 hybrid + rerank + metadata filtering",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 5.0,
+        "B_usefulness_score": 5.0,
+        "A_relevance_score": 5.0,
+        "B_relevance_score": 4.0,
+        "A_direct_context_count": 10,
+        "B_direct_context_count": 8,
+        "A_noise_chunks": 0,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique A provided 10 contexts that directly answered the question, clearly explaining the conceptual difference and why one is a random variable and the other a number. Technique B had 8 direct answers, with two contexts (B9 and B10) being less direct or focusing on related but not central aspects of the question."
+    },
+    "q10_Recursive (2000c/200)_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 10,
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 3.5,
+        "A_relevance_score": 2.5,
+        "B_relevance_score": 2.5,
+        "A_direct_context_count": 5,
+        "B_direct_context_count": 5,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 3
+      },
+      "reasoning": "Technique A provides more useful contexts and fewer noise contexts for the specific question about the Monty Hall problem. While both techniques have the same number of direct answers for the resolution part, Technique A's documents are more consistently relevant to the Monty Hall problem itself, whereas Technique B includes a document (B4) that discusses general probabilistic mistakes and paradoxes without specific application to Monty Hall, making it less useful for this particular question."
+    },
+    "q10_Recursive (2000c/200)_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 10,
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 0.5,
+        "A_relevance_score": 0.5,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 1,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 1
+      },
+      "reasoning": "Technique A provides multiple contexts directly discussing and solving the Monty Hall problem using conditional probability, with A2 implicitly addressing the common mistake and explicitly asking for a conditional probability proof. Technique B's best context (B1) identifies the common probabilistic mistake and the role of Bayes' Theorem but does not connect it to the Monty Hall problem specifically."
+    },
+    "q10_Recursive (2000c/200)_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 10,
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+      "technique_a": "Recursive (2000c/200)",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Recursive (2000c/200)",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 3.5,
+        "B_usefulness_score": 3.0,
+        "A_relevance_score": 0.5,
+        "B_relevance_score": 0.0,
+        "A_direct_context_count": 1,
+        "B_direct_context_count": 0,
+        "A_noise_chunks": 3,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique A provides more contexts directly related to the Monty Hall problem and its resolution using conditional probability. Context A5 implicitly explains the common probabilistic mistake by highlighting the 'additional information' people often miss, and explicitly shows how conditional probability resolves the paradox. Technique B has many contexts explaining general conditional probability concepts or a different paradox, making them less direct for the specific question about the Monty Hall problem."
+    },
+    "q10_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 hybrid + rerank + metadata filtering": {
+      "question_id": 10,
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 hybrid + rerank + metadata filtering",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 0.5,
+        "A_relevance_score": 3.0,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 6,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 9
+      },
+      "reasoning": "Technique A provides significantly more useful and direct contexts. It includes a document explicitly stating the common probabilistic mistake (A4) and multiple documents demonstrating how conditional probability resolves the Monty Hall paradox (A1, A3, A5, A6, A8). Technique B only provides one useful and direct context (B1) and the remaining 9 contexts are either noise or missing from the provided list, making it far less effective."
+    },
+    "q10_Week 3 baseline: hybrid retrieval + reranking_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 10,
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+      "technique_a": "Week 3 baseline: hybrid retrieval + reranking",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "A",
+      "metrics": {
+        "A_usefulness_score": 4.0,
+        "B_usefulness_score": 3.0,
+        "A_relevance_score": 3.0,
+        "B_relevance_score": 0.0,
+        "A_direct_context_count": 6,
+        "B_direct_context_count": 0,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 0
+      },
+      "reasoning": "Technique A provides multiple contexts that directly apply conditional probability (Bayes' theorem, probability trees) to resolve the Monty Hall paradox, showing the correct probabilities for switching. One context ([A5]) explicitly explains the information gain that corrects the common misconception. Technique B provides general explanations of conditional probability or discusses a similar paradox, but does not directly answer the Monty Hall problem's resolution."
+    },
+    "q10_Week 3 hybrid + rerank + metadata filtering_vs_Week 3 two-stage routing + hybrid + reranking": {
+      "question_id": 10,
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+      "technique_a": "Week 3 hybrid + rerank + metadata filtering",
+      "technique_b": "Week 3 two-stage routing + hybrid + reranking",
+      "winner": "Week 3 two-stage routing + hybrid + reranking",
+      "winner_code": "B",
+      "metrics": {
+        "A_usefulness_score": 0.0,
+        "B_usefulness_score": 1.0,
+        "A_relevance_score": 0.0,
+        "B_relevance_score": 0.5,
+        "A_direct_context_count": 0,
+        "B_direct_context_count": 1,
+        "A_noise_chunks": 2,
+        "B_noise_chunks": 4
+      },
+      "reasoning": "Technique B is superior as it directly retrieves the Monty Hall problem (B5) and a similar conditional probability paradox (B4), which are highly relevant to the question. Technique A only provides general concepts of conditional probability and Bayes' theorem without specific application to the Monty Hall problem or similar paradoxes."
+    }
+  },
+  "summary_table": {
+    "Recursive (2000c/200)": {
+      "avg_usefulness": 3.833,
+      "avg_relevance": 2.25,
+      "avg_direct_context_count": 4.5,
+      "noise_chunks_total": 67,
+      "noise_chunks_avg": 2.233,
+      "questions_won": 11
+    },
+    "Week 3 baseline: hybrid retrieval + reranking": {
+      "avg_usefulness": 4.483,
+      "avg_relevance": 3.267,
+      "avg_direct_context_count": 6.533,
+      "noise_chunks_total": 23,
+      "noise_chunks_avg": 0.767,
+      "questions_won": 26
+    },
+    "Week 3 hybrid + rerank + metadata filtering": {
+      "avg_usefulness": 2.667,
+      "avg_relevance": 1.7,
+      "avg_direct_context_count": 3.4,
+      "noise_chunks_total": 64,
+      "noise_chunks_avg": 2.133,
+      "questions_won": 9
+    },
+    "Week 3 two-stage routing + hybrid + reranking": {
+      "avg_usefulness": 3.717,
+      "avg_relevance": 1.95,
+      "avg_direct_context_count": 3.9,
+      "noise_chunks_total": 50,
+      "noise_chunks_avg": 1.667,
+      "questions_won": 14
+    }
+  }
+}

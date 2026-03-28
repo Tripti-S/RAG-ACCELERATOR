@@ -1,0 +1,20 @@
+# Reference: index_strategy.py (Week 2 Indexing Script)
+#
+# - Uses argparse for CLI argument parsing and strategy selection
+# - Loads deduplication manifest and prints summary stats (total files, reduction %)
+# - Prints chunking/indexing stats: files processed, code/docs split (in test mode)
+# - Logs output to artifacts/walkthrough_traces/{strategy}_{mode}.txt
+# - Prints indexing summary: processing time, documents written, avg time per file
+# - Handles exceptions and prints tracebacks for debugging
+#
+# Use this as a guide for logging, output structure, and error handling in other scripts.
+# Reference: index_strategy.py (Week 2 Indexing Script)
+#
+# - Uses argparse for CLI argument parsing and strategy selection
+# - Loads deduplication manifest and prints summary stats (total files, reduction %)
+# - Prints chunking/indexing stats: files processed, code/docs split (in test mode)
+# - Logs output to artifacts/walkthrough_traces/{strategy}_{mode}.txt
+# - Prints indexing summary: processing time, documents written, avg time per file
+# - Handles exceptions and prints tracebacks for debugging
+#
+# Use this as a guide for logging, output structure, and error handling in other scripts.

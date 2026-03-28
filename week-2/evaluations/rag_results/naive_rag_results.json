@@ -1,0 +1,8 @@
+{
+  "summary": "Naive baseline rag results",
+  "result": {
+    "document_writer": {
+      "documents_written": 2384
+    }
+  }
+}

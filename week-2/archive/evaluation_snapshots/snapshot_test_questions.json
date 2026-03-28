@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "In the lecture where Bayes’ Rule is introduced, how is the Law of Total Probability used to derive Bayes’ formula, and under what assumption about the events does the derivation hold?",
+    "skills_tested": ["multi-hop retrieval", "derivation grounding", "partition assumption recall"]
+  },
+  {
+    "id": 2,
+    "question": "In the lecture on independence, what is the formal definition of independence between two events, and how does it differ mathematically from conditional independence?",
+    "skills_tested": ["formula precision", "concept distinction", "symbol grounding"]
+  },
+  {
+    "id": 3,
+    "question": "In the expectation lecture, how does the definition of expectation differ between discrete and continuous random variables, and what conceptual similarity is emphasized despite the formal difference?",
+    "skills_tested": ["cross-section retrieval", "concept abstraction", "avoid formula mixing"]
+  },
+  {
+    "id": 4,
+    "question": "How is the shortcut formula Var(X) = E[X^2] − (E[X])^2 derived in the variance lecture, and which property of expectation is essential in the derivation?",
+    "skills_tested": ["stepwise reasoning", "linearity recall", "derivation tracing"]
+  },
+  {
+    "id": 5,
+    "question": "What key advantage do indicator random variables provide in computing expectations, particularly in counting problems, according to the lecture?",
+    "skills_tested": ["conceptual recall", "application insight", "semantic precision"]
+  },
+  {
+    "id": 6,
+    "question": "How is the memoryless property of the geometric distribution formally stated in the lecture, and why is this property considered special among discrete distributions?",
+    "skills_tested": ["formula recall", "distribution comparison", "property grounding"]
+  },
+  {
+    "id": 7,
+    "question": "In the lecture on conditional expectation, what does E[X | Y] represent conceptually, and how does it differ from E[X | Y = y]?",
+    "skills_tested": ["notation distinction", "functional understanding", "conceptual precision"]
+  },
+  {
+    "id": 8,
+    "question": "The instructor emphasizes that linearity of expectation does not require independence. Which example is used to demonstrate this, and why is it considered counterintuitive?",
+    "skills_tested": ["example retrieval", "misconception detection", "independence clarification"]
+  },
+  {
+    "id": 9,
+    "question": "Under what limiting conditions is the binomial distribution described as approximating another distribution in the lecture, and what parameters must behave in a specific way?",
+    "skills_tested": ["distribution linkage", "limit reasoning", "parameter conditions recall"]
+  },
+  {
+    "id": 10,
+    "question": "In the Monty Hall-style discussion, what is the key probabilistic mistake people commonly make, and how does conditional probability resolve it?",
+    "skills_tested": ["real-world reasoning", "conditional probability grounding", "misconception correction"]
+  }
+]

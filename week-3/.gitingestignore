@@ -1,0 +1,13 @@
+archive/
+rag_results/
+data_preparation/outputs/
+data/raw/
+data/processed/
+*.parquet
+*.csv
+*.npy
+*.bin
+__pycache__/
+prequalify.py
+week3_prequalify.py
+week3_submission_guidelines.md

@@ -1,0 +1,54 @@
+[LOGGING] Output for strategy 'recursive' (test) will be saved to: C:\Users\singhtripti\rag-capstone-week-2\week-2\artifacts\walkthrough_traces\recursive_test.txt
+📋 Loading deduplication manifest...
+   Total files in manifest: 459
+   Deduplication reduction: 0.65%
+🧪 TEST MODE: Using balanced sample
+   Code files: 0
+   Doc files: 5
+📁 Files to process: 5
+
+======================================================================
+📊 INDEXING STRATEGY: Recursive (2000c/200)
+🧠 EMBEDDER: BGE-large-en-v1.5 (FastEmbed)
+======================================================================
+🚀 Using FastEmbed embedder: BGE-large-en-v1.5 (FastEmbed) (1024d, 512 max tokens)
+🔧 Creating Chunking Pipeline...
+📊 Strategy: Recursive (2000c/200)
+🧠 Embedder: BGE-large-en-v1.5 (FastEmbed)
+🔢 Dimensions: 1024
+📊 Collection: week2_recursive
+⚡ Batch Size: 32
+⏱️  Qdrant Timeout: 60s
+🔧 Creating Qdrant collection: week2_recursive...
+✅ Qdrant collection created: week2_recursive
+🔗 Connecting pipeline components...
+✅ Pipeline created for strategy: Recursive (2000c/200)
+🚀 Ready to index documents!
+
+🚀 Starting indexing...
+📁 Files to process: 5
+Converting markdown files to Documents:   0%|                                                                                        | 0/5 [00:00<?, ?it/s]Converting markdown files to Documents:  60%|################################################                                | 3/5 [00:00<00:00, 14.41it/s]Converting markdown files to Documents: 100%|################################################################################| 5/5 [00:00<00:00, 21.02it/s]
+Calculating embeddings:   0%|                                                                                                      | 0/377 [00:00<?, ?it/s]Calculating embeddings:   0%|2                                                                                           | 1/377 [01:15<7:53:01, 75.48s/it]Calculating embeddings:   9%|########1                                                                                    | 33/377 [02:25<21:33,  3.76s/it]Calculating embeddings:  17%|################                                                                             | 65/377 [03:36<14:49,  2.85s/it]Calculating embeddings:  26%|#######################9                                                                     | 97/377 [04:37<11:19,  2.43s/it]Calculating embeddings:  34%|###############################4                                                            | 129/377 [05:19<08:13,  1.99s/it]Calculating embeddings:  43%|#######################################2                                                    | 161/377 [06:02<06:18,  1.75s/it]Calculating embeddings:  51%|###############################################                                             | 193/377 [06:43<04:54,  1.60s/it]Calculating embeddings:  60%|######################################################9                                     | 225/377 [07:49<04:24,  1.74s/it]Calculating embeddings:  68%|##############################################################7                             | 257/377 [09:11<04:00,  2.00s/it]Calculating embeddings:  77%|######################################################################5                     | 289/377 [10:30<03:09,  2.15s/it]Calculating embeddings:  85%|##############################################################################3             | 321/377 [11:46<02:04,  2.22s/it]Calculating embeddings:  94%|######################################################################################1     | 353/377 [12:47<00:51,  2.13s/it]Calculating embeddings: 100%|############################################################################################| 377/377 [12:47<00:00,  2.04s/it]
+  0%|                                                                                                                              | 0/377 [00:00<?, ?it/s] 27%|##############################7                                                                                     | 100/377 [00:03<00:08, 31.25it/s] 53%|#############################################################5                                                      | 200/377 [00:04<00:03, 47.56it/s] 80%|############################################################################################3                       | 300/377 [00:05<00:01, 57.61it/s]400it [00:06, 67.89it/s]                                                                                                                                   400it [00:06, 57.94it/s]
+
+⚠️  TOKEN TRUNCATION WARNING - Recursive (2000c/200)
+   =======================================================
+   Embedding model limit: 512 tokens (BGE-large-en-v1.5 (FastEmbed))
+   
+   Chunks exceeding limit: 84/377 (22.3%)
+   Total tokens truncated: ~9729
+   Largest chunk: ~1244 tokens (exceeds by ~732)
+   Average chunk: ~479 tokens
+   
+   Impact: Content beyond 512 tokens will NOT be embedded.
+   =======================================================
+
+✅ Indexing completed!
+⏱️  Processing time: 780.25 seconds
+📝 Documents written: 377
+⚡ Avg time per file: 156.05 seconds
+
+🎯 Collection created: week2_recursive
+   Ready for RAG queries!
+
+🎉 Strategy indexed successfully!

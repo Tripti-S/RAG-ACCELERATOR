@@ -1,0 +1,107 @@
+
+==========================================================================================
+WEEK 5: SEMANTIC CACHE THRESHOLD EXPERIMENT
+==========================================================================================
+
+   Model: voyage-4-lite (2048d)
+   Production threshold: 0.06
+   Thresholds to test: [0.03, 0.05, 0.06, 0.08, 0.1, 0.15, 0.2]
+   Query pairs: 17
+   Unique queries to embed: 26
+
+──────────────────────────────────────────────────
+1. Embedding Queries
+──────────────────────────────────────────────────
+   Embedding 26 unique queries with voyage-4-lite...
+   Done. Dimension: 2048
+   Embedding time: 5.8s
+
+──────────────────────────────────────────────────
+2. Computing Pair Distances
+──────────────────────────────────────────────────
+   Computed 17 pair distances
+
+==========================================================================================
+QUERY PAIR DISTANCES (sorted by distance, ascending)
+==========================================================================================
+   Production threshold: 0.06
+   Distance metric: Cosine distance (1 - cosine_similarity)
+   Lower = more similar. 0 = identical.
+──────────────────────────────────────────────────────────────────────────────────────────
+       Dist  Cat           Query A                         Query B                       
+   ────────  ────────────  ──────────────────────────────  ──────────────────────────────
+     0.0472  PARAPHRASE    What is MCP?                    Explain MCP                   
+     0.0524  BOUNDARY      What is MCP?                    What is MCP and how does it   
+     0.0592  PARAPHRASE    How do MCP servers work?        Explain how MCP servers func  
+     0.0622  PARAPHRASE    What is MCP?                    Tell me about MCP              (miss)
+     0.0634  PARAPHRASE    How do I install MCP?           What are the installation st   (miss)
+     0.1153  NEAR_MISS     How do I handle errors in MC    How do I handle errors in MC  
+     0.2041  NEAR_MISS     What is an MCP server?          What is an MCP client?        
+     0.2259  NEAR_MISS     How do I build an MCP server    How do I build an MCP client  
+     0.2640  NEAR_MISS     What are MCP tools?             What are MCP resources?       
+     0.2866  NEAR_MISS     What are MCP tools?             What are MCP prompts?         
+     0.2928  BOUNDARY      What transport options does     Does MCP support SSE transpo  
+     0.3871  NEAR_MISS     How do I configure the stdio    How do I configure the SSE t  
+     0.5191  PARAPHRASE    What is MCP?                    What is the Model Context Pr   (miss)
+     0.5320  PARAPHRASE    What is the Model Context Pr    Can you explain what MCP is?   (miss)
+     0.5467  UNRELATED     What transport options does     What is the lifecycle of an   
+     0.7498  UNRELATED     How do I install MCP?           What security best practices  
+     0.8165  UNRELATED     What is MCP?                    How do I debug connection ti  
+──────────────────────────────────────────────────────────────────────────────────────────
+
+==========================================================================================
+DISTANCE STATISTICS BY CATEGORY
+==========================================================================================
+
+   Category         Count       Min       Max      Mean    Spread
+   ──────────────  ──────  ────────  ────────  ────────  ────────
+   PARAPHRASE           6    0.0472    0.5320    0.2139    0.4847
+   NEAR_MISS            6    0.1153    0.3871    0.2472    0.2718
+   BOUNDARY             2    0.0524    0.2928    0.1726    0.2403
+   UNRELATED            3    0.5467    0.8165    0.7043    0.2697
+
+   Critical gap: -0.4167
+   (min NEAR_MISS distance) - (max PARAPHRASE distance)
+   Gap is NEGATIVE — paraphrases and near-misses overlap. No perfectly safe threshold.
+   You must choose: accept some missed paraphrases or accept some dangerous hits.
+
+──────────────────────────────────────────────────
+3. Threshold Analysis
+──────────────────────────────────────────────────
+
+==========================================================================================
+THRESHOLD SWEEP
+==========================================================================================
+
+    Threshold    Hits    Misses   Dangerous    Safe?   Paraphrase Hits
+   ──────────  ──────  ────────  ──────────  ───────  ────────────────
+       0.0300       0        17           0      YES                 0
+       0.0500       1        16           0      YES                 1
+       0.0600       3        14           0      YES                 2
+       0.0800       5        12           0      YES                 4
+       0.1000       5        12           0      YES                 4
+       0.1500       6        11           1       NO                 4
+       0.2000       6        11           1       NO                 4
+
+   Recommended threshold: 0.1
+   Rule: Highest threshold with zero NEAR_MISS hits
+
+   Dangerous matches at threshold 0.15:
+      distance=0.1153  'How do I handle errors in MCP servers?' vs 'How do I handle errors in MCP clients?'
+
+   Dangerous matches at threshold 0.2:
+      distance=0.1153  'How do I handle errors in MCP servers?' vs 'How do I handle errors in MCP clients?'
+
+──────────────────────────────────────────────────
+4. Saving Results
+──────────────────────────────────────────────────
+   Results saved: /Users/shivanivirdi/RAGWorkShop/rag-workshop-classroom/week5_production/experiments/results/cache_threshold_experiment_20260301_133001.json
+
+==========================================================================================
+EXPERIMENT COMPLETE
+==========================================================================================
+   Recommended threshold: 0.1
+   Production threshold:  0.06
+
+   Current production threshold (0.06) differs from recommendation (0.1).
+   Review the pair distances above to decide whether to adjust.

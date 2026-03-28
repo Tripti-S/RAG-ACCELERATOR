@@ -1,0 +1,39 @@
+{
+  "run_timestamp": "20260310_004108",
+  "collection_name": "week3_hybrid_recursive",
+  "vector_configuration": {
+    "dense_model": "voyage-4-lite",
+    "dense_dimension": 2048,
+    "sparse_model": "Qdrant/bm25"
+  },
+  "chunking": {
+    "strategy": "recursive",
+    "source": "week-2/scripts/strategy/logical_chunker.py::RecursiveChunker"
+  },
+  "inputs": {
+    "manifest_file": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-2\\artifacts\\selected_files_manifest.json",
+    "manifest_selected_files": 459,
+    "files_processed_this_run": 10,
+    "mode": "TEST"
+  },
+  "outputs": {
+    "documents_written": 385,
+    "elapsed_seconds": 30.759,
+    "points_indexed": 385,
+    "expected_points": null,
+    "point_count_matches_expected": null,
+    "dense_vectors_populated": true,
+    "sparse_vectors_populated": true,
+    "sample_metadata_fields": [
+      "blob",
+      "content",
+      "id",
+      "meta",
+      "score"
+    ]
+  },
+  "notes": [
+    "Week 3 hybrid re-indexes because sparse BM25 vectors must be materialized in collection points.",
+    "Week 2 dense-only collections cannot serve full dense+sparse hybrid retrieval without re-indexing."
+  ]
+}

@@ -1,0 +1,20 @@
+# Reference for Tracing and Logging (index_hybrid.py)
+#
+# To add tracing/logging to index_hybrid.py in the style of index_strategy.py:
+#
+# - Use argparse for CLI argument parsing and strategy selection
+# - Print deduplication manifest summary (total files, reduction % if available)
+# - Print chunking/indexing stats: files processed, code/docs split (in test mode)
+# - Log output to artifacts/walkthrough_traces/{strategy}_{mode}_hybrid.txt
+# - Print indexing summary: processing time, documents written, avg time per file
+# - Handle exceptions and print tracebacks for debugging
+#
+# See index_strategy.py for detailed implementation patterns.
+#
+# Example logging code:
+#   print(f"[LOGGING] Output for strategy '{args.strategy}' ({mode}) will be saved to: {log_file}")
+#   print(f"\n✅ Indexing complete!")
+#   print(f"⏱️  Time taken: {end - start:.2f} seconds")
+#   print(f"🎯 Collection: {strategy['collection']}")
+#
+# Use this as a guide for adding tracing/logging to index_hybrid.py or similar scripts.

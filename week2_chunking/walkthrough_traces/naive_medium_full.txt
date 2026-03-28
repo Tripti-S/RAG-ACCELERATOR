@@ -1,53 +1,0 @@
-🚀 Week 2: Single Strategy Indexing
-==================================================
-🎯 Strategy: naive_medium
-🧪 Mode: FULL (all files)
-📋 Loading deduplication manifest...
-   Total files in manifest: 184
-   Deduplication reduction: 25.81%
-🚀 FULL MODE: Processing all deduplicated files
-📁 Files to process: 184
-
-======================================================================
-📊 INDEXING STRATEGY: Naive Medium (400w/50)
-======================================================================
-🔧 Creating Chunking Pipeline...
-📊 Strategy: Naive Medium (400w/50)
-🧠 Embeddings: BAAI/bge-large-en-v1.5
-🔢 Dimensions: 1024
-📊 Collection: week2_naive_medium
-⚡ Batch Size: 32
-🔧 Creating Qdrant collection: week2_naive_medium...
-✅ Qdrant collection created: week2_naive_medium
-🔗 Connecting pipeline components...
-✅ Pipeline created for strategy: Naive Medium (400w/50)
-🚀 Ready to index documents!
-
-🚀 Starting indexing...
-📁 Files to process: 184
-Converting markdown files to Documents:   0%|          | 0/71 [00:00<?, ?it/s]Converting markdown files to Documents:  30%|██▉       | 21/71 [00:00<00:00, 202.77it/s]Converting markdown files to Documents:  66%|██████▌   | 47/71 [00:00<00:00, 213.24it/s]Converting markdown files to Documents: 100%|██████████| 71/71 [00:00<00:00, 265.26it/s]
-Document ID 6c6898fb9256200409b611334b964ebd09f477b23b49b5311434769d10a9fd19 has an empty content. Skipping this document.
-Calculating embeddings:   0%|          | 0/524 [00:00<?, ?it/s]Calculating embeddings:   0%|          | 1/524 [00:32<4:42:58, 32.46s/it]Calculating embeddings:   6%|▋         | 33/524 [01:07<14:29,  1.77s/it] Calculating embeddings:  12%|█▏        | 65/524 [01:39<10:08,  1.33s/it]Calculating embeddings:  19%|█▊        | 97/524 [02:13<08:31,  1.20s/it]Calculating embeddings:  25%|██▍       | 129/524 [02:46<07:26,  1.13s/it]Calculating embeddings:  31%|███       | 161/524 [03:18<06:35,  1.09s/it]Calculating embeddings:  37%|███▋      | 193/524 [03:50<05:50,  1.06s/it]Calculating embeddings:  43%|████▎     | 225/524 [04:24<05:15,  1.06s/it]Calculating embeddings:  49%|████▉     | 257/524 [04:59<04:45,  1.07s/it]Calculating embeddings:  55%|█████▌    | 289/524 [05:35<04:14,  1.08s/it]Calculating embeddings:  61%|██████▏   | 321/524 [06:11<03:44,  1.10s/it]Calculating embeddings:  67%|██████▋   | 353/524 [06:51<03:15,  1.14s/it]Calculating embeddings:  73%|███████▎  | 385/524 [07:29<02:41,  1.16s/it]Calculating embeddings:  80%|███████▉  | 417/524 [08:04<02:02,  1.14s/it]Calculating embeddings:  86%|████████▌ | 449/524 [08:40<01:24,  1.13s/it]Calculating embeddings:  92%|█████████▏| 481/524 [09:16<00:48,  1.13s/it]Calculating embeddings:  98%|█████████▊| 513/524 [09:29<00:10,  1.09it/s]Calculating embeddings: 100%|██████████| 524/524 [09:29<00:00,  1.09s/it]
-  0%|          | 0/524 [00:00<?, ?it/s] 19%|█▉        | 100/524 [00:04<00:17, 24.88it/s] 38%|███▊      | 200/524 [00:05<00:07, 41.27it/s] 57%|█████▋    | 300/524 [00:06<00:04, 53.29it/s] 76%|███████▋  | 400/524 [00:07<00:02, 61.70it/s] 95%|█████████▌| 500/524 [00:09<00:00, 67.15it/s]600it [00:09, 82.87it/s]                         600it [00:09, 61.89it/s]
-
-⚠️  TOKEN TRUNCATION WARNING - Naive Medium (400w/50)
-   =======================================================
-   Embedding model limit: 512 tokens (BGE-large-en-v1.5)
-   
-   Chunks exceeding limit: 346/524 (66.0%)
-   Total tokens truncated: ~8212
-   Largest chunk: ~586 tokens (exceeds by ~74)
-   Average chunk: ~439 tokens
-   
-   Impact: Content beyond 512 tokens will NOT be embedded.
-   =======================================================
-
-✅ Indexing completed!
-⏱️  Processing time: 586.14 seconds
-📝 Documents written: 524
-⚡ Avg time per file: 3.19 seconds
-
-🎯 Collection created: week2_naive_medium
-   Ready for RAG queries!
-
-🎉 Strategy indexed successfully!

@@ -1,0 +1,10 @@
+# Railway deployment config — Frontend (Streamlit)
+# Uses the existing Dockerfile. Railway sets $PORT automatically.
+
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3

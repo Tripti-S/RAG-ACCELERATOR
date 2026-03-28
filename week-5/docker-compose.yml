@@ -1,0 +1,42 @@
+# Week 5: Production RAG — Docker Compose
+# =========================================
+# Orchestrates backend (FastAPI) and frontend (Streamlit).
+#
+# Usage:
+#   docker compose up --build
+#
+# Prerequisites:
+#   - Copy .env.example to .env and fill in credentials
+#   - Qdrant Cloud and Redis Cloud must be reachable
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - GRPC_DNS_RESOLVER=native
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped

@@ -1,0 +1,7 @@
+FastEmbed Indexing Walkthrough (Naive Baseline)
+Processed files: 482
+Total processing time: 3179.89 seconds
+Average time per file: 6.60 seconds
+Documents written: 2384
+
+Result keys: document_writer

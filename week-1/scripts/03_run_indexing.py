@@ -47,17 +47,42 @@ def get_file_subset(data_dir: str, test_mode: bool = True, single_dir: str = Non
     """
     Get files from processed dataset (markdown + conversational)
     """
-    data_path = Path(r"C:\Users\singhtripti\rag-capstone-week-1\week-1\data\processed")
+    candidates = [
+        Path(data_dir) / "processed",
+        PROJECT_ROOT / "week-1" / "data" / "processed",
+        SCRIPT_DIR.parent / "data" / "processed",
+    ]
 
-    markdown_path = data_path / "markdown"
-    conversational_path = data_path / "conversational"
+    data_path = None
+    for candidate in candidates:
+        if candidate.exists():
+            data_path = candidate
+            break
 
-    md_files = list(markdown_path.rglob("*.md")) if markdown_path.exists() else []
-    txt_files = list(conversational_path.rglob("*.txt")) if conversational_path.exists() else []
+    if data_path is None:
+        print("❌ Could not find processed dataset directory. Checked:")
+        for candidate in candidates:
+            print(f"   - {candidate}")
+        return []
 
-    all_files = md_files + txt_files
+    if single_dir:
+        single_dir_path = data_path / single_dir
+        if not single_dir_path.exists():
+            print(f"❌ single_dir not found: {single_dir_path}")
+            return []
 
-    print("📁 Processed dataset detected:")
+        md_files = list(single_dir_path.rglob("*.md"))
+        txt_files = list(single_dir_path.rglob("*.txt"))
+    else:
+        markdown_path = data_path / "markdown"
+        conversational_path = data_path / "conversational"
+
+        md_files = list(markdown_path.rglob("*.md")) if markdown_path.exists() else []
+        txt_files = list(conversational_path.rglob("*.txt")) if conversational_path.exists() else []
+
+    all_files = sorted(md_files + txt_files)
+
+    print(f"📁 Processed dataset detected at: {data_path}")
     print(f"   - Markdown files: {len(md_files)}")
     print(f"   - Conversational TXT files: {len(txt_files)}")
     print(f"   - Total files: {len(all_files)}")
@@ -113,17 +138,51 @@ def run_fastembed_indexing(collection_name: str = None, test_mode: bool = True, 
         
         end_time = time.time()
         processing_time = end_time - start_time
-        
+
         # Display results
         print(f"\n✅ FastEmbed indexing completed!")
         print(f"⏱️  Total processing time: {processing_time:.2f} seconds")
         print(f"📊 Average time per file: {processing_time/len(files_to_process):.2f} seconds")
-        
+
         # Check if documents were written
         documents_written = result.get("document_writer", {}).get("documents_written", 0)
         if documents_written:
             print(f"📝 Documents written to Qdrant: {documents_written}")
-        
+
+        # --- Save results to required files ---
+        import json
+        # 1. Save ag_results_naive_baseline.json
+        naive_baseline_path = Path(r"C:/Users/singhtripti/rag-capstone-week-2/week-2/scripts/week1_naive/ag_results_naive_baseline.json")
+        naive_baseline_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(naive_baseline_path, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=2)
+
+        # 2. Save to eval_results and rag_results (dummy content for now)
+        eval_results_path = Path(r"C:/Users/singhtripti/rag-capstone-week-2/week-2/evaluations/eval_results/naive_eval_results.json")
+        rag_results_path = Path(r"C:/Users/singhtripti/rag-capstone-week-2/week-2/evaluations/rag_results/naive_rag_results.json")
+        eval_results_path.parent.mkdir(parents=True, exist_ok=True)
+        rag_results_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(eval_results_path, "w", encoding="utf-8") as f:
+            json.dump({"summary": "Naive baseline eval results", "result": result}, f, indent=2)
+        with open(rag_results_path, "w", encoding="utf-8") as f:
+            json.dump({"summary": "Naive baseline rag results", "result": result}, f, indent=2)
+
+        # 3. Print to walkthrough_traces/naive_full.txt
+        walkthrough_path = Path(r"C:/Users/singhtripti/rag-capstone-week-2/week-2/artifacts/walkthrough_traces/naive_full.txt")
+        walkthrough_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(walkthrough_path, "w", encoding="utf-8") as f:
+            f.write("FastEmbed Indexing Walkthrough (Naive Baseline)\n")
+            f.write(f"Processed files: {len(files_to_process)}\n")
+            f.write(f"Total processing time: {processing_time:.2f} seconds\n")
+            f.write(f"Average time per file: {processing_time/len(files_to_process):.2f} seconds\n")
+            f.write(f"Documents written: {documents_written}\n")
+            f.write("\nResult keys: " + ", ".join(result.keys()) + "\n")
+
+        print(f"\n📝 Results written to: {naive_baseline_path}")
+        print(f"📝 Eval results: {eval_results_path}")
+        print(f"📝 RAG results: {rag_results_path}")
+        print(f"📝 Walkthrough trace: {walkthrough_path}")
+
         print("\n🎯 Next steps:")
         if test_mode:
             print("1. Verify documents in Qdrant")
@@ -133,7 +192,7 @@ def run_fastembed_indexing(collection_name: str = None, test_mode: bool = True, 
             print("1. All documents indexed successfully!")
             print("2. Ready for RAG queries")
             print("3. Test with test_fastembed_rag.py")
-            
+
         return result
         
     except Exception as e:

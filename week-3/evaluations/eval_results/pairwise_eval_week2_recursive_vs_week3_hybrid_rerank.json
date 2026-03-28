@@ -1,0 +1,1216 @@
+{
+  "evaluation_type": "pairwise_retrieval",
+  "model": "gemini-2.5-flash",
+  "techniques": [
+    "rag_results_recursive_20260301_041934",
+    "Week 3 baseline: hybrid retrieval + reranking"
+  ],
+  "source_files": {
+    "rag_results_recursive_20260301_041934": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-2\\evaluations\\rag_results\\rag_results_recursive_20260301_041934.json",
+    "Week 3 baseline: hybrid retrieval + reranking": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-3\\rag_results\\week3_hybrid_rerank_baseline_20260310_010501.json"
+  },
+  "pairs_compared": [
+    [
+      "rag_results_recursive_20260301_041934",
+      "Week 3 baseline: hybrid retrieval + reranking"
+    ]
+  ],
+  "questions_evaluated": 10,
+  "generated_at": "2026-03-10T01:23:59.367605",
+  "evaluations": {
+    "q1_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 1,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 3,
+        "B_useful_top3": 3,
+        "A_direct_count": 7,
+        "B_direct_count": 9,
+        "A_useful_total": 8,
+        "B_useful_total": 9,
+        "best_single_context": "B1"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "two events, A and B, are independent if this relation holds."
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "events A and B are independent"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Two events A and B are said to be independent if P(A B)=P(A)P(B)."
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "by definition, A and B are independent events."
+        },
+        "A5": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "A and B complement are also independent."
+        },
+        "A6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "equality that's required by the definition of independence"
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Definition of independence: P(A n B) = (A) P( )"
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Formal definition of independence: Two events A and B are independent if P(A \u2229 B) = P(A)\u22c5P(B)"
+        },
+        "A9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "probability of A intersection with B complement is the product"
+        },
+        "A10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Definition of independence: P (A n B) = P (A) . PCB)"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Formal definition of independence: Two events A and B are independent if P(A \u2229 B) = P(A)\u22c5P(B)"
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "two events, A and B, are independent if this relation holds."
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Two events A and B are said to be independent if P(A B)=P(A)P(B)."
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "events A and B are independent if P(A\u2229B) = P(A)P(B)."
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Definition of independence: p eA n B) = p eA) . PCB)"
+        },
+        "B6": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "probability of A and B complement occurring together is the product"
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "two events A and B are independent if they satisfy P(A and B)=P(A)\u00d7P(B)."
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Formal definition of independence: Two events A and B are independent if P(A \u2229 B) = P(A)\u22c5P(B)"
+        },
+        "B9": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "by definition, A and B are independent events."
+        },
+        "B10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Definition of independence: P (A n B) = P (A) . P CB)"
+        }
+      },
+      "reasoning": "Technique B retrieved more direct contexts overall (9 vs 7) and had a stronger top 3, with all three contexts directly stating the formal definition and equation. While Technique A also performed well, Technique B was slightly more consistent in providing the exact answer required by the question."
+    },
+    "q2_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 2,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 1,
+        "B_useful_top3": 3,
+        "A_direct_count": 5,
+        "B_direct_count": 6,
+        "A_useful_total": 10,
+        "B_useful_total": 10,
+        "best_single_context": "B7"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P(K|C) = P(C|K)P(K) / P(C). Law of total prob.: P(C) = P(C|K)P(K) + P(C|K^c)P(K^c)"
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Law of Total Probability... P(A) = P(A|B1)P(B1)+P(A|B2)P(B2)+P(A|B3)P(B3)"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "The law of total probability tells us P(D1) is the sum of the Bayes numerator"
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "denominator must be equal to the integral of the numerator"
+        },
+        "A5": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Law of total probability: If B1, B2, B3 partition S then P(A) = P(A|B1)P(B1) + P(A|B2)P(B2) + P(A|B3)P(B3)"
+        },
+        "A6": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "use the total probability theorem to calculate the denominator term"
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Bayes: P(C | D) = (P(D | C)P(C)) /P(D). Hint (formula): P(D) = \u2211P(D | i)P(i)."
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P(D+|T+) = P(T+|D+)P(D+) / (P(T+|D+)P(D+)+P(T+|D-)P(D-))"
+        },
+        "A9": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "f(theta|x)dtheta = p(x|theta)f(theta)dtheta / p(x)"
+        },
+        "A10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Theorem. Bayes\u2019 Theorem... f(theta|x)dtheta = p(x|theta)f(theta)dtheta / (\u222b p(x|theta)f(theta)dtheta)"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P(B|A) = P(A|B)P(B) / P(A). In practice, P(A) is often computed using the law of total probability."
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P(has BC | mammogram+) = P(mammogram+ | has BC)P(has BC) / (P(mammogram+ | no BC)P(no BC)+P(mammogram+ | has BC)P(has BC))"
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Bayes\u2019 theorem says, e.g. P(A|D) = P(D|A)P(A) / P(D). The denominator P(D) is computed using the law of total probability"
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "The denominator is exactly what we calculate using the total probability theorem."
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "f(theta|x)dtheta = P(H|D) = p(x|theta)f(theta)dtheta / p(x)"
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P(E |A) = P(A | E)P(E) / (P(A |E)P(E) + P(A |Ec)P(Ec)). The denominator is computed using the law of total probability"
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P(Ai|B) = P(Ai)P(B|Ai) / (Sum[P(Aj)P(B|Aj)])"
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Law of total probability: If B1, B2, B3 partition S then P(A) = P(A|B1)P(B1) + P(A|B2)P(B2) + P(A|B3)P(B3)"
+        },
+        "B9": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "use the total probability theorem to calculate the denominator term"
+        },
+        "B10": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "denominator must be equal to the integral of the numerator"
+        }
+      },
+      "reasoning": "Technique B is superior because it provides more direct answers, especially in the top results. Its top three contexts (B1, B2, B3) all clearly state Bayes' Rule and explicitly identify the Law of Total Probability in the denominator, often with the expanded formula. While Technique A also has several direct answers, they are not as consistently present in the top positions, and B7 offers the most general and comprehensive formula."
+    },
+    "q3_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 3,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 3,
+        "B_useful_top3": 3,
+        "A_direct_count": 4,
+        "B_direct_count": 9,
+        "A_useful_total": 6,
+        "B_useful_total": 10,
+        "best_single_context": "B3"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "for the variance, we had an alternative formula... use linearity."
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "var(X) = E[X ] - (E[X])2"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "A useful formula: va r (X) = E [X J - (E [XJ)2"
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Theorem: Var(\ud835\udc4b) = \ud835\udc38[\ud835\udc4b2]\u2212\ud835\udc38[\ud835\udc4b]2"
+        },
+        "A5": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "var(X) = E [( X - E[X])2 ]"
+        },
+        "A6": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "minus the square of the expected value of X"
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "alternative formula in which the variance is calculated by finding the expected value"
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "A useful formula: va r(X) = E [X2] - (E [X])2"
+        },
+        "A9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "calculate the variance of the conditional expectation"
+        },
+        "A10": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "turn to the conditional variance of X given Y"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Var(\ud835\udc4b) = \ud835\udc38[\ud835\udc4b2]\u2212\ud835\udc38[\ud835\udc4b]2."
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "alternative formula in which the variance is calculated by finding the expected value"
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Using linearity of expectations, this is broken down"
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Theorem: Var(\ud835\udc4b) = \ud835\udc38[\ud835\udc4b2]\u2212\ud835\udc38[\ud835\udc4b]2"
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "A useful formula: va r(X) = E [X2] - (E [X])2"
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "var(X)=E[X2] - E[X]2"
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "A useful formula: va r (X) = E [X J - (E [XJ)2"
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Var(\ud835\udc4b) = \ud835\udc38[\ud835\udc4b2] \u2212 \ud835\udc38[\ud835\udc4b]2"
+        },
+        "B9": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "expected value of X squared minus the square of the expected value"
+        },
+        "B10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "A usefu form la: var(X) - E x2] _ ( [X] )2"
+        }
+      },
+      "reasoning": "Technique B is the clear winner. It provided significantly more direct contexts for the variance formula. Crucially, B3 explicitly named 'linearity of expectations' as the key property used in the derivation, which was a specific part of the question that Technique A did not answer as directly or explicitly."
+    },
+    "q4_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 4,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 3,
+        "B_useful_top3": 3,
+        "A_direct_count": 5,
+        "B_direct_count": 9,
+        "A_useful_total": 7,
+        "B_useful_total": 10,
+        "best_single_context": "A2"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "disjoint and cover all of \u03a9... partition of \u03a9"
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "denominator is exactly what we calculate using the total probability theorem"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "denominator term... determined by using a suitable version of the total probability theorem"
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "events cover the entire sample, space and they're disjoint"
+        },
+        "A5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "disjoint events that form a partition of the sample space"
+        },
+        "A6": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "continuous sample space"
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P( Ai B ) = P (A ,) P ( B A ,) / Lj P (A j )P (B A j )"
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "denominator term which needs to be evaluated... using a suitable version of the total probability theorem"
+        },
+        "A9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "law of total probability tells us P (D1) is the sum"
+        },
+        "A10": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "systematic way for incorporating new evidence... Bayesian inference"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "disjoint events that form a partition of the sample space"
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "disjoint from each other, and together they form the event B"
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "denominator is exactly what we calculate using the total probability theorem"
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "disjoint and cover all of \u03a9... partition of \u03a9"
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P( Ai B ) = P (A ,) P ( B A ,) / Lj P (A j )P (B A j )"
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "If B_1, B_2, B_3 partition S then P(A) = P(A|B_1)P(B_1) + ..."
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "sample space \u03a9 is divided into 3 disjoint events"
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "disjoint events that form a partition of the sample space"
+        },
+        "B9": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "P( Ai B ) = P (A ,) P ( B A ,) / Lj P (A j )P (B A j )"
+        },
+        "B10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "disjoint events... form a partition of the sample space... exhaust all possibilities"
+        }
+      },
+      "reasoning": "Technique B provided a significantly higher number of direct contexts that explain both the derivation of Bayes' Rule using the Law of Total Probability and the necessary assumptions for the partition of the sample space. While both techniques had strong top-3 contexts, Technique B's overall set of direct answers was more comprehensive for the question."
+    },
+    "q5_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 5,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 3,
+        "B_useful_top3": 3,
+        "A_direct_count": 3,
+        "B_direct_count": 4,
+        "A_useful_total": 10,
+        "B_useful_total": 9,
+        "best_single_context": "B2"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "introduce an extension, the concept of conditional independence."
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "independence does not imply conditional independence."
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "mathematical definition, and the interpretation is that conditional probabilities are the same"
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Conditional independence is defined as ordinary independence but with respect to the conditional probabilities."
+        },
+        "A5": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Two events are independent if the occurrence of one event does not change our beliefs"
+        },
+        "A6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "two events, A and B, are independent if this relation holds."
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "example in which we have two events that are independent but become dependent"
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "probability of their intersection is the product of their individual probabilities."
+        },
+        "A9": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "formal definition is symmetric with respect to the roles of A and B."
+        },
+        "A10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Conditional independence, given C, is defined as independence under the probability law P( \u2022 | C)"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Conditional independence is defined as ordinary independence but with respect to the conditional probabilities."
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Independence does not imply conditional independence, and vice versa."
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "example in which we have two events that are independent but become dependent"
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Conditional independence, given C, is defined as independence under the probability law P( \u2022 | C)"
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Conditional independence, given C, is defined as independence under the probability law P( \u2022 | C)"
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "formal definition is symmetric with respect to the roles of A and B."
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "introduced the notion of conditional independence. And we said that conditional independence is the same as ordinary independence"
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "\ud835\udc34 is independent of \ud835\udc35 if \ud835\udc43(\ud835\udc34|\ud835\udc35) = \ud835\udc43(\ud835\udc34)."
+        },
+        "B9": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Formal definition of independence: Two events \ud835\udc34 and \ud835\udc35 are independent if \ud835\udc43(\ud835\udc34 \u2229 \ud835\udc35) = \ud835\udc43(\ud835\udc34)\u22c5\ud835\udc43(\ud835\udc35)"
+        },
+        "B10": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "H1, H2, and C are pairwise independent, but they're not independent"
+        }
+      },
+      "reasoning": "Technique B retrieved more direct contexts (4 vs 3) and had a stronger top-3, with two direct contexts (B1, B2) compared to Technique A's one direct context (A4). Context B2 is particularly strong as it provides both mathematical definitions and explicitly states the 'vice versa' relationship, directly addressing the scenario part of the question."
+    },
+    "q6_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 6,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 1,
+        "B_useful_top3": 3,
+        "A_direct_count": 7,
+        "B_direct_count": 9,
+        "A_useful_total": 8,
+        "B_useful_total": 9,
+        "best_single_context": "B2"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "p is very small...n is pretty big...n times p is 100"
+        },
+        "A2": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "reconcile these two facts? Poisson distribution is not the same as a normal"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "p going to 0 or n going to infinity"
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n times p...to stay constant, but we let n go to infinity and p go to 0"
+        },
+        "A5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "large number of slots, small probability of success...lambda remains constant"
+        },
+        "A6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "binomial PMF converges to a Poisson PMF when we take the limit"
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n is large, p is small, and \u03bb=np"
+        },
+        "A8": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "Poisson process is a limiting case of the Bernoulli process"
+        },
+        "A9": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n -> infinity and p = \u03bb/n, while keeping \u03bb constant"
+        },
+        "A10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n goes to infinity, p goes to 0 so that their product stays constant"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n goes to infinity and p goes to 0, is given by this formula"
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n goes to infinity, p goes to 0 so that their product stays constant"
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n times p...to stay constant, but we let n go to infinity and p go to 0"
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "expected value of the binomial random variable is n times p"
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n -> infinity and p = \u03bb/n, while keeping \u03bb constant"
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "large n , small p, moderate A = np"
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n goes to infinity, p goes to 0 so that their product stays constant"
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "n is large, p is small, and \u03bb=np"
+        },
+        "B9": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "large number of slots, small probability of an arrival...lambda remains constant"
+        },
+        "B10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "large number of time slots but a very small probability"
+        }
+      },
+      "reasoning": "Technique B retrieved more useful and direct contexts overall, with a significantly stronger performance in the top 3 positions. Contexts B2 and B3 directly and comprehensively answer both parts of the question regarding limiting conditions and parameter behavior."
+    },
+    "q7_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 7,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 1,
+        "B_useful_top3": 3,
+        "A_direct_count": 3,
+        "B_direct_count": 4,
+        "A_useful_total": 5,
+        "B_useful_total": 6,
+        "best_single_context": "B1"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "Derivation , based on the expected value rule"
+        },
+        "A2": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "expected value of the product of two functions of independent random variables"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "The expected value of a sum is the sum of the expected values."
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "application of the expected value rule to this particular function"
+        },
+        "A5": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "expectation of the product of independent random variables is the product"
+        },
+        "A6": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "This is the linearity property of expectation in one particular example."
+        },
+        "A7": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "independence leads to some additional nice properties of means"
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "does not require any independence assumptions"
+        },
+        "A9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "if the two random variables are independent... covariance... is going to be 0"
+        },
+        "A10": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "This property is true for linear functions."
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "does not require any independence assumptions"
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Expectation behaves linearly even when the variables are dependent."
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "application of the expected value rule to this particular function"
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Expectation behaves linearly even when the variables are dependent."
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "This is the linearity property of expectation in one particular example."
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "The expected value of a sum is the sum of the expected values."
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Linearity of expectation: E[aX b] aE[X] b"
+        },
+        "B8": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "consider what happens to the variance"
+        },
+        "B9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "if the two random variables are independent... covariance... is going to be 0"
+        },
+        "B10": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "covariances behave linearly."
+        }
+      },
+      "reasoning": "Technique B retrieved significantly better, especially in its top results. B1, B2, and B3 directly address the question by explicitly stating that independence is not required and providing the derivation based on the definition of expectation. Technique A's most direct contexts (A3, A4, A8) were not as well-ranked, with A1 and A2 being irrelevant."
+    },
+    "q8_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 8,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 3,
+        "B_useful_top3": 3,
+        "A_direct_count": 4,
+        "B_direct_count": 6,
+        "A_useful_total": 6,
+        "B_useful_total": 8,
+        "best_single_context": "B2"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "This is the Memorylessness property."
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "recognized an important memorylessness property that it possesses."
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "the remaining number of tosses has the same geometric PMF"
+        },
+        "A4": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "Another common definition for the geometric distribution is the number of tosses"
+        },
+        "A5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "The memorylessness of the exponential distribution is analogous to the memorylessness of the (discrete) geometric distribution"
+        },
+        "A6": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "If X is geometric with parameter p, and N is geometric with parameter q"
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Conditioned on X> n , X - n is geometric with parameter p"
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Interarrival Time Oistr. Exponential GeometriC"
+        },
+        "A9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "Geometric \u2022 Random variable X. number of heads observed"
+        },
+        "A10": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "The random variable \ud835\udc4b follows a geometric distribution with parameter \ud835\udc5d"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "This is the Memorylessness property."
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Show that \ud835\udc3a\ud835\udc52\ud835\udc5c\ud835\udc5a\ud835\udc52\ud835\udc61\ud835\udc5f\ud835\udc56\ud835\udc50(\ud835\udc5d) is memoryless, i.e. \ud835\udc43(\ud835\udc4b = \ud835\udc5b + \ud835\udc58 |\ud835\udc4b \u2265 \ud835\udc5b) = \ud835\udc43(\ud835\udc4b = \ud835\udc58)"
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "the remaining number of tosses has the same geometric PMF"
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "The memorylessness of the exponential distribution is analogous to the memorylessness of the (discrete) geometric distribution"
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "the conditional PMF of the remaining number of tosses should be, again, the same."
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "recognized an important memorylessness property that it possesses."
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "conditioned on X being larger than 1, the random variable X minus 1... has a geometric distribution"
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "the exponential random variable is a close analog of the geometric random variable"
+        },
+        "B9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "because the process starts fresh, whatever happens in the future after this time is independent"
+        },
+        "B10": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "the exponential distribution has the additional property that it is memoryless."
+        }
+      },
+      "reasoning": "Technique B provided more direct and overall useful contexts. Specifically, B2 offered a concise mathematical definition of memorylessness for the geometric distribution and explicitly prompted for its explanation, which directly addresses both parts of the question. Technique B also had more direct contributions in its top results."
+    },
+    "q9_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 9,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner_code": "B",
+      "comparison": {
+        "A_useful_top3": 2,
+        "B_useful_top3": 3,
+        "A_direct_count": 5,
+        "B_direct_count": 7,
+        "A_useful_total": 9,
+        "B_useful_total": 10,
+        "best_single_context": "B1"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "TANGENTIAL",
+          "key_quote": "introduce the notion of a random variable"
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "the conditional variance of X given Y... is a random variable"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "uppercase letters... random variables... lower case letters... numerical values"
+        },
+        "A4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Before we know the value of capital Y, then this quantity is not known. It's random. It's a random variable."
+        },
+        "A5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "This quantity here is really a function of little y... g of capital Y, we call it the abstract conditional expectation... stands for a random variable."
+        },
+        "A6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "We have fixed some particular little y. Calculate this quantity. And what we get is a number."
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "This is the random variable that takes this specific numerical value whenever Y takes little y."
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "capital W as a procedure that takes a student... produces a number, little w"
+        },
+        "A9": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "This is an equality between numbers... this is the random variable which takes this specific value when capital Y happens to be equal to little y."
+        },
+        "A10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "E[X y = y ] = y over 2. This is an equality between numbers... E[X Y] is a random variable."
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "This quantity here is really a function of little y... g of capital Y, we call it the abstract conditional expectation... stands for a random variable."
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "E[X y = y ] = y over 2. This is an equality between numbers... E[X Y] is a random variable."
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "This is an equality between numbers... this is an equality between random variables."
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "We have fixed some particular little y. Calculate this quantity. And what we get is a number."
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "this random variable takes this value... g of Y, takes on this particular numerical value."
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "This is an equality between numbers... this is the random variable which takes this specific value when capital Y happens to be equal to little y."
+        },
+        "B7": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "This is the random variable that takes this specific numerical value whenever Y takes little y."
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "g(y) = E[X Y = y]... g(Y) : is the r.v. that takes the value E[X Y = y], if Y happens to take the value y"
+        },
+        "B9": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "This is an equality between numbers... this has been defined as a random variable."
+        },
+        "B10": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Once we know the value of capital Y, then this quantity takes a specific value. But before we know the value of capital Y, then this quantity is not known. It's random. It's a random variable."
+        }
+      },
+      "reasoning": "Technique B retrieved more useful and direct contexts overall, with a significantly stronger performance in the top 3 results. B1, B2, and B3 are all highly direct and clearly explain the conceptual difference, whereas Technique A's top results are less focused on the core question. B also includes a very concise summary in B8."
+    },
+    "q10_rag_results_recursive_20260301_041934_vs_Week 3 baseline: hybrid retrieval + reranking": {
+      "question_id": 10,
+      "technique_a": "rag_results_recursive_20260301_041934",
+      "technique_b": "Week 3 baseline: hybrid retrieval + reranking",
+      "winner": "rag_results_recursive_20260301_041934",
+      "winner_code": "A",
+      "comparison": {
+        "A_useful_top3": 3,
+        "B_useful_top3": 3,
+        "A_direct_count": 5,
+        "B_direct_count": 4,
+        "A_useful_total": 7,
+        "B_useful_total": 7,
+        "best_single_context": "A5"
+      },
+      "context_analysis": {
+        "A1": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Make a Bayes table with prior, likelihood and posterior."
+        },
+        "A2": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "ProvethatyouwillimproveyourchancetowintheMercedesifyouchangeyourchoice"
+        },
+        "A3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Make a Bayes table with prior, likelihood and posterior."
+        },
+        "A4": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "calculate the expected value of X squared."
+        },
+        "A5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "probability represents the uncertainty of our knowledge."
+        },
+        "A6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "compute the probability of winning if you always switch."
+        },
+        "A7": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Bayes\u2019 Theorem... Allows you to find P(A|B) from P(B|A)"
+        },
+        "A8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Shelby should switch to door C, since the posterior probability"
+        },
+        "A9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "Let X be the number of people who get their own hat back."
+        },
+        "A10": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "I have five dice (4, 6, 8, 12, or 20 sides)"
+        },
+        "B1": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Make a Bayes table with prior, likelihood and posterior."
+        },
+        "B2": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Make a Bayes table with prior, likelihood and posterior."
+        },
+        "B3": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "compute the probability of winning if you always switch."
+        },
+        "B4": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "A common mistake is to confuse P(A|B) and P(B|A)."
+        },
+        "B5": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "probability represents the uncertainty of our knowledge."
+        },
+        "B6": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "Shelby should switch to door C, since the posterior probability"
+        },
+        "B7": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "The conditional probability is the ratio, first, of the probability"
+        },
+        "B8": {
+          "verdict": "USEFUL",
+          "contribution": "DIRECT",
+          "key_quote": "switching gives a probability of 17/27 of winning."
+        },
+        "B9": {
+          "verdict": "NOT_USEFUL",
+          "contribution": "NONE",
+          "key_quote": "H1, H2, and C are pairwise independent, but they're not independent"
+        },
+        "B10": {
+          "verdict": "USEFUL",
+          "contribution": "SUPPORTING",
+          "key_quote": "Organize the Monty Hall problem into a tree and compute the probability"
+        }
+      },
+      "reasoning": "Technique A provided more direct contexts (5 vs 4) that specifically addressed both parts of the question, particularly A2 which explicitly asks for a proof of improved chances. While both techniques had excellent shared contexts like A5/B5, Technique A's overall set of direct answers was slightly stronger for this specific question."
+    }
+  },
+  "win_counts": {
+    "rag_results_recursive_20260301_041934": 1,
+    "Week 3 baseline: hybrid retrieval + reranking": 9
+  }
+}

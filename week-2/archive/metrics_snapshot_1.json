@@ -1,0 +1,121 @@
+{
+  "questions": {
+    "count": 10,
+    "types": {
+      "factoid": 3,
+      "analytical": 4,
+      "conceptual": 3
+    }
+  },
+  "eval": {
+    "file": "hybrid_chunk_eval_20260301_211714.json",
+    "model": "gpt-4o-mini",
+    "method": "hybrid_two_stage",
+    "strategies": [
+      "recursive",
+      "semantic",
+      "hybrid"
+    ],
+    "questions_evaluated": 10,
+    "first_place": {
+      "recursive": 6,
+      "hybrid": 3,
+      "semantic": 1
+    },
+    "rank_counts": {
+      "recursive": {
+        "1st": 6,
+        "2nd": 3,
+        "3rd": 1
+      },
+      "semantic": {
+        "2nd": 4,
+        "3rd": 5,
+        "1st": 1
+      },
+      "hybrid": {
+        "3rd": 4,
+        "2nd": 3,
+        "1st": 3
+      }
+    },
+    "stage1_avg": {
+      "recursive": {
+        "avg_signal_pct": 54.2,
+        "avg_cut_mid_answer_count": 0.1,
+        "avg_high_useful_count": 2.7
+      },
+      "semantic": {
+        "avg_signal_pct": 46.4,
+        "avg_cut_mid_answer_count": 0.0,
+        "avg_high_useful_count": 1.5
+      },
+      "hybrid": {
+        "avg_signal_pct": 51.6,
+        "avg_cut_mid_answer_count": 0.0,
+        "avg_high_useful_count": 2.1
+      }
+    }
+  },
+  "rag": {
+    "recursive": {
+      "questions": 10,
+      "lat_avg": 11.696,
+      "lat_median": 12.345,
+      "lat_max": 15.78,
+      "top1_avg": 0.7953
+    },
+    "semantic": {
+      "questions": 10,
+      "lat_avg": 9.151,
+      "lat_median": 8.565,
+      "lat_max": 16.97,
+      "top1_avg": 0.7979
+    },
+    "hybrid": {
+      "questions": 10,
+      "lat_avg": 20.641,
+      "lat_median": 13.075,
+      "lat_max": 91.58,
+      "top1_avg": 0.6676
+    }
+  },
+  "week1_trace": {
+    "queries": 5,
+    "lat_avg": 8.468,
+    "lat_median": 7.97,
+    "retrieval_count_avg": 5.0,
+    "answer_length_avg": 1341.4
+  },
+  "manifest": {
+    "files_selected": 459,
+    "reduction_percentage": 0.65,
+    "content_types": {
+      "documentation": 459
+    },
+    "word_stats": {
+      "count_measured": 459,
+      "missing": 0,
+      "min": 36,
+      "max": 62950,
+      "median": 985,
+      "mean": 1582.5,
+      "stdev": 3958.2,
+      "lt_200": 8,
+      "gt_1000": 224,
+      "gt_2000": 50
+    }
+  },
+  "ignore_status": {
+    "archive/": true,
+    "rag_results/": true,
+    "data/raw/": true,
+    "data/processed/": true,
+    "*.parquet": true,
+    "*.csv": true,
+    "*.npy": true,
+    "*.bin": true,
+    "prequalify.py": true,
+    "week2_submission_guidelines.md": true
+  }
+}

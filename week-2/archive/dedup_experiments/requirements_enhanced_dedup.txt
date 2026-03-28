@@ -1,0 +1,10 @@
+sentence-transformers
+scikit-learn
+fuzzywuzzy
+nltk
+torch
+numpy
+tqdm
+haystack-ai-integrations
+farm-haystack
+pip install fastembed-haystack

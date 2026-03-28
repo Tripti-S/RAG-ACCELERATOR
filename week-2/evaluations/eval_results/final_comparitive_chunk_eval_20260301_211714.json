@@ -1,0 +1,2310 @@
+{
+  "saved_at": "2026-03-01T21:27:39.377615",
+  "evaluation_method": "hybrid_two_stage",
+  "model": "gpt-4o-mini",
+  "strategies": [
+    "recursive",
+    "semantic",
+    "hybrid"
+  ],
+  "questions_evaluated": 10,
+  "results": [
+    {
+      "question_id": 1,
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear definition of independence between events A and B."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses independence but lacks a formal definition."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 90,
+              "useful": "high",
+              "note": "This chunk contains a formal definition of independence with the relevant equation."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses independence in the context of random variables but does not provide a formal definition."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk provides some insights into independence but lacks a formal definition."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk reiterates the definition of independence but is somewhat repetitive."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence and conditional independence but lacks a formal definition."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear formal definition of independence with the relevant equation."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the implications of independence but does not provide a formal definition."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence and conditional independence but lacks a formal definition."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 63,
+            "high_useful_count": 4,
+            "assessment": "Most chunks provide relevant information about independence, with several offering formal definitions. However, some chunks contain less relevant content, making them less useful overall."
+          }
+        },
+        "semantic": {
+          "strategy": "semantic",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear explanation of independence and the relevant equation."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence but lacks the formal equation."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk includes the definition of independence but is somewhat fragmented."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses independence of complements but does not focus on the main definition."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 90,
+              "useful": "high",
+              "note": "This chunk provides a clear formal definition of independence with the relevant equation."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses independence but lacks a clear definition."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk provides some context but does not directly address the definition."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant to the question about independence."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses the implications of independence but lacks the formal definition."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant and does not contribute to the definition."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 54,
+            "high_useful_count": 2,
+            "assessment": "Most chunks provide some relevant information about independence, but only a few contain the formal definition and equation. The chunks that do provide high usefulness for answering the question."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "The chunk introduces the concept of independence but does not provide the formal definition as an equation."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence in terms of multiple events but lacks the specific equation for two events."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "It reiterates the concept of independence but does not present the formal equation."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "low",
+              "note": "This chunk discusses independence of random variables rather than events, which is less relevant."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "It provides insights into independence but does not include the formal definition."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant to the question about independence between two events."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses conditional independence and independence of several events, which is not directly relevant."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk focuses on an example that illustrates independence but does not provide the formal definition."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear explanation of independence and includes the formal definition as an equation."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "It discusses independence in terms of PMF notation but does not clearly state the formal definition."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 52,
+            "high_useful_count": 1,
+            "assessment": "Most chunks provide some context about independence but only one chunk (9) directly answers the question with the formal definition. The overall relevance is moderate, with many chunks discussing related concepts rather than the specific definition sought."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "RECURSIVE",
+          "2nd": "SEMANTIC",
+          "3rd": "HYBRID"
+        },
+        "reasoning": "The RECURSIVE strategy provides the highest average signal percentage (63%) and includes multiple chunks that directly address the formal definition of independence, making it the most effective for answering the question. The SEMANTIC strategy, while having a lower average signal percentage (54%), still contains relevant information but lacks the depth found in the RECURSIVE strategy. The HYBRID strategy, with the lowest average signal percentage (52%) and fewer useful chunks, is less effective overall.",
+        "key_insight": "The deciding factor was the RECURSIVE strategy's ability to deliver a higher concentration of relevant content directly related to the formal definition of independence, which is crucial for accurately answering the question."
+      }
+    },
+    {
+      "question_id": 2,
+      "question": "Write the formula for Bayes\u00e2\u20ac\u2122 Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear explanation of Bayes' Rule and the Law of Total Probability."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the Law of Total Probability but is less focused on Bayes' Rule."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk contains some relevant information but is primarily focused on other problems."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk mentions the Law of Total Probability but lacks a clear connection to Bayes' Rule."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is mostly about other probability concepts and does not focus on Bayes' Rule."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses the denominator in Bayes' Rule but is somewhat general."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is primarily about independence and does not focus on Bayes' Rule."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses probabilities but does not provide a clear explanation of Bayes' Rule."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk provides some relevant information about Bayes' theorem in the context of continuous variables."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses Bayes' theorem but is more focused on continuous probability densities."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 43,
+            "high_useful_count": 1,
+            "assessment": "Most chunks provide some relevant information about Bayes' Rule and the Law of Total Probability, but only a few are highly useful. The first chunk is particularly strong, while others vary in relevance."
+          }
+        },
+        "semantic": {
+          "strategy": "semantic",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk mentions Bayes' rule but does not provide the formula or relevant details."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses Bayes' rule and the law of total probability but lacks a clear formula."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk provides an example of Bayes' rule but does not explicitly state the formula."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk explains the application of Bayes' rule and the law of total probability but lacks the formula."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses the law of total probability but does not mention Bayes' rule."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk is too vague and does not provide relevant information."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses Bayes' rule and the law of total probability but does not provide the formula."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is focused on indicator functions and does not relate to Bayes' rule."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses Bayes' rule and the law of total probability but lacks a clear formula."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses Bayes' rule and the law of total probability but does not provide the formula."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 45,
+            "high_useful_count": 0,
+            "assessment": "Most chunks provide some relevant information about Bayes' rule and the law of total probability but do not clearly present the formula. Overall, the chunks are somewhat useful but lack completeness in addressing the question."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "The chunk discusses Bayes' rule and the total probability theorem but lacks a clear formula."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk mentions Bayes' theorem and the law of total probability but does not provide the formula."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a detailed explanation of Bayes' rule and its components, including the role of the law of total probability."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "The chunk introduces Bayes' rule but does not explicitly state the formula."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses the law of total probability but does not provide the Bayes' rule formula."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "The chunk provides an example of applying Bayes' rule but lacks a clear formula."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses conditional probabilities but does not focus on Bayes' rule."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "The chunk provides a definition of conditional probability but is not relevant to Bayes' rule."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses the multiplication rule and the law of total probability but lacks the Bayes' rule formula."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "The chunk discusses an example involving conditional probabilities but does not provide Bayes' rule."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 48,
+            "high_useful_count": 1,
+            "assessment": "Most chunks provide some context about Bayes' rule and the law of total probability, but only a few contain relevant information that directly answers the question. The chunks would benefit from clearer articulation of the Bayes' rule formula."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "RECURSIVE",
+          "2nd": "HYBRID",
+          "3rd": "SEMANTIC"
+        },
+        "reasoning": "The RECURSIVE strategy provided the highest average signal percentage (43%) and included a strong chunk that clearly explained Bayes' Rule and the Law of Total Probability. The HYBRID strategy, while slightly lower in average signal (48%), still contained useful information but lacked the clarity of the RECURSIVE chunks. The SEMANTIC strategy, despite having some relevant information, failed to present the formula clearly and had the lowest useful count, making it less effective for answering the question.",
+        "key_insight": "The deciding factor was the clarity and relevance of the chunks in the RECURSIVE strategy, which directly addressed the question about Bayes' Rule and the Law of Total Probability."
+      }
+    },
+    {
+      "question_id": 3,
+      "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses covariance and its properties, which are not directly relevant to the variance formula."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk focuses on conditional expectation and variance, lacking direct relevance to the variance formula."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides the formula for variance in terms of expected values, directly addressing the question."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses variance and its properties, including the formula, but is somewhat general."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk touches on conditional variance and expectations, which are somewhat relevant but not directly answering the question."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses variance calculations but does not provide the formula or relevant details."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk mentions the alternative formula for variance, which is relevant but lacks depth."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses variance properties and definitions, but does not focus on the formula itself."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses conditional expectations and variances, which are not directly relevant to the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk focuses on conditional expectations and variances, lacking direct relevance to the variance formula."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 43,
+            "high_useful_count": 1,
+            "assessment": "Most chunks do not provide significant relevant content for the question about the variance formula. Only one chunk directly addresses the formula, while others discuss related concepts without focusing on the key elements needed."
+          }
+        },
+        "semantic": {
+          "strategy": "SEMANTIC",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "The chunk discusses conditional expectation and variance but does not explicitly state the shortcut formula for variance."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk focuses on the variance of conditional expectations but does not address the shortcut formula for variance."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "The chunk mentions conditional variance but lacks the specific formula for variance."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses conditional expectations and variance but does not provide the shortcut formula."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "The chunk describes a specific example but does not include the shortcut formula for variance."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the variance formula and touches on the shortcut formula derivation."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk provides examples of variance but does not address the shortcut formula."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "The chunk discusses variance in a specific context but does not provide the shortcut formula."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk discusses conditional expectations but does not include the shortcut formula."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "The chunk discusses variance calculations but does not provide the shortcut formula."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 30,
+            "high_useful_count": 0,
+            "assessment": "Most chunks do not provide the shortcut formula for variance, and the relevant content is minimal. The chunks primarily discuss conditional expectations and variance without directly addressing the question."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "The chunk discusses the law of iterated expectations and variance but does not explicitly state the shortcut formula."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides the shortcut formula for variance and mentions the expected value rule."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk introduces random variables and expectations but does not address the question directly."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk discusses conditional variance but does not provide relevant information for the question."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk defines variance but does not include the shortcut formula."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk mentions variance in a specific context but lacks relevant details for the question."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk reiterates the definition of variance but does not provide the shortcut formula."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 90,
+              "useful": "high",
+              "note": "This chunk clearly states the shortcut formula for variance and the property of expectation used."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses the law of total variance but does not provide the shortcut formula."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk discusses conditional expectation and variance but does not address the question directly."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 45,
+            "high_useful_count": 3,
+            "assessment": "The analysis reveals that while some chunks provide relevant information, only a few directly address the shortcut formula for variance. Chunks 2 and 8 are particularly useful for answering the question."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "HYBRID",
+          "2nd": "RECURSIVE",
+          "3rd": "SEMANTIC"
+        },
+        "reasoning": "The HYBRID strategy provided the highest average signal percentage (45%) and included multiple chunks that directly addressed the shortcut formula for variance, making it the most effective for answering the question. The RECURSIVE strategy, while having a high signal in one chunk, had many irrelevant chunks that diluted its overall effectiveness. The SEMANTIC strategy had the lowest signal percentage and did not provide the necessary formula, making it the least effective.",
+        "key_insight": "The deciding factor was the HYBRID strategy's ability to balance relevant content with fewer irrelevant chunks, directly addressing the question about the variance formula."
+      }
+    },
+    {
+      "question_id": 4,
+      "question": "Explain how the Law of Total Probability is used to derive Bayes\u00e2\u20ac\u2122 Rule. Specify the assumption about the events involved in the partition of the sample space.",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear example of using the law of total probability to derive Bayes' Rule."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the partitioning of the sample space and the revision of beliefs, relevant to Bayes' Rule."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk mentions the total probability theorem but lacks a direct connection to Bayes' Rule."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk describes the partitioning of the sample space but does not delve deeply into Bayes' Rule."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is mostly about general probability concepts and does not focus on Bayes' Rule."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk discusses a specific probability calculation unrelated to Bayes' Rule."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk outlines the total probability theorem and Bayes' Rule but lacks depth."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses a version of Bayes' Rule but is somewhat technical."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk contains calculations that are not directly relevant to the derivation of Bayes' Rule."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides historical context and explains the inference aspect of Bayes' Rule."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 50.0,
+            "high_useful_count": 3,
+            "assessment": "The chunks provide a mix of relevant and less relevant content regarding the derivation of Bayes' Rule from the law of total probability. Chunks 1 and 2 are particularly useful, while others provide varying degrees of relevance."
+          }
+        },
+        "semantic": {
+          "strategy": "semantic",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the law of total probability and its application, but does not explicitly derive Bayes' Rule."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk mentions the law of total probability in relation to Bayes' Rule but lacks detailed explanation."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk explains the context of using the law of total probability to revise beliefs but does not derive Bayes' Rule."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk outlines the total probability theorem and Bayes' Rule but lacks a clear derivation."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk provides a brief overview of conditional probability and Bayes' Rule without detailed derivation."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses the law of total probability in the context of Bayes' Rule but does not derive it."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant as it discusses a different example unrelated to Bayes' Rule."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk is a placeholder and does not provide relevant content."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk mentions the law of total probability and Bayes' Rule but lacks a clear derivation."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk is a placeholder and does not provide relevant content."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 43,
+            "high_useful_count": 0,
+            "assessment": "Most chunks provide some context about the law of total probability and Bayes' Rule but lack a clear derivation. The overall relevance is moderate, with no chunks offering a high level of usefulness."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear explanation of how the Law of Total Probability leads to Bayes' Rule, emphasizing the partition of the sample space."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the Total Probability Theorem and its application, which is relevant but less focused on Bayes' Rule specifically."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk explains the partition of the sample space and the calculation of probabilities, which is relevant but not directly about Bayes' Rule."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses conditional probabilities and their properties, which are relevant but not specifically about Bayes' Rule."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "Similar to chunk 4, this chunk discusses properties of conditional probabilities, which are relevant but not directly about Bayes' Rule."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk provides an example of the Total Probability Theorem, which is relevant but does not directly derive Bayes' Rule."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk summarizes the derivation of the total probability of event B, which is relevant but not specifically about Bayes' Rule."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk directly connects the total probability theorem to Bayes' Rule, making it highly relevant."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the application of Bayes' Rule in inference, which is relevant but not focused on its derivation."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a concise summary of Bayes' Rule and its components, making it highly relevant."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 66,
+            "high_useful_count": 4,
+            "assessment": "The chunks provide a mix of relevant information about the Law of Total Probability and Bayes' Rule, with some chunks being highly useful while others are moderately relevant. Overall, the analysis captures the essence of how Bayes' Rule is derived from the Law of Total Probability."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "HYBRID",
+          "2nd": "RECURSIVE",
+          "3rd": "SEMANTIC"
+        },
+        "reasoning": "The Hybrid strategy provides a balanced approach with a high average signal percentage (66%) and a significant number of highly useful chunks (4). This strategy effectively captures the essence of how Bayes' Rule is derived from the Law of Total Probability while minimizing irrelevant content. The Recursive strategy, while also useful, has a lower average signal percentage (50%) and includes some less relevant chunks, making it less effective overall. The Semantic strategy, despite having a moderate signal, lacks a clear derivation and does not provide high usefulness, placing it last.",
+        "key_insight": "The deciding factor was the Hybrid strategy's ability to combine relevant information with a higher signal percentage, ensuring that critical content was retained while avoiding excessive dilution from irrelevant material."
+      }
+    },
+    {
+      "question_id": 5,
+      "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk introduces the concept of independence but lacks a clear definition of conditional independence."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses dependence and conditional independence but does not provide a formal definition."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear definition of independence and discusses its implications."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 75,
+              "useful": "medium",
+              "note": "This chunk defines conditional independence and relates it to independence, but lacks examples."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk emphasizes the difference between independence and disjoint events, which is relevant."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 65,
+              "useful": "medium",
+              "note": "This chunk discusses independence in the context of coin tosses, relevant but not comprehensive."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides an example of conditional independence but does not fully explain the concept."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence of random variables, which is relevant but not directly answering the question."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "low",
+              "note": "This chunk discusses independence but does not add significant value to the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 65,
+              "useful": "medium",
+              "note": "This chunk summarizes independence and conditional independence but lacks depth."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 66,
+            "high_useful_count": 3,
+            "assessment": "The chunks provide a mix of definitions and examples related to independence and conditional independence, but only a few are highly useful. Overall, the content is relevant but lacks comprehensive coverage of the question."
+          }
+        },
+        "semantic": {
+          "strategy": "semantic",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses the difference between independence and conditional independence but lacks a clear mathematical definition."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear definition of independence and introduces conditional independence, making it highly relevant."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk mentions dependence and conditional independence but does not provide definitions."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk explains conditional independence and relates it to independence, but lacks a formal definition."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk gives a clear mathematical definition of independence and discusses its implications."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses independence of collections of events but does not address the main question."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses independence of random variables but does not provide a clear distinction between independence and conditional independence."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk touches on conditional independence but lacks depth and clarity."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence and provides an example, but does not clearly define conditional independence."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk summarizes independence and conditional independence but lacks detailed definitions."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 54,
+            "high_useful_count": 3,
+            "assessment": "The chunks provide a mix of definitions and examples related to independence and conditional independence, with some chunks being more useful than others. Overall, while several chunks contribute to understanding the concepts, not all provide clear definitions or examples of conditional independence."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk introduces the concept of independence but lacks a clear definition of conditional independence."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence in terms of random variables but does not explicitly define conditional independence."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides definitions of independence but does not address conditional independence directly."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk defines conditional independence and explains its relation to independence."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 75,
+              "useful": "high",
+              "note": "This chunk provides examples illustrating the difference between independence and conditional independence."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk defines conditional independence mathematically and discusses its implications."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses independence in a specific example but does not focus on conditional independence."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence and its implications but does not address conditional independence directly."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides a mathematical definition of independence but lacks a discussion on conditional independence."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses independence of random variables but does not address conditional independence."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 66,
+            "high_useful_count": 4,
+            "assessment": "The chunks provide a mix of definitions and examples related to independence and conditional independence, with some chunks being particularly useful for answering the question. However, not all chunks directly address the relationship between the two concepts."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "HYBRID",
+          "2nd": "RECURSIVE",
+          "3rd": "SEMANTIC"
+        },
+        "reasoning": "The Hybrid strategy provides a balanced approach with a high useful count and a good average signal percentage, ensuring that both independence and conditional independence are well-defined and contextualized. The Recursive strategy follows closely, offering a solid mix of definitions and examples, but lacks some depth in explaining the relationship between the two concepts. The Semantic strategy, while informative, has a lower average signal percentage and does not provide as clear definitions or examples, making it less effective for answering the question comprehensively.",
+        "key_insight": "The deciding factor was the Hybrid strategy's ability to present a comprehensive understanding of both independence and conditional independence, along with relevant examples, which is crucial for addressing the nuances of the question."
+      }
+    },
+    {
+      "question_id": 6,
+      "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "Discusses the conditions under which a Poisson approximation is reasonable, but lacks a clear focus on the limiting conditions."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "Explores the relationship between binomial and Poisson distributions but does not explicitly state the limiting conditions."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 65,
+              "useful": "medium",
+              "note": "Describes the behavior of Poisson variables and their relation to normal distributions, relevant but not fully focused on the question."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 75,
+              "useful": "high",
+              "note": "Clearly outlines the conditions for the binomial distribution to approximate the Poisson distribution."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "Discusses the regime where the Poisson approximation applies, emphasizing the relationship between n, p, and \u03bb."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 85,
+              "useful": "high",
+              "note": "Provides a mathematical derivation of the Poisson PMF from the binomial PMF, directly addressing the question."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "Contains definitions and properties of distributions but lacks focus on the limiting conditions."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "Summarizes the differences between Bernoulli and Poisson processes without addressing the question directly."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "Discusses the geometric distribution and arrival times, not relevant to the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "Summarizes the relationship between Bernoulli and Poisson processes but does not clearly state the limiting conditions."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 60.5,
+            "high_useful_count": 4,
+            "assessment": "The chunks provide a mix of relevant information regarding the approximation of the binomial distribution by the Poisson distribution, with some chunks being particularly useful. However, not all chunks are focused on the limiting conditions, which could lead to a less clear understanding of the question."
+          }
+        },
+        "semantic": {
+          "strategy": "semantic",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the conditions under which the Poisson approximation is reasonable but lacks a clear focus on the limiting behavior of parameters."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk mentions the approximation of the binomial PMF by the Poisson PMF but does not elaborate on the limiting conditions."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk clearly outlines the regime for the Poisson approximation, emphasizing the relationship between n, p, and the expected number of successes."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk effectively summarizes the conditions for both Poisson and normal approximations, clarifying the behavior of parameters in the limit."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear conclusion about the convergence of the binomial PMF to the Poisson PMF under specific limits."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses the Poisson process and its relation to the Bernoulli process but lacks specific details on the limiting conditions."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk summarizes the relationship between Bernoulli and Poisson processes but does not focus on the limiting conditions."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses the Poisson random variable but does not provide clear limiting conditions for the approximation."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk focuses on approximating probabilities rather than the limiting conditions for the Poisson approximation."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses the approach to the Poisson process but lacks specific details on the limiting behavior of parameters."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 61,
+            "high_useful_count": 5,
+            "assessment": "The chunks provide a mix of relevant information regarding the limiting conditions for the Poisson approximation of the binomial distribution, with several chunks offering high usefulness. However, some chunks lack focus on the specific parameters' behavior in the limit."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk directly discusses the limit conditions under which the binomial distribution approximates the Poisson distribution."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk touches on the central limit theorem and the relationship between binomial and Poisson distributions, but is less focused on the limiting conditions."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides relevant information about the parameters of the Poisson distribution and the conditions for approximation."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses the central limit theorem but does not focus on the binomial to Poisson approximation."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses the normal approximation and the conditions for both Poisson and normal approximations, but lacks focus on the specific limit conditions."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk clearly outlines the limiting conditions for the binomial to Poisson approximation."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk introduces the Poisson process but does not provide relevant information on the approximation conditions."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk summarizes the relationship between Bernoulli and Poisson processes, but is not focused on the limiting conditions."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk provides some context about the Poisson process but lacks specific information on the approximation."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk discusses properties of the Poisson process but does not address the limiting conditions for approximation."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 48,
+            "high_useful_count": 3,
+            "assessment": "The chunks provide a mix of relevant and less relevant information regarding the limiting conditions for the binomial to Poisson approximation. Chunks 1, 3, and 6 are particularly useful, while others provide less direct information."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "RECURSIVE",
+          "2nd": "SEMANTIC",
+          "3rd": "HYBRID"
+        },
+        "reasoning": "The RECURSIVE strategy provides the highest average signal percentage and a good number of high-utility chunks that directly address the limiting conditions for the Poisson approximation of the binomial distribution. Although it has no cut-offs, the chunks are focused and relevant, making it easier for an LLM to construct a clear and accurate answer. The SEMANTIC strategy, while also useful, has a slightly lower average signal percentage and includes some chunks that lack focus on the specific parameters' behavior in the limit. The HYBRID strategy, with the lowest average signal percentage and fewer high-utility chunks, is less effective in addressing the question.",
+        "key_insight": "The deciding factor was the RECURSIVE strategy's ability to maintain high relevance and clarity in the chunks, which is crucial for accurately answering the question about the limiting conditions of the Poisson approximation."
+      }
+    },
+    {
+      "question_id": 7,
+      "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": true,
+              "signal_pct": 40,
+              "useful": "medium",
+              "note": "The chunk starts with a mathematical expression but lacks a clear explanation of linearity of expectation."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "Discusses independence and its implications for expectations, but does not directly address linearity."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "Provides a derivation of linearity but lacks a clear connection to the independence aspect."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 75,
+              "useful": "medium",
+              "note": "Explains the expected value of sums of random variables, relevant to linearity."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "Defines independence but does not elaborate on its relation to linearity of expectation."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "Clearly explains the linearity property with an intuitive example, relevant to the question."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "Introduces independence but does not focus on linearity of expectation."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "Discusses expectations under independence but does not clarify the linearity aspect."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "Focuses on covariance rather than linearity of expectation."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "Discusses linearity but does not connect it to independence."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 1,
+            "avg_signal_pct": 57,
+            "high_useful_count": 1,
+            "assessment": "Most chunks provide some relevant information about linearity of expectation, but only a few directly address the question. The chunks could be better organized to emphasize the relationship between linearity and independence."
+          }
+        },
+        "semantic": {
+          "strategy": "SEMANTIC",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "Discusses independence and expectations but focuses more on functions rather than the linearity of expectation."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "Provides a general definition of independence but lacks direct relevance to the linearity of expectation."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "Explains the linearity property of expectations but does not explicitly connect it to independence."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "Describes independence and its implications for expectations, relevant but not fully focused on the question."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "Mentions a failure of independence but does not contribute to understanding linearity of expectation."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "Discusses conditional expectations and properties but is not relevant to the question."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "Mentions expected values but does not provide substantial information on linearity or independence."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "Introduces independence but lacks depth on how it relates to expectation."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "Discusses complications in calculating expectations but is not relevant to the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "Directly addresses the relationship between independence and expectations, making it highly relevant."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 38,
+            "high_useful_count": 2,
+            "assessment": "Most chunks provide some context about independence and expectations, but only a few directly address the question of why linearity of expectation does not require independence. Chunk 10 is particularly useful in this regard."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "The chunk discusses the linearity of expectation but does not explicitly address the independence aspect."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk continues discussing linearity but lacks a direct connection to independence."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk explains that linearity of expectation does not require independence, making it highly relevant."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "It mentions linear functions but does not elaborate on independence."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "Discusses linearity with an example but does not focus on independence."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "Mentions linearity and convex functions but lacks a direct link to independence."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "Discusses covariance, which is less relevant to the question about expectation."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "Focuses on independence properties but does not address linearity of expectation."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "Contains definitions and properties of independence but lacks relevance to the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "Discusses independence and functions but does not directly address the question."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 52,
+            "high_useful_count": 1,
+            "assessment": "The chunks provide a mix of relevant and tangential information regarding the linearity of expectation and independence. Chunk 3 is particularly useful, while others provide context but lack direct relevance to the question."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "RECURSIVE",
+          "2nd": "HYBRID",
+          "3rd": "SEMANTIC"
+        },
+        "reasoning": "The RECURSIVE strategy provides a higher average signal percentage and includes chunks that directly address the relationship between linearity of expectation and independence, which is crucial for answering the question. Although it has a higher cut-off count, the relevant content outweighs the structural losses. The HYBRID strategy follows closely, offering a mix of relevant information but with slightly lower signal quality. The SEMANTIC strategy, while having some useful chunks, lacks direct relevance to the question and has the lowest average signal percentage.",
+        "key_insight": "The deciding factor was the RECURSIVE strategy's ability to maintain a higher signal percentage while still addressing the core aspects of the question, despite the presence of cut-offs."
+      }
+    },
+    {
+      "question_id": 8,
+      "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 90,
+              "useful": "high",
+              "note": "This chunk provides a clear explanation of the memoryless property of the geometric distribution with relevant examples."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk mentions the memorylessness property but focuses more on continuous random variables."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 75,
+              "useful": "medium",
+              "note": "This chunk discusses the variance of the geometric PMF and references memorylessness, but is less focused on the property itself."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk provides a definition of the geometric distribution but lacks depth on the memoryless property."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk compares the memorylessness of the geometric distribution to that of the exponential distribution, providing some relevant context."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk discusses properties of sums of random variables and does not focus on memorylessness."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk touches on memorylessness but is more focused on the PMF and does not provide a comprehensive explanation."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses memorylessness in the context of the exponential distribution but lacks detail on the geometric distribution."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk provides general information about random variables and does not address memorylessness."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk defines the geometric distribution and discusses its properties, including memorylessness."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 54.5,
+            "high_useful_count": 3,
+            "assessment": "The chunks provide a mix of relevant and less relevant information regarding the memoryless property of the geometric distribution. Chunks 1 and 10 are particularly useful, while others provide varying degrees of context or unrelated content."
+          }
+        },
+        "semantic": {
+          "strategy": "SEMANTIC",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 90,
+              "useful": "high",
+              "note": "This chunk provides a detailed explanation of the memoryless property of the geometric distribution."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk mentions the memorylessness property but focuses more on the analogy with the exponential distribution."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the memorylessness property in a broader context but is still relevant."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 65,
+              "useful": "medium",
+              "note": "This chunk relates the memorylessness property to the variance of the geometric PMF, which is relevant."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk introduces the memorylessness property of the exponential distribution, which is somewhat relevant."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk primarily discusses properties of the Bernoulli process and is less relevant."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses expectations and variances but does not focus on memorylessness."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk mentions memorylessness in the context of the Poisson process but lacks depth."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant to the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk introduces the geometric distribution but does not focus on memorylessness."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 43,
+            "high_useful_count": 1,
+            "assessment": "The chunks provide a mix of relevant and less relevant information regarding the memoryless property of the geometric distribution. While some chunks are highly useful, others diverge into related but less pertinent topics."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk discusses the memorylessness property of geometric random variables and its implications for calculating expected values."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk introduces the memorylessness property in the context of exponential random variables, which is related but not directly about the geometric distribution."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk briefly mentions the geometric distribution but focuses more on definitions and examples of other distributions."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk describes the geometric random variable and its applications, but does not explicitly address the memorylessness property."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides a mathematical argument related to the memorylessness property but is somewhat technical."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk is mostly about random variables in general and does not focus on the geometric distribution."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk provides general information about random variables and PMFs without focusing on the geometric distribution."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the memorylessness property in detail and its implications for the geometric PMF."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk discusses a different topic related to geometric probability and does not address the memorylessness property."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk discusses expectations of random variables in general without focusing on the geometric distribution."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 40,
+            "high_useful_count": 3,
+            "assessment": "The chunks provide a mix of relevant and tangential information regarding the memorylessness property of the geometric distribution. While some chunks are highly useful, others stray from the main topic, indicating a need for more focused content."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "RECURSIVE",
+          "2nd": "SEMANTIC",
+          "3rd": "HYBRID"
+        },
+        "reasoning": "The RECURSIVE strategy provides the highest average signal percentage (54.5%) and includes several high-utility chunks that directly address the memoryless property of the geometric distribution. While the SEMANTIC strategy has a decent signal percentage, it includes more irrelevant content, which dilutes its effectiveness. The HYBRID strategy, despite having some useful chunks, has the lowest average signal percentage and a higher proportion of low-utility content, making it less effective overall.",
+        "key_insight": "The deciding factor was the RECURSIVE strategy's ability to maintain a higher signal percentage while providing relevant and focused content, which is crucial for answering the specific question about the memoryless property."
+      }
+    },
+    {
+      "question_id": 9,
+      "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk provides a general introduction to random variables but does not address the specific question about conditional expectations."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses the expected value of a random variable but does not clarify the distinction between E[X | Y] and E[X | Y = y]."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk introduces the concept of random variables and their numerical values, which is somewhat relevant but lacks direct focus on the question."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses conditional variance and its relationship to random variables, providing some relevant context."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk explains the function of conditional expectation and its dependence on Y, which is relevant to the question."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk revisits conditional expectation but does not fully clarify the distinction between E[X | Y] and E[X | Y = y]."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses properties of conditional expectations, which is relevant but not directly answering the question."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk provides an example of random variables but does not specifically address the question."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk directly addresses the concept of conditional expectation as a random variable, making it highly relevant."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk discusses the stick-breaking example and clarifies the relationship between conditional expectations and random variables."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 56,
+            "high_useful_count": 2,
+            "assessment": "Most chunks provide some relevant context about random variables and conditional expectations, but only a few directly address the distinction between E[X | Y] and E[X | Y = y]. The chunks that focus on conditional expectations are the most useful for answering the question."
+          }
+        },
+        "semantic": {
+          "strategy": "SEMANTIC",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk clearly explains the distinction between E[X | Y] as a random variable and E[X | Y = y] as a number."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk provides a general introduction to random variables and expected values but lacks specific focus on the distinction between conditional expectations."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses random variables and their properties, but does not directly address the conceptual difference between E[X | Y] and E[X | Y = y]."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk introduces conditional expectation but lacks depth in explaining the difference between the two forms."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk discusses conditional distributions but does not explicitly clarify the distinction between E[X | Y] and E[X | Y = y]."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk touches on conditional variance and expectations but does not focus on the conceptual difference needed for the question."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk provides an example of expected value but does not address the specific question about conditional expectations."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses conditional variance and expectations but lacks a clear explanation of the difference between the two forms."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides an example of conditional expectation but does not explicitly clarify the conceptual difference needed for the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses the abstract nature of conditional expectations but does not directly address the distinction between E[X | Y] and E[X | Y = y]."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 53,
+            "high_useful_count": 1,
+            "assessment": "The chunks provide a mix of relevant and less relevant information regarding the conceptual difference between E[X | Y] and E[X | Y = y]. While some chunks are highly useful, many do not directly address the question, leading to a moderate average relevance."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the relationship between conditional expectations and specific values but lacks a clear distinction between E[X | Y] and E[X | Y = y]."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk effectively explains that E[X | Y] is a random variable while E[X | Y = y] is a number, providing a clear distinction."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk touches on the concept of conditioning but does not directly address the difference between the two expectations."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 75,
+              "useful": "medium",
+              "note": "This chunk explains the nature of conditional expectations but does not explicitly clarify the distinction between E[X | Y] and E[X | Y = y]."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses properties of conditional expectations but lacks a focused explanation of the difference between the two forms."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk primarily discusses independence and does not address the question directly."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 65,
+              "useful": "medium",
+              "note": "This chunk provides some insight into conditional expectations but does not clearly differentiate between E[X | Y] and E[X | Y = y]."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "low",
+              "note": "This chunk discusses conditional expectations in a general sense but lacks specific relevance to the question."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk focuses on the expected value of a random variable and does not relate to the question."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses conditional expectations but does not clearly articulate the difference between the two forms."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 56,
+            "high_useful_count": 1,
+            "assessment": "The chunks provide a mix of relevant and tangential information regarding conditional expectations, with only a few directly addressing the distinction between E[X | Y] and E[X | Y = y]. More focused content is needed for a clearer understanding."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "SEMANTIC",
+          "2nd": "HYBRID",
+          "3rd": "RECURSIVE"
+        },
+        "reasoning": "The SEMANTIC strategy provided the highest signal percentage with chunks that directly addressed the conceptual difference between E[X | Y] and E[X | Y = y], making it the most effective for answering the question. The HYBRID strategy also had relevant content but was slightly less focused than SEMANTIC. The RECURSIVE strategy, while containing some useful information, had a lower average signal percentage and fewer high-utility chunks, making it less effective overall.",
+        "key_insight": "The deciding factor was the direct relevance and clarity of the chunks in the SEMANTIC strategy, which specifically articulated the distinction between the two forms of conditional expectation."
+      }
+    },
+    {
+      "question_id": 10,
+      "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+      "stage1_analyses": {
+        "recursive": {
+          "strategy": "RECURSIVE",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 90,
+              "useful": "high",
+              "note": "This chunk provides a detailed description of the Monty Hall problem and sets up the analysis using Bayes' theorem."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk briefly mentions a similar problem but lacks relevant details about the Monty Hall problem."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 85,
+              "useful": "high",
+              "note": "This chunk contains the solution to the Monty Hall problem, including the Bayes table and analysis."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk discusses a different problem unrelated to Monty Hall."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk continues the analysis of the Monty Hall problem with a focus on the sober Monty scenario."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk provides some context but is mostly focused on a different problem."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 25,
+              "useful": "low",
+              "note": "This chunk discusses independence and Bayes' theorem but lacks direct relevance to the Monty Hall problem."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 75,
+              "useful": "medium",
+              "note": "This chunk provides additional analysis of the Monty Hall problem but is less focused than others."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 5,
+              "useful": "low",
+              "note": "This chunk discusses a different problem unrelated to Monty Hall."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk mentions the Monty Hall problem but focuses on a different question."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 49,
+            "high_useful_count": 5,
+            "assessment": "Most chunks provide relevant information about the Monty Hall problem, particularly those that detail the setup and Bayesian analysis. However, some chunks contain unrelated content that detracts from the overall focus on the question."
+          }
+        },
+        "semantic": {
+          "strategy": "SEMANTIC",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "This chunk introduces the Monty Hall problem and outlines the setup, but lacks a clear explanation of the common mistake."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk discusses posterior probabilities and likelihoods, which are relevant but not directly focused on the common mistake."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk provides a detailed explanation of the Monty Hall problem but does not explicitly address the common mistake."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant, focusing on probability trees without addressing the Monty Hall problem."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk discusses the Monty Hall problem and includes relevant calculations but lacks a focus on the common mistake."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 80,
+              "useful": "high",
+              "note": "This chunk provides a clear explanation of the Bayesian update and the implications of Monty's behavior, relevant to the common mistake."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 10,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant, discussing a different probabilistic scenario."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk is mostly irrelevant, focusing on a different probability problem."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk discusses a different problem involving hats, not relevant to the Monty Hall problem."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "This chunk discusses a biased coin problem, which is not relevant to the Monty Hall problem."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 43,
+            "high_useful_count": 1,
+            "assessment": "The chunks provide a mix of relevant and irrelevant information regarding the Monty Hall problem, with only a few chunks directly addressing the common mistake. More focused content on the mistake and its resolution through conditional probability would enhance the analysis."
+          }
+        },
+        "hybrid": {
+          "strategy": "HYBRID",
+          "chunks": {
+            "1": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "The chunk discusses the Monty Hall problem and introduces concepts of independence and Bayes' theorem, but lacks a detailed explanation of the common mistake."
+            },
+            "2": {
+              "cut_mid_answer": false,
+              "signal_pct": 70,
+              "useful": "medium",
+              "note": "This chunk explains the importance of conditional probability in the Monty Hall problem, addressing the common mistake of misunderstanding the implications of Monty's actions."
+            },
+            "3": {
+              "cut_mid_answer": false,
+              "signal_pct": 40,
+              "useful": "low",
+              "note": "While it mentions the Monty Hall problem, the focus is more on independence and unrelated examples, making it less relevant."
+            },
+            "4": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "This chunk provides a structured approach to the Monty Hall problem but does not fully clarify the common mistake made by contestants."
+            },
+            "5": {
+              "cut_mid_answer": false,
+              "signal_pct": 60,
+              "useful": "medium",
+              "note": "Similar to chunk 4, it discusses the Monty Hall problem and includes a Bayes table, but lacks a clear explanation of the common mistake."
+            },
+            "6": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk focuses on conditional probability and Bayes' theorem but does not specifically address the Monty Hall problem."
+            },
+            "7": {
+              "cut_mid_answer": false,
+              "signal_pct": 50,
+              "useful": "medium",
+              "note": "It reiterates the importance of switching in the Monty Hall problem but does not explicitly mention the common mistake."
+            },
+            "8": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk discusses conditional probabilities in general, lacking specific relevance to the Monty Hall problem."
+            },
+            "9": {
+              "cut_mid_answer": false,
+              "signal_pct": 30,
+              "useful": "low",
+              "note": "This chunk contains unrelated content about bribery in a game show, which does not pertain to the Monty Hall problem."
+            },
+            "10": {
+              "cut_mid_answer": false,
+              "signal_pct": 20,
+              "useful": "low",
+              "note": "This chunk discusses conditional probabilities in a different context, not relevant to the Monty Hall problem."
+            }
+          },
+          "summary": {
+            "cut_mid_answer_count": 0,
+            "avg_signal_pct": 43,
+            "high_useful_count": 0,
+            "assessment": "The chunks provide a mix of relevant and irrelevant information regarding the Monty Hall problem and conditional probability. While some chunks touch on the common mistake, none fully clarify it, resulting in an overall medium usefulness for answering the question."
+          }
+        }
+      },
+      "stage2_ranking": {
+        "ranking": {
+          "1st": "RECURSIVE",
+          "2nd": "SEMANTIC",
+          "3rd": "HYBRID"
+        },
+        "reasoning": "The RECURSIVE strategy provides the highest average signal percentage (49%) and a good number of high-utility chunks, making it the most effective for answering the Monty Hall problem. Although it has some irrelevant content, the relevant chunks are focused and detailed, which is crucial for understanding the common probabilistic mistake. The SEMANTIC strategy, while slightly lower in average signal (43%), offers more relevant content than the HYBRID strategy, which has the lowest average signal and high cut-off count, leading to a diluted response.",
+        "key_insight": "The deciding factor was the RECURSIVE strategy's ability to maintain a higher signal percentage while still providing a sufficient number of relevant chunks, making it the best choice for addressing the complexities of the Monty Hall problem."
+      }
+    }
+  ],
+  "ranking_tally": {
+    "recursive": {
+      "1st": 6,
+      "2nd": 3,
+      "3rd": 1
+    },
+    "semantic": {
+      "1st": 1,
+      "2nd": 4,
+      "3rd": 5
+    },
+    "hybrid": {
+      "1st": 3,
+      "2nd": 3,
+      "3rd": 4
+    }
+  }
+}

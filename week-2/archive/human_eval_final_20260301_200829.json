@@ -1,0 +1,33 @@
+{
+  "saved_at": "2026-03-01T20:08:29.746473",
+  "week2_dir": "C:\\Users\\singhtripti\\rag-capstone-week-2\\week-2",
+  "strategies": [
+    "hybrid",
+    "recursive",
+    "semantic"
+  ],
+  "question_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "completed_questions": 1,
+  "total_questions": 10,
+  "evaluations": {
+    "1": {
+      "winner": "hybrid",
+      "coverage": 3,
+      "factuality": 3,
+      "clarity": 3,
+      "notes": "",
+      "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities."
+    }
+  }
+}

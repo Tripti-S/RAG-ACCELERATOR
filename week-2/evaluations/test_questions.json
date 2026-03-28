@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "type": "factoid",
+    "question": "State the formal definition of independence between two events A and B. Express it as an equation involving probabilities.",
+    "skills_tested": ["formula precision", "definition recall", "symbol grounding"],
+    "expected_difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "type": "factoid",
+    "question": "Write the formula for Bayes’ Rule and clearly identify the role of the Law of Total Probability in the denominator.",
+    "skills_tested": ["formula recall", "law identification", "multi-component retrieval"],
+    "expected_difficulty": "medium"
+  },
+  {
+    "id": 3,
+    "type": "factoid",
+    "question": "State the shortcut formula for variance Var(X) in terms of E[X^2] and E[X], and name the key property of expectation used in its derivation.",
+    "skills_tested": ["formula recall", "derivation linkage", "linearity recognition"],
+    "expected_difficulty": "medium"
+  },
+  {
+    "id": 4,
+    "type": "analytical",
+    "question": "Explain how the Law of Total Probability is used to derive Bayes’ Rule. Specify the assumption about the events involved in the partition of the sample space.",
+    "skills_tested": ["multi-hop retrieval", "derivation tracing", "partition assumption recall"],
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 5,
+    "type": "analytical",
+    "question": "Compare independence and conditional independence. How does the mathematical definition of each differ, and in what scenario can two events be conditionally independent but not independent?",
+    "skills_tested": ["concept distinction", "formula comparison", "counterexample reasoning"],
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 6,
+    "type": "analytical",
+    "question": "Under what limiting conditions does the binomial distribution approximate the Poisson distribution? Describe how the parameters behave in the limit.",
+    "skills_tested": ["distribution linkage", "limit reasoning", "parameter behavior recall"],
+    "expected_difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "type": "conceptual",
+    "question": "Why does linearity of expectation not require independence? Provide an explanation based on how expectation is defined.",
+    "skills_tested": ["misconception correction", "conceptual grounding", "property abstraction"],
+    "expected_difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "type": "conceptual",
+    "question": "What is the memoryless property of the geometric distribution, and why is this property considered special among discrete distributions?",
+    "skills_tested": ["distribution property recall", "concept explanation", "comparative reasoning"],
+    "expected_difficulty": "medium"
+  },
+  {
+    "id": 9,
+    "type": "analytical",
+    "question": "Explain the conceptual difference between E[X | Y] and E[X | Y = y]. Why is one considered a random variable while the other is a number?",
+    "skills_tested": ["notation precision", "functional understanding", "conditioning interpretation"],
+    "expected_difficulty": "hard"
+  },
+  {
+    "id": 10,
+    "type": "conceptual",
+    "question": "In a Monty Hall-type problem, what is the common probabilistic mistake people make, and how does conditional probability resolve the paradox?",
+    "skills_tested": ["real-world reasoning", "conditional probability grounding", "misconception detection"],
+    "expected_difficulty": "medium"
+  }
+]
