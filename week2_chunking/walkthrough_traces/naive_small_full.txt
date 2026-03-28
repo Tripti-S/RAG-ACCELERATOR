@@ -1,0 +1,44 @@
+🚀 Week 2: Single Strategy Indexing
+==================================================
+🎯 Strategy: naive_small
+🧪 Mode: FULL (all files)
+📋 Loading deduplication manifest...
+   Total files in manifest: 184
+   Deduplication reduction: 25.81%
+🚀 FULL MODE: Processing all deduplicated files
+📁 Files to process: 184
+
+======================================================================
+📊 INDEXING STRATEGY: Naive Small (200w/25)
+======================================================================
+🔧 Creating Chunking Pipeline...
+📊 Strategy: Naive Small (200w/25)
+🧠 Embeddings: BAAI/bge-large-en-v1.5
+🔢 Dimensions: 1024
+📊 Collection: week2_naive_small
+⚡ Batch Size: 32
+🔧 Creating Qdrant collection: week2_naive_small...
+✅ Qdrant collection created: week2_naive_small
+🔗 Connecting pipeline components...
+✅ Pipeline created for strategy: Naive Small (200w/25)
+🚀 Ready to index documents!
+
+🚀 Starting indexing...
+📁 Files to process: 184
+Converting markdown files to Documents:   0%|          | 0/71 [00:00<?, ?it/s]Converting markdown files to Documents:  25%|██▌       | 18/71 [00:00<00:00, 178.12it/s]Converting markdown files to Documents:  65%|██████▍   | 46/71 [00:00<00:00, 234.10it/s]Converting markdown files to Documents: 100%|██████████| 71/71 [00:00<00:00, 265.66it/s]
+Document ID 6c6898fb9256200409b611334b964ebd09f477b23b49b5311434769d10a9fd19 has an empty content. Skipping this document.
+Calculating embeddings:   0%|          | 0/952 [00:00<?, ?it/s]Calculating embeddings:   0%|          | 1/952 [00:32<8:40:56, 32.87s/it]Calculating embeddings:   3%|▎         | 33/952 [01:06<26:36,  1.74s/it] Calculating embeddings:   7%|▋         | 65/952 [01:39<19:39,  1.33s/it]Calculating embeddings:  10%|█         | 97/952 [02:12<16:56,  1.19s/it]Calculating embeddings:  14%|█▎        | 129/952 [02:45<15:29,  1.13s/it]Calculating embeddings:  17%|█▋        | 161/952 [03:18<14:22,  1.09s/it]Calculating embeddings:  20%|██        | 193/952 [03:50<13:22,  1.06s/it]Calculating embeddings:  24%|██▎       | 225/952 [04:22<12:34,  1.04s/it]Calculating embeddings:  27%|██▋       | 257/952 [04:56<12:10,  1.05s/it]Calculating embeddings:  30%|███       | 289/952 [05:33<11:56,  1.08s/it]Calculating embeddings:  34%|███▎      | 321/952 [06:09<11:30,  1.09s/it]Calculating embeddings:  37%|███▋      | 353/952 [06:44<10:58,  1.10s/it]Calculating embeddings:  40%|████      | 385/952 [07:20<10:25,  1.10s/it]Calculating embeddings:  44%|████▍     | 417/952 [07:57<09:57,  1.12s/it]Calculating embeddings:  47%|████▋     | 449/952 [08:22<08:31,  1.02s/it]Calculating embeddings:  51%|█████     | 481/952 [08:52<07:48,  1.01it/s]Calculating embeddings:  54%|█████▍    | 513/952 [09:27<07:30,  1.03s/it]Calculating embeddings:  57%|█████▋    | 545/952 [10:01<07:00,  1.03s/it]Calculating embeddings:  61%|██████    | 577/952 [10:37<06:37,  1.06s/it]Calculating embeddings:  64%|██████▍   | 609/952 [11:12<06:08,  1.08s/it]Calculating embeddings:  67%|██████▋   | 641/952 [11:47<05:35,  1.08s/it]Calculating embeddings:  71%|███████   | 673/952 [12:23<05:05,  1.09s/it]Calculating embeddings:  74%|███████▍  | 705/952 [12:58<04:30,  1.09s/it]Calculating embeddings:  77%|███████▋  | 737/952 [13:38<04:04,  1.14s/it]Calculating embeddings:  81%|████████  | 769/952 [14:14<03:27,  1.13s/it]Calculating embeddings:  84%|████████▍ | 801/952 [14:49<02:49,  1.12s/it]Calculating embeddings:  88%|████████▊ | 833/952 [15:26<02:15,  1.14s/it]Calculating embeddings:  91%|█████████ | 865/952 [16:00<01:36,  1.11s/it]Calculating embeddings:  94%|█████████▍| 897/952 [16:33<00:59,  1.09s/it]Calculating embeddings:  98%|█████████▊| 929/952 [17:01<00:23,  1.02s/it]Calculating embeddings: 100%|██████████| 952/952 [17:01<00:00,  1.07s/it]
+  0%|          | 0/952 [00:00<?, ?it/s] 11%|█         | 100/952 [00:03<00:32, 26.23it/s] 21%|██        | 200/952 [00:06<00:23, 32.59it/s] 32%|███▏      | 300/952 [00:07<00:15, 42.17it/s] 42%|████▏     | 400/952 [00:09<00:10, 50.31it/s] 53%|█████▎    | 500/952 [00:10<00:08, 55.48it/s] 63%|██████▎   | 600/952 [00:12<00:06, 57.87it/s] 74%|███████▎  | 700/952 [00:13<00:04, 61.24it/s] 84%|████████▍ | 800/952 [00:15<00:02, 63.03it/s] 95%|█████████▍| 900/952 [00:16<00:00, 68.34it/s]1000it [00:17, 75.57it/s]                        1000it [00:17, 57.19it/s]
+
+✅ Token Limit Check: All 952 chunks within 512 token limit
+   Max chunk: 314 tokens | Avg: 244 tokens
+
+✅ Indexing completed!
+⏱️  Processing time: 1045.37 seconds
+📝 Documents written: 952
+⚡ Avg time per file: 5.68 seconds
+
+🎯 Collection created: week2_naive_small
+   Ready for RAG queries!
+
+🎉 Strategy indexed successfully!
