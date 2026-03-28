@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "RAG Workshop - Build production-grade RAG systems"
 requires-python = ">=3.11"
 dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
     # Core Haystack
     "haystack-ai>=2.16.1",
     # Haystack Integrations
