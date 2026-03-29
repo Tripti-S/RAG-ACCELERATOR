@@ -102,8 +102,8 @@ def _trigger_eval(client, trace_id: str):
         pass
 
 
-from app.config import settings
-from app.models import (
+from .config import settings
+from .models import (
     QueryRequest,
     QueryResponse,
     ContextItem,
@@ -114,7 +114,7 @@ from app.models import (
     HealthResponse,
     MetricsResponse,
 )
-from app.services import (
+from .services import (
     get_rag_pipeline,
     get_semantic_cache,
     get_conversation_service,
