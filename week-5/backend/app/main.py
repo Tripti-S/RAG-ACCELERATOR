@@ -123,6 +123,35 @@ from .services import (
 )
 
 
+class _NoopRagPipeline:
+    """Fallback pipeline used when core RAG initialization fails."""
+
+    async def retrieve(self, *args, **kwargs):
+        raise RuntimeError("RAG pipeline unavailable")
+
+    async def generate(self, *args, **kwargs):
+        raise RuntimeError("RAG pipeline unavailable")
+
+    async def generate_stream(self, *args, **kwargs):
+        raise RuntimeError("RAG pipeline unavailable")
+
+    def is_healthy(self) -> bool:
+        return False
+
+
+class _NoopQueryRouter:
+    """Fallback router used when query router initialization fails."""
+
+    async def classify(self, *args, **kwargs):
+        raise RuntimeError("Query router unavailable")
+
+    def build_prompt(self, *args, **kwargs):
+        raise RuntimeError("Query router unavailable")
+
+    def is_healthy(self) -> bool:
+        return False
+
+
 class _NoopSemanticCache:
     """Fallback cache service used when Redis cache initialization fails."""
 
@@ -182,7 +211,12 @@ class _NoopConversationService:
 
 def _is_degraded_mode() -> bool:
     """Return True when one or more Redis-backed services are using no-op fallback."""
-    return isinstance(app.state.cache, _NoopSemanticCache) or isinstance(app.state.conversation, _NoopConversationService)
+    return (
+        isinstance(app.state.pipeline, _NoopRagPipeline)
+        or isinstance(app.state.router, _NoopQueryRouter)
+        or isinstance(app.state.cache, _NoopSemanticCache)
+        or isinstance(app.state.conversation, _NoopConversationService)
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -201,9 +235,18 @@ async def lifespan(app: FastAPI):
     print("STARTING PRODUCTION RAG API")
     print("=" * 70)
 
-    # Initialize critical services first
-    app.state.pipeline = get_rag_pipeline()
-    app.state.router = get_query_router()
+    # Initialize critical services first (with degraded fallback)
+    try:
+        app.state.pipeline = get_rag_pipeline()
+    except Exception as e:
+        print(f"   Warning: RAG pipeline unavailable, running in degraded mode ({str(e)[:120]})")
+        app.state.pipeline = _NoopRagPipeline()
+
+    try:
+        app.state.router = get_query_router()
+    except Exception as e:
+        print(f"   Warning: query router unavailable, running in degraded mode ({str(e)[:120]})")
+        app.state.router = _NoopQueryRouter()
 
     # Initialize Redis-backed services with degraded-mode fallback
     try:
