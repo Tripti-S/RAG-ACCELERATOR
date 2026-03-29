@@ -34,6 +34,7 @@ Endpoints:
     GET  /metrics         — Cache stats, latency, feedback summary
 """
 
+import os
 import re
 import time
 import json
@@ -294,6 +295,8 @@ app = FastAPI(
 )
 
 # CORS for Streamlit frontend
+# Allow Railway public domains, localhost (dev), and any configured frontend origin
+_extra_origins = [o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "").split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -301,7 +304,8 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:8501",
         "http://127.0.0.1:3000",
-    ],
+    ] + _extra_origins,
+    allow_origin_regex=r"https://.*\.railway\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

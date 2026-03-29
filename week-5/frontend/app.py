@@ -43,7 +43,7 @@ from typing import Optional, Dict, Any
 # Configuration
 # ---------------------------------------------------------------------------
 
-API_BASE_URL = "https://rag-accelerator.onrender.com"
+API_BASE_URL = os.environ.get("API_BASE_URL", "http://localhost:8000").rstrip("/")
 PORT = os.environ.get("PORT", 8000)
 
 st.set_page_config(
@@ -430,19 +430,12 @@ def init_session_state():
 
 def check_api_health() -> bool:
     """Check if the backend API is healthy."""
-    candidate_urls = [API_BASE_URL]
-    # Localhost can resolve inconsistently on some systems; try loopback fallback.
-    # if API_BASE_URL == "http://localhost:8000":
-    #     candidate_urls.append("http://127.0.0.1:8000")
-    # elif API_BASE_URL == "http://127.0.0.1:8000":
-    #     candidate_urls.append("http://localhost:8000")
-    # for base in candidate_urls:
     try:
         response = requests.get(f"{API_BASE_URL}/health", timeout=3)
-        if response.status_code == 200 and response.json().get("status") == "healthy":
+        if response.status_code == 200 and response.json().get("status") in ("healthy", "degraded"):
             return True
     except Exception:
-        continue
+        pass
     return False
 
 
