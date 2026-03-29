@@ -1,0 +1,24 @@
+# Root-level Railway configuration
+# Explicitly maps services to their Dockerfile paths in week-5 subdirectories
+
+[services.backend]
+  # Backend FastAPI service located in week-5/backend
+  rootDirectory = "week-5/backend"
+  build = { builder = "dockerfile", dockerfilePath = "Dockerfile" }
+  start = { cmd = "uvicorn app.main:app --host 0.0.0.0 --port $PORT" }
+
+  [services.backend.deploy]
+    healthcheckPath = "/health"
+    healthcheckTimeout = 120
+    restartPolicyType = "on_failure"
+    restartPolicyMaxRetries = 3
+
+[services.frontend]
+  # Frontend Streamlit service located in week-5/frontend
+  rootDirectory = "week-5/frontend"
+  build = { builder = "dockerfile", dockerfilePath = "Dockerfile" }
+  start = { cmd = "streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true --server.fileWatcherType=none --browser.gatherUsageStats=false" }
+
+  [services.frontend.deploy]
+    restartPolicyType = "on_failure"
+    restartPolicyMaxRetries = 3
