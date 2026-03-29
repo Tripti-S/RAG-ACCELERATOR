@@ -563,8 +563,7 @@ class ProductionRAGPipeline:
     async def query(
         self,
         query: str,
-        prompt_messages: List[ChatMessage],
-        max_retries: int = 3
+        prompt_messages: List[ChatMessage]
     ) -> RAGResult:
         """
         Run the full RAG pipeline: retrieve contexts, then generate answer.

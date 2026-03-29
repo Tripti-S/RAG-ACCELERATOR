@@ -811,7 +811,7 @@ async def submit_feedback(request: FeedbackRequest):
             print(f"   Feedback logged to Opik: {request.rating}, trace={trace_id[:12]}...")
         except Exception as e:
             print(f"   Opik feedback error: {e}")
-            raise HTTPException(status_code=500, detail=f"Failed to log feedback: {str(e)}")
+            # Feedback failure is non-critical; log but don't return error
     else:
         print(f"   Feedback skipped: opik={'yes' if OPIK_AVAILABLE else 'no'}, trace_id={trace_id or 'missing'}")
 
@@ -847,11 +847,22 @@ async def get_conversation(session_id: str):
 async def health_check():
     """Health check for all service components."""
     try:
+        # Check if all services initialized
         pipeline_ok = app.state.pipeline.is_healthy()
         cache_ok = app.state.cache.is_healthy()
         conversation_ok = app.state.conversation.is_healthy()
 
-        all_ok = pipeline_ok and cache_ok and conversation_ok
+        # Try to verify Redis connectivity for cache/conversation services
+        try:
+            from app.services.semantic_cache import redis_client
+            if redis_client:
+                redis_ok = redis_client.ping()
+            else:
+                redis_ok = False
+        except Exception:
+            redis_ok = False
+
+        all_ok = pipeline_ok and cache_ok and conversation_ok and redis_ok
 
         return HealthResponse(
             status="healthy" if all_ok else "degraded",
@@ -860,6 +871,7 @@ async def health_check():
                 "rag_pipeline": "healthy" if pipeline_ok else "unhealthy",
                 "semantic_cache": "healthy" if cache_ok else "unhealthy",
                 "conversation": "healthy" if conversation_ok else "unhealthy",
+                "redis": "healthy" if redis_ok else "unhealthy",
             },
         )
 

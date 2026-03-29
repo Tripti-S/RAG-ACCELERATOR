@@ -72,6 +72,7 @@ class Settings(BaseSettings):
     VOYAGE_DIMENSION: int = 2048
     SPARSE_MODEL: str = "Qdrant/bm25"
     LLM_MODEL: str = "gemini-2.5-flash"
+    LLM_FALLBACK_MODEL: str = "gemini-2.5-flash-lite"
 
     # --- Redis ---
     REDIS_HOST: str = "localhost"
