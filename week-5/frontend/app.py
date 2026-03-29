@@ -438,7 +438,7 @@ def check_api_health() -> bool:
     #     candidate_urls.append("http://localhost:8000")
     # for base in candidate_urls:
     try:
-        response = requests.get(f"{base}/health", timeout=3)
+        response = requests.get(f"{API_BASE_URL}/health", timeout=3)
         if response.status_code == 200 and response.json().get("status") == "healthy":
             return True
     except Exception:
