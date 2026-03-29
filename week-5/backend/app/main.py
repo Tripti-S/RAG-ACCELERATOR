@@ -847,22 +847,15 @@ async def get_conversation(session_id: str):
 async def health_check():
     """Health check for all service components."""
     try:
-        # Check if all services initialized
+        # Check if all services initialized and their dependencies are reachable
         pipeline_ok = app.state.pipeline.is_healthy()
-        cache_ok = app.state.cache.is_healthy()
-        conversation_ok = app.state.conversation.is_healthy()
+        cache_ok = app.state.cache.is_healthy()      # pings Redis internally
+        conversation_ok = app.state.conversation.is_healthy()  # pings Redis internally
 
-        # Try to verify Redis connectivity for cache/conversation services
-        try:
-            from app.services.semantic_cache import redis_client
-            if redis_client:
-                redis_ok = redis_client.ping()
-            else:
-                redis_ok = False
-        except Exception:
-            redis_ok = False
+        # Redis health is indicated by cache + conversation both being healthy
+        redis_ok = cache_ok and conversation_ok
 
-        all_ok = pipeline_ok and cache_ok and conversation_ok and redis_ok
+        all_ok = pipeline_ok and cache_ok and conversation_ok
 
         return HealthResponse(
             status="healthy" if all_ok else "degraded",
