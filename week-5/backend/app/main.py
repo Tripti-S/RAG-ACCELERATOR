@@ -1031,6 +1031,21 @@ async def get_conversation(session_id: str):
 @app.get("/health", response_model=HealthResponse, tags=["Monitoring"])
 async def health_check():
     """Health check for all service components."""
+    # Services may still be initializing — lifespan takes up to ~60s on cold start.
+    # Return 200 "starting" so Railway health probes don't fail during boot.
+    if not hasattr(app.state, "pipeline"):
+        return HealthResponse(
+            status="starting",
+            timestamp=time.time(),
+            components={
+                "rag_pipeline": "starting",
+                "semantic_cache": "starting",
+                "conversation": "starting",
+                "redis": "starting",
+                "degraded_mode": "false",
+            },
+        )
+
     try:
         # Check if all services initialized and their dependencies are reachable
         pipeline_ok = app.state.pipeline.is_healthy()
@@ -1056,7 +1071,18 @@ async def health_check():
         )
 
     except Exception as e:
-        raise HTTPException(status_code=503, detail=f"Health check failed: {str(e)}")
+        # Return degraded instead of 503 so Railway doesn't kill the container
+        return HealthResponse(
+            status="degraded",
+            timestamp=time.time(),
+            components={
+                "rag_pipeline": "unknown",
+                "semantic_cache": "unknown",
+                "conversation": "unknown",
+                "redis": "unknown",
+                "degraded_mode": "true",
+            },
+        )
 
 
 # ---------------------------------------------------------------------------

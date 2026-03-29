@@ -1,9 +1,10 @@
 .env
 .env.*
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -13,4 +14,5 @@ venv/
 .venv/
 dist/
 build/
+tests/
 *.log
