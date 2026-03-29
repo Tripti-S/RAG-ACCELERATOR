@@ -162,8 +162,8 @@ def main():
             print(f"\n   The collection '{result['collection']}' does not exist.")
             print(f"   Available collections: {result['available_collections']}")
             print(f"\n   To create it, run the Week 3 indexing pipeline:")
-            print(f"   cd {PROJECT_ROOT / 'week3_retrieval' / 'indexing'}")
-            print(f"   python 02_index_documents.py --full")
+            print(f"   cd {PROJECT_ROOT / 'week-3' / 'scripts' / 'indexing'}")
+            print(f"   python 01_index_hybrid.py --full")
             print(f"\n   Or change QDRANT_COLLECTION in .env to use an existing collection.")
             sys.exit(1)
 
@@ -172,8 +172,8 @@ def main():
             print(f"{'=' * 70}")
             print(f"\n   The collection '{result['collection']}' exists but has 0 documents.")
             print(f"\n   To index documents, run the Week 3 indexing pipeline:")
-            print(f"   cd {PROJECT_ROOT / 'week3_retrieval' / 'indexing'}")
-            print(f"   python 02_index_documents.py --full")
+            print(f"   cd {PROJECT_ROOT / 'week-3' / 'scripts' / 'indexing'}")
+            print(f"   python 01_index_hybrid.py --full")
             sys.exit(1)
 
         else:

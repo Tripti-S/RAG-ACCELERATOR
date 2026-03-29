@@ -15,6 +15,7 @@ Creates and verifies the Redis structures needed by the production RAG system:
 
 1. Semantic Cache HNSW index  — for sub-50ms query-to-query similarity lookup
 2. Conversation namespace     — for session-based message storage
+3. Cache metrics hash         — for persistent hit/miss counters across restarts
 
 Each structure is verified with a test write/read cycle.
 
@@ -249,6 +250,53 @@ def setup_conversation(env_vars: dict, reset: bool = False) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# 3. Persistent Cache Metrics
+# ---------------------------------------------------------------------------
+
+def setup_cache_metrics(env_vars: dict, reset: bool = False) -> bool:
+    """
+    Verify the persistent cache metrics namespace works.
+
+    The semantic cache stores hit/miss counters in a Redis hash so metrics
+    survive backend restarts. This test verifies HINCRBY/HGET behavior.
+
+    Args:
+        env_vars: Environment configuration
+        reset: If True, remove the test key after verification
+
+    Returns:
+        True if setup succeeded
+    """
+    client = get_redis_client(env_vars, decode_responses=True)
+    metrics_key = "cache:metrics:__setup_test__"
+
+    try:
+        pipe = client.pipeline()
+        pipe.delete(metrics_key)
+        pipe.hincrby(metrics_key, "cache_hits", 2)
+        pipe.hincrby(metrics_key, "cache_misses", 1)
+        pipe.expire(metrics_key, 60)
+        pipe.execute()
+
+        metrics = client.hgetall(metrics_key)
+        assert metrics.get("cache_hits") == "2", "cache_hits mismatch"
+        assert metrics.get("cache_misses") == "1", "cache_misses mismatch"
+
+        if reset:
+            client.delete(metrics_key)
+        else:
+            client.delete(metrics_key)
+
+        print(f"   PASS  Cache metrics hash (Redis Hash counters)")
+        return True
+
+    except Exception as e:
+        client.delete(metrics_key)
+        print(f"   FAIL  Cache metrics hash: {str(e)[:100]}")
+        return False
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -292,6 +340,12 @@ def main():
         print("2. Conversation Storage (Redis Lists)")
         print(f"{'─' * 40}")
         results["conversation"] = setup_conversation(env_vars, reset=args.reset)
+
+        # 3. Cache Metrics Hash
+        print(f"\n{'─' * 40}")
+        print("3. Cache Metrics (Redis Hash)")
+        print(f"{'─' * 40}")
+        results["cache_metrics"] = setup_cache_metrics(env_vars, reset=args.reset)
 
         # Summary
         print(f"\n{'=' * 70}")

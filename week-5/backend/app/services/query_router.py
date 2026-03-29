@@ -61,6 +61,7 @@ from typing import Dict, List, Any, Optional
 from haystack import Document
 from haystack.dataclasses import ChatMessage
 from haystack_integrations.components.generators.google_genai import GoogleGenAIChatGenerator
+from app.config import settings
 
 # Opik tracing (optional — no-op decorator if not installed)
 try:
@@ -130,7 +131,7 @@ class QueryRouter:
 
     def _init_config(self):
         """Load router configuration from environment."""
-        self.llm_model = os.getenv("LLM_MODEL", "gemini-2.5-flash")
+        self.llm_model = settings.LLM_MODEL
 
         print(f"   Router config: model={self.llm_model}")
 

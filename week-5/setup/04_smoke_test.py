@@ -51,9 +51,9 @@ def test_health(base_url: str) -> bool:
         response = requests.get(f"{base_url}/health", timeout=10)
         data = response.json()
 
-        if response.status_code == 200 and data.get("status") == "healthy":
+        if response.status_code == 200 and data.get("status") in ("healthy", "degraded"):
             components = data.get("components", {})
-            print(f"   PASS  Health check")
+            print(f"   PASS  Health check ({data.get('status')})")
             for name, status in components.items():
                 print(f"          {name}: {status}")
             return True

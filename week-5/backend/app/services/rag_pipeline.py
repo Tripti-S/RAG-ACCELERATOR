@@ -76,6 +76,7 @@ from haystack_integrations.components.embedders.fastembed import FastembedSparse
 
 # Generator: Gemini
 from haystack_integrations.components.generators.google_genai import GoogleGenAIChatGenerator
+from app.config import settings
 
 # Local components (self-contained — no imports from week 3)
 from app.components import QdrantHybridRetriever, VoyageReranker
@@ -158,19 +159,19 @@ class ProductionRAGPipeline:
 
     def _init_config(self):
         """Load configuration from environment."""
-        self.collection_name = os.getenv("QDRANT_COLLECTION", "week3_hybrid_recursive")
-        self.qdrant_url = os.getenv("QDRANT_URL")
-        self.qdrant_api_key = os.getenv("QDRANT_API_KEY")
-        self.voyage_api_key = os.getenv("VOYAGE_API_KEY")
-        self.gemini_model = os.getenv("LLM_MODEL", "gemini-2.5-flash")
-        self.fallback_model = os.getenv("LLM_FALLBACK_MODEL", "gemini-2.5-flash-lite")
+        self.collection_name = settings.QDRANT_COLLECTION
+        self.qdrant_url = settings.QDRANT_URL
+        self.qdrant_api_key = settings.QDRANT_API_KEY
+        self.voyage_api_key = settings.VOYAGE_API_KEY
+        self.gemini_model = settings.LLM_MODEL
+        self.fallback_model = settings.LLM_FALLBACK_MODEL
 
         # Voyage dense embeddings — MUST match the index
-        self.dense_model = os.getenv("VOYAGE_EMBED_MODEL", "voyage-4-lite")
-        self.dense_dimension = int(os.getenv("VOYAGE_DIMENSION", "2048"))
+        self.dense_model = settings.VOYAGE_EMBED_MODEL
+        self.dense_dimension = settings.VOYAGE_DIMENSION
 
         # Sparse embeddings — BM25 via FastEmbed
-        self.sparse_model = os.getenv("SPARSE_MODEL", "Qdrant/bm25")
+        self.sparse_model = settings.SPARSE_MODEL
 
         # Retrieval config
         self.prefetch_k = 50       # After RRF fusion
@@ -179,16 +180,16 @@ class ProductionRAGPipeline:
         self.rerank_k = 10         # After Voyage reranking
 
         # Opik config
-        self.opik_api_key = os.getenv("OPIK_API_KEY")
-        self.opik_workspace = os.getenv("OPIK_WORKSPACE", "default")
-        self.opik_project = os.getenv("OPIK_PROJECT_NAME", "rag-accelerator-prod")
+        self.opik_api_key = settings.OPIK_API_KEY
+        self.opik_workspace = settings.OPIK_WORKSPACE
+        self.opik_project = settings.OPIK_PROJECT_NAME
 
         # Validate required vars
         required = {
             "QDRANT_URL": self.qdrant_url,
             "QDRANT_API_KEY": self.qdrant_api_key,
             "VOYAGE_API_KEY": self.voyage_api_key,
-            "GOOGLE_API_KEY": os.getenv("GOOGLE_API_KEY"),
+            "GOOGLE_API_KEY": settings.GOOGLE_API_KEY,
         }
         missing = [k for k, v in required.items() if not v]
         if missing:
@@ -563,7 +564,8 @@ class ProductionRAGPipeline:
     async def query(
         self,
         query: str,
-        prompt_messages: List[ChatMessage]
+        prompt_messages: List[ChatMessage],
+        max_retries: int = 3,
     ) -> RAGResult:
         """
         Run the full RAG pipeline: retrieve contexts, then generate answer.
@@ -589,7 +591,6 @@ class ProductionRAGPipeline:
             query=query,
             contexts=retrieval_result.contexts,
             prompt_messages=prompt_messages,
-            max_retries=max_retries
         )
 
         # Format contexts for response (serializable)

@@ -38,6 +38,7 @@ import re
 import time
 import json
 import asyncio
+import uuid
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request
@@ -122,6 +123,68 @@ from .services import (
 )
 
 
+class _NoopSemanticCache:
+    """Fallback cache service used when Redis cache initialization fails."""
+
+    def get(self, query: str):
+        return None
+
+    def set(self, query: str, answer: str, contexts):
+        return None
+
+    def get_stats(self):
+        return {
+            "cache_hits": 0,
+            "cache_misses": 0,
+            "total_queries": 0,
+            "hit_rate_percent": 0.0,
+            "num_cached_entries": 0,
+            "distance_threshold": None,
+            "degraded_mode": True,
+        }
+
+    def is_healthy(self) -> bool:
+        return False
+
+
+class _NoopConversationService:
+    """Fallback conversation service used when Redis conversation initialization fails."""
+
+    @staticmethod
+    def create_session_id() -> str:
+        return f"sess_{uuid.uuid4().hex}"
+
+    async def rewrite_if_needed(self, query: str, session_id: str):
+        return {
+            "original_query": query,
+            "standalone_query": query,
+            "is_follow_up": False,
+            "history_length": 0,
+            "degraded_mode": True,
+        }
+
+    def add_message(self, session_id: str, role: str, content: str, metadata=None) -> str:
+        return f"msg_{uuid.uuid4().hex[:12]}"
+
+    def get_history(self, session_id: str):
+        return []
+
+    def get_session_info(self, session_id: str):
+        return {
+            "session_id": session_id,
+            "degraded_mode": True,
+            "storage": "disabled",
+        }
+
+    def is_healthy(self) -> bool:
+        return False
+
+
+def _is_degraded_mode() -> bool:
+    """Return True when one or more Redis-backed services are using no-op fallback."""
+    return isinstance(app.state.cache, _NoopSemanticCache) or isinstance(app.state.conversation, _NoopConversationService)
+
+
 # ---------------------------------------------------------------------------
 # Lifespan: startup and shutdown
 # ---------------------------------------------------------------------------
@@ -138,16 +201,28 @@ async def lifespan(app: FastAPI):
     print("STARTING PRODUCTION RAG API")
     print("=" * 70)
 
-    # Initialize all services (each is a singleton)
+    # Initialize critical services first
     app.state.pipeline = get_rag_pipeline()
-    app.state.cache = get_semantic_cache()
-    app.state.conversation = get_conversation_service()
     app.state.router = get_query_router()
+
+    # Initialize Redis-backed services with degraded-mode fallback
+    try:
+        app.state.cache = get_semantic_cache()
+    except Exception as e:
+        print(f"   Warning: semantic cache unavailable, running without cache ({str(e)[:120]})")
+        app.state.cache = _NoopSemanticCache()
+
+    try:
+        app.state.conversation = get_conversation_service()
+    except Exception as e:
+        print(f"   Warning: conversation memory unavailable, running without memory ({str(e)[:120]})")
+        app.state.conversation = _NoopConversationService()
 
     # Request-level metrics (reset on restart)
     app.state.request_count = 0
     app.state.total_latency_ms = 0.0
     app.state.total_cost_usd = 0.0
+    app.state.feedback_events = {}
 
     print("\n" + "=" * 70)
     print("PRODUCTION RAG API READY")
@@ -319,7 +394,7 @@ async def _run_query_pipeline_inner(
         app.state.conversation.add_message(session_id, "user", query_text)
         msg_id = app.state.conversation.add_message(
             session_id, "assistant", cached["answer"],
-            metadata={"cache_hit": True}
+            metadata={"cache_hit": True, "trace_id": opik_trace_id, "source": "semantic_cache"}
         )
 
         # Track metrics
@@ -338,6 +413,7 @@ async def _run_query_pipeline_inner(
                 "is_follow_up": is_follow_up,
                 "standalone_query": standalone_query if is_follow_up else None,
                 "trace_id": opik_trace_id,
+                "stream_mode": "non_stream",
             },
             session_id=session_id,
             msg_id=msg_id,
@@ -407,7 +483,13 @@ async def _run_query_pipeline_inner(
     app.state.conversation.add_message(session_id, "user", query_text)
     msg_id = app.state.conversation.add_message(
         session_id, "assistant", answer,
-        metadata={"query_type": query_type, "cache_hit": False}
+        metadata={
+            "query_type": query_type,
+            "cache_hit": False,
+            "trace_id": opik_trace_id,
+            "source": "rag_pipeline",
+            "stream_mode": "non_stream",
+        }
     )
 
     # Step 5: Track metrics
@@ -430,6 +512,7 @@ async def _run_query_pipeline_inner(
         "is_follow_up": is_follow_up,
         "standalone_query": standalone_query if is_follow_up else None,
         "trace_id": opik_trace_id,
+        "stream_mode": "non_stream",
     }
 
     return QueryResponse(
@@ -613,14 +696,19 @@ async def query_stream(request: QueryRequest, req: Request):
                 app.state.conversation.add_message(session_id, "user", request.query)
                 msg_id = app.state.conversation.add_message(
                     session_id, "assistant", cached["answer"],
-                    metadata={"cache_hit": True}
+                    metadata={
+                        "cache_hit": True,
+                        "trace_id": setup.get("opik_trace_id", ""),
+                        "source": "semantic_cache",
+                        "stream_mode": "simulated_cached_chunks",
+                    }
                 )
 
                 latency_ms = (time.time() - start_time) * 1000
                 app.state.request_count += 1
                 app.state.total_latency_ms += latency_ms
 
-                yield f"event: done\ndata: {json.dumps({'cache_hit': True, 'latency_ms': round(latency_ms, 2), 'cost_usd': 0.0, 'msg_id': msg_id, 'session_id': session_id, 'trace_id': setup.get('opik_trace_id', '')})}\n\n"
+                yield f"event: done\ndata: {json.dumps({'cache_hit': True, 'latency_ms': round(latency_ms, 2), 'cost_usd': 0.0, 'msg_id': msg_id, 'session_id': session_id, 'trace_id': setup.get('opik_trace_id', ''), 'stream_mode': 'simulated_cached_chunks'})}\n\n"
                 return
 
             # Cache miss — stream generation
@@ -763,17 +851,24 @@ async def query_stream(request: QueryRequest, req: Request):
             app.state.conversation.add_message(session_id, "user", request.query)
             msg_id = app.state.conversation.add_message(
                 session_id, "assistant", answer,
-                metadata={"query_type": query_type, "cache_hit": False}
+                metadata={
+                    "query_type": query_type,
+                    "cache_hit": False,
+                    "trace_id": setup.get("opik_trace_id", ""),
+                    "source": "rag_pipeline",
+                    "stream_mode": "real_tokens",
+                }
             )
 
             latency_ms = (time.time() - start_time) * 1000
-            cost = _estimate_cost(cache_hit=False, num_llm_calls=2)
+            _stream_llm_calls = (2 if is_follow_up else 1) + 1  # rewrite (if any) + classify + generate
+            cost = _estimate_cost(cache_hit=False, num_llm_calls=_stream_llm_calls)
 
             app.state.request_count += 1
             app.state.total_latency_ms += latency_ms
             app.state.total_cost_usd += cost
 
-            yield f"event: done\ndata: {json.dumps({'cache_hit': False, 'latency_ms': round(latency_ms, 2), 'cost_usd': cost, 'query_type': query_type, 'msg_id': msg_id, 'session_id': session_id, 'num_contexts': len(formatted_contexts), 'trace_id': setup.get('opik_trace_id', '')})}\n\n"
+            yield f"event: done\ndata: {json.dumps({'cache_hit': False, 'latency_ms': round(latency_ms, 2), 'cost_usd': cost, 'query_type': query_type, 'msg_id': msg_id, 'session_id': session_id, 'num_contexts': len(formatted_contexts), 'trace_id': setup.get('opik_trace_id', ''), 'stream_mode': 'real_tokens'})}\n\n"
 
         except Exception as e:
             yield f"event: error\ndata: {json.dumps({'error': str(e)})}\n\n"
@@ -792,12 +887,47 @@ async def query_stream(request: QueryRequest, req: Request):
 @app.post("/feedback", response_model=FeedbackResponse, tags=["Feedback"])
 async def submit_feedback(request: FeedbackRequest):
     """Log user feedback (thumbs up/down) to Opik trace."""
-    trace_id = (request.metadata or {}).get("trace_id", "")
+    metadata = request.metadata or {}
+    trace_id = metadata.get("trace_id", "")
+
+    # Validate msg_id belongs to session history when storage is available.
+    linked_message = None
+    degraded = _is_degraded_mode()
+    try:
+        history = app.state.conversation.get_history(request.session_id)
+        for msg in history:
+            if msg.get("msg_id") == request.msg_id:
+                linked_message = msg
+                break
+    except Exception:
+        # Keep feedback non-blocking if history lookup itself fails.
+        degraded = True
+
+    if not degraded and linked_message is None:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Message '{request.msg_id}' not found in session '{request.session_id}'",
+        )
+
+    # Prefer explicit trace_id from request metadata; fall back to message metadata.
+    if not trace_id and linked_message:
+        trace_id = (linked_message.get("metadata") or {}).get("trace_id", "")
+
+    # Persist lightweight local feedback linkage for diagnostics.
+    app.state.feedback_events[request.msg_id] = {
+        "session_id": request.session_id,
+        "msg_id": request.msg_id,
+        "rating": request.rating,
+        "trace_id": trace_id,
+        "reason": metadata.get("reason", ""),
+        "comment": request.comment or "",
+        "timestamp": time.time(),
+    }
 
     if OPIK_AVAILABLE and trace_id:
         try:
             from opik import Opik as OpikClient
-            radio_reason = (request.metadata or {}).get("reason")
+            radio_reason = metadata.get("reason")
             score = {
                 "id": trace_id,
                 "name": "user_feedback",
@@ -815,7 +945,7 @@ async def submit_feedback(request: FeedbackRequest):
     else:
         print(f"   Feedback skipped: opik={'yes' if OPIK_AVAILABLE else 'no'}, trace_id={trace_id or 'missing'}")
 
-    return FeedbackResponse(status="stored", feedback_key=trace_id)
+    return FeedbackResponse(status="stored", feedback_key=request.msg_id)
 
 
 # ---------------------------------------------------------------------------
@@ -826,12 +956,20 @@ async def submit_feedback(request: FeedbackRequest):
 async def get_conversation(session_id: str):
     """Get conversation history for a session."""
     try:
-        messages = app.state.conversation.get_history(session_id)
+        raw_messages = app.state.conversation.get_history(session_id)
         session_info = app.state.conversation.get_session_info(session_id)
+
+        messages = []
+        for msg in raw_messages:
+            try:
+                messages.append(ConversationMessage(**msg))
+            except Exception:
+                # Skip malformed or legacy records rather than failing the whole endpoint.
+                continue
 
         return ConversationResponse(
             session_id=session_id,
-            messages=[ConversationMessage(**msg) for msg in messages],
+            messages=messages,
             session_info=session_info,
         )
 
@@ -856,6 +994,7 @@ async def health_check():
         redis_ok = cache_ok and conversation_ok
 
         all_ok = pipeline_ok and cache_ok and conversation_ok
+        degraded_mode = _is_degraded_mode()
 
         return HealthResponse(
             status="healthy" if all_ok else "degraded",
@@ -865,6 +1004,7 @@ async def health_check():
                 "semantic_cache": "healthy" if cache_ok else "unhealthy",
                 "conversation": "healthy" if conversation_ok else "unhealthy",
                 "redis": "healthy" if redis_ok else "unhealthy",
+                "degraded_mode": "true" if degraded_mode else "false",
             },
         )
 
@@ -881,6 +1021,8 @@ async def get_metrics():
     """System metrics: cache stats, latency, cost."""
     try:
         cache_stats = app.state.cache.get_stats()
+        cache_stats["degraded_mode"] = _is_degraded_mode()
+        cache_stats["feedback_events_count"] = len(app.state.feedback_events)
 
         avg_latency = (
             app.state.total_latency_ms / app.state.request_count

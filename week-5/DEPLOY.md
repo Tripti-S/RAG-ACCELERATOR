@@ -95,7 +95,7 @@ You should now see two service cards on the project canvas: `backend` and
 ```env
 QDRANT_URL=https://your-cluster.aws.cloud.qdrant.io:6333
 QDRANT_API_KEY=your_qdrant_api_key
-QDRANT_COLLECTION=week3_hybrid
+QDRANT_COLLECTION=week3_hybrid_recursive
 GOOGLE_API_KEY=your_google_api_key
 VOYAGE_API_KEY=your_voyage_api_key
 REDIS_HOST=your-redis-host.cloud.redislabs.com
@@ -142,6 +142,9 @@ API_BASE_URL=http://backend.railway.internal:8080
 This uses Railway's private networking — the frontend talks to the backend
 internally without going through the public internet.
 
+If Railway assigns a different internal port for the backend service, update
+`API_BASE_URL` to the actual private service URL shown in the Railway dashboard.
+
 5. Click **Update Variables**, then click **Deploy** on the staged change banner
 
 ## Step 7: Deploy the Backend Code
@@ -149,7 +152,7 @@ internally without going through the public internet.
 Open your terminal:
 
 ```bash
-cd week5_production/backend
+cd week-5/backend
 ```
 
 Link this directory to the backend service on Railway:
@@ -186,16 +189,17 @@ PRODUCTION RAG API READY
 This means all services initialized successfully (pipeline, cache,
 conversation memory, query router).
 
-> **Note:** If the deploy logs show `Uvicorn running on http://0.0.0.0:8080`,
-> that confirms the port. If it's different from `8080`, update the frontend's
-> `API_BASE_URL` variable to match.
+> **Note:** If the deploy logs show `Uvicorn running on http://0.0.0.0:<port>`,
+> that confirms the runtime port. Railway sets `$PORT` automatically. If the
+> backend comes up on a different internal port or hostname than expected,
+> update the frontend's `API_BASE_URL` variable to match the actual service URL.
 
 ## Step 8: Deploy the Frontend Code
 
 Open a **new terminal** (or navigate to the frontend directory):
 
 ```bash
-cd week5_production/frontend
+cd week-5/frontend
 ```
 
 > **Important:** `railway link` is per-directory. You must link the frontend
@@ -328,8 +332,8 @@ Railway auto-deploys on every push:
 
 1. Railway dashboard → service → **Settings → Source**
 2. Click **Connect Repo** and select your GitHub repository
-3. Set the **Root Directory** to `week5_production/backend` (for the backend
-   service) or `week5_production/frontend` (for the frontend service)
+3. Set the **Root Directory** to `week-5/backend` (for the backend
+   service) or `week-5/frontend` (for the frontend service)
 4. Enable **Auto Deploy** — Railway rebuilds and deploys on every push to
    your branch
 
@@ -341,11 +345,11 @@ See Railway's docs for full setup:
 **CLI method:**
 ```bash
 # Backend
-cd week5_production/backend
+cd week-5/backend
 railway up
 
 # Frontend
-cd week5_production/frontend
+cd week-5/frontend
 railway up
 ```
 

@@ -62,6 +62,7 @@ import redis
 from redis.commands.search.field import VectorField, TextField, NumericField
 from redis.commands.search.index_definition import IndexDefinition, IndexType
 from redis.commands.search.query import Query
+from app.config import settings
 
 # Opik tracing (optional — no-op decorator if not installed)
 try:
@@ -139,6 +140,7 @@ class SemanticCache:
 
     INDEX_NAME = "semantic_cache_idx"
     KEY_PREFIX = "cache:query:"
+    METRICS_KEY = "cache:metrics"
 
     _instance = None
     _initialized = False
@@ -161,10 +163,6 @@ class SemanticCache:
         self._init_embedder()
         self._create_index()
 
-        # Runtime metrics (in-memory, reset on restart)
-        self._hits = 0
-        self._misses = 0
-
         self._initialized = True
         print("   Semantic cache ready")
 
@@ -175,19 +173,19 @@ class SemanticCache:
     def _init_config(self):
         """Load cache configuration from environment."""
         # Redis connection (shared with conversation.py)
-        self.redis_host = os.getenv("REDIS_HOST", "localhost")
-        self.redis_port = int(os.getenv("REDIS_PORT", "6379"))
-        self.redis_password = os.getenv("REDIS_PASSWORD", "")
-        self.redis_username = os.getenv("REDIS_USERNAME", "default")
-        self.redis_ssl = os.getenv("REDIS_SSL", "true").lower() == "true"
+        self.redis_host = settings.REDIS_HOST
+        self.redis_port = settings.REDIS_PORT
+        self.redis_password = settings.REDIS_PASSWORD
+        self.redis_username = settings.REDIS_USERNAME
+        self.redis_ssl = settings.REDIS_SSL
 
         # Cache embedding model (same as retrieval — Voyage API)
-        self.embed_model = os.getenv("CACHE_EMBED_MODEL", "voyage-4-lite")
-        self.embed_dimension = int(os.getenv("CACHE_EMBED_DIMENSION", "2048"))
+        self.embed_model = settings.CACHE_EMBED_MODEL
+        self.embed_dimension = settings.CACHE_EMBED_DIMENSION
 
         # Cache behavior
-        self.distance_threshold = float(os.getenv("CACHE_DISTANCE_THRESHOLD", "0.06"))
-        self.ttl = int(os.getenv("CACHE_TTL", "86400"))  # 24 hours
+        self.distance_threshold = settings.CACHE_DISTANCE_THRESHOLD
+        self.ttl = settings.CACHE_TTL  # 24 hours
 
         print(f"   Cache config: model={self.embed_model}, dim={self.embed_dimension}")
         print(f"   Cache config: threshold={self.distance_threshold}, ttl={self.ttl}s")
@@ -220,6 +218,23 @@ class SemanticCache:
             model=self.embed_model,
             dimension=self.embed_dimension
         )
+
+    def _increment_metric(self, field: str) -> None:
+        """Persist cache metrics in Redis so they survive process restarts."""
+        try:
+            self.redis_client.hincrby(self.METRICS_KEY, field, 1)
+        except Exception:
+            pass
+
+    def _get_metric(self, field: str) -> int:
+        """Read a persisted cache metric from Redis, defaulting to 0 on failure."""
+        try:
+            value = self.redis_client.hget(self.METRICS_KEY, field)
+            if value is None:
+                return 0
+            return int(self._decode(value))
+        except Exception:
+            return 0
 
     def _create_index(self):
         """
@@ -322,7 +337,7 @@ class SemanticCache:
                 distance = float(self._decode(top.distance))
 
                 if distance < self.distance_threshold:
-                    self._hits += 1
+                    self._increment_metric("cache_hits")
 
                     # Decode text fields (decode_responses=False returns bytes)
                     cached_query = self._decode(top.query)
@@ -351,7 +366,7 @@ class SemanticCache:
                     }
 
             # No match within threshold
-            self._misses += 1
+            self._increment_metric("cache_misses")
             print(f"   CACHE MISS: lookup={lookup_ms:.0f}ms")
 
             if OPIK_AVAILABLE:
@@ -364,7 +379,7 @@ class SemanticCache:
 
         except Exception as e:
             # Cache lookup failure is non-fatal — pipeline continues without cache
-            self._misses += 1
+            self._increment_metric("cache_misses")
             print(f"   Cache lookup error: {str(e)[:100]}")
             return None
 
@@ -425,8 +440,10 @@ class SemanticCache:
         Returns:
             Dict with hit/miss counts, hit rate, and HNSW index size.
         """
-        total = self._hits + self._misses
-        hit_rate = (self._hits / total * 100) if total > 0 else 0.0
+        cache_hits = self._get_metric("cache_hits")
+        cache_misses = self._get_metric("cache_misses")
+        total = cache_hits + cache_misses
+        hit_rate = (cache_hits / total * 100) if total > 0 else 0.0
 
         # Read index size from RediSearch
         num_docs = 0
@@ -441,8 +458,8 @@ class SemanticCache:
             pass
 
         return {
-            "cache_hits": self._hits,
-            "cache_misses": self._misses,
+            "cache_hits": cache_hits,
+            "cache_misses": cache_misses,
             "total_queries": total,
             "hit_rate_percent": round(hit_rate, 1),
             "num_cached_entries": num_docs,

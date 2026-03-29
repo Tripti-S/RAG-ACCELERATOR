@@ -39,10 +39,10 @@ Requires `VOYAGE_API_KEY` in your `.env` file. No Redis or backend needed — st
 
 ```bash
 # Run the cache threshold experiment (measures cosine distances between query pairs)
-python week5_production/experiments/cache_threshold_experiment.py
+python week-5/experiments/cache_threshold_experiment.py
 
 # With custom thresholds to test
-python week5_production/experiments/cache_threshold_experiment.py --thresholds 0.03 0.06 0.10 0.15 0.20
+python week-5/experiments/cache_threshold_experiment.py --thresholds 0.03 0.06 0.10 0.15 0.20
 ```
 
 Output: terminal table + JSON results saved to `experiments/results/`.
@@ -110,7 +110,7 @@ Code reference: `backend/app/main.py` — Opik tracing, feedback endpoint, onlin
 
 ```bash
 # Copy environment template and fill in your credentials
-cp week5_production/.env.example week5_production/.env
+cp week-5/.env.example week-5/.env
 # Edit .env with your API keys — see .env.example for details on each variable
 ```
 
@@ -120,29 +120,29 @@ Run these in order from the project root:
 
 ```bash
 # 1. Verify Python version, packages, API keys, and service connections
-python week5_production/setup/01_verify_environment.py
+python week-5/setup/01_verify_environment.py
 
 # 2. Verify the Week 3 Qdrant collection has documents
-python week5_production/setup/02_index_documents.py
+python week-5/setup/02_index_documents.py
 
 # 3. Create Redis cache index and conversation key structures
-python week5_production/setup/03_setup_redis.py
+python week-5/setup/03_setup_redis.py
 
 # 4. Smoke test — runs one query through the full pipeline
-python week5_production/setup/04_smoke_test.py
+python week-5/setup/04_smoke_test.py
 ```
 
 #### Lesson 5.8a — Start the System
 
 ```bash
 # Terminal 1: Start the FastAPI backend
-cd week5_production/backend
+cd week-5/backend
 python -m app.main
 # API at http://localhost:8000
 # Docs at http://localhost:8000/docs
 
 # Terminal 2: Start the Streamlit frontend (from project root)
-streamlit run week5_production/frontend/app.py
+streamlit run week-5/frontend/app.py
 # UI at http://localhost:8501
 ```
 
@@ -156,7 +156,7 @@ streamlit run week5_production/frontend/app.py
 
 ```bash
 # Build and run both services with Docker Compose
-cd week5_production
+cd week-5
 docker compose up --build
 # Backend: http://localhost:8000
 # Frontend: http://localhost:8501
@@ -251,7 +251,7 @@ All services are singletons — initialized once at startup, reused across reque
 ### Directory Structure
 
 ```
-week5_production/
+week-5/
 ├── backend/                         # FastAPI application
 │   ├── app/
 │   │   ├── main.py                  # Endpoints, streaming, lifecycle
@@ -305,7 +305,7 @@ python week-3/scripts/indexing/01_index_hybrid.py --full
 
 **"VOYAGE_API_KEY not set"** — Run the environment verification script to check all required keys:
 ```bash
-python week5_production/setup/01_verify_environment.py
+python week-5/setup/01_verify_environment.py
 ```
 
 **macOS Qdrant DNS errors** — Uncomment `GRPC_DNS_RESOLVER=native` in your `.env` file. See [root README troubleshooting](../README.md#troubleshooting).

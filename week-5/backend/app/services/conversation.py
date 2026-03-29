@@ -65,6 +65,7 @@ import asyncio
 from typing import Dict, List, Any, Optional
 
 import redis
+from app.config import settings
 
 # Opik tracing (optional — no-op decorator if not installed)
 try:
@@ -141,18 +142,18 @@ class ConversationService:
     def _init_config(self):
         """Load conversation configuration from environment."""
         # Redis connection (shared env vars with semantic_cache)
-        self.redis_host = os.getenv("REDIS_HOST", "localhost")
-        self.redis_port = int(os.getenv("REDIS_PORT", "6379"))
-        self.redis_password = os.getenv("REDIS_PASSWORD", "")
-        self.redis_username = os.getenv("REDIS_USERNAME", "default")
-        self.redis_ssl = os.getenv("REDIS_SSL", "true").lower() == "true"
+        self.redis_host = settings.REDIS_HOST
+        self.redis_port = settings.REDIS_PORT
+        self.redis_password = settings.REDIS_PASSWORD
+        self.redis_username = settings.REDIS_USERNAME
+        self.redis_ssl = settings.REDIS_SSL
 
         # Conversation settings
-        self.window_size = int(os.getenv("CONVERSATION_WINDOW_SIZE", "10"))
-        self.session_ttl = int(os.getenv("CONVERSATION_SESSION_TTL", "86400"))
+        self.window_size = settings.CONVERSATION_WINDOW_SIZE
+        self.session_ttl = settings.CONVERSATION_SESSION_TTL
 
         # Rewriter model (same as generation — fast and cheap)
-        self.rewriter_model = os.getenv("LLM_MODEL", "gemini-2.5-flash")
+        self.rewriter_model = settings.LLM_MODEL
 
         print(f"   Conversation config: window={self.window_size} messages, ttl={self.session_ttl}s")
         print(f"   Rewriter model: {self.rewriter_model}")
